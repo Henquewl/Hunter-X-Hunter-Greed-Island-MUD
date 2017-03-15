@@ -1,0 +1,85 @@
+#40000
+map island empty card~
+@y100 Map of the Island 'empty' G-400 card@n~
+A @y100 Map of the Island 'empty' G-400 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 500 0 0 2
+T 3215
+T 18606
+E
+map island empty card~
+A map of the island. No towns or markers are currently shown.
+~
+#40001
+map island detailed card~
+@y101 Map of the Island 'detailed' D-70 card@n~
+A @y101 Map of the Island 'detailed' D-70 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 7150 0 0 2
+T 3206
+T 3215
+E
+map island detailed card~
+A detailed map of the island, with all towns and markers already shown.
+~
+#40096
+healthy villagers card~
+@y263 Healthy Villagers C-50 card@n~
+A @y263 Healthy Villagers C-50 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 20000 0 0 0
+T 3215
+E
+healthy villagers card~
+These villagers are as healthy as can be!
+~
+#40097
+163 sick villagers card~
+@y163 Sick Villagers F-150 card@n~
+A @y163 Sick Villagers F-150 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1700 0 0 2
+T 3206
+T 40097
+E
+sick villagers card~
+These villagers are very sick.
+~
+#40098
+galgaida card~
+@y1217 Galgaida F-185 card@n~
+A @y1217 Galgaida F-185 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1350 0 0 0
+T 3206
+T 3215
+E
+galgaida card~
+This fish tastes delicious.
+~
+#40099
+rock card~
+@y21449 Rock H-0 card@n~
+A @y21449 Rock H-0 card@g is lying here.@n~
+  A simple rock. Quite hard and can be any size.
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1 0 0 2
+T 3206
+T 3215
+E
+rock card~
+A simple rock. Quite hard and can be any size.
+~
+$~

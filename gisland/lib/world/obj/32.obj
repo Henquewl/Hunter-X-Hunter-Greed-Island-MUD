@@ -1,0 +1,170 @@
+#3200
+undefined~
+@cG.I. @BBook@n~
+A @cG.I. @BBook@n is floating here, open and ready for a fight.~
+~
+1 degq 0 0 0 0 0 0 0 0 0 0 0
+0 0 -1 0
+0 0 0 0 24
+T 3205
+T 3213
+T 3214
+E
+book~
+It is a card binder for store all cards.
+Has 100 Restricted and 45 non-restricted card slots.
+~
+#3201
+xxbkbindkxx~
+@d@n~
+@d@n~
+~
+18 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+0 0 0 0 0
+#3202
+ring gi~
+the @GG.I. @DRing@n~
+It's a lost ring from some dead player.~
+~
+11 degq 0 0 0 ab 0 0 0 0 0 0 0
+0 0 0 0
+0 0 0 0 0
+T 3202
+T 3200
+T 3201
+T 3203
+T 3212
+T 3237
+T 3228
+T 3236
+T 3238
+T 2805
+T 3242
+T 3250
+A
+1 1
+A
+2 1
+A
+3 1
+A
+4 1
+A
+5 1
+A
+6 1
+#3203
+book binder slots~
+@WBinder slots@n~
+A destroyed player's book, something wicked happened here.~
+~
+15 dq 0 0 0 0 0 0 0 0 0 0 0
+1 7 -1 0
+1 0 0 0 0
+T 3220
+T 3225
+E
+restricted binder slots~
+There are 100 slots to insert cards, they are 000-099.
+Each slot just support 1 card of same number.
+~
+#3204
+spell~
+@WSpell card binder slots@n~
+A spell card binder slots is lying here.~
+~
+15 d 0 0 0 a 0 0 0 0 0 0 0
+40 7 -1 0
+0 0 0 0 0
+T 3218
+T 3220
+E
+spell binder slots~
+There are 40 slots to insert any spell cards.
+~
+#3205
+free~
+@WFree card binder slots@n~
+A free card binder slots is lying here.~
+~
+15 d 0 0 0 a 0 0 0 0 0 0 0
+1 0 -1 0
+1 0 0 0 0
+T 3217
+T 3220
+E
+free binder slots~
+There are 45 slots to insert any un-restricted cards.
+~
+#3206
+hunter license~
+a @RHunter @CLicense@n~
+A @RHunter @CLicense@n is lying here.~
+~
+11 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+0 1000000 0 0 0
+#3207
+sword shattered~
+a shattered sword~
+A shattered sword was junked here.~
+~
+13 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+15 0 0 0 0
+T 3245
+#3250
+booster pack boosterpack~
+@Da b@woos@Wter @wpa@Dck@n~
+@DA b@woos@Wter @wpa@Dck@g is lying here.@n~
+~
+13 a 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+3 0 0 0 0
+T 3251
+E
+booster pack boosterpack~
+This booster pack contains 3 random cards.
+
+Usage: open booster or open pack
+
+~
+#3298
+notice sign~
+a @Bnotice@n sign~
+A @Bnotice@g sign is here, pinned on a spiked pole.@n~
+~
+1 e 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0
+100 0 0 0 0
+E
+notice sign~
+________________________________________________	B
+
+                  N O T I C E	n
+________________________________________________
+
+	BBeta test only, expect for bugs and unfinished
+rooms, mobs and items. Be free to explore the
+world and be brutal with bugs, report them
+immediately!
+You received a beta test starter "deck" into
+your binder, almost all spell cards is in there.
+Useful help files: type 	Yhelp 	B<	Ysubject	B>
+(	Ynewbie	B, 	Ybackground	B, 	Ycards	B, 	Ygain	B, 	Ybook	B, 	Ytoggle	B, 	Yinfo	B)
+The following commands explains how use book and cards.
+	W> 	Btype <	Ybook	B> and then <	Ylook in book	B>
+	W> 	Btype <	Yget leave book	B> and <	Yget dagger book	B>
+	W> 	Btype <	Yhold dagger	B> and then <	Ygain	B>
+	W> 	Btype <	Ywield dagger	B> and <	Ylook leave	B>	n
+~
+#3299
+prizer~
+@d@n~
+@d@n~
+~
+15 0 0 0 0 0 0 0 0 0 0 0 0
+-1 0 -1 0
+1 0 0 0 0
+$~

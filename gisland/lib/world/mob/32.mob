@@ -1,0 +1,27 @@
+#3200
+dummy live~
+a live dummy~
+A live dummy is here, faking a player for tests by Game Masters.
+~
+He acts like human but just obey orders, cannot think by itself.
+~
+26 0 0 0 67792 0 0 0 0 E
+1 20 10 0d0+1 0d0+0
+0 0
+8 8 1
+Str: 25
+E
+#3201
+prizer~
+prizer~
+@D@n
+~
+An undefined string.
+~
+8 0 0 0 0 0 0 0 0 E
+1 20 10 1d1+0 1d1+0
+0 0
+8 8 0
+Str: 25
+E
+$

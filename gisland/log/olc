@@ -1,0 +1,940 @@
+Jul 02 15:39:21 201  :: OLC: Henque starts editing zone 12 allowed zone 0
+Jul 02 15:40:16 201  :: OLC: Henque edits obj 1289
+Jul 02 15:40:16 201  :: OLC: Henque stops editing zone 12 allowed zone 0
+Jul 02 19:15:01 201  :: OLC: Henque starts editing zone 400 allowed zone 0
+Jul 02 19:16:26 201  :: OLC: Henque stops editing zone 400 allowed zone 0
+Jul 02 19:20:02 201  :: OLC: Henque starts editing zone 400 allowed zone 0
+Jul 02 19:20:18 201  :: OLC: Henque edits obj 40099
+Jul 02 19:20:18 201  :: OLC: Henque stops editing zone 400 allowed zone 0
+Jul 02 19:20:21 201  :: OLC: Henque starts editing zone 401 allowed zone 0
+Jul 02 19:21:23 201  :: OLC: Henque edits obj 40199
+Jul 02 19:21:23 201  :: OLC: Henque stops editing zone 401 allowed zone 0
+Jul 02 22:01:21 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 02 22:01:23 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 02 22:01:26 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 02 22:04:26 201  :: OLC: Henque edits obj 65389
+Jul 02 22:04:26 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 02 22:04:30 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 02 22:05:01 201  :: OLC: Henque edits obj 65390
+Jul 02 22:05:01 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 02 22:05:18 201  :: OLC: Henque starts editing zone 31 allowed zone 0
+Jul 02 22:05:41 201  :: OLC: Henque stops editing zone 31 allowed zone 0
+Jul 02 22:06:08 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Jul 02 22:12:57 201  :: OLC: Henque edits obj 65489
+Jul 02 22:12:57 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 02 22:17:46 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 02 22:18:02 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 02 22:18:11 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Jul 02 22:18:25 201  :: OLC: Henque edits obj 65489
+Jul 02 22:18:25 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 02 22:18:40 201  :: OLC: Henque starts editing zone 654 [trigger](allowed zone 0)
+Jul 02 22:18:42 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 02 22:18:58 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Jul 02 22:19:00 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 02 22:19:04 201  :: OLC: Henque starts editing zone 654 [trigger](allowed zone 0)
+Jul 02 22:20:05 201  :: OLC: Henque edits trigger 65489
+Jul 02 22:20:05 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 02 22:44:36 201  :: OLC: Henque starts editing zone 31 allowed zone 0
+Jul 02 22:45:04 201  :: OLC: Henque edits zone info for room 3110.
+Jul 02 22:45:04 201  :: OLC: Henque stops editing zone 31 allowed zone 0
+Jul 02 23:15:43 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Jul 02 23:15:51 201  :: OLC: Henque edits obj 65489
+Jul 02 23:15:51 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 03 00:27:59 201  :: OLC: Henque starts editing zone 654 [trigger](allowed zone 0)
+Jul 03 00:29:08 201  :: OLC: Henque edits trigger 65489
+Jul 03 00:29:08 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 03 01:02:37 201  :: OLC: Henque starts editing zone 54 allowed zone 0
+Jul 03 01:04:04 201  :: OLC: Henque edits obj 5417
+Jul 03 01:04:04 201  :: OLC: Henque stops editing zone 54 allowed zone 0
+Jul 03 20:00:08 201  :: OLC: Henque starts editing zone 0 allowed zone 0
+Jul 03 20:01:49 201  :: GenOLC: add_mobile: Updated existing mobile #11.
+Jul 03 20:01:49 201  :: OLC: Henque edits mob 11
+Jul 03 20:01:49 201  :: GenOLC: 'world/mob/0.mob' saved, 16170 bytes written.
+Jul 03 20:01:49 201  :: OLC: Henque stops editing zone 0 allowed zone 0
+Jul 04 00:13:38 201  :: OLC: Henque starts editing zone 0 allowed zone 0
+Jul 04 00:13:39 201  :: OLC: Henque stops editing zone 0 allowed zone 0
+Jul 04 00:13:41 201  :: OLC: Henque starts editing zone 0 allowed zone 0
+Jul 04 00:15:03 201  :: GenOLC: add_mobile: Updated existing mobile #10.
+Jul 04 00:15:03 201  :: OLC: Henque edits mob 10
+Jul 04 00:15:03 201  :: GenOLC: 'world/mob/0.mob' saved, 16294 bytes written.
+Jul 04 00:15:03 201  :: OLC: Henque stops editing zone 0 allowed zone 0
+Jul 04 10:22:12 201  :: OLC: Henque starts editing zone 0 allowed zone 0
+Jul 04 10:22:47 201  :: GenOLC: add_mobile: Updated existing mobile #10.
+Jul 04 10:22:47 201  :: OLC: Henque edits mob 10
+Jul 04 10:22:47 201  :: GenOLC: 'world/mob/0.mob' saved, 16293 bytes written.
+Jul 04 10:22:47 201  :: OLC: Henque stops editing zone 0 allowed zone 0
+Jul 04 10:23:06 201  :: OLC: Henque starts editing zone 0 allowed zone 0
+Jul 04 10:27:30 201  :: GenOLC: add_mobile: Updated existing mobile #10.
+Jul 04 10:27:30 201  :: OLC: Henque edits mob 10
+Jul 04 10:27:30 201  :: GenOLC: 'world/mob/0.mob' saved, 16297 bytes written.
+Jul 04 10:27:30 201  :: OLC: Henque stops editing zone 0 allowed zone 0
+Jul 04 10:38:56 201  :: OLC: Henque starts editing zone 14 allowed zone 0
+Jul 04 10:41:01 201  :: GenOLC: add_room: Updated existing room #1406.
+Jul 04 10:41:01 201  :: OLC: Henque edits room 1406.
+Jul 04 10:41:01 201  :: GenOLC: save_rooms: Saving rooms in zone #14 (1400-1499).
+Jul 04 10:41:01 201  :: OLC: Henque stops editing zone 14 allowed zone 0
+Jul 04 10:48:18 201  :: OLC: Henque starts editing zone 30 allowed zone 0
+Jul 04 10:48:30 201  :: OLC: Henque stops editing zone 30 allowed zone 0
+Jul 04 10:49:16 201  :: OLC: Henque starts editing zone 14 [trigger](allowed zone 0)
+Jul 04 10:52:42 201  :: OLC: Henque edits trigger 1440
+Jul 04 10:52:42 201  :: OLC: Henque stops editing zone 14 allowed zone 0
+Jul 04 10:52:47 201  :: OLC: Henque starts editing zone 30 allowed zone 0
+Jul 04 10:52:54 201  :: GenOLC: add_mobile: Updated existing mobile #3005.
+Jul 04 10:52:54 201  :: OLC: Henque edits mob 3005
+Jul 04 10:52:54 201  :: GenOLC: 'world/mob/30.mob' saved, 14079 bytes written.
+Jul 04 10:52:54 201  :: OLC: Henque stops editing zone 30 allowed zone 0
+Jul 04 10:54:52 201  :: OLC: Henque starts editing zone 14 [trigger](allowed zone 0)
+Jul 04 10:55:35 201  :: OLC: Henque edits trigger 1440
+Jul 04 10:55:35 201  :: OLC: Henque stops editing zone 14 allowed zone 0
+Jul 04 10:57:36 201  :: OLC: Henque starts editing zone 14 allowed zone 0
+Jul 04 10:59:02 201  :: GenOLC: add_room: Updated existing room #1406.
+Jul 04 10:59:02 201  :: OLC: Henque edits room 1406.
+Jul 04 10:59:02 201  :: GenOLC: save_rooms: Saving rooms in zone #14 (1400-1499).
+Jul 04 10:59:02 201  :: OLC: Henque stops editing zone 14 allowed zone 0
+Jul 04 10:59:38 201  :: OLC: Henque starts editing zone 14 allowed zone 0
+Jul 04 11:00:13 201  :: GenOLC: add_room: Updated existing room #1407.
+Jul 04 11:00:13 201  :: OLC: Henque edits room 1407.
+Jul 04 11:00:13 201  :: GenOLC: save_rooms: Saving rooms in zone #14 (1400-1499).
+Jul 04 11:00:13 201  :: OLC: Henque stops editing zone 14 allowed zone 0
+Jul 04 11:05:47 201  :: OLC: Henque starts editing Idea 6
+Jul 04 11:19:40 201  :: OLC: Henque edits Idea 6
+Jul 04 11:19:40 201  :: OLC: Henque stops editing zone 1 allowed zone 0
+Jul 04 11:23:08 201  :: OLC: Henque starts editing zone 10 allowed zone 0
+Jul 04 11:23:18 201  :: OLC: Henque edits obj 1000
+Jul 04 11:23:18 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 04 11:24:36 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Jul 04 11:32:10 201  :: OLC: Henque edits trigger 1000
+Jul 04 11:32:10 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 04 11:33:34 201  :: OLC: Henque starts editing zone 10 allowed zone 0
+Jul 04 11:33:44 201  :: OLC: Henque edits obj 1000
+Jul 04 11:33:44 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 04 11:33:59 201  :: OLC: Henque starts editing zone 10 allowed zone 0
+Jul 04 11:34:01 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 04 11:34:04 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Jul 04 11:34:09 201  :: OLC: Henque edits trigger 1000
+Jul 04 11:34:09 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 04 11:36:16 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Jul 04 11:43:24 201  :: OLC: Henque edits trigger 1000
+Jul 04 11:43:24 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 04 11:45:45 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Jul 04 11:47:11 201  :: OLC: Henque edits trigger 1000
+Jul 04 11:47:11 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 04 11:47:42 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Jul 04 11:48:14 201  :: OLC: Henque edits trigger 1000
+Jul 04 11:48:14 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 04 11:48:46 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Jul 04 11:49:15 201  :: OLC: Henque edits trigger 1000
+Jul 04 11:49:15 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 04 11:50:37 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Jul 04 11:51:21 201  :: OLC: Henque edits trigger 1000
+Jul 04 11:51:21 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 04 11:54:00 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Jul 04 11:54:41 201  :: OLC: Henque edits trigger 1000
+Jul 04 11:54:41 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 04 11:56:05 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Jul 04 11:57:14 201  :: OLC: Henque edits trigger 1000
+Jul 04 11:57:14 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 04 12:01:25 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Jul 04 12:04:58 201  :: OLC: Henque edits trigger 1000
+Jul 04 12:04:58 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 04 12:05:36 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Jul 04 12:06:09 201  :: OLC: Henque edits trigger 1000
+Jul 04 12:06:09 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 04 12:07:42 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Jul 04 12:07:50 201  :: OLC: Henque edits trigger 1000
+Jul 04 12:07:50 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 04 17:55:07 201  :: OLC: Henque starts editing zone 0 allowed zone 0
+Jul 04 17:55:41 201  :: GenOLC: add_mobile: Updated existing mobile #10.
+Jul 04 17:55:41 201  :: OLC: Henque edits mob 10
+Jul 04 17:55:41 201  :: GenOLC: 'world/mob/0.mob' saved, 16242 bytes written.
+Jul 04 17:55:41 201  :: OLC: Henque stops editing zone 0 allowed zone 0
+Jul 04 19:14:45 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Jul 04 19:14:49 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 04 20:05:49 201  :: OLC: Henque starts editing message 2
+Jul 04 20:05:52 201  :: OLC: Henque stops editing zone 0 allowed zone 0
+Jul 04 20:06:20 201  :: OLC: Henque starts editing message 14
+Jul 04 20:07:08 201  :: OLC: Henque stops editing zone 0 allowed zone 0
+Jul 04 20:07:24 201  :: OLC: Henque starts editing message 15
+Jul 04 20:08:08 201  :: OLC: Henque stops editing zone 0 allowed zone 0
+Jul 05 00:36:08 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Jul 05 00:36:35 201  :: OLC: Henque edits trigger 1034
+Jul 05 00:36:35 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 05 09:48:31 201  :: OLC: Henque starts editing zone 401 allowed zone 0
+Jul 05 09:54:13 201  :: GenOLC: add_room: Updated existing room #40106.
+Jul 05 09:54:13 201  :: OLC: Henque edits room 40106.
+Jul 05 09:54:13 201  :: GenOLC: save_rooms: Saving rooms in zone #401 (40100-40199).
+Jul 05 09:54:13 201  :: OLC: Henque stops editing zone 401 allowed zone 0
+Jul 05 09:54:57 201  :: OLC: Henque starts editing zone 401 allowed zone 0
+Jul 05 09:55:21 201  :: GenOLC: add_room: Updated existing room #40106.
+Jul 05 09:55:21 201  :: OLC: Henque edits room 40106.
+Jul 05 09:55:21 201  :: GenOLC: save_rooms: Saving rooms in zone #401 (40100-40199).
+Jul 05 09:55:21 201  :: OLC: Henque stops editing zone 401 allowed zone 0
+Jul 05 09:56:02 201  :: OLC: Henque starts editing zone 401 allowed zone 0
+Jul 05 09:56:03 201  :: OLC: Henque stops editing zone 401 allowed zone 0
+Jul 05 21:49:05 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Jul 05 21:49:30 201  :: OLC: Henque edits trigger 1034
+Jul 05 21:49:30 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 05 21:53:42 201  :: OLC: Henque starts editing zone 10 allowed zone 0
+Jul 05 21:53:48 201  :: OLC: Henque edits obj 1034
+Jul 05 21:53:48 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 05 22:00:39 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Jul 05 22:00:47 201  :: OLC: Henque edits trigger 1034
+Jul 05 22:00:47 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 05 22:01:58 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Jul 05 22:02:05 201  :: OLC: Henque edits trigger 1034
+Jul 05 22:02:05 201  :: OLC: Henque stops editing zone 10 allowed zone 0
+Jul 06 00:45:57 201  :: OLC: Henque starts editing message 15
+Jul 06 00:46:40 201  :: OLC: Henque stops editing zone 0 allowed zone 0
+Jul 06 00:47:06 201  :: OLC: Henque starts editing message 15
+Jul 06 00:47:41 201  :: OLC: Henque stops editing zone 0 allowed zone 0
+Jul 06 00:47:47 201  :: OLC: Henque starts editing message 14
+Jul 06 00:47:51 201  :: OLC: Henque stops editing zone 0 allowed zone 0
+Jul 06 11:52:25 201  :: OLC: Henque starts editing zone 120 allowed zone 0
+Jul 06 11:52:39 201  :: OLC: Henque edits shop 12037
+Jul 06 11:52:39 201  :: OLC: Henque stops editing zone 120 allowed zone 0
+Jul 06 11:53:07 201  :: OLC: Henque starts editing zone 36 allowed zone 0
+Jul 06 11:53:15 201  :: OLC: Henque edits obj 3654
+Jul 06 11:53:15 201  :: OLC: Henque stops editing zone 36 allowed zone 0
+Jul 06 11:53:26 201  :: OLC: Henque starts editing zone 36 allowed zone 0
+Jul 06 11:53:35 201  :: OLC: Henque edits obj 3655
+Jul 06 11:53:35 201  :: OLC: Henque stops editing zone 36 allowed zone 0
+Jul 06 12:09:33 201  :: OLC: Henque starts editing zone 79 allowed zone 0
+Jul 06 12:09:38 201  :: OLC: Henque edits obj 7914
+Jul 06 12:09:38 201  :: OLC: Henque stops editing zone 79 allowed zone 0
+Jul 06 12:09:46 201  :: OLC: Henque starts editing zone 79 allowed zone 0
+Jul 06 12:09:51 201  :: OLC: Henque edits obj 7917
+Jul 06 12:09:51 201  :: OLC: Henque stops editing zone 79 allowed zone 0
+Jul 06 12:09:58 201  :: OLC: Henque starts editing zone 79 allowed zone 0
+Jul 06 12:10:01 201  :: OLC: Henque edits obj 7915
+Jul 06 12:10:01 201  :: OLC: Henque stops editing zone 79 allowed zone 0
+Jul 06 12:10:08 201  :: OLC: Henque starts editing zone 79 allowed zone 0
+Jul 06 12:10:10 201  :: OLC: Henque edits obj 7916
+Jul 06 12:10:10 201  :: OLC: Henque stops editing zone 79 allowed zone 0
+Jul 06 12:10:16 201  :: OLC: Henque starts editing zone 79 allowed zone 0
+Jul 06 12:10:19 201  :: OLC: Henque edits obj 7920
+Jul 06 12:10:19 201  :: OLC: Henque stops editing zone 79 allowed zone 0
+Jul 06 12:10:28 201  :: OLC: Henque starts editing zone 79 allowed zone 0
+Jul 06 12:10:30 201  :: OLC: Henque edits obj 7918
+Jul 06 12:10:30 201  :: OLC: Henque stops editing zone 79 allowed zone 0
+Jul 06 12:10:39 201  :: OLC: Henque starts editing zone 79 allowed zone 0
+Jul 06 12:10:49 201  :: OLC: Henque edits obj 7910
+Jul 06 12:10:49 201  :: OLC: Henque stops editing zone 79 allowed zone 0
+Jul 06 12:11:02 201  :: OLC: Henque starts editing zone 79 allowed zone 0
+Jul 06 12:11:13 201  :: OLC: Henque edits obj 7910
+Jul 06 12:11:13 201  :: OLC: Henque stops editing zone 79 allowed zone 0
+Jul 06 12:12:50 201  :: OLC: Henque starts editing zone 36 allowed zone 0
+Jul 06 12:13:14 201  :: OLC: Henque edits obj 3606
+Jul 06 12:13:14 201  :: OLC: Henque stops editing zone 36 allowed zone 0
+Jul 06 12:14:00 201  :: OLC: Henque starts editing zone 36 allowed zone 0
+Jul 06 12:14:20 201  :: OLC: Henque edits obj 3602
+Jul 06 12:14:20 201  :: OLC: Henque stops editing zone 36 allowed zone 0
+Jul 06 12:15:39 201  :: OLC: Henque starts editing zone 79 allowed zone 0
+Jul 06 12:16:46 201  :: OLC: Henque stops editing zone 79 allowed zone 0
+Jul 06 12:20:08 201  :: OLC: Henque starts editing zone 3 allowed zone 0
+Jul 06 12:20:10 201  :: OLC: Henque stops editing zone 3 allowed zone 0
+Jul 06 18:24:05 201  :: OLC: Henque starts editing zone 28 allowed zone 0
+Jul 06 18:24:07 201  :: OLC: Henque stops editing zone 28 allowed zone 0
+Jul 06 18:24:12 201  :: OLC: Henque starts editing zone 28 [trigger](allowed zone 0)
+Jul 06 18:24:23 201  :: OLC: Henque edits trigger 2806
+Jul 06 18:24:23 201  :: OLC: Henque stops editing zone 28 allowed zone 0
+Jul 06 18:41:10 201  :: OLC: Henque starts editing zone 28 [trigger](allowed zone 0)
+Jul 06 18:48:50 201  :: OLC: Henque edits trigger 2807
+Jul 06 18:48:50 201  :: OLC: Henque stops editing zone 28 allowed zone 0
+Jul 06 18:49:15 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 06 18:49:17 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 06 18:49:19 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 06 18:49:20 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 06 18:49:32 201  :: OLC: Henque starts editing zone 28 [trigger](allowed zone 0)
+Jul 06 18:49:38 201  :: OLC: Henque stops editing zone 28 allowed zone 0
+Jul 06 18:49:40 201  :: OLC: Henque starts editing zone 28 [trigger](allowed zone 0)
+Jul 06 18:49:46 201  :: OLC: Henque edits trigger 2807
+Jul 06 18:49:46 201  :: OLC: Henque stops editing zone 28 allowed zone 0
+Jul 06 18:50:36 201  :: OLC: Henque starts editing zone 32 allowed zone 0
+Jul 06 18:50:38 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 06 18:50:44 201  :: OLC: Henque starts editing zone 28 allowed zone 0
+Jul 06 18:50:55 201  :: GenOLC: add_mobile: Updated existing mobile #2803.
+Jul 06 18:50:55 201  :: OLC: Henque edits mob 2803
+Jul 06 18:50:55 201  :: GenOLC: 'world/mob/28.mob' saved, 1230 bytes written.
+Jul 06 18:50:55 201  :: OLC: Henque stops editing zone 28 allowed zone 0
+Jul 06 18:51:50 201  :: OLC: Henque starts editing zone 28 [trigger](allowed zone 0)
+Jul 06 18:53:50 201  :: OLC: Henque edits trigger 2808
+Jul 06 18:53:50 201  :: OLC: Henque stops editing zone 28 allowed zone 0
+Jul 06 18:54:09 201  :: OLC: Henque starts editing zone 28 allowed zone 0
+Jul 06 18:54:14 201  :: GenOLC: add_mobile: Updated existing mobile #2803.
+Jul 06 18:54:14 201  :: OLC: Henque edits mob 2803
+Jul 06 18:54:14 201  :: GenOLC: 'world/mob/28.mob' saved, 1237 bytes written.
+Jul 06 18:54:14 201  :: OLC: Henque stops editing zone 28 allowed zone 0
+Jul 07 11:13:29 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 07 11:13:36 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 07 11:13:38 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Jul 07 11:29:16 201  :: GenOLC: add_mobile: Added mobile 65417 at index #3727.
+Jul 07 11:29:16 201  :: OLC: Henque edits mob 65417
+Jul 07 11:29:16 201  :: GenOLC: 'world/mob/654.mob' saved, 700 bytes written.
+Jul 07 11:29:16 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 08 21:22:18 201  :: OLC: Henque starts editing zone 28 [trigger](allowed zone 0)
+Jul 08 21:23:25 201  :: OLC: Henque stops editing zone 28 allowed zone 0
+Jul 11 10:04:09 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Jul 11 10:04:36 201  :: GenOLC: add_mobile: Updated existing mobile #65417.
+Jul 11 10:04:36 201  :: OLC: Henque edits mob 65417
+Jul 11 10:04:36 201  :: GenOLC: 'world/mob/654.mob' saved, 690 bytes written.
+Jul 11 10:04:36 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 11 10:27:06 201  :: OLC: Henque starts editing zone 654 [trigger](allowed zone 0)
+Jul 11 10:27:36 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 11 10:28:48 201  :: OLC: Henque starts editing zone 654 [trigger](allowed zone 0)
+Jul 11 10:36:08 201  :: OLC: Henque edits trigger 65417
+Jul 11 10:36:08 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 11 10:36:12 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Jul 11 10:36:21 201  :: GenOLC: add_mobile: Updated existing mobile #65417.
+Jul 11 10:36:21 201  :: OLC: Henque edits mob 65417
+Jul 11 10:36:21 201  :: GenOLC: 'world/mob/654.mob' saved, 698 bytes written.
+Jul 11 10:36:21 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 11 10:36:24 201  :: OLC: Henque starts editing zone 654 [trigger](allowed zone 0)
+Jul 11 10:39:25 201  :: OLC: Henque edits trigger 65417
+Jul 11 10:39:25 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 11 10:53:00 201  :: OLC: Henque starts editing zone 654 [trigger](allowed zone 0)
+Jul 11 10:53:19 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 11 10:53:21 201  :: OLC: Henque starts editing zone 654 [trigger](allowed zone 0)
+Jul 11 10:53:36 201  :: OLC: Henque edits trigger 65417
+Jul 11 10:53:36 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 12 11:05:48 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 11:06:31 201  :: OLC: Henque edits trigger 3249
+Jul 12 11:06:31 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 11:06:56 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 11:20:04 201  :: OLC: Henque edits trigger 3249
+Jul 12 11:20:04 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 11:45:58 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 11:46:06 201  :: OLC: Henque edits trigger 3249
+Jul 12 11:46:06 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 11:46:23 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Jul 12 11:46:24 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 12 11:46:26 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Jul 12 11:46:37 201  :: GenOLC: add_mobile: Updated existing mobile #65417.
+Jul 12 11:46:37 201  :: OLC: Henque edits mob 65417
+Jul 12 11:46:37 201  :: GenOLC: 'world/mob/654.mob' saved, 705 bytes written.
+Jul 12 11:46:37 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 12 11:47:04 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 11:47:14 201  :: OLC: Henque edits trigger 3249
+Jul 12 11:47:14 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 11:53:44 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 11:53:52 201  :: OLC: Henque edits trigger 3249
+Jul 12 11:53:52 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 12:05:57 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 12:06:04 201  :: OLC: Henque edits trigger 3249
+Jul 12 12:06:04 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 12:54:28 201  :: OLC: Henque starts editing zone 654 [trigger](allowed zone 0)
+Jul 12 12:54:52 201  :: OLC: Henque edits trigger 65417
+Jul 12 12:54:52 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 12 13:00:29 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Jul 12 13:00:35 201  :: GenOLC: add_mobile: Updated existing mobile #65417.
+Jul 12 13:00:35 201  :: OLC: Henque edits mob 65417
+Jul 12 13:00:35 201  :: GenOLC: 'world/mob/654.mob' saved, 698 bytes written.
+Jul 12 13:00:35 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 12 13:11:45 201  :: OLC: Henque starts editing zone 653 [trigger](allowed zone 0)
+Jul 12 13:18:01 201  :: OLC: Henque edits trigger 65317
+Jul 12 13:18:01 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 12 13:19:32 201  :: OLC: Henque starts editing zone 653 [trigger](allowed zone 0)
+Jul 12 13:19:52 201  :: OLC: Henque edits trigger 65317
+Jul 12 13:19:52 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 12 13:23:03 201  :: OLC: Henque starts editing zone 654 [trigger](allowed zone 0)
+Jul 12 13:23:05 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 12 13:23:08 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 13:23:17 201  :: OLC: Henque edits trigger 3249
+Jul 12 13:23:17 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 13:23:21 201  :: OLC: Henque starts editing zone 654 [trigger](allowed zone 0)
+Jul 12 13:23:24 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 12 13:23:30 201  :: OLC: Henque starts editing zone 653 [trigger](allowed zone 0)
+Jul 12 13:25:34 201  :: OLC: Henque edits trigger 65317
+Jul 12 13:25:34 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 12 13:25:48 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 13:27:14 201  :: OLC: Henque edits trigger 3249
+Jul 12 13:27:14 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 13:31:58 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 13:32:08 201  :: OLC: Henque edits trigger 3249
+Jul 12 13:32:08 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 13:36:47 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 13:50:47 201  :: OLC: Henque edits trigger 3247
+Jul 12 13:50:47 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 13:51:05 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 13:51:10 201  :: OLC: Henque edits trigger 3247
+Jul 12 13:51:10 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 13:52:09 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 13:52:27 201  :: OLC: Henque edits trigger 3247
+Jul 12 13:52:27 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 13:52:33 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 13:52:37 201  :: OLC: Henque edits trigger 3247
+Jul 12 13:52:37 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 13:52:43 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Jul 12 13:52:51 201  :: GenOLC: add_mobile: Updated existing mobile #65417.
+Jul 12 13:52:51 201  :: OLC: Henque edits mob 65417
+Jul 12 13:52:51 201  :: GenOLC: 'world/mob/654.mob' saved, 705 bytes written.
+Jul 12 13:52:51 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 12 13:56:06 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 13:56:20 201  :: OLC: Henque edits trigger 3247
+Jul 12 13:56:20 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 13:57:19 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 13:59:16 201  :: OLC: Henque edits trigger 3247
+Jul 12 13:59:16 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 14:15:38 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 14:23:10 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 14:40:42 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 14:41:31 201  :: OLC: Henque edits trigger 3247
+Jul 12 14:41:31 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 14:42:02 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 14:42:22 201  :: OLC: Henque edits trigger 3247
+Jul 12 14:42:22 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 14:42:29 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 14:43:10 201  :: OLC: Henque edits trigger 3247
+Jul 12 14:43:10 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 14:45:58 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 14:46:07 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 14:46:12 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 14:46:12 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 14:46:14 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 14:51:00 201  :: OLC: Henque edits trigger 3247
+Jul 12 14:51:00 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 14:54:01 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 14:58:01 201  :: OLC: Henque edits trigger 3247
+Jul 12 14:58:01 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 15:01:09 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 15:01:18 201  :: OLC: Henque edits trigger 3249
+Jul 12 15:01:18 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 15:01:33 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 15:02:21 201  :: OLC: Henque edits trigger 3247
+Jul 12 15:02:21 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 15:03:02 201  :: OLC: Henque starts editing zone 32 allowed zone 0
+Jul 12 15:03:04 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 15:03:10 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 12 15:03:37 201  :: OLC: Henque edits obj 65317
+Jul 12 15:03:37 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 12 15:05:30 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 15:05:39 201  :: OLC: Henque edits trigger 3247
+Jul 12 15:05:39 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 15:07:38 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 15:08:29 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 15:08:33 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 15:08:34 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 15:08:43 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 12 15:08:48 201  :: OLC: Henque edits obj 65317
+Jul 12 15:08:48 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 12 15:10:37 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Jul 12 15:10:56 201  :: GenOLC: add_mobile: Updated existing mobile #65417.
+Jul 12 15:10:56 201  :: OLC: Henque edits mob 65417
+Jul 12 15:10:56 201  :: GenOLC: 'world/mob/654.mob' saved, 709 bytes written.
+Jul 12 15:10:56 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 12 15:11:02 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Jul 12 15:11:18 201  :: GenOLC: add_mobile: Updated existing mobile #65417.
+Jul 12 15:11:18 201  :: OLC: Henque edits mob 65417
+Jul 12 15:11:18 201  :: GenOLC: 'world/mob/654.mob' saved, 709 bytes written.
+Jul 12 15:11:18 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 12 15:14:41 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 15:14:52 201  :: OLC: Henque edits trigger 3249
+Jul 12 15:14:52 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 15:19:47 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 15:19:55 201  :: OLC: Henque edits trigger 3247
+Jul 12 15:19:55 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 15:25:00 201  :: OLC: Henque starts editing zone 653 [trigger](allowed zone 0)
+Jul 12 15:26:45 201  :: OLC: Henque edits trigger 65317
+Jul 12 15:26:45 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 12 15:26:49 201  :: OLC: Henque starts editing zone 654 [trigger](allowed zone 0)
+Jul 12 15:27:34 201  :: OLC: Henque edits trigger 65417
+Jul 12 15:27:34 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 12 15:27:59 201  :: OLC: Henque starts editing zone 654 [trigger](allowed zone 0)
+Jul 12 15:28:09 201  :: OLC: Henque edits trigger 65417
+Jul 12 15:28:09 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 12 15:29:38 201  :: OLC: Henque starts editing zone 654 [trigger](allowed zone 0)
+Jul 12 15:30:53 201  :: OLC: Henque edits trigger 65417
+Jul 12 15:30:53 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 12 15:31:53 201  :: OLC: Henque starts editing zone 654 [trigger](allowed zone 0)
+Jul 12 15:37:05 201  :: OLC: Henque edits trigger 65417
+Jul 12 15:37:05 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 12 15:38:12 201  :: OLC: Henque starts editing zone 654 [trigger](allowed zone 0)
+Jul 12 15:39:23 201  :: OLC: Henque edits trigger 65417
+Jul 12 15:39:23 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 12 15:40:09 201  :: OLC: Henque starts editing zone 654 [trigger](allowed zone 0)
+Jul 12 15:40:41 201  :: OLC: Henque edits trigger 65417
+Jul 12 15:40:41 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 12 15:44:19 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Jul 12 15:44:27 201  :: OLC: Henque edits trigger 3247
+Jul 12 15:44:27 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Jul 12 15:44:45 201  :: OLC: Henque starts editing zone 653 [trigger](allowed zone 0)
+Jul 12 15:45:19 201  :: OLC: Henque edits trigger 65317
+Jul 12 15:45:19 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 14 09:21:10 201  :: OLC: Henque starts editing zone 31 allowed zone 0
+Jul 14 09:21:11 201  :: OLC: Henque stops editing zone 31 allowed zone 0
+Jul 14 09:21:12 201  :: OLC: Henque starts editing zone 31 allowed zone 0
+Jul 14 09:21:15 201  :: OLC: Henque stops editing zone 31 allowed zone 0
+Jul 15 15:28:29 201  :: OLC: Henque starts editing zone 653 [trigger](allowed zone 0)
+Jul 15 15:28:31 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 15 15:28:35 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 15 15:28:46 201  :: OLC: Henque edits obj 65304
+Jul 15 15:28:50 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 15 15:30:07 201  :: OLC: Henque starts editing zone 653 [trigger](allowed zone 0)
+Jul 15 15:30:09 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 15 15:30:10 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 15 15:30:14 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 15 19:39:35 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 15 19:39:36 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 15 19:39:38 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 15 19:39:57 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 15 19:40:13 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 15 19:40:23 201  :: OLC: Henque edits obj 65306
+Jul 15 19:40:23 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 15 19:40:29 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 15 19:40:30 201  :: OLC: Henque edits obj 65307
+Jul 15 19:40:30 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 15 19:40:32 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 15 19:40:33 201  :: OLC: Henque edits obj 65308
+Jul 15 19:40:33 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 15 19:40:37 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 15 19:40:38 201  :: OLC: Henque edits obj 65309
+Jul 15 19:40:38 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 15 19:40:42 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 15 19:40:43 201  :: OLC: Henque edits obj 65310
+Jul 15 19:40:43 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 15 19:40:44 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 15 19:40:45 201  :: OLC: Henque edits obj 65311
+Jul 15 19:40:45 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 15 19:40:48 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 15 19:40:49 201  :: OLC: Henque edits obj 65312
+Jul 15 19:40:49 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 15 19:41:15 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 15 19:41:15 201  :: OLC: Henque edits obj 65313
+Jul 15 19:41:15 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 15 19:41:17 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 15 19:41:18 201  :: OLC: Henque edits obj 65314
+Jul 15 19:41:18 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 15 19:41:19 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 15 19:41:20 201  :: OLC: Henque edits obj 65315
+Jul 15 19:41:20 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 15 19:41:22 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 15 19:41:23 201  :: OLC: Henque edits obj 65316
+Jul 15 19:41:23 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 15 19:41:27 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 15 19:41:32 201  :: OLC: Henque edits obj 65316
+Jul 15 19:41:32 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 18 10:00:57 201  :: OLC: Henque starts editing zone 28 allowed zone 0
+Jul 18 10:03:10 201  :: GenOLC: add_room: Updated existing room #2800.
+Jul 18 10:03:10 201  :: OLC: Henque edits room 2800.
+Jul 18 10:03:10 201  :: GenOLC: save_rooms: Saving rooms in zone #28 (2800-2899).
+Jul 18 10:03:10 201  :: OLC: Henque stops editing zone 28 allowed zone 0
+Jul 18 15:12:12 201  :: OLC: Henque starts editing the game configuration.
+Jul 18 15:12:33 201  :: OLC: Henque stops editing the game configuration
+Jul 19 16:27:51 201  :: OLC: Henque starts editing zone 28 allowed zone 0
+Jul 19 16:28:19 201  :: OLC: Henque stops editing zone 28 allowed zone 0
+Jul 19 16:28:23 201  :: OLC: Henque starts editing zone 28 allowed zone 0
+Jul 19 16:28:32 201  :: GenOLC: add_room: Updated existing room #2800.
+Jul 19 16:28:32 201  :: OLC: Henque edits room 2800.
+Jul 19 16:28:32 201  :: GenOLC: save_rooms: Saving rooms in zone #28 (2800-2899).
+Jul 19 16:28:32 201  :: OLC: Henque stops editing zone 28 allowed zone 0
+Jul 20 09:47:26 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Jul 20 09:47:29 201  :: OLC: Henque edits trigger 12009
+Jul 20 09:47:29 201  :: OLC: Henque stops editing zone 120 allowed zone 0
+Jul 20 09:48:01 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Jul 20 09:48:17 201  :: OLC: Henque edits trigger 12009
+Jul 20 09:48:17 201  :: OLC: Henque stops editing zone 120 allowed zone 0
+Jul 20 09:49:03 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Jul 20 09:49:15 201  :: OLC: Henque edits trigger 12009
+Jul 20 09:49:15 201  :: OLC: Henque stops editing zone 120 allowed zone 0
+Jul 20 09:50:20 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Jul 20 09:50:40 201  :: OLC: Henque edits trigger 12009
+Jul 20 09:50:40 201  :: OLC: Henque stops editing zone 120 allowed zone 0
+Jul 20 09:52:42 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Jul 20 09:53:08 201  :: OLC: Henque edits trigger 12009
+Jul 20 09:53:08 201  :: OLC: Henque stops editing zone 120 allowed zone 0
+Jul 20 09:53:32 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Jul 20 09:54:06 201  :: OLC: Henque edits trigger 12009
+Jul 20 09:54:06 201  :: OLC: Henque stops editing zone 120 allowed zone 0
+Jul 20 09:54:32 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Jul 20 09:55:34 201  :: OLC: Henque edits trigger 12009
+Jul 20 09:55:34 201  :: OLC: Henque stops editing zone 120 allowed zone 0
+Jul 20 09:58:20 201  :: OLC: Henque starts editing zone 79 allowed zone 0
+Jul 20 09:58:29 201  :: OLC: Henque edits obj 7908
+Jul 20 09:58:29 201  :: OLC: Henque stops editing zone 79 allowed zone 0
+Jul 20 11:16:52 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Jul 20 11:16:53 201  :: OLC: Henque stops editing zone 120 allowed zone 0
+Jul 20 23:33:10 201  :: OLC: Henque starts editing zone 120 allowed zone 0
+Jul 20 23:33:20 201  :: GenOLC: add_room: Updated existing room #12042.
+Jul 20 23:33:20 201  :: OLC: Henque edits room 12042.
+Jul 20 23:33:20 201  :: GenOLC: save_rooms: Saving rooms in zone #120 (12000-12099).
+Jul 20 23:33:20 201  :: OLC: Henque stops editing zone 120 allowed zone 0
+Jul 20 23:33:28 201  :: OLC: Henque starts editing zone 30 allowed zone 0
+Jul 20 23:33:37 201  :: GenOLC: add_room: Updated existing room #3037.
+Jul 20 23:33:37 201  :: OLC: Henque edits room 3037.
+Jul 20 23:33:37 201  :: GenOLC: save_rooms: Saving rooms in zone #30 (3000-3099).
+Jul 20 23:33:37 201  :: OLC: Henque stops editing zone 30 allowed zone 0
+Jul 20 23:33:40 201  :: OLC: Henque starts editing zone 30 allowed zone 0
+Jul 20 23:33:47 201  :: GenOLC: add_room: Updated existing room #3033.
+Jul 20 23:33:47 201  :: OLC: Henque edits room 3033.
+Jul 20 23:33:47 201  :: GenOLC: save_rooms: Saving rooms in zone #30 (3000-3099).
+Jul 20 23:33:47 201  :: OLC: Henque stops editing zone 30 allowed zone 0
+Jul 20 23:33:49 201  :: OLC: Henque starts editing zone 30 allowed zone 0
+Jul 20 23:33:52 201  :: GenOLC: add_room: Updated existing room #3036.
+Jul 20 23:33:52 201  :: OLC: Henque edits room 3036.
+Jul 20 23:33:52 201  :: GenOLC: save_rooms: Saving rooms in zone #30 (3000-3099).
+Jul 20 23:33:52 201  :: OLC: Henque stops editing zone 30 allowed zone 0
+Jul 20 23:33:53 201  :: OLC: Henque starts editing zone 30 allowed zone 0
+Jul 20 23:34:00 201  :: GenOLC: add_room: Updated existing room #3035.
+Jul 20 23:34:00 201  :: OLC: Henque edits room 3035.
+Jul 20 23:34:00 201  :: GenOLC: save_rooms: Saving rooms in zone #30 (3000-3099).
+Jul 20 23:34:00 201  :: OLC: Henque stops editing zone 30 allowed zone 0
+Jul 21 16:25:18 201  :: OLC: Henque starts editing zone 28 [trigger](allowed zone 0)
+Jul 21 16:25:44 201  :: OLC: Henque edits trigger 2800
+Jul 21 16:25:44 201  :: OLC: Henque stops editing zone 28 allowed zone 0
+Jul 21 18:03:25 201  :: OLC: Henque starts editing zone 186 allowed zone 0
+Jul 21 18:03:56 201  :: GenOLC: add_room: Updated existing room #18630.
+Jul 21 18:03:56 201  :: OLC: Henque edits room 18630.
+Jul 21 18:03:56 201  :: GenOLC: save_rooms: Saving rooms in zone #186 (18600-18699).
+Jul 21 18:03:56 201  :: OLC: Henque stops editing zone 186 allowed zone 0
+Jul 22 09:28:35 201  :: OLC: Henque starts editing message 32
+Jul 22 09:28:38 201  :: OLC: Henque stops editing zone 0 allowed zone 0
+Jul 22 09:28:53 201  :: OLC: Henque starts editing message 10
+Jul 22 09:29:03 201  :: OLC: Henque stops editing zone 0 allowed zone 0
+Jul 22 09:59:14 201  :: OLC: Henque starts editing zone 54 allowed zone 0
+Jul 22 09:59:37 201  :: OLC: Henque edits obj 5481
+Jul 22 09:59:37 201  :: OLC: Henque stops editing zone 54 allowed zone 0
+Jul 22 12:16:28 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Jul 22 12:16:41 201  :: OLC: Henque edits obj 65339
+Jul 22 12:16:41 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Jul 25 11:22:55 201  :: OLC: Henque starts editing zone 30 allowed zone 0
+Jul 25 11:23:12 201  :: OLC: Henque edits obj 3021
+Jul 25 11:23:12 201  :: OLC: Henque stops editing zone 30 allowed zone 0
+Jul 25 11:23:21 201  :: OLC: Henque starts editing zone 30 allowed zone 0
+Jul 25 11:23:29 201  :: OLC: Henque edits obj 3020
+Jul 25 11:23:29 201  :: OLC: Henque stops editing zone 30 allowed zone 0
+Jul 25 11:37:21 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Jul 25 11:38:17 201  :: OLC: Henque edits obj 65484
+Jul 25 11:38:17 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 26 10:43:28 201  :: OLC: Henque starts editing zone 54 allowed zone 0
+Jul 26 10:43:33 201  :: OLC: Henque edits obj 5417
+Jul 26 10:43:33 201  :: OLC: Henque stops editing zone 54 allowed zone 0
+Jul 26 12:19:20 201  :: OLC: Roscoe turned buildwalk on. Allowed zone 0
+Jul 26 12:19:23 201  :: OLC: Roscoe turned buildwalk off. Allowed zone 0
+Jul 26 12:20:26 201  :: OLC: Roscoe turned buildwalk on. Allowed zone 0
+Jul 26 12:20:30 201  :: OLC: Roscoe turned buildwalk off. Allowed zone 0
+Jul 26 14:54:35 201  :: OLC: Henque starts editing the game configuration.
+Jul 26 14:54:52 201  :: OLC: Henque modifies the game configuration.
+Jul 26 14:54:52 201  :: OLC: Henque stops editing the game configuration
+Jul 26 14:55:28 201  :: OLC: Henque starts editing the game configuration.
+Jul 26 14:55:48 201  :: OLC: Henque modifies the game configuration.
+Jul 26 14:55:48 201  :: OLC: Henque stops editing the game configuration
+Jul 26 14:55:57 201  :: OLC: Henque starts editing the game configuration.
+Jul 26 14:56:03 201  :: OLC: Henque modifies the game configuration.
+Jul 26 14:56:03 201  :: OLC: Henque stops editing the game configuration
+Jul 26 16:03:36 201  :: OLC: Henque starts editing the game configuration.
+Jul 26 16:03:44 201  :: OLC: Henque stops editing the game configuration
+Jul 26 16:06:41 201  :: OLC: Henque starts editing the game configuration.
+Jul 26 16:06:51 201  :: OLC: Henque modifies the game configuration.
+Jul 26 16:06:51 201  :: OLC: Henque stops editing the game configuration
+Jul 26 16:07:00 201  :: OLC: Henque starts editing the game configuration.
+Jul 26 16:07:19 201  :: OLC: Henque modifies the game configuration.
+Jul 26 16:07:19 201  :: OLC: Henque stops editing the game configuration
+Jul 27 09:12:10 201  :: OLC: Henque starts editing zone 14 [trigger](allowed zone 0)
+Jul 27 09:12:42 201  :: OLC: Henque edits trigger 1421
+Jul 27 09:12:42 201  :: OLC: Henque stops editing zone 14 allowed zone 0
+Jul 28 00:24:29 201  :: OLC: Urza starts editing zone 120 allowed zone 0
+Jul 28 00:24:41 201  :: OLC: Urza stops editing zone 120 allowed zone 0
+Jul 28 00:24:50 201  :: OLC: Urza starts editing zone 120 allowed zone 0
+Jul 28 00:27:49 201  :: OLC: Urza stops editing zone 120 allowed zone 0
+Jul 28 10:30:26 201  :: OLC: Henque starts editing zone 400 allowed zone 0
+Jul 28 10:30:43 201  :: GenOLC: add_room: Updated existing room #40016.
+Jul 28 10:30:43 201  :: OLC: Henque edits room 40016.
+Jul 28 10:30:43 201  :: GenOLC: save_rooms: Saving rooms in zone #400 (40000-40099).
+Jul 28 10:30:43 201  :: OLC: Henque stops editing zone 400 allowed zone 0
+Jul 28 13:47:13 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Jul 28 13:47:33 201  :: OLC: Henque edits zone info for room 65400.
+Jul 28 13:47:33 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Jul 28 14:39:18 201  :: OLC: Henque starts editing help files.
+Jul 28 14:42:28 201  :: OLC: Henque edits help for memory-drain.
+Jul 28 14:42:28 201  :: OLC: Henque stops editing help files.
+Jul 28 17:20:49 201  :: OLC: Henque starts editing help files.
+Jul 28 17:21:14 201  :: OLC: Henque edits help for memory-drain.
+Jul 28 17:21:15 201  :: OLC: Henque stops editing help files.
+Jul 29 11:23:55 201  :: OLC: Henque starts editing zone 30 allowed zone 0
+Jul 29 11:24:14 201  :: OLC: Henque edits obj 3022
+Jul 29 11:24:14 201  :: OLC: Henque stops editing zone 30 allowed zone 0
+Jul 29 12:07:55 201  :: OLC: Henque starts editing help files.
+Jul 29 12:08:10 201  :: OLC: Henque edits help for cure-light.
+Jul 29 12:08:10 201  :: OLC: Henque stops editing help files.
+Jul 29 13:50:32 201  :: OLC: Henque starts editing zone 41 allowed zone 0
+Jul 29 13:50:50 201  :: OLC: Henque edits obj 4100
+Jul 29 13:50:50 201  :: OLC: Henque stops editing zone 41 allowed zone 0
+Jul 29 13:56:01 201  :: OLC: Henque starts editing zone 32 allowed zone 0
+Jul 29 13:56:11 201  :: OLC: Henque edits obj 3202
+Jul 29 13:56:11 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Aug 01 10:29:41 201  :: OLC: Henque starts editing zone 62 allowed zone 0
+Aug 01 10:29:48 201  :: OLC: Henque edits obj 6205
+Aug 01 10:29:48 201  :: OLC: Henque stops editing zone 62 allowed zone 0
+Aug 01 10:29:49 201  :: OLC: Henque starts editing zone 62 allowed zone 0
+Aug 01 10:29:58 201  :: OLC: Henque edits obj 6205
+Aug 01 10:29:58 201  :: OLC: Henque stops editing zone 62 allowed zone 0
+Aug 01 11:26:24 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Aug 01 11:27:14 201  :: OLC: Henque edits obj 65317
+Aug 01 11:27:14 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Aug 02 10:42:50 201  :: OLC: Henque starts editing the game configuration.
+Aug 02 10:42:55 201  :: OLC: Henque stops editing the game configuration
+Aug 02 10:42:58 201  :: OLC: Henque starts editing the game configuration.
+Aug 02 10:43:14 201  :: OLC: Henque modifies the game configuration.
+Aug 02 10:43:14 201  :: OLC: Henque stops editing the game configuration
+Aug 02 11:46:39 201  :: OLC: Henque starts editing zone 41 allowed zone 0
+Aug 02 11:46:59 201  :: GenOLC: add_mobile: Updated existing mobile #4100.
+Aug 02 11:46:59 201  :: OLC: Henque edits mob 4100
+Aug 02 11:46:59 201  :: GenOLC: 'world/mob/41.mob' saved, 1609 bytes written.
+Aug 02 11:46:59 201  :: OLC: Henque stops editing zone 41 allowed zone 0
+Aug 02 17:01:12 201  :: OLC: Henque starts editing zone 12 allowed zone 0
+Aug 02 17:03:52 201  :: OLC: Henque edits obj 1254
+Aug 02 17:03:52 201  :: OLC: Henque stops editing zone 12 allowed zone 0
+Aug 02 17:04:14 201  :: OLC: Henque starts editing zone 12 allowed zone 0
+Aug 02 17:08:47 201  :: OLC: Henque edits obj 1254
+Aug 02 17:08:47 201  :: OLC: Henque stops editing zone 12 allowed zone 0
+Aug 02 17:09:21 201  :: OLC: Henque starts editing zone 12 allowed zone 0
+Aug 02 17:09:33 201  :: OLC: Henque edits obj 1254
+Aug 02 17:09:33 201  :: OLC: Henque stops editing zone 12 allowed zone 0
+Aug 02 17:11:35 201  :: OLC: Henque starts editing zone 12 allowed zone 0
+Aug 02 17:12:01 201  :: OLC: Henque edits obj 1254
+Aug 02 17:12:01 201  :: OLC: Henque stops editing zone 12 allowed zone 0
+Aug 02 17:12:34 201  :: OLC: Henque starts editing zone 12 allowed zone 0
+Aug 02 17:12:42 201  :: OLC: Henque edits obj 1254
+Aug 02 17:12:42 201  :: OLC: Henque stops editing zone 12 allowed zone 0
+Aug 02 17:27:38 201  :: OLC: Henque starts editing zone 12 allowed zone 0
+Aug 02 17:28:01 201  :: OLC: Henque edits obj 1254
+Aug 02 17:28:01 201  :: OLC: Henque stops editing zone 12 allowed zone 0
+Aug 03 11:00:56 201  :: OLC: Henque starts editing help files.
+Aug 03 11:01:04 201  :: OLC: Henque stops editing help files.
+Aug 03 11:01:07 201  :: OLC: Henque starts editing help files.
+Aug 03 11:03:12 201  :: OLC: Henque edits help for for-lexis.
+Aug 03 11:03:12 201  :: OLC: Henque stops editing help files.
+Aug 03 11:03:13 201  :: OLC: Henque starts editing help files.
+Aug 03 11:03:43 201  :: OLC: Henque edits help for for-lexis2.
+Aug 03 11:03:43 201  :: OLC: Henque stops editing help files.
+Aug 03 14:17:20 201  :: OLC: Henque starts editing the game configuration.
+Aug 03 14:17:50 201  :: OLC: Henque stops editing the game configuration
+Aug 03 15:45:49 201  :: OLC: Henque starts editing the game configuration.
+Aug 03 15:46:02 201  :: OLC: Henque stops editing the game configuration
+Aug 03 15:49:06 201  :: OLC: Henque starts editing zone 61 allowed zone 0
+Aug 03 15:49:18 201  :: OLC: Henque edits obj 6120
+Aug 03 15:49:18 201  :: OLC: Henque stops editing zone 61 allowed zone 0
+Aug 03 15:52:24 201  :: OLC: Henque starts editing zone 61 allowed zone 0
+Aug 03 15:52:30 201  :: OLC: Henque edits obj 6120
+Aug 03 15:52:30 201  :: OLC: Henque stops editing zone 61 allowed zone 0
+Aug 03 22:51:18 201  :: OLC: Henque starts editing zone 12 allowed zone 0
+Aug 03 22:55:01 201  :: OLC: Henque edits obj 1206
+Aug 03 22:55:01 201  :: OLC: Henque stops editing zone 12 allowed zone 0
+Aug 04 12:13:45 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Aug 04 12:15:49 201  :: OLC: Henque edits obj 65487
+Aug 04 12:15:49 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Aug 08 11:17:24 201  :: OLC: Henque starts editing zone 14 [trigger](allowed zone 0)
+Aug 08 11:18:29 201  :: OLC: Henque edits trigger 1442
+Aug 08 11:18:29 201  :: OLC: Henque stops editing zone 14 allowed zone 0
+Aug 08 11:18:37 201  :: OLC: Henque starts editing zone 30 allowed zone 0
+Aug 08 11:18:46 201  :: GenOLC: add_mobile: Updated existing mobile #3005.
+Aug 08 11:18:46 201  :: OLC: Henque edits mob 3005
+Aug 08 11:18:46 201  :: GenOLC: 'world/mob/30.mob' saved, 14086 bytes written.
+Aug 08 11:18:46 201  :: OLC: Henque stops editing zone 30 allowed zone 0
+Aug 08 11:20:23 201  :: OLC: Henque starts editing zone 120 allowed zone 0
+Aug 08 11:20:38 201  :: OLC: Henque stops editing zone 120 allowed zone 0
+Aug 08 11:20:43 201  :: OLC: Henque starts editing zone 120 allowed zone 0
+Aug 08 11:20:48 201  :: GenOLC: add_mobile: Updated existing mobile #12004.
+Aug 08 11:20:48 201  :: OLC: Henque edits mob 12004
+Aug 08 11:20:48 201  :: GenOLC: 'world/mob/120.mob' saved, 11866 bytes written.
+Aug 08 11:20:48 201  :: OLC: Henque stops editing zone 120 allowed zone 0
+Aug 15 11:42:06 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Aug 15 11:42:17 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Aug 15 11:42:26 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Aug 15 11:42:36 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Aug 15 11:42:37 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Aug 15 11:43:02 201  :: OLC: Henque edits zone info for room 65473.
+Aug 15 11:43:02 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Aug 15 11:43:07 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Aug 15 11:45:00 201  :: GenOLC: add_room: Updated existing room #65473.
+Aug 15 11:45:00 201  :: OLC: Henque edits room 65473.
+Aug 15 11:45:00 201  :: GenOLC: save_rooms: Saving rooms in zone #654 (65400-65499).
+Aug 15 11:45:00 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Aug 29 17:17:22 201  :: OLC: Henque starts editing the game configuration.
+Aug 29 17:17:38 201  :: OLC: Henque stops editing the game configuration
+Nov 22 16:03:49 201  :: OLC: Henque starts editing zone 12 allowed zone 0
+Nov 22 16:33:32 201  :: OLC: Henque stops editing zone 12 allowed zone 0
+Nov 23 11:21:18 201  :: OLC: Henque starts editing zone 12 allowed zone 0
+Nov 23 11:21:59 201  :: OLC: Henque edits obj 1254
+Nov 23 11:21:59 201  :: OLC: Henque stops editing zone 12 allowed zone 0
+Feb 20 15:59:42 201  :: OLC: Zeugziumy starts editing zone 653 allowed zone 0
+Feb 20 16:02:08 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 20 16:02:09 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 20 16:04:44 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 20 16:04:50 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 20 16:16:37 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 20 16:16:49 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 20 16:21:47 201  :: OLC: Zeugziumy stops editing zone 653 allowed zone 0
+Feb 21 11:02:55 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 21 11:22:29 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 21 11:26:02 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 21 11:27:53 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 21 11:27:55 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 21 11:28:04 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 21 11:28:09 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 21 11:28:14 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 21 11:28:30 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 21 11:28:38 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 21 11:28:40 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 21 11:30:10 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 21 11:30:13 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 21 11:30:29 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 21 11:30:31 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 21 11:30:45 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 21 11:30:47 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 21 11:31:02 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 21 11:31:04 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 21 11:32:30 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 21 11:33:55 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 21 11:34:10 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 21 16:12:41 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 21 16:13:22 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 21 16:14:18 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 21 16:14:24 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 21 16:18:50 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 21 16:19:11 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 21 16:19:15 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 21 16:20:22 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 21 16:23:01 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 21 16:23:19 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Feb 21 16:27:15 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Feb 21 16:32:01 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Mar 07 10:03:53 201  :: OLC: Henque starts editing zone 65 allowed zone 0
+Mar 07 10:04:03 201  :: OLC: Henque edits obj 6512
+Mar 07 10:04:03 201  :: OLC: Henque stops editing zone 65 allowed zone 0
+Mar 07 10:08:02 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Mar 07 10:13:11 201  :: OLC: Henque edits obj 65461
+Mar 07 10:13:11 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Mar 07 10:13:25 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Mar 07 10:13:27 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Mar 07 10:13:30 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Mar 07 10:13:32 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Mar 07 10:14:02 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Mar 07 10:14:12 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Mar 07 10:14:15 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Mar 07 10:14:33 201  :: OLC: Henque edits obj 65361
+Mar 07 10:14:33 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Mar 07 10:14:39 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Mar 07 10:15:03 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Mar 07 10:15:07 201  :: OLC: Henque starts editing zone 654 allowed zone 0
+Mar 07 10:15:08 201  :: OLC: Henque stops editing zone 654 allowed zone 0
+Mar 07 10:15:26 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Mar 07 10:15:46 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Mar 07 10:15:49 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Mar 07 10:15:57 201  :: OLC: Henque edits obj 65361
+Mar 07 10:15:57 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Mar 07 10:20:50 201  :: OLC: Henque starts editing zone 65 allowed zone 0
+Mar 07 10:21:03 201  :: OLC: Henque stops editing zone 65 allowed zone 0
+Mar 07 10:21:24 201  :: OLC: Henque starts editing zone 65 [trigger](allowed zone 0)
+Mar 07 10:21:49 201  :: OLC: Henque stops editing zone 65 allowed zone 0
+Mar 07 10:21:53 201  :: OLC: Henque starts editing zone 65 allowed zone 0
+Mar 07 10:21:59 201  :: OLC: Henque stops editing zone 65 allowed zone 0
+Mar 07 10:22:00 201  :: OLC: Henque starts editing zone 65 allowed zone 0
+Mar 07 10:22:53 201  :: OLC: Henque edits zone info for room 6534.
+Mar 07 10:22:53 201  :: OLC: Henque stops editing zone 65 allowed zone 0
+Mar 07 10:52:11 201  :: OLC: Henque starts editing zone 65 [trigger](allowed zone 0)
+Mar 07 10:53:18 201  :: OLC: Henque stops editing zone 65 allowed zone 0
+Mar 07 10:53:21 201  :: OLC: Henque starts editing zone 65 allowed zone 0
+Mar 07 10:54:08 201  :: OLC: Henque stops editing zone 65 allowed zone 0
+Mar 07 10:54:19 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Mar 07 10:54:20 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Mar 07 10:54:24 201  :: OLC: Henque starts editing zone 653 allowed zone 0
+Mar 07 10:57:12 201  :: OLC: Henque edits obj 65326
+Mar 07 10:57:12 201  :: OLC: Henque stops editing zone 653 allowed zone 0
+Mar 07 10:57:20 201  :: OLC: Henque starts editing zone 65 allowed zone 0
+Mar 07 10:57:51 201  :: OLC: Henque edits zone info for room 6521.
+Mar 07 10:57:51 201  :: OLC: Henque stops editing zone 65 allowed zone 0
+Mar 07 11:01:12 201  :: OLC: Henque starts editing zone 65 allowed zone 0
+Mar 07 11:01:47 201  :: OLC: Henque stops editing zone 65 allowed zone 0
+Mar 07 11:02:04 201  :: OLC: Henque starts editing zone 65 allowed zone 0
+Mar 07 11:02:49 201  :: OLC: Henque edits zone info for room 6521.
+Mar 07 11:02:49 201  :: OLC: Henque stops editing zone 65 allowed zone 0
+Mar 07 11:09:36 201  :: OLC: Henque starts editing zone 65 allowed zone 0
+Mar 07 11:13:07 201  :: OLC: Henque edits zone info for room 6521.
+Mar 07 11:13:07 201  :: OLC: Henque stops editing zone 65 allowed zone 0
+Mar 07 11:13:42 201  :: OLC: Henque starts editing zone 65 allowed zone 0
+Mar 07 11:14:38 201  :: OLC: Henque edits zone info for room 6521.
+Mar 07 11:14:38 201  :: OLC: Henque stops editing zone 65 allowed zone 0
+Mar 10 15:30:40 201  :: OLC: Henque starts editing zone 401 allowed zone 0
+Mar 10 15:30:42 201  :: OLC: Henque stops editing zone 401 allowed zone 0
+Mar 10 15:30:43 201  :: OLC: Henque starts editing zone 401 allowed zone 0
+Mar 10 15:30:46 201  :: OLC: Henque stops editing zone 401 allowed zone 0
+Mar 10 15:30:50 201  :: OLC: Henque starts editing zone 401 allowed zone 0
+Mar 10 15:30:52 201  :: OLC: Henque stops editing zone 401 allowed zone 0
+Mar 10 15:30:53 201  :: OLC: Henque starts editing zone 401 allowed zone 0
+Mar 10 15:30:54 201  :: OLC: Henque stops editing zone 401 allowed zone 0
+Mar 10 15:31:00 201  :: OLC: Henque starts editing zone 401 allowed zone 0
+Mar 10 15:31:05 201  :: OLC: Henque stops editing zone 401 allowed zone 0
+Mar 10 19:33:57 201  :: OLC: Henque starts editing zone 30 allowed zone 0
+Mar 10 19:34:02 201  :: OLC: Henque stops editing zone 30 allowed zone 0
+Mar 13 10:38:55 201  :: OLC: Henque starts editing help files.
+Mar 13 10:40:53 201  :: OLC: Henque edits help for heal.
+Mar 13 10:40:53 201  :: OLC: Henque stops editing help files.
+Mar 13 10:41:23 201  :: OLC: Henque starts editing help files.
+Mar 13 10:41:39 201  :: OLC: Henque edits help for cure-blind.
+Mar 13 10:41:39 201  :: OLC: Henque stops editing help files.
+Mar 13 10:41:45 201  :: OLC: Henque starts editing help files.
+Mar 13 10:41:54 201  :: OLC: Henque stops editing help files.
+Mar 14 11:28:14 201  :: OLC: Henque starts editing zone 32 allowed zone 0
+Mar 14 11:41:37 201  :: OLC: Henque edits obj 3250
+Mar 14 11:41:37 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 11:43:32 201  :: OLC: Henque starts editing zone 32 allowed zone 0
+Mar 14 11:44:11 201  :: OLC: Henque edits obj 3250
+Mar 14 11:44:11 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 14:52:33 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 14 14:52:40 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 14:52:44 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 14 14:52:45 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 14:52:58 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 14 14:54:05 201  :: OLC: Henque edits trigger 3251
+Mar 14 14:54:05 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 14:58:23 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 14 14:59:06 201  :: OLC: Henque edits trigger 3251
+Mar 14 14:59:06 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 14:59:28 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 14 14:59:37 201  :: OLC: Henque edits trigger 3251
+Mar 14 14:59:37 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 14:59:41 201  :: OLC: Henque starts editing zone 32 allowed zone 0
+Mar 14 14:59:54 201  :: OLC: Henque edits obj 3250
+Mar 14 14:59:54 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 15:00:13 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 14 15:00:20 201  :: OLC: Henque edits trigger 3251
+Mar 14 15:00:20 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 15:14:35 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 14 15:15:06 201  :: OLC: Henque edits trigger 3251
+Mar 14 15:15:06 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 15:18:49 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 14 15:19:27 201  :: OLC: Henque edits trigger 3251
+Mar 14 15:19:27 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 15:25:43 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 14 15:26:14 201  :: OLC: Henque edits trigger 3251
+Mar 14 15:26:14 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 15:36:40 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 14 15:40:28 201  :: OLC: Henque edits trigger 3251
+Mar 14 15:40:28 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 16:25:28 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 14 16:25:47 201  :: OLC: Henque edits trigger 3251
+Mar 14 16:25:47 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 16:27:43 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 14 16:28:03 201  :: OLC: Henque edits trigger 3251
+Mar 14 16:28:03 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 16:32:55 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 14 16:33:18 201  :: OLC: Henque edits trigger 3251
+Mar 14 16:33:18 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 16:35:24 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 14 16:35:44 201  :: OLC: Henque edits trigger 3251
+Mar 14 16:35:44 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 16:46:16 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 14 16:46:40 201  :: OLC: Henque edits trigger 3251
+Mar 14 16:46:40 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 16:50:03 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 14 16:50:26 201  :: OLC: Henque edits trigger 3251
+Mar 14 16:50:26 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 14 16:52:42 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 14 16:53:06 201  :: OLC: Henque edits trigger 3251
+Mar 14 16:53:06 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 15 09:56:11 201  :: OLC: Henque starts editing zone 32 allowed zone 0
+Mar 15 09:59:17 201  :: OLC: Henque edits obj 3203
+Mar 15 09:59:17 201  :: OLC: Henque stops editing zone 32 allowed zone 0
+Mar 15 11:37:10 201  :: OLC: Henque starts editing zone 79 allowed zone 0
+Mar 15 11:37:16 201  :: OLC: Henque edits obj 7919
+Mar 15 11:37:16 201  :: OLC: Henque stops editing zone 79 allowed zone 0

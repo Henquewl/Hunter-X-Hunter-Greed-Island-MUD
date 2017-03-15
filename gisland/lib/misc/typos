@@ -1,0 +1,146 @@
+Text      equipament~
+Body      equipament =  equipment
+~
+Name      Rave~
+IdNum     57
+Dated     1462474713
+Level     1
+Room      2804
+Flags     1 0 0 0
+End
+Text      assistent = assistant~
+Body      typo submit assistent = assistant
+~
+Name      Rave~
+IdNum     57
+Dated     1462475005
+Level     1
+Room      1405
+Flags     1 0 0 0
+End
+Text      First Shopkeeper~
+Body      In the description of the room, it mentions a purse and a cloak. Well... I could not buy the cloak, nor sell the purse because neither of us had those things in our inventories.
+~
+Name      Malukus~
+IdNum     67
+Dated     1464875482
+Level     1
+Room      2803
+Flags     1 0 0 0
+End
+Text      Mud School Shopkeeper - Part II~
+Body      I guess a dash could be put between these two sentences:
+In this room you're not alone anymore - a shopkeeper has set up his booth, ready to trade with you.
+Right now, it is like this:
+In this room you're not alone anymore a shopkeeper has set up his booth, ready to trade with you.
+~
+Name      Malukus~
+IdNum     67
+Dated     1464886974
+Level     1
+Room      2803
+Flags     1 0 0 0
+End
+Text      Fourth Lesson's Room and its Typo~
+Body      The word "than" was spelled "then" in the following sentence:
+It is not possible to have more then one item equipped in one 'slot' at any one time - except the neck, where there actually are two slots.
+~
+Name      Malukus~
+IdNum     67
+Dated     1464887299
+Level     1
+Room      2804
+Flags     1 0 0 0
+End
+Text      Transporter Room~
+Body      The word "bottom" was spelled "botton".
+~
+Name      Malukus~
+IdNum     67
+Dated     1464887880
+Level     1
+Room      1404
+Flags     1 0 0 0
+End
+Text      Preparation Room~
+Body      The word "appears" was spelled "appers" and in Eeta's information about the player's data, the word "constitution" was spelled "constituition".
+~
+Name      Malukus~
+Notes     Need fix constituition to constitution
+~
+IdNum     67
+Dated     1464888067
+Level     1
+Room      1405
+Flags     5 0 0 0
+End
+Text      fix help cards~
+Body      change hatsu for spell
+~
+Name      Henque~
+IdNum     1
+Dated     1466016384
+Level     34
+Room      2800
+Flags     0 0 0 0
+End
+Text      fix 2810~
+Body      it is a useless crap description
+~
+Name      Henque~
+IdNum     1
+Dated     1466019661
+Level     34
+Room      2800
+Flags     0 0 0 0
+End
+Text      2812 is a crap too~
+Body      teach gossip
+~
+Name      Henque~
+IdNum     1
+Dated     1466019776
+Level     34
+Room      2800
+Flags     0 0 0 0
+End
+Text      change analysis to analyze~
+Body      and update sense life help file too
+~
+Name      Henque~
+IdNum     1
+Dated     1466174795
+Level     29
+Room      12040
+Flags     0 0 0 0
+End
+Text      add sit, rest and sleep descript~
+Body      and explain what it do
+~
+Name      Henque~
+IdNum     1
+Dated     1466441500
+Level     34
+Room      2807
+Flags     0 0 0 0
+End
+Text      remove wear cloak twice~
+Body      do it
+~
+Name      Henque~
+IdNum     1
+Dated     1466608558
+Level     34
+Room      2804
+Flags     0 0 0 0
+End
+Text       'this item will weight nothing'~
+Body      'this item will weight nothing'
+~
+Name      Karain~
+IdNum     397
+Dated     1489142957
+Level     1
+Room      2813
+Flags     0 0 0 0
+End

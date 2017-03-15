@@ -1,0 +1,20 @@
+@y-------------------------------------------------------------------------------
+@RMovement:@y                          | @RCommunication:@y
+NORTH SOUTH EAST WEST UP DOWN      | SAY GSAY SHOUT HOLLER TELL ASK WHISPER
+LOOK EXITS ENTER LEAVE             | MAIL RECEIVE CHECK GOSSIP GRATS AUCTION
+SLEEP WAKE REST SIT STAND          | NOTELL NOSHOUT NOGOSSIP NOGRATS NOAUCTION
+(LOCK UNLOCK OPEN CLOSE)           |
+-------------------------------------------------------------------------------
+@RObjects:@y                           | @RInformation:@y 
+GET DROP JUNK DONATE PUT GIVE WEAR | SCORE HELP INFO WHO NEWS TIME WEATHER
+GRAB INVENTORY EQUIPMENT REMOVE    | WHERE CONSIDER LEVELS WIZLIST IMMLIST
+EXAMINE EAT DRINK TASTE SIP POUR   | CREDITS TOGGLE FLAGS WIZHELP
+-------------------------------------------------------------------------------
+@RCombat:@y                            | @RUtility:@y
+KILL WIELD FLEE ASSIST TRACK CAST  | ! BUG IDEA TYPO QUIT AUTOGOLD BRIEF TITLE
+Enhancer->(KICK BASH RESCUE JAJAN) | COMPACT NOSUMMON COMMANDS SOCIALS DISPLAY
+-------------------------------------------------------------------------------
+Further information available by @RHELP @y<@Rkeyword@y>, keyword being a command or 
+(for example) one of the following: COMMANDS SOCIAL SHOPS CARDS GAIN BOOK LINK
+        CONJURER ENHANCER EMITTER TRANSMUTER MANIPULATOR SPECIALIST
+-------------------------------------------------------------------------------

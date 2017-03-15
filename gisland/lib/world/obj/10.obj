@@ -1,0 +1,696 @@
+#1000
+eliminate card~
+@D-003 Eliminate card@n~
+The @D-003 Eliminate card@g is lying here.@n.. forgotten by a Game Master.~
+~
+2 defgiq 0 0 0 ao 0 0 0 0 0 0 0
+34 4 33 2
+0 0 0 0 0
+T 3204
+T 1000
+E
+-003 Ruler Killer card~
+Allows caster to Tranort any elements that illegally enter Greed Island
+to a random location of the Azian continent... out of the game.
+~
+#1001
+1001 peek card~
+@B1001 Peek G-200 card@n~
+A @B1001 Peek G-200 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1000 0 0 2
+T 3216
+T 1001
+E
+1001 peek card~
+LR | RS
+
+   View contents of target player's un-restricted cards.
+~
+#1002
+1002 fluroscopy card~
+@B1002 Fluroscopy F-150 card@n~
+A @B1002 Fluroscopy F-150 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1600 0 0 2
+T 3216
+T 1002
+E
+1002 fluroscopy card~
+LR | RS
+
+View contents of target player's restricted cards.
+~
+#1003
+1003 defensive wall card~
+@B1003 Defensive Wall G-400 card@n~
+A @B1003 Defensive Wall G-400 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 500 0 0 2
+T 3216
+T 1003
+E
+1003 defensive wall card~
+SR | DS | AA
+
+Protects you from an attack spell once while stay in room.
+~
+#1004
+1004 reflection card~
+@B1004 Reflection E-120 card@n~
+A @B1004 Reflection E-120 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 4000 0 0 2
+T 3216
+T 1004
+E
+1004 reflection card~
+SR | DS | AA
+
+Reflects an attack spell from a player.
+~
+#1005
+1005 magnetic force card~
+@B1005 Magnetic Force C-50 card@n~
+A @B1005 Magnetic Force C-50 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 20000 0 0 2
+T 3216
+T 1005
+E
+1005 magnetic force card~
+LR | RS
+
+Allows you to fly to the location of the target player.
+~
+#1006
+1006 pick pocket card~
+@B1006 Pick Pocket F-170 card@n~
+A @B1006 Pick Pocket F-170 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1500 0 0 2
+T 3216
+T 1006
+E
+1006 pick pocket card~
+SR | AS
+
+Steals a random un-restricted card from target player.
+~
+#1007
+1007 thief card~
+@B1007 Thief C-50 card@n~
+A @B1007 Thief C-50 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 20000 0 0 2
+T 3216
+T 1007
+E
+1007 thief card~
+SR | AS
+
+Steals a random restricted card from target player.
+~
+#1008
+1008 trade card~
+@B1008 Trade E-100 card@n~
+A @B1008 Trade E-100 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 5000 0 0 2
+T 3216
+T 1008
+E
+1008 trade card~
+SR | AS
+
+Swaps a card the caster's owns to a target player's card randomly.
+(Only works when all the cards are in the binder.)
+~
+#1009
+1009 return card~
+@B1009 Return G-380 card@n~
+A @B1009 Return G-380 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 525 0 0 2
+T 3216
+T 1009
+E
+1009 return card~
+LR | RS
+
+Allows caster to fly back to a previously visited city.
+~
+#1010
+1010 transform card~
+@B1010 Transform A-20 card@n~
+The @B1010 Transform A-20 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 100000 0 0 2
+T 3216
+T 1010
+E
+1010 transform card~
+SR | RS
+
+Transform a card into a copy of a target card that the caster already owns.
+Usage: gain [inventory card to be transformed] <card to be copied from the binder>
+(In case of mismatch, the first card into your inventory will be transformed.)
+~
+#1011
+1011 clone card~
+@B1011 Clone D-70 card@n~
+A @B1011 Clone D-70 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 7150 0 0 2
+T 3216
+T 1011
+E
+1011 clone card~
+SR | RS
+
+Change into one random restricted card from target player.
+(if the opponent has no restricted cards or you already has the same
+obtained card, the transformation fails and "Clone" disappears).
+~
+#1012
+1012 railguide card~
+@B1012 Railguide F-140 card@n~
+A @B1012 Railguide F-140 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+34 2 -1 -1
+0 1800 0 0 2
+T 3216
+T 1012
+E
+1012 railguide card~
+SR | RS
+
+Make the target player fly somewhere on the island.
+~
+#1013
+1013 departure card~
+@B1013 Departure D-65 card@n~
+A @B1013 Departure D-65 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 7700 0 0 2
+T 3216
+T 1013
+E
+1013 departure card~
+SR | RS
+
+Make target player fly to the game starting point.
+~
+#1014
+1014 leave card~
+@B1014 Leave B-30 card@n~
+A @B1014 Leave B-30 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 33000 0 0 2
+T 3216
+T 1014
+E
+1014 leave card~
+SR | RS
+
+Make the player leave the island.
+~
+#1015
+1015 sightvision card~
+@B1015 Sightvision D-70 card@n~
+A @B1015 Sightvision D-70 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 7150 0 0 2
+T 3216
+T 1015
+E
+1015 sightvision card~
+LR | RS
+
+See all cards of the target player.
+~
+#1016
+1016 drift card~
+@B1016 Drift F-200 card@n~
+A @B1016 Drift F-200 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1250 0 0 2
+T 3216
+T 1016
+E
+1016 drift card~
+SR | RS
+
+Go to a random unvisited town. If all towns have been visited,
+player stays at the same place and the card disappears.
+~
+#1017
+1017 collision card~
+@B1017 Collision F-200 card@n~
+A @B1017 Collision F-200 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1250 0 0 2
+T 3216
+T 1017
+E
+1017 collision card~
+SR | RS
+
+Fly to the locations of a random player the caster has not met
+(if all other players have been met, players stay at the same
+place and the card disappears).
+~
+#1018
+1018 levy card~
+@B1018 Levy B-25 card@n~
+A @B1018 Levy B-25 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 40000 0 0 2
+T 3216
+T 1018
+E
+1018 levy card~
+SR | SP
+
+Take one random card from each player in the same room.
+~
+#1019
+1019 castle gate card~
+@B1019 Castle Gate F-200 card@n~
+A @B1019 Castle Gate F-200 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1250 0 0 2
+T 3216
+T 1019
+E
+1019 castle gate card~
+SR | DS | VS 
+
+Protects you from an attack ell once while stay in room.
+~
+#1020
+1020 fake card~
+@B1020 Fake C-40 card@n~
+A @B1020 Fake C-40 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 25000 0 0 2
+T 3216
+T 1020
+E
+1020 fake card~
+SR | RS
+
+   "Fake" transforms into one of the cards from No. 001 to No. 099.
+The resulting card can be inserted into an imposed slot but does not
+count towards a complete card set or the card copy limit, nor can it
+be converted into an object.
+~
+#1021
+1021 rob card~
+@B1021 Rob B-30 card@n~
+A @B1021 Rob B-30 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 33000 0 0 2
+T 3216
+T 1021
+E
+1021 rob card~
+SR | AS
+
+Take one card at will from target player.
+~
+#1024
+1024 penetrate card~
+@B1024 Penetrate D-80 card@n~
+A @B1024 Penetrate D-80 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+-1 -1 -1 -1
+0 6250 0 0 2
+T 3216
+T 1024
+E
+1024 penetrate card~
+SR | RS
+
+Return all cards from target player transformed with “Fake,” “Clone,” or
+“Transform” to original form. Destroy all cards that, as a result, find
+themselves in the wrong imposed slots.
+~
+#1025
+1025 blackout curtain card~
+@B1025 Blackout Curtain F-200 card@n~
+A @B1025 Blackout Curtain F-200 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1250 0 0 2
+T 3216
+T 1025
+E
+1025 blackout curtain card~
+SR | DS | C
+
+   Use to protect oneself against the effects of "Steal" and "Fluroscopy".
+~
+#1026
+1026 holy water card~
+@B1026 Holy Water A-20 card@n~
+The @B1026 Holy Water A-20 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 100000 0 0 2
+T 3216
+T 1026
+E
+1026 holy water card~
+SR | DS | C
+
+   Protects the player 10 times from attack spells from other players.
+This card is immune to steal or destruction spells.
+~
+#1027
+1027 trace card~
+@B1027 Trace E-90 card@n~
+A @B1027 Trace E-90 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 5500 0 0 2
+T 3216
+T 1027
+E
+1027 trace card~
+SR | AS
+
+Current location of one target player will be available at all times.
+(Effect lasts until you or the target player leaves the game.)
+~
+#1028
+1028 stone throw card~
+@B1028 Stone Throw E-100 card@n~
+A @B1028 Stone Throw E-100 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 5000 0 0 2
+T 3216
+T 1028
+E
+1028 stone throw card~
+SR | AS
+
+Destroy one random card in target player's free slots.
+~
+#1029
+1029 shot card~
+@B1029 Shot B-25 card@n~
+A @B1029 Shot B-25 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 40000 0 0 2
+T 3216
+T 1029
+E
+1029 shot card~
+SR | AS
+
+Destroy one random card in target player's imposed slots.
+~
+#1030
+1030 guidepost card~
+@B1030 Guidepost E-120 card@n~
+A @B1030 Guidepost E-120 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 4200 0 0 2
+T 3216
+T 1030
+E
+1030 guidepost card~
+LR | RS
+
+Give away locations of the chosen number (not available to No. 000).
+~
+#1031
+1031 analysis card~
+@B1031 Analysis G-400 card@n~
+A @B1031 Analysis G-400 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 500 0 0 2
+T 3216
+T 1031
+E
+1031 analysis card~
+LR | RS
+
+Show explanation on card of the chosen number (not available to No. 000).
+~
+#1032
+1032 lottery card~
+@B1032 Lottery G-350 card@n~
+A @B1032 Lottery G-350 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 600 0 0 2
+T 3216
+T 1032
+E
+1032 lottery card~
+SR | RS
+
+Transform into a random item card.
+~
+#1033
+1033 adhesion card~
+@B1033 Adhesion C-50 card@n~
+A @B1033 Adhesion C-50 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 20000 0 0 2
+T 3216
+T 1033
+E
+1033 adhesion card~
+SR | AS
+
+Complete data of one player's restricted slots will be available at all times.
+(Effect lasts until you or target player leaves the game.)
+~
+#1034
+1034 purify card~
+@B1034 Purify D-55 card@n~
+A @B1034 Purify D-55 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 9100 0 0 2
+T 3216
+T 1034
+E
+1034 purify card~
+SR | RS
+
+Dispel effect of transformation spell and return card to original form.
+~
+#1035
+1035 prison card~
+@B1035 Prison S-10 card@n~
+The @B1035 Prison S-10 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 200000 0 0 2
+T 3216
+T 1035
+E
+1035 prison card~
+SR | DS | C | AA
+
+   Restricted cards are protected against stealing and destruction spells as
+long as they remain in the slots (free slot pages cannot be chosen).
+~
+#1036
+1036 god eye card~
+@B1036 God Eye S-10 card@n~
+The @B1036 God Eye S-10 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 200000 0 0 2
+T 3216
+T 1036
+E
+1036 god eye card~
+LR | C
+
+   Caster obtains the effects of "List" and "Analysis" permanently on all cards
+from No. 000 to 099. (Effect lasts until target player leaves the game.)
+~
+#1037
+1037 recycle card~
+@B1037 Recycle F-170 card@n~
+A @B1037 Recycle F-170 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1500 0 0 2
+T 3216
+T 1037
+E
+1037 recycle card~
+SR | RS
+
+Allows an item converted from a card to be changed into card form once more. 
+~
+#1038
+1038 list card~
+@B1038 List G-350 card@n~
+A @B1038 List G-350 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+-1 -1 -1 -1
+0 570 0 0 2
+T 3216
+T 1038
+E
+1038 list card~
+SR | RS
+
+Inform on number of people in possession of target card, as well as the number of copies.
+~
+#1039
+1039 accompany card~
+@B1039 Accompany F-130 card@n~
+A @B1039 Accompany F-130 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1900 0 0 2
+T 3216
+T 1039
+E
+1039 accompany card~
+LR | RS
+
+Allows you and your group to fly to the location of the previously met player
+or city.
+~
+#1040
+1040 contact card~
+@B1040 Contact F-200 card@n~
+A @B1040 Contact F-200 card@g is lying here.@n~
+~
+2 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1250 0 0 2
+T 3216
+T 1040
+E
+1040 contact card~
+LR | RS
+
+Allows communication through the binders with target player.
+(Maximum duration is 3 minutes)
+~
+#1053
+undefined~
+@B1003 Defensive Wall G-400 card@n~
+A @B1003 Defensive Wall G-400 card@g is lying here.@n~
+~
+2 acd 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 0 0 0 0
+E
+1003 defensive wall card~
+SR | DS
+
+Protects you from an attack ell once while stay in room.
+~
+#1054
+undefined~
+@B1004 Reflection E-120 card@n~
+A @B1004 Reflection E-120 card@g is lying here.@n~
+~
+2 acd 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 0 0 0 0
+E
+1004 reflection card~
+SR | DS
+
+Reflects an attack ell from a player (previously met).
+~
+#1069
+undefined~
+@B1019 Castle Gate F-200 card@n~
+A @B1019 Castle Gate F-200 card@g is lying here.@n~
+~
+2 acd 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 0 0 0 0
+E
+1003 defensive wall card~
+SR | DS
+
+Protects you from an attack ell once while stay in room.
+~
+#1080
+undefined~
+@B1040 Contact F-200 card@n~
+A @B1040 Contact F-200 card@g is lying here.@n~
+~
+2 ad 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 0 0 0 0
+T 3216
+T 1040
+$~

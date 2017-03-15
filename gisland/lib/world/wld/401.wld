@@ -1,0 +1,263 @@
+#40100
+A Woody Plateau~
+
+~
+401 8 0 0 0 3
+D0
+~
+~
+0 0 40088
+D1
+~
+~
+3 0 40102
+D2
+~
+~
+0 0 40101
+S
+T 40100
+#40101
+A Downhill Between Woods~
+
+~
+401 0 0 0 0 3
+D0
+~
+~
+0 0 40100
+D2
+~
+~
+0 0 40105
+S
+#40102
+A Secret Trail Through the Woods~
+You are in the middle of woods, twigs and plants everywhere but
+somehow is very easy to walk here, like if someone else someone
+else already walked through here and clear the path, without
+leaving evident that there was a trail here. To the east you can
+see a small house in a glade, to the west is the main trail.
+~
+401 64 0 0 0 3
+D1
+~
+~
+0 0 40103
+D3
+~
+~
+0 0 40100
+S
+#40103
+Outside A Small Cabin In The Forest~
+You are outside a small cabin built entirely from heavy logs.
+There is a wooden door to the east and west through the trees.
+~
+401 64 0 0 0 2
+D1
+a wooden sliding door
+~
+door~
+2 0 40104
+D3
+~
+~
+0 0 40102
+S
+#40104
+Inside The Cabin~
+You are inside a small one-room cabin made entirely from                     
+heavy logs. It is very sparsely furnished, containing                        
+only the most basic housekeeping equipment, such as a                        
+bed, a chair and a table.                                      
+~
+401 72 0 0 0 0
+D3
+a wooden sliding door
+~
+door~
+0 0 40103
+S
+#40105
+Border Of Woods And Canyons~
+
+~
+401 4 0 0 0 2
+D0
+~
+~
+0 0 40101
+D2
+~
+~
+0 0 40106
+S
+#40106
+A Small Canyon~
+   You see a small cannon, easy to descend or climb up.  Some hoodoos difficult
+to see the horizon of the canyon, what kind of creatures lies there?  The only
+way out of here is go north to the plateau or south getting inside of the
+canyons.
+~
+401 0 0 0 0 5
+D0
+~
+~
+0 0 40105
+D2
+~
+~
+0 0 40107
+S
+#40107
+A Small Canyon~
+
+~
+401 0 0 0 0 4
+D0
+~
+~
+0 0 40106
+D1
+~
+~
+0 0 40111
+D2
+~
+~
+0 0 40108
+D3
+~
+~
+0 0 40110
+S
+#40108
+A Small Canyon~
+
+~
+401 0 0 0 0 4
+D0
+~
+~
+0 0 40107
+D2
+~
+~
+0 0 40109
+S
+#40109
+A Small Canyon~
+
+~
+401 0 0 0 0 4
+D0
+~
+~
+0 0 40108
+D1
+~
+~
+0 0 40113
+D2
+~
+~
+0 0 40114
+D3
+~
+~
+0 0 40112
+S
+#40110
+Some Large Hoodoos~
+
+~
+401 0 0 0 0 4
+D1
+~
+~
+0 0 40107
+S
+#40111
+Some Large Hoodoos~
+
+~
+401 0 0 0 0 4
+D3
+~
+~
+0 0 40107
+S
+#40112
+Some Large Hoodoos~
+
+~
+401 0 0 0 0 4
+D1
+~
+~
+0 0 40109
+S
+#40113
+Some Large Hoodoos~
+
+~
+401 0 0 0 0 4
+D3
+~
+~
+0 0 40109
+S
+#40114
+A Small Canyon~
+
+~
+401 0 0 0 0 5
+D0
+~
+~
+0 0 40109
+D2
+~
+~
+0 0 40115
+S
+#40115
+A Cave~
+
+~
+401 5 0 0 0 0
+D0
+~
+~
+0 0 40114
+D2
+~
+~
+0 0 40116
+S
+#40116
+A Tunnel Tapering~
+
+~
+401 1 0 0 0 0
+D0
+~
+~
+0 0 40115
+D2
+~
+~
+0 0 4027
+S
+#40199
+R75 ROOM~
+DO NOT TOUCH ANYTHING!!!!!
+~
+401 1228 0 0 0 0
+D2
+~
+~
+0 0 40103
+S
+$~

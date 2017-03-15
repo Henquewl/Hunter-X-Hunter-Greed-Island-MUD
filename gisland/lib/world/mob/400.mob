@@ -1,0 +1,31 @@
+#40000
+armor empty living suit~
+an empty living armor~
+An empty living armor is here, in position to attack you!
+~
+This mysterious armor moves without a body, very strange!
+~
+56 0 0 0 272 0 0 0 0 E
+2 20 8 0d0+10 1d2+0
+0 400
+8 8 0
+BareHandAttack: 3
+E
+T 40001
+#40001
+rat remote control~
+a remote control rat~
+A remote control rat is here, controlling the suit of armor.
+~
+   These hard to catch creatures use aura to control a suit of armor.  As a
+defensive measure, it uses this armor to mislead a target into thinking the
+armor is the enemy whilst the true creature can escape.
+~
+152 0 0 0 20 0 0 0 0 E
+1 20 9 1d1+0 1d1+0
+125 400
+8 8 0
+BareHandAttack: 4
+E
+T 40002
+$
