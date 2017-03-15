@@ -1,0 +1,62 @@
+Name: Cerin
+Pass: Ce.5zuyvhUbVY
+Titl: the player
+Sex : 1
+Clas: 4
+Levl: 6
+Id  : 381
+Brth: 1489114823
+Plyd: 1801
+Last: 1489116624
+Host: 66.87.120.48
+Hite: 199
+Wate: 130
+Alin: -515
+Act : gh 0 0 0
+Aff : 0 0 0 0
+Pref: efghnoABEF ab 0 0
+Room: 12064
+Lern: 4
+Thir: 12
+Hit : 13/48
+Mana: 24/147
+Move: 125/125
+Str : 12/0
+Int : 13
+Wis : 16
+Dex : 12
+Con : 10
+Cha : 16
+Ac  : 100
+Gold: 1960
+Exp : 27828
+Olc : 0
+Trig: 3210
+Trig: 3239
+Skil:
+3 95
+8 90
+19 95
+20 95
+45 95
+133 95
+135 50
+138 50
+139 50
+140 50
+0 0
+Affs:
+3 2 -1 24 0 0 0 0
+3 2 2 18 0 0 0 0
+0 0 0 0 0 0 0 0
+Alis: 1
+ ad
+ cast 'chill touch'
+0
+Vars: 6
+visited_antokiba 0 12064
+met_vero 0 1
+met_testsubone 0 1
+met_henque 0 1
+book_purge_leaves 0 1
+coins_card_collected 0 1

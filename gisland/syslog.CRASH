@@ -1,0 +1,30 @@
+Mar 15 16:05:04 201  :: SCRIPT ERROR: Room 2800 :: wteleport called with too few args
+Mar 15 16:05:04 201  :: SCRIPT ERROR: Room 2800 :: wforce called with too few args
+Mar 15 16:05:05 201  :: SCRIPT ERROR: Trigger: paladin necklace attach, VNum 65484, type: 1. unknown object field: 'revert'
+Mar 15 16:05:17 201  :: SCRIPT ERROR: Room 2800 :: wsend called without a message
+Mar 15 16:05:17 201  :: SCRIPT ERROR: Room 2800 :: wteleport called with too few args
+Mar 15 16:05:17 201  :: SCRIPT ERROR: Room 2800 :: wforce called with too few args
+Mar 15 16:05:18 201  :: SCRIPT ERROR: Trigger: paladin necklace attach, VNum 65484, type: 1. unknown object field: 'revert'
+Mar 15 16:05:30 201  :: SCRIPT ERROR: Room 2800 :: wsend called without a message
+Mar 15 16:05:30 201  :: SCRIPT ERROR: Room 2800 :: wteleport called with too few args
+Mar 15 16:05:30 201  :: SCRIPT ERROR: Room 2800 :: wforce called with too few args
+Mar 15 16:05:31 201  :: SCRIPT ERROR: Trigger: paladin necklace attach, VNum 65484, type: 1. unknown object field: 'revert'
+Mar 15 16:05:43 201  :: SCRIPT ERROR: Room 2800 :: wsend called without a message
+Mar 15 16:05:43 201  :: SCRIPT ERROR: Room 2800 :: wteleport called with too few args
+Mar 15 16:05:43 201  :: SCRIPT ERROR: Room 2800 :: wforce called with too few args
+Mar 15 16:05:44 201  :: SCRIPT ERROR: Trigger: paladin necklace attach, VNum 65484, type: 1. unknown object field: 'revert'
+Mar 15 16:05:56 201  :: SCRIPT ERROR: Room 2800 :: wsend called without a message
+Mar 15 16:05:56 201  :: SCRIPT ERROR: Room 2800 :: wteleport called with too few args
+Mar 15 16:05:56 201  :: SCRIPT ERROR: Room 2800 :: wforce called with too few args
+Mar 15 16:05:57 201  :: SCRIPT ERROR: Trigger: paladin necklace attach, VNum 65484, type: 1. unknown object field: 'revert'
+Mar 15 16:06:08 201  :: (GC) Shutdown by Henque.
+Mar 15 16:06:08 201  :: Closing all sockets.
+Mar 15 16:06:08 201  :: Closing link to: Henque.
+Mar 15 16:06:08 201  :: Saving current MUD time.
+Mar 15 16:06:08 201  :: Normal termination of game.
+Mar 15 16:06:08 201  :: Clearing game world.
+Mar 15 16:06:08 201  :: Clearing other memory.
+Mar 15 16:06:08 201  :: Done.
+Quick boot mode -- rent check supressed.
+Using file descriptor for logging.
+autoscript terminated qua, 15 de mar de 2017 16:06:08

@@ -1,0 +1,44 @@
+Name: Er
+Pass: ErPF/oJC.7VR2
+Titl: the player
+Desc:
+A teen of around 15 years old.
+s
+A teen of around 15 years old.
+1
+A young, male teen. Looks to be around 15 years old.
+~
+Sex : 1
+Clas: 2
+Levl: 1
+Id  : 120
+Brth: 1479937439
+Plyd: 192
+Last: 1479937631
+Host: 204.209.44.14
+Hite: 185
+Wate: 139
+Act : h 0 0 0
+Aff : 0 0 0 0
+Pref: efghno 0 0 0
+Room: 65535
+Lern: 3
+Hit : -66/23
+Mana: 100/100
+Move: 103/103
+Str : 16/0
+Int : 14
+Wis : 12
+Dex : 16
+Con : 14
+Cha : 10
+Ac  : 100
+Exp : 1
+Olc : 0
+Skil:
+133 50
+135 50
+138 95
+139 50
+140 50
+0 0

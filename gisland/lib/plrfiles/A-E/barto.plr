@@ -1,0 +1,126 @@
+Name: Barto
+Pass: BaWWSPnFDgPDM
+Titl: =O
+Sex : 1
+Clas: 5
+Levl: 27
+Id  : 19
+Brth: 1469546242
+Plyd: 67681
+Last: 1471270654
+Lmot: 1470327730
+Lnew: 1470408045
+Host: 32.104.18.201
+Hite: 170
+Wate: 139
+Alin: -206
+Act : agh 0 0 0
+Aff : 0 0 0 0
+Pref: efghknoF 0 0 0
+Room: 1407
+Lern: 35
+Hit : 86/220
+Mana: 350/360
+Move: 390/241
+Str : 16/0
+Int : 16
+Wis : 17
+Dex : 16
+Con : 12
+Cha : 8
+Ac  : 100
+Gold: 164572
+Exp : 29600125
+Olc : 0
+Trig: 3210
+Trig: 3239
+Skil:
+1 95
+3 90
+4 95
+5 95
+6 95
+8 95
+9 95
+10 90
+14 95
+16 95
+17 95
+18 95
+19 95
+20 95
+21 95
+22 90
+24 95
+25 95
+26 95
+28 95
+29 95
+30 95
+31 95
+32 95
+33 95
+36 95
+37 95
+38 95
+39 95
+40 95
+42 95
+43 95
+44 95
+45 95
+46 90
+47 95
+50 95
+52 95
+54 95
+132 95
+133 95
+134 95
+135 95
+136 95
+137 95
+138 95
+139 95
+140 95
+0 0
+Alis: 13
+ summ
+ cast 'summon rit' $*
+1
+ wk
+ wake
+0
+ gc
+ g all.coins all.corp
+0
+ .
+ goss $*
+1
+ ap
+ cast 'aura pro' $*
+1
+ foc
+ cast 'focus' $*
+1
+ ab
+ cast 'aura blast' $*
+1
+ sho
+ cast 'shockin
+0
+ ident
+ cast 'ident' $*
+1
+ ball
+ cast 'ball
+0
+ fort
+ cast 'fortify' $*
+1
+ for
+ uehaca nbvd
+0
+ heal
+ cast 'heal' $*
+1

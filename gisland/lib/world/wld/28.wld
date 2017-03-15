@@ -1,0 +1,543 @@
+#2800
+Entrance to Hunter Exam:~
+
+@yWELCOME to Greed Island MUD @ROPEN BETA!@n
+
+Well it is a text-based game, uses the best graphic card in entire world... your imagination!
+If you NEVER played a MUD (multi-user-dungeon) before, let me show what you need to do.
+
+1. You see that thing at side of your keyboard? you will not use that here.
+2. Text game use commands to do things, like "look" or "score" or "kill"...
+3. Normally commands has some logic like "do what with who in what?", EX: get all in corpse
+4. It is a @GRPG@n and @GCARD GAME@n and @GSURVIVOR@n and @GMULTIPLAYER@n and @GONLINE@n... and @GHxH@n game!
+5. Be social, use commands to talk with people like "say" to local or "gossip" with everyone.
+6. When you get lost, use command help or help with a subject to learn more. EX: help newbie
+7. It is a soundless game but nothing prevents you hear some music!
+@nRecommended: @Chttps://www.youtube.com/watch?v=54M63VCsplc&list=PL_3rJhzHvq5GJ_FATfhk4_lUNIs9zBuxR@n
+
+@nTo learn how to play go ---> @Ynorth@n <--- to do the Hunter exam, or just @Yn@n.
+
+Or if you are a veteran in MUDs, just go down to skip this newbie tutorial.
+~
+28 92 0 0 0 0
+D0
+This obviously is the grand entrace to Mudschool.
+A sign over the entrace says:
+'Only for newbies'
+~
+~
+0 0 2801
+D5
+   A portal leads to the end of hunter exam.
+~
+~
+0 0 2814
+E
+credits info~
+   Welcor
+~
+S
+T 2802
+T 2806
+T 2800
+#2801
+Hunter Exam 1st Lesson: Finding your way around.~
+   In this context <xxx> means, type xxx and then ENTER.
+ 
+   As you might already have noticed, you move around in the world by
+@ngoing <@Yeast@n>, <@Ywest@n>, <@Ynorth@n>, <@Ysouth@n>, <@Yup@n> or <@Ydown@n>. 
+ 
+   All of these can, like most mud commands,  be abbreviated to one 
+@nletter : <@Ye@n>,<@Yw@n>,<@Yn@n>,<@Ys@n>,<@Yu@n> and <@Yd@n>.
+Throughout this tutorial, you'll be told which direction to continue.
+ 
+If at any point this text should scroll off your screen, 
+@ntype <@Ylook@n> or <@Yl@n>, to redisplay it. Try this now.
+ 
+@nMany questions can also be helped by the command <@Yhelp@n xxx>, where xxx
+is the command you are in doubt about.
+ 
+@nNow, go <@Yeast@n> (<@Ye@n> for short).
+~
+28 92 0 0 0 0
+D1
+~
+~
+0 0 2802
+D2
+~
+~
+0 0 2800
+S
+#2802
+Hunter Exam 2nd Lesson: Finders Keepers~
+   Under this text, you should see a line much like the following:
+    
+@gA treasure chest is on the floor here.@n
+ 
+The treasure chest is bulky, so you can not take that.
+@n- but you can <@Yopen chest@n>, <@Ylook in chest@n> and <@Yget all chest@n>.
+ 
+@nHaving done that, go <@Ynorth@n>
+ 
+~
+28 92 0 0 0 0
+D0
+~
+~
+0 0 2803
+D3
+~
+~
+0 0 2801
+S
+#2803
+Hunter Exam 3rd Lesson: Money talks.~
+You know now, you're carrying a few coins from chest before. It is
+time to spend some. In this room you're not alone anymore - a shopkeeper
+@nhas set up his booth, ready to trade with you. type <@Ygold@n>
+
+@nTo see what he has for sale, type <@Ylist@n>
+
+@nTo buy stuff, type <@Ybuy@n xxx>, where xxx is the thing you want to buy.
+
+@nFor now, <@Ybuy cloak@n>, <@Ybuy knuck@n> and <@Ybuy canteen@n>.
+
+@nIf you have a not useful item, check it <@Yvalue@n xxx> to see what the
+@nshopkeeper will give you for it. If the price is right, <@Ysell@n xxx>.
+
+@nGo @Yeast@n when done, or return south if you forgot to loot the chest.
+~
+28 220 0 0 0 0
+D1
+~
+~
+0 0 2804
+D2
+~
+~
+0 0 2802
+S
+#2804
+Hunter Exam 4th Lesson: How to not go through life naked!~
+If you check your equipment, you can see that your have some items.
+ 
+@nTo start using your stuff, you need to <@Ywear@n> it. The command <@Ywear all@n> will
+make you attempt to wear all you're carrying.
+ 
+@nFor now, type <@Ywear cloak@n> to wear the cloak.
+ 
+@nThe command <@Yequipment@n> (<@Yeq@n> for short) will show you what you are 
+currently using. It is not possible to have more than one item equipped
+in one 'slot' at any one time - except the neck, where there actually are
+two slots. This is why you can wear both cloaks.
+ 
+@nTo take the cloaks off again, you must use the <@Yremove@n> command - 
+@n<@Yremove cloak@n>
+ 
+@nTo use a weapon, you must <@Ywield@n> it if you have one.
+  
+@nThen go @Ynorth@n.
+~
+28 92 0 0 0 0
+D0
+~
+~
+0 0 2805
+D3
+~
+~
+0 0 2803
+S
+#2805
+Hunter Exam 5th Lesson: Preparing for battle.~
+   Now you're wearing just a little armor (the cloak) and you are
+almost ready to fight your first battle.  In the next room there
+is a small monster, asleep and very easy to kill. 
+ 
+This colored bar you see every time is your prompt. <@Yhelp prompt@n>
+
+In there are vital information about your character status.
+@nTranslating: <@BNen%@n> <@GMove%@n> / <@RHP@n/@RMAX@n>
+
+@BNen@n is your energy, your "mana" points.
+@GMove@n is used when you walk through directions.
+@RHP@n is your actual hitpoints, @RMAX@n means maximum hitpoints.
+
+For more details about your character status type <@Yscore@n>.
+
+You can go east now to your first battle.
+~
+28 92 0 0 0 0
+D1
+~
+~
+0 0 2806
+D2
+~
+~
+0 0 2804
+S
+#2806
+Hunter Exam 6th Lesson: The end of poor piglet.~
+@n   First type <@Yconsider piglet@n>, then <@Ykill piglet@n> to start fighting
+@nthe piglet. If it is not here, wait a couple of minutes, then <@Ylook@n> to
+see if it has come back.
+
+@nIn any time you can <@Ydiagnose@n> your target to know its health condition.
+ 
+After you kill the piglet, you might want to see if it was carrying
+@nanything. To do this type <@Yexamine corpse@n>. You'll find a couple of
+@nporkchops in the corpse. To pick them up, type <@Yget all corpse@n>.
+ 
+Then go <@Ynorth@n>
+~
+28 76 0 0 0 0
+D0
+~
+~
+0 0 2807
+D3
+~
+~
+0 0 2805
+S
+#2807
+Hunter Exam 7th Lesson: Gourmet Lunch break.~
+   So.. You might be getting hungry and thirsty by now. Luckily the piglet
+had some pork chops for you, and you've bought a canteen full of water.
+@nTo drink the water : <@Ydrink canteen@n> two times.
+
+@nTo eat the pork chops : <@Yeat pork@n> until you get full.
+
+You might want to repeat one or both of these commands, until you're
+@nfull. This can easily be done with the <@Y!@n> command, which will repeat
+the last typed command. Thus, to eat two pork chops :
+
+@ntype <@Yeat pork@n>
+@ntype <@Y!@n>
+
+@nLunch break over, time to go to class. See the teacher to the @Yeast@n.
+~
+28 92 0 0 0 0
+D1
+~
+~
+0 0 2808
+D2
+~
+~
+0 0 2806
+S
+#2808
+Hunter Exam 8th Lesson: Classes !? - Why?~
+   Until now, the path has been the same for all classes. All have been
+through the same texts, had to deal with the same monster. Here however,
+The paths separate. A bunch of signs have been set up on the wall here.
+A teacher stands in front of them, and will teach you your classes' special
+abilities.
+ 
+@nThe signs have large Titles: @YENHANCER@n, @YEMISSOR@n, @YCONJURER@n, @YTRANSMUTER@n and @YMANIPULATOR@n.
+ 
+@nTo read a sign type <@Ylook@n xxx> where xxx is one of the above.
+@nFor more information type <@Yhelp aura-type@n> and <@Yhelp stats@n>.
+
+@nWhen you are done here, go @Ynorth@n.
+~
+28 92 0 0 0 0
+D0
+~
+~
+0 0 2809
+D3
+~
+~
+0 0 2807
+E
+manipulator~
+   The only hatsu you can learn now is gyo or chill touch.
+'chill touch' will weaken the target and cause some damage.
+'gyo' which will allow see things and creatures concealed with aura.
+
+To get better at any one of these, type
+
+	n<	Ypractice chill touch	n>
+or
+	n<	Ypractice gyo	n>
+
+to use the hatsus later, type
+	n<	Ycast 'chill touch'	n xxx> and 	n<	Ycast 'gyo'	n>
+where xxx is the name of your target.
+~
+E
+conjurer~
+   The only hatsu you can learn now is gyo or aura protection.
+
+'aura protection' which will better your armor class.
+'gyo' which will allow see things and creatures concealed with aura.
+
+To get better at any one of these, type
+
+	n<	Ypractice aura protection	n>
+or
+	n<	Ypractice gyo	n>
+
+to use the hatsus later, type
+	n<	Ycast 'aura protection'	n> and <	Ycast 'gyo'	n>
+~
+E
+emissor~
+   The only hatsu you can learn now is gyo or aura blast.
+'aura blast' will cause some damage to the target.
+'gyo' which will allow see things and creatures concealed with aura.
+
+To get better at any one of these, type
+
+	n<	Ypractice aura blast	n>
+or
+	n<	Ypractice gyo	n>
+
+to use the hatsus later, type
+	n<	Ycast 'aura blast'	n xxx> and <	Ycast 'gyo'	n>
+where xxx is the name of your target.
+~
+E
+transmuter~
+The only spell you can learn on this low level is 'nen stitches',
+which will heal a little damage done to you or your friend - if you have energy to cast it.
+
+	nTo get better at this, type <	Ypractice nen stitches	n>
+
+	nIf you just want to see what you can learn, type <	Ypractice	n>.
+
+	nLater, you can use the hatsu by typing <	Ycast 'nen stitches' target	n>.
+~
+E
+enhancer~
+   The only skill you can learn on this low level is a kick, 
+which will do a little damage to your enemy - if you hit.
+	nTo get better at this, type <	Ypractice kick	n>
+	nIf you just want to see what you can learn, type <	Ypractice	n>.
+	nLater, you can use the skill in combat by typing <	Ykick	n>.
+~
+S
+#2809
+Hunter Exam 9th Lesson: Who Am I - really ?~
+@n   To get some statistics on yourself type <@Yscore@n>.
+ 
+The display of hitpoints, mana and move shows you how much you have
+@nright now, and your @ccurrent maximum@n in the @y[ ]@n's.
+
+Your AC is best if it's low, as monsters hit you less often then.
+After that is your alignment. 1000 being pure good, -1000 being pure evil. 
+Next is your experience and gold followed by how long you have been playing.
+Lastly you are informed of your level and current position.  Reach the needed
+experience points and you will level up, raising some status and getting some
+extra practice points.
+ 
+@nNow continue @Ynorth@n.
+~
+28 92 0 0 0 0
+D0
+~
+~
+0 0 2810
+D2
+~
+~
+0 0 2808
+S
+#2810
+Hunter Exam 10th Lesson: Shortcuts~
+@n   A very helpful command is <@Yalias@n>, doing an alias will make a custom
+shortcut command to easy your life while playing.
+
+For example:
+
+@ntype <@Yalias dc drink canteen@n>
+
+@nEvery time you type <@Ydc@n> now will drink your canteen.
+
+It's possible do an alias to do a shortcut command and add a non defined argument.
+
+@ntype <@Yalias op open door@n>
+
+@nNow you can open a door just with <@Yop@n> or a specified direction like <@Yop east@n>.
+
+@nTo check aliases done by you, just type <@Yalias@n>.
+@nTo delete an alias, just type <@Yalias@n xxx> where xxx is the shortcut name.
+
+@nNow move @Yeast@n for some basic manouvres.
+~
+28 92 0 0 0 0
+D1
+~
+~
+0 0 2811
+D2
+~
+~
+0 0 2809
+S
+#2811
+Hunter Exam 11th Lesson : Doors - a menace to free movement.~
+   In this room a door blocks your way east.
+ 
+@nTo get past it you'll have to <@Yopen door@n> (or <@Yop@n> if you done an alias).
+ 
+If for any reason you'd wish to stop others from doing the same,
+@nthe command <@Yclose door@n> will do the trick. If you happen to carry
+@nthe right key, you may also <@Ylock door@n> and <@Yunlock door@n>.
+ 
+@nThieves may also try to unlock a locked door by <@Ypick@n>ing it, 
+if they know the skill.
+ 
+@nRight now, <@Yopen door east@n> and proceed east.
+~
+28 92 0 0 0 0
+D1
+A common door is here.
+~
+door~
+1 0 2812
+D3
+~
+~
+0 0 2810
+S
+#2812
+Hunter Exam 12th Lesson : Socialising~
+   The world might seem a little boring if you don't know how to communicate.
+
+@nFirst of all, you need know with who you are talking about, <@Ylook@n> if has
+@nplayers inside your same room to talk about or <@Ywho@n> is online right now.
+
+@nYou may <@Ysay@n> things, so others in the same room as you can hear you. Try
+@n<@Ysay Hello@n>
+
+Others in the room would see the results as
+Yourname says, 'Hello'
+
+If you want to communicate only with people nearby where you are,
+@njust <@Yshout@n> something.
+
+@nTo everyone online in the game, <@Ygossip@n> something.
+
+@nLevel 15 characters can use the command <@Yanalyze@n> ro check player's
+profiles in room.  Also peek inventories when look to someone.
+
+For more information about more ways of communication,
+@ntype <@Yhelp socials@n> and <@Yhelp communication@n>
+
+@nEnough of talking, just hurry @Ysouth@n.
+~
+28 92 0 0 0 0
+D2
+~
+~
+0 0 2814
+D3
+A common door is here.
+~
+door~
+1 0 2811
+S
+#2813
+Hunter Exam 14th Lesson : You are ALMOST a professional Hunter~
+@n   Do you like magic tricks? I have a one for you... look your <@Yinventory@n>.
+
+There is a card inside your pocket! This game are full for cards down there.
+
+@nTo use a card you must <@Yhold@n xxx> and after <@Ygain@n>, it will transform into an object. 
+In this case, your card will give you 1000 gold coins, you can spend it in city shops.
+
+@n"@yYellow@n" cards is object(s) in a card form, most of these objects can be reverted
+@nagain into a card form just holding it again and typing once more <@Ygain@n>.
+
+You can sell cards to NPCs shopkeepers, but they do not accept non-card items for gold.
+@nFor more info search for <@Yhelp cards@n> later.
+
+An advantage in keeping them into a card format, this item will weight nothing and
+@nyou can store cards into your <@Ybook@n> (You will receive a binder book for cards soon)
+
+@nTo start the campaign, just go @Ydown@nstairs. *Promoted by Hunter Association*
+~
+28 92 0 0 0 0
+D3
+~
+~
+0 0 2814
+D5
+~
+~
+0 0 1401
+S
+T 2800
+#2814
+Hunter Exam 13th Lesson : Getting the game on your side.~
+
+   Some commands do automatic things for you. To configure a better character
+behavior, lets use some special commands (Optional commands of course):
+
+@ntype <@Yautogold@n> to loot gold when you kill monsters.
+@ntype <@Yautodoor@n> makes you character open doors without need to specify directions.
+@ntype <@Yautokey@n> for open locked doors if you have the key, without need use unlock.
+@ntype <@Yautoassist@n> to help your group of fighters if they enter in a combat.
+@ntype <@Yautosplit@n> for split the gold reward with your group after loot a corpse.
+
+@nYou can use the @Yflee@n command when get low health while fighting and escape from it,
+@nbut you can @Ytoggle wimpy@n <hitpoints> and when reach that hitpoints your character
+will flee from this combat automatically.
+
+Use some useful help files to learn more!
+
+Interesting basic subjects: newbie, background, aura-type, stats, combat, toggle.
+Advanced subjects (see it later): cards, book, gain, rarity.
+
+Or just type help and see what subjects has to you seek information about play it.
+
+Tip 1 from Game Master: Rooms named as "Temple" heals your char more quickly.
+Tip 2 from Game Master: Use Leave spell card before quit the game, will save your
+char items and record the cities you have already visited.
+
+Now go east for the final lesson.
+~
+28 92 0 0 0 0
+D0
+~
+~
+0 0 2812
+D1
+~
+~
+0 0 2813
+D5
+~
+~
+0 0 -1
+S
+T 2814
+#2815
+Welcors ~~~ ~~~ furnace~
+   You seem to be standing in a cave of some sort.  A rather large cave.  
+Actually the cave is so large you think you could just as well be standing
+outside.  The ceiling is so high above you, you can't really make out the
+contours of it.  The sides of the cave are burning.  Had you not felt so
+comfortable, you could easily think you were inside a gigantic fire, looking
+out through the flames.  You realise, with a sudden stab of fear, that you've
+unwittingly stumbled into the home of Welcor, God of Fiery Justice.  You've
+better not be here when he gets back...    
+~
+28 8 0 0 0 0
+E
+Welcor~
+   Even when not here, you sense his presence.    
+~
+E
+flame wall burning fire~
+   As you study the walls closer, you realise magic keeps the fire alive, and
+it really is HOT.  Reaching out to touch it proves a very bad idea, giving you
+several burn marks on your hand
+~
+S
+$~

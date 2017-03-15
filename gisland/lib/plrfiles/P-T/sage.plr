@@ -1,0 +1,44 @@
+Name: Sage
+Pass: SazMmBOSDDAPc
+Titl: the player
+Desc:
+1
+~
+Sex : 2
+Clas: 2
+Levl: 1
+Id  : 403
+Brth: 1489180920
+Plyd: 249
+Last: 1489181169
+Host: 34.197.103.100
+Hite: 157
+Wate: 102
+Act : gh 0 0 0
+Aff : 0 0 0 0
+Pref: efghno 0 0 0
+Room: 65535
+Lern: 3
+Hung: 19
+Thir: 19
+Hit : 21/21
+Mana: 100/100
+Move: 106/106
+Str : 12/0
+Int : 9
+Wis : 9
+Dex : 15
+Con : 12
+Cha : 7
+Ac  : 100
+Gold: 4
+Exp : 60
+Olc : 0
+Page: 0
+Skil:
+133 50
+135 50
+138 95
+139 50
+140 50
+0 0

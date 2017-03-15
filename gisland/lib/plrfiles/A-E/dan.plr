@@ -1,0 +1,57 @@
+Name: Dan
+Pass: Da4C8nayWdf9k
+Titl: 
+Sex : 1
+Clas: 1
+Levl: 1
+Id  : 342
+Brth: 1489061070
+Plyd: 2821
+Last: 1489193489
+Host: 34.197.103.100
+Hite: 164
+Wate: 171
+Act : h 0 0 0
+Aff : 0 0 0 0
+Pref: efghnoCF 0 0 0
+Wimp: 5
+Room: 65473
+Lern: 1
+Hung: 2
+Hit : 22/22
+Mana: 100/100
+Move: 104/104
+Str : 10/0
+Int : 10
+Wis : 16
+Dex : 10
+Con : 9
+Cha : 8
+Ac  : 100
+Gold: 1030
+Exp : 118
+Olc : 0
+Trig: 3210
+Trig: 3239
+Skil:
+1 50
+133 50
+135 95
+138 50
+139 50
+140 50
+0 0
+Affs:
+1 0 -21 17 0 0 0 0
+0 0 0 0 0 0 0 0
+Alis: 2
+ dc
+ drink canteen
+0
+ cap
+ cast 'aura protection'
+0
+Vars: 3
+met_henque 0 1
+book_purge_leaves 0 1
+coins_card_collected 0 1

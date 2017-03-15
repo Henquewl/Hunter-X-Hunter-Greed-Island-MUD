@@ -1,0 +1,41 @@
+Name: Kakarotto
+Pass: KakTan/pVfFvE
+Titl: the player
+Desc:
+Emmiter class
+~
+Sex : 1
+Clas: 2
+Levl: 1
+Id  : 222
+Brth: 1488994306
+Plyd: 555
+Last: 1488995062
+Host: 34.197.103.100
+Hite: 185
+Wate: 177
+Act : gh 0 0 0
+Aff : 0 0 0 0
+Pref: efghno 0 0 0
+Room: 65535
+Lern: 3
+Hit : 22/22
+Mana: 100/100
+Move: 103/103
+Str : 14/0
+Int : 11
+Wis : 11
+Dex : 15
+Con : 14
+Cha : 11
+Ac  : 100
+Gold: 5
+Exp : 10
+Olc : 0
+Skil:
+133 50
+135 50
+138 95
+139 50
+140 50
+0 0

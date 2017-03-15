@@ -1,0 +1,116 @@
+Text      jajanken fix~
+Body      Do a every second check
+fix check damage reduction
+~
+Name      Henque~
+IdNum     1
+Dated     1465234765
+Level     34
+Room      40065
+Flags     1 0 0 0
+End
+Text      TODO list~
+Body      1. edit items to card on chess
+2. edit remaining items to card in antokiba
+3. complete world
+4. fix close binder when travel with cards
+~
+Name      Henque~
+Notes     4. resolved
+1. in progress
+~
+IdNum     1
+Dated     1465853026
+Level     34
+Room      2800
+Flags     4 0 0 0
+End
+Text      heal player trigger 40000~
+Body      heal players who down 1407 %damage% %actor% -%actor.maxhit%
+~
+Name      Henque~
+IdNum     1
+Dated     1466541226
+Level     34
+Room      1407
+Flags     1 0 0 0
+End
+Text      the command is IH or ih stands for info here gives a list of all interactable items in the room and their item id~
+Body      say oh it wants me to create the actual command?
+l
+l
+~
+Name      Vandrex~
+IdNum     36
+Dated     1466566638
+Level     1
+Room      3503
+Flags     0 0 0 0
+End
+Text      change aura missile to aura blast~
+Body      change aura missile to aura blast
+~
+Name      Henque~
+IdNum     1
+Dated     1467094897
+Level     34
+Room      2800
+Flags     0 0 0 0
+End
+Text      Change map letters~
+Body      Forest Y to F
+City C to Road R and bright white
+Boat to Deep and bright blue
+Swim to Shallow
+Hills m to H and yellow
+You ! to *
+Inside to Place
+Mountain to gray
+~
+Name      Henque~
+IdNum     1
+Dated     1467641088
+Level     34
+Room      1406
+Flags     0 0 0 0
+End
+Text      change quit msg to forcequit~
+Body      CYou only can save your items in front of Elena, otherwise type 	Rforcequit	C.	n
+~
+Name      Henque~
+IdNum     1
+Dated     1467999349
+Level     34
+Room      2800
+Flags     1 0 0 0
+End
+Text      detect enfold detects curse~
+Body      do it
+~
+Name      Henque~
+IdNum     1
+Dated     1469556451
+Level     34
+Room      4023
+Flags     0 0 0 0
+End
+Text      change gold into cards~
+Body      do it
+~
+Name      Henque~
+IdNum     1
+Dated     1469813488
+Level     34
+Room      40000
+Flags     0 0 0 0
+End
+Text       hover player on look~
+Body      Show the player is hovering when somone look at him
+~
+Name      Henque~
+IdNum     1
+Dated     1489446367
+Level     34
+Room      12064
+Flags     0 0 0 0
+End

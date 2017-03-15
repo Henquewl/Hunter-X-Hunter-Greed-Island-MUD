@@ -1,0 +1,44 @@
+Name: Gamecrazy
+Pass: GaJ.lyjnRQzcw
+Titl: the player
+Sex : 1
+Clas: 1
+Levl: 1
+Id  : 113
+Brth: 1479924409
+Plyd: 757
+Last: 1479929179
+Host: 73.36.192.169
+Hite: 181
+Wate: 167
+Act : h 0 0 0
+Aff : 0 0 0 0
+Pref: efghno 0 0 0
+Room: 65535
+Hit : -65/20
+Mana: 100/100
+Move: 104/104
+Str : 11/0
+Int : 12
+Wis : 15
+Dex : 11
+Con : 8
+Cha : 7
+Ac  : 100
+Exp : 29
+Olc : 0
+Skil:
+19 75
+133 50
+135 95
+138 50
+139 50
+140 50
+0 0
+Alis: 2
+ dc
+ drink canteen
+0
+ op
+ open door
+0

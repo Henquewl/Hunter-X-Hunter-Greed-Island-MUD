@@ -1,0 +1,53 @@
+Name: Rio
+Pass: RiiyX8REmnihE
+Titl: the player
+Clas: 4
+Levl: 1
+Id  : 138
+Brth: 1480034563
+Plyd: 1243
+Last: 1480099506
+Lmot: 1480034774
+Lnew: 1480099507
+Host: 127.0.0.1
+Hite: 167
+Wate: 114
+Act : gh 0 0 0
+Aff : 0 0 0 0
+Pref: efghnoBF 0 0 0
+Room: 1407
+Lern: 3
+Hit : 10/21
+Mana: 100/100
+Move: 104/104
+Str : 10/0
+Int : 15
+Wis : 15
+Dex : 13
+Con : 7
+Cha : 17
+Ac  : 100
+Gold: 1010
+Exp : 844
+Olc : 0
+Trig: 3210
+Trig: 3239
+Skil:
+133 95
+135 50
+138 50
+139 50
+140 50
+0 0
+Alis: 3
+ dc
+ drink canteen\
+0
+ op
+ open door
+0
+ cd
+ close door
+0
+Vars: 1
+book_purge_leaves 0 }1306848

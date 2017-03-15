@@ -1,0 +1,38 @@
+Name: Lucifer
+Pass: LutckLltiCIKE
+Titl: the player
+Sex : 1
+Levl: 1
+Id  : 410
+Brth: 1489194564
+Plyd: 357
+Last: 1489195179
+Host: 34.197.103.100
+Hite: 191
+Wate: 143
+Act : h 0 0 0
+Aff : 0 0 0 0
+Pref: efghnoB 0 0 0
+Room: 65535
+Lern: 3
+Hit : 21/21
+Mana: 100/100
+Move: 102/102
+Str : 8/0
+Int : 13
+Wis : 12
+Dex : 11
+Con : 7
+Cha : 7
+Ac  : 100
+Exp : 1
+Olc : 0
+Skil:
+133 50
+135 50
+138 50
+139 95
+140 50
+0 0
+Vars: 1
+coins_card_collected 0 1

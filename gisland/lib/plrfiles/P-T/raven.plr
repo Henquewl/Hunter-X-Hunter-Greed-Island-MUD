@@ -1,0 +1,41 @@
+Name: Raven
+Pass: Ra9H0U6rwKStA
+Titl: the player
+Sex : 1
+Clas: 4
+Levl: 1
+Id  : 119
+Brth: 1479935498
+Plyd: 13
+Last: 1489027839
+Host: 34.197.103.100
+Hite: 192
+Wate: 124
+Act : h 0 0 0
+Aff : 0 0 0 0
+Pref: efghno 0 0 0
+Room: 65535
+Badp: 2
+Lern: 3
+Hit : -48/20
+Mana: 100/100
+Move: 104/104
+Str : 11/0
+Int : 12
+Wis : 13
+Dex : 12
+Con : 11
+Cha : 15
+Ac  : 100
+Exp : 1
+Olc : 0
+Page: 0
+Skil:
+133 95
+135 50
+138 50
+139 50
+140 50
+0 0
+Vars: 1
+coins_card_collected 0 1

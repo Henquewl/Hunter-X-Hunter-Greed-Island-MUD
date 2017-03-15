@@ -1,0 +1,337 @@
+#65400
+graffiti wall south~
+graffiti~
+Some graffiti is scrawled on the wall to the south.~
+~
+13 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0
+0 0 0 0 0
+E
+graffiti wall south~
+   This subdivision was built to use with the TBA housing code since the code
+needs rooms that have already been created.  It's a very simple plan with 38
+houses, meant to simplify the placing of houses.  Feel free to make any changes.
+Look map for a better idea of the layout.
+
+   If you want to use this subdivision but need more than 38 houses, First and
+Second Streets can be continued to the east by changing the room names and some
+of the exit descriptions.  First and Second Avenue would need to be changed to
+Third and Fourth Avenue.  
+ 
+   If you need more space, you might want to change #3 and #8 Second Street to
+continue the Avenues southward and change #3 and #8 First Street of the new
+section to match.  Of course, First and Second Street would become Third and
+Fourth Streets.  
+ 
+Sorry for any errors.  Please wash this wall with zedit.
+
+Hugs,
+Parnassus for TBAmud
+December 12, 2013
+~
+#65401
+fairy breath~
+the fairy breath~
+An unfinished object is lying here.~
+~
+2 cdq 0 0 0 0 0 0 0 0 0 0 0
+-1 28 35 43
+0 0 0 0 0
+#65402
+keychain subdivision~
+a plain keychain~
+Someone left a keychain lying here.~
+~
+8 a 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 1 0 0 0
+T 65400
+E
+keychain subdivision~
+   This keychain, when held in a room away from the subdivision, will bring
+you to the subdivision intersection of First Street and First Avenue to make
+it easier to find your way home.  If you hold it again, anywhere in the
+subdivision, it will take you back to where you came from.
+~
+#65403
+pitcher eternal water~
+the Pitcher of Eternal Water~
+The Pitcher Eternal Water is left here... flooding the ground.~
+~
+17 gi 0 0 0 ao 0 0 0 0 0 0 0
+-1 2 15 0
+2 0 0 0 0
+T 3207
+#65407
+keychain subdivision~
+a plain keychain~
+Someone left a keychain lying here.~
+~
+8 a 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 1 0 0 0
+T 65400
+E
+keychain subdivision~
+   This keychain, when held in a room away from the subdivision, will bring
+you to the subdivision intersection of First Street and Second Avenue to
+make it easier to find your way home.  If you hold it again, anywhere in the
+subdivision, it will take you back to where you came from.
+~
+#65412
+keychain subdivision~
+a plain keychain~
+Someone left a keychain lying here.~
+~
+8 a 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 1 0 0 0
+T 65400
+E
+keychain subdivision~
+   This keychain, when held in a room away from the subdivision, will bring
+you to the subdivision intersection of Second Street and First Avenue to
+make it easier to find your way home.  If you hold it again, anywhere in the
+subdivision, it will take you back to where you came from.
+~
+#65417
+keychain subdivision~
+a plain keychain~
+Someone left a keychain lying here.~
+~
+8 a 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 1 0 0 0
+T 65400
+E
+keychain subdivision~
+   This keychain, when held in a room away from the subdivision, will bring
+you to the subdivision intersection of Second Street and Second Avenue to
+make it easier to find your way home.  If you hold it again, anywhere in the
+subdivision, it will take you back to where you came from.
+~
+#65425
+dice black icosahedron risky die~
+a black dice~
+An icosahedron black dice was thrown here.~
+~
+13 0 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+T 3207
+T 65425
+E
+dice black icosahedron risky die~
+   This dice have 20 faces, 19 has engraved a star and 1 side has a skull.  
+What can happen if I drop that skull?...
+~
+#65431
+postcard old~
+a very old postcard~
+A very old postcard is here, covered by dust.~
+   Hello my dear.
+
+My spirit is fine, I've met so many friends up here.
+Please! Do not wish to stay here too soon about what
+I said... live with peace and avoid wars, unlike me.
+
+PS: Ask for that old man who clean the chapel do it
+more often... has dust everywhere!
+
+                                     Uncle Ben
+~
+16 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+T 3207
+#65461
+61 vending checkup card~
+@m61 Vending Check-Up A-20 card@n~
+The @m61 Vending Check-Up A-20 card@g is lying here.@n~
+~
+8 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 0 0 0 2
+E
+61 vending checkup card~
+A full-body medical scan for just 500 g. However, the only results are
+"All Clear" or "Anomaly Detected," in which case it is recommended you see a doctor.
+~
+#65473
+jade night~
+@Da night jade@n~
+A @Dnight jade@g was thrown here.@n~
+~
+11 gj 0 0 0 aco 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+T 3207
+A
+24 -4
+A
+20 -4
+A
+21 -4
+A
+22 -4
+A
+23 -4
+#65474
+aquamarine stone~
+@Can aquamarine stone@n~
+An @Caquamarine stone@g was thrown here.@n~
+~
+11 gk 0 0 0 amo 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+T 3207
+A
+3 2
+#65475
+alexandrite ring~
+@can @ralexandrite @bring@n~
+An @ralexandrite @bring @gwas thrown here.@n~
+~
+11 g 0 0 0 abo 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+T 3207
+E
+alexandrite ring~
+   This ornate ring is studded with an alexandrite stone.
+~
+A
+4 2
+#65480
+levitation stone~
+@ca levitation stone@n~
+A @cstone@g is here, floating with the air.@n~
+~
+11 g 0 0 0 ao 0 0 0 hqr 0 0 0
+0 0 0 0
+2 0 0 0 0
+T 3207
+E
+levitation stone~
+   This cyan jewel ignores completely the gravity.
+Appears useful to land softly, walk over the water and
+do not leave any foot prints when walks while holding it.
+Also gives a feeling of weightless, easing a hike.
+~
+A
+10 -2
+#65483
+sword truth~
+the Sword of Truth~
+On the floor rests a sword with symbols engraved over its blade.~
+~
+5 gk 0 0 0 ano 0 0 0 0 0 0 0
+0 3 6 3
+12 0 0 0 0
+T 3207
+T 65483
+T 3246
+E
+two-handed sword~
+   You notice that there has been inscribed some runes and a sort of pattern,
+which resembles flames running along the edge.  
+~
+E
+runes~
+   On the blade you can read 'Flame And Strength United Are My Soul Power'.  
+~
+A
+18 3
+A
+19 3
+#65484
+paladin necklace~
+a paladin's necklace~
+A paladin's necklace was left here.~
+~
+11 g 0 0 0 aco 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+T 3207
+T 65484
+E
+paladin necklace~
+   Has a golden chain and some cross stamped in a blue gem adorned with swords.
+~
+A
+5 1
+A
+6 1
+#65487
+shield faith round large~
+the Shield of Faith~
+A large round shield has been left here.~
+~
+9 0 0 0 0 ajo 0 0 0 0 0 0 0
+5 0 0 0
+15 0 0 0 0
+T 3207
+E
+shield round large~
+   It is made from hard wood that has been reinforced with heavy iron bands.  
+Some strange painting was made on this shield, like runic marks.
+~
+A
+13 25
+A
+12 75
+A
+14 50
+#65489
+gauntlet collector tax~
+the tax collector's gauntlet~
+A beautiful gauntlet is rolling here.~
+~
+9 gq 0 0 0 amo 0 0 0 0 0 0 0
+1 0 0 0
+5 0 0 0 0
+T 3207
+E
+gauntlet collector tax~
+   A beautiful green gauntlet without the part of hands, is possible wear this
+over the wrist.
+~
+#65490
+memory helmet~
+a memory helmet~
+Some sort of mad scientist did a helmet that was deployed here.~
+~
+9 g 0 0 0 aeo 0 0 0 0 0 0 0
+5 0 0 0
+50 0 0 0 0
+T 3207
+E
+memory helmet~
+   An extremely large and heavy helmet with some antennas over it.
+~
+A
+16 127
+A
+16 127
+A
+16 127
+A
+16 127
+A
+16 127
+A
+16 127
+#65494
+bandit blade~
+a bandit's blade~
+A bandit's blade is here, waiting for the next victim.~
+~
+5 dfh 0 0 0 ano 0 0 0 0 0 0 0
+0 5 3 11
+3 0 0 0 0
+T 3207
+A
+18 -3
+A
+19 -1
+$~

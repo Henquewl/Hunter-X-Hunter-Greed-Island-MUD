@@ -1,0 +1,42 @@
+Name: Bowun
+Pass: Boa.Piy28R4Jo
+Titl: the player
+Sex : 1
+Clas: 4
+Levl: 1
+Id  : 164
+Brth: 1480473357
+Plyd: 2177
+Last: 1480475801
+Host: 115.164.185.47
+Hite: 190
+Wate: 164
+Act : h 0 0 0
+Aff : 0 0 0 0
+Pref: efghnoBF b 0 0
+Room: 65535
+Lern: 3
+Hit : -60/21
+Mana: 100/100
+Move: 102/102
+Str : 12/0
+Int : 14
+Wis : 14
+Dex : 14
+Con : 10
+Cha : 16
+Ac  : 100
+Exp : 200
+Olc : 0
+Trig: 3210
+Trig: 3239
+Skil:
+133 95
+135 50
+138 50
+139 50
+140 50
+0 0
+Vars: 2
+book_purge_leaves 0 }1310833
+coins_card_collected 0 1

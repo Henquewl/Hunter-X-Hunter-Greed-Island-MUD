@@ -1,0 +1,41 @@
+Name: Leftyness
+Pass: LehAim29rAMvI
+Titl: the player
+Sex : 1
+Levl: 1
+Id  : 132
+Brth: 1479995901
+Plyd: 7
+Last: 1479995908
+Host: 204.209.44.14
+Hite: 198
+Wate: 129
+Act : gh 0 0 0
+Aff : 0 0 0 0
+Pref: efghno 0 0 0
+Room: 65535
+Lern: 1
+Hung: 17
+Thir: 17
+Hit : 21/21
+Mana: 100/100
+Move: 105/105
+Str : 9/0
+Int : 17
+Wis : 16
+Dex : 14
+Con : 8
+Cha : 8
+Ac  : 100
+Exp : 58
+Olc : 0
+Skil:
+16 90
+133 50
+135 50
+138 50
+139 95
+140 50
+0 0
+Vars: 1
+coins_card_collected 0 1

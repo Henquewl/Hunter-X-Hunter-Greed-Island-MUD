@@ -1,0 +1,47 @@
+Name: Invinible
+Pass: InD8SK24swRr6
+Titl: the player
+Clas: 2
+Levl: 2
+Id  : 7
+Brth: 1469594346
+Plyd: 1681
+Last: 1469596027
+Host: 204.209.44.14
+Hite: 153
+Wate: 141
+Alin: 72
+Act : gh 0 0 0
+Aff : 0 0 0 0
+Pref: efghnoF 0 0 0
+Room: 1407
+Lern: 3
+Hit : 30/15
+Mana: 14/110
+Move: 87/90
+Str : 16/0
+Int : 11
+Wis : 11
+Dex : 17
+Con : 13
+Cha : 10
+Ac  : 100
+Gold: 678
+Exp : 3597
+Olc : 0
+Skil:
+3 25
+19 25
+32 25
+133 50
+135 50
+138 95
+139 50
+140 50
+0 0
+Affs:
+3 4 -1 24 0 0 0 0
+3 4 2 18 0 0 0 0
+0 0 0 0 0 0 0 0
+Vars: 1
+visited_antokiba 0 12064

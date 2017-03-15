@@ -1,0 +1,45 @@
+Name: Zen
+Pass: Ze4Vdtfqobaug
+Titl: the player
+Sex : 1
+Clas: 4
+Levl: 1
+Id  : 135
+Brth: 1480001308
+Plyd: 616
+Last: 1480001924
+Lmot: 1480001920
+Lnew: 1480001895
+Host: 204.209.44.14
+Hite: 194
+Wate: 178
+Act : h 0 0 0
+Aff : 0 0 0 0
+Pref: efghnoF 0 0 0
+Room: 65535
+Lern: 3
+Hung: 16
+Thir: 16
+Hit : -11/19
+Mana: 100/100
+Move: 101/104
+Str : 9/0
+Int : 11
+Wis : 13
+Dex : 10
+Con : 6
+Cha : 14
+Ac  : 100
+Exp : 10
+Olc : 0
+Trig: 3210
+Trig: 3239
+Skil:
+133 95
+135 50
+138 50
+139 50
+140 50
+0 0
+Vars: 1
+coins_card_collected 0 1

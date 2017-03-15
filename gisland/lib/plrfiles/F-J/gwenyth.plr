@@ -1,0 +1,48 @@
+Name: Gwenyth
+Pass: Gw/tbFuLjt0Bg
+Titl: the player
+Sex : 2
+Clas: 2
+Levl: 1
+Id  : 130
+Brth: 1479975466
+Plyd: 972
+Last: 1479977083
+Lmot: 1479977252
+Lnew: 1479977238
+Host: 97.120.190.15
+Hite: 180
+Wate: 152
+Act : gh 0 0 0
+Aff : 0 0 0 0
+Pref: efghno 0 0 0
+Room: 65535
+Hung: 16
+Thir: 9
+Hit : 23/23
+Mana: 100/100
+Move: 104/104
+Str : 14/0
+Int : 10
+Wis : 9
+Dex : 14
+Con : 11
+Cha : 6
+Ac  : 100
+Gold: 1033
+Exp : 58
+Olc : 0
+Skil:
+32 75
+133 50
+135 50
+138 95
+139 50
+140 50
+0 0
+Alis: 1
+ gc
+ get all corpse
+0
+Vars: 1
+coins_card_collected 0 1

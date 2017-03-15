@@ -1,0 +1,162 @@
+#1400
+Book room~
+You are in a huge library.
+~
+14 216 0 0 0 0
+D5
+~
+~
+0 0 40000
+S
+#1401
+Gaming Room~
+You are in a dark room, illuminated only by blue-screen televisions.
+This room has lots of Joystations what allow people go from real world
+to Greed Island game, they are all sitted on tables, some of are waiting
+for new players and others still used by some players, but you cannot
+enter in this new world. There is no exits available from here, the
+only exit is possibly start the game touching the Joystation.
+~
+14 216 0 0 0 0
+D5
+~
+~
+0 0 -1
+E
+televisions tv~
+They are turned on with a screen that says: "Waiting for new player"
+ ..It has a soft glowing aura!
+~
+S
+T 3211
+T 2803
+#1402
+Now Loading~
+You falling in a energy tunnel, traveling into a high speed
+connection. The feeling of peace and no weight makes you more
+relaxed and exciting for this new adventure. The only exit is
+falling down and wait to see what happens next.
+~
+14 88 0 0 0 0
+D4
+~
+~
+0 0 -1
+D5
+~
+~
+0 0 1403
+S
+#1403
+Now Playing~
+You hear nothing more and all became darkness, but you can
+feel your body again, and see it as well even without no
+lights. You still feeling falling down and now see a light
+blue spot growing, it seems you are almost ready. The only
+exit is falling down and wait to see what happens next again.
+~
+14 88 0 0 0 0
+D4
+~
+~
+0 0 -1
+D5
+~
+~
+0 0 1404
+S
+#1404
+Transporter Room~
+You finally reach the bottom of whatever was happens before.
+A great circular platform in the center of room is here, where
+new players arrives from. The only exit available here is going
+north, passing by big quad port gate what open and closes by itself.
+~
+14 88 0 0 0 0
+D0
+There is a tunnel where leads to another room, behind a quad port gate.
+~
+gate~
+2 0 1405
+D1
+~
+~
+0 0 -1
+D4
+~
+~
+0 0 -1
+S
+#1405
+Preparation Room~
+You are in a great circular room very illuminated by some kind of
+LED circuits all over the walls. A girl, floating with a ball-shaped
+pad is here, typing something to her computer and waiting for you.
+The only exit appears to be where you come from with a little stair to
+the closed quad port gate.
+~
+14 248 0 0 0 0
+D2
+It seems you cannot go back anymore.
+~
+gate~
+2 1404 1404
+D5
+~
+trapdoor~
+4 1404 40000
+S
+T 1433
+#1406
+Another Transporter Room~
+   A great circular platform in the center of room is here, very similar with
+having the starting point.  Go north to find Elena and leave the game.
+~
+14 88 0 0 0 0
+D0
+There is a tunnel where leads to another room, behind a quad port gate.
+~
+gate~
+0 1404 1407
+D1
+~
+~
+0 0 -1
+D4
+~
+~
+0 0 -1
+S
+#1407
+Leaving Room~
+You are in a great circular room very illuminated by some kind of
+LED circuits all over the walls. A girl, floating with a ball-shaped
+pad is here, typing something to her computer and waiting for you.
+~
+14 216 0 0 0 0
+D2
+~
+gate~
+0 1404 1406
+D5
+~
+passage~
+0 -1 40000
+S
+T 1428
+T 1429
+T 1431
+T 40000
+T 1432
+T 1434
+#1408
+POSTMASTER ELENA~
+PLAYERS NOT ALLOWED HERE!
+~
+14 216 0 0 0 0
+D5
+~
+~
+0 0 40000
+S
+$~

@@ -1,0 +1,50 @@
+Name: Kuro
+Pass: KuvGcl6CarXWI
+Titl: the player
+Desc:
+Kuro the artist!
+s
+~
+Sex : 1
+Clas: 3
+Levl: 1
+Id  : 103
+Brth: 1479888181
+Plyd: 1877
+Last: 1479890328
+Host: 204.209.44.14
+Hite: 165
+Wate: 158
+Act : h 0 0 0
+Aff : 0 0 0 0
+Pref: efghnoBF a 0 0
+Room: 65535
+Hung: 7
+Thir: 6
+Hit : -12/23
+Mana: 100/100
+Move: 103/103
+Str : 12/0
+Int : 7
+Wis : 8
+Dex : 10
+Con : 10
+Cha : 7
+Ac  : 100
+Exp : 39
+Olc : 0
+Trig: 3210
+Trig: 3239
+Skil:
+19 25
+133 40
+134 65
+135 40
+137 80
+138 40
+139 40
+140 40
+0 0
+Vars: 2
+met_albaz 0 1
+coins_card_collected 0 1

@@ -1,0 +1,53 @@
+Name: Dann
+Pass: DaS6S4q57/apg
+Titl: the player
+Sex : 1
+Clas: 1
+Levl: 3
+Id  : 16
+Brth: 1469584616
+Plyd: 2983
+Last: 1469587599
+Lmot: 1469586386
+Lnew: 1469585310
+Host: 204.209.44.14
+Hite: 199
+Wate: 171
+Alin: 27
+Act : gh 0 0 0
+Aff : 0 0 0 0
+Pref: efghnoBF 0 0 0
+Room: 1407
+Lern: 8
+Thir: 20
+Hit : 32/32
+Mana: 117/120
+Move: 91/92
+Str : 15/0
+Int : 15
+Wis : 16
+Dex : 14
+Con : 13
+Cha : 12
+Ac  : 100
+Gold: 20
+Exp : 4953
+Olc : 0
+Trig: 3210
+Trig: 3239
+Skil:
+1 35
+19 70
+133 50
+135 95
+138 50
+139 50
+140 50
+0 0
+Affs:
+19 23 0 0 16 0 0 0
+0 0 0 0 0 0 0 0
+Vars: 3
+met_testsubone 0 1
+visited_antokiba 0 12064
+coins_card_collected 0 1

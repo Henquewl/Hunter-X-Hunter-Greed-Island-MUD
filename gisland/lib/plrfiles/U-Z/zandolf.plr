@@ -1,0 +1,62 @@
+Name: Zandolf
+Pass: ZaAbb9fO8h5uk
+Titl: the player
+Sex : 1
+Clas: 3
+Levl: 1
+Id  : 141
+Brth: 1480051394
+Plyd: 14255
+Last: 1480065649
+Host: 197.210.24.187
+Hite: 167
+Wate: 150
+Act : h 0 0 0
+Aff : 0 0 0 0
+Pref: efghnoBEF ab 0 0
+Room: 65535
+Lern: 2
+Hung: 17
+Hit : 28/28
+Mana: 100/100
+Move: 106/106
+Str : 18/37
+Int : 12
+Wis : 12
+Dex : 16
+Con : 15
+Cha : 6
+Ac  : 100
+Gold: 1003
+Exp : 70
+Olc : 0
+Trig: 3210
+Trig: 3239
+Skil:
+133 40
+134 40
+135 40
+137 80
+138 40
+139 40
+140 40
+0 0
+Alis: 5
+ h
+ help
+0
+ b
+ bash
+0
+ k
+ kick
+0
+ op
+ open door
+0
+ dc
+ drink canteen
+0
+Vars: 2
+met_coolcow 0 1
+coins_card_collected 0 1

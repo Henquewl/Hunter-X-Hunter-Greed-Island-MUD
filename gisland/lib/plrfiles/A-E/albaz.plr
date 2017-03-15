@@ -1,0 +1,45 @@
+Name: Albaz
+Pass: AlRDJwLBDNzvQ
+Titl: the player
+Sex : 1
+Clas: 3
+Levl: 1
+Id  : 89
+Brth: 1479873425
+Plyd: 572
+Last: 1479873997
+Host: 204.209.44.14
+Hite: 192
+Wate: 154
+Act : h 0 0 0
+Aff : 0 0 0 0
+Pref: efghno 0 0 0
+Room: 65535
+Hung: 20
+Thir: 16
+Hit : 25/25
+Mana: 100/100
+Move: 105/105
+Str : 14/0
+Int : 10
+Wis : 12
+Dex : 13
+Con : 13
+Cha : 8
+Ac  : 100
+Gold: 60
+Exp : 60
+Olc : 0
+Trig: 3210
+Trig: 3239
+Skil:
+133 40
+134 80
+135 40
+137 80
+138 40
+139 40
+140 40
+0 0
+Vars: 1
+coins_card_collected 0 1

@@ -1,0 +1,22 @@
+#28
+Welcor~
+Hunter Exams~
+2800 2899 5 2 df 0 0 0 1 1
+M 0 2803 1 2800 	(	GBeans	n)
+M 0 2802 1 2803 	(the shopkeeper)
+G 1 2803 100 -1 	(a brass knuckles)
+G 1 2804 100 -1 	(a newbie cloak)
+G 1 2805 100 -1 	(a canteen)
+G 1 3206 1 -1 	(a 	RHunter 	CLicense	n)
+R 0 2802 2807 -1 	(a treasure chest)
+O 0 2807 100 2802 	(a treasure chest)
+P 1 2808 100 2807 	(a pile of coins)
+M 0 2800 2 2808 	(Wing, the teacher)
+M 0 2801 1 2806 	(the piglet)
+G 1 2806 100 -1 	(a pork chop)
+G 1 2806 100 -1 	(a pork chop)
+G 1 2806 100 -1 	(a pork chop)
+D 0 2812 3 1 	(Hunter Exam 12th Lesson : Socialising)
+D 0 2811 1 1 	(Hunter Exam 11th Lesson : Doors - a menace to free movement.)
+S
+$

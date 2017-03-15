@@ -1,0 +1,41 @@
+#65417
+archangel~
+the @CArchangel@n~
+The @CArchangel@y is here, asking to heal someone.@n
+~
+She looks like a young lady's spirit with a long blond hair and wearing a
+circlets over her head.  Also floating here and asking with a soft voice
+who summoned her to heal someone.
+~
+450570 0 0 0 198992 0 0 0 0 E
+0 20 10 1d1+0 1d1+0
+0 0
+8 8 2
+E
+T 65417
+T 3247
+#65446
+golden girl~
+a golden girl~
+A golden girl is here, sitting in a bathtub.
+~
+She is naked and her body is totally golden, with eyes and hair brown.
+~
+262152 0 0 0 67584 0 0 0 0 E
+30 10 -10 6d6+300 5d5+5
+300 90000
+6 8 2
+Str: 18
+Dex: 25
+Int: 18
+Wis: 18
+Con: 18
+Cha: 18
+SavingPara: 7
+SavingRod: 7
+SavingPetri: 7
+SavingBreath: 7
+SavingSpell: 7
+E
+T 65446
+$

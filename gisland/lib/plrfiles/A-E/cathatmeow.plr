@@ -1,0 +1,44 @@
+Name: CatHatMeow
+Pass: CaxXpWS9Rwp8c
+Titl: the player
+Sex : 2
+Levl: 2
+Id  : 301
+Brth: 1489024618
+Plyd: 5783
+Last: 1489030401
+Host: 34.197.103.100
+Hite: 150
+Wate: 139
+Alin: 8
+Act : h 0 0 0
+Aff : 0 0 0 0
+Pref: efghnoBF b 0 0
+Room: 65535
+Lern: 7
+Hung: 7
+Thir: 22
+Hit : 1/26
+Mana: 110/110
+Move: 89/109
+Str : 11/0
+Int : 17
+Wis : 16
+Dex : 15
+Con : 8
+Cha : 6
+Ac  : 100
+Exp : 1948
+Olc : 0
+Trig: 3210
+Trig: 3239
+Skil:
+133 50
+135 50
+138 50
+139 95
+140 50
+0 0
+Vars: 2
+met_capote 0 1
+coins_card_collected 0 1

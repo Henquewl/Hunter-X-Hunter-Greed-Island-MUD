@@ -1,0 +1,1812 @@
+#40000
+Greed Island Entrance~
+   You are near a tall stilt hut where new players arrives from.  A sort of
+spiral staircase under the hut is how people comes down to Greed Island, but it
+is impossible go up back while Eeta carefully keep it locked.  Except the ground
+and up, you can go to any direction in a vast green plains and mountais in the
+background, completing the landscape.
+~
+400 20 0 0 0 1
+D0
+~
+~
+0 0 40005
+D1
+~
+~
+0 0 40008
+D2
+~
+~
+0 0 40007
+D3
+~
+~
+0 0 40006
+D6
+~
+~
+0 0 40001
+D7
+~
+~
+0 0 40002
+D8
+~
+~
+0 0 40003
+D9
+~
+~
+0 0 40004
+S
+#40001
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To far north you see some very high hills, and to west lots of bushes
+prevets to walk in. To southeast you can see a tall stilt hut, any
+other possible direction goes leads you to more plains.
+~
+400 32772 0 0 0 0
+D0
+~
+~
+0 0 40036
+D1
+~
+~
+0 0 40005
+D2
+~
+~
+0 0 40006
+D7
+~
+~
+0 0 40035
+D8
+~
+~
+0 0 40000
+S
+#40002
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To far north you see some very high hills, and to east lots of bushes
+prevets to walk in. To southwest you can see a tall stilt hut, any
+other possible direction goes leads you to more plains.
+~
+400 32772 0 0 0 0
+D0
+~
+~
+0 0 40034
+D2
+~
+~
+0 0 40008
+D3
+~
+~
+0 0 40005
+D6
+~
+~
+0 0 40035
+D7
+~
+~
+0 0 40009
+D9
+~
+~
+0 0 40000
+S
+#40003
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To far north you see some very high hills, and to east lots of bushes
+prevets to walk in. To northwest you can see a tall stilt hut, any
+other possible direction goes leads you to more plains.
+~
+400 32772 0 0 0 0
+D0
+~
+~
+0 0 40008
+D2
+~
+~
+0 0 40033
+D3
+~
+~
+0 0 40007
+D6
+~
+~
+0 0 40000
+D9
+~
+~
+0 0 40032
+S
+#40004
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To far north you see some very high hills, and to west or south lots of
+bushes prevets to walk in. A dirt road leads you to southwest, away from
+plains. Any other possible direction goes leads you to more plains.
+~
+400 32772 0 0 0 0
+D0
+~
+~
+0 0 40006
+D1
+~
+~
+0 0 40007
+D7
+~
+~
+0 0 40000
+D8
+~
+~
+0 0 40032
+D9
+~
+~
+0 0 40061
+S
+#40005
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To far north you see some very high hills, to south you can see a tall
+stilt hut. Any other possible direction goes leads you to more plains.
+~
+400 32772 0 0 0 0
+D0
+~
+~
+0 0 40035
+D1
+~
+~
+0 0 40002
+D2
+~
+~
+0 0 40000
+D3
+~
+~
+0 0 40001
+D6
+~
+~
+0 0 40036
+D7
+~
+~
+0 0 40034
+D8
+~
+~
+0 0 40008
+D9
+~
+~
+0 0 40006
+S
+#40006
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To far north you see some very high hills, and to west lots of bushes
+prevets to walk in. To east you can see a tall stilt hut, any other
+possible direction goes leads you to more plains.
+~
+400 32772 0 0 0 0
+D0
+~
+~
+0 0 40001
+D1
+~
+~
+0 0 40000
+D2
+~
+~
+0 0 40004
+D7
+~
+~
+0 0 40005
+D8
+~
+~
+0 0 40007
+S
+#40007
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To far north you see some very high hills, and to southwest lots of
+bushes prevets to walk in. To north you can see a tall stilt hut, any
+other possible direction goes leads you to more plains.
+~
+400 32772 0 0 0 0
+D0
+~
+~
+0 0 40000
+D1
+~
+~
+0 0 40003
+D2
+~
+~
+0 0 40032
+D3
+~
+~
+0 0 40004
+D6
+~
+~
+0 0 40006
+D7
+~
+~
+0 0 40008
+D8
+~
+~
+0 0 40033
+S
+#40008
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To far north you see some very high hills, and to east lots of bushes
+prevets to walk in. To west you can see a tall stilt hut, any other
+possible direction goes leads you to more plains.
+~
+400 32772 0 0 0 0
+D0
+~
+~
+0 0 40002
+D2
+~
+~
+0 0 40003
+D3
+~
+~
+0 0 40000
+D6
+~
+~
+0 0 40005
+D9
+~
+~
+0 0 40007
+S
+#40009
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To north you see some very high hills that blocks the passage, and to
+east or south lots of bushes prevets to walk in. A dirt road leads you
+to northeast, away from plains. Any other possible direction goes leads
+you to more plains.
+~
+400 32772 0 0 0 0
+D3
+~
+~
+0 0 40034
+D7
+~
+~
+3 0 40010
+D9
+~
+~
+0 0 40002
+S
+#40010
+A Road Through The Plains~
+You are on a dust covered southwest-northwest road through the eastern plains.
+An occasional hunter or adventurer can be seen, heading to or from the forest.
+To the northeast you see in a top of hills a walled city, and to southwest the
+road heads to the plains of island starting point.
+~
+400 32768 0 0 0 1
+D0
+~
+~
+0 0 40011
+D9
+~
+~
+0 0 40009
+S
+#40011
+A T-Intersection In The Road~
+Ops... where did you go now? There is two different way to go ahead. To the
+northeast you see in a top of hills a walled city, and to southwest the road
+heads to the plains of island starting point. A path skirting the mountain
+heading to west.
+~
+400 32768 0 0 0 1
+D0
+~
+~
+0 0 40012
+D2
+~
+~
+0 0 40010
+D3
+~
+~
+0 0 40013
+S
+#40012
+A Road Through The Plains~
+You are on a dust covered east-west road through the western plains.  An
+occasional hunter or adventurer can be seen, heading to or from the forest.
+To the northeast you see in a top of hills a walled city, and to south the
+road heads to the plains of island starting point.
+~
+400 32768 0 0 0 1
+D2
+~
+~
+0 0 40011
+D7
+~
+~
+0 0 40015
+S
+#40013
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40011
+D6
+~
+~
+3 0 40014
+S
+#40014
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D3
+~
+~
+0 0 40038
+D8
+~
+~
+0 0 40013
+S
+#40015
+A Road Through The Plains~
+You are on a dust covered east-west road through the western plains.  An
+occasional hunter or adventurer can be seen, heading to or from the forest.
+To the northeast you see in a top of hills a walled city, and to southwest the
+road heads to the plains of island starting point.
+~
+400 32768 0 0 0 1
+D7
+~
+~
+0 0 40016
+D9
+~
+~
+0 0 40012
+S
+#40016
+A Road Through The Plains~
+   You are on a dust covered east-west road through the western plains.  An
+occasional hunter or adventurer can be seen, heading to or from the forest.
+To the northeast you see in a top of hills a walled city, and to southwest the
+road heads to the plains of island starting point.
+~
+400 32772 0 0 0 1
+D1
+Far to the east you see the large walls guarding Midgaard.
+~
+~
+0 -1 -1
+D3
+To the west the dusty trail ends, and becomes a narrow trail into the cool
+shadows of the forest.
+~
+~
+0 -1 -1
+D7
+~
+~
+0 0 40017
+D9
+~
+~
+0 0 40015
+E
+road dust dusty~
+   The road is well used, and quite dusty.  
+~
+E
+tree trees forest~
+   The trees are quite tall considering most of them appear to be quite young.
+~
+E
+trail~
+   The forest trail winds westwards through the trees.  
+~
+S
+#40017
+The Edge of Woods~
+
+~
+400 32768 0 0 0 1
+D0
+~
+~
+0 0 40019
+D1
+~
+~
+0 0 40018
+D9
+~
+~
+0 0 40016
+S
+#40018
+An Open Trail~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40090
+D3
+~
+~
+0 0 40017
+S
+#40019
+The End Of Road~
+You are on a dust covered road through through the eastern plains.
+An occasional hunter or adventurer can be seen, heading to or from the forest.
+To the northeast you see a florest with a trail that leads to hills for a
+walled city, and to south the road heads to the plains of island starting point.
+~
+400 32768 0 0 0 1
+D1
+~
+~
+0 0 -1
+D2
+~
+~
+0 0 40017
+D7
+~
+~
+0 0 40020
+S
+#40020
+A Narrow Path In The Woods~
+
+~
+400 0 0 0 0 3
+D7
+~
+~
+0 0 40021
+D9
+~
+~
+0 0 40019
+S
+#40021
+Hiking Through The Woods~
+
+~
+400 0 0 0 0 3
+D0
+~
+~
+0 0 40022
+D9
+~
+~
+0 0 40020
+S
+#40022
+Hiking Through The Woods~
+
+~
+400 0 0 0 0 3
+D2
+~
+~
+0 0 40021
+D7
+~
+~
+0 0 40023
+S
+#40023
+At The Edge Of The Hills~
+WOW THIS IS HIGH! You are hiking, bypassing a edge of the mountain.
+The cliffside looks stable, no rolling boulders or broken edges but
+it is very narrow, sometimes have to be cautious and squeeze through
+the mountain walls. To the west a florest leads to the plains, and to
+east the narrow path for the city continues.
+~
+400 256 0 0 0 4
+D1
+~
+~
+0 0 40024
+D9
+~
+~
+0 0 40022
+S
+#40024
+At The Edge Of The Hills~
+WOW THIS IS HIGH! You are hiking, bypassing a edge of the mountain.
+The cliffside looks stable, no rolling boulders or broken edges but
+it is very narrow, sometimes have to be cautious and squeeze through
+the mountain walls. To the west a florest leads to the plains, and to
+east the narrow path for the city continues.
+~
+400 256 0 0 0 4
+D1
+~
+~
+0 0 40025
+D3
+~
+~
+0 0 40023
+S
+#40025
+At The Edge Of The Hills~
+WOW THIS IS HIGH! You are hiking, bypassing a edge of the mountain.
+The cliffside looks stable, no rolling boulders or broken edges but
+it is very narrow, sometimes have to be cautious and squeeze through
+the mountain walls. To the west a florest leads to the plains, and to
+east the narrow path for the city continues.
+~
+400 256 0 0 0 4
+D1
+~
+~
+0 0 40026
+D3
+~
+~
+0 0 40024
+S
+#40026
+At The Edge Of The Hills~
+WOW THIS IS HIGH! You are hiking, bypassing a edge of the mountain.
+The cliffside looks stable, no rolling boulders or broken edges but
+it is very narrow, sometimes have to be cautious and squeeze through
+the mountain walls. To the west a florest leads to the plains, and to
+northeast a curve shows better a walled city in the middle of woods.
+~
+400 256 0 0 0 4
+D3
+~
+~
+0 0 40025
+D7
+~
+~
+0 0 40027
+S
+#40027
+A Hill Down~
+WOW THIS IS HIGH! You are hiking, bypassing a edge of the mountain.
+The cliffside looks stable, no rolling boulders or broken edges but
+it is very narrow, sometimes have to be cautious and squeeze through
+the mountain walls. To the southwest a florest leads to the plains,
+and to east a steep descent leads you again to some more woods to
+the entrance of a city.
+~
+400 256 0 0 0 4
+D1
+~
+~
+0 0 40028
+D9
+~
+~
+0 0 40026
+S
+#40028
+A Narrow Path In The Woods~
+
+~
+400 0 0 0 0 3
+D1
+~
+~
+0 0 40029
+D3
+~
+~
+0 0 40027
+S
+#40029
+A Narrow Path In The Woods~
+
+~
+400 0 0 0 0 3
+D3
+~
+~
+0 0 40028
+D7
+~
+~
+0 0 40030
+S
+#40030
+A Narrow Path In The Woods~
+
+~
+400 0 0 0 0 3
+D1
+~
+~
+0 0 40031
+D9
+~
+~
+0 0 40029
+S
+#40031
+Entrance To Rabicuta~
+
+~
+400 32768 0 0 0 1
+D1
+~
+gate~
+1 0 5423
+D3
+~
+~
+0 0 40030
+S
+T 40031
+#40032
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To far north you see some very high hills, and to south or west lots
+of bushes prevets to walk in. Any anyother possible direction goes
+leads you to more plains.
+~
+400 32768 0 0 0 0
+D0
+~
+~
+0 0 40007
+D1
+~
+~
+0 0 40033
+D6
+~
+~
+0 0 40004
+D7
+~
+~
+0 0 40003
+S
+#40033
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To far north you see some very high hills, and to south or east lots
+of bushes prevets to walk in. Any anyother possible direction goes
+leads you to more plains.
+~
+400 32768 0 0 0 0
+D0
+~
+~
+0 0 40003
+D3
+~
+~
+0 0 40032
+D6
+~
+~
+0 0 40007
+S
+#40034
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To north you see some very high hills that blocks the passage. Any
+anyother possible direction goes leads you to more plains.
+~
+400 32768 0 0 0 0
+D1
+~
+~
+0 0 40009
+D2
+~
+~
+0 0 40002
+D3
+~
+~
+0 0 40035
+D6
+~
+~
+0 0 40039
+D9
+~
+~
+0 0 40005
+S
+#40035
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To northeast you see some very high hills that blocks the passage.
+Any anyother possible direction goes leads you to more plains.
+~
+400 32768 0 0 0 0
+D0
+~
+~
+0 0 40039
+D1
+~
+~
+0 0 40034
+D2
+~
+~
+0 0 40005
+D3
+~
+~
+0 0 40036
+D6
+~
+~
+0 0 40037
+D8
+~
+~
+0 0 40002
+D9
+~
+~
+0 0 40001
+S
+#40036
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To far north you see some very high hills, and to west lots of bushes
+prevets to walk in. Any other possible direction goes leads you to
+more plains.
+~
+400 32768 0 0 0 0
+D0
+~
+~
+0 0 40037
+D1
+~
+~
+0 0 40035
+D2
+~
+~
+0 0 40001
+D6
+~
+~
+0 0 40040
+D7
+~
+~
+0 0 40039
+D8
+~
+~
+0 0 40005
+S
+#40037
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To northeast you see some very high hills that blocks the passage, and
+to southwest lots of bushes prevets to walk in. Any anyother possible
+direction goes leads you to more plains.
+~
+400 32768 0 0 0 0
+D0
+~
+~
+0 0 40041
+D1
+~
+~
+0 0 40039
+D2
+~
+~
+0 0 40036
+D3
+~
+~
+0 0 40040
+D6
+~
+~
+0 0 40042
+D8
+~
+~
+0 0 40035
+S
+#40038
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40014
+D6
+~
+~
+0 0 40043
+D9
+A stone door hides a passageway here, but where it is knob?
+~
+secret passage~
+3 0 40041
+S
+#40039
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To north and east you see some very high hills that blocks the passage.
+Any anyother possible direction goes leads you to more plains.
+~
+400 32768 0 0 0 0
+D2
+~
+~
+0 0 40035
+D3
+~
+~
+0 0 40037
+D6
+~
+~
+0 0 40041
+D8
+~
+~
+0 0 40034
+D9
+~
+~
+0 0 40036
+S
+#40040
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To far north you see some very high hills, and to west or south lots
+of bushes prevets to walk in. Any anyother possible direction goes
+leads you to more plains.
+~
+400 32768 0 0 0 0
+D0
+~
+~
+0 0 40042
+D1
+~
+~
+0 0 40037
+D7
+~
+~
+0 0 40041
+D8
+~
+~
+0 0 40036
+S
+#40041
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To north and east you see some very high hills that blocks the passage.
+Any anyother possible direction goes leads you to more plains.
+Wait a second... why that stone wall to northeast has a faded color?
+~
+400 32768 0 0 0 0
+D2
+~
+~
+0 0 40037
+D3
+~
+~
+0 0 40042
+D7
+A stone door hides a passageway here, but where it is knob?
+~
+secret passage~
+3 0 40038
+D8
+~
+~
+0 0 40039
+D9
+~
+~
+0 0 40040
+S
+T 3299
+#40042
+The Great Field Of Starting Point~
+You are in a vast plains, the wind whistles when blows over your ears.
+To north you see some very high hills that blocks the passage, and to
+west lots of bushes prevets to walk in. Any anyother possible direction
+goes leads you to more plains.
+~
+400 32768 0 0 0 0
+D1
+~
+~
+0 0 40041
+D2
+~
+~
+0 0 40040
+D8
+~
+~
+0 0 40037
+S
+#40043
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D6
+~
+~
+0 0 40044
+D8
+~
+~
+0 0 40038
+S
+#40044
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D3
+~
+~
+0 0 40045
+D8
+~
+~
+0 0 40043
+S
+#40045
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40044
+D3
+~
+~
+0 0 40046
+S
+#40046
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40045
+D6
+~
+~
+0 0 40047
+S
+#40047
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D3
+~
+~
+0 0 40048
+D8
+~
+~
+0 0 40046
+S
+#40048
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40047
+D3
+~
+~
+0 0 40049
+S
+#40049
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40048
+D3
+~
+~
+0 0 40050
+S
+#40050
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40049
+D6
+~
+~
+0 0 40051
+S
+#40051
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D3
+~
+~
+0 0 40052
+D8
+~
+~
+0 0 40050
+S
+#40052
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40051
+D3
+~
+~
+0 0 40053
+S
+#40053
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40052
+D6
+~
+~
+0 0 40054
+S
+#40054
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D3
+~
+~
+0 0 40055
+D8
+~
+~
+0 0 40053
+S
+#40055
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40054
+D3
+~
+~
+0 0 40056
+S
+#40056
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40055
+D3
+~
+~
+0 0 40057
+S
+#40057
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40056
+D3
+~
+~
+0 0 40058
+S
+#40058
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40057
+D6
+~
+~
+0 0 40059
+S
+#40059
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 2
+D3
+~
+~
+0 0 40060
+D8
+~
+~
+0 0 40058
+S
+#40060
+Entrance Of Dorias~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40059
+D3
+~
+~
+0 0 40000
+S
+#40061
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 1
+D7
+~
+~
+0 0 40004
+D9
+~
+~
+0 0 40062
+S
+#40062
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 1
+D7
+~
+~
+0 0 40061
+D9
+~
+~
+0 0 40063
+S
+#40063
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 1
+D7
+~
+~
+0 0 40062
+D9
+~
+~
+0 0 40064
+S
+#40064
+A Road Through The Plains~
+
+~
+400 32768 0 0 0 1
+D7
+~
+~
+0 0 40063
+D9
+~
+~
+0 0 40065
+S
+#40065
+Skirting a Forest~
+
+~
+400 32768 0 0 0 1
+D2
+~
+~
+0 0 40066
+D7
+~
+~
+0 0 40064
+S
+#40066
+Skirting a Forest~
+
+~
+400 32768 0 0 0 1
+D0
+~
+~
+0 0 40065
+D2
+~
+~
+0 0 40067
+S
+#40067
+Skirting a Forest~
+
+~
+400 32768 0 0 0 1
+D0
+~
+~
+0 0 40066
+D2
+~
+~
+0 0 40068
+S
+#40068
+Skirting a Forest~
+
+~
+400 32768 0 0 0 1
+D0
+~
+~
+0 0 40067
+D2
+~
+~
+0 0 40069
+S
+#40069
+Skirting a Forest~
+   You are in front an entrance of a concrete building, a sign on it says
+"NEWBIE ZONE" and some details written on it.  To east lies the newbie zone and
+the north-south road continues skirting the florest.
+~
+400 32768 0 0 0 1
+D0
+~
+~
+0 0 40068
+D1
+~
+~
+0 0 18600
+D2
+~
+~
+0 0 40071
+E
+sign newbie~
+Dificult: H - G
+Tip: Start killing the crawlers.
+Useful Skills here: Infravision and Gyo
+~
+S
+#40071
+Skirting a Forest~
+
+~
+400 32768 0 0 0 1
+D0
+~
+~
+0 0 40069
+D2
+~
+~
+0 0 40072
+S
+#40072
+Skirting a Forest~
+
+~
+400 32768 0 0 0 1
+D0
+~
+~
+0 0 40071
+D2
+~
+~
+0 0 40075
+D3
+~
+~
+0 0 40073
+S
+#40073
+A Dirt Path~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40072
+D3
+~
+~
+0 0 3600
+S
+#40075
+Skirting a Forest~
+
+~
+400 32768 0 0 0 1
+D0
+~
+~
+0 0 40072
+D2
+~
+~
+0 0 40076
+S
+#40076
+Skirting a Forest~
+
+~
+400 32768 0 0 0 1
+D0
+~
+~
+0 0 40075
+D6
+~
+~
+0 0 -1
+D8
+~
+~
+0 0 40077
+D9
+   You can see a very closed trail, maybe someone
+passed through here.
+~
+~
+3 0 12074
+S
+#40077
+Skirting a Forest~
+
+~
+400 32768 0 0 0 1
+D6
+~
+~
+0 0 40076
+D8
+~
+~
+0 0 40078
+S
+#40078
+An Open Field~
+
+~
+400 32768 0 0 0 1
+D2
+~
+~
+0 0 40079
+D6
+~
+~
+0 0 40077
+D7
+~
+~
+0 0 40089
+S
+#40079
+A Fork In The Road~
+Antokiba west and east a mountain.
+~
+400 32768 0 0 0 1
+D0
+~
+~
+0 0 40078
+D5
+~
+~
+0 0 -1
+D8
+~
+~
+0 0 40082
+D9
+~
+~
+0 0 12068
+S
+#40082
+New BuildWalk Room~
+
+~
+400 32768 0 0 0 2
+D6
+~
+~
+0 0 40079
+D8
+~
+~
+0 0 40083
+S
+#40083
+New BuildWalk Room~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40085
+D2
+~
+~
+0 0 40084
+D6
+~
+~
+0 0 40082
+D8
+~
+~
+0 0 40087
+S
+#40084
+New BuildWalk Room~
+
+~
+400 32768 0 0 0 2
+D0
+~
+~
+0 0 40083
+D1
+~
+~
+0 0 40087
+D7
+~
+~
+0 0 40085
+S
+#40085
+New BuildWalk Room~
+
+~
+400 32768 0 0 0 2
+D2
+~
+~
+0 0 40087
+D3
+~
+~
+0 0 40083
+D8
+~
+~
+0 0 40086
+D9
+~
+~
+0 0 40084
+S
+#40086
+New BuildWalk Room~
+
+~
+400 32768 0 0 0 2
+D3
+~
+~
+0 0 40087
+D6
+~
+~
+0 0 40085
+S
+#40087
+New BuildWalk Room~
+
+~
+400 32768 0 0 0 2
+D0
+~
+~
+0 0 40085
+D1
+~
+~
+0 0 40086
+D2
+~
+~
+0 0 40088
+D3
+~
+~
+0 0 40084
+D6
+~
+~
+0 0 40083
+S
+#40088
+An Uphill Through The Forest~
+
+~
+400 8 0 0 0 4
+D0
+~
+~
+0 0 40087
+D2
+~
+~
+0 0 40100
+S
+#40089
+The Spot To Quench Thirst Of Travelers~
+
+~
+400 32768 0 0 0 2
+D9
+~
+~
+0 0 40078
+S
+#40090
+A Narrow Path In The Woods~
+
+~
+400 0 0 0 0 3
+D3
+~
+~
+0 0 40018
+D8
+~
+~
+0 0 40091
+S
+#40091
+A Narrow Path In The Woods~
+
+~
+400 0 0 0 0 3
+D1
+~
+~
+0 0 40092
+D6
+~
+~
+0 0 40090
+S
+#40092
+On The Lakeside~
+
+~
+400 32768 0 0 0 2
+D1
+~
+~
+0 0 40093
+D3
+~
+~
+0 0 40091
+S
+#40093
+The Great Lake~
+
+~
+400 32768 0 0 0 7
+D3
+~
+~
+0 0 40092
+D7
+~
+~
+0 0 40094
+S
+#40094
+The Great Lake~
+
+~
+400 32768 0 0 0 7
+D7
+~
+~
+0 0 40095
+D9
+~
+~
+0 0 40093
+S
+#40095
+The Great Lake~
+
+~
+400 32768 0 0 0 7
+D0
+~
+~
+0 0 40096
+D9
+~
+~
+0 0 40094
+S
+#40096
+On The Lakeside~
+
+~
+400 32768 0 0 0 2
+D2
+~
+~
+0 0 40095
+D7
+~
+~
+0 0 40097
+S
+#40097
+A Shortcut To Ankitoba~
+
+~
+400 0 0 0 0 3
+D7
+~
+~
+0 0 40098
+D9
+~
+~
+0 0 40096
+S
+#40098
+A Shortcut To Ankitoba~
+
+~
+400 0 0 0 0 3
+D0
+~
+~
+0 0 40099
+D9
+~
+~
+0 0 40097
+S
+#40099
+An Alternative Entrance To Rabicuta~
+
+~
+400 32768 0 0 0 1
+D0
+~
+gate~
+1 0 5413
+D2
+~
+~
+0 0 40098
+S
+T 40099
+$~
