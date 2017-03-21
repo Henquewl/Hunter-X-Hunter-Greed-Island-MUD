@@ -1,0 +1,93 @@
+Name: Henque
+Pass: He49PjYQDq9NI
+Titl: < use spell cards on me
+Desc:
+He is the creator of this game.
+~
+PfIn: appear before you!
+PfOt: 	Bplace his index and middle fingers to his forehead and vanishes!	n
+Sex : 1
+Clas: 5
+Levl: 34
+Id  : 1
+Brth: 1441891170
+Plyd: 2320121
+Last: 1490101998
+Lmot: 1489771102
+Lnew: 1490032874
+Host: 127.0.0.1
+Hite: 169
+Wate: 155
+Alin: 171
+Act : 0 0 0 0
+Aff : 0 0 0 0
+Pref: efhmnoqvBF b 0 0
+Room: 65535
+Lern: 55
+Hit : 5000/4975
+Mana: 5000/4925
+Move: 5000/4950
+Str : 18/100
+Int : 25
+Wis : 25
+Dex : 25
+Con : 25
+Cha : 25
+Ac  : 100
+Gold: 3880631
+Exp : 1
+Olc : 0
+ScrW: 100
+Trig: 3239
+Alis: 17
+ lc
+ look in corpse
+0
+ eliminate
+ or fol gain $1
+1
+ clone
+ cast 'clone';load o 1000;give elim henque;or fol hold card
+1
+ start
+ goto 40000
+0
+ recall
+ goto 2800
+0
+ spells
+ olist 10
+0
+ mload
+ load m $1
+1
+ tt
+ vstat t $1
+1
+ oload
+ load o $*
+1
+ is
+ good to cast too
+0
+ quit
+ goto 1407;rent
+1
+ cards
+ olist 653
+0
+ rr
+ restore kobayashi
+0
+ hnew
+ gecho New help file: help $1
+1
+ maxhappy
+ happy exp 100;happy gold 100;happy time 1000
+1
+ mem
+ cast 'mem' $1
+1
+ op
+ open door $1
+1

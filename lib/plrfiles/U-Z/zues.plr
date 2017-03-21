@@ -1,0 +1,46 @@
+Name: Zues
+Pass: Zume0GCdQQVjk
+Titl: the player
+Sex : 1
+Levl: 1
+Id  : 470
+Brth: 1490053337
+Plyd: 807
+Last: 1490054144
+Lmot: 1490054514
+Host: 24.218.196.235
+Hite: 195
+Wate: 146
+Act : gh 0 0 0
+Aff : 0 0 0 0
+Pref: efghnoAF 0 0 0
+Room: 1407
+Hung: 7
+Thir: 7
+Hit : 20/22
+Mana: 100/100
+Move: 103/103
+Str : 12/0
+Int : 15
+Wis : 14
+Dex : 14
+Con : 11
+Cha : 9
+Ac  : 100
+Gold: 1035
+Exp : 439
+Olc : 0
+Trig: 3210
+Trig: 3239
+Skil:
+16 95
+133 50
+135 50
+138 50
+139 95
+140 50
+0 0
+Vars: 3
+book_purge_leaves 0 }1304929
+met_henque 0 1
+coins_card_collected 0 1

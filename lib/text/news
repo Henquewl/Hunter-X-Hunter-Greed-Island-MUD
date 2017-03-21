@@ -1,0 +1,77 @@
+
+			   @CTHE GREED ISLAND@y
+   		 "We addict players for their own enjoyment."@W
+
+NEW COMMANDS AND NEW MUD BEHAVIOR:
+---------------------------------
+**  BETA TEST STAGE ON! Lots to be implemented, wait for a better experience.
+
+> 2017 <
+
+MAR 20 **  Keys gone when use it to lock or unlock and for now on any keys,
+           consumable items or used wand/staffs cannot be gained. Remember
+		   to toggle autokey off if you don't want to unlock accidentally.
+
+MAR 17 **  NPCs dies instantly when got negative hitpoints. Jajanken fixed.
+
+MAR 16 **  Prompt now shows enemy hitpoints % and normal colors changed from
+		   white to green.
+
+MAR 14 **  NPCs now has a global random drop of booster packs containing 3
+           random cards, sometimes nothing happens when you open the pack and
+		   sometimes you recive only 1 or 2 cards instead of 3, in that cases
+		   you will not lose the booster pack and can open it again, that bug
+		   will fix itself when item database grow, if you find any other
+		   issue please report by bug command. How more powerful is the NPC,
+		   more chances you got to receive a booster pack. Enjoy.
+
+MAR 13 **  NPC stop fighting if player got negative health, but you still can
+           die if get mortally wonded (-31hp) or by agressive/memory NPCs, in
+		   that case I suggest you call for another players to help. Thanks
+		   to player Keberus for that excellent idea, it will save players
+		   from nonsense deaths.
+
+MAR 06 **  Fixed wear wield/holdable item bug. Class selection has info about
+           aura types for new players, helping them for a better creation.
+
+> 2016 <		   
+		   
+AUG 04 **  Auto-remove/wear crash fixed.  Wear all only works on empty slots.
+           Summon ritual hatsu works now on summonable or KILLER players, to
+		   summon a protected person you must win vs hatsu of the target.
+
+AUG 03 **  Items no more "zapp" people for class or neutral align.
+           Good/Evil and Level restriction stills on, it zappens.
+
+AUG 01 **  Recovery rate increased in every game hour. type @Rhelp recovery@W
+
+JUL 30 **  Prompt now shows nen and move current amount.
+
+JUL 28 **  Conjurers can cast 'focus' over objects now, allowing wield them
+           even if you don't have enough STR, also only manipulators can cast
+		   it over other playes from now on.  XP needed to level up changed
+		   for all classes (except specialist).  Memory Drain hatsu improved.
+		   Now you can detect cursed objects while 'detect enfold' is active.		   
+
+JUL 26 **  Wizlist and immlist updated. type @Rwizlist @Wor @Rimmlist@W
+
+JUL 03 **  Now you can replace an used equipment without need remove first.
+
+JUL 01 **  Any player who stay disconnected or idle for more than 5 hours
+           will be automatically reseted (only items and some exp loss)		   
+
+JUN 29 **  Equipament command now show all item slots available. type @Req@W
+
+JUN 28 **  Aura Missile changed to Aura Blast, update your aliases!
+
+JUN 26 **  Conjurer new hatsu Chain Jail!  Exorcism hatsu improved.
+
+JUN 25 **  All hits shows damage numbers now, it includes skills and hatsus.
+
+JUN 22 **  Bungee gum hatsu now prevents the target to escape from fight.
+
+JUN 21 **  PK flag fixed, get flag when kill the player, instead just damage.
+
+JUN 18 **  Eeta and Elena are postmasters now too. @Rhelp mail@W and @Rhelp receive@W
+
+JUN 04 **  All spell cards has an effect descriptions on it now. type @Rlook card@W 
