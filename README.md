@@ -1,3 +1,3 @@
-Files for tbaMUD.
+Files for Greed Island MUD from tbaMUD.
 
 
