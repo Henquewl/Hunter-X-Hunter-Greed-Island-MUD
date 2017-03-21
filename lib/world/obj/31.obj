@@ -1,0 +1,596 @@
+#3100
+cup tea~
+a cup~
+A cup has been set here.~
+~
+17 0 0 0 0 a 0 0 0 0 0 0 0
+8 8 11 0
+13 5 1 0 0
+E
+cup~
+   It is a small simple cup.  
+~
+#3101
+cup coffee~
+a cup~
+A cup has been set here.~
+~
+17 0 0 0 0 a 0 0 0 0 0 0 0
+8 8 12 0
+13 7 1 0 0
+E
+cup~
+   It is a small simple cup.  
+~
+#3102
+cup water~
+a cup~
+A cup has been set here.~
+~
+17 0 0 0 0 a 0 0 0 0 0 0 0
+12 12 15 0
+17 2 0 0 0
+E
+cup~
+   It is a large simple cup.  
+~
+#3103
+bottle water~
+a bottle~
+A bottle of Evian natural spring water is here.~
+~
+17 0 0 0 0 a 0 0 0 0 0 0 0
+9 9 15 0
+14 10 0 0 0
+E
+label~
+   You've been ripped off!  It says here at the bottom of the label, in really
+really small letters, 'Bottled in the Midgaard branch of Evian Inc.  This water
+is from the natural, mostly clean River of Midgaard.  '
+~
+E
+bottle~
+   It is a large, clean bottle.  There is a large label pasted on the side.  
+~
+#3104
+canteen water~
+a canteen~
+A canteen has been set on the ground here.~
+~
+17 0 0 0 0 a 0 0 0 0 0 0 0
+80 80 15 0
+85 45 0 0 0
+E
+canteen~
+   It is a fairly big canteen.  Looks like it can hold a lot of liquid.  
+~
+#3105
+key iron~
+an iron key~
+An iron key has been left here.~
+~
+18 c 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 1 10 0 0
+E
+key iron~
+   The iron key is not special.  In fact, it is quite boring.  
+~
+#3106
+key rusty~
+a rusty key~
+A rusty key has been left here.~
+~
+18 c 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 1 10 0 0
+E
+key rusty~
+   The key is a fairly large rusty key.  You notice a lot of dirt it.  
+~
+#3107
+key wooden~
+a wooden key~
+A wooden key has been left here.~
+~
+18 c 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 1 10 0 0
+E
+key wooden~
+   The wooden key is not special.  In fact it is just about the most boring key
+you've ever seen in your life.  
+~
+#3108
+key brass~
+a brass key~
+A brass key has been left here.~
+~
+18 c 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 1 10 0 0
+E
+key brass~
+   The brass key is small and looks like it fits a very complicated lock.  
+~
+#3109
+desk drawer~
+the desk~
+A desk is set against the western wall.~
+~
+15 0 0 0 0 0 0 0 0 0 0 0 0
+34 15 3107 0
+0 0 0 0 0
+E
+desk~
+   The desk looks very sparse, there is a drawer in the left side.  
+~
+E
+drawer~
+   You notice a keyhole in the drawer.  
+~
+#3110
+safe~
+the safe~
+A safe is placed in a dark corner of the room.~
+~
+15 0 0 0 0 0 0 0 0 0 0 0 0
+34 15 3108 0
+0 0 0 0 0
+E
+safe~
+   The safe is very heavy and has a keyhole.  
+~
+#3111
+bench~
+the Bench~
+A white-painted wooden bench is standing here.~
+~
+6 0 0 0 0 0 0 0 0 0 0 0 0
+3 0 0 0
+0 0 0 0 0
+E
+bench~
+   It is a quite heavy but very comfortable bench.  It is placed with its front
+towards the river so you can sit and watch the river and the houses on the other
+side.  
+~
+#3112
+key city~
+the City Key~
+The very big City Key is lying here.~
+~
+18 c 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+30 1000 50 0 0
+E
+key city~
+   It is probably the biggest key you have seen in your life.  It is made from
+polished gold and has various patterns on it along with the Midgaard Coat of
+Arms.  
+~
+#3113
+fountain water~
+a fountain~
+A small white fountain is standing here, gurgling happily.~
+~
+23 0 0 0 0 0 0 0 0 0 0 0 0
+999 999 15 0
+999 0 0 0 0
+E
+fountain water~
+   It is very nice.  Made from fine white marble.  
+~
+#3114
+coins gold~
+a small pile of gold coins~
+A small pile of gold coins lies here.~
+~
+20 0 0 0 0 a 0 0 0 0 0 0 0
+37 0 0 0
+1 1 0 0 0
+#3115
+gold coins~
+the gold~
+A lot of gold is here.~
+~
+20 0 0 0 0 a 0 0 0 0 0 0 0
+1000 0 0 0
+1 1000 0 0 0
+#3116
+candlestick candle stick pewter~
+a candlestick~
+A pewter candlestick is standing here.~
+~
+1 0 0 0 0 ao 0 0 0 0 0 0 0
+0 0 24 0
+5 150 10 0 0
+E
+candlestick~
+   It is a rather old-looking three-armed candlestick made from pewter.  Its
+candles are a yellowish white color.  
+~
+#3117
+tree elm~
+an elm tree~
+An old elm tree grows here.~
+~
+13 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0
+0 0 0 0 0
+E
+elm tree~
+   The fresh young leaves of the elm tree wave gently in the wind.  
+~
+#3119
+3110 road trip meal card~
+@y3110 Road Trip Meal H-800 card@n~
+A @y3110 Road Trip Meal H-800 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 125 0 0 2
+T 3119
+E
+3119 road trip meal card~
+Contains a bento-style lunchbox that feed a person for 1 day.
+Bottle of water included.
+~
+#3120
+dagger card~
+@y3120 Dagger H-0 card@n~
+A @y3120 Dagger H-0 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 10 0 0 2
+T 3230
+T 18604
+#3121
+small sword card~
+@y3121 Small Sword H-0 card@n~
+A @y3121 Small Sword H-0 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 60 0 0 2
+T 3230
+T 18604
+E
+sword small card~
+   The small sword seems to have an inscription of some sort.
+~
+#3122
+sword long card~
+@y3122 Long Sword H-167 card@n~
+A @y3122 Long Sword H-167 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 600 0 0 2
+T 3230
+T 18604
+#3123
+wooden club card~
+@y3123 Wooden Club H-0 card@n~
+A @y3123 Wooden Club card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 12 0 0 2
+T 3230
+T 18604
+#3124
+warhammer hammer card~
+@y3124 Warhammer H-0 card@n~
+A @y3124 Warhammer H-0 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50 0 0 2
+T 3230
+T 18604
+#3125
+flail card~
+@y3125 Flail H-160 card@n~
+A @y3125 Flail H-160 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 625 0 0 2
+T 3230
+T 18604
+#3130
+torch card~
+@y3130 Torch H-0 card@n~
+A @y3130 Torch H-0 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 10 0 0 2
+T 3230
+T 18604
+#3131
+lantern card~
+@y3131 Lantern H-0 card@n~
+A @y3131 Lantern H-0 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50 0 0 2
+T 3230
+T 18604
+#3140
+3140 breast plate card~
+@y3140 Breast Plate E-280 card@n~
+A @y3140 Breast Plate E-280 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1800 0 0 2
+T 3230
+T 18604
+#3141
+3141 shirt chain mail card~
+@y3141 Chain Mail Shirt H-400 card@n~
+A @y3141 Chain Mail Shirt H-400 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 250 0 0 2
+T 3230
+T 18604
+#3142
+shield card~
+@y3142 Shield H-0 card@n~
+A @y3142 Shield H-0 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 100 0 0 2
+T 3230
+T 18604
+#3143
+jacket leather card~
+@y3143 Leather Jacket H-500 card@n~
+A @y3143 Leather Jacket H-500 card@n is lying card.~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 200 0 0 2
+T 3230
+T 18604
+#3144
+jacket studded leather card~
+@y3144 Studded Leather Jacket H-200 card@n~
+A @y3144 Studded Leather Jacket H-200 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 500 0 0 2
+T 3230
+T 18604
+#3145
+3145 jacket scale mail card~
+@y3145 Scale Mail Jacket G-285 card@n~
+A @y3145 Scale Mail Jacket G-285 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 700 0 0 2
+T 3230
+T 18604
+#3146
+3146 breast plate bronze card~
+@y3146 Bronze Breast Plate F-250 card@n~
+A @y3146 Bronze Breast Plate F-250 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1000 0 0 2
+T 3230
+T 18604
+#3151
+potion yellow card~
+@y3151 Potion of Perception H-250 card@n~
+A @y3151 Potion of Perception H-250 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 400 0 0 2
+T 3230
+T 18604
+E
+potion yellow~
+   The potion has a small label 'Detect The Invisible'.  
+~
+#3152
+identify wand~
+@y3152 Wand of Identify H-285 card@n~
+A @y3152 Wand of Identify H-285 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 350 0 0 0
+T 3230
+T 18604
+#3153
+wand card~
+@y3153 Wand of Invisibility E-200 card@n~
+A grey wand has carelessly been left here.~
+~
+12 dg 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 2500 0 0 2
+T 3230
+T 18604
+E
+wand card~
+   This wand turns a person temporarily invisible or permanently on objects.
+~
+#3154
+staff gnarled card~
+@y3154 Gnarled Staff F-170 card@n~
+A @y3154 Gnarled Staff F-170 card@g is lying here.@n~
+~
+12 dg 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1500 0 0 2
+T 3230
+T 18604
+E
+staff gnarled~
+   The staff is made of old oak, and is around five feet long. It fits
+perfectly into your hand. You notice a small symbol etched at the
+base of the staff, it looks like:
+
+  ZZZZZ
+     Z
+    Z
+   Z
+  ZZZZZ  z   z
+
+~
+#3157
+effigy remove curse card~
+@y3157 Effigy of Remove Curse E-250 card@n~
+A @y3157 Effigy of Remove Curse E-250 card@g is lying here.@n~
+~
+12 dg 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 2000 0 0 2
+T 3230
+T 18604
+E
+staff gnarled~
+   The staff is made of old oak, and is around five feet long. It fits
+perfectly into your hand. You notice a small symbol etched at the
+base of the staff, it looks like:
+
+  ZZZZZ
+     Z
+    Z
+   Z
+  ZZZZZ  z   z
+
+~
+#3166
+266 passage ticket card~
+@y266 Passage Ticket B-150 card@n~
+A @y266 Passage Ticket B-150 card@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 6700 0 0 2
+T 3230
+T 18604
+E
+266 passage ticket card~
+   A ticket which allows the barer to use a safe passage out of the game.
+~
+#3170
+3170 gauntlets bronze card~
+@y3170 Bronze Gauntlets H-570 card@n~
+A @y3170 Bronze Gauntlets H-570 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 175 0 0 2
+T 3230
+T 18604
+#3171
+gloves leather card~
+@y3171 Leather Gloves H-0 card@n~
+A @y3171 Leather Gloves H-0 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 75 0 0 2
+T 3230
+T 18604
+#3175
+3175 helmet bronze card~
+@y3175 Bronze Helmet G-570 card@n~
+A @y3175 Bronze Helmet G-570 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 350 0 0 2
+T 3230
+T 18604
+#3176
+cap leather card~
+@y3176 Leather Cap H-665 card@n~
+A @y3176 Leather Cap H-665 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 150 0 0 2
+T 3230
+T 18604
+#3180
+3180 leggings bronze card~
+@y3180 Bronze Leggings G-570 card@n~
+A @y3180 Bronze Leggings G-570 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 350 0 0 2
+T 3230
+T 18604
+#3181
+pants leather card~
+@y3181 Leather Pants H-665 card@n~
+A @y3181 Leather Pants H-665 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 150 0 0 2
+T 3230
+T 18604
+#3185
+3185 sleeves bronze card~
+@y3185 Bronze Sleeves H-570 card@n~
+A @y3185 Bronze Sleeves H-570 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 175 0 0 2
+T 3230
+T 18604
+#3186
+sleeves leather card~
+@y3186 Leather Sleeves H-0 card@n~
+A @y3186 Leather Sleeves H-0 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 75 0 0 2
+T 3230
+T 18604
+#3190
+3190 spyglass telescopic card~
+@y3190 Telescopic Spyglass E-500 card@n~
+A @y3190 Telescopic Spyglass E-500 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1000 0 0 2
+T 3230
+T 18604
+E
+/c~
+   This compact telescope allow to see far distances while holding it.
+Usage: <spy direction>
+~
+#3195
+3195 boots leather card~
+@y3195 Worn Leather Boots H-285 card@n~
+A @y3195 Worn Leather Boots H-285 card@g is lying here.@n~
+~
+12 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 350 0 0 2
+T 3230
+T 18604
+$~
