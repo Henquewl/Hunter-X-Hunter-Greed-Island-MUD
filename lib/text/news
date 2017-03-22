@@ -8,6 +8,11 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 
 > 2017 <
 
+MAR 22 **  Book fixed (I hope). Enfold weapons changed name to just Enfold
+           and has been improved and Exorcise as well, type @Rhelp enfold@W and
+		   @Rhelp exorcise@W for more information. New command created, type
+		   @Raffects@W or just @Raff@W to check your active hatsus/spells.
+
 MAR 20 **  Keys gone when use it to lock or unlock and for now on any keys,
            consumable items or used wand/staffs cannot be gained. Remember
 		   to toggle autokey off if you don't want to unlock accidentally.

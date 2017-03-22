@@ -895,7 +895,7 @@ void mag_unaffects(int level, struct char_data *ch, struct char_data *victim,
     break;
   case SPELL_REMOVE_CURSE:
     spell = SPELL_CURSE;
-    to_vict = "You don't feel so unlucky.";
+    to_vict = "A cursed aura was removed from you!";
     break;
   default:
     log("SYSERR: unknown spellnum %d passed to mag_unaffects.", spellnum);
@@ -927,6 +927,7 @@ void mag_alter_objs(int level, struct char_data *ch, struct obj_data *obj,
     case SPELL_BLESS:
       if (!OBJ_FLAGGED(obj, ITEM_BLESS) && (GET_CLASS(ch) == 1 || GET_CLASS(ch) == 5)) {
 	SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_BLESS);
+	GET_OBJ_WEIGHT(obj) = 1;
 	to_char = "Some symbols appears over $p.";
       }
       break;
@@ -960,13 +961,12 @@ void mag_alter_objs(int level, struct char_data *ch, struct obj_data *obj,
         to_char = "You remove the cursed aura from $p.";
 		break;
       }
-	  if (OBJ_FLAGGED(obj, ITEM_INVISIBLE) && GET_OBJ_TYPE(obj) != ITEM_WEAPON) {
+	  if (OBJ_FLAGGED(obj, ITEM_INVISIBLE)) {
         REMOVE_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_INVISIBLE);
         to_char = "You remove the invisibility from $p.";
 		break;
       }
-	  if (GET_OBJ_TYPE(obj) == ITEM_WEAPON && (OBJ_FLAGGED(obj, ITEM_MAGIC) || OBJ_FLAGGED(obj, ITEM_INVISIBLE))) {
-	    REMOVE_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_INVISIBLE);
+	  if (OBJ_FLAGGED(obj, ITEM_MAGIC)) {
 		REMOVE_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_MAGIC);
 	    obj->affected[0].location = APPLY_NONE;
 		obj->affected[0].modifier = 0;
@@ -980,7 +980,8 @@ void mag_alter_objs(int level, struct char_data *ch, struct obj_data *obj,
 		obj->affected[4].modifier = 0;
 		obj->affected[5].location = APPLY_NONE;
 		obj->affected[5].modifier = 0;
-		extract_script(obj, OBJ_TRIGGER);
+		if (SCRIPT(obj))
+          extract_script(obj, OBJ_TRIGGER);
 		to_char = "You remove all the aura from $p.";
       }
       break;

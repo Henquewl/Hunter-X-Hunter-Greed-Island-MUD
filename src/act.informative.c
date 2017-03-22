@@ -160,7 +160,7 @@ static void show_obj_modifiers(struct obj_data *obj, struct char_data *ch)
     send_to_char(ch, " (invisible)");
 
   if (OBJ_FLAGGED(obj, ITEM_BLESS) && (obj->carried_by == ch || obj->worn_by == ch || GET_CLASS(ch) == 1 || GET_CLASS(ch) == 5))
-    send_to_char(ch, " ..It is very swift!");
+    send_to_char(ch, " ..It weighs almost nothing!");
 
   if (OBJ_FLAGGED(obj, ITEM_NODROP) && AFF_FLAGGED(ch, AFF_DETECT_MAGIC))
     send_to_char(ch, " ..It is cursed!");
@@ -970,6 +970,29 @@ ACMD(do_score)
 
     send_to_char(ch, "Your current zone: %s%d%s\r\n", CCCYN(ch, C_NRM), GET_OLC_ZONE(ch),
  CCNRM(ch, C_NRM));
+  }
+}
+
+ACMD(do_affects)
+{
+
+  struct affected_type *aff;
+
+  if (ch->affected) {
+	send_to_char(ch, "Affected by:\r\n");
+    for (aff = ch->affected; aff; aff = aff->next) {
+      send_to_char(ch, "--> (%3dhr) %s%-21s%s ", aff->duration + 1, CCCYN(ch, C_NRM), skill_name(aff->spell), CCNRM(ch, C_NRM));
+
+      if (aff->modifier)
+	send_to_char(ch, "%+d to %s", aff->modifier, apply_types[(int) aff->location]);
+
+      if (aff->bitvector[0] || aff->bitvector[1] || aff->bitvector[2] || aff->bitvector[3]) {
+        if (aff->modifier)
+          send_to_char(ch, ", ");
+        
+      }
+      send_to_char(ch, "\r\n");
+    }
   }
 }
 

@@ -812,7 +812,7 @@ void mag_assign_spells(void)
 	TAR_IGNORE, TRUE, MAG_AREAS,
 	NULL);
 
-  spello(SPELL_ENCHANT_WEAPON, "enfold weapon", 150, 100, 10, POS_STANDING,
+  spello(SPELL_ENCHANT_WEAPON, "enfold", 150, 100, 10, POS_STANDING,
 	TAR_OBJ_INV, FALSE, MAG_MANUAL,
 	NULL);
 

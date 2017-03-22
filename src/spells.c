@@ -431,21 +431,53 @@ ASPELL(spell_enchant_weapon)
     return;
 
   /* Either already enchanted or not a weapon. */
-  if (GET_OBJ_TYPE(obj) != ITEM_WEAPON || OBJ_FLAGGED(obj, ITEM_MAGIC))
+  if (OBJ_FLAGGED(obj, ITEM_MAGIC))
     return;
 
   /* Make sure no other affections. */
   for (i = 0; i < MAX_OBJ_AFFECT; i++)
     if (obj->affected[i].location != APPLY_NONE)
       return;
-
+  
   SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_MAGIC);
 
-  obj->affected[0].location = APPLY_HITROLL;
-  obj->affected[0].modifier = 1 + (level / 10);
+  if (GET_OBJ_TYPE(obj) == ITEM_WEAPON) {
+    obj->affected[0].location = APPLY_HITROLL;
+    obj->affected[0].modifier = 1 + (level / 10);
 
-  obj->affected[1].location = APPLY_DAMROLL;
-  obj->affected[1].modifier = 1 + (level / 10);
+    obj->affected[1].location = APPLY_DAMROLL;
+    obj->affected[1].modifier = 1 + (level / 10);
+  } else if (GET_OBJ_TYPE(obj) == ITEM_ARMOR) {
+	obj->affected[0].location = APPLY_AC;
+    obj->affected[0].modifier = -2 - (level / 5);
+	
+	obj->affected[1].location = APPLY_CHA;
+	obj->affected[1].modifier = 1;
+	
+	obj->affected[2].location = APPLY_CON;
+	obj->affected[2].modifier = 1;
+	
+	obj->affected[3].location = APPLY_DEX;
+	obj->affected[3].modifier = (level / 20);
+	
+	obj->affected[4].location = APPLY_STR;
+	obj->affected[4].modifier = (level / 30);
+  } else {
+    obj->affected[0].location = APPLY_AC;
+    obj->affected[0].modifier = -1 - (level / 10);
+	
+	obj->affected[1].location = APPLY_WIS;
+	obj->affected[1].modifier = 1;
+	
+	obj->affected[2].location = APPLY_INT;
+	obj->affected[2].modifier = 1;
+
+    obj->affected[3].location = APPLY_HITROLL;
+    obj->affected[3].modifier = (level / 20);
+
+    obj->affected[4].location = APPLY_DAMROLL;
+    obj->affected[4].modifier = (level / 30);	
+  }	
 
   if (IS_GOOD(ch)) {
     SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_ANTI_EVIL);
