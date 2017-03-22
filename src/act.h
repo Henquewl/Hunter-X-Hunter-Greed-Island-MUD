@@ -85,6 +85,7 @@ ACMD(do_look);
 #define SCMD_READ 1
 /* functions without subcommands */
 ACMD(do_areas);
+ACMD(do_affects);
 ACMD(do_consider);
 ACMD(do_diagnose);
 ACMD(do_equipment);

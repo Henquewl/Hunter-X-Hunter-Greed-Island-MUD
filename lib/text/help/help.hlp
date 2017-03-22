@@ -2766,18 +2766,18 @@ Empty
 #0
 Empty
 #31
-ENFOLD-WEAPON ENCHANT-WEAPON
+ENFOLD ENCHANT
 
-Usage       : cast 'enfold weapon' <weapon>
+Usage       : cast 'enfold' <item>
 Accumulative: No
 Duration    : Permanent
 
-This hatsu will enchant non-enfolded (non-modifying) weapons only.
-By non-modifying weapons we refer to weapons that might alter any
-ability such as for example damage.  The only way to know if a weapon
+This hatsu will enchant non-enfolded (non-modifying) items only.
+By non-modifying weapons we refer to items that might alter any
+ability such as for example damage.  The only way to know if a item
 is suitable for enchantment is to fully identify it.
 
-The enchantment will modify the weapon as:
+The enfold will modify the weapon as:
 
     Level    Hit Roll    Damage
 
@@ -2785,9 +2785,26 @@ The enchantment will modify the weapon as:
     10..19     +2         +2
     20..29     +3         +3
     30..30+    +4         +4
+	
+The enfold will modify armors as (lower AC is better):
 
-The weapon will receive the align of the caster. Neutral recomended.
+    Level      AC        Cha        Con        Dex        Str
 
+     0..9      -2         +1
+    10..19     -4                    +1
+    20..29     -6                               +1
+    30..30+    -8                                          +1
+	
+The enfold will modify other items as (lower AC is better):
+
+    Level      AC        Wis        Int      Hit Roll     Damage
+
+     0..9      -1         +1
+    10..19     -2                    +1
+    20..29     -3                              +1
+    30..30+    -4                                          +1
+
+The item will receive the align of the caster. Neutral recomended.
 See Also: IDENTIFY, DETECT-ENFOLD, DETECT-ALIGN
 #0
 ENHANCE STRENGTH HASTU-ENHANCE SKILL-ENHANCE
@@ -2979,10 +2996,13 @@ Accumulative: No
 Duration    : Instantaneous
 
 Will remove a curse on carried objects or any person in the room.
-Also remove all the aura from enfolded weapons or invisibility from other items
-if it is not cursed.  Weapons free from aura can receive enfold weapon hatsu.
+Also remove invisibility and aura from enfolded items, it may leave the item
+ungainable. Items free from aura can receive enfold hatsu.
+If you got a cursed, invisible and enfolded item, you may use exorcise three
+times to remove all aura from it if you must.
 
-See Also: ENFOLD-WEAPON
+
+See Also: ENFOLD
 #0
 EXPORT
 
@@ -3328,14 +3348,17 @@ See also: WATERWALK, EARTHQUAKE
 #0
 FOCUS
 
-Usage       : cast 'focus'
+Usage       : cast 'focus' <target>
 Accumulative: No
 Duration    : 6 Hours + level/hours
 
-Focus will improve your saving throw versus hatsus by (1 + level/16)
-and furthermore improve the hitroll by (2 + level/8).
+Focus will improve target saving throw versus hatsus by (1 + level/16)
+and furthermore improve the hitroll by (2 + level/8). Focused items
+wights almost nothing.
+Only Manipulators can cast focus on others beyound yourself.
+Only Conjurer can cast focus over objects to lightweight it.
 
-See Also: HITROLL, SAVING-THROWS
+See Also: HITROLL, SAVING-HATSUHATSU
 #0
 FOLLOWERS
 
@@ -3516,7 +3539,7 @@ Duration    : 4 hours
 When protected by fortify you will only receive 1/2 the normal damage
 caused by a particular blow.
 
-See also: ARMOR, BLESS
+See also: ARMOR, FOCUS
 #0
 FOUNTAINS DRINK-UNITS OEDIT-FOUNTAINS 
 
@@ -6273,7 +6296,7 @@ OEDIT-EXTRA-FLAGS OEDIT-FLAGS OBJECT-FLAGS OBJECTFLAGS GLOW HUM NODROP NO_DROP N
 6)   INVISIBLE       Item is invisible.
 7)   MAGIC           Item has a magical aura and cannot be enchanted.
 8)   NODROP          Item is cursed and cannot be removed or dropped.
-9)   BLESS           Item is focused (cosmetic).
+9)   BLESS           Item is focused (weights 1).
 10)  ANTI_GOOD       Item cannot be used by good-aligned characters.
 11)  ANTI_EVIL       Item cannot be used by evil-aligned characters.
 12)  ANTI_NEUTRAL    Item cannot be used by neutral align characters.
@@ -8632,7 +8655,7 @@ saying "yes" to save internally.
 
 See also: OLC, BUILDWALK, DIG, ROOMDELETE
 #31
-SAVING-HATSU SAVING-THROW SAVING-ROLL
+SAVING-HATSU SAVING-THROW SAVING-SPELL SAVING-ROLL
 
    Its helps to avoid sucessful hatsus against you. @GNegative is better@n.
 

@@ -88,6 +88,7 @@ cpp_extern const struct command_info cmd_info[] = {
   { "aedit"    , "aed"     , POS_DEAD    , do_oasis_aedit, LVL_GOD, 0 },
   { "alias"    , "ali"     , POS_DEAD    , do_alias    , 0, 0 },
   { "afk"      , "afk"     , POS_DEAD    , do_gen_tog  , 0, SCMD_AFK },
+  { "affects"  , "aff"     , POS_DEAD    , do_affects  , 0, 0 },
   { "areas"    , "are"     , POS_DEAD    , do_areas    , 0, 0 },
   { "assist"   , "as"      , POS_FIGHTING, do_assist   , 1, 0 },
   { "ask"      , "ask"     , POS_RESTING , do_spec_comm, 0, SCMD_ASK },

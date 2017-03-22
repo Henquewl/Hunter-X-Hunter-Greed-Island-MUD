@@ -25,30 +25,29 @@ G.I. Ring~
 1 c 1
 book~
 if %cmd%==book && %actor.varexists(book_purge_leaves)%
-if %actor.room.contents.vnum% == 3200
-return 0
-halt
-else
-%force% %actor% say BOOK!
-wait 1 sec
-%force% %actor% open binder
-%send% %actor% An energy comes out of your ring and transforms into a book.
-%echoaround% %actor% An energy comes out of %actor.name%'s ring and transforms into a book.
-%load% obj 3200 %room%
-halt
-end
+  if %actor.room.contents.vnum% == 3200
+    return 0
+    halt
+  else
+    %force% %actor% say BOOK!
+    wait 1 sec
+    %force% %actor% open binder
+    %send% %actor% An energy comes out of your ring and transforms into a book.
+    %echoaround% %actor% An energy comes out of %actor.name%'s ring and transforms into a book.
+    %load% obj 3200 %room%
+    halt
+  end
 elseif %cmd%==book
-%force% %actor% say BOOK!
-wait 1 sec
-%load% obj 3200 %room%
-eval book_purge_leaves %actor.room.contents%
-remote book_purge_leaves %actor.id%
-%force% %actor% open binder
-%send% %actor% An energy comes out of your ring and transforms into a book.
-%echoaround% %actor% An energy comes out of %actor.name%'s ring and transforms into a book.
-end
+  %force% %actor% say BOOK!
+  wait 1 sec
+  %load% obj 3200 %room%
+  eval book_purge_leaves %actor.room.contents%
+  remote book_purge_leaves %actor.id%
+  %force% %actor% open binder
+  %send% %actor% An energy comes out of your ring and transforms into a book.
+  %echoaround% %actor% An energy comes out of %actor.name%'s ring and transforms into a book.
 else
-return 0
+  return 0
 end
 ~
 #3203
@@ -1144,7 +1143,7 @@ jajanken ends~
 k~
 if %cmd.mudcommand% == kill && %arg%
 if %actor.varexists(jajanken_loading)%
-%force% %actor% shout JANKEN... GUU!@n
+%force% %actor% shout JANKEN... GUU!	n
 rdelete jajanken_loading %actor.id%
 end
 %force% %actor% kill %arg%
