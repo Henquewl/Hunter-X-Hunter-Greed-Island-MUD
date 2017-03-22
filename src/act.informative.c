@@ -993,6 +993,8 @@ ACMD(do_affects)
       }
       send_to_char(ch, "\r\n");
     }
+  } else {
+	send_to_char(ch, "Nothing is affecting you right now.\r\n");  
   }
 }
 
