@@ -815,11 +815,14 @@ wait 1 sec
 say Please, 	Ysay yes	n or 	Yno	n
 ~
 #1442
-test reroll~
-0 d 0
-roll me bitch~
-say rolling you
-reroll %actor.name%
+leave to quit~
+2 c 100
+le~
+if %cmd.mudcommand% == leave
+  %force% %actor% quit
+else
+  return 0
+end
 ~
 #1450
 Room Global Random Example~

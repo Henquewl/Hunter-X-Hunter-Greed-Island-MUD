@@ -22,7 +22,7 @@
 #include "oasis.h"
 #include "act.h"
 #include "quest.h"
-
+#include "screen.h"
 
 /* local function prototypes */
 /* do_get utility functions */
@@ -47,19 +47,34 @@ static void perform_remove(struct char_data *ch, int pos);
 static void perform_wear(struct char_data *ch, struct obj_data *obj, int where);
 static void wear_message(struct char_data *ch, struct obj_data *obj, int where);
 
-
+static void make_card(struct char_data *ch, struct obj_data *obj);
 
 
 static void perform_put(struct char_data *ch, struct obj_data *obj, struct obj_data *cont)
 {
+  struct obj_data *next_obj;
+  int limit = 0, busy = FALSE;
 
   if (!drop_otrigger(obj, ch))
     return;
 
   if (!obj) /* object might be extracted by drop_otrigger */
     return;
-
-  if ((GET_OBJ_VAL(cont, 0) > 0) &&
+	
+  for (next_obj = cont->contains; next_obj; next_obj = next_obj->next_content){
+    if (GET_OBJ_TYPE(next_obj) != ITEM_TREASURE)
+	  limit++;
+    else {
+	  if (GET_OBJ_VNUM(next_obj) == GET_OBJ_VNUM(obj))
+		busy = TRUE;
+	}
+  }  
+  
+  if (busy == TRUE)
+    act("The specified slot for $p is already occupied into your $P.", FALSE, ch, obj, cont, TO_CHAR);	  
+  else if ((limit > 44) && (GET_OBJ_TYPE(obj) != ITEM_TREASURE))
+	act("Has no free slot for your $p fit in $P.", FALSE, ch, obj, cont, TO_CHAR);    
+  else if ((GET_OBJ_VAL(cont, 0) > 0) &&
       (GET_OBJ_WEIGHT(cont) + GET_OBJ_WEIGHT(obj) > GET_OBJ_VAL(cont, 0)))
     act("$p won't fit in $P.", FALSE, ch, obj, cont, TO_CHAR);
   else if (OBJ_FLAGGED(obj, ITEM_NODROP) && IN_ROOM(cont) != NOWHERE)
@@ -492,6 +507,7 @@ ACMD(do_drop)
 {
   char arg[MAX_INPUT_LENGTH];
   struct obj_data *obj, *next_obj;
+  struct obj_data *booster;
   room_rnum RDR = 0;
   byte mode = SCMD_DROP;
   int dotmode, amount = 0, multi, num_don_rooms;
@@ -595,9 +611,245 @@ ACMD(do_drop)
   }
 
   if (amount && (subcmd == SCMD_JUNK)) {
-    send_to_char(ch, "You have been rewarded by the Game Masters!\r\n");
+	if ((rand_number(1, 101) + (amount / 100) >= 101)){
+	  booster = read_object(3250, VIRTUAL);
+	  obj_to_char(booster, ch);
+	  send_to_char(ch, "You have been rewarded by the Game Masters with a booster pack!\r\n");
+	} else {
+	GET_GOLD(ch) += amount;
+    send_to_char(ch, "You have been rewarded by the Game Masters with %d Jenny!\r\n", amount);
     act("$n has been rewarded by the Game Masters!", TRUE, ch, 0, 0, TO_ROOM);
-    GET_GOLD(ch) += amount;
+    }
+  }
+}
+
+ACMD(do_gain)
+{
+  char arg[MAX_INPUT_LENGTH];
+  int dotmode, i;
+  
+  argument = one_argument(argument, arg);
+  
+  dotmode = find_all_dots(arg);  
+  
+  if (!*arg){
+    if (GET_EQ(ch, WEAR_HOLD)) {
+	  do_say(ch, "GAIN!", cmd, 0);  
+	  if (GET_LEVEL(ch) >= LVL_IMPL)
+	    make_card(ch, GET_EQ(ch, WEAR_HOLD));      
+	  else
+      switch (GET_OBJ_TYPE(GET_EQ(ch, WEAR_HOLD))) {
+	    case 3:
+        case 4:
+		case 8:
+	    case 13:
+        case 15:
+        case 16:
+        case 17:
+	    case 18:
+	    case 20:
+        case 23:
+          send_to_char(ch, "Nothing happens with %s.\r\n", GET_EQ(ch, WEAR_HOLD)->short_description);
+          break;
+        default:
+          make_card(ch, GET_EQ(ch, WEAR_HOLD));
+          break;		
+      }
+    } else {
+        send_to_char(ch, "You must hold or specify an equipped item before gain it.\r\n");
+    }
+  } else if (dotmode == FIND_ALL || dotmode == FIND_ALLDOT) {
+      send_to_char(ch, "You can not just gain EVERYTHING...\r\n"); 
+  } else {
+    if ((i = get_obj_pos_in_equip_vis(ch, arg, NULL, ch->equipment)) < 0)
+      send_to_char(ch, "You don't seem to be using %s %s.\r\n", AN(arg), arg);
+    else
+      make_card(ch, GET_EQ(ch, i));
+  }
+}
+
+static void make_card(struct char_data *ch, struct obj_data *obj)
+{  
+  struct obj_data *card;
+  int number;
+  
+  number = GET_OBJ_VNUM(obj);
+  
+  if (number == 65535) {	
+    card = read_object(GET_OBJ_RENT(obj), VIRTUAL);
+    obj_to_char(card, ch);	
+	send_to_room(IN_ROOM(ch), "%s's %s turns into %s.\r\n", GET_NAME(ch), obj->short_description, card->short_description);
+	extract_obj(obj);    	
+  } else if (OBJ_FLAGGED(obj, ITEM_NODROP) && !PRF_FLAGGED(ch, PRF_NOHASSLE)){
+    act("You can't gain $p, it must be CURSED!", FALSE, ch, obj, 0, TO_CHAR);
+  } else {
+    char buf2[MAX_NAME_LENGTH + 64];	
+    const char *word[] = {
+    "H-",
+    "G-",	
+	"F-",
+    "E-",
+    "D-",
+    "C-",
+    "B-",
+    "A-",
+    "S-",
+    "SS-"
+  };
+  
+  int a, b, i, rarity, letter, value, value2, maxCost;
+  
+  card = create_obj();  
+  
+  card->item_number = NOTHING;
+  IN_ROOM(card) = NOWHERE;
+  
+  value = 0;
+  value2 = 0;
+  
+  if (GET_OBJ_TYPE(obj) == ITEM_WEAPON){
+	value += (((GET_OBJ_VAL(obj, 1) * GET_OBJ_VAL(obj, 1)) * 10) * (GET_OBJ_VAL(obj, 2) * 10));	
+  } else if (GET_OBJ_TYPE(obj) == ITEM_ARMOR){
+	value += ((GET_OBJ_VAL(obj, 0) * GET_OBJ_VAL(obj, 0)) * 100);
+  }
+  
+  /* Check for a value increment of magic items from non-enfolded items */  
+  if (!OBJ_FLAGGED(obj, ITEM_ENFOLDED)){
+	for (i = 0; i < MAX_OBJ_AFFECT; i++){
+      if ((obj->affected[i].location != APPLY_NONE) && (obj->affected[i].modifier != 0)) {
+		if (obj->affected[i].location >= 20 && obj->affected[i].location <= 23) {
+          value2 += ((obj->affected[i].modifier * -1) * 2.5);	
+        } else if (obj->affected[i].location >= 9 && obj->affected[i].location <= 14) {
+		    value2 += obj->affected[i].modifier;        			
+	    } else if (obj->affected[i].location == APPLY_SAVING_SPELL) {
+		    value2 += ((obj->affected[i].modifier * -1) * 10);
+		} else if (obj->affected[i].location == APPLY_AC) {
+		    value2 += ((obj->affected[i].modifier * -1) * 2.5);
+		} else {
+			value2 += (obj->affected[i].modifier * 10);
+		}
+	  }	
+    }
+  }
+  
+  value = (value + GET_OBJ_COST(obj));
+  
+  if (value2 == 0){
+	value2 = 1;
+  }
+  
+  maxCost = (value * value2);
+  
+  if (maxCost < 0){	
+    maxCost = value;
+  }
+  
+  if (maxCost == 0) {
+    rarity = 0;
+	letter = 0;
+  } else if (maxCost <= 500) {
+      a = 500 - maxCost;
+	  b = 100;
+	  rarity = a + b; 
+      letter = 0;
+  } else if (maxCost <= 1000) {   
+      a = 1000 - maxCost;
+      a = a / 2;	  
+	  b = 90;
+	  rarity = a + b;
+      letter = 1;
+  } else if (maxCost <= 2000) {   
+      a = 2000 - maxCost;
+	  a = a / 5;
+	  b = 80;
+	  rarity = a + b;
+	  letter = 2;
+  } else if (maxCost <= 4000) {    
+      a = 4000 - maxCost;
+	  a = a / 10;
+	  b = 70;
+	  rarity = a + b;
+	  letter = 3;
+  } else if (maxCost <= 8000) {    
+      a = 8000 - maxCost;
+	  a = a / 25;
+	  b = 60;
+	  rarity = a + b;
+	  letter = 4;
+  } else if (maxCost <= 16000) {   
+      a = 16000 - maxCost;
+	  a = a / 50;
+	  b = 50;
+	  rarity = a + b;
+	  letter = 5;
+  } else if (maxCost <= 32000) {    
+      a = 32000 - maxCost;
+	  a = a / 125;
+	  b = 40;
+	  rarity = a + b;
+	  letter = 6;
+  } else if (maxCost <= 64000) {    
+      a = 64000 - maxCost;
+	  a = a / 250;
+	  b = 30;
+	  rarity = a + b;
+	  letter = 7;
+  } else if (maxCost <= 128000) {   
+      a = 128000 - maxCost;
+	  a = a / 500;
+	  b = 20;
+	  rarity = a + b;
+      letter = 8;	  
+  } else if (maxCost < 235000) {  
+      a = 226000 - maxCost;
+	  a = a / 1000;
+	  b = 10;
+	  rarity = a + b;
+	  letter = 9;
+  } else {
+	  rarity = 1;
+	  letter = 9;
+  }
+  
+  if ((OBJ_FLAGGED(obj, ITEM_INVISIBLE) && !OBJ_FLAGGED(obj, ITEM_NOSELL)) || (!OBJ_FLAGGED(obj, ITEM_INVISIBLE) && OBJ_FLAGGED(obj, ITEM_NOSELL))){  
+    snprintf(buf2, sizeof(buf2), "%s%d %s%s %s%d (invisible) card%s", KYEL, number, obj->short_description, KYEL, word[letter], rarity, CNRM);
+    card->short_description = strdup(buf2);
+  
+    snprintf(buf2, sizeof(buf2), "%s%d %s%s %s%d (invisible) card is lying here.%s", KYEL, number, obj->short_description, KYEL, word[letter], rarity, CNRM);
+    card->description = strdup(buf2);
+  
+  } else {
+	  if (GET_OBJ_TYPE(obj) == ITEM_TREASURE){
+        snprintf(buf2, sizeof(buf2), "%s voucher", obj->name);
+        card->name = strdup(buf2);
+		
+		snprintf(buf2, sizeof(buf2), "%s%s voucher%s", obj->short_description, KYEL, CNRM);
+        card->short_description = strdup(buf2);  
+	
+	    snprintf(buf2, sizeof(buf2), "%s%s voucher%s is lying here.", obj->short_description, KYEL, CNRM);
+        card->description = strdup(buf2);
+	  }	else {
+        snprintf(buf2, sizeof(buf2), "%s card", obj->name);
+        card->name = strdup(buf2);
+		
+	    snprintf(buf2, sizeof(buf2), "%s%d %s%s %s%d card%s", KYEL, number, obj->short_description, KYEL, word[letter], rarity, CNRM);
+        card->short_description = strdup(buf2);  
+	
+	    snprintf(buf2, sizeof(buf2), "%s%d %s%s %s%d card%s is lying here.", KYEL, number, obj->short_description, KYEL, word[letter], rarity, CNRM);
+        card->description = strdup(buf2);
+	  }
+  }  
+  
+  GET_OBJ_TYPE(card) = ITEM_OTHER; 
+  SET_BIT_AR(GET_OBJ_WEAR(card), ITEM_WEAR_TAKE);
+  SET_BIT_AR(GET_OBJ_EXTRA(card), ITEM_NODONATE);  
+  GET_OBJ_WEIGHT(card) = 0;
+  GET_OBJ_COST(card) = maxCost; 
+  GET_OBJ_RENT(card) = number;
+  GET_OBJ_TIMER(card) = CONFIG_MAX_NPC_CORPSE_TIME;
+  obj_to_char(card, ch);
+  send_to_room(IN_ROOM(ch), "%s's %s turns into %s.\r\n", GET_NAME(ch), obj->short_description, card->short_description);
+  extract_obj(obj);
   }
 }
 
@@ -1395,9 +1647,15 @@ ACMD(do_wear)
     else if (GET_LEVEL(ch) < GET_OBJ_LEVEL(obj))
       send_to_char(ch, "You are not experienced enough to use that.\r\n");
     else {
-      if ((where = find_eq_pos(ch, obj, arg2)) >= 0) {
-    perform_remove(ch, where);
-	perform_wear(ch, obj, where);
+      if ((where = find_eq_pos(ch, obj, arg2)) >= 0 ) {
+		if ((where == WEAR_FINGER_R) || (where == WEAR_NECK_1) || (where == WEAR_WRIST_R)) {
+          if (GET_EQ(ch, where))
+			where++;
+            perform_wear(ch, obj, where);
+		} else {
+        perform_remove(ch, where);
+	    perform_wear(ch, obj, where);
+		}
 	} else if (!*arg2) {
 	act("You can't wear $p.", FALSE, ch, obj, 0, TO_CHAR); }
     }
@@ -1464,7 +1722,7 @@ static void perform_remove(struct char_data *ch, int pos)
     log("SYSERR: perform_remove: bad pos %d passed.", pos);
     /*  This error occurs when perform_remove() is passed a bad 'pos'
      *  (location) to remove an object from. */
-  else if (OBJ_FLAGGED(obj, ITEM_NODROP) && !PRF_FLAGGED(ch, PRF_NOHASSLE))
+  else if (OBJ_FLAGGED(obj, ITEM_NODROP) && !PRF_FLAGGED(ch, PRF_NOHASSLE) && pos != 17)
     act("You can't remove $p, it must be CURSED!", FALSE, ch, obj, 0, TO_CHAR);
   else if (IS_CARRYING_N(ch) >= CAN_CARRY_N(ch)&& !PRF_FLAGGED(ch, PRF_NOHASSLE))
     act("$p: you can't carry that many items!", FALSE, ch, obj, 0, TO_CHAR);
@@ -1563,11 +1821,11 @@ ACMD(do_sac)
       GET_EXP(ch) += (1+GET_OBJ_LEVEL(j));
     break;
     case 4:
-      send_to_char(ch, "Your sacrifice to the Game Masters is rewarded with %d gold coins.\r\n", 1+GET_OBJ_LEVEL(j));
+      send_to_char(ch, "Your sacrifice to the Game Masters is rewarded with %d Jenny.\r\n", 1+GET_OBJ_LEVEL(j));
       increase_gold(ch, (1+GET_OBJ_LEVEL(j)));
     break;
     case 5:
-      send_to_char(ch, "Your sacrifice to the Game Masters is rewarded with %d gold coins\r\n", (1+2*GET_OBJ_LEVEL(j)));
+      send_to_char(ch, "Your sacrifice to the Game Masters is rewarded with %d Jenny\r\n", (1+2*GET_OBJ_LEVEL(j)));
       increase_gold(ch, (1+2*GET_OBJ_LEVEL(j)));
     break;
     default:

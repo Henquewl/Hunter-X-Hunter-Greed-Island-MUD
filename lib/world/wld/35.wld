@@ -615,6 +615,10 @@ The tunnel gets smaller in this direction.
 ~
 ~
 0 -1 3555
+D3
+~
+~
+0 0 3556
 S
 #3554
 A Small Alcove~
@@ -649,7 +653,7 @@ D2
 You see a small cavern.
 ~
 ~
-0 -1 3556
+0 -1 40200
 S
 #3556
 The Goblin HeadQuarters~
@@ -663,7 +667,11 @@ D0
 The tunnel heads north.
 ~
 ~
-0 -1 3555
+0 -1 -1
+D1
+~
+~
+0 0 3553
 S
 #3570
 The Front Of The Inn~

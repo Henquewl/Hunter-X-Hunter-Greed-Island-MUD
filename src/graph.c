@@ -142,7 +142,7 @@ ACMD(do_track)
 {
   char arg[MAX_INPUT_LENGTH];
   struct char_data *vict;
-  int dir;
+  int dir, skill_num, skilladd;  
 
   /* The character must have the track skill. */
   if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_TRACK)) {
@@ -175,6 +175,19 @@ ACMD(do_track)
     send_to_char(ch, "You sense a trail %s from here!\r\n", dirs[dir]);
     return;
   }
+  
+  skill_num = find_skill_num("track");
+  if ((GET_SKILL(ch, skill_num) < 95) && ((rand_number(1, 20) + wis_app[GET_WIS(ch)].bonus) >= 20)) { 
+    skilladd = GET_SKILL(ch, skill_num);
+    skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
+    SET_SKILL(ch, skill_num, MIN(95, skilladd));
+    if (GET_SKILL(ch, skill_num) >= 95)
+      send_to_char(ch, "You mastered this skill!\r\n");
+    else
+      send_to_char(ch, "You get better with this skill...\r\n");
+  }
+  
+  GET_MANA(ch) = (GET_MANA(ch) - 1);
 
   /* They passed the skill check. */
   dir = find_first_step(IN_ROOM(ch), IN_ROOM(vict));

@@ -213,6 +213,7 @@
 #define PLR_BUG          17   /**< Player is writing a bug */
 #define PLR_IDEA         18   /**< Player is writing an idea */
 #define PLR_TYPO         19   /**< Player is writing a typo */
+#define PLR_BOOK         20   /**< Player is using the book */
 
 /* Mobile flags: used by char_data.char_specials.act */
 #define MOB_SPEC            0   /**< Mob has a callable spec-proc */
@@ -315,30 +316,31 @@
 #define CON_CNFPASSWD     6 /**< New character, confirm password */
 #define CON_QSEX          7 /**< Choose character sex */
 #define CON_QCLASS        8 /**< Choose character class */
-#define CON_RMOTD         9 /**< Reading the message of the day */
-#define CON_MENU         10 /**< At the main menu */
-#define CON_PLR_DESC     11 /**< Enter a new character description prompt */
-#define CON_CHPWD_GETOLD 12 /**< Changing passwd: Get old		*/
-#define CON_CHPWD_GETNEW 13 /**< Changing passwd: Get new */
-#define CON_CHPWD_VRFY   14 /**< Changing passwd: Verify new password */
-#define CON_DELCNF1      15 /**< Character Delete: Confirmation 1		*/
-#define CON_DELCNF2      16 /**< Character Delete: Confirmation 2		*/
-#define CON_DISCONNECT   17 /**< In-game link loss (leave character)	*/
-#define CON_OEDIT        18 /**< OLC mode - object editor		*/
-#define CON_REDIT        19 /**< OLC mode - room editor		*/
-#define CON_ZEDIT        20 /**< OLC mode - zone info editor		*/
-#define CON_MEDIT        21 /**< OLC mode - mobile editor		*/
-#define CON_SEDIT        22 /**< OLC mode - shop editor		*/
-#define CON_TEDIT        23 /**< OLC mode - text editor		*/
-#define CON_CEDIT        24 /**< OLC mode - conf editor		*/
-#define CON_AEDIT        25 /**< OLC mode - social (action) edit      */
-#define CON_TRIGEDIT     26 /**< OLC mode - trigger edit              */
-#define CON_HEDIT        27 /**< OLC mode - help edit */
-#define CON_QEDIT        28 /**< OLC mode - quest edit */
-#define CON_PREFEDIT     29 /**< OLC mode - preference edit */
-#define CON_IBTEDIT      30 /**< OLC mode - idea/bug/typo edit */
-#define CON_MSGEDIT      31 /**< OLC mode - message editor */
-#define CON_GET_PROTOCOL 32 /**< Used at log-in while attempting to get protocols > */
+#define CON_REROLL        9
+#define CON_RMOTD        10 /**< Reading the message of the day */
+#define CON_MENU         11 /**< At the main menu */
+#define CON_PLR_DESC     12 /**< Enter a new character description prompt */
+#define CON_CHPWD_GETOLD 13 /**< Changing passwd: Get old		*/
+#define CON_CHPWD_GETNEW 14 /**< Changing passwd: Get new */
+#define CON_CHPWD_VRFY   15 /**< Changing passwd: Verify new password */
+#define CON_DELCNF1      16 /**< Character Delete: Confirmation 1		*/
+#define CON_DELCNF2      17 /**< Character Delete: Confirmation 2		*/
+#define CON_DISCONNECT   18 /**< In-game link loss (leave character)	*/
+#define CON_OEDIT        19 /**< OLC mode - object editor		*/
+#define CON_REDIT        20 /**< OLC mode - room editor		*/
+#define CON_ZEDIT        21 /**< OLC mode - zone info editor		*/
+#define CON_MEDIT        22 /**< OLC mode - mobile editor		*/
+#define CON_SEDIT        23 /**< OLC mode - shop editor		*/
+#define CON_TEDIT        24 /**< OLC mode - text editor		*/
+#define CON_CEDIT        25 /**< OLC mode - conf editor		*/
+#define CON_AEDIT        26 /**< OLC mode - social (action) edit      */
+#define CON_TRIGEDIT     27 /**< OLC mode - trigger edit              */
+#define CON_HEDIT        28 /**< OLC mode - help edit */
+#define CON_QEDIT        29 /**< OLC mode - quest edit */
+#define CON_PREFEDIT     30 /**< OLC mode - preference edit */
+#define CON_IBTEDIT      31 /**< OLC mode - idea/bug/typo edit */
+#define CON_MSGEDIT      32 /**< OLC mode - message editor */
+#define CON_GET_PROTOCOL 33 /**< Used at log-in while attempting to get protocols > */
 
 /* OLC States range - used by IS_IN_OLC and IS_PLAYING */
 #define FIRST_OLC_STATE CON_OEDIT     /**< The first CON_ state that is an OLC */
@@ -436,8 +438,10 @@
 #define ITEM_ANTI_WARRIOR     15   /**< Not usable by warriors */
 #define ITEM_NOSELL           16   /**< Shopkeepers won't touch it */
 #define ITEM_QUEST            17   /**< Item is a quest item         */
+#define ITEM_ENFOLDED         18   /**< Item was enfolded by a player */
+#define ITEM_NO_GAIN          19   /**< Item was enfolded by a player */
 /** Total number of item flags */
-#define NUM_ITEM_FLAGS    18
+#define NUM_ITEM_FLAGS    20
 
 /* Modifier constants used with obj affects ('A' fields) */
 #define APPLY_NONE              0	/**< No effect			*/

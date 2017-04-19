@@ -447,6 +447,7 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
     SET_BIT_AR(af[0].bitvector, AFF_DETECT_INVIS);
     accum_duration = TRUE;
     to_vict = "You put some aura over your eyes.";
+	to_room = "$n's put some aura over the eyes.";
     break;
 
   case SPELL_DETECT_MAGIC:
@@ -942,6 +943,7 @@ void mag_alter_objs(int level, struct char_data *ch, struct obj_data *obj,
     case SPELL_INVISIBLE:
       if (!OBJ_FLAGGED(obj, ITEM_NOINVIS) && !OBJ_FLAGGED(obj, ITEM_INVISIBLE)) {
         SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_INVISIBLE);
+		SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_NOSELL);
         to_char = "$p vanishes.";
       }
       break;
@@ -958,16 +960,24 @@ void mag_alter_objs(int level, struct char_data *ch, struct obj_data *obj,
         REMOVE_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_NODROP);
         if (GET_OBJ_TYPE(obj) == ITEM_WEAPON)
           GET_OBJ_VAL(obj, 2)++;
-        to_char = "You remove the cursed aura from $p.";
+        to_char = "The cursed aura was removed from $p.";
 		break;
       }
 	  if (OBJ_FLAGGED(obj, ITEM_INVISIBLE)) {
-        REMOVE_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_INVISIBLE);
-        to_char = "You remove the invisibility from $p.";
+        if (OBJ_FLAGGED(obj, ITEM_NOSELL))
+		  REMOVE_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_NOSELL);
+	    else
+		  SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_NOSELL);
+		REMOVE_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_INVISIBLE);
+        to_char = "The concealment aura was removed from $p.";
 		break;
       }
-	  if (OBJ_FLAGGED(obj, ITEM_MAGIC)) {
-		REMOVE_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_MAGIC);
+	  if (!(obj->worn_by) && (OBJ_FLAGGED(obj, ITEM_MAGIC) || obj->affected[0].location != APPLY_NONE)) {
+		if (OBJ_FLAGGED(obj, ITEM_MAGIC))
+		  REMOVE_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_MAGIC);
+	    if (OBJ_FLAGGED(obj, ITEM_ENFOLDED))
+	      REMOVE_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_ENFOLDED);
+		
 	    obj->affected[0].location = APPLY_NONE;
 		obj->affected[0].modifier = 0;
 		obj->affected[1].location = APPLY_NONE;
@@ -980,9 +990,8 @@ void mag_alter_objs(int level, struct char_data *ch, struct obj_data *obj,
 		obj->affected[4].modifier = 0;
 		obj->affected[5].location = APPLY_NONE;
 		obj->affected[5].modifier = 0;
-		if (SCRIPT(obj))
-          extract_script(obj, OBJ_TRIGGER);
-		to_char = "You remove all the aura from $p.";
+
+		to_char = "The enfoldment aura was removed from $p.";
       }
       break;
     case SPELL_REMOVE_POISON:

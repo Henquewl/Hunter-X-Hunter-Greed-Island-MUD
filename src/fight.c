@@ -91,7 +91,7 @@ int compute_armor_class(struct char_data *ch)
   if (AWAKE(ch))
     armorclass += dex_app[GET_DEX(ch)].defensive * 10;
 
-  return (MAX(-100, armorclass));      /* -100 is lowest */
+  return (MAX(-1000, armorclass));      /* -100 is lowest */
 }
 
 void update_pos(struct char_data *victim)
@@ -167,12 +167,13 @@ void stop_fighting(struct char_data *ch)
 
   if (ch == next_combat_list)
     next_combat_list = ch->next_fighting;
-
+  
   REMOVE_FROM_LIST(ch, combat_list, next_fighting);
   ch->next_fighting = NULL;
   FIGHTING(ch) = NULL;
   GET_POS(ch) = POS_STANDING;
-  update_pos(ch);
+  update_pos(ch);  
+  
 }
 
 static void make_corpse(struct char_data *ch)
@@ -206,7 +207,7 @@ static void make_corpse(struct char_data *ch)
   SET_BIT_AR(GET_OBJ_EXTRA(corpse), ITEM_NODONATE);
   GET_OBJ_VAL(corpse, 0) = 0;	/* You can't store stuff in a corpse */
   GET_OBJ_VAL(corpse, 3) = 1;	/* corpse identifier */
-  GET_OBJ_WEIGHT(corpse) = GET_WEIGHT(ch) + IS_CARRYING_W(ch);
+  GET_OBJ_WEIGHT(corpse) = ((GET_WEIGHT(ch) + IS_CARRYING_W(ch)) + 800);
   GET_OBJ_RENT(corpse) = 100000;
   if (IS_NPC(ch))
     GET_OBJ_TIMER(corpse) = CONFIG_MAX_NPC_CORPSE_TIME;
@@ -244,7 +245,7 @@ static void make_corpse(struct char_data *ch)
   if ((rand_number(0, 100) + GET_LEVEL(ch) + HAPPY_QP) >= 100){
 	booster = read_object(3250, VIRTUAL);
     obj_to_obj(booster, corpse);
-	act("$n's body has a booster pack!!!", TRUE, ch, 0, 0, TO_ROOM);
+	act(">>> $n's body has a booster pack!!! <<<", TRUE, ch, 0, 0, TO_ROOM);
   }
    
   ch->carrying = NULL;
@@ -821,8 +822,9 @@ static int compute_thaco(struct char_data *ch, struct char_data *victim)
     calc_thaco = 20;
   calc_thaco -= str_app[STRENGTH_APPLY_INDEX(ch)].tohit;
   calc_thaco -= GET_HITROLL(ch);
-  calc_thaco -= (int) ((GET_INT(ch) - 13) / 1.5);	/* Intelligence helps! */
-  calc_thaco -= (int) ((GET_WIS(ch) - 13) / 1.5);	/* So does wisdom */
+  calc_thaco -= (int) ((GET_DEX(ch) - 11) / 2);	    /* Dex accuracy */
+  calc_thaco -= (int) ((GET_INT(ch) - 11) / 3.5);	/* Intelligence helps! */
+  calc_thaco -= (int) ((GET_WIS(ch) - 11) / 3.5);	/* So does wisdom */
 
   return calc_thaco;
 }

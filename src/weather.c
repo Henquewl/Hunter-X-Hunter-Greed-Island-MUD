@@ -47,19 +47,19 @@ static void another_hour(int mode)
     switch (time_info.hours) {
     case 5:
       weather_info.sunlight = SUN_RISE;
-      send_to_outdoor("The sun rises in the east.\r\n");
+      send_to_outdoor("\tYThe sun rises in the east.\tn\r\n");
       break;
     case 6:
       weather_info.sunlight = SUN_LIGHT;
-      send_to_outdoor("The day has begun.\r\n");
+      send_to_outdoor("\tCThe day has begun.\tn\r\n");
       break;
     case 21:
       weather_info.sunlight = SUN_SET;
-      send_to_outdoor("The sun slowly disappears in the west.\r\n");
+      send_to_outdoor("\tyThe sun slowly disappears in the west.\tn\r\n");
       break;
     case 22:
       weather_info.sunlight = SUN_DARK;
-      send_to_outdoor("The night has begun.\r\n");
+      send_to_outdoor("\tDThe night has begun.\tn\r\n");
       break;
     default:
       break;
@@ -159,27 +159,27 @@ static void weather_change(void)
   case 0:
     break;
   case 1:
-    send_to_outdoor("The sky starts to get cloudy.\r\n");
+    send_to_outdoor("\twThe sky starts to get cloudy.\tn\r\n");
     weather_info.sky = SKY_CLOUDY;
     break;
   case 2:
-    send_to_outdoor("It starts to rain.\r\n");
+    send_to_outdoor("\tBIt starts to rain.\tn\r\n");
     weather_info.sky = SKY_RAINING;
     break;
   case 3:
-    send_to_outdoor("The clouds disappear.\r\n");
+    send_to_outdoor("\tcThe clouds disappear.\tn\r\n");
     weather_info.sky = SKY_CLOUDLESS;
     break;
   case 4:
-    send_to_outdoor("Lightning starts to show in the sky.\r\n");
+    send_to_outdoor("\tbLightning starts to show in the sky.\tn\r\n");
     weather_info.sky = SKY_LIGHTNING;
     break;
   case 5:
-    send_to_outdoor("The rain stops.\r\n");
+    send_to_outdoor("\twThe rain stops.\r\n");
     weather_info.sky = SKY_CLOUDY;
     break;
   case 6:
-    send_to_outdoor("The lightning stops.\r\n");
+    send_to_outdoor("\tBThe lightning stops.\r\n");
     weather_info.sky = SKY_RAINING;
     break;
   default:

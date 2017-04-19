@@ -162,3 +162,27 @@ Mar 13 20:45:20 201  :: Caillou (lev 1) has self-deleted.
 Mar 13 20:45:20 201  :: PCLEAN: caillou Lev: 1 Last: Mon Mar 13 20:36:38 2017
 Mar 18 04:16:22 201  :: Alfonso (lev 1) has self-deleted.
 Mar 18 04:16:22 201  :: PCLEAN: alfonso Lev: 1 Last: Sat Mar 18 04:11:49 2017
+Apr 04 00:12:29 201  :: Toka (lev 1) has self-deleted.
+Apr 04 00:12:29 201  :: PCLEAN: toka Lev: 1 Last: Tue Apr  4 00:11:13 2017
+Apr 04 11:31:21 201  :: Kobayashi (lev 1) has self-deleted.
+Apr 04 11:32:03 201  :: Kobayashi (lev 1) has self-deleted.
+Apr 04 11:31:21 201  :: PCLEAN: kobayashi Lev: 1 Last: Tue Apr  4 11:30:35 2017
+Apr 04 11:32:03 201  :: PCLEAN: kobayashi Lev: 1 Last: Tue Apr  4 11:31:51 2017
+Apr 04 11:37:33 201  :: Kobayashi (lev 1) has self-deleted.
+Apr 04 11:37:33 201  :: PCLEAN: kobayashi Lev: 1 Last: Tue Apr  4 11:37:11 2017
+Apr 04 11:47:37 201  :: Kobayashi (lev 1) has self-deleted.
+Apr 04 11:47:37 201  :: PCLEAN: kobayashi Lev: 1 Last: Tue Apr  4 11:47:12 2017
+Apr 04 11:56:04 201  :: Kobayashi (lev 1) has self-deleted.
+Apr 04 12:01:54 201  :: Kobayashi (lev 1) has self-deleted.
+Apr 04 11:56:04 201  :: PCLEAN: kobayashi Lev: 1 Last: Tue Apr  4 11:55:11 2017
+Apr 04 12:01:54 201  :: PCLEAN: kobayashi Lev: 1 Last: Tue Apr  4 12:01:36 2017
+Apr 04 12:04:15 201  :: Kobayashi (lev 0) has self-deleted.
+Apr 04 12:04:15 201  :: PCLEAN: kobayashi Lev: 0 Last: Tue Apr  4 12:02:37 2017
+Apr 04 12:13:40 201  :: Kobayashi (lev 1) has self-deleted.
+Apr 04 12:13:40 201  :: PCLEAN: kobayashi Lev: 1 Last: Tue Apr  4 12:11:18 2017
+Apr 04 20:25:17 201  :: Testsubtwo (lev 0) has self-deleted.
+Apr 05 01:21:53 201  :: Jinx (lev 1) has self-deleted.
+Apr 04 20:25:17 201  :: PCLEAN: testsubtwo Lev: 0 Last: Tue Apr  4 20:22:07 2017
+Apr 05 01:21:53 201  :: PCLEAN: jinx Lev: 1 Last: Wed Apr  5 01:20:53 2017
+Apr 06 20:55:51 201  :: Huezildo (lev 0) has self-deleted.
+Apr 06 20:55:51 201  :: PCLEAN: huezildo Lev: 0 Last: Thu Apr  6 20:52:10 2017

@@ -144,7 +144,7 @@ Level     1
 Room      2813
 Flags     0 0 0 0
 End
-Text       The color bleeds in this room.~
+Text      The color bleeds in this room.~
 Body      The color bleeds in this room.
 ~
 Name      Fizban~
@@ -154,7 +154,7 @@ Level     1
 Room      2801
 Flags     0 0 0 0
 End
-Text       missing word~
+Text      missing word~
 Body      from chest -> from the chest
 
 The opening paragraph is sort of awkward as well, just seems kind of stilted, not sure how I'd rewrite it to make it feel more natural.
@@ -166,7 +166,7 @@ Level     1
 Room      2803
 Flags     0 0 0 0
 End
-Text       your -> you~
+Text      your -> you~
 Body      you can see that your have some items. -> you can see that you have some items.
 ~
 Name      Fizban~
@@ -175,4 +175,14 @@ Dated     1489989417
 Level     1
 Room      2804
 Flags     0 0 0 0
+End
+Text      I saw "You remove all the aura", when it should say Henque removes~
+Body      fix exorcise msgs
+~
+Name      Henque~
+IdNum     1
+Dated     1491015026
+Level     34
+Room      40000
+Flags     1 0 0 0
 End

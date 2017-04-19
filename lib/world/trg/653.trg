@@ -1,8 +1,8 @@
 #65300
 R000~
 1 c 2
-gai~
-if %cmd%==gain && %self.name% /= %arg%
+ga~
+if %cmd.mudcommand%==gain && %self.name% /= %arg%
 %send% %actor% Stay at front of castle gate in Limeiro if you got all restricted cards.
 else
 return 0
@@ -11,8 +11,8 @@ end
 #65301
 R000~
 1 c 2
-gai~
-if %cmd%==gain
+ga~
+if %cmd.mudcommand%==gain
 %send% %actor% It is too much valuable to use that...
 else
 return 0
@@ -275,15 +275,15 @@ nop %actor.thirst(12)%
 #65316
 Target example~
 1 c 3
-gai~
+ga~
 if %self.carried_by% == %actor%
 %echo% You must hold something before gain it.
 halt
 end
-if %cmd% == gain && %actor.name% /= %arg%
+if %cmd.mudcommand% == gain && %actor.name% /= %arg%
 %echo% gain target self name
 halt
-elseif %cmd% == gain && me /= %arg%
+elseif %cmd.mudcommand% == gain && me /= %arg%
 %echo% gain target self me
 halt
 end
@@ -306,13 +306,13 @@ end
 ~
 #65317
 Archangel breath~
-1 c 3
-gai~
+1 c 1
+ga~
 if %self.carried_by% == %actor%
 %echo% You must hold something before gain it.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 %force% %actor% say GAIN!
 wait 2 sec
 %load% mob 65417

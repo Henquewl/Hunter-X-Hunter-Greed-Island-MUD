@@ -5,7 +5,7 @@ wooden desks and benches.  To the east you hear the bustle of the Temple
 of Masadora, a sharp contrast to the relative quiet of this peaceful
 room.
 ~
-30 32956 0 0 0 0
+30 188 0 0 0 0
 D1
 You see the Temple of Masadora.
 ~
@@ -27,7 +27,7 @@ mound upon which the temple is built and ends on the temple square below.
 To the west, you see the Reading Room.  The donation room is in a small
 alcove to your east.
 ~
-30 32924 0 0 0 0
+30 156 0 0 0 0
 D1
 In the east, you see a small alcove with a rickety wooden sign which
 reads "Masadora Donation Room."
@@ -63,7 +63,7 @@ the wall, just above the altar which is set against the western wall.  A well
 in the middle of the floor leads down into darkness.  Vile smells waft from
 the depths.
 ~
-30 32780 0 0 0 0
+30 12 0 0 0 0
 D1
 You see your favorite place, the bar of divination.
 ~
@@ -81,7 +81,7 @@ The Bar Of Divination~
    The bar is one of the finest in the land, lucky it is members only.  Fine
 furniture is set all around the room.  A small sign is hanging on the wall.
 ~
-30 32908 0 0 0 0
+30 140 0 0 0 0
 D2
 You see the entrance.
 ~
@@ -107,7 +107,7 @@ The Entrance To The Clerics' Guild~
 the Clerics.  The exit leads east to the temple square.  A small entrance to
 the bar is in the northern wall.
 ~
-30 32776 0 0 0 0
+30 8 0 0 0 0
 D0
 You see the bar, richly decorated with really stylish furniture.
 ~
@@ -126,7 +126,7 @@ temple gate.  The entrance to the Clerics' Guild is to the west, and the old
 Grunting Boar Inn, is to the east.  Just south of here you see the market
 square, the center of Masadora.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D0
 You see the temple.
 ~
@@ -155,7 +155,7 @@ has been wisely decorated with simple, functional furniture.  The heavy smell
 of dust and aging paper drifts in from the Post Office to the north.  A small
 staircase leads up to the reception and the bar is to the east.
 ~
-30 32776 0 0 0 0
+30 8 0 0 0 0
 D1
 Surprise!  You see the bar.
 ~
@@ -180,7 +180,7 @@ the western wall, and through the southeastern windows you can see the temple
 square.  This place makes you feel like home.
 A small sign with big letters is fastened to the bar.
 ~
-30 32904 0 0 0 0
+30 136 0 0 0 0
 D3
 You see the exit to the entrance hall.
 ~
@@ -206,7 +206,7 @@ The Reception~
 entrance hall.  An exit to the north leads to the Cryogenic Center.
 There is a small sign on the counter.
 ~
-30 32776 0 0 0 0
+30 8 0 0 0 0
 D0
 You see the Cryogenic Center.
 ~
@@ -238,7 +238,7 @@ fine bread fills the room.  The bread and Danish are arranged in fine order
 on the shelves, and seem to be of the finest quality.
 A small sign is on the counter.
 ~
-30 32904 0 0 0 0
+30 136 0 0 0 0
 D2
 You see the main street.
 ~
@@ -266,7 +266,7 @@ The General Store~
 behind the counter, safely out of your reach.
 A small note hangs on the wall.
 ~
-30 32904 0 0 0 0
+30 136 0 0 0 0
 D2
 You see the main street.
 ~
@@ -288,7 +288,7 @@ The Weapon Shop~
 available space in the room including the ceiling is loaded with various
 equipment and weaponry.  There is a small note on the counter.  
 ~
-30 32904 0 0 0 0
+30 136 0 0 0 0
 D2
 You see the main street.
 ~
@@ -311,7 +311,7 @@ entrance to the Guild of Magic Users.  The street continues east towards the
 market square.  The magic shop is to the north and to the west is the city
 gate.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D0
 You see the magic shop.
 ~
@@ -339,7 +339,7 @@ S
 here is the entrance to the Armory, and the bakery is to the north.  East of
 here is the market square.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D0
 You see the bakery.
 ~
@@ -362,13 +362,13 @@ You see the main street.
 0 -1 3012
 S
 #3014
-@DMarket @WSquare@n~
+@WMarket @DSquare@n~
    You are standing on the market square, the famous Square of Masadora.
 A large, peculiar looking statue is standing in the middle of the square.
 Roads lead in every direction, north to the temple square, south to the
 common square, east and westbound is the main street.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D0
 You see the temple square.
 ~
@@ -400,7 +400,7 @@ S
 general store, and the main street continues east.  To the west you see and
 hear the market place, to the south a small door leads into the Pet Shop.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D0
 You see the general store.
 ~
@@ -428,7 +428,7 @@ S
 Guild of Swordsmen.  To the east you leave town and to the west the street
 leads to the market square.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D0
 You see the weapon shop.
 ~
@@ -454,7 +454,7 @@ S
 The Entrance To The Mages' Guild~
    The entrance hall to this guild is a small, poor lighted room.
 ~
-30 32776 0 0 0 0
+30 8 0 0 0 0
 D0
 You see the main street.
 ~
@@ -471,7 +471,7 @@ The Mages' Bar~
    The bar is one of the weirdest in the land.  Mystical images float around
 the air.  Illusions of fine furniture appear all around the room.
 ~
-30 32908 0 0 0 0
+30 140 0 0 0 0
 D0
 You see the lobby.
 ~
@@ -491,7 +491,7 @@ pipes and flasks.  The floor is covered with half-erased pentagrams and even
 weirder symbols, and a blackboard in a dark corner has only been partially
 cleaned, some painful-looking letters faintly visible.
 ~
-30 32780 0 0 0 0
+30 12 0 0 0 0
 D3
 You see the bar.
 ~
@@ -504,7 +504,7 @@ The Armory~
 windows. Helmets, shields, and suits of armor are for sale. To the north is
 the main street. On the wall is a small note.
 ~
-30 32904 0 0 0 0
+30 136 0 0 0 0
 D0
 You see the main street.
 ~
@@ -527,7 +527,7 @@ The Entrance Hall To The Guild Of Swordsmen~
 careful not to say something wrong (or right).  To the east is the bar and to
 the north is the main street.
 ~
-30 32776 0 0 0 0
+30 8 0 0 0 0
 D0
 You see the main street.
 ~
@@ -545,7 +545,7 @@ The Bar Of Swordsmen~
 furniture is all around you in small pieces.  To the south is the yard, and
 to the west is the entrance hall.
 ~
-30 32908 0 0 0 0
+30 140 0 0 0 0
 D2
 You see the practice yard.
 ~
@@ -562,7 +562,7 @@ The Tournament And Practice Yard~
    This is the practice yard of the fighters.  To the north is the bar.
 A well leads down into darkness.
 ~
-30 32780 0 0 0 0
+30 12 0 0 0 0
 D0
 You see the bar.
 ~
@@ -580,7 +580,7 @@ The Eastern End Of Poor Alley~
    You are at the poor alley.  South of here is the Grubby Inn and to the
 east you see common square.  The alley continues further west.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D1
 You see the common square.
 ~
@@ -603,7 +603,7 @@ The Common Square~
 the poor alley and to the east is the dark alley.  To the north, this square
 is connected to the market square.  From the south you notice a nasty smell.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D0
 You see the market square.
 ~
@@ -630,7 +630,7 @@ The Dark Alley~
    The dark alley, to the west is the common square and to the south is the
 Guild of Thieves.  The alley continues east.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D1
 The alley continues east.
 ~
@@ -657,7 +657,7 @@ The Entrance Hall To The Guild Of Thieves~
 can lose both your life and your money, if you are not careful.  To the north
 is the dark alley and to the east is the thieves' bar.
 ~
-30 32776 0 0 0 0
+30 8 0 0 0 0
 D0
 You see the alley.
 ~
@@ -676,7 +676,7 @@ furnished, but now it seems almost empty.  To the south is the yard, and to
 the west is the entrance hall.
    (Maybe the furniture has been stolen?!)
 ~
-30 32908 0 0 0 0
+30 140 0 0 0 0
 D2
 You see the secret yard.
 ~
@@ -697,7 +697,7 @@ The Secret Yard~
    The secret practice yard of thieves and assassins.  To the north is the
 bar.  A well leads down into darkness.
 ~
-30 32780 0 0 0 0
+30 12 0 0 0 0
 D0
 You see the bar.
 ~
@@ -716,7 +716,7 @@ The Dump~
 garbage you can see a large junction of pipes, looks like the entrance to the
 sewer system.  North of here you see the common square.
 ~
-30 32772 0 0 0 2
+30 4 0 0 0 2
 D0
 You see the common square.
 ~
@@ -728,7 +728,7 @@ The Pet Shop~
    The Pet Shop is a small crowded store, full of cages and animals of
 various sizes.  There is a sign on the wall.
 ~
-30 32908 0 0 0 0
+30 140 0 0 0 0
 D0
 You see the main street.
 ~
@@ -768,7 +768,7 @@ leads to various spell cards types.  To the west, there are defensive spell
 section and beyond.  Regular spell section to north and attack spell section at
 east.
 ~
-30 32796 0 0 0 0
+30 28 0 0 0 0
 D0
 ~
 ~
@@ -862,7 +862,7 @@ S
 connected with a footbridge across the heavy wooden gate.  Main Street leads
 east and Wall Road leads south from here.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D1
 You see Main Street.
 ~
@@ -902,7 +902,7 @@ S
 connected with a footbridge across the heavy wooden gate.  Main Street leads
 west from here.  To the south you see the Water Shop.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D1
 You see the city gate.
 ~
@@ -945,7 +945,7 @@ S
    You are walking next to the western city wall.  The road continues further
 south and the city gate is just north of here.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D0
 You see the city gate.
 ~
@@ -972,7 +972,7 @@ S
 north and south.  A small, poor alley leads east.
 Some letters have been written on the wall here.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D0
 The road continues further north.
 ~
@@ -998,7 +998,7 @@ Poor Alley~
    You are on Poor Alley, which continues further east.  You see the
 city wall to the west.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D1
 ~
 ~
@@ -1013,7 +1013,7 @@ The Dark Alley At The Docks~
    You are standing in the alley which continues east and west.  South of here
 you see the docks.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D1
 The alley leads east.
 ~
@@ -1036,7 +1036,7 @@ The Eastern End Of The Alley~
 east, blocking any further movement.  A small warehouse is directly south of
 here.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D2
 You see the warehouse.
 ~
@@ -1053,7 +1053,7 @@ S
    You are standing on the road next to the western city wall, which
 continues north.  South of here is a bridge across the river.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D0
 You see the road.
 ~
@@ -1075,7 +1075,7 @@ Grubby Inn~
    You are inside the old Grubby Inn.  This place has not been cleaned for
 several decades; vile smells make you dizzy.
 ~
-30 32904 0 0 0 0
+30 136 0 0 0 0
 D0
 You see the alley.
 ~
@@ -1088,7 +1088,7 @@ The Docks~
 The old captain here is selling some pre-owned boats and offers a travel out
 of the island for who has the passage ticket of course.
 ~
-30 32896 0 0 0 1
+30 128 0 0 0 1
 D0
 You see the alley.
 ~
@@ -1100,7 +1100,7 @@ The Deserted Warehouse~
    You are inside the warehouse.  The room is decorated with various old
 items from ships.
 ~
-30 32776 0 0 0 0
+30 8 0 0 0 0
 D0
 You see the alley.
 ~
@@ -1113,7 +1113,7 @@ On The Bridge~
 built out from the western city wall and the river flows west through an
 opening in the wall ten feet below the bridge.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D0
 You see the road.
 ~
@@ -1145,7 +1145,7 @@ Outside The West Gate Of Masadora~
 connected with a footbridge across the heavy wooden gate.  To the west you
 can see the edge of a big forest.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D1
 The city gate is to the east.
 ~
@@ -1184,7 +1184,7 @@ Outside The East Gate Of Masadora~
 connected with a footbridge across the heavy wooden gate.  To the east the
 plains stretch out in the distance.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D1
 You see the plains.
 ~
@@ -1226,7 +1226,7 @@ Towering behind the altar is a ten foot tall sitting statue of Odin, the King of
 the Gods. To the north, steps lead out the back of the temple towards the
 countryside.
 ~
-30 32776 0 0 0 0
+30 8 0 0 0 0
 D0
 You see the vast Masadora countryside.
 ~
@@ -1257,7 +1257,7 @@ Ye Olde Water Shoppe~
 covered with racks upon racks of water jugs.  Several large barrels with
 spigots are stacked in the corner.
 ~
-30 32904 0 0 0 0
+30 136 0 0 0 0
 D0
 You see the East Gate.
 ~
@@ -1270,7 +1270,7 @@ Behind The Temple Altar~
 of here.  To the north, the path continues through the lush contryside of
 Masadora towards the Dragonhelm Mountains far off to the north.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D0
 You see the lush, green countryside of Masadora.
 ~
@@ -1296,7 +1296,7 @@ stay here forever, surrounded by powerful beauty in all directions.
    The path you are on continues north through the field and south back
 to Masadora.
 ~
-30 32768 0 0 0 1
+30 0 0 0 0 1
 D0
 You see more of the path through the Great Field.
 ~
@@ -1325,7 +1325,7 @@ stay here forever, surrounded by powerful beauty in all directions.
    There is a strange structure on the eastern side of the path.  A small
 dirt path splits off of the main path and leads off to the west.
 ~
-30 32772 0 0 0 1
+30 4 0 0 0 1
 D0
 The path continues northwards bringing you ever closer to the Dragonhelm
 Mountains.
@@ -1356,7 +1356,7 @@ been pried open by curious customs agents, and are now stacked along the west
 wall, hiding plenty of 'WANTED' posters.
 There is a sign posted on the wall here.
 ~
-30 32776 0 0 0 1
+30 8 0 0 0 1
 E
 sign~
    **********************************************************
@@ -1406,7 +1406,7 @@ The Masadora Donation Room~
 are a couple of small wooden benches here where people occasionally sit
 while they wait for items to appear.  The temple is to the west.
 ~
-30 32796 0 0 0 0
+30 28 0 0 0 0
 D3
 The busy temple is back west.
 ~
@@ -1419,7 +1419,7 @@ The Cryogenic Center~
 body-length canisters lined up against the walls.  The Reception is to the
 south.
 ~
-30 32776 0 0 0 1
+30 8 0 0 0 1
 D2
 The Reception is to the south.
 ~
@@ -1439,7 +1439,7 @@ stay here forever, surrounded by powerful beauty in all directions.
    The way north appears to be blocked by a large plot device and you cannot
 see any way around it.
 ~
-30 32768 0 0 0 2
+30 0 0 0 0 2
 D2
 The path continues through the field to the south past an odd structure
 on the eastern side of the path.
@@ -1466,7 +1466,7 @@ in all directions.
    There is a large rusty gate sitting in a stone archway just to the
 west.
 ~
-30 32768 0 0 0 2
+30 0 0 0 0 2
 D1
 The path meets up with a larger path just to the east.
 ~

@@ -813,3 +813,972 @@ Mar 20 12:33:37 201  :: Loading triggers and generating index.
 Mar 20 15:06:29 201  :: Loading triggers and generating index.
 Mar 20 21:32:22 201  :: Loading triggers and generating index.
 Mar 20 23:56:01 201  :: Loading triggers and generating index.
+Mar 21 09:02:43 201  :: Loading triggers and generating index.
+Mar 21 09:46:27 201  :: OLC: Fizban starts editing zone 10 [trigger](allowed zone 0)
+Mar 21 09:50:57 201  :: OLC: Fizban starts editing zone 10 [trigger](allowed zone 0)
+Mar 21 09:51:05 201  :: OLC: Fizban edits trigger 1017
+Mar 21 10:15:49 201  :: OLC: Fizban starts editing zone 10 [trigger](allowed zone 0)
+Mar 22 09:27:42 201  :: Loading triggers and generating index.
+Mar 22 09:28:11 201  :: Loading triggers and generating index.
+Mar 22 09:32:19 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 22 09:35:21 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 22 09:35:32 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 22 09:35:46 201  :: OLC: Henque edits trigger 3202
+Mar 22 09:46:57 201  :: Loading triggers and generating index.
+Mar 22 09:59:46 201  :: Loading triggers and generating index.
+Mar 22 10:25:56 201  :: Loading triggers and generating index.
+Mar 22 10:28:06 201  :: Loading triggers and generating index.
+Mar 22 10:32:39 201  :: Loading triggers and generating index.
+Mar 22 10:33:08 201  :: Loading triggers and generating index.
+Mar 22 10:33:40 201  :: Loading triggers and generating index.
+Mar 22 11:17:49 201  :: Loading triggers and generating index.
+Mar 22 11:18:37 201  :: Loading triggers and generating index.
+Mar 22 11:23:21 201  :: Loading triggers and generating index.
+Mar 22 12:10:07 201  :: Loading triggers and generating index.
+Mar 22 12:50:26 201  :: Loading triggers and generating index.
+Mar 22 12:51:05 201  :: Loading triggers and generating index.
+Mar 22 12:54:57 201  :: Loading triggers and generating index.
+Mar 22 12:55:24 201  :: Loading triggers and generating index.
+Mar 22 12:56:24 201  :: Loading triggers and generating index.
+Mar 22 12:59:31 201  :: Loading triggers and generating index.
+Mar 22 13:01:12 201  :: Loading triggers and generating index.
+Mar 22 13:12:40 201  :: Loading triggers and generating index.
+Mar 22 13:14:45 201  :: Loading triggers and generating index.
+Mar 22 13:17:38 201  :: Loading triggers and generating index.
+Mar 22 13:21:17 201  :: Loading triggers and generating index.
+Mar 22 13:22:24 201  :: Loading triggers and generating index.
+Mar 22 13:27:48 201  :: Loading triggers and generating index.
+Mar 22 13:31:22 201  :: Loading triggers and generating index.
+Mar 22 13:32:57 201  :: Loading triggers and generating index.
+Mar 22 13:56:44 201  :: Loading triggers and generating index.
+Mar 22 14:00:12 201  :: Loading triggers and generating index.
+Mar 22 14:00:35 201  :: Loading triggers and generating index.
+Mar 22 14:01:19 201  :: Loading triggers and generating index.
+Mar 22 14:11:02 201  :: Loading triggers and generating index.
+Mar 22 14:55:56 201  :: Loading triggers and generating index.
+Mar 22 14:58:14 201  :: Loading triggers and generating index.
+Mar 22 15:08:59 201  :: Loading triggers and generating index.
+Mar 22 15:11:15 201  :: Loading triggers and generating index.
+Mar 22 15:11:44 201  :: Loading triggers and generating index.
+Mar 22 15:12:04 201  :: Loading triggers and generating index.
+Mar 22 15:40:13 201  :: Loading triggers and generating index.
+Mar 22 15:43:39 201  :: Loading triggers and generating index.
+Mar 22 16:02:41 201  :: Loading triggers and generating index.
+Mar 22 16:09:34 201  :: Loading triggers and generating index.
+Mar 22 16:10:51 201  :: Loading triggers and generating index.
+Mar 22 16:18:37 201  :: Loading triggers and generating index.
+Mar 22 16:21:23 201  :: Loading triggers and generating index.
+Mar 22 16:29:50 201  :: Loading triggers and generating index.
+Mar 22 17:26:46 201  :: Loading triggers and generating index.
+Mar 23 00:14:04 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 23 09:07:13 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 23 09:19:41 201  :: Loading triggers and generating index.
+Mar 23 09:19:44 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 23 09:21:08 201  :: OLC: Henque edits trigger 3251
+Mar 23 09:23:55 201  :: Loading triggers and generating index.
+Mar 23 09:43:16 201  :: Loading triggers and generating index.
+Mar 23 09:44:29 201  :: Loading triggers and generating index.
+Mar 23 09:55:19 201  :: Loading triggers and generating index.
+Mar 23 10:00:08 201  :: Loading triggers and generating index.
+Mar 23 10:13:43 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 23 10:14:12 201  :: Loading triggers and generating index.
+Mar 23 10:15:33 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 23 10:15:47 201  :: OLC: Henque edits trigger 3252
+Mar 23 10:33:58 201  :: Loading triggers and generating index.
+Mar 23 10:35:36 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 23 10:36:12 201  :: Loading triggers and generating index.
+Mar 23 10:36:13 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 23 10:36:18 201  :: OLC: Henque edits trigger 3252
+Mar 23 10:37:59 201  :: Loading triggers and generating index.
+Mar 23 10:39:18 201  :: Loading triggers and generating index.
+Mar 23 10:40:43 201  :: Loading triggers and generating index.
+Mar 23 10:40:50 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 23 10:40:58 201  :: OLC: Henque edits trigger 3252
+Mar 23 10:52:15 201  :: Loading triggers and generating index.
+Mar 23 10:52:38 201  :: Loading triggers and generating index.
+Mar 23 10:59:51 201  :: Loading triggers and generating index.
+Mar 23 11:38:03 201  :: Loading triggers and generating index.
+Mar 24 11:03:12 201  :: Loading triggers and generating index.
+Mar 24 11:22:00 201  :: Loading triggers and generating index.
+Mar 24 12:18:56 201  :: Loading triggers and generating index.
+Mar 24 12:21:32 201  :: Loading triggers and generating index.
+Mar 24 12:22:41 201  :: Loading triggers and generating index.
+Mar 24 21:32:58 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 24 22:32:06 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 24 22:32:09 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 24 22:34:00 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 24 22:34:19 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 24 22:48:43 201  :: OLC: Henque starts editing zone 31 [trigger](allowed zone 0)
+Mar 24 22:48:54 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 24 22:50:12 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 24 22:50:32 201  :: OLC: Henque edits trigger 3251
+Mar 24 22:51:54 201  :: Loading triggers and generating index.
+Mar 24 22:52:50 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 24 22:53:47 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 24 22:54:12 201  :: OLC: Henque edits trigger 3251
+Mar 24 22:57:11 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 24 22:57:35 201  :: OLC: Henque edits trigger 3251
+Mar 25 07:14:17 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 07:15:03 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 07:15:32 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 07:15:39 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 07:17:54 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 07:18:06 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 07:18:33 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 07:18:52 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 07:19:07 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 07:19:14 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 07:19:35 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 07:19:40 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 07:19:42 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 07:19:43 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 07:19:45 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 07:19:47 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 07:19:49 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 07:19:51 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Mar 25 14:47:55 201  :: Loading triggers and generating index.
+Mar 27 05:55:06 201  :: Loading triggers and generating index.
+Mar 27 09:22:18 201  :: Loading triggers and generating index.
+Mar 27 09:47:59 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 27 09:48:27 201  :: OLC: Henque edits trigger 3299
+Mar 27 09:50:38 201  :: Loading triggers and generating index.
+Mar 27 09:54:10 201  :: Loading triggers and generating index.
+Mar 27 11:52:30 201  :: Loading triggers and generating index.
+Mar 27 11:53:39 201  :: Loading triggers and generating index.
+Mar 27 12:03:49 201  :: Loading triggers and generating index.
+Mar 27 12:07:10 201  :: Loading triggers and generating index.
+Mar 27 12:29:31 201  :: Loading triggers and generating index.
+Mar 27 12:38:45 201  :: Loading triggers and generating index.
+Mar 27 12:41:34 201  :: Loading triggers and generating index.
+Mar 27 12:50:34 201  :: Loading triggers and generating index.
+Mar 27 12:54:23 201  :: Loading triggers and generating index.
+Mar 27 13:18:48 201  :: Loading triggers and generating index.
+Mar 27 14:52:47 201  :: Loading triggers and generating index.
+Mar 27 15:23:09 201  :: Loading triggers and generating index.
+Mar 27 15:33:56 201  :: Loading triggers and generating index.
+Mar 27 16:20:43 201  :: Loading triggers and generating index.
+Mar 27 16:26:14 201  :: Loading triggers and generating index.
+Mar 27 16:33:04 201  :: Loading triggers and generating index.
+Mar 27 17:11:39 201  :: Loading triggers and generating index.
+Mar 27 17:31:45 201  :: Loading triggers and generating index.
+Mar 27 17:31:58 201  :: Loading triggers and generating index.
+Mar 27 17:32:53 201  :: Loading triggers and generating index.
+Mar 27 17:34:34 201  :: Loading triggers and generating index.
+Mar 27 18:08:38 201  :: Loading triggers and generating index.
+Mar 28 00:41:29 201  :: Loading triggers and generating index.
+Mar 28 09:37:04 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 28 09:37:35 201  :: OLC: Henque edits trigger 12009
+Mar 28 09:51:36 201  :: OLC: Henque starts editing zone 28 [trigger](allowed zone 0)
+Mar 28 09:51:52 201  :: OLC: Henque starts editing zone 28 [trigger](allowed zone 0)
+Mar 28 09:52:03 201  :: OLC: Henque starts editing zone 28 [trigger](allowed zone 0)
+Mar 28 09:52:07 201  :: OLC: Henque starts editing zone 28 [trigger](allowed zone 0)
+Mar 28 09:55:41 201  :: OLC: Henque edits trigger 2806
+Mar 28 09:59:55 201  :: Loading triggers and generating index.
+Mar 28 10:00:52 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 28 10:01:08 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 28 10:01:21 201  :: OLC: Henque edits trigger 12009
+Mar 28 10:07:13 201  :: Loading triggers and generating index.
+Mar 28 10:08:33 201  :: Loading triggers and generating index.
+Mar 28 10:23:14 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 28 10:23:36 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 28 10:23:56 201  :: OLC: Henque edits trigger 12009
+Mar 28 11:09:00 201  :: Loading triggers and generating index.
+Mar 28 11:11:09 201  :: Loading triggers and generating index.
+Mar 28 11:19:56 201  :: Loading triggers and generating index.
+Mar 28 11:26:06 201  :: Loading triggers and generating index.
+Mar 28 11:49:34 201  :: Loading triggers and generating index.
+Mar 28 11:51:27 201  :: Loading triggers and generating index.
+Mar 28 11:55:06 201  :: Loading triggers and generating index.
+Mar 28 11:58:00 201  :: Loading triggers and generating index.
+Mar 28 11:59:34 201  :: Loading triggers and generating index.
+Mar 28 12:10:07 201  :: Loading triggers and generating index.
+Mar 28 12:11:31 201  :: Loading triggers and generating index.
+Mar 28 12:12:18 201  :: Loading triggers and generating index.
+Mar 28 12:16:13 201  :: Loading triggers and generating index.
+Mar 28 12:16:41 201  :: Loading triggers and generating index.
+Mar 28 12:19:13 201  :: Loading triggers and generating index.
+Mar 28 12:19:44 201  :: Loading triggers and generating index.
+Mar 28 12:20:24 201  :: Loading triggers and generating index.
+Mar 28 12:20:41 201  :: Loading triggers and generating index.
+Mar 28 12:24:01 201  :: Loading triggers and generating index.
+Mar 28 12:24:18 201  :: Loading triggers and generating index.
+Mar 28 12:25:36 201  :: Loading triggers and generating index.
+Mar 28 12:26:06 201  :: Loading triggers and generating index.
+Mar 28 12:26:33 201  :: Loading triggers and generating index.
+Mar 28 12:26:48 201  :: Loading triggers and generating index.
+Mar 28 12:29:39 201  :: Loading triggers and generating index.
+Mar 28 12:41:50 201  :: Loading triggers and generating index.
+Mar 28 13:21:35 201  :: Loading triggers and generating index.
+Mar 28 13:24:46 201  :: Loading triggers and generating index.
+Mar 28 14:00:37 201  :: Loading triggers and generating index.
+Mar 28 14:16:27 201  :: Loading triggers and generating index.
+Mar 28 14:17:18 201  :: Loading triggers and generating index.
+Mar 28 14:22:20 201  :: Loading triggers and generating index.
+Mar 28 14:46:08 201  :: Loading triggers and generating index.
+Mar 28 15:15:34 201  :: Loading triggers and generating index.
+Mar 28 16:05:41 201  :: Loading triggers and generating index.
+Mar 28 16:07:44 201  :: Loading triggers and generating index.
+Mar 28 17:15:35 201  :: OLC: Henque starts editing zone 28 [trigger](allowed zone 0)
+Mar 28 17:16:55 201  :: OLC: Henque edits trigger 2806
+Mar 28 17:17:24 201  :: Loading triggers and generating index.
+Mar 28 17:17:45 201  :: Loading triggers and generating index.
+Mar 29 16:05:57 201  :: Loading triggers and generating index.
+Mar 29 21:46:47 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 21:47:47 201  :: OLC: Henque edits trigger 12026
+Mar 29 21:48:42 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 21:49:18 201  :: OLC: Henque edits trigger 12026
+Mar 29 21:49:37 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 21:50:36 201  :: OLC: Henque edits trigger 12026
+Mar 29 21:50:47 201  :: OLC: Henque starts editing zone 12 [trigger](allowed zone 0)
+Mar 29 21:50:54 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 21:51:16 201  :: OLC: Henque edits trigger 12026
+Mar 29 22:51:08 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 22:52:02 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 22:56:02 201  :: OLC: Henque edits trigger 12026
+Mar 29 23:00:05 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:00:08 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:00:13 201  :: OLC: Henque edits trigger 12026
+Mar 29 23:00:54 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:01:06 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 29 23:01:19 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 29 23:01:25 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:02:49 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:03:18 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:03:35 201  :: OLC: Henque edits trigger 12035
+Mar 29 23:04:21 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:05:14 201  :: OLC: Henque edits trigger 12035
+Mar 29 23:06:15 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:06:29 201  :: OLC: Henque edits trigger 12035
+Mar 29 23:06:35 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:06:57 201  :: OLC: Henque edits trigger 12035
+Mar 29 23:12:46 201  :: Loading triggers and generating index.
+Mar 29 23:13:41 201  :: OLC: Henque starts editing zone 28 [trigger](allowed zone 0)
+Mar 29 23:14:00 201  :: OLC: Henque edits trigger 2807
+Mar 29 23:14:13 201  :: OLC: Henque starts editing zone 28 [trigger](allowed zone 0)
+Mar 29 23:14:23 201  :: OLC: Henque edits trigger 2806
+Mar 29 23:14:40 201  :: Loading triggers and generating index.
+Mar 29 23:15:03 201  :: OLC: Henque starts editing zone 28 [trigger](allowed zone 0)
+Mar 29 23:15:30 201  :: OLC: Henque edits trigger 2806
+Mar 29 23:17:37 201  :: OLC: Henque starts editing zone 28 [trigger](allowed zone 0)
+Mar 29 23:30:16 201  :: OLC: Henque starts editing zone 0 [trigger](allowed zone 0)
+Mar 29 23:35:04 201  :: Loading triggers and generating index.
+Mar 29 23:35:14 201  :: OLC: Henque starts editing zone 0 [trigger](allowed zone 0)
+Mar 29 23:39:34 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:39:36 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:41:04 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:44:55 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:46:51 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:47:21 201  :: OLC: Henque edits trigger 12035
+Mar 29 23:49:09 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:52:57 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:54:36 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:54:54 201  :: OLC: Henque edits trigger 12035
+Mar 29 23:56:42 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:57:12 201  :: OLC: Henque edits trigger 12035
+Mar 29 23:58:49 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:59:09 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 29 23:59:18 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:00:05 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:01:57 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:02:42 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:03:25 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:03:36 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:03:43 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:04:12 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:04:19 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:04:47 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:04:54 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:05:06 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:05:19 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:07:01 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:07:56 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:08:29 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:10:40 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:15:22 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:15:51 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:16:01 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:21:07 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:21:14 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:22:38 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:24:04 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:25:23 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:25:50 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:26:07 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:26:19 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:27:21 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:27:26 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:27:48 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:28:10 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:29:11 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:29:14 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:29:31 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:31:08 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:32:53 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:32:56 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:33:12 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:33:16 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:33:27 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:34:22 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:34:49 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:35:44 201  :: OLC: Henque edits trigger 12035
+Mar 30 00:38:56 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:39:59 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Mar 30 00:53:19 201  :: Loading triggers and generating index.
+Mar 30 11:04:26 201  :: Loading triggers and generating index.
+Mar 30 11:17:52 201  :: Loading triggers and generating index.
+Mar 30 11:29:51 201  :: Loading triggers and generating index.
+Mar 30 11:34:48 201  :: Loading triggers and generating index.
+Mar 30 12:02:32 201  :: Loading triggers and generating index.
+Mar 30 12:02:48 201  :: Loading triggers and generating index.
+Mar 30 12:03:03 201  :: Loading triggers and generating index.
+Mar 30 12:05:44 201  :: Loading triggers and generating index.
+Mar 30 12:09:36 201  :: Loading triggers and generating index.
+Mar 30 13:22:35 201  :: Loading triggers and generating index.
+Mar 30 14:43:55 201  :: Loading triggers and generating index.
+Mar 30 14:44:15 201  :: Loading triggers and generating index.
+Mar 30 14:46:53 201  :: Loading triggers and generating index.
+Mar 30 15:03:04 201  :: Loading triggers and generating index.
+Mar 30 15:17:27 201  :: Loading triggers and generating index.
+Mar 30 16:28:36 201  :: Loading triggers and generating index.
+Mar 30 16:33:58 201  :: Loading triggers and generating index.
+Mar 30 16:49:50 201  :: Loading triggers and generating index.
+Mar 30 16:56:11 201  :: Loading triggers and generating index.
+Mar 30 16:56:48 201  :: Loading triggers and generating index.
+Mar 30 17:02:53 201  :: Loading triggers and generating index.
+Mar 30 17:07:15 201  :: Loading triggers and generating index.
+Mar 30 17:18:47 201  :: Loading triggers and generating index.
+Mar 30 17:26:12 201  :: Loading triggers and generating index.
+Mar 30 17:40:50 201  :: Loading triggers and generating index.
+Mar 30 17:42:07 201  :: Loading triggers and generating index.
+Mar 30 17:44:55 201  :: Loading triggers and generating index.
+Mar 30 17:48:47 201  :: Loading triggers and generating index.
+Mar 30 17:50:59 201  :: Loading triggers and generating index.
+Mar 30 18:09:50 201  :: Loading triggers and generating index.
+Mar 30 18:12:09 201  :: Loading triggers and generating index.
+Mar 30 20:57:37 201  :: Loading triggers and generating index.
+Mar 31 09:06:31 201  :: Loading triggers and generating index.
+Mar 31 09:08:29 201  :: Loading triggers and generating index.
+Mar 31 09:57:45 201  :: Loading triggers and generating index.
+Mar 31 10:00:05 201  :: Loading triggers and generating index.
+Mar 31 10:13:12 201  :: Loading triggers and generating index.
+Mar 31 10:14:57 201  :: Loading triggers and generating index.
+Mar 31 10:20:51 201  :: Loading triggers and generating index.
+Mar 31 10:27:17 201  :: Loading triggers and generating index.
+Mar 31 11:32:14 201  :: Loading triggers and generating index.
+Mar 31 11:46:46 201  :: Loading triggers and generating index.
+Mar 31 12:05:02 201  :: Loading triggers and generating index.
+Mar 31 12:09:22 201  :: Loading triggers and generating index.
+Mar 31 12:13:05 201  :: Loading triggers and generating index.
+Mar 31 12:19:10 201  :: Loading triggers and generating index.
+Mar 31 12:23:54 201  :: Loading triggers and generating index.
+Mar 31 13:03:49 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Mar 31 13:15:06 201  :: OLC: Henque starts editing zone 186 [trigger](allowed zone 0)
+Mar 31 13:15:29 201  :: OLC: Henque edits trigger 18600
+Mar 31 13:15:33 201  :: Loading triggers and generating index.
+Mar 31 13:18:13 201  :: Loading triggers and generating index.
+Mar 31 13:21:47 201  :: Loading triggers and generating index.
+Mar 31 13:24:29 201  :: OLC: Henque starts editing zone 186 [trigger](allowed zone 0)
+Mar 31 13:24:34 201  :: OLC: Henque edits trigger 18600
+Mar 31 13:24:55 201  :: OLC: Henque starts editing zone 186 [trigger](allowed zone 0)
+Mar 31 13:25:03 201  :: OLC: Henque starts editing zone 186 [trigger](allowed zone 0)
+Mar 31 13:25:08 201  :: OLC: Henque edits trigger 18600
+Mar 31 13:25:16 201  :: Loading triggers and generating index.
+Mar 31 13:26:13 201  :: Loading triggers and generating index.
+Mar 31 13:32:40 201  :: Loading triggers and generating index.
+Mar 31 13:48:08 201  :: Loading triggers and generating index.
+Mar 31 13:59:44 201  :: Loading triggers and generating index.
+Mar 31 14:03:16 201  :: Loading triggers and generating index.
+Mar 31 14:03:29 201  :: Loading triggers and generating index.
+Mar 31 14:24:37 201  :: Loading triggers and generating index.
+Mar 31 16:58:52 201  :: Loading triggers and generating index.
+Mar 31 19:51:12 201  :: Loading triggers and generating index.
+Apr 02 03:28:10 201  :: Loading triggers and generating index.
+Apr 02 23:57:13 201  :: Loading triggers and generating index.
+Apr 03 12:19:37 201  :: Loading triggers and generating index.
+Apr 03 12:27:29 201  :: Loading triggers and generating index.
+Apr 03 12:31:12 201  :: Loading triggers and generating index.
+Apr 03 12:31:31 201  :: Loading triggers and generating index.
+Apr 03 12:33:59 201  :: Loading triggers and generating index.
+Apr 03 12:39:48 201  :: Loading triggers and generating index.
+Apr 03 12:45:54 201  :: Loading triggers and generating index.
+Apr 03 12:52:02 201  :: Loading triggers and generating index.
+Apr 03 13:07:15 201  :: Loading triggers and generating index.
+Apr 03 13:19:45 201  :: Loading triggers and generating index.
+Apr 03 13:49:43 201  :: Loading triggers and generating index.
+Apr 03 13:57:40 201  :: Loading triggers and generating index.
+Apr 03 13:58:40 201  :: Loading triggers and generating index.
+Apr 03 14:10:41 201  :: Loading triggers and generating index.
+Apr 03 14:32:39 201  :: Loading triggers and generating index.
+Apr 03 14:33:42 201  :: Loading triggers and generating index.
+Apr 03 14:34:13 201  :: Loading triggers and generating index.
+Apr 03 14:37:52 201  :: Loading triggers and generating index.
+Apr 03 15:14:59 201  :: Loading triggers and generating index.
+Apr 03 15:20:37 201  :: Loading triggers and generating index.
+Apr 03 15:31:03 201  :: Loading triggers and generating index.
+Apr 03 15:38:51 201  :: Loading triggers and generating index.
+Apr 03 15:40:14 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 03 15:40:25 201  :: OLC: Henque edits trigger 3251
+Apr 03 16:34:44 201  :: Loading triggers and generating index.
+Apr 03 16:35:10 201  :: Loading triggers and generating index.
+Apr 03 16:40:15 201  :: Loading triggers and generating index.
+Apr 03 16:40:40 201  :: Loading triggers and generating index.
+Apr 03 17:00:18 201  :: Loading triggers and generating index.
+Apr 03 17:39:54 201  :: Loading triggers and generating index.
+Apr 03 20:07:59 201  :: Loading triggers and generating index.
+Apr 03 20:12:15 201  :: Loading triggers and generating index.
+Apr 03 22:08:36 201  :: Loading triggers and generating index.
+Apr 04 00:13:29 201  :: Loading triggers and generating index.
+Apr 04 04:05:56 201  :: Loading triggers and generating index.
+Apr 04 11:30:10 201  :: Loading triggers and generating index.
+Apr 04 11:36:05 201  :: Loading triggers and generating index.
+Apr 04 11:46:34 201  :: Loading triggers and generating index.
+Apr 04 11:54:42 201  :: Loading triggers and generating index.
+Apr 04 12:02:09 201  :: Loading triggers and generating index.
+Apr 04 12:10:02 201  :: Loading triggers and generating index.
+Apr 04 12:38:48 201  :: Loading triggers and generating index.
+Apr 04 12:55:27 201  :: Loading triggers and generating index.
+Apr 04 13:31:38 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 04 13:32:19 201  :: OLC: Henque edits trigger 3299
+Apr 04 13:32:53 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 04 13:33:13 201  :: OLC: Henque edits trigger 3299
+Apr 04 13:33:19 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 04 13:33:26 201  :: OLC: Henque edits trigger 3299
+Apr 04 13:33:33 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 04 13:33:44 201  :: OLC: Henque edits trigger 3299
+Apr 04 13:33:52 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 04 13:34:10 201  :: OLC: Henque edits trigger 3299
+Apr 04 13:34:40 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 04 13:36:17 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 04 13:36:40 201  :: OLC: Henque edits trigger 3299
+Apr 04 13:38:02 201  :: Loading triggers and generating index.
+Apr 04 13:43:13 201  :: Loading triggers and generating index.
+Apr 04 13:45:06 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 04 13:47:39 201  :: OLC: Henque edits trigger 12026
+Apr 04 13:48:11 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 04 13:53:35 201  :: OLC: Henque edits trigger 12026
+Apr 04 13:58:53 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 04 13:59:09 201  :: OLC: Henque edits trigger 12026
+Apr 04 14:23:15 201  :: Loading triggers and generating index.
+Apr 04 14:44:21 201  :: Loading triggers and generating index.
+Apr 04 14:55:18 201  :: Loading triggers and generating index.
+Apr 04 15:15:05 201  :: Loading triggers and generating index.
+Apr 04 17:54:33 201  :: Loading triggers and generating index.
+Apr 05 11:11:08 201  :: Loading triggers and generating index.
+Apr 05 11:13:05 201  :: Loading triggers and generating index.
+Apr 05 11:19:48 201  :: Loading triggers and generating index.
+Apr 05 11:22:47 201  :: Loading triggers and generating index.
+Apr 05 11:25:24 201  :: Loading triggers and generating index.
+Apr 05 11:58:09 201  :: Loading triggers and generating index.
+Apr 05 12:00:21 201  :: Loading triggers and generating index.
+Apr 05 12:02:46 201  :: Loading triggers and generating index.
+Apr 05 12:06:20 201  :: Loading triggers and generating index.
+Apr 05 12:07:28 201  :: Loading triggers and generating index.
+Apr 05 13:56:42 201  :: Loading triggers and generating index.
+Apr 05 15:23:39 201  :: Loading triggers and generating index.
+Apr 05 15:43:21 201  :: Loading triggers and generating index.
+Apr 05 15:52:10 201  :: Loading triggers and generating index.
+Apr 05 15:52:23 201  :: Loading triggers and generating index.
+Apr 05 15:54:39 201  :: Loading triggers and generating index.
+Apr 05 15:55:01 201  :: Loading triggers and generating index.
+Apr 05 16:00:14 201  :: Loading triggers and generating index.
+Apr 05 16:01:44 201  :: Loading triggers and generating index.
+Apr 05 16:01:55 201  :: Loading triggers and generating index.
+Apr 05 16:02:41 201  :: Loading triggers and generating index.
+Apr 05 16:03:01 201  :: Loading triggers and generating index.
+Apr 05 16:49:46 201  :: Loading triggers and generating index.
+Apr 05 16:50:55 201  :: Loading triggers and generating index.
+Apr 06 11:54:21 201  :: Loading triggers and generating index.
+Apr 06 11:54:43 201  :: Loading triggers and generating index.
+Apr 06 11:55:28 201  :: Loading triggers and generating index.
+Apr 06 11:57:20 201  :: Loading triggers and generating index.
+Apr 06 12:01:05 201  :: Loading triggers and generating index.
+Apr 06 12:01:33 201  :: Loading triggers and generating index.
+Apr 06 12:05:00 201  :: Loading triggers and generating index.
+Apr 07 13:32:47 201  :: Loading triggers and generating index.
+Apr 07 13:33:57 201  :: Loading triggers and generating index.
+Apr 07 13:43:42 201  :: Loading triggers and generating index.
+Apr 07 13:44:04 201  :: Loading triggers and generating index.
+Apr 07 13:48:07 201  :: Loading triggers and generating index.
+Apr 07 13:56:12 201  :: Loading triggers and generating index.
+Apr 07 13:56:38 201  :: Loading triggers and generating index.
+Apr 07 13:58:27 201  :: Loading triggers and generating index.
+Apr 07 13:59:17 201  :: Loading triggers and generating index.
+Apr 07 14:04:17 201  :: Loading triggers and generating index.
+Apr 07 14:06:24 201  :: Loading triggers and generating index.
+Apr 07 15:16:39 201  :: Loading triggers and generating index.
+Apr 07 15:17:02 201  :: Loading triggers and generating index.
+Apr 07 15:17:42 201  :: Loading triggers and generating index.
+Apr 07 15:18:53 201  :: Loading triggers and generating index.
+Apr 07 15:27:22 201  :: Loading triggers and generating index.
+Apr 07 15:30:01 201  :: Loading triggers and generating index.
+Apr 07 15:31:02 201  :: Loading triggers and generating index.
+Apr 07 15:33:25 201  :: Loading triggers and generating index.
+Apr 07 15:37:08 201  :: Loading triggers and generating index.
+Apr 07 15:39:00 201  :: Loading triggers and generating index.
+Apr 07 15:40:40 201  :: Loading triggers and generating index.
+Apr 07 15:46:31 201  :: Loading triggers and generating index.
+Apr 07 15:47:14 201  :: Loading triggers and generating index.
+Apr 07 16:16:56 201  :: Loading triggers and generating index.
+Apr 07 16:24:46 201  :: Loading triggers and generating index.
+Apr 07 16:29:03 201  :: Loading triggers and generating index.
+Apr 07 16:35:00 201  :: Loading triggers and generating index.
+Apr 07 16:37:12 201  :: Loading triggers and generating index.
+Apr 07 16:39:03 201  :: Loading triggers and generating index.
+Apr 08 08:22:15 201  :: Loading triggers and generating index.
+Apr 08 17:55:39 201  :: Loading triggers and generating index.
+Apr 08 18:49:37 201  :: Loading triggers and generating index.
+Apr 08 18:50:28 201  :: Loading triggers and generating index.
+Apr 09 13:17:03 201  :: Loading triggers and generating index.
+Apr 10 01:10:42 201  :: Loading triggers and generating index.
+Apr 10 09:07:35 201  :: Loading triggers and generating index.
+Apr 10 09:08:43 201  :: Loading triggers and generating index.
+Apr 10 09:12:22 201  :: SCRIPT ERROR: Trigger: fake spell, VNum 1020. attach invalid trigger: '2670'
+Apr 10 09:28:26 201  :: Loading triggers and generating index.
+Apr 10 09:41:36 201  :: Loading triggers and generating index.
+Apr 10 09:42:22 201  :: Loading triggers and generating index.
+Apr 10 10:29:26 201  :: Loading triggers and generating index.
+Apr 10 10:50:36 201  :: Loading triggers and generating index.
+Apr 10 10:54:19 201  :: Loading triggers and generating index.
+Apr 10 11:00:42 201  :: Loading triggers and generating index.
+Apr 10 11:01:02 201  :: Loading triggers and generating index.
+Apr 10 11:02:06 201  :: Loading triggers and generating index.
+Apr 10 11:31:47 201  :: Loading triggers and generating index.
+Apr 10 11:32:44 201  :: Loading triggers and generating index.
+Apr 10 11:47:19 201  :: Loading triggers and generating index.
+Apr 10 12:40:19 201  :: Loading triggers and generating index.
+Apr 10 12:44:02 201  :: Loading triggers and generating index.
+Apr 10 12:44:19 201  :: Loading triggers and generating index.
+Apr 10 12:45:19 201  :: Loading triggers and generating index.
+Apr 10 12:45:35 201  :: Loading triggers and generating index.
+Apr 10 12:45:58 201  :: Loading triggers and generating index.
+Apr 10 12:46:22 201  :: Loading triggers and generating index.
+Apr 10 12:48:59 201  :: Loading triggers and generating index.
+Apr 10 12:55:24 201  :: Loading triggers and generating index.
+Apr 10 12:58:54 201  :: Loading triggers and generating index.
+Apr 10 13:00:18 201  :: Loading triggers and generating index.
+Apr 10 13:01:06 201  :: Loading triggers and generating index.
+Apr 10 13:01:38 201  :: Loading triggers and generating index.
+Apr 10 13:02:42 201  :: Loading triggers and generating index.
+Apr 10 13:03:02 201  :: Loading triggers and generating index.
+Apr 10 13:04:08 201  :: Loading triggers and generating index.
+Apr 10 13:04:27 201  :: Loading triggers and generating index.
+Apr 10 13:17:16 201  :: Loading triggers and generating index.
+Apr 10 13:17:33 201  :: Loading triggers and generating index.
+Apr 10 13:19:44 201  :: Loading triggers and generating index.
+Apr 10 13:20:05 201  :: Loading triggers and generating index.
+Apr 10 13:22:38 201  :: Loading triggers and generating index.
+Apr 10 13:22:59 201  :: Loading triggers and generating index.
+Apr 10 13:26:02 201  :: Loading triggers and generating index.
+Apr 10 13:26:19 201  :: Loading triggers and generating index.
+Apr 10 13:26:47 201  :: Loading triggers and generating index.
+Apr 10 13:27:39 201  :: Loading triggers and generating index.
+Apr 10 13:29:26 201  :: Loading triggers and generating index.
+Apr 10 13:48:31 201  :: Loading triggers and generating index.
+Apr 10 13:50:22 201  :: Loading triggers and generating index.
+Apr 10 13:55:59 201  :: Loading triggers and generating index.
+Apr 10 13:56:59 201  :: Loading triggers and generating index.
+Apr 10 14:02:01 201  :: Loading triggers and generating index.
+Apr 10 14:04:03 201  :: Loading triggers and generating index.
+Apr 10 14:05:05 201  :: Loading triggers and generating index.
+Apr 10 14:16:58 201  :: Loading triggers and generating index.
+Apr 10 14:18:40 201  :: Loading triggers and generating index.
+Apr 10 14:39:33 201  :: Loading triggers and generating index.
+Apr 10 14:40:14 201  :: Loading triggers and generating index.
+Apr 10 14:45:38 201  :: Loading triggers and generating index.
+Apr 10 16:05:06 201  :: Loading triggers and generating index.
+Apr 10 16:08:21 201  :: Loading triggers and generating index.
+Apr 10 16:16:54 201  :: Loading triggers and generating index.
+Apr 10 16:21:45 201  :: Loading triggers and generating index.
+Apr 10 16:21:59 201  :: Loading triggers and generating index.
+Apr 10 16:45:21 201  :: Loading triggers and generating index.
+Apr 10 16:51:48 201  :: Loading triggers and generating index.
+Apr 10 17:15:50 201  :: Loading triggers and generating index.
+Apr 10 17:16:10 201  :: Loading triggers and generating index.
+Apr 10 17:16:24 201  :: Loading triggers and generating index.
+Apr 10 17:18:06 201  :: Loading triggers and generating index.
+Apr 10 17:19:05 201  :: Loading triggers and generating index.
+Apr 10 17:19:31 201  :: Loading triggers and generating index.
+Apr 10 17:22:33 201  :: Loading triggers and generating index.
+Apr 10 17:22:45 201  :: Loading triggers and generating index.
+Apr 10 21:59:58 201  :: Loading triggers and generating index.
+Apr 10 22:44:59 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 10 23:08:29 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 10 23:08:48 201  :: OLC: Henque edits trigger 3205
+Apr 10 23:09:48 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 10 23:10:24 201  :: OLC: Henque edits trigger 3213
+Apr 10 23:14:53 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 10 23:15:44 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 10 23:18:00 201  :: OLC: Henque edits trigger 3202
+Apr 10 23:18:58 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 10 23:19:28 201  :: OLC: Henque edits trigger 3202
+Apr 10 23:19:59 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 10 23:20:27 201  :: OLC: Henque edits trigger 3202
+Apr 10 23:20:33 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 10 23:21:05 201  :: OLC: Henque edits trigger 3202
+Apr 10 23:21:25 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 10 23:21:34 201  :: OLC: Henque edits trigger 3202
+Apr 11 00:20:21 201  :: Loading triggers and generating index.
+Apr 11 05:40:28 201  :: Loading triggers and generating index.
+Apr 11 12:24:39 201  :: Loading triggers and generating index.
+Apr 11 12:28:27 201  :: Loading triggers and generating index.
+Apr 11 12:31:48 201  :: Loading triggers and generating index.
+Apr 11 12:55:21 201  :: Loading triggers and generating index.
+Apr 11 13:08:30 201  :: Loading triggers and generating index.
+Apr 11 13:10:39 201  :: Loading triggers and generating index.
+Apr 11 13:11:58 201  :: Loading triggers and generating index.
+Apr 11 13:13:48 201  :: Loading triggers and generating index.
+Apr 11 13:19:16 201  :: Loading triggers and generating index.
+Apr 11 13:20:34 201  :: Loading triggers and generating index.
+Apr 11 15:09:59 201  :: Loading triggers and generating index.
+Apr 11 15:21:14 201  :: Loading triggers and generating index.
+Apr 11 15:23:06 201  :: Loading triggers and generating index.
+Apr 11 15:24:49 201  :: Loading triggers and generating index.
+Apr 11 15:25:40 201  :: Loading triggers and generating index.
+Apr 11 15:29:16 201  :: Loading triggers and generating index.
+Apr 11 15:29:53 201  :: Loading triggers and generating index.
+Apr 11 15:32:56 201  :: Loading triggers and generating index.
+Apr 11 15:33:10 201  :: Loading triggers and generating index.
+Apr 11 15:40:35 201  :: Loading triggers and generating index.
+Apr 11 15:57:12 201  :: Loading triggers and generating index.
+Apr 11 15:57:58 201  :: Loading triggers and generating index.
+Apr 11 16:00:15 201  :: Loading triggers and generating index.
+Apr 11 16:08:57 201  :: Loading triggers and generating index.
+Apr 11 16:15:39 201  :: Loading triggers and generating index.
+Apr 11 16:23:28 201  :: Loading triggers and generating index.
+Apr 11 16:23:46 201  :: Loading triggers and generating index.
+Apr 12 12:38:36 201  :: Loading triggers and generating index.
+Apr 12 12:38:55 201  :: Loading triggers and generating index.
+Apr 12 12:39:44 201  :: Loading triggers and generating index.
+Apr 12 12:40:00 201  :: Loading triggers and generating index.
+Apr 12 12:40:34 201  :: Loading triggers and generating index.
+Apr 12 12:40:50 201  :: Loading triggers and generating index.
+Apr 12 12:41:53 201  :: Loading triggers and generating index.
+Apr 12 12:42:07 201  :: Loading triggers and generating index.
+Apr 12 12:42:55 201  :: Loading triggers and generating index.
+Apr 12 12:43:11 201  :: Loading triggers and generating index.
+Apr 12 12:44:40 201  :: Loading triggers and generating index.
+Apr 12 12:45:15 201  :: Loading triggers and generating index.
+Apr 12 12:48:26 201  :: Loading triggers and generating index.
+Apr 12 13:00:56 201  :: Loading triggers and generating index.
+Apr 12 13:01:11 201  :: Loading triggers and generating index.
+Apr 12 13:02:11 201  :: Loading triggers and generating index.
+Apr 12 13:04:17 201  :: Loading triggers and generating index.
+Apr 12 13:05:31 201  :: Loading triggers and generating index.
+Apr 12 13:05:46 201  :: Loading triggers and generating index.
+Apr 12 13:06:25 201  :: Loading triggers and generating index.
+Apr 12 13:07:24 201  :: Loading triggers and generating index.
+Apr 12 13:08:17 201  :: Loading triggers and generating index.
+Apr 12 13:20:29 201  :: Loading triggers and generating index.
+Apr 12 13:20:43 201  :: Loading triggers and generating index.
+Apr 12 13:21:13 201  :: Loading triggers and generating index.
+Apr 12 13:21:40 201  :: Loading triggers and generating index.
+Apr 12 13:22:49 201  :: Loading triggers and generating index.
+Apr 12 13:23:04 201  :: Loading triggers and generating index.
+Apr 12 13:39:24 201  :: Loading triggers and generating index.
+Apr 12 13:46:31 201  :: Loading triggers and generating index.
+Apr 12 13:47:42 201  :: Loading triggers and generating index.
+Apr 12 13:52:56 201  :: Loading triggers and generating index.
+Apr 12 13:54:48 201  :: Loading triggers and generating index.
+Apr 12 13:57:11 201  :: Loading triggers and generating index.
+Apr 12 14:00:41 201  :: Loading triggers and generating index.
+Apr 12 14:19:46 201  :: Loading triggers and generating index.
+Apr 12 14:39:38 201  :: Loading triggers and generating index.
+Apr 12 14:40:10 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 12 14:41:06 201  :: OLC: Henque edits trigger 3299
+Apr 12 14:41:18 201  :: OLC: Henque starts editing zone 32 [trigger](allowed zone 0)
+Apr 12 14:43:58 201  :: Loading triggers and generating index.
+Apr 12 14:48:53 201  :: Loading triggers and generating index.
+Apr 12 14:56:37 201  :: Loading triggers and generating index.
+Apr 12 16:48:06 201  :: Loading triggers and generating index.
+Apr 12 16:52:23 201  :: Loading triggers and generating index.
+Apr 12 16:53:45 201  :: Loading triggers and generating index.
+Apr 12 17:10:44 201  :: Loading triggers and generating index.
+Apr 12 17:24:12 201  :: Loading triggers and generating index.
+Apr 12 17:40:52 201  :: Loading triggers and generating index.
+Apr 12 17:42:17 201  :: Loading triggers and generating index.
+Apr 12 17:53:25 201  :: Loading triggers and generating index.
+Apr 12 17:56:12 201  :: Loading triggers and generating index.
+Apr 13 09:03:35 201  :: Loading triggers and generating index.
+Apr 13 11:11:26 201  :: Loading triggers and generating index.
+Apr 13 11:49:17 201  :: Loading triggers and generating index.
+Apr 13 15:47:28 201  :: Loading triggers and generating index.
+Apr 13 16:08:00 201  :: Loading triggers and generating index.
+Apr 13 16:11:56 201  :: Loading triggers and generating index.
+Apr 13 16:21:35 201  :: Loading triggers and generating index.
+Apr 13 16:24:43 201  :: Loading triggers and generating index.
+Apr 13 16:34:07 201  :: Loading triggers and generating index.
+Apr 13 16:36:16 201  :: Loading triggers and generating index.
+Apr 13 16:40:52 201  :: Loading triggers and generating index.
+Apr 13 16:55:43 201  :: Loading triggers and generating index.
+Apr 13 17:00:13 201  :: Loading triggers and generating index.
+Apr 13 17:00:35 201  :: Loading triggers and generating index.
+Apr 14 00:38:16 201  :: OLC: Henque starts editing zone 186 [trigger](allowed zone 0)
+Apr 14 00:40:59 201  :: OLC: Henque edits trigger 18607
+Apr 14 00:42:03 201  :: OLC: Henque starts editing zone 186 [trigger](allowed zone 0)
+Apr 14 00:42:40 201  :: OLC: Henque edits trigger 18607
+Apr 14 00:42:55 201  :: OLC: Henque starts editing zone 186 [trigger](allowed zone 0)
+Apr 14 00:43:30 201  :: OLC: Henque edits trigger 18607
+Apr 14 00:43:39 201  :: OLC: Henque starts editing zone 186 [trigger](allowed zone 0)
+Apr 14 00:44:07 201  :: OLC: Henque edits trigger 18607
+Apr 14 00:44:16 201  :: OLC: Henque starts editing zone 186 [trigger](allowed zone 0)
+Apr 14 00:44:28 201  :: OLC: Henque edits trigger 18607
+Apr 14 00:45:05 201  :: OLC: Henque starts editing zone 186 [trigger](allowed zone 0)
+Apr 14 00:45:30 201  :: OLC: Henque edits trigger 18607
+Apr 14 00:45:42 201  :: OLC: Henque starts editing zone 186 [trigger](allowed zone 0)
+Apr 14 00:46:23 201  :: OLC: Henque edits trigger 18607
+Apr 14 00:46:30 201  :: OLC: Henque starts editing zone 186 [trigger](allowed zone 0)
+Apr 14 00:46:41 201  :: OLC: Henque edits trigger 18607
+Apr 14 00:48:14 201  :: OLC: Henque starts editing zone 186 [trigger](allowed zone 0)
+Apr 14 00:50:38 201  :: OLC: Henque edits trigger 18607
+Apr 14 01:00:15 201  :: Loading triggers and generating index.
+Apr 14 11:16:50 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 11:17:23 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 11:18:16 201  :: OLC: Henque edits trigger 12003
+Apr 14 11:20:58 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 11:21:44 201  :: OLC: Henque edits trigger 12003
+Apr 14 11:21:54 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 11:26:16 201  :: OLC: Henque edits trigger 12003
+Apr 14 11:26:56 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 11:27:36 201  :: OLC: Henque edits trigger 12003
+Apr 14 11:28:40 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 11:29:08 201  :: OLC: Henque edits trigger 12003
+Apr 14 11:29:59 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 15:06:43 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 15:06:47 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 15:06:50 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 15:06:52 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 15:07:41 201  :: OLC: Henque edits trigger 12043
+Apr 14 15:07:48 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 15:09:12 201  :: OLC: Henque edits trigger 12043
+Apr 14 15:09:50 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 15:10:31 201  :: OLC: Henque edits trigger 12043
+Apr 14 15:10:55 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 15:11:02 201  :: OLC: Henque edits trigger 12043
+Apr 14 15:48:04 201  :: Loading triggers and generating index.
+Apr 14 16:10:58 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:11:41 201  :: OLC: Henque edits trigger 12004
+Apr 14 16:12:07 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:12:46 201  :: OLC: Henque edits trigger 12004
+Apr 14 16:14:14 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:14:59 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:15:49 201  :: OLC: Henque edits trigger 12004
+Apr 14 16:16:24 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:17:23 201  :: OLC: Henque edits trigger 12004
+Apr 14 16:17:43 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:18:57 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:19:57 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:20:19 201  :: OLC: Henque edits trigger 12004
+Apr 14 16:20:34 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:20:56 201  :: OLC: Henque edits trigger 12004
+Apr 14 16:21:23 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:21:54 201  :: OLC: Henque edits trigger 12004
+Apr 14 16:22:35 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:24:20 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:25:03 201  :: OLC: Henque edits trigger 12004
+Apr 14 16:26:32 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:27:21 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:28:34 201  :: OLC: Henque edits trigger 12004
+Apr 14 16:28:54 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:29:19 201  :: OLC: Henque edits trigger 12004
+Apr 14 16:29:35 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:29:53 201  :: OLC: Henque edits trigger 12004
+Apr 14 16:30:10 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:30:54 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:32:26 201  :: OLC: Henque edits trigger 12004
+Apr 14 16:32:48 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:33:48 201  :: OLC: Henque edits trigger 12004
+Apr 14 16:33:55 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:34:17 201  :: OLC: Henque edits trigger 12004
+Apr 14 16:34:47 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:35:13 201  :: OLC: Henque edits trigger 12004
+Apr 14 16:36:20 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 16:36:29 201  :: OLC: Henque edits trigger 12004
+Apr 14 16:41:36 201  :: OLC: Henque starts editing zone 120 [trigger](allowed zone 0)
+Apr 14 17:45:54 201  :: Loading triggers and generating index.
+Apr 14 18:03:38 201  :: Loading triggers and generating index.
+Apr 14 18:04:02 201  :: Loading triggers and generating index.
+Apr 16 20:56:07 201  :: Loading triggers and generating index.
+Apr 16 22:59:53 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 22:59:55 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:04:17 201  :: OLC: Henque edits trigger 40003
+Apr 16 23:04:40 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:05:38 201  :: OLC: Henque edits trigger 40003
+Apr 16 23:15:19 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:15:23 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:15:43 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:16:05 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:16:23 201  :: OLC: Henque edits trigger 40096
+Apr 16 23:16:42 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:18:17 201  :: OLC: Henque edits trigger 40096
+Apr 16 23:19:10 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:20:57 201  :: OLC: Henque edits trigger 40096
+Apr 16 23:21:20 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:21:37 201  :: OLC: Henque edits trigger 40096
+Apr 16 23:23:54 201  :: OLC: Henque starts editing zone 401 [trigger](allowed zone 0)
+Apr 16 23:23:57 201  :: OLC: Henque starts editing zone 401 [trigger](allowed zone 0)
+Apr 16 23:24:16 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:24:32 201  :: OLC: Henque edits trigger 40003
+Apr 16 23:25:25 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:26:27 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:33:30 201  :: OLC: Henque starts editing zone 401 [trigger](allowed zone 0)
+Apr 16 23:33:44 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:34:03 201  :: OLC: Henque edits trigger 40003
+Apr 16 23:36:49 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:38:51 201  :: OLC: Henque edits trigger 40003
+Apr 16 23:39:40 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:41:33 201  :: OLC: Henque edits trigger 40096
+Apr 16 23:41:41 201  :: OLC: Henque starts editing zone 401 [trigger](allowed zone 0)
+Apr 16 23:41:47 201  :: OLC: Henque starts editing zone 40 [trigger](allowed zone 0)
+Apr 16 23:41:49 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:42:53 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:44:06 201  :: OLC: Henque edits trigger 40003
+Apr 16 23:44:44 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:45:00 201  :: OLC: Henque edits trigger 40003
+Apr 16 23:45:03 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:45:32 201  :: OLC: Henque edits trigger 40003
+Apr 16 23:47:11 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:47:23 201  :: OLC: Henque starts editing zone 401 [trigger](allowed zone 0)
+Apr 16 23:47:27 201  :: OLC: Henque starts editing zone 401 [trigger](allowed zone 0)
+Apr 16 23:47:33 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:48:10 201  :: OLC: Henque edits trigger 40096
+Apr 16 23:48:12 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:48:15 201  :: OLC: Henque edits trigger 40096
+Apr 16 23:48:49 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:50:58 201  :: OLC: Henque edits trigger 40096
+Apr 16 23:51:20 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:52:21 201  :: OLC: Henque edits trigger 40096
+Apr 16 23:53:31 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:53:44 201  :: OLC: Henque edits trigger 40096
+Apr 16 23:54:16 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:54:20 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:54:36 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:54:50 201  :: OLC: Henque edits trigger 40096
+Apr 16 23:55:01 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:55:40 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:56:12 201  :: OLC: Henque edits trigger 40096
+Apr 16 23:56:26 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 16 23:59:19 201  :: OLC: Henque edits trigger 40096
+Apr 16 23:59:25 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 17 00:01:19 201  :: OLC: Henque edits trigger 40096
+Apr 17 00:01:26 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 17 00:01:57 201  :: OLC: Henque edits trigger 40003
+Apr 17 00:02:22 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 17 00:02:24 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 17 00:02:28 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 17 00:02:52 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 17 00:03:09 201  :: OLC: Henque edits trigger 40096
+Apr 17 00:03:22 201  :: Loading triggers and generating index.
+Apr 17 00:03:36 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 17 00:04:31 201  :: OLC: Henque edits trigger 40096
+Apr 17 00:05:14 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 17 00:05:46 201  :: OLC: Henque edits trigger 40096
+Apr 17 00:07:20 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 17 00:07:33 201  :: OLC: Henque edits trigger 40096
+Apr 17 00:23:32 201  :: OLC: Henque starts editing zone 400 [trigger](allowed zone 0)
+Apr 17 00:23:46 201  :: OLC: Henque edits trigger 40096
+Apr 17 00:23:54 201  :: OLC: Henque starts editing zone 653 [trigger](allowed zone 0)
+Apr 17 00:23:59 201  :: OLC: Henque starts editing zone 10 [trigger](allowed zone 0)
+Apr 17 00:24:03 201  :: OLC: Henque starts editing zone 653 [trigger](allowed zone 0)
+Apr 17 00:24:06 201  :: OLC: Henque edits trigger 65317
+Apr 17 00:29:38 201  :: OLC: Henque starts editing zone 401 [trigger](allowed zone 0)
+Apr 17 00:29:51 201  :: OLC: Henque starts editing zone 401 [trigger](allowed zone 0)
+Apr 17 00:29:54 201  :: OLC: Henque starts editing zone 401 [trigger](allowed zone 0)
+Apr 17 00:29:56 201  :: OLC: Henque starts editing zone 401 [trigger](allowed zone 0)
+Apr 17 00:30:35 201  :: OLC: Henque edits trigger 40197
+Apr 17 00:32:44 201  :: OLC: Henque starts editing zone 401 [trigger](allowed zone 0)
+Apr 17 00:32:46 201  :: OLC: Henque starts editing zone 401 [trigger](allowed zone 0)
+Apr 17 00:34:40 201  :: OLC: Henque edits trigger 40197
+Apr 17 00:35:02 201  :: OLC: Henque starts editing zone 401 [trigger](allowed zone 0)
+Apr 17 00:35:15 201  :: OLC: Henque starts editing zone 401 [trigger](allowed zone 0)
+Apr 17 00:37:55 201  :: OLC: Henque starts editing zone 401 [trigger](allowed zone 0)
+Apr 17 00:38:58 201  :: OLC: Henque edits trigger 40197
+Apr 17 00:49:28 201  :: Loading triggers and generating index.
+Apr 17 09:35:44 201  :: Loading triggers and generating index.
+Apr 17 09:36:05 201  :: Loading triggers and generating index.
+Apr 17 09:36:40 201  :: Loading triggers and generating index.
+Apr 17 09:37:15 201  :: Loading triggers and generating index.
+Apr 17 09:37:42 201  :: Loading triggers and generating index.
+Apr 17 09:38:39 201  :: Loading triggers and generating index.
+Apr 17 09:39:27 201  :: Loading triggers and generating index.
+Apr 17 09:39:54 201  :: Loading triggers and generating index.
+Apr 17 09:40:27 201  :: Loading triggers and generating index.
+Apr 17 09:41:16 201  :: Loading triggers and generating index.
+Apr 17 09:45:59 201  :: Loading triggers and generating index.
+Apr 17 09:48:11 201  :: Loading triggers and generating index.
+Apr 17 09:52:21 201  :: Loading triggers and generating index.
+Apr 17 11:01:02 201  :: Loading triggers and generating index.
+Apr 17 11:12:05 201  :: Loading triggers and generating index.
+Apr 17 11:34:46 201  :: Loading triggers and generating index.
+Apr 17 11:37:49 201  :: Loading triggers and generating index.
+Apr 17 11:47:13 201  :: Loading triggers and generating index.
+Apr 17 11:48:54 201  :: Loading triggers and generating index.
+Apr 17 12:28:56 201  :: Loading triggers and generating index.
+Apr 17 12:40:22 201  :: Loading triggers and generating index.
+Apr 17 15:11:52 201  :: Loading triggers and generating index.
+Apr 17 15:30:17 201  :: Loading triggers and generating index.
+Apr 17 15:34:17 201  :: Loading triggers and generating index.
+Apr 17 15:41:30 201  :: Loading triggers and generating index.
+Apr 17 15:55:33 201  :: Loading triggers and generating index.
+Apr 17 15:57:58 201  :: Loading triggers and generating index.
+Apr 17 16:05:00 201  :: Loading triggers and generating index.
+Apr 17 16:07:46 201  :: Loading triggers and generating index.
+Apr 17 16:45:50 201  :: Loading triggers and generating index.
+Apr 17 19:50:09 201  :: Loading triggers and generating index.
+Apr 18 09:34:28 201  :: Loading triggers and generating index.
+Apr 18 09:36:19 201  :: Loading triggers and generating index.
+Apr 18 09:38:56 201  :: Loading triggers and generating index.
+Apr 18 09:51:34 201  :: Loading triggers and generating index.
+Apr 18 09:56:27 201  :: Loading triggers and generating index.
+Apr 18 09:58:11 201  :: Loading triggers and generating index.
+Apr 18 11:24:19 201  :: Loading triggers and generating index.
+Apr 18 11:37:10 201  :: Loading triggers and generating index.
+Apr 18 11:46:35 201  :: Loading triggers and generating index.
+Apr 18 12:11:15 201  :: Loading triggers and generating index.
+Apr 18 13:03:57 201  :: Loading triggers and generating index.
+Apr 18 13:18:02 201  :: Loading triggers and generating index.
+Apr 18 13:21:03 201  :: Loading triggers and generating index.
+Apr 18 13:22:15 201  :: Loading triggers and generating index.
+Apr 18 13:22:30 201  :: Loading triggers and generating index.
+Apr 18 13:23:26 201  :: Loading triggers and generating index.
+Apr 18 13:23:50 201  :: Loading triggers and generating index.
+Apr 18 13:29:26 201  :: Loading triggers and generating index.
+Apr 18 13:31:42 201  :: Loading triggers and generating index.
+Apr 18 13:34:12 201  :: Loading triggers and generating index.
+Apr 18 13:42:04 201  :: Loading triggers and generating index.
+Apr 18 13:44:39 201  :: Loading triggers and generating index.
+Apr 18 13:45:41 201  :: Loading triggers and generating index.
+Apr 18 16:07:02 201  :: Loading triggers and generating index.
+Apr 18 16:07:33 201  :: Loading triggers and generating index.
+Apr 18 17:18:51 201  :: Loading triggers and generating index.
+Apr 18 17:19:53 201  :: Loading triggers and generating index.
+Apr 18 17:35:54 201  :: Loading triggers and generating index.
+Apr 18 17:36:54 201  :: Loading triggers and generating index.
+Apr 18 17:38:23 201  :: Loading triggers and generating index.
+Apr 18 17:39:20 201  :: Loading triggers and generating index.
+Apr 18 17:41:17 201  :: Loading triggers and generating index.
+Apr 18 17:54:05 201  :: Loading triggers and generating index.
+Apr 18 17:54:20 201  :: Loading triggers and generating index.
+Apr 18 17:54:40 201  :: Loading triggers and generating index.
+Apr 18 17:54:54 201  :: Loading triggers and generating index.
+Apr 18 17:58:46 201  :: Loading triggers and generating index.
+Apr 18 17:59:26 201  :: Loading triggers and generating index.
+Apr 18 18:01:57 201  :: Loading triggers and generating index.
+Apr 18 18:07:13 201  :: Loading triggers and generating index.
+Apr 18 18:12:10 201  :: Loading triggers and generating index.
+Apr 19 01:30:27 201  :: SCRIPT ERROR: Trigger: card purge time +100, VNum 3215. attach invalid trigger: '40199'
+Apr 19 09:58:29 201  :: Loading triggers and generating index.
+Apr 19 10:01:06 201  :: Loading triggers and generating index.
+Apr 19 10:03:04 201  :: Loading triggers and generating index.
+Apr 19 10:12:57 201  :: Loading triggers and generating index.
+Apr 19 10:58:17 201  :: Loading triggers and generating index.
+Apr 19 11:39:11 201  :: OLC: Henque starts editing zone 14 [trigger](allowed zone 0)
+Apr 19 11:39:16 201  :: OLC: Henque starts editing zone 14 [trigger](allowed zone 0)
+Apr 19 11:39:19 201  :: OLC: Henque starts editing zone 14 [trigger](allowed zone 0)
+Apr 19 11:39:21 201  :: OLC: Henque starts editing zone 14 [trigger](allowed zone 0)
+Apr 19 11:39:48 201  :: OLC: Henque starts editing zone 14 [trigger](allowed zone 0)
+Apr 19 11:41:26 201  :: OLC: Henque edits trigger 1442
+Apr 19 11:44:47 201  :: Loading triggers and generating index.
+Apr 19 11:45:10 201  :: Loading triggers and generating index.
+Apr 19 11:45:33 201  :: Loading triggers and generating index.
+Apr 19 11:46:26 201  :: Loading triggers and generating index.
+Apr 19 11:53:40 201  :: Loading triggers and generating index.

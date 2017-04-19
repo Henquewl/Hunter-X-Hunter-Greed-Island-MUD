@@ -211,7 +211,7 @@ static void qedit_setup_new(struct descriptor_data *d)
   quest->value[6]   = 1;              /* Quantity of targets    */
   quest->prev_quest = NOTHING;        /* Previous quest         */
   quest->next_quest = NOTHING;        /* Next quest             */
-  quest->gold_reward= 0;              /* Prize in gold coins    */
+  quest->gold_reward= 0;              /* Prize in Jenny    */
   quest->exp_reward = 0;              /* Prize in exp points    */
   quest->obj_reward = NOTHING;        /* vnum of reward object  */
   quest->name       = strdup("Undefined Quest");
@@ -544,7 +544,7 @@ void qedit_parse(struct descriptor_data *d, char *arg)
  case 'g':
  case 'G':
    OLC_MODE(d) = QEDIT_GOLD;
-   write_to_output(d, "Enter the number of gold coins (0 for none) : ");
+   write_to_output(d, "Enter the number of Jenny (0 for none) : ");
    break;
  case 't':
  case 'T':

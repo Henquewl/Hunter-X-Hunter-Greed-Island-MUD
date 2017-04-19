@@ -20,6 +20,7 @@
 #include "act.h"
 #include "fight.h"
 #include "mud_event.h"
+#include "constants.h"
 
 ACMD(do_assist)
 {
@@ -274,7 +275,7 @@ ACMD(do_bash)
 {
   char arg[MAX_INPUT_LENGTH];
   struct char_data *vict;
-  int percent, prob;
+  int percent, prob, skill_num, skilladd;
 
   one_argument(argument, arg);
 
@@ -313,6 +314,18 @@ ACMD(do_bash)
   
   percent = rand_number(1, 101);	/* 101% is a complete failure */
   prob = GET_SKILL(ch, SKILL_BASH);
+  
+  skill_num = find_skill_num("bash");
+
+  if ((GET_SKILL(ch, skill_num) < 95) && ((rand_number(1, 20) + wis_app[GET_WIS(ch)].bonus) >= 10)){ 
+    skilladd = GET_SKILL(ch, skill_num);
+    skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
+    SET_SKILL(ch, skill_num, MIN(95, skilladd));
+	if (GET_SKILL(ch, skill_num) >= 95)
+      send_to_char(ch, "\r\nYou mastered this skill!\r\n");
+    else
+	  send_to_char(ch, "\r\nYou get better with this skill...\r\n");
+  }  
 
   if (MOB_FLAGGED(vict, MOB_NOBASH))
     percent = 101;
@@ -333,7 +346,7 @@ ACMD(do_bash)
         GET_POS(vict) = POS_SITTING;
     }
   }
-  GET_MOVE(ch) = (GET_MOVE(ch) - 4);
+  GET_MANA(ch) = (GET_MANA(ch) - 2);
   WAIT_STATE(ch, PULSE_VIOLENCE * 2);
 }
 
@@ -341,7 +354,7 @@ ACMD(do_rescue)
 {
   char arg[MAX_INPUT_LENGTH];
   struct char_data *vict, *tmp_ch;
-  int percent, prob;
+  int percent, prob, skill_num, skilladd;
 
   if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_RESCUE)) {
     send_to_char(ch, "You have no idea how to do that.\r\n");
@@ -383,6 +396,18 @@ ACMD(do_rescue)
   }
   percent = rand_number(1, 101);	/* 101% is a complete failure */
   prob = GET_SKILL(ch, SKILL_RESCUE);
+  
+  skill_num = find_skill_num("rescue");
+
+  if ((GET_SKILL(ch, skill_num) < 95) && ((rand_number(1, 20) + wis_app[GET_WIS(ch)].bonus) >= 10)){ 
+    skilladd = GET_SKILL(ch, skill_num);
+    skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
+    SET_SKILL(ch, skill_num, MIN(95, skilladd));
+	if (GET_SKILL(ch, skill_num) >= 95)
+      send_to_char(ch, "\r\nYou mastered this skill!\r\n");
+    else
+	  send_to_char(ch, "\r\nYou get better with this skill...\r\n");
+  }  
 
   if (percent > prob) {
     send_to_char(ch, "You fail the rescue!\r\n");
@@ -402,7 +427,7 @@ ACMD(do_rescue)
   set_fighting(ch, tmp_ch);
   set_fighting(tmp_ch, ch);
   
-  GET_MOVE(ch) = (GET_MOVE(ch) - 10);
+  GET_MANA(ch) = (GET_MANA(ch) - 3);
   WAIT_STATE(vict, 2 * PULSE_VIOLENCE);
 }
 
@@ -507,7 +532,7 @@ ACMD(do_kick)
 {
   char arg[MAX_INPUT_LENGTH];
   struct char_data *vict;
-  int percent, prob;
+  int percent, prob, skill_num, skilladd;
 
   if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_KICK)) {
     send_to_char(ch, "You have no idea how.\r\n");
@@ -561,6 +586,18 @@ ACMD(do_kick)
   else
     damage(ch, vict, GET_LEVEL(ch) / 2, SKILL_KICK);
   
-  GET_MOVE(ch) = (GET_MOVE(ch) - 3);
+  skill_num = find_skill_num("kick");
+
+  if ((GET_SKILL(ch, skill_num) < 95) && ((rand_number(1, 20) + wis_app[GET_WIS(ch)].bonus) >= 10)){ 
+    skilladd = GET_SKILL(ch, skill_num);
+    skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
+    SET_SKILL(ch, skill_num, MIN(95, skilladd));
+	if (GET_SKILL(ch, skill_num) >= 95)
+      send_to_char(ch, "You mastered this skill!\r\n");
+    else
+	  send_to_char(ch, "You get better with this skill...\r\n");
+  }
+  
+  GET_MANA(ch) = (GET_MANA(ch) - 1);
   WAIT_STATE(ch, PULSE_VIOLENCE * 3);
 }

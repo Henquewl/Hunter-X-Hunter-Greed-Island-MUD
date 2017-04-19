@@ -34,13 +34,11 @@ if %cmd%==book && %actor.varexists(book_purge_leaves)%
     %force% %actor% open binder
     %send% %actor% An energy comes out of your ring and transforms into a book.
     %echoaround% %actor% An energy comes out of %actor.name%'s ring and transforms into a book.
-    %load% obj 3200 %room%
     halt
   end
 elseif %cmd%==book
   %force% %actor% say BOOK!
   wait 1 sec
-  %load% obj 3200 %room%
   eval book_purge_leaves %actor.room.contents%
   remote book_purge_leaves %actor.id%
   %force% %actor% open binder
@@ -73,21 +71,16 @@ book control~
 1 q 100
 ~
 if %actor.varexists(book_purge_leaves)%
-%force% %actor% close binder
-%echo% The book what was floating here closes itself and vanishes.
-set remove_book %actor.book_purge_leaves%
-rdelete book_purge_leaves %actor.id%
-%purge% %remove_book%
+  %echo% The book what was floating here closes itself and vanishes.
+  set remove_book %actor.book_purge_leaves%
+  rdelete book_purge_leaves %actor.id%
+  %purge% %self%
 end
 ~
 #3206
 gain card to obj 100~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
+1 c 1
+ga~
 eval hold %actor.eq(hold)%
 if %cmd%==gain && %hold.id% /= %self.id%
 eval card %self.vnum% + 100
@@ -103,12 +96,8 @@ end
 ~
 #3207
 gain obj to card 100~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
+1 c 1
+ga~
 eval hold %actor.eq(hold)%
 if %cmd%==gain && %hold.id% /= %self.id%
 eval card %self.vnum% - 100
@@ -175,12 +164,12 @@ book return~
 1 c 4
 book~
 if %cmd%==book && %actor.varexists(book_purge_leaves)%
-%force% %actor% close binder
+
 eval ringdesc %actor.eq(rfinger)%
 %send% %actor% You returned your %self.shortdesc% into %ringdesc.shortdesc%.
 %echoaround% %actor% %actor.name% return %actor.hisher% %self.shortdesc% into %ringdesc.shortdesc%.
 rdelete book_purge_leaves %actor.id%
-%purge% %self%
+%purge% %self.id%
 end
 ~
 #3214
@@ -245,7 +234,7 @@ if !%has_it%
 eval i %actor.inventory%
 while %i%
 set next %i.next_in_list%
-if %i.type%==OTHER && %i.name% /= %arg.car%
+if %i.type%==UNRESTRICTED && %i.name% /= %arg.car%
 set has_it 1
 break
 end
@@ -270,7 +259,7 @@ if !%has_it%
 eval i %actor.inventory%
 while %i%
 set next %i.next_in_list%
-if %i.type%==SCROLL && %i.name% /= %arg.car%
+if %i.type%==SPELLCARD && %i.name% /= %arg.car%
 set has_it 1
 break
 end
@@ -295,7 +284,7 @@ if !%has_it%
 eval i %actor.inventory%
 while %i%
 set next %i.next_in_list%
-if %i.type%==TREASURE && %i.name% /= %arg.car%
+if %i.type%==RESTRICTED && %i.name% /= %arg.car%
 set has_it 1
 break
 end
@@ -659,7 +648,7 @@ eval counter 0
 eval i %arg.inventory(3203).contents%
 while %i%
 set next %i.next_in_list%
-if %i.type%==TREASURE
+if %i.type%==RESTRICTED
 %send% %actor% %i.shortdesc%
 eval counter %counter% +1
 end
@@ -758,43 +747,47 @@ nop %actor.mana(-%consume%)%
 eval dam1 10
 nop %actor.damroll(%dam1%)%
 wait 1 sec
-if !%actor.varexists(jajanken_loading)%
+if !%actor.varexists(jajanken_loading)% || %actor.pos% != standing
 nop %actor.damroll(-%actor.damroll%)%
 nop %actor.damroll(%original%)%
 if %original% < 0
 eval damfix 256 + %original%
 nop %actor.damroll(%damfix%)%
 end
+rdelete jajanken_loading %actor.id%
 halt
 end
 wait 1 sec
-if !%actor.varexists(jajanken_loading)%
+if !%actor.varexists(jajanken_loading)% || %actor.pos% != standing
 nop %actor.damroll(-%actor.damroll%)%
 nop %actor.damroll(%original%)%
 if %original% < 0
 eval damfix 256 + %original%
 nop %actor.damroll(%damfix%)%
 end
+rdelete jajanken_loading %actor.id%
 halt
 end
 wait 1 sec
-if !%actor.varexists(jajanken_loading)%
+if !%actor.varexists(jajanken_loading)% || %actor.pos% != standing
 nop %actor.damroll(-%actor.damroll%)%
 nop %actor.damroll(%original%)%
 if %original% < 0
 eval damfix 256 + %original%
 nop %actor.damroll(%damfix%)%
 end
+rdelete jajanken_loading %actor.id%
 halt
 end
 wait 1 sec
-if !%actor.varexists(jajanken_loading)%
+if !%actor.varexists(jajanken_loading)% || %actor.pos% != standing
 nop %actor.damroll(-%actor.damroll%)%
 nop %actor.damroll(%original%)%
 if %original% < 0
 eval damfix 256 + %original%
 nop %actor.damroll(%damfix%)%
 end
+rdelete jajanken_loading %actor.id%
 halt
 end
 if %actor.mana% >= 25 && %actor.level% >= 10
@@ -807,33 +800,36 @@ nop %actor.mana(-%consume%)%
 eval dam2 20
 nop %actor.damroll(%dam2%)%
 wait 1 sec
-if !%actor.varexists(jajanken_loading)%
+if !%actor.varexists(jajanken_loading)% || %actor.pos% != standing
 nop %actor.damroll(-%actor.damroll%)%
 nop %actor.damroll(%original%)%
 if %original% < 0
 eval damfix 256 + %original%
 nop %actor.damroll(%damfix%)%
 end
+rdelete jajanken_loading %actor.id%
 halt
 end
 wait 1 sec
-if !%actor.varexists(jajanken_loading)%
+if !%actor.varexists(jajanken_loading)% || %actor.pos% != standing
 nop %actor.damroll(-%actor.damroll%)%
 nop %actor.damroll(%original%)%
 if %original% < 0
 eval damfix 256 + %original%
 nop %actor.damroll(%damfix%)%
 end
+rdelete jajanken_loading %actor.id%
 halt
 end
 wait 1 sec
-if !%actor.varexists(jajanken_loading)%
+if !%actor.varexists(jajanken_loading)% || %actor.pos% != standing
 nop %actor.damroll(-%actor.damroll%)%
 nop %actor.damroll(%original%)%
 if %original% < 0
 eval damfix 256 + %original%
 nop %actor.damroll(%damfix%)%
 end
+rdelete jajanken_loading %actor.id%
 halt
 end
 if %actor.mana% >= 25 && %actor.level% >= 15
@@ -845,23 +841,25 @@ nop %actor.mana(-%consume%)%
 eval dam3 30
 nop %actor.damroll(%dam3%)%
 wait 1 sec
-if !%actor.varexists(jajanken_loading)%
+if !%actor.varexists(jajanken_loading)% || %actor.pos% != standing
 nop %actor.damroll(-%actor.damroll%)%
 nop %actor.damroll(%original%)%
 if %original% < 0
 eval damfix 256 + %original%
 nop %actor.damroll(%damfix%)%
 end
+rdelete jajanken_loading %actor.id%
 halt
 end
 wait 1 sec
-if !%actor.varexists(jajanken_loading)%
+if !%actor.varexists(jajanken_loading)% || %actor.pos% != standing
 nop %actor.damroll(-%actor.damroll%)%
 nop %actor.damroll(%original%)%
 if %original% < 0
 eval damfix 256 + %original%
 nop %actor.damroll(%damfix%)%
 end
+rdelete jajanken_loading %actor.id%
 halt
 end
 if %actor.mana% >= 25 && %actor.level% >= 20
@@ -879,13 +877,14 @@ else
 nop %actor.damroll(%dam4%)%
 end
 wait 1 sec
-if !%actor.varexists(jajanken_loading)%
+if !%actor.varexists(jajanken_loading)% || %actor.pos% != standing
 nop %actor.damroll(-%actor.damroll%)%
 nop %actor.damroll(%original%)%
 if %original% < 0
 eval damfix 256 + %original%
 nop %actor.damroll(%damfix%)%
 end
+rdelete jajanken_loading %actor.id%
 halt
 end
 %send% %actor% The aura over your fists dissipates.
@@ -1153,9 +1152,9 @@ end
 ~
 #3251
 booster pack~
-1 c 2
-o~
-if %cmd.mudcommand% == open && %self.name% /= %arg%
+1 c 3
+unp~
+if %cmd% == unpack
 %send% %actor% You open %self.shortdesc%.
 %echoaround% %actor% %actor.name% opened %self.shortdesc%.
 set old %self.shortdesc%
@@ -1201,7 +1200,7 @@ switch %random.2%
 case 1
 eval i %actor.inventory%
 while %i%
-eval free 3119 + %random.70%
+eval free 12073 + %random.7%
 %load% obj %free% %actor% inv
 if %actor.inventory.vnum% == %free%
 break
@@ -1213,7 +1212,7 @@ break
 case 2
 eval i %actor.inventory%
 while %i%
-eval free 39999 + %random.100%
+eval free 3118 + %random.77%
 %load% obj %free% %actor% inv
 if %actor.inventory.vnum% == %free%
 break
@@ -1269,7 +1268,7 @@ switch %random.2%
 case 1
 eval i %actor.inventory%
 while %i%
-eval free 3119 + %random.70%
+eval free 12073 + %random.7%
 %load% obj %free% %actor% inv
 if %actor.inventory.vnum% == %free%
 break
@@ -1281,7 +1280,7 @@ break
 case 2
 eval i %actor.inventory%
 while %i%
-eval free 39999 + %random.100%
+eval free 3118 + %random.77%
 %load% obj %free% %actor% inv
 if %actor.inventory.vnum% == %free%
 break
@@ -1338,7 +1337,7 @@ switch %random.2%
 case 1
 eval i %actor.inventory%
 while %i%
-eval free 3119 + %random.70%
+eval free 12073 + %random.7%
 %load% obj %free% %actor% inv
 if %actor.inventory.vnum% == %free%
 break
@@ -1351,7 +1350,7 @@ break
 case 2
 eval i %actor.inventory%
 while %i%
-eval free 39999 + %random.100%
+eval free 3118 + %random.77%
 %load% obj %free% %actor% inv
 if %actor.inventory.vnum% == %free%
 break
@@ -1368,12 +1367,38 @@ done
 done
 end
 ~
+#3252
+spell booster pack~
+1 c 2
+unp~
+%send% %actor% You open %self.shortdesc%.
+%echoaround% %actor% %actor.name% opened %self.shortdesc%.
+eval spell 1000 + %random.40%
+if %actor.varexists(good_luck)%
+  eval spell 1010
+end
+%load% obj %spell% %actor% inv
+%send% %actor% You unpacked %actor.inventory.shortdesc%!
+eval spell 1000 + %random.40%
+if %actor.varexists(good_luck)%
+  eval spell 1026
+end
+%load% obj %spell% %actor% inv
+%send% %actor% You unpacked %actor.inventory.shortdesc%!
+eval spell 1000 + %random.40%
+if %actor.varexists(good_luck)%
+  eval spell 1018
+end
+%load% obj %spell% %actor% inv
+%send% %actor% You unpacked %actor.inventory.shortdesc%!
+%purge% %self%
+~
 #3299
 Crystal Ball to Locate a Mob.~
-2 c 100
-locate~
-makeuid god 1
-%echo% Who: %god.name%
-%send% %god% test
+2 q 100
+~
+if %actor.is_book%
+%echo% Book?: %actor.is_book%
+end
 ~
 $~

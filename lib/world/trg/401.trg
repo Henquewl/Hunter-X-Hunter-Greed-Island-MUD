@@ -151,4 +151,11 @@ detach 40196 %self.id%
 halt
 end
 ~
+#40197
+destroy letter~
+1 f 100
+~
+%send% %self.carried_by% %self.shortdesc% dissolves itself.
+%purge% %self%
+~
 $~

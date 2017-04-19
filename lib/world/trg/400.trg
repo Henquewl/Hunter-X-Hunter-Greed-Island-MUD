@@ -85,6 +85,20 @@ end
 set i %next%
 done
 ~
+#40003
+villagers thank the player~
+0 n 100
+~
+wait 2 sec
+say what? we are healthy again?
+wait 2 sec
+say Thank you for saving our lives!
+wait 2 sec
+smile
+wait 1 sec
+%echo% %self.name% go back way to home.
+%purge% %self%
+~
 #40031
 visited rabicuta tag~
 2 q 100
@@ -96,63 +110,18 @@ remote visited_rabicuta %actor.id%
 end
 ~
 #40096
-villagers reward player~
-0 abi 100
-~
-set myroom %self.room%
-if %myroom.vnum% == 40103
-wait 1 sec
-eval i %myroom.people%
-while %i%
-set next %i.next_in_room%
-if %self.player% == %i.name%
-say You healed us!
-wait 2 sec
-say We are eternally grateful to you...
-wait 3 sec
-say Wait here, I have something for you.
-wait 2 sec
-emote entered in the house.
-wait 2 sec
-emote left the house carrying a jewelry box.
-wait 2 sec
-say There, you deserve that.
-wait 1 sec
-%at% 40199 get card prizer
-give card %self.player%
-wait 1 sec
-say Hope you like, now if you excuse us...
-wait 1 sec
-%echo% The villagers go to their homes.
-%purge% villager
-%purge% %self%
+gain healthy villagers~
+1 c 1
+ga~
+if %cmd.mudcommand% == gain
+  %force% %actor% say GAIN!
+  wait 2 sec
+  %load% mob 40196
+  %echo% %self.shortdesc% turns into a bunch of healthy villagers.
+  %load% obj 40196 %actor%
+  %purge% %self%
 else
-set ppl %random.char%
-wait 1 sec
-say You healed us!
-wait 2 sec
-say We are eternally grateful to you...
-wait 3 sec
-say Wait here, I have something for you.
-wait 2 sec
-emote entered in the house.
-wait 2 sec
-emote left the house carrying a jewelry box.
-wait 2 sec
-say There, you deserve that.
-wait 1 sec
-%load% obj 65375 %self% inv
-give card %ppl.name%
-wait 1 sec
-say Hope you like, now if you excuse us...
-wait 1 sec
-%echo% The villagers go to their homes.
-%purge% villager
-%purge% %self%
-end
-else
-if %random.10% == 10
-say There is still a lot to get home?
+  return 0
 end
 ~
 #40097

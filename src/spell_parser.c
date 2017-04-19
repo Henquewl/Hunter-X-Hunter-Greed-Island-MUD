@@ -21,6 +21,7 @@
 #include "db.h"
 #include "dg_scripts.h"
 #include "fight.h"  /* for hit() */
+#include "constants.h"
 
 #define SINFO spell_info[spellnum]
 
@@ -41,14 +42,32 @@ struct syllable {
 };
 static struct syllable syls[] = {
   {" ", " "},
+  {"align", "shinjitsu"},
   {"aura", "ryu"},
-  {"circle of en", "en"},
-  {"enfold weapon", "shu"},
-  {"enhance", "ko"},
+  {"ball of", "boru wa"},
   {"blast", "ha"},
+  {"blindness", "shitsumei"},
+  {"circle of en", "en"},
+  {"clone", "bunshin"},
+  {"conceal", "in"},
+  {"cure", "iyashimasu"},
+  {"curse", "noroi"},
+  {"detect concealed", "gyo"},
+  {"detect", "kenshutsu"},
+  {"enfold", "shu"},
+  {"enhance", "ko"},
+  {"exorcise", "kiyomemasu"},
   {"focus", "ten"},
   {"fortify", "ken"},
+  {"heal", "kenko"},
+  {"infravision", "akai me"},
+  {"nen", "nenshi"},
+  {"poison", "doku"},
   {"protection", "ren"},
+  {"remove", "sakujo"},
+  {"sleep", "suimin"},
+  {"stitches", "hogo"},
+  {"weapon", "buki"},
 /*{"a", "a"}, {"b", "b"}, {"c", "c"}, {"d", "d"}, {"e", "e"}, {"f", "f"}, {"g", "g"},
   {"h", "h"}, {"i", "i"}, {"j", "j"}, {"k", "k"}, {"l", "l"}, {"m", "m"}, {"n", "n"},
   {"o", "o"}, {"p", "p"}, {"q", "q"}, {"r", "r"}, {"s", "s"}, {"t", "t"}, {"u", "u"},
@@ -477,7 +496,7 @@ ACMD(do_cast)
   struct char_data *tch = NULL;
   struct obj_data *tobj = NULL;
   char *s, *t;
-  int number, mana, spellnum, i, target = 0;
+  int number, mana, spellnum, skilladd, i, target = 0;
 
   if (IS_NPC(ch))
     return;
@@ -511,10 +530,10 @@ ACMD(do_cast)
     send_to_char(ch, "You do not know that hatsu!\r\n");
     return;
   }
-  if (GET_SKILL(ch, spellnum) == 0) {
+/*  if (GET_SKILL(ch, spellnum) == 0) {
     send_to_char(ch, "You are unfamiliar with that hatsu.\r\n");
     return;
-  }
+  }*/
   /* Find the target */
   if (t != NULL) {
     char arg[MAX_INPUT_LENGTH];
@@ -593,6 +612,16 @@ ACMD(do_cast)
   if ((mana > 0) && (GET_MANA(ch) < mana) && (GET_LEVEL(ch) < LVL_IMMORT)) {
     send_to_char(ch, "You haven't the energy to cast that hatsu!\r\n");
     return;
+  }
+  
+  if ((GET_SKILL(ch, spellnum) < 95) && ((rand_number(1, 20) + wis_app[GET_WIS(ch)].bonus) >= 20)){ 
+    skilladd = GET_SKILL(ch, spellnum);
+    skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
+    SET_SKILL(ch, spellnum, MIN(95, skilladd));
+	if (GET_SKILL(ch, spellnum) >= 95)
+      send_to_char(ch, "\r\nYou mastered this hatsu!\r\n");
+    else
+	  send_to_char(ch, "\r\nYou get better with this hatsu...\r\n");
   }
 
   /* You throws the dice and you takes your chances.. 101% is total failure */
@@ -721,7 +750,7 @@ void mag_assign_spells(void)
 	"You feel less focused.");
 
   spello(SPELL_BLINDNESS, "blindness", 35, 25, 1, POS_STANDING,
-	TAR_CHAR_ROOM | TAR_NOT_SELF, FALSE, MAG_AFFECTS,
+	TAR_CHAR_ROOM | TAR_NOT_SELF, TRUE, MAG_AFFECTS,
 	"You feel a cloak of blindness dissolve.");
 
   spello(SPELL_BURNING_HANDS, "burning hands", 30, 10, 3, POS_FIGHTING,
@@ -764,7 +793,7 @@ void mag_assign_spells(void)
 	TAR_OBJ_INV | TAR_OBJ_EQUIP, FALSE, MAG_MANUAL,
 	NULL);
 
-  spello(SPELL_CURE_BLIND, "cure blind", 30, 5, 2, POS_STANDING,
+  spello(SPELL_CURE_BLIND, "cure blindness", 30, 5, 2, POS_STANDING,
 	TAR_CHAR_ROOM, FALSE, MAG_UNAFFECTS,
 	NULL);
 
@@ -788,7 +817,7 @@ void mag_assign_spells(void)
 	TAR_CHAR_ROOM | TAR_SELF_ONLY, FALSE, MAG_AFFECTS,
 	"You feel less aware.");
 
-  spello(SPELL_DETECT_INVIS, "gyo", 20, 10, 2, POS_STANDING,
+  spello(SPELL_DETECT_INVIS, "detect concealed", 20, 10, 2, POS_STANDING,
 	TAR_CHAR_ROOM | TAR_SELF_ONLY, FALSE, MAG_AFFECTS,
 	"Your eyes stop tingling.");
 
@@ -873,7 +902,7 @@ void mag_assign_spells(void)
 	TAR_CHAR_ROOM | TAR_SELF_ONLY, FALSE, MAG_AFFECTS,
 	"You feel less protected.");
 
-  spello(SPELL_REMOVE_CURSE, "exorcism", 65, 35, 5, POS_STANDING,
+  spello(SPELL_REMOVE_CURSE, "exorcise", 65, 35, 5, POS_STANDING,
 	TAR_CHAR_ROOM | TAR_OBJ_INV | TAR_OBJ_EQUIP, FALSE,
 	MAG_UNAFFECTS | MAG_ALTER_OBJS,
 	NULL);
@@ -903,7 +932,7 @@ void mag_assign_spells(void)
 	"You feel weaker.");
 
   spello(SPELL_SUMMON, "summon ritual", 150, 100, 3, POS_STANDING,
-	TAR_CHAR_WORLD | TAR_NOT_SELF, FALSE, MAG_MANUAL,
+	TAR_CHAR_WORLD | TAR_NOT_SELF, TRUE, MAG_MANUAL,
 	NULL);
 
   spello(SPELL_TELEPORT, "teleport", 75, 50, 3, POS_STANDING,

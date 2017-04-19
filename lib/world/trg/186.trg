@@ -1,13 +1,9 @@
 #18600
 gain obj to card 50~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
+1 c 1
+ga~
 eval hold %actor.eq(hold)%
-if %cmd%==gain && %hold.id% /= %self.id%
+if %cmd.mudcommand% == gain && %hold.id% /= %self.id%
 eval card %self.vnum% + 50
 %force% %actor% say GAIN!
 wait 1 sec
@@ -21,14 +17,10 @@ end
 ~
 #18601
 gain card to obj 50~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
+1 c 1
+ga~
 eval hold %actor.eq(hold)%
-if %cmd%==gain && %hold.id% /= %self.id%
+if %cmd.mudcommand% == gain && %hold.id% /= %self.id%
 eval card %self.vnum% - 50
 %force% %actor% say GAIN!
 wait 1 sec
@@ -70,14 +62,10 @@ otimer 2
 ~
 #18603
 gain obj to card +100~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
+1 c 1
+ga~
 eval hold %actor.eq(hold)%
-if %cmd%==gain && %hold.id% /= %self.id%
+if %cmd.mudcommand% == gain && %hold.id% /= %self.id%
 eval card %self.vnum% + 100
 %force% %actor% say GAIN!
 wait 1 sec
@@ -91,14 +79,10 @@ end
 ~
 #18604
 gain card to obj -100~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
+1 c 1
+ga~
 eval hold %actor.eq(hold)%
-if %cmd%==gain && %hold.id% /= %self.id%
+if %cmd.mudcommand% == gain && %hold.id% /= %self.id%
 eval card %self.vnum% - 100
 %force% %actor% say GAIN!
 wait 1 sec
@@ -112,14 +96,10 @@ end
 ~
 #18605
 gain obj to card -100~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
+1 c 1
+ga~
 eval hold %actor.eq(hold)%
-if %cmd%==gain && %hold.id% /= %self.id%
+if %cmd.mudcommand% == gain && %hold.id% /= %self.id%
 eval card %self.vnum% - 100
 %force% %actor% say GAIN!
 wait 1 sec
@@ -133,14 +113,10 @@ end
 ~
 #18606
 gain card to obj +100~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
+1 c 1
+ga~
 eval hold %actor.eq(hold)%
-if %cmd%==gain && %hold.id% /= %self.id%
+if %cmd.mudcommand% == gain && %hold.id% /= %self.id%
 eval card %self.vnum% + 100
 %force% %actor% say GAIN!
 wait 1 sec
@@ -151,5 +127,16 @@ wait 1 sec
 else
 return 0
 end
+~
+#18607
+Newbie guard ask for quest~
+0 g 100
+~
+wait 1 sec
+%echo% %self.name% looks at you.
+wait 1 sec
+say hey you! Have you seen a little pet dragon around here?
+wait 1 sec
+%echo% Type QUEST LIST and then QUEST JOIN 1.
 ~
 $~
