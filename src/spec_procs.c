@@ -82,7 +82,7 @@ static const char *how_good(int percent)
 }
 
 const char *prac_types[] = {
-  "spell",
+  "hatsu",
   "skill"
 };
 
@@ -99,18 +99,38 @@ const char *prac_types[] = {
 void list_skills(struct char_data *ch)
 {
   const char *overflow = "\r\n**OVERFLOW**\r\n";
-  int i, sortpos, ret;
+  int i, sortpos, ret, line = 0;
   size_t len = 0;
   char buf2[MAX_STRING_LENGTH];
 
-  len = snprintf(buf2, sizeof(buf2), "You have %d practice session%s remaining.\r\n"
-	"You know of the following %ss:\r\n", GET_PRACTICES(ch),
-	GET_PRACTICES(ch) == 1 ? "" : "s", SPLSKL(ch));
+  len = snprintf(buf2, sizeof(buf2), "You know of the following %ss:\r\n", SPLSKL(ch));
 
-  for (sortpos = 1; sortpos <= MAX_SKILLS; sortpos++) {
-    i = spell_sort_info[sortpos];
+  for (sortpos = 1; sortpos <= MAX_SKILLS; sortpos++) {    
+	i = spell_sort_info[sortpos];
     if (GET_LEVEL(ch) >= spell_info[i].min_level[(int) GET_CLASS(ch)]) {
-    ret = snprintf(buf2 + len, sizeof(buf2) - len, "%-20s %s\r\n", spell_info[i].name, how_good(GET_SKILL(ch, i)));
+      if (line == 1) {	
+        ret = snprintf(buf2 + len, sizeof(buf2) - len, "%-20s (%3d%%)\r\n", spell_info[i].name, (GET_SKILL(ch, i) + 5));
+	    line = 0;
+	  } else {
+	    ret = snprintf(buf2 + len, sizeof(buf2) - len, "%-20s (%3d%%) | ", spell_info[i].name, (GET_SKILL(ch, i) + 5));
+		line = 1;
+	  }
+	
+      if (ret < 0 || len + ret >= sizeof(buf2))
+        break;
+      len += ret;
+    }
+	sortpos++;
+	i = spell_sort_info[sortpos];
+	if (GET_LEVEL(ch) >= spell_info[i].min_level[(int) GET_CLASS(ch)]) {
+	  if (line == 1) {	
+        ret = snprintf(buf2 + len, sizeof(buf2) - len, "%-20s (%3d%%)\r\n", spell_info[i].name, (GET_SKILL(ch, i) + 5));
+	    line = 0;
+	  } else {
+	    ret = snprintf(buf2 + len, sizeof(buf2) - len, "%-20s (%3d%%) | ", spell_info[i].name, (GET_SKILL(ch, i) + 5));
+		line = 1;
+	  }
+	
       if (ret < 0 || len + ret >= sizeof(buf2))
         break;
       len += ret;
@@ -147,7 +167,7 @@ SPECIAL(guild)
     send_to_char(ch, "You do not know of that %s.\r\n", SPLSKL(ch));
     return (TRUE);
   }
-  if (GET_SKILL(ch, skill_num) >= LEARNED(ch)) {
+  if (GET_SKILL(ch, skill_num) > 0) {
     send_to_char(ch, "You are already learned in that area.\r\n");
     return (TRUE);
   }
@@ -159,7 +179,7 @@ SPECIAL(guild)
 
   SET_SKILL(ch, skill_num, MIN(LEARNED(ch), percent));
 
-  if (GET_SKILL(ch, skill_num) >= LEARNED(ch))
+  if (GET_SKILL(ch, skill_num) > 0)
     send_to_char(ch, "You are now learned in that area.\r\n");
 
   return (TRUE);
@@ -308,7 +328,7 @@ static void npc_steal(struct char_data *ch, struct char_data *victim)
     act("You discover that $n has $s hands in your wallet.", FALSE, ch, 0, victim, TO_VICT);
     act("$n tries to steal gold from $N.", TRUE, ch, 0, victim, TO_NOTVICT);
   } else {
-    /* Steal some gold coins */
+    /* Steal some Jenny */
     gold = (GET_GOLD(victim) * rand_number(1, 10)) / 100;
     if (gold > 0) {
       increase_gold(ch, gold);

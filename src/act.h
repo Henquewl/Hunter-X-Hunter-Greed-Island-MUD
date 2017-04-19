@@ -96,6 +96,7 @@ ACMD(do_help);
 ACMD(do_history);
 ACMD(do_inventory);
 ACMD(do_levels);
+ACMD(do_progress);
 ACMD(do_scan);
 ACMD(do_score);
 ACMD(do_time);
@@ -133,6 +134,7 @@ ACMD(do_pour);
 #define SCMD_FILL  1
 /* functions without subcommands */
 ACMD(do_drink);
+ACMD(do_gain);
 ACMD(do_get);
 ACMD(do_give);
 ACMD(do_grab);
@@ -155,6 +157,7 @@ ACMD(do_gen_door);
 #define SCMD_LOCK       3
 #define SCMD_PICK       4
 /* Functions without subcommands */
+ACMD(do_book);
 ACMD(do_enter);
 ACMD(do_follow);
 ACMD(do_leave);

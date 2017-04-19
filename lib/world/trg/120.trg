@@ -97,6 +97,33 @@ if !%self.fighting%
   end
 end
 ~
+#12003
+Gladiator vs Lion~
+0 g 100
+~
+wait 1 sec
+switch %random.3%
+  case 1
+    say Kill the lion!
+  break
+  case 2
+    say Get him!
+  break
+  case 3
+    say This lion cannot stay alive!
+  break
+done
+wait 3 sec
+kill lion
+~
+#12004
+junk received item~
+0 j 100
+~
+%send% %actor% You give %object.shortdesc% to %self.name%.
+%echoaround% %actor% %actor.name% gives %object.shortdesc% to %self.name%.
+%purge% %object%
+~
 #12009
 Heal players~
 0 ab 20
@@ -105,11 +132,11 @@ set player %random.char%
 if %player.hitp% < %player.maxhitp% && %player.is_pc% /= 1
 dg_cast 'heal' %player.name%
 dg_cast 'remove poison' %player.name%
-dg_cast 'exorcism' %player.name%
+dg_cast 'exorcise' %player.name%
 say %player.name% is Healed!
 else
 dg_cast 'remove poison' %player.name%
-dg_cast 'exorcism' %player.name%
+dg_cast 'exorcise' %player.name%
 end
 ~
 #12012
@@ -228,6 +255,29 @@ if %time.day% != 15
 attach 12024 %self.id%
 detach 12025 %self.id%
 end
+~
+#12026
+mana potion~
+1 s 100
+~
+if %actor.mana% < %actor.maxmana%
+  set m 30
+  nop %actor.mana(%m%)%
+  if %actor.mana% > %actor.maxmana%
+    eval m %actor.maxmana% - %actor.mana%
+    nop %actor.mana(%m%)%
+  end
+end
+if %actor.move% < %actor.maxmove%
+  set v 30
+  nop %actor.move(%v%)%
+  if %actor.move% > %actor.maxmove%
+    eval v %actor.maxmove% - %actor.move%
+    nop %actor.move(%v%)%
+  end
+end
+%send% %actor% You feel energized.
+%send% %actor% You feel refreshed.
 ~
 #12027
 rock paper scissors~
@@ -393,6 +443,22 @@ return 0
 brake
 done
 ~
+#12035
+smoke bomb~
+1 h 100
+~
+dg_affect %actor% infra on 1
+dg_cast 'darkness'
+set i %actor.room.people%
+while %i%
+set next %i.next_in_room%
+if %i% != %actor%
+dg_affect %i% blind 0 1
+end
+set i %next%
+done
+%purge% %self%
+~
 #12036
 cat diner event~
 0 e 0
@@ -479,6 +545,26 @@ say Thanks for the tip madam.
 end
 wait 2 sec
 say If you need a "escape route", use the secret passageway to northeast.
+end
+~
+#12043
+10000 coins gain~
+1 c 3
+ga~
+if %self.carried_by% == %actor%
+  %send% %actor% You must hold something before gain it.
+  halt
+end
+eval hold %actor.eq(hold)%
+if %cmd.mudcommand%==gain && %hold.id% /= %self.id%
+  %force% %actor% say GAIN!
+  wait 1 sec
+  %send% %actor% Your %self.shortdesc% turns into 10000 jenny coins.
+  %echoaround% %actor% %actor.name%'s %self.shortdesc% turns into a lot of gold coins.
+  nop %actor.gold(10000)%
+  %purge% %self%
+else
+  return 0
 end
 ~
 #12053

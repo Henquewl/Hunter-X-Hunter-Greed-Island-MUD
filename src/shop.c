@@ -833,7 +833,7 @@ static void shopping_value(char *arg, struct char_data *ch, struct char_data *ke
   if (!(obj = get_selling_obj(ch, name, keeper, shop_nr, TRUE)))
     return;
 
-  snprintf(buf, sizeof(buf), "%s I'll give you %d gold coins for that!", GET_NAME(ch), sell_price(obj, shop_nr, keeper, ch));
+  snprintf(buf, sizeof(buf), "%s I'll give you %d Jenny for that!", GET_NAME(ch), sell_price(obj, shop_nr, keeper, ch));
   do_tell(keeper, buf, cmd_tell, 0);
 }
 
@@ -1556,6 +1556,7 @@ void destroy_shops(void)
 bool shopping_identify(char *arg, struct char_data *ch, struct char_data *keeper, int shop_nr)
 {
   char buf[MAX_STRING_LENGTH];
+  char *desc;
   struct obj_data *obj;
   int i, found;
 
@@ -1594,6 +1595,12 @@ bool shopping_identify(char *arg, struct char_data *ch, struct char_data *keeper
             send_to_char(ch, "Hours Remaining: %d\r\n", GET_OBJ_VAL(obj, 2));
           break;
         case ITEM_SCROLL:
+		case ITEM_OTHER:
+		case ITEM_TREASURE:
+		  if ((desc = find_exdesc("card", obj->ex_description)) != NULL)
+		    send_to_char(ch, "\r\nCard Description:\tW\r\n%s", desc);
+		  send_to_char(ch, "\tn\r\n");
+	      break;
         case ITEM_POTION:
           send_to_char(ch, "Spells: %s, %s, %s\r\n",
                   skill_name(GET_OBJ_VAL(obj, 1)),
@@ -1644,8 +1651,8 @@ bool shopping_identify(char *arg, struct char_data *ch, struct char_data *keeper
             send_to_char(ch, "This item was enfolded with nen.\r\n");
           else
             send_to_char(ch, "\r\n");
-          break;
-        default:
+          break;		
+		default:
           send_to_char(ch, "\r\n");
           break;
       }

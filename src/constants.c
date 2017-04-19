@@ -24,7 +24,7 @@
  * @todo cpp_extern isn't needed here (or anywhere) as the extern reserved word
  * works correctly with C compilers (at least in my Experience)
  * Jeremy Osborne 1/28/2008 */
-cpp_extern const char *tbamud_version = "Greed Island 0.67";
+cpp_extern const char *tbamud_version = "Greed Island 0.71";
 
 /* strings corresponding to ordinals/bitvectors in structs.h */
 /* (Note: strings for class definitions in class.c instead of here) */
@@ -179,7 +179,7 @@ const char *player_bits[] = {
   "IBT_BUG",
   "IBT_IDEA",
   "IBT_TYPO",
-  "UNUSED1",
+  "BOOK",
   "UNUSED2",
   "UNUSED3",
   "UNUSED4",
@@ -381,17 +381,17 @@ const char *equipment_types[] = {
 const char *item_types[] = {
   "UNDEFINED",
   "LIGHT",
-  "SCROLL",
+  "SPELLCARD",
   "WAND",
   "STAFF",
   "WEAPON",
   "FURNITURE",
   "FREE",
-  "TREASURE",
+  "RESTRICTED",
   "ARMOR",
   "POTION",
   "WORN",
-  "OTHER",
+  "UNRESTRICTED",
   "TRASH",
   "FREE2",
   "CONTAINER",
@@ -450,6 +450,8 @@ const char *extra_bits[] = {
   "ANTI_WARRIOR",
   "NO_SELL",
   "QUEST_ITEM",
+  "ENFOLDED",
+  "NO_GAIN",
   "\n"
 };
 
@@ -733,32 +735,32 @@ cpp_extern const struct con_app_type con_app[] = {
 /** Intelligence attribute affects.
  * The field shows how much practicing affects a skill/spell. */
 cpp_extern const struct int_app_type int_app[] = {
-  {3},		/* int = 0 */
-  {5},		/* int = 1 */
+  {0},		/* int = 0 */
+  {0},		/* int = 1 */
+  {0},
+  {0},
+  {0},
+  {0},		/* int = 5 */
+  {0},
+  {0},
+  {0},
+  {0},
+  {0},		/* int = 10 */
+  {0},
+  {2},
+  {3},
+  {4},
+  {5},		/* int = 15 */
+  {6},
   {7},
-  {8},
+  {8},		/* int = 18 */
   {9},
-  {10},		/* int = 5 */
+  {10},		/* int = 20 */
   {11},
   {12},
   {13},
-  {15},
-  {17},		/* int = 10 */
-  {19},
-  {22},
-  {25},
-  {30},
-  {35},		/* int = 15 */
-  {40},
-  {45},
-  {50},		/* int = 18 */
-  {53},
-  {55},		/* int = 20 */
-  {56},
-  {57},
-  {58},
-  {59},
-  {60}		/* int = 25 */
+  {14},
+  {15}		/* int = 25 */
 };
 
 /** Wisdom attribute affects.

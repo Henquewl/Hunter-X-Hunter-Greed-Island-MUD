@@ -12,9 +12,9 @@
 #ifndef _SCREEN_H_
 #define _SCREEN_H_
 
-#define CNRM  "\x1B[0;32m"    /* "Normal \x1B[0;0m"                            */ 
+#define CNRM  "\x1B[0;0m"    /* "Normal \x1B[0;0m"                  */ 
 #define CNUL  ""              /* No Change                           */ 
-#define KNRM  "\x1B[32m"      /* Foreground "Normal"                 */ 
+#define KNRM  "\x1B[0m"      /* Foreground "Normal"                 */ 
 #define KBLK  "\x1b[0;30m"    /* Foreground Black                    */ 
 #define KRED  "\x1B[0;31m"    /* Foreground Dark Red                 */ 
 #define KGRN  "\x1B[0;32m"    /* Foreground Dark Green               */ 

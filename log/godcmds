@@ -4887,3 +4887,860 @@ Mar 20 14:10:17 201  :: (GC) Henque reset zone 31 (Southern Midgaard)
 Mar 20 14:10:19 201  :: (GC) Henque reset zone 31 (Southern Midgaard)
 Mar 20 15:06:26 201  :: (GC) Henque reset zone 400 (Greed Island Start)
 Mar 20 21:23:47 201  :: (GC) Henque Switched into: Zues
+Mar 21 09:26:39 201  :: (GC) Henque has rerolled Fizban.
+Mar 21 09:26:40 201  :: (GC) Henque has rerolled Fizban.
+Mar 21 09:26:41 201  :: (GC) Henque has rerolled Fizban.
+Mar 21 09:26:43 201  :: (GC) Henque has rerolled Fizban.
+Mar 21 09:26:44 201  :: (GC) Henque has rerolled Fizban.
+Mar 21 09:26:44 201  :: (GC) Henque has rerolled Fizban.
+Mar 21 09:26:46 201  :: (GC) Henque has rerolled Fizban.
+Mar 21 09:26:46 201  :: (GC) Henque has rerolled Fizban.
+Mar 21 09:26:47 201  :: (GC) Henque has rerolled Fizban.
+Mar 21 09:26:47 201  :: (GC) Henque has rerolled Fizban.
+Mar 21 09:26:48 201  :: (GC) Henque has rerolled Fizban.
+Mar 21 09:26:48 201  :: (GC) Henque has rerolled Fizban.
+Mar 21 09:26:49 201  :: (GC) Henque has rerolled Fizban.
+Mar 21 10:10:06 201  :: (GC) Henque Switched into: Henque
+Mar 21 10:13:33 201  :: (GC) Henque Switched into: Henque
+Mar 21 11:16:24 201  :: (GC) Henque reset zone 28 (Hunter Exams)
+Mar 21 13:40:44 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:44 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:45 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:49 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:50 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:52 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:53 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:53 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:54 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:54 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:55 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:55 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:55 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:56 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:56 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:56 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:57 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:57 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:58 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:58 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:59 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:59 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:40:59 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:00 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:00 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:01 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:01 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:01 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:02 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:02 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:03 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:03 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:04 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:04 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:05 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:05 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:06 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:06 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:07 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:07 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:08 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:10 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:11 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:11 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:12 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:12 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:16 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:17 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:18 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:18 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:19 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:19 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:20 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:20 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:21 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:21 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:22 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:22 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:23 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:24 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 13:41:24 201  :: (GC) Henque has rerolled Tyson.
+Mar 21 23:39:33 201  :: (GC) Henque gechoed: antokiba boots and armor is gainable now
+Mar 21 23:43:59 201  :: (GC) Henque gechoed: antokiba equip fixed, is gainable now
+Mar 22 09:06:29 201  :: (GC) Henque Switched into: Keberus
+Mar 22 09:11:42 201  :: (GC) Henque Switched into: Keberus
+Mar 22 09:28:03 201  :: (GC) Shutdown by Henque.
+Mar 22 09:59:39 201  :: (GC) Shutdown by Henque.
+Mar 22 10:27:56 201  :: (GC) Shutdown by Henque.
+Mar 22 10:32:28 201  :: (GC) Shutdown by Henque.
+Mar 22 10:33:33 201  :: (GC) Shutdown by Henque.
+Mar 22 11:23:13 201  :: (GC) Shutdown by Henque.
+Mar 22 12:50:14 201  :: (GC) Shutdown by Henque.
+Mar 22 12:54:38 201  :: (GC) Shutdown by Henque.
+Mar 22 12:59:21 201  :: (GC) Shutdown by Henque.
+Mar 22 13:12:31 201  :: (GC) Shutdown by Henque.
+Mar 22 13:14:37 201  :: (GC) Shutdown by Henque.
+Mar 22 13:17:31 201  :: (GC) Shutdown by Henque.
+Mar 22 13:21:07 201  :: (GC) Shutdown by Henque.
+Mar 22 13:21:49 201  :: (GC) Shutdown by Henque.
+Mar 22 13:27:40 201  :: (GC) Shutdown by Henque.
+Mar 22 13:31:05 201  :: (GC) Shutdown by Henque.
+Mar 22 13:32:50 201  :: (GC) Shutdown by Henque.
+Mar 22 13:54:26 201  :: (GC) Shutdown by Henque.
+Mar 22 14:10:53 201  :: (GC) Shutdown by Henque.
+Mar 22 14:55:45 201  :: (GC) Shutdown by Henque.
+Mar 22 14:57:47 201  :: (GC) Shutdown by Henque.
+Mar 22 15:08:52 201  :: (GC) Shutdown by Henque.
+Mar 22 15:11:06 201  :: (GC) Shutdown by Henque.
+Mar 22 15:11:54 201  :: (GC) Shutdown by Henque.
+Mar 22 15:27:58 201  :: (GC) Shutdown by Henque.
+Mar 22 15:43:29 201  :: (GC) Shutdown by Henque.
+Mar 22 16:02:31 201  :: (GC) Shutdown by Henque.
+Mar 22 16:08:36 201  :: (GC) Shutdown by Henque.
+Mar 22 16:18:04 201  :: (GC) Shutdown by Henque.
+Mar 22 16:20:47 201  :: (GC) Shutdown by Henque.
+Mar 22 17:26:36 201  :: (GC) Shutdown by Henque.
+Mar 22 23:03:38 201  :: (GC) Henque echoed: @R<5000/5000pl@n>
+Mar 22 23:03:45 201  :: (GC) Henque echoed: /t<5000/5000pl@n>
+Mar 22 23:03:48 201  :: (GC) Henque echoed: \t<5000/5000pl@n>
+Mar 22 23:04:04 201  :: (GC) Henque echoed: @Rtest
+Mar 22 23:04:06 201  :: (GC) Henque gechoed: @Rtest
+Mar 23 00:07:36 201  :: (GC) Henque forced the Peacekeeper to north
+Mar 23 10:47:40 201  :: (GC) Henque reset zone 30 (Northern Midgaard)
+Mar 23 10:59:41 201  :: (GC) Shutdown by Henque.
+Mar 23 11:32:08 201  :: (GC) Shutdown by Henque.
+Mar 24 00:57:56 201  :: (GC) Henque gechoed: just checking the things
+Mar 24 00:58:20 201  :: (GC) Henque gechoed: fine
+Mar 24 01:07:02 201  :: (GC) Henque gechoed: try the new command affect
+Mar 24 01:08:05 201  :: (GC) Henque gechoed: hide has no time condition
+Mar 24 01:09:01 201  :: (GC) Henque gechoed: level 20 you can charge jajanken 4 times
+Mar 24 01:13:24 201  :: (GC) Henque gechoed: lol
+Mar 24 01:16:18 201  :: (GC) Henque gechoed: exorcise remove stats from objects
+Mar 24 01:16:34 201  :: (GC) Henque gechoed: you can use your effigy on item to do that
+Mar 24 01:17:01 201  :: (GC) Henque gechoed: your antokiba boots gives you 2 str but lower some other stats
+Mar 24 01:17:13 201  :: (GC) Henque gechoed: but you dont need str, you have enhance
+Mar 24 01:17:56 201  :: (GC) Henque gechoed: and -1 damroll
+Mar 24 01:18:14 201  :: (GC) Henque gechoed: if you use your effigy on it you can remove that stats
+Mar 24 01:18:51 201  :: (GC) Henque gechoed: all stats, good and bad
+Mar 24 01:19:05 201  :: (GC) Henque gechoed: but you dont need str, you can cast enhance instead
+Mar 24 01:19:41 201  :: (GC) Henque gechoed: 18/100 is the cap
+Mar 24 01:21:00 201  :: (GC) Henque gechoed: maybe create other character with other class
+Mar 24 01:21:40 201  :: (GC) Henque gechoed: ik, thinking in do remort system
+Mar 24 01:23:55 201  :: (GC) Henque gechoed: interesting
+Mar 24 01:24:00 201  :: (GC) Henque gechoed: talking about kamehameha
+Mar 24 01:24:18 201  :: (GC) Henque gechoed: check this mud: dbzfe.com 4000
+Mar 24 01:24:44 201  :: (GC) Henque gechoed: yes, this dbz mud rocks
+Mar 24 01:25:01 201  :: (GC) Henque gechoed: I clone this prompt from their mud
+Mar 24 01:25:38 201  :: (GC) Henque gechoed: actually im watching yugioh
+Mar 24 01:25:53 201  :: (GC) Henque gechoed: i love trading card stuff
+Mar 24 01:26:43 201  :: (GC) Henque gechoed: naruto I watched until shippuden
+Mar 24 01:26:52 201  :: (GC) Henque gechoed: and then get bored to me
+Mar 24 11:02:36 201  :: (GC) Shutdown by Henque.
+Mar 24 11:20:39 201  :: (GC) Shutdown by Henque.
+Mar 24 12:18:21 201  :: (GC) Shutdown by Henque.
+Mar 24 12:20:58 201  :: (GC) Shutdown by Henque.
+Mar 24 12:22:02 201  :: (GC) Shutdown by Henque.
+Mar 24 21:38:15 201  :: (GC) Henque forced Archene to happyhour
+Mar 24 22:06:17 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:19 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:20 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:21 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:22 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:22 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:23 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:26 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:27 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:27 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:28 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:29 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:29 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:30 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:30 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:31 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:32 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:32 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:33 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:33 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:34 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:35 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:35 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:36 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:37 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:37 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:38 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:38 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:39 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:39 201  :: (GC) Henque has rerolled Archene.
+Mar 24 22:06:40 201  :: (GC) Henque has rerolled Archene.
+Mar 24 23:13:51 201  :: (GC) Henque Switched into: Henque
+Mar 27 10:29:48 201  :: (GC) Henque reset zone 36 (Chessboard of Midgaard)
+Mar 27 11:41:34 201  :: (GC) Shutdown by Henque.
+Mar 27 11:59:24 201  :: (GC) Shutdown by Henque.
+Mar 27 12:06:23 201  :: (GC) Shutdown by Henque.
+Mar 27 12:19:11 201  :: (GC) Shutdown by Henque.
+Mar 27 12:38:35 201  :: (GC) Shutdown by Henque.
+Mar 27 12:41:24 201  :: (GC) Shutdown by Henque.
+Mar 27 12:50:24 201  :: (GC) Shutdown by Henque.
+Mar 27 12:51:37 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 12:51:40 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 12:51:40 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 12:53:59 201  :: (GC) Shutdown by Henque.
+Mar 27 12:54:52 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 12:55:00 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 12:55:09 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:18:37 201  :: (GC) Shutdown by Henque.
+Mar 27 13:53:05 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:06 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:07 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:08 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:35 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:36 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:37 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:38 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:39 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:39 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:39 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:41 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:42 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:42 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:43 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:45 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:45 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:46 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:46 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:46 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:47 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:47 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 13:53:48 201  :: (GC) Henque has rerolled Kobayashi.
+Mar 27 15:22:41 201  :: (GC) Shutdown by Henque.
+Mar 27 15:33:44 201  :: (GC) Shutdown by Henque.
+Mar 27 16:20:16 201  :: (GC) Shutdown by Henque.
+Mar 27 16:26:05 201  :: (GC) Shutdown by Henque.
+Mar 27 16:32:54 201  :: (GC) Shutdown by Henque.
+Mar 27 21:04:07 201  :: (GC) Henque sent Henque: hue
+Mar 27 21:04:38 201  :: (GC) Henque sent Henque: <send>test</send>
+Mar 27 21:04:45 201  :: (GC) Henque sent Henque: [send]test</send>
+Mar 27 21:04:56 201  :: (GC) Henque sent Henque: [send]test[/send]
+Mar 27 21:24:40 201  :: (GC) Henque echoed: @<send "help trial" hint="Click here">How to build your trial@</send> = How to build your trial
+Mar 27 21:24:47 201  :: (GC) Henque echoed: <send "help trial" hint="Click here">How to build your trial@</send> = How to build your trial
+Mar 27 21:39:34 201  :: (GC) Henque echoed: @haw@
+Mar 27 21:39:40 201  :: (GC) Henque echoed: @haw
+Mar 27 21:40:09 201  :: (GC) Henque echoed: <send>test</test>
+Mar 27 21:47:13 201  :: (GC) Henque echoed: <SOUND FName="ouch.wav" V=50 L=2 P=80 T="combat" U="http://quiss.tripod.com/sounds/ouch.wav">
+Mar 27 21:50:56 201  :: (GC) Henque echoed: <IMAGE FName="ouch.png" V=50 L=2 P=80 T="combat" U="https://s-media-cache-ak0.pinimg.com/originals/84/63/fd/8463fdf0a88cae7418e71940f0bfeeca.jpg">
+Mar 27 21:51:01 201  :: (GC) Henque echoed: @<IMAGE FName="ouch.png" V=50 L=2 P=80 T="combat" U="https://s-media-cache-ak0.pinimg.com/originals/84/63/fd/8463fdf0a88cae7418e71940f0bfeeca.jpg">
+Mar 27 21:51:12 201  :: (GC) Henque echoed: @<SOUND FName="ouch.wav" V=50 L=2 P=80 T="combat" U="http://quiss.tripod.com/sounds/ouch.wav">
+Mar 27 23:54:04 201  :: (GC) Henque reset zone 400 (Greed Island Start)
+Mar 28 09:59:45 201  :: (GC) Reboot by Henque.
+Mar 28 10:07:02 201  :: (GC) Reboot by Henque.
+Mar 28 10:07:58 201  :: (GC) Shutdown by Henque.
+Mar 28 10:22:45 201  :: (GC) Henque forced the healer to dg_cast 'curse' henque
+Mar 28 10:22:53 201  :: (GC) Henque forced the healer to cast 'curse' henque
+Mar 28 10:23:00 201  :: (GC) Henque forced the healer to dg_cast 'heal' henque
+Mar 28 10:23:07 201  :: (GC) Henque forced the healer to cast 'heal' henque
+Mar 28 11:08:50 201  :: (GC) Shutdown by Henque.
+Mar 28 11:09:58 201  :: (GC) Shutdown by Henque.
+Mar 28 11:19:47 201  :: (GC) Shutdown by Henque.
+Mar 28 11:21:52 201  :: (GC) Shutdown by Henque.
+Mar 28 11:49:07 201  :: (GC) Shutdown by Henque.
+Mar 28 11:51:19 201  :: (GC) Shutdown by Henque.
+Mar 28 11:54:58 201  :: (GC) Shutdown by Henque.
+Mar 28 11:57:52 201  :: (GC) Shutdown by Henque.
+Mar 28 11:59:21 201  :: (GC) Shutdown by Henque.
+Mar 28 12:09:57 201  :: (GC) Shutdown by Henque.
+Mar 28 12:15:59 201  :: (GC) Shutdown by Henque.
+Mar 28 13:24:34 201  :: (GC) Shutdown by Henque.
+Mar 28 14:00:30 201  :: (GC) Shutdown by Henque.
+Mar 28 14:16:20 201  :: (GC) Shutdown by Henque.
+Mar 28 14:16:35 201  :: (GC) Shutdown by Henque.
+Mar 28 15:15:27 201  :: (GC) Shutdown by Henque.
+Mar 28 16:05:33 201  :: (GC) Shutdown by Henque.
+Mar 28 16:07:34 201  :: (GC) Shutdown by Henque.
+Mar 28 17:17:35 201  :: (GC) Reboot by Henque.
+Mar 29 19:19:55 201  :: (GC) Henque has rerolled KIll.
+Mar 29 19:19:57 201  :: (GC) Henque has rerolled KIll.
+Mar 29 19:19:59 201  :: (GC) Henque has rerolled KIll.
+Mar 29 19:20:00 201  :: (GC) Henque has rerolled KIll.
+Mar 29 21:44:01 201  :: (GC) Henque gechoed: 1mball?
+Mar 29 23:08:34 201  :: (GC) Henque Switched into: Henque
+Mar 29 23:08:46 201  :: (GC) Henque Switched into: Henque
+Mar 29 23:09:27 201  :: (GC) Henque Switched into: Henque
+Mar 29 23:14:29 201  :: (GC) Reboot by Henque.
+Mar 30 10:49:10 201  :: (GC) Henque Switched into: Henque
+Mar 30 10:51:33 201  :: (GC) Henque Switched into: the newbie monster
+Mar 30 11:03:24 201  :: (GC) Shutdown by Henque.
+Mar 30 11:17:41 201  :: (GC) Shutdown by Henque.
+Mar 30 11:29:41 201  :: (GC) Shutdown by Henque.
+Mar 30 11:34:37 201  :: (GC) Shutdown by Henque.
+Mar 30 12:02:17 201  :: (GC) Shutdown by Henque.
+Mar 30 13:21:25 201  :: (GC) Shutdown by Henque.
+Mar 30 14:37:20 201  :: (GC) Shutdown by Henque.
+Mar 30 14:44:32 201  :: (GC) Shutdown by Henque.
+Mar 30 14:58:02 201  :: (GC) Shutdown by Henque.
+Mar 30 15:16:50 201  :: (GC) Shutdown by Henque.
+Mar 30 16:25:50 201  :: (GC) Shutdown by Henque.
+Mar 30 16:32:37 201  :: (GC) Shutdown by Henque.
+Mar 30 16:45:19 201  :: (GC) Shutdown by Henque.
+Mar 30 16:55:15 201  :: (GC) Shutdown by Henque.
+Mar 30 16:57:01 201  :: (GC) Shutdown by Henque.
+Mar 30 17:06:41 201  :: (GC) Shutdown by Henque.
+Mar 30 17:18:36 201  :: (GC) Shutdown by Henque.
+Mar 30 17:21:21 201  :: (GC) Shutdown by Henque.
+Mar 30 17:30:51 201  :: (GC) Shutdown by Henque.
+Mar 30 17:45:10 201  :: (GC) Shutdown by Henque.
+Mar 30 20:45:10 201  :: (GC) Henque has rerolled Firna.
+Mar 30 20:45:11 201  :: (GC) Henque has rerolled Firna.
+Mar 30 20:45:12 201  :: (GC) Henque has rerolled Firna.
+Mar 30 20:45:13 201  :: (GC) Henque has rerolled Firna.
+Mar 30 20:45:13 201  :: (GC) Henque has rerolled Firna.
+Mar 31 09:07:09 201  :: (GC) Shutdown by Henque.
+Mar 31 09:28:52 201  :: (GC) Shutdown by Henque.
+Mar 31 09:59:31 201  :: (GC) Shutdown by Henque.
+Mar 31 10:11:19 201  :: (GC) Shutdown by Henque.
+Mar 31 10:13:44 201  :: (GC) Shutdown by Henque.
+Mar 31 10:16:22 201  :: (GC) Shutdown by Henque.
+Mar 31 10:25:49 201  :: (GC) Shutdown by Henque.
+Mar 31 11:26:43 201  :: (GC) Shutdown by Henque.
+Mar 31 11:46:38 201  :: (GC) Shutdown by Henque.
+Mar 31 12:04:51 201  :: (GC) Shutdown by Henque.
+Mar 31 12:09:14 201  :: (GC) Shutdown by Henque.
+Mar 31 12:12:57 201  :: (GC) Shutdown by Henque.
+Mar 31 12:18:46 201  :: (GC) Shutdown by Henque.
+Mar 31 12:23:25 201  :: (GC) Shutdown by Henque.
+Mar 31 13:32:32 201  :: (GC) Shutdown by Henque.
+Mar 31 13:59:32 201  :: (GC) Shutdown by Henque.
+Mar 31 14:05:25 201  :: (GC) Shutdown by Henque.
+Mar 31 16:57:18 201  :: (GC) Shutdown by Henque.
+Mar 31 18:47:01 201  :: (GC) Henque Switched into: Testsubone
+Mar 31 19:46:59 201  :: (GC) Henque reset zone 400 (Greed Island Start)
+Mar 31 19:50:34 201  :: (GC) Henque reset zone 36 (Chessboard of Midgaard)
+Mar 31 19:50:59 201  :: (GC) Henque reset zone 36 (Chessboard of Midgaard)
+Mar 31 20:45:53 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:45:55 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:45:56 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:45:58 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:45:58 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:00 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:01 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:01 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:03 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:03 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:04 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:05 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:06 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:07 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:09 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:10 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:10 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:13 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:13 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:14 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:14 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:15 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:16 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:16 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:16 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:17 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:17 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:19 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:19 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:20 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:20 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:21 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:21 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:22 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:22 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:23 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:23 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:24 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:24 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:25 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:25 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:26 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:26 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:27 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:27 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:28 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:29 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:29 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:30 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:31 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:31 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:32 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:32 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:33 201  :: (GC) Henque has rerolled Testsubone.
+Mar 31 20:46:33 201  :: (GC) Henque has rerolled Testsubone.
+Apr 01 00:36:51 201  :: (GC) Henque reset zone 79 (Redferne's Residence)
+Apr 02 17:07:28 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:07:29 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:07:38 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:07:39 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:07:39 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:07:41 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:07:42 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:07:42 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:07:43 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:07:44 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:07:44 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:07:45 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:07:47 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:07:48 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:07:48 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:07:49 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:07:50 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:07:50 201  :: (GC) Henque has rerolled Leonna.
+Apr 02 17:20:28 201  :: (GC) Henque reset zone 400 (Greed Island Start)
+Apr 02 17:20:37 201  :: (GC) Henque reset zone 400 (Greed Island Start)
+Apr 02 17:20:50 201  :: (GC) Henque reset zone 400 (Greed Island Start)
+Apr 02 17:58:58 201  :: (GC) Henque Switched into: Leonna
+Apr 03 10:54:26 201  :: (GC) Henque has rerolled Taichou.
+Apr 03 10:54:27 201  :: (GC) Henque has rerolled Taichou.
+Apr 03 10:54:29 201  :: (GC) Henque has rerolled Taichou.
+Apr 03 10:54:29 201  :: (GC) Henque has rerolled Taichou.
+Apr 03 10:54:30 201  :: (GC) Henque has rerolled Taichou.
+Apr 03 10:54:30 201  :: (GC) Henque has rerolled Taichou.
+Apr 03 10:54:31 201  :: (GC) Henque has rerolled Taichou.
+Apr 03 10:54:31 201  :: (GC) Henque has rerolled Taichou.
+Apr 03 10:54:32 201  :: (GC) Henque has rerolled Taichou.
+Apr 03 10:56:53 201  :: (GC) Henque forced Wing, the teacher to say type help manipulator and look the room description again
+Apr 03 11:00:49 201  :: (GC) Henque Switched into: Taichou
+Apr 03 12:14:04 201  :: (GC) Shutdown by Henque.
+Apr 03 12:27:19 201  :: (GC) Shutdown by Henque.
+Apr 03 12:30:56 201  :: (GC) Shutdown by Henque.
+Apr 03 12:39:40 201  :: (GC) Shutdown by Henque.
+Apr 03 12:42:15 201  :: (GC) Shutdown by Henque.
+Apr 03 12:51:54 201  :: (GC) Shutdown by Henque.
+Apr 03 13:07:04 201  :: (GC) Shutdown by Henque.
+Apr 03 13:19:36 201  :: (GC) Shutdown by Henque.
+Apr 03 13:49:35 201  :: (GC) Shutdown by Henque.
+Apr 03 13:57:21 201  :: (GC) Shutdown by Henque.
+Apr 03 13:58:29 201  :: (GC) Shutdown by Henque.
+Apr 03 14:10:31 201  :: (GC) Shutdown by Henque.
+Apr 03 14:32:20 201  :: (GC) Shutdown by Henque.
+Apr 03 14:59:24 201  :: (GC) Henque forced Chulainn to kick
+Apr 03 14:59:26 201  :: (GC) Henque forced Chulainn to kick henque
+Apr 03 15:35:18 201  :: (GC) Shutdown by Henque.
+Apr 03 16:34:23 201  :: (GC) Shutdown by Henque.
+Apr 03 16:40:07 201  :: (GC) Shutdown by Henque.
+Apr 03 16:51:09 201  :: (GC) Shutdown by Henque.
+Apr 03 17:39:42 201  :: (GC) Shutdown by Henque.
+Apr 03 23:43:23 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:24 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:28 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:28 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:30 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:30 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:37 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:38 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:39 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:39 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:40 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:40 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:41 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:41 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:42 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:42 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:43 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:43 201  :: (GC) Henque has rerolled Toka.
+Apr 03 23:43:44 201  :: (GC) Henque has rerolled Toka.
+Apr 04 00:13:24 201  :: (GC) Henque reset zone 186 (Newbie Zone)
+Apr 04 11:16:12 201  :: (GC) Shutdown by Henque.
+Apr 04 11:33:49 201  :: (GC) Shutdown by Henque.
+Apr 04 11:46:21 201  :: (GC) Shutdown by Henque.
+Apr 04 11:54:34 201  :: (GC) Shutdown by Henque.
+Apr 04 12:02:01 201  :: (GC) Shutdown by Henque.
+Apr 04 12:09:54 201  :: (GC) Shutdown by Henque.
+Apr 04 12:38:20 201  :: (GC) Shutdown by Henque.
+Apr 04 14:23:02 201  :: (GC) Shutdown by Henque.
+Apr 04 14:39:38 201  :: (GC) Shutdown by Henque.
+Apr 04 15:14:55 201  :: (GC) Shutdown by Henque.
+Apr 05 01:42:04 201  :: (GC) Henque reset zone 28 (Hunter Exams)
+Apr 05 11:10:54 201  :: (GC) Shutdown by Henque.
+Apr 05 11:12:39 201  :: (GC) Shutdown by Henque.
+Apr 05 11:19:27 201  :: (GC) Shutdown by Henque.
+Apr 05 11:22:39 201  :: (GC) Shutdown by Henque.
+Apr 05 11:23:03 201  :: (GC) Shutdown by Henque.
+Apr 05 11:44:29 201  :: (GC) Shutdown by Henque.
+Apr 05 11:59:48 201  :: (GC) Shutdown by Henque.
+Apr 05 12:02:38 201  :: (GC) Shutdown by Henque.
+Apr 05 12:06:12 201  :: (GC) Shutdown by Henque.
+Apr 05 12:07:19 201  :: (GC) Shutdown by Henque.
+Apr 05 13:49:57 201  :: (GC) Shutdown by Henque.
+Apr 05 15:17:08 201  :: (GC) Shutdown by Henque.
+Apr 05 15:43:11 201  :: (GC) Shutdown by Henque.
+Apr 05 16:49:35 201  :: (GC) Shutdown by Henque.
+Apr 05 16:50:34 201  :: (GC) Shutdown by Henque.
+Apr 06 15:24:11 201  :: (GC) Henque gechoed: type just e
+Apr 06 15:24:16 201  :: (GC) Henque gechoed: e
+Apr 06 19:54:10 201  :: (GC) Henque forced the creepy crawler to east
+Apr 07 13:21:19 201  :: (GC) Shutdown by Henque.
+Apr 07 13:43:10 201  :: (GC) Shutdown by Henque.
+Apr 07 13:46:11 201  :: (GC) Shutdown by Henque.
+Apr 07 13:56:00 201  :: (GC) Shutdown by Henque.
+Apr 07 13:58:16 201  :: (GC) Shutdown by Henque.
+Apr 07 14:01:36 201  :: (GC) Shutdown by Henque.
+Apr 07 15:18:38 201  :: (GC) Shutdown by Henque.
+Apr 07 15:27:13 201  :: (GC) Shutdown by Henque.
+Apr 07 15:27:43 201  :: (GC) Shutdown by Henque.
+Apr 07 15:30:51 201  :: (GC) Shutdown by Henque.
+Apr 07 15:33:16 201  :: (GC) Shutdown by Henque.
+Apr 07 15:36:57 201  :: (GC) Shutdown by Henque.
+Apr 07 15:38:50 201  :: (GC) Shutdown by Henque.
+Apr 07 15:40:31 201  :: (GC) Shutdown by Henque.
+Apr 07 15:46:21 201  :: (GC) Shutdown by Henque.
+Apr 07 15:47:05 201  :: (GC) Shutdown by Henque.
+Apr 07 16:16:46 201  :: (GC) Shutdown by Henque.
+Apr 07 16:24:33 201  :: (GC) Shutdown by Henque.
+Apr 07 16:28:51 201  :: (GC) Shutdown by Henque.
+Apr 07 16:34:54 201  :: (GC) Shutdown by Henque.
+Apr 07 16:35:09 201  :: (GC) Shutdown by Henque.
+Apr 07 16:38:50 201  :: (GC) Shutdown by Henque.
+Apr 07 16:57:11 201  :: (GC) Henque forced Tsezguerra, the Jackpot Hunter to say wear your ring and touch the joystation console
+Apr 07 17:53:04 201  :: (GC) Henque gechoed: help group
+Apr 07 20:18:02 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:04 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:05 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:05 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:06 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:07 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:08 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:09 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:09 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:10 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:10 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:11 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:11 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:11 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:12 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:12 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:13 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:13 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:14 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:14 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:15 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:16 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:18 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:20 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:21 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:22 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:22 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:23 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:23 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:24 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:24 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:25 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:26 201  :: (GC) Henque has rerolled Seiryu.
+Apr 07 20:18:26 201  :: (GC) Henque has rerolled Seiryu.
+Apr 09 22:33:11 201  :: (GC) Henque reset zone 400 (Greed Island Start)
+Apr 09 22:34:03 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:34:10 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:34:10 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:34:11 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:34:15 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:34:16 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:34:17 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:34:17 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:34:18 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:34:19 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:34:19 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:34:20 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:34:20 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:34:21 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:34:22 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:34:23 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:34:24 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:38:49 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:38:50 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:38:50 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:38:51 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:38:52 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:38:52 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:38:53 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:38:53 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:38:54 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:00 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:01 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:02 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:03 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:03 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:05 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:05 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:09 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:09 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:11 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:12 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:12 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:13 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:14 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:14 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:17 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:17 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:18 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:19 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:19 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:20 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:20 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:21 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:22 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:22 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:23 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:24 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:25 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:25 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:26 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:27 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:27 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:29 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:30 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:30 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:31 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:32 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:33 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:34 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:34 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:35 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:38 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:39 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:40 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:40 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:41 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:44 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:45 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:45 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:46 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:46 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:47 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:49 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:50 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:50 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:51 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:53 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:54 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:54 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:55 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:55 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:39:57 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:40:02 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:40:03 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:40:03 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:40:05 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:40:07 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:40:08 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:40:09 201  :: (GC) Henque has rerolled Enda.
+Apr 09 22:40:09 201  :: (GC) Henque has rerolled Enda.
+Apr 09 23:47:54 201  :: (GC) Henque forced the peddler to say can you spare 1 coin please?
+Apr 09 23:49:10 201  :: (GC) Henque forced the peddler to say can you give me 1 coin please?
+Apr 10 09:07:24 201  :: (GC) Shutdown by Henque.
+Apr 10 10:50:27 201  :: (GC) Shutdown by Henque.
+Apr 10 10:54:11 201  :: (GC) Shutdown by Henque.
+Apr 10 10:59:40 201  :: (GC) Shutdown by Henque.
+Apr 10 11:01:55 201  :: (GC) Shutdown by Henque.
+Apr 10 11:04:48 201  :: (GC) Shutdown by Henque.
+Apr 10 11:32:34 201  :: (GC) Shutdown by Henque.
+Apr 10 11:44:28 201  :: (GC) Shutdown by Henque.
+Apr 10 12:36:53 201  :: (GC) Shutdown by Henque.
+Apr 10 12:43:47 201  :: (GC) Shutdown by Henque.
+Apr 10 12:45:08 201  :: (GC) Shutdown by Henque.
+Apr 10 12:45:43 201  :: (GC) Shutdown by Henque.
+Apr 10 12:48:49 201  :: (GC) Shutdown by Henque.
+Apr 10 12:55:12 201  :: (GC) Shutdown by Henque.
+Apr 10 12:58:29 201  :: (GC) Shutdown by Henque.
+Apr 10 13:00:56 201  :: (GC) Shutdown by Henque.
+Apr 10 13:02:28 201  :: (GC) Shutdown by Henque.
+Apr 10 13:03:57 201  :: (GC) Shutdown by Henque.
+Apr 10 13:17:06 201  :: (GC) Shutdown by Henque.
+Apr 10 13:19:30 201  :: (GC) Shutdown by Henque.
+Apr 10 13:22:28 201  :: (GC) Shutdown by Henque.
+Apr 10 13:25:52 201  :: (GC) Shutdown by Henque.
+Apr 10 13:26:37 201  :: (GC) Shutdown by Henque.
+Apr 10 13:27:29 201  :: (GC) Shutdown by Henque.
+Apr 10 13:29:17 201  :: (GC) Shutdown by Henque.
+Apr 10 13:46:10 201  :: (GC) Shutdown by Henque.
+Apr 10 13:50:11 201  :: (GC) Shutdown by Henque.
+Apr 10 13:55:23 201  :: (GC) Shutdown by Henque.
+Apr 10 13:56:05 201  :: (GC) Shutdown by Henque.
+Apr 10 14:01:51 201  :: (GC) Shutdown by Henque.
+Apr 10 14:03:54 201  :: (GC) Shutdown by Henque.
+Apr 10 14:04:53 201  :: (GC) Shutdown by Henque.
+Apr 10 14:16:47 201  :: (GC) Shutdown by Henque.
+Apr 10 14:18:30 201  :: (GC) Shutdown by Henque.
+Apr 10 16:02:08 201  :: (GC) Shutdown by Henque.
+Apr 10 16:08:04 201  :: (GC) Shutdown by Henque.
+Apr 10 16:16:41 201  :: (GC) Shutdown by Henque.
+Apr 10 16:21:50 201  :: (GC) Shutdown by Henque.
+Apr 10 16:45:14 201  :: (GC) Shutdown by Henque.
+Apr 11 12:24:29 201  :: (GC) Shutdown by Henque.
+Apr 11 12:28:17 201  :: (GC) Shutdown by Henque.
+Apr 11 12:31:40 201  :: (GC) Shutdown by Henque.
+Apr 11 12:55:15 201  :: (GC) Shutdown by Henque.
+Apr 11 12:55:28 201  :: (GC) Shutdown by Henque.
+Apr 11 13:10:24 201  :: (GC) Shutdown by Henque.
+Apr 11 13:13:39 201  :: (GC) Shutdown by Henque.
+Apr 11 13:19:05 201  :: (GC) Shutdown by Henque.
+Apr 11 13:20:27 201  :: (GC) Shutdown by Henque.
+Apr 11 15:05:18 201  :: (GC) Shutdown by Henque.
+Apr 11 15:19:29 201  :: (GC) Shutdown by Henque.
+Apr 11 15:24:21 201  :: (GC) Shutdown by Henque.
+Apr 11 15:29:08 201  :: (GC) Shutdown by Henque.
+Apr 11 15:33:02 201  :: (GC) Shutdown by Henque.
+Apr 11 15:39:32 201  :: (GC) Shutdown by Henque.
+Apr 11 15:56:46 201  :: (GC) Shutdown by Henque.
+Apr 11 16:00:05 201  :: (GC) Shutdown by Henque.
+Apr 11 16:08:47 201  :: (GC) Shutdown by Henque.
+Apr 11 16:15:29 201  :: (GC) Shutdown by Henque.
+Apr 11 16:16:37 201  :: (GC) Henque reset zone 400 (Greed Island Start)
+Apr 11 16:23:35 201  :: (GC) Shutdown by Henque.
+Apr 12 11:44:53 201  :: (GC) Shutdown by Henque.
+Apr 12 12:39:30 201  :: (GC) Shutdown by Henque.
+Apr 12 12:40:26 201  :: (GC) Shutdown by Henque.
+Apr 12 12:41:44 201  :: (GC) Shutdown by Henque.
+Apr 12 12:42:38 201  :: (GC) Shutdown by Henque.
+Apr 12 12:44:33 201  :: (GC) Shutdown by Henque.
+Apr 12 12:45:01 201  :: (GC) Shutdown by Henque.
+Apr 12 12:46:51 201  :: (GC) Shutdown by Henque.
+Apr 12 12:59:34 201  :: (GC) Shutdown by Henque.
+Apr 12 13:02:04 201  :: (GC) Shutdown by Henque.
+Apr 12 13:03:07 201  :: (GC) Shutdown by Henque.
+Apr 12 13:05:22 201  :: (GC) Shutdown by Henque.
+Apr 12 13:06:17 201  :: (GC) Shutdown by Henque.
+Apr 12 13:07:15 201  :: (GC) Shutdown by Henque.
+Apr 12 13:08:09 201  :: (GC) Shutdown by Henque.
+Apr 12 13:20:15 201  :: (GC) Shutdown by Henque.
+Apr 12 13:21:06 201  :: (GC) Shutdown by Henque.
+Apr 12 13:22:42 201  :: (GC) Shutdown by Henque.
+Apr 12 13:32:30 201  :: (GC) Testsubone frozen by Henque.
+Apr 12 13:35:45 201  :: (GC) Testsubone un-frozen by Henque.
+Apr 12 13:39:27 201  :: (GC) Shutdown by Henque.
+Apr 12 13:52:33 201  :: (GC) Shutdown by Henque.
+Apr 12 13:57:02 201  :: (GC) Shutdown by Henque.
+Apr 12 14:00:31 201  :: (GC) Shutdown by Henque.
+Apr 12 14:19:35 201  :: (GC) Shutdown by Henque.
+Apr 12 14:39:25 201  :: (GC) Shutdown by Henque.
+Apr 12 14:56:27 201  :: (GC) Shutdown by Henque.
+Apr 12 16:47:54 201  :: (GC) Shutdown by Henque.
+Apr 12 16:52:14 201  :: (GC) Shutdown by Henque.
+Apr 12 16:53:38 201  :: (GC) Shutdown by Henque.
+Apr 12 17:24:04 201  :: (GC) Shutdown by Henque.
+Apr 12 17:53:17 201  :: (GC) Shutdown by Henque.
+Apr 12 17:53:47 201  :: (GC) Shutdown by Henque.
+Apr 13 11:11:18 201  :: (GC) Shutdown by Henque.
+Apr 13 11:49:08 201  :: (GC) Shutdown by Henque.
+Apr 13 15:47:19 201  :: (GC) Shutdown by Henque.
+Apr 13 16:07:47 201  :: (GC) Shutdown by Henque.
+Apr 13 16:10:18 201  :: (GC) Shutdown by Henque.
+Apr 13 16:21:00 201  :: (GC) Shutdown by Henque.
+Apr 13 16:24:22 201  :: (GC) Shutdown by Henque.
+Apr 13 16:33:50 201  :: (GC) Shutdown by Henque.
+Apr 13 16:36:06 201  :: (GC) Shutdown by Henque.
+Apr 13 16:40:42 201  :: (GC) Shutdown by Henque.
+Apr 13 16:55:32 201  :: (GC) Shutdown by Henque.
+Apr 14 00:41:32 201  :: (GC) Henque reset zone 186 (Newbie Zone)
+Apr 14 00:47:03 201  :: (GC) Henque forced the Newbie Guard to look henque
+Apr 14 00:47:21 201  :: (GC) Henque forced the Newbie Guard to sit
+Apr 14 00:47:24 201  :: (GC) Henque forced the Newbie Guard to stand
+Apr 14 00:47:29 201  :: (GC) Henque forced the Newbie Guard to look creep
+Apr 14 00:47:54 201  :: (GC) Henque reset zone 186 (Newbie Zone)
+Apr 14 00:50:50 201  :: (GC) Henque forced Testsubone to quit
+Apr 14 00:50:55 201  :: (GC) Henque forced Testsubone to quit
+Apr 14 00:50:59 201  :: (GC) Henque Switched into: Testsubone
+Apr 14 09:46:48 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 10:14:33 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 10:15:01 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 10:16:53 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 10:17:28 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 10:17:35 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 10:18:39 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 10:18:46 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 10:18:58 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 10:28:50 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 10:32:41 201  :: (GC) Henque forced the shopkeeper of Antokiba to say hue
+Apr 14 10:54:06 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 11:14:35 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 11:15:17 201  :: (GC) Henque forced the lion to kill glad
+Apr 14 11:16:27 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 11:18:38 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 11:20:56 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 11:27:39 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 11:27:40 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 11:30:08 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 11:31:45 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 11:31:45 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 11:31:45 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 11:31:45 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 11:31:45 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 11:32:29 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 11:32:29 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 11:32:30 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 12:50:35 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 16:10:12 201  :: (GC) Henque forced Titus' shopkeeper to junk all.sword
+Apr 14 16:13:12 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 16:21:05 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 16:21:59 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 16:25:31 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 16:26:20 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 16:28:37 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 16:29:21 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 16:30:03 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 16:32:28 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 16:34:19 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 16:35:16 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 14 18:03:52 201  :: (GC) Reboot by Henque.
+Apr 16 23:27:03 201  :: (GC) Henque reset zone 401 (Path to G.I. southern)
+Apr 17 11:00:54 201  :: (GC) Shutdown by Henque.
+Apr 17 11:47:07 201  :: (GC) Shutdown by Henque.
+Apr 17 11:47:25 201  :: (GC) Shutdown by Henque.
+Apr 17 11:49:18 201  :: (GC) Henque Switched into: Henque
+Apr 17 14:50:10 201  :: (GC) Shutdown by Henque.
+Apr 17 15:30:04 201  :: (GC) Shutdown by Henque.
+Apr 17 15:34:10 201  :: (GC) Shutdown by Henque.
+Apr 17 15:41:22 201  :: (GC) Shutdown by Henque.
+Apr 17 15:55:26 201  :: (GC) Shutdown by Henque.
+Apr 17 15:57:05 201  :: (GC) Shutdown by Henque.
+Apr 17 16:04:55 201  :: (GC) Shutdown by Henque.
+Apr 17 16:05:07 201  :: (GC) Shutdown by Henque.
+Apr 17 18:55:56 201  :: (GC) Henque forced Nixe to practice
+Apr 17 23:45:30 201  :: (GC) Henque reset zone 400 (Greed Island Start)
+Apr 18 09:33:37 201  :: (GC) Shutdown by Henque.
+Apr 18 09:35:57 201  :: (GC) Shutdown by Henque.
+Apr 18 09:38:27 201  :: (GC) Shutdown by Henque.
+Apr 18 09:51:25 201  :: (GC) Shutdown by Henque.
+Apr 18 09:56:11 201  :: (GC) Shutdown by Henque.
+Apr 18 09:57:57 201  :: (GC) Shutdown by Henque.
+Apr 18 11:23:29 201  :: (GC) Shutdown by Henque.
+Apr 18 11:37:02 201  :: (GC) Shutdown by Henque.
+Apr 18 11:46:27 201  :: (GC) Shutdown by Henque.
+Apr 18 11:48:38 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 18 11:48:42 201  :: (GC) Henque reset zone 120 (Antokiba)
+Apr 18 12:08:30 201  :: (GC) Shutdown by Henque.
+Apr 18 13:17:31 201  :: (GC) Shutdown by Henque.
+Apr 18 13:18:38 201  :: (GC) Shutdown by Henque.
+Apr 18 13:21:56 201  :: (GC) Shutdown by Henque.
+Apr 18 13:23:18 201  :: (GC) Shutdown by Henque.
+Apr 18 13:23:42 201  :: (GC) Shutdown by Henque.
+Apr 18 13:28:02 201  :: (GC) Shutdown by Henque.
+Apr 18 13:31:23 201  :: (GC) Shutdown by Henque.
+Apr 18 13:34:03 201  :: (GC) Shutdown by Henque.
+Apr 18 13:40:23 201  :: (GC) Shutdown by Henque.
+Apr 18 13:44:31 201  :: (GC) Shutdown by Henque.
+Apr 18 13:45:34 201  :: (GC) Shutdown by Henque.
+Apr 18 16:06:49 201  :: (GC) Shutdown by Henque.
+Apr 18 16:07:25 201  :: (GC) Shutdown by Henque.
+Apr 18 17:18:43 201  :: (GC) Shutdown by Henque.
+Apr 18 17:19:46 201  :: (GC) Shutdown by Henque.
+Apr 18 17:35:47 201  :: (GC) Shutdown by Henque.
+Apr 18 17:36:44 201  :: (GC) Shutdown by Henque.
+Apr 18 17:38:03 201  :: (GC) Shutdown by Henque.
+Apr 18 17:39:12 201  :: (GC) Shutdown by Henque.
+Apr 18 17:41:10 201  :: (GC) Shutdown by Henque.
+Apr 18 17:49:35 201  :: (GC) Shutdown by Henque.
+Apr 18 17:54:32 201  :: (GC) Shutdown by Henque.
+Apr 18 17:55:16 201  :: (GC) Shutdown by Henque.
+Apr 18 17:59:13 201  :: (GC) Shutdown by Henque.
+Apr 18 18:00:40 201  :: (GC) Shutdown by Henque.
+Apr 18 18:07:07 201  :: (GC) Shutdown by Henque.
+Apr 18 18:07:33 201  :: (GC) Shutdown by Henque.
+Apr 19 09:58:20 201  :: (GC) Shutdown by Henque.
+Apr 19 10:00:58 201  :: (GC) Shutdown by Henque.
+Apr 19 10:02:57 201  :: (GC) Shutdown by Henque.
+Apr 19 10:12:47 201  :: (GC) Shutdown by Henque.
+Apr 19 11:53:32 201  :: (GC) Shutdown by Henque.
+Apr 19 12:05:33 201  :: (GC) Shutdown by Henque.

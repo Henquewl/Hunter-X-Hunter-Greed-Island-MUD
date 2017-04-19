@@ -258,7 +258,7 @@ void affect_total(struct char_data *ch)
     affect_modify_ar(ch, af->location, af->modifier, af->bitvector, TRUE);
 
   /* Make certain values are between 0..25, not < 0 and not > 25! */
-  i = (IS_NPC(ch) || GET_LEVEL(ch) >= LVL_GRGOD) ? 25 : 18;
+  i = (IS_NPC(ch) || GET_LEVEL(ch) >= LVL_GRGOD) ? 25 : 25;
 
   GET_DEX(ch) = MAX(0, MIN(GET_DEX(ch), i));
   GET_INT(ch) = MAX(0, MIN(GET_INT(ch), i));
@@ -532,23 +532,25 @@ void equip_char(struct char_data *ch, struct obj_data *obj, int pos)
   GET_EQ(ch, pos) = obj;
   obj->worn_by = ch;
   obj->worn_on = pos;
+  
+  if (pos != 17) {
+    if (GET_OBJ_TYPE(obj) == ITEM_ARMOR)
+      GET_AC(ch) -= apply_ac(ch, pos);
 
-  if (GET_OBJ_TYPE(obj) == ITEM_ARMOR)
-    GET_AC(ch) -= apply_ac(ch, pos);
+    if (IN_ROOM(ch) != NOWHERE) {
+      if (pos == WEAR_LIGHT && GET_OBJ_TYPE(obj) == ITEM_LIGHT)
+        if (GET_OBJ_VAL(obj, 2))	/* if light is ON */
+	  world[IN_ROOM(ch)].light++;
+    } else
+      log("SYSERR: IN_ROOM(ch) = NOWHERE when equipping char %s.", GET_NAME(ch));
 
-  if (IN_ROOM(ch) != NOWHERE) {
-    if (pos == WEAR_LIGHT && GET_OBJ_TYPE(obj) == ITEM_LIGHT)
-      if (GET_OBJ_VAL(obj, 2))	/* if light is ON */
-	world[IN_ROOM(ch)].light++;
-  } else
-    log("SYSERR: IN_ROOM(ch) = NOWHERE when equipping char %s.", GET_NAME(ch));
+    for (j = 0; j < MAX_OBJ_AFFECT; j++)
+      affect_modify_ar(ch, obj->affected[j].location,
+		    obj->affected[j].modifier,
+		    GET_OBJ_AFFECT(obj), TRUE);
 
-  for (j = 0; j < MAX_OBJ_AFFECT; j++)
-    affect_modify_ar(ch, obj->affected[j].location,
-		  obj->affected[j].modifier,
-		  GET_OBJ_AFFECT(obj), TRUE);
-
-  affect_total(ch);
+    affect_total(ch);
+  }
 }
 
 struct obj_data *unequip_char(struct char_data *ch, int pos)
@@ -564,8 +566,9 @@ struct obj_data *unequip_char(struct char_data *ch, int pos)
   obj = GET_EQ(ch, pos);
   obj->worn_by = NULL;
   obj->worn_on = -1;
-
-  if (GET_OBJ_TYPE(obj) == ITEM_ARMOR)
+  
+  
+  if (GET_OBJ_TYPE(obj) == ITEM_ARMOR && pos != 17)
     GET_AC(ch) += apply_ac(ch, pos);
 
   if (IN_ROOM(ch) != NOWHERE) {
@@ -576,14 +579,15 @@ struct obj_data *unequip_char(struct char_data *ch, int pos)
     log("SYSERR: IN_ROOM(ch) = NOWHERE when unequipping char %s.", GET_NAME(ch));
 
   GET_EQ(ch, pos) = NULL;
+  
+  if (pos != 17) {
+    for (j = 0; j < MAX_OBJ_AFFECT; j++)
+      affect_modify_ar(ch, obj->affected[j].location,
+		    obj->affected[j].modifier,
+		    GET_OBJ_AFFECT(obj), FALSE);
 
-  for (j = 0; j < MAX_OBJ_AFFECT; j++)
-    affect_modify_ar(ch, obj->affected[j].location,
-		  obj->affected[j].modifier,
-		  GET_OBJ_AFFECT(obj), FALSE);
-
-  affect_total(ch);
-
+    affect_total(ch);
+  }
   return (obj);
 }
 
@@ -861,7 +865,13 @@ void update_char_objects(struct char_data *ch)
 	  world[IN_ROOM(ch)].light--;
 	}
       }
-
+	  
+/*  if (GET_EQ(ch, WEAR_HOLD) != NULL)
+    if ((GET_OBJ_TYPE(GET_EQ(ch, WEAR_HOLD)) == ITEM_SCROLL || GET_OBJ_TYPE(GET_EQ(ch, WEAR_HOLD)) == ITEM_TREASURE || GET_OBJ_TYPE(GET_EQ(ch, WEAR_HOLD)) == ITEM_OTHER) && GET_OBJ_VNUM(GET_EQ(ch, WEAR_HOLD) == 65535))
+      if (GET_OBJ_TIMER(GET_EQ(ch, WEAR_HOLD)) <= 0) {
+	    make_card(ch, GET_EQ(ch, WEAR_HOLD));
+	  }*/
+		  
   for (i = 0; i < NUM_WEARS; i++)
     if (GET_EQ(ch, i))
       update_object(GET_EQ(ch, i), 2);
@@ -1241,19 +1251,19 @@ const char *money_desc(int amount)
     const char *description;
   } money_table[] = {
     {          1, "a gold coin"				},
-    {         10, "a tiny pile of gold coins"		},
-    {         20, "a handful of gold coins"		},
-    {         75, "a little pile of gold coins"		},
-    {        200, "a small pile of gold coins"		},
-    {       1000, "a pile of gold coins"		},
-    {       5000, "a big pile of gold coins"		},
-    {      10000, "a large heap of gold coins"		},
-    {      20000, "a huge mound of gold coins"		},
-    {      75000, "an enormous mound of gold coins"	},
-    {     150000, "a small mountain of gold coins"	},
-    {     250000, "a mountain of gold coins"		},
-    {     500000, "a huge mountain of gold coins"	},
-    {    1000000, "an enormous mountain of gold coins"	},
+    {         10, "a tiny pile of Jenny"		},
+    {         20, "a handful of Jenny"		},
+    {         75, "a little pile of Jenny"		},
+    {        200, "a small pile of Jenny"		},
+    {       1000, "a pile of Jenny"		},
+    {       5000, "a big pile of Jenny"		},
+    {      10000, "a large heap of Jenny"		},
+    {      20000, "a huge mound of Jenny"		},
+    {      75000, "an enormous mound of Jenny"	},
+    {     150000, "a small mountain of Jenny"	},
+    {     250000, "a mountain of Jenny"		},
+    {     500000, "a huge mountain of Jenny"	},
+    {    1000000, "an enormous mountain of Jenny"	},
     {          0, NULL					},
   };
 
@@ -1266,7 +1276,7 @@ const char *money_desc(int amount)
     if (amount <= money_table[cnt].limit)
       return (money_table[cnt].description);
 
-  return ("an absolutely colossal mountain of gold coins");
+  return ("an absolutely colossal mountain of Jenny");
 }
 
 struct obj_data *create_money(int amount)

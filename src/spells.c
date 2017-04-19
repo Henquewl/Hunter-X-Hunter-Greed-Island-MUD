@@ -350,8 +350,8 @@ ASPELL(spell_identify)
     sprintbitarray(GET_OBJ_EXTRA(obj), extra_bits, EF_ARRAY_MAX, bitbuf);
     send_to_char(ch, "Item is: %s\r\n", bitbuf);
 
-    send_to_char(ch, "Weight: %d, Value: %d, Rent: %d, Min. level: %d\r\n",
-                     GET_OBJ_WEIGHT(obj), GET_OBJ_COST(obj), GET_OBJ_RENT(obj), GET_OBJ_LEVEL(obj));
+    send_to_char(ch, "Weight: %d, Value: %d, Min. level: %d\r\n",
+                     GET_OBJ_WEIGHT(obj), GET_OBJ_COST(obj), GET_OBJ_LEVEL(obj));
 
     switch (GET_OBJ_TYPE(obj)) {
     case ITEM_SCROLL:
@@ -400,8 +400,13 @@ ASPELL(spell_identify)
 	  send_to_char(ch, "Can affect you as :\r\n");
 	  found = TRUE;
 	}
-	sprinttype(obj->affected[i].location, apply_types, bitbuf, sizeof(bitbuf));
-	send_to_char(ch, "   Affects: %s By %d\r\n", bitbuf, obj->affected[i].modifier);
+	if (obj->affected[i].location == APPLY_AC){
+	  sprinttype(obj->affected[i].location, apply_types, bitbuf, sizeof(bitbuf));
+	  send_to_char(ch, "   Affects: %s By %d\r\n", bitbuf, (obj->affected[i].modifier * -1));
+	} else {
+	  sprinttype(obj->affected[i].location, apply_types, bitbuf, sizeof(bitbuf));
+	  send_to_char(ch, "   Affects: %s By %d\r\n", bitbuf, obj->affected[i].modifier);
+	}		
       }
     }
   } else if (victim) {		/* victim */
@@ -413,8 +418,8 @@ ASPELL(spell_identify)
     send_to_char(ch, "Height %d cm, Weight %d pounds\r\n", GET_HEIGHT(victim), GET_WEIGHT(victim));
     send_to_char(ch, "Level: %d, Hits: %d/%d, Nen: %d/%d, Move: %d/%d\r\n", GET_LEVEL(victim), GET_HIT(victim), GET_MAX_HIT(victim),
 	    GET_MANA(victim), GET_MAX_MANA(victim), GET_MOVE(victim), GET_MAX_MOVE(victim));
-    send_to_char(ch, "AC: %d, Hitroll: %d, Damroll: %d, Hatsu Affection: %d\r\n",
-    	compute_armor_class(victim), GET_HITROLL(victim), GET_DAMROLL(victim), GET_SAVE(victim, SAVING_SPELL));
+    send_to_char(ch, "AR: %d, Hitroll: %d, Damroll: %d, Hatsu Affection: %d\r\n",
+    	((compute_armor_class(victim) - 100) * -1), GET_HITROLL(victim), GET_DAMROLL(victim), GET_SAVE(victim, SAVING_SPELL));
     send_to_char(ch, "Str: %d/%d, Int: %d, Wis: %d, Dex: %d, Con: %d, Cha: %d\r\n",
 	GET_STR(victim), GET_ADD(victim), GET_INT(victim),
 	GET_WIS(victim), GET_DEX(victim), GET_CON(victim), GET_CHA(victim));
@@ -430,63 +435,70 @@ ASPELL(spell_enchant_weapon)
   if (ch == NULL || obj == NULL)
     return;
 
-  /* Either already enchanted or not a weapon. */
-  if (OBJ_FLAGGED(obj, ITEM_MAGIC))
-    return;
+  /* Either already enchanted. */
+  if (OBJ_FLAGGED(obj, ITEM_MAGIC)){
+    send_to_char(ch, "This item rejects receive another enfold.\r\n");    
+  }
+  else {
 
-  /* Make sure no other affections. */
-  for (i = 0; i < MAX_OBJ_AFFECT; i++)
-    if (obj->affected[i].location != APPLY_NONE)
-      return;
+    /* Make sure no other affections. */
+    for (i = 0; i < MAX_OBJ_AFFECT; i++)
+      if (obj->affected[i].location != APPLY_NONE) {
+	    send_to_char(ch, "This item already has special properties and rejects receive enfold.\r\n");
+        return;
+	  }
   
-  SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_MAGIC);
+    SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_MAGIC);
+	SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_ENFOLDED);
 
-  if (GET_OBJ_TYPE(obj) == ITEM_WEAPON) {
-    obj->affected[0].location = APPLY_HITROLL;
-    obj->affected[0].modifier = 1 + (level / 10);
+    if (GET_OBJ_TYPE(obj) == ITEM_WEAPON) {
+      obj->affected[0].location = APPLY_HITROLL;
+      obj->affected[0].modifier = 1 + (level / 10);
 
-    obj->affected[1].location = APPLY_DAMROLL;
-    obj->affected[1].modifier = 1 + (level / 10);
-  } else if (GET_OBJ_TYPE(obj) == ITEM_ARMOR) {
-	obj->affected[0].location = APPLY_AC;
-    obj->affected[0].modifier = -2 - (level / 5);
+      obj->affected[1].location = APPLY_DAMROLL;
+      obj->affected[1].modifier = 1 + (level / 10);
+    } else if (GET_OBJ_TYPE(obj) == ITEM_ARMOR) {
+	  obj->affected[0].location = APPLY_AC;
+      obj->affected[0].modifier = -2 - (level / 5);
 	
-	obj->affected[1].location = APPLY_CHA;
-	obj->affected[1].modifier = 1;
+	  obj->affected[1].location = APPLY_CHA;
+	  obj->affected[1].modifier = 1;
 	
-	obj->affected[2].location = APPLY_CON;
-	obj->affected[2].modifier = 1;
+	  obj->affected[2].location = APPLY_CON;
+	  obj->affected[2].modifier = 1;
 	
-	obj->affected[3].location = APPLY_DEX;
-	obj->affected[3].modifier = (level / 20);
+	  obj->affected[3].location = APPLY_DEX;
+	  obj->affected[3].modifier = (level / 20);
 	
-	obj->affected[4].location = APPLY_STR;
-	obj->affected[4].modifier = (level / 30);
-  } else {
-    obj->affected[0].location = APPLY_AC;
-    obj->affected[0].modifier = -1 - (level / 10);
+	  obj->affected[4].location = APPLY_STR;
+	  obj->affected[4].modifier = (level / 30);
+    } else {
+      obj->affected[0].location = APPLY_AC;
+      obj->affected[0].modifier = -1 - (level / 10);
 	
-	obj->affected[1].location = APPLY_WIS;
-	obj->affected[1].modifier = 1;
+	  obj->affected[1].location = APPLY_WIS;
+	  obj->affected[1].modifier = 1;
 	
-	obj->affected[2].location = APPLY_INT;
-	obj->affected[2].modifier = 1;
+	  obj->affected[2].location = APPLY_INT;
+	  obj->affected[2].modifier = 1;
 
-    obj->affected[3].location = APPLY_HITROLL;
-    obj->affected[3].modifier = (level / 20);
+      obj->affected[3].location = APPLY_HITROLL;
+      obj->affected[3].modifier = (level / 20);
 
-    obj->affected[4].location = APPLY_DAMROLL;
-    obj->affected[4].modifier = (level / 30);	
-  }	
+      obj->affected[4].location = APPLY_DAMROLL;
+      obj->affected[4].modifier = (level / 30);	
+    }	
 
-  if (IS_GOOD(ch)) {
-    SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_ANTI_EVIL);
-    act("$p glows yellow.", FALSE, ch, obj, 0, TO_CHAR);
-  } else if (IS_EVIL(ch)) {
-    SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_ANTI_GOOD);
-    act("$p glows purple.", FALSE, ch, obj, 0, TO_CHAR);
-  } else
-    act("$p glows white.", FALSE, ch, obj, 0, TO_CHAR);
+    if (IS_GOOD(ch)) {
+      SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_ANTI_EVIL);
+      act("$p glows yellow.", FALSE, ch, obj, 0, TO_CHAR);
+    } else if (IS_EVIL(ch)) {
+      SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_ANTI_GOOD);
+      act("$p glows purple.", FALSE, ch, obj, 0, TO_CHAR);
+    } else
+      act("$p glows white.", FALSE, ch, obj, 0, TO_CHAR);
+  }
+
 }
 
 ASPELL(spell_detect_poison)

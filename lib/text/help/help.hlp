@@ -286,21 +286,24 @@ AC-CONFIDENCE ARMOR-CLASS ARMOUR-CLASS AC-APPLY
 is at protecting you.  When you don armor, any AC apply that armor has is 
 subtracted from your standard (naked) AC value, modified depending on where on
 the body you are wearing the armor.  Some items have a special bonus, and 
-subtract from the AC directly. @GNegative AC is better@n.
-
-See Also: AURA-PROTECTION, SAVING-HATSU
-#0
-AC-CONFIDENCE ARMOR-CLASS ARMOUR-CLASS AC-APPLY 
-
-   Your Armor Class (often called AC) is an expression for how good your armor
-is at protecting you.  When you don armor, any AC apply that armor has is 
-subtracted from your standard (naked) AC value, modified depending on where on
-the body you are wearing the armor.  Some items have a special bonus, and 
 subtract from the AC directly. Negative AC is better. Modifiers: Body X3, 
 head and legs X2.
 
 See also: MEDIT-AC
 #31
+ACCURACY
+
+   Accuracy measures the capacity of hit the enemy. Positive is better.
+A player with accuracy of 20 has 95% hit chance against an enemy
+armorless. The following effects can affect your accuracy:
+- Blindness, Curse, Poison, Chill touch and Focus
+- Equipment with modifiers
+- Str, Dex, Int and Wis attributes
+- Level
+- Hitroll
+
+See Also: STATS
+#0
 ACRONYMS TERMINOLOGY VOCABULARY
 
 Here are some common terms used in building, and TBA zone:
@@ -554,6 +557,17 @@ many layers in between, and these are often more interesting.
 
 See also: ALIGN
 #31
+ANIMATE-DEAD ANIMATEDEAD ZOMBIE
+
+Usage       : cast 'animate dead' corpse
+Accumulative: Yes (max 4)
+Duration    : Until logout, death or more than 4 zombies at same time.
+
+Use your nen to control a dead body as a puppet zombie.
+You can control it by using order command.
+
+See Also: ORDER, CHARM
+#0
 ANTI
 
 A flag with anti preceding it means that it cannot be used. Antimage would
@@ -604,6 +618,14 @@ and fill out the application.
 
 See also: OLC, REDIT, MEDIT, OEDIT, ZEDIT, SEDIT, TRIGEDIT, AEDIT
 
+#0
+AR ARMOR-RATE AC-CONFIDENCE ARMOR-CLASS ARMOUR-CLASS AC-APPLY
+   
+   AR (ARMOR RATE) is your total armor protection shown in score.
+   
+AKA AC or Armor class.
+
+See Also: AURA-PROTECTION, SAVING-HATSU
 #0
 AREAS 
 
@@ -1059,24 +1081,35 @@ BOOBS NOASSHOLE TITS IMMORAL
 YES, people have tried to get help on these things... 
 
 #0
-BOOK BINDER
+BOOK BINDER-SLOTS SLOTS
 
-@cUsage: @Ybook@n
-
+@cUsage: @Ybook
+       look in book
+       get @c<@Ycardname@c>@Y book
+       put @c<@Ycardname@c>@Y book
+       progress@n
+@   
    This command is used to allow a player to gain a card. Using this command again
 your book will return into your G.I. ring. If you leave the room while your book is
 activated, it will return to you automatically.
 
-You can store in the binders 100 different restricted cards (imposed slots) and 45
-non-restricted cards (free slots for un-restricted or spell cards).
+A book/binder has 11 pages for restricted/specified slots (9 per page except 000) and
+5 pages for unrestricted/free slots for any non-specified cards. Therefore it hold the
+maximum of 145 cards at same time (100 restricted + 45 non-restricted).
+
+Specified slot means it only can store 1 card of that number between 0 and 99, it is
+impossible by common ways to insert two of same restricted cards into the same book.
+Free slot as the name already says means you can store any number of non-restricted
+cards (spells and unrestricted cards) into the book.
 
 To access your book/binder just type @Ylook in binder@n or @Ylook in book@n.
 And to remove a card from it just type @Yget cardname book@n or @Yget cardname binder@n.
 Also is possible insert/remove all cards at once, type @Yget all book@n or @Yget all binder@n.
-AATTENTION! Activate your book in front of other people can be interpreted an
+With @Yprogress@n command you can check easly how many specified slots are filled.
+@RATTENTION!@n Activate your book in front of other people can be interpreted an
 agressive action, since the spell cards can only be used in this way.
 
-See Also: CARDS, GAIN, NEWBIE
+See Also: CARDS, PROGRESS, GAIN, NEWBIE
 #0
 BOTTING ROBOTS BOTS
 
@@ -1209,36 +1242,6 @@ NOTE: Buildwalk does not autosave on exit. You must type SAVEALL. This way if
  
 See also: TOGGLE, SAVEALL, REDIT, OLC, RLIST, DIG
 #31
-BULLETINS BOARDS BULLETIN-BOARDS MESSAGE-BOARDS POSTING
-
-Bulletin boards are the forum of inter-player communication on the MUD.
-There are different bulletin boards for different purposes -- for example,
-a standard mortal board, a board for immortals, a board for fun "social"
-messages, etc.  Naturally, not all players may be allowed to read all
-types of boards.
-
-Type "LOOK BOARD" to see the messages already posted on a board.  Type
-"WRITE <subject>" to post a message to a board; terminate a message with
-a '/s' as the first characters on a line.  Type "READ <number>" to read a
-post.  Type "REMOVE <number>" to remove your own messages.
-
-Examples:
-  > look at board
-  > write Crash Bug I found!
-  [writes the message; terminates with '/s']
-  > look at board
-  > read 6
-  > remove 6
-
-Boards are just a normal object with a special procedure attached in the
-MUD's code. Ask your friendly implementor if you need to make one.
-
-@uRoom - Board@n 
-1204 - Immortal Board
-1290 - Social Board
-
-See also: MAIL, READ, WRITE, SPECIALS
-#31
 BULLETINS BOARDS BULLETIN-BOARDS MESSAGE-BOARDS
 
 Bulletin boards are the forum of inter-player communication on the MUD.
@@ -1269,6 +1272,36 @@ MUD's code. Ask your friendly implementor if you need to make one.
 
 See also: MAIL, READ, WRITE
 #0
+BULLETINS BOARDS BULLETIN-BOARDS MESSAGE-BOARDS POSTING
+
+Bulletin boards are the forum of inter-player communication on the MUD.
+There are different bulletin boards for different purposes -- for example,
+a standard mortal board, a board for immortals, a board for fun "social"
+messages, etc.  Naturally, not all players may be allowed to read all
+types of boards.
+
+Type "LOOK BOARD" to see the messages already posted on a board.  Type
+"WRITE <subject>" to post a message to a board; terminate a message with
+a '/s' as the first characters on a line.  Type "READ <number>" to read a
+post.  Type "REMOVE <number>" to remove your own messages.
+
+Examples:
+  > look at board
+  > write Crash Bug I found!
+  [writes the message; terminates with '/s']
+  > look at board
+  > read 6
+  > remove 6
+
+Boards are just a normal object with a special procedure attached in the
+MUD's code. Ask your friendly implementor if you need to make one.
+
+@uRoom - Board@n 
+1204 - Immortal Board
+1290 - Social Board
+
+See also: MAIL, READ, WRITE, SPECIALS
+#31
 BUNGEE-GUM
 
 Usage       : cast 'bungee gum' <victim>
@@ -1990,7 +2023,7 @@ Accumulative: Yes (Duration)
 Duration    : 24 hours, permanent on objects.
 
 Makes the target of the hatsu invisible to everyone except those who have
-the "gyo" hatsu activated.
+the detect concealed hatsu activated.
 
 Attacking while concealed will immediately break the hatsu.
 
@@ -1999,7 +2032,7 @@ See also: INVIS, GYO
 CONJURER
 
 Conjurers are a powerful supportive class with some unique skills.
-They have affinity with exorcism nen techniques and are fast learners.
+They have affinity with exorcise nen techniques and are fast learners.
 
 You can improve your hatsus by using the practice command with a nen master.
 
@@ -2066,6 +2099,18 @@ CONTROL-WEATHER
 
 Usage       : cast 'control weather' <'better' | 'worse'>
 Accumulative: Yes
+Duration    : -
+
+This hatsu will change the "course" of the current weather.
+
+Example:
+
+  > cast 'control wea' worse
+#0
+CONTROL-WEATHER
+
+Usage       : cast 'control weather' <'better' | 'worse'>
+Accumulative: Yes
 
 This hatsu will change the "course" of the current weather.
 
@@ -2085,18 +2130,6 @@ Example:
   > cast 'control wea' worse
 See also: %WEATHER%, WEATHER
 #31
-CONTROL-WEATHER
-
-Usage       : cast 'control weather' <'better' | 'worse'>
-Accumulative: Yes
-Duration    : -
-
-This hatsu will change the "course" of the current weather.
-
-Example:
-
-  > cast 'control wea' worse
-#0
 COPYOVERS
 
 Usage: copyover
@@ -2143,7 +2176,7 @@ See also: CREATE-FOOD
 #0
 CURE-BLIND
 
-Usage       : cast 'cure blind' <victim>
+Usage       : cast 'cure blindness' <victim>
 Accumulative: No
 Duration    : Instantaneous
 
@@ -2171,7 +2204,7 @@ hitroll and damage roll both by one.  It will also reduce the saving
 throw versus paralysis by one. 
 
 When cast upon an object, the object will no longer be removable or droppable.
-The object must be uncursed by casting the hatsu exorcism on it.
+The object must be uncursed by casting the hatsu exorcise on it.
 
 See also: REMOVE-CURSE
 #0
@@ -2215,14 +2248,18 @@ load the mace, this would not make any sense.
     
 See also: TEXT-EDITOR
 #31
-DAMROLL ROLL DAMAGEROLL DAMAGE-ROLL 
+DAMROLL ROLL DAMAGEROLL DAMAGE-ROLL
 
-   A bonus added to your armor and weapons that allows your character to hit 
-things harder and with a stronger force.
-   A player at level fifteen with a Damroll +15 will do more damage to a 
-creature, than a level fifteen player would do with a Damroll of +10.
+   A bonus added to your damage that allows your character to hit things
+harder and with a stronger force.
+The calculation of damage output is: Weapon damage range + STR modifier + Damroll
+For example, a level 1 player with a small sword (damage range from 1 to 6) without
+STR modiefier and with no Damroll bonus will do only between 1 and 6 of damage.
 
-See also: HITROLL, AC, STATS
+Typing score you can check your damage output of your weapon ([1~6+0] from exemple
+above) or identifying a weapon/item you can check it detailed properties.
+
+See Also: ACCURACY, HITROLL, AC, STATS, IDENTIFY, SCORE
 #0
 DARKNESS
 
@@ -2379,7 +2416,15 @@ Duration    : 12 hours + level
 Allows the caster to detect the alignment of those around them.
 will show as a black aura, good in a yellow aura.
 
-See also: "DETECT INVISIBILITY"
+See also: DETECT CONCEALED
+#0
+DETECT-CONCEALED DETECT-INVISIBLE DETECT-AURA GYO
+
+Usage       : cast 'detect concealed'
+Accumulative: Yes (Duration)
+Duration    : 12 hours + level/4
+
+This hatsu enables you to see concealed items and players.
 #0
 DETECT-ENFOLD
 
@@ -2390,7 +2435,7 @@ Duration    : 12 hours + level
 This skill will let you see the enfold aura surrounding objects.
 It means that object has special properties.
 
-See Also: GYO
+See Also: DETECT CONCEALED, ENFOLD
 #0
 DETECT-POISON
 
@@ -2759,13 +2804,13 @@ See also: SOCIALS, GEMOTE
 Empty
 #0
 Empty
-#0
-Empty
-#0
-Empty
-#0
-Empty
 #31
+Empty
+#0
+Empty
+#0
+Empty
+#0
 ENFOLD ENCHANT
 
 Usage       : cast 'enfold' <item>
@@ -2785,29 +2830,29 @@ The enfold will modify the weapon as:
     10..19     +2         +2
     20..29     +3         +3
     30..30+    +4         +4
-	
+@
 The enfold will modify armors as (lower AC is better):
 
     Level      AC        Cha        Con        Dex        Str
 
-     0..9      -2         +1
-    10..19     -4                    +1
-    20..29     -6                               +1
-    30..30+    -8                                          +1
-	
+     0..9      +2         +1
+    10..19     +4                    +1
+    20..29     +6                               +1
+    30..30+    +8                                          +1
+@
 The enfold will modify other items as (lower AC is better):
 
     Level      AC        Wis        Int      Hit Roll     Damage
 
-     0..9      -1         +1
-    10..19     -2                    +1
-    20..29     -3                              +1
-    30..30+    -4                                          +1
+     0..9      +1         +1
+    10..19     +2                    +1
+    20..29     +3                              +1
+    30..30+    +4                                          +1
 
 The item will receive the align of the caster. Neutral recomended.
 See Also: IDENTIFY, DETECT-ENFOLD, DETECT-ALIGN
 #0
-ENHANCE STRENGTH HASTU-ENHANCE SKILL-ENHANCE
+ENHANCE STRENGTH HASTU-ENHANCE
 
 Usage       : cast 'enhance'
 Accumulative: Yes
@@ -2947,7 +2992,7 @@ May give you some valuable information about an item or monster.
 
 See also: LOOK
 #0
-EXAMPLE-PROPOSAL PROGRESS-REPORT REPORT-EXAMPLE EXAMPLE-REPORT 
+EXAMPLE-PROPOSAL REPORT-EXAMPLE EXAMPLE-REPORT
 
 As a builder on a mud it is important that you are accountable to someone.
 To prepare you for this, and to keep the Builder Academy professional, I 
@@ -2991,15 +3036,16 @@ See also: AUTOEXIT
 #0
 EXORCISM EXORCISE REMOVE-CURSE
 
-Usage       : cast 'exorcism' <victim | object>
+Usage       : cast 'exorcise' <victim | object>
 Accumulative: No
 Duration    : Instantaneous
 
 Will remove a curse on carried objects or any person in the room.
-Also remove invisibility and aura from enfolded items, it may leave the item
-ungainable. Items free from aura can receive enfold hatsu.
-If you got a cursed, invisible and enfolded item, you may use exorcise three
-times to remove all aura from it if you must.
+Also remove invisibility and aura from enfolded items. Items free
+from aura can receive enfold hatsu (only unequipped). If you got
+a cursed, invisible and enfolded item, you may use exorcise three
+times to remove all aura from it if you must (to alter stats the
+item must be unequipped).
 
 
 See Also: ENFOLD
@@ -3610,15 +3656,26 @@ so helping him may score you a free massage.
 #0
 GAIN CHANGE
 
-@cUsage: @Ygain@n
-
+@cUsage: @Ygain          @n(only to convert a held card or item)@Y
+       gain @c<@Yequip@c>@Y  @n(only to convert an equipped item)@Y
+@        gain @c<@Ytarget@c>@Y @n(only some spell cards require target)
+		 
    This command is used to transform a item into a card or vice-versa. The item or
-card must be @Gheld@n before use this command. If the target is not specified it will
-be used upon yourself, unless target option is not available. It is not possible
-use a spell card without activate your book, but gain an item into a card does not
+card must be @Gheld@n or @Gequipped@n before use this command. If not specified the
+target of a spell card it will be used upon yourself. It is not possible use a
+spell card without activate your book, but gain an item into a card does not
 require that.
+   Only cards fits into your book, also only cards can be sold in stores.
 
-ATTENTION! Holding a card or leaving it on the ground can turn it into an item
+The follow items types cannot be gained into a card:
+- Light (torches, laterns etc)
+- Wands
+- Staffs
+- Containers (bags, canteens ect)
+- Keys
+- Trashes (booster packs, shattered sword etc)
+
+@RATTENTION!@n Holding a card or leaving it on the ground can turn it into an item
 again, like a "auto gain", and this item will never can be turned into a card
 anymore. Depending on card effect or item, this can turn into a most useless item
 or gone forever. This "auto gain" can happens between 1 or 2 minutes, for that
@@ -3634,6 +3691,10 @@ me more examples.
 
 Examples: @RTSTAT 13899, 13420@n
 #31
+GAME-MASTERS GMS
+
+Rulers of this game. The creator is Henque.
+#0
 GCC
 
 Several people have problems with configuring tbaMUD in cygwin the first
@@ -3657,7 +3718,7 @@ gdb > info local
 gdb > list 
 
 #31
-GEMOTES GMOTES EMOTICONS
+GEMOTES EMOTICONS
 
 Usage: gemote <social>
        gemote <message>
@@ -3737,11 +3798,11 @@ Examples: @RTSTAT 23612, 23613, 23614@n
 
 See also: REMOTE, VARIABLES, CONTEXT
 #31
-GOLD PURSE MONEY PLATINUM SILVER COPPER CASH COINS WEALTH CURRENCY MULTI-CURRENCY ECONOMY TREASURE
+GOLD PURSE MONEY PLATINUM SILVER COPPER CASH COINS WEALTH CURRENCY MULTI-CURRENCY ECONOMY TREASURE JENNY
 
-Usage: gold
+Usage: jenny
    
-Displays how many gold coins you are carrying.
+Displays how many Jenny you are carrying.
 
 See also: BALANCE, DEPOSIT, WITHDRAW, MINIMIZE
 #0
@@ -3888,14 +3949,6 @@ room.
 
 See also: GROUP, TELL, SAY
 #0
-GYO DETECT-CONCEAL DETECT-INVISIBLE DETECT-AURA
-
-Usage       : cast 'gyo'
-Accumulative: Yes (Duration)
-Duration    : 12 hours + level/4
-
-This hatsu enables you to see concealed items and players.
-#0
 HACKING
 
    Not a good thing to be searching for help on. Your IP address has been logged
@@ -3978,11 +4031,11 @@ character, i.e. non-mobile). Returns 0 if not attached and 1 if attached.
 
 See Also: VARIABLES, CHAR-VAR		 
 #31
-HATSU MAGICS TOMBS SPELL-LEVELS HATSU-LEVELS HATSU-STOCK SPELLLIST
+HATSUS MAGICS TOMBS SPELL-LEVELS HATSU-LEVELS HATSU-STOCK SPELLLIST
 
 ----------------------------------------------------
 |   Aura Missile           |   Nen Stitches        |
-|   Gyo                    |   Exorcism            |
+|   Gyo                    |   Exorcise            |
 |   Detect Enfold          |   Create Food         |
 |   Chill Touch            |   Create Water        |
 |   Infravision            |   Detect Poison       |
@@ -4266,7 +4319,7 @@ Player Port : tbamud.com 4000 IP: 206.41.252.202
 Internet protocol (IP) is what identifies each computer individually on the internet.  The
 Game Masters can see your IP and report abuse to your provider so behave. 
  
-#0
+#31
 HOMETOWNS
 
    Some large MUDs have hometowns to choose from. tbaMUD only has a single mortal
@@ -5953,7 +6006,7 @@ change some attribute about the character. nop allows those changes to be used
 legally on lines that do not need to process the result.
 
 * this returns the amount of gold on the actor
-%echo% %actor.name% has %actor.gold% gold coins.
+%echo% %actor.name% has %actor.gold% Jenny.
 * this will award the actor with 10 gold
 nop %actor.gold(10)%
 * this takes away 10 experience
@@ -6418,7 +6471,7 @@ of value0 through value4 (option C). The Type Flag must be one of the following:
 5    WEAPON         Must be piercing to backstab.
 6    FURNITURE      Item may be sat on.
 7    FREE           Do not set.
-8    TREASURE       Item is treasure other than gold coins (i.e. gems)
+8    TREASURE       Item is treasure other than Jenny (i.e. gems)
 9    ARMOR          Item is armor. Set AC in values, @RHELP OEDIT-VALUES@n.
 10   POTION         Item is a magical potion.
 11   WORN           Item is worn, but not armor.
@@ -6558,7 +6611,7 @@ FOOD
    value 3: Non-zero if the food is poisoned, 0 otherwise.
 
 MONEY
-   value 0: The number of gold coins in the pile.
+   value 0: The number of Jenny in the pile.
 
 PEN - No values currently used. 
 BOAT - No values currently used. 
@@ -7464,6 +7517,19 @@ AUTOASSIST - Player has Autoassist enabled.
 
 See also: FLAGS, PLR
 #31
+PROGRESS
+
+This command shows the restricted/specified slot occupied into your
+book/binder pages. Only 1 of these cards fits in these slots.
+Unrestricted/Free slot cards not be shown in this command.
+
+04{|           034            |           035            |           036            |
+ ^              ^                          ^                          ^
+ |              |                          |                          |
+Page number    Restricted/Specified binder slots of cards 034, 035, 036 not used.
+
+See Also: BOOK, CARDS
+#0
 PROJECT BACKGROUND STORY HISTORY INTRODUCTION COMMUNITY OVERVIEW VISION GREED ISLAND ARC HUNTER
 
    Greed Island is a fictional video game in Hunter  Hunter. It is played on the "Joystation", 
@@ -7644,7 +7710,7 @@ QEDIT-COMPLETION
 
    Just like the accept message, this is simply text that is output on the 
 player’s screen when they successfully complete the quest.  Prizes (quest 
-points, gold coins, experience points or an object) are automatically 
+points, Jenny, experience points or an object) are automatically 
 announced after this text is shown, so this text does not need to have that 
 information in it.
 #31
@@ -7755,7 +7821,7 @@ QEDIT-REWARDS QEDIT-GOLD QEDIT-EXPERIENCE QEDIT-OBJECT
 
  G) Gold Coins     : [     @c0@n]  T) Exp Points  : [     @c0@n]  O) Object : [    @c-1@n]
    
-   Gold is the number of gold coins awarded to the player when they 
+   Gold is the number of Jenny awarded to the player when they 
 successfully complete the quest.
 
    Exp is the number of experience points awarded to the player when they 
@@ -8001,6 +8067,9 @@ position you take 2x more damage from a first attack and 1.5x while
 resting or sitting.  The same goes for the monsters.
 
 Standing position has a very low recovery rate, but has.
+
+Middle-age characters require less time to recover, for that reason
+they recover faster.
 
 In temples you can recover very fast if you're well fed, has at
 least one temple in every city, plus temples are safe zones.
@@ -9519,14 +9588,14 @@ SPELLS
  4) blindness             5) burning hands         6) call lightning       
  7) charm person          8) chill touch           9) clone                
 10) bungee gum           11) control weather      12) create food          
-13) create water         14) cure blind           15) nen cure          
+13) create water         14) cure blindness           15) nen cure          
 16) nen stitches         17) curse                18) detect alignment     
 19) detect invisibility  20) detect magic         21) detect poison        
 22) dispel evil          23) earthquake           24) enchant weapon       
 25) energy drain         26) ball of nen          27) harm                 
 28) heal                 29) invisibility         30) lightning bolt       
 31) locate object        32) magic missile        33) poison               
-34) protection from evil 35) exorcism             36) fortify            
+34) protection from evil 35) exorcise             36) fortify            
 37) shocking grasp       38) sleep                39) strength             
 40) summon               41) !UNUSED!             42) word of recall       
 43) remove poison        44) sense life           45) animate dead         
@@ -9686,23 +9755,30 @@ See also: VSTAT, TSTAT, DETACH
 STATISTICS STATS STRENGTH INTELLIGENCE WISDOM CONSTITUTION DEXTERITY CHARISMA 
 
 Statistics (Stats)- How your character measures up mentally and physically. 
-A list is below:
 
-Wisdom       - How wise you are. Helps in combat, and when regaining nen.
-Constitution - How healthy and robust you are. Determines how many hit points
-               you gain per level, and how well you heal.
-Dexterity    - How agile you are. How many movement points you gain per level, 
-               and how well you dodge attacks, pick locks, and kick without 
-               falling over.
-Charisma     - How personable your character is. This can affect shop prices
-               and charm hatsus involving the living.
-Strength     - How physically mighty your character is. Determines how much 
+	cStrength	n     - How physically mighty your character is. Determines how much 
                stuff you can carry, how heavy a weapon you can wield, and what 
-               kind of bonus is added when  you hit things. 
-Intelligence - How smart you are. Determines how much nen you gain per level,
-               and how much you regain per hour, if you can outsmart your 
-               opponent and hit him more often, and if you're undead, helps 
-               control your followers.
+               kind of bonus is added when you hit things.
+               Excelent for Enhancers.
+			   
+	cIntelligence	n - How smart you are. Determines how much nen you recover, if you
+               can outsmart your opponent and employ your hatsu with more
+               efficiency, and learn hatsu/skills faster.
+               Excelent for Transmuters.
+			   
+	cWisdom	n       - How wise you are. When regaining nen and learn your hatsu/skills
+               more often. Excelent for Conjurers.
+			   
+	cDexterity	n    - How agile you are. How many movement points you gain per level, 
+               and how well you dodge attacks and apply your skills better.
+               Excelent for Emitters.
+			   
+	cConstitution	n - How healthy and robust you are. Determines how well you recover
+               stamina and how much you can walk before get tired.			   
+
+	cCharisma	n     - How personable your character is. This can affect shop prices.
+               Excelent for Manipulators or who want to avoid their charming
+               powers. 
    
 See also: HITROLL, DAMROLL, AC
 #0
@@ -10581,7 +10657,7 @@ takes about 12 days.
 
 See also: DATE, %TIME%
 #31
-TITLES
+TITLES LASTNAME LAST-NAME
 
 Usage: title <new title>
 
@@ -12840,27 +12916,13 @@ Mob example:  @RTSTAT 11858@n
 #31
 WHO WHOINVIS
 
-Usage: who [minlev[-maxlev]] [-n name] [-c classlist] [-k] [-l] [-n] [-q] [-r] [-s] [-z]
+Usage: who
 
 Lists the people currently in the game.  Some people may be invisible.
-Command-line options can be used to limit the listing.  The parameters
-can be specified on the command-line in any order.
+White colored names is common players and yellow is Game Masters.
+Use the title command to change your title or character's last name.
 
--c : List names of people of the following classes: Cleric, Enhancer, Mage, Thief.
--g : List names of people who are grouped.
--k : List names of people who are flagged as killers or thieves.
--l : List names of group leaders.
--n : List only people whose names or titles contain this word.
--q : List only people who are on the Quest.
--r : List only people who are in your room.
--s : List names in the short form (4 columns of names, without titles or flags).
--z : List only people in your zone.
-
-Examples:
-  > who -c Wa     List all Enhancers in game.
-  > who -s        List, in short form, all characters connected.
-  > who -k -z     List all outlaws who are in your zone.
-  > who 4-10      Lists all players level 4-10.
+See Also: TITLE, WHOIS
 #0
 WHOAMI
 

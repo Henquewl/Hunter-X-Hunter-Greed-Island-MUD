@@ -1501,7 +1501,7 @@ static void parse_simple_mob(FILE *mob_f, int i, int nr)
   GET_MANA(mob_proto + i) = t[4];
   GET_MOVE(mob_proto + i) = t[5];
 
-  GET_MAX_MANA(mob_proto + i) = 10;
+  GET_MAX_MANA(mob_proto + i) = 100;
   GET_MAX_MOVE(mob_proto + i) = 50;
 
   mob_proto[i].mob_specials.damnodice = t[6];

@@ -520,7 +520,7 @@ void show_string(struct descriptor_data *d, char *input)
     d->showstr_page = MAX(0, MIN(atoi(buf) - 1, d->showstr_count - 1));
 
   else if (*buf) {
-    send_to_char(d->character, "Valid commands while paging are ENTER, Q, R, B, or a numeric value.\r\n");
+    send_to_char(d->character, "\r\nPRESS ENTER to continue or \tRQ\tn.\r\n");
     return;
   }
   /* If we're displaying the last page, just send it to the character, and

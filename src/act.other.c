@@ -103,12 +103,28 @@ ACMD(do_sneak)
 {
   struct affected_type af;
   byte percent;
+  int skill_num, skilladd;
 
   if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_SNEAK)) {
     send_to_char(ch, "You have no idea how to do that.\r\n");
     return;
   }
   send_to_char(ch, "Okay, you'll try to move silently for a while.\r\n");
+  
+  GET_MANA(ch) = (GET_MANA(ch) - 1);
+  
+  skill_num = find_skill_num("sneak");
+  
+  if ((GET_SKILL(ch, skill_num) < 95) && ((rand_number(1, 20) + wis_app[GET_WIS(ch)].bonus) >= 20)){ 
+    skilladd = GET_SKILL(ch, skill_num);
+    skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
+    SET_SKILL(ch, skill_num, MIN(95, skilladd));
+    if (GET_SKILL(ch, skill_num) >= 95)
+      send_to_char(ch, "You mastered this skill!\r\n");
+    else
+	  send_to_char(ch, "You get better with this skill...\r\n");
+  }
+  
   if (AFF_FLAGGED(ch, AFF_SNEAK))
     affect_from_char(ch, SKILL_SNEAK);
 
@@ -127,23 +143,41 @@ ACMD(do_sneak)
 ACMD(do_hide)
 {
   byte percent;
+  int skill_num, skilladd; 
 
   if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_HIDE)) {
     send_to_char(ch, "You have no idea how to do that.\r\n");
     return;
-  }
-
-  send_to_char(ch, "You attempt to hide yourself and supress aura.\r\n");
+  }  
 
   if (AFF_FLAGGED(ch, AFF_HIDE))
     REMOVE_BIT_AR(AFF_FLAGS(ch), AFF_HIDE);
 
+  GET_MANA(ch) = (GET_MANA(ch) - 1);
+
+  skill_num = find_skill_num("hide");
+
   percent = rand_number(1, 101);	/* 101% is a complete failure */
 
-  if (percent > GET_SKILL(ch, SKILL_HIDE) + dex_app_skill[GET_DEX(ch)].hide)
+  if (percent > GET_SKILL(ch, SKILL_HIDE) + dex_app_skill[GET_DEX(ch)].hide) {
+	send_to_char(ch, "You attempt to hide yourself but fails.\r\n");
     return;
+  }
+	
+  send_to_char(ch, "You hide yourself and supress aura.\r\n");  
 
+  if ((GET_SKILL(ch, skill_num) < 95) && ((rand_number(1, 20) + wis_app[GET_WIS(ch)].bonus) >= 20)){ 
+    skilladd = GET_SKILL(ch, skill_num);
+    skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
+    SET_SKILL(ch, skill_num, MIN(95, skilladd));
+	if (GET_SKILL(ch, skill_num) >= 95)
+      send_to_char(ch, "You mastered this skill!\r\n");
+    else
+	  send_to_char(ch, "You get better with this skill...\r\n");
+  }
+  
   SET_BIT_AR(AFF_FLAGS(ch), AFF_HIDE);
+  
 }
 
 ACMD(do_steal)
@@ -151,7 +185,7 @@ ACMD(do_steal)
   struct char_data *vict;
   struct obj_data *obj;
   char vict_name[MAX_INPUT_LENGTH], obj_name[MAX_INPUT_LENGTH];
-  int percent, gold, eq_pos, pcsteal = 0, ohoh = 0;
+  int percent, gold, skill_num, skilladd, eq_pos, pcsteal = 0, ohoh = 0;
 
   if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_STEAL)) {
     send_to_char(ch, "You have no idea how to do that.\r\n");
@@ -203,13 +237,13 @@ ACMD(do_steal)
 	act("$E hasn't got that item.", FALSE, ch, 0, vict, TO_CHAR);
 	return;
       } else {			/* It is equipment */
-	if ((GET_POS(vict) > POS_STUNNED)) {
-	  send_to_char(ch, "Steal the equipment now?  Impossible!\r\n");
-	  return;
+	if (GET_POS(vict) > POS_STUNNED && GET_POS(vict) != POS_SLEEPING) {
+	  send_to_char(ch, "The victim is too aware to stole an equipped item.\r\n");
+	  return;			
 	} else {
           if (!give_otrigger(obj, vict, ch) ||
               !receive_mtrigger(ch, vict, obj) ) {
-            send_to_char(ch, "Impossible!\r\n");
+            send_to_char(ch, "You can not stole THAT!\r\n");
             return;
           }
 	  act("You unequip $p and steal it.", FALSE, ch, obj, 0, TO_CHAR);
@@ -230,7 +264,7 @@ ACMD(do_steal)
 	if (IS_CARRYING_N(ch) + 1 < CAN_CARRY_N(ch)) {
           if (!give_otrigger(obj, vict, ch) ||
               !receive_mtrigger(ch, vict, obj) ) {
-            send_to_char(ch, "Impossible!\r\n");
+            send_to_char(ch, "You can not stole THAT!\r\n");
             return;
           }
 	  if (IS_CARRYING_W(ch) + GET_OBJ_WEIGHT(obj) < CAN_CARRY_W(ch)) {
@@ -249,21 +283,37 @@ ACMD(do_steal)
       act("You discover that $n has $s hands in your wallet.", FALSE, ch, 0, vict, TO_VICT);
       act("$n tries to steal gold from $N.", TRUE, ch, 0, vict, TO_NOTVICT);
     } else {
-      /* Steal some gold coins */
-      gold = (GET_GOLD(vict) * rand_number(1, 10)) / 100;
+      /* Steal some Jenny */
+      gold = (GET_GOLD(vict) * rand_number(1, 10)) / 10;
       gold = MIN(1782, gold);
       if (gold > 0) {
 		increase_gold(ch, gold);
 		decrease_gold(vict, gold);
-        if (gold > 1)
-	  send_to_char(ch, "Bingo!  You got %d gold coins.\r\n", gold);
-	else
-	  send_to_char(ch, "You manage to swipe a solitary gold coin.\r\n");
+		if (gold == GET_GOLD(vict) && gold > 1)
+		  send_to_char(ch, "Bingo!  You got all %d Jenny.\r\n", gold);	
+        else if (gold > 1)
+	      send_to_char(ch, "Bingo!  You got %d Jenny.\r\n", gold);
+	    else
+	      send_to_char(ch, "You manage to swipe a solitary gold coin.\r\n");
       } else {
 	send_to_char(ch, "You couldn't get any gold...\r\n");
       }
     }
   }
+  
+  skill_num = find_skill_num("steal");
+  
+  if ((GET_SKILL(ch, skill_num) < 95) && ((rand_number(1, 20) + wis_app[GET_WIS(ch)].bonus) >= 10)){ 
+    skilladd = GET_SKILL(ch, skill_num);
+    skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
+    SET_SKILL(ch, skill_num, MIN(95, skilladd));
+    if (GET_SKILL(ch, skill_num) >= 95)
+      send_to_char(ch, "You mastered this skill!\r\n");
+    else
+	  send_to_char(ch, "You get better with this skill...\r\n");
+  }
+  
+  GET_MANA(ch) = (GET_MANA(ch) - 1);
 
   if (ohoh && IS_NPC(vict) && AWAKE(vict))
     hit(vict, ch, TYPE_UNDEFINED);

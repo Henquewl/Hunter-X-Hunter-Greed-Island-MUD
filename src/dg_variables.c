@@ -817,6 +817,18 @@ void find_replacement(void *go, struct script_data *sc, trig_data *trig,
               }
             }
           }
+		  else if (!str_cmp(field, "is_book")) {
+            if (subfield && *subfield) {
+              if (!str_cmp("on", subfield))
+                SET_BIT_AR(PLR_FLAGS(c), PLR_BOOK);
+              else if (!str_cmp("off", subfield))
+                REMOVE_BIT_AR(PLR_FLAGS(c), PLR_BOOK);
+            }
+            if (PLR_FLAGGED(c, PLR_BOOK))
+              strcpy(str, "1");
+            else
+              strcpy(str, "0");
+          }
           else if (!str_cmp(field, "is_killer")) {
             if (subfield && *subfield) {
               if (!str_cmp("on", subfield))

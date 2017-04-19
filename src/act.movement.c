@@ -279,6 +279,10 @@ int do_simple_move(struct char_data *ch, int dir, int need_specials_check)
   /* If applicable, subtract movement cost. */
   if (GET_LEVEL(ch) < LVL_IMMORT && !IS_NPC(ch))
     GET_MOVE(ch) -= need_movement;
+  
+  /* If book is activated, closes it*/
+  if (PLR_FLAGGED(ch, PLR_BOOK))
+	do_book(ch, 0, 0, 0);
 
   /* Generate the leave message and display to others in the was_in room. */
   if (!AFF_FLAGGED(ch, AFF_SNEAK))
@@ -350,7 +354,7 @@ int perform_move(struct char_data *ch, int dir, int need_specials_check)
   struct follow_type *k, *next;
 
   if (ch == NULL || dir < 0 || dir >= NUM_OF_DIRS || FIGHTING(ch))
-    return (0);
+    return (0);	
   else if (!CONFIG_DIAGONAL_DIRS && IS_DIAGONAL(dir))
     send_to_char(ch, "Alas, you cannot go that way...\r\n");
   else if ((!EXIT(ch, dir) && !buildwalk(ch, dir)) || EXIT(ch, dir)->to_room == NOWHERE)
@@ -528,6 +532,7 @@ static void do_doorcmd(struct char_data *ch, struct obj_data *obj, int door, int
   size_t len;
   room_rnum other_room = NOWHERE;
   struct room_direction_data *back = NULL;
+  int skill_num, skilladd;
 
   if (!door_mtrigger(ch, scmd, door))
     return;
@@ -576,7 +581,18 @@ static void do_doorcmd(struct char_data *ch, struct obj_data *obj, int door, int
     if (back)
       TOGGLE_LOCK(other_room, obj, rev_dir[door]);
     send_to_char(ch, "The lock quickly yields to your skills.\r\n");
-    len = strlcpy(buf, "$n skillfully picks the lock on ", sizeof(buf));
+    len = strlcpy(buf, "$n skillfully picks the lock on ", sizeof(buf));	
+	skill_num = find_skill_num("pick");
+	if (GET_SKILL(ch, skill_num) < 95) { 
+      skilladd = GET_SKILL(ch, skill_num);
+      skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
+      SET_SKILL(ch, skill_num, MIN(95, skilladd));
+	  if (GET_SKILL(ch, skill_num) >= 95)
+        send_to_char(ch, "You mastered this skill!\r\n");
+      else
+	    send_to_char(ch, "You get better with this skill...\r\n");
+    }
+	GET_MANA(ch) = (GET_MANA(ch) - 1);
     break;
   }
 
@@ -596,7 +612,7 @@ static void do_doorcmd(struct char_data *ch, struct obj_data *obj, int door, int
 
 static int ok_pick(struct char_data *ch, obj_vnum keynum, int pickproof, int scmd)
 {
-  int percent, skill_lvl;
+  int percent, skill_lvl, skill_num, skilladd;
 
   if (scmd != SCMD_PICK)
     return (1);
@@ -610,9 +626,21 @@ static int ok_pick(struct char_data *ch, obj_vnum keynum, int pickproof, int scm
     send_to_char(ch, "It resists your attempts to pick it.\r\n");
   else if (percent > skill_lvl)
     send_to_char(ch, "You failed to pick the lock.\r\n");
+    skill_num = find_skill_num("pick");
+    if ((GET_SKILL(ch, skill_num) < 95) && ((rand_number(1, 20) + wis_app[GET_WIS(ch)].bonus) >= 20)){ 
+      skilladd = GET_SKILL(ch, skill_num);
+      skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
+      SET_SKILL(ch, skill_num, MIN(95, skilladd));
+	  if (GET_SKILL(ch, skill_num) >= 95)
+        send_to_char(ch, "You mastered this skill!\r\n");
+      else
+	    send_to_char(ch, "You get better with this skill...\r\n");
+	
+	GET_MANA(ch) = (GET_MANA(ch) - 1);
+    }    
   else
     return (1);
-
+  
   return (0);
 }
 
@@ -732,6 +760,25 @@ ACMD(do_leave)
 	    return;
 	  }
     send_to_char(ch, "I see no obvious exits to the outside.\r\n");
+  }
+}
+
+ACMD(do_book)
+{ 
+  if (!IS_NPC(ch)){
+    if (PLR_FLAGGED(ch, PLR_BOOK)) {
+      act("Your \tcG.I. \tBBook\tn closes itself and return into your \tGG.I. \tDRing\tn.", FALSE, ch, 0, 0, TO_CHAR);
+	  act("The \tcG.I. \tBBook\tn of $n closes itself and vanishes.", TRUE, ch, 0, 0, TO_ROOM);
+      REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_BOOK);
+    } else {
+      do_say(ch, "BOOK!", cmd, 0);
+      WAIT_STATE(ch, PULSE_VIOLENCE);
+	  act("An energy comes out of your \tGG.I. \tDRing\tn and transforms into a book!", FALSE, ch, 0, 0, TO_CHAR);
+	  act("An energy comes out of $n's ring and transforms into a book!", FALSE, ch, 0, 0, TO_ROOM);
+      SET_BIT_AR(PLR_FLAGS(ch), PLR_BOOK);
+    }  
+  } else {
+	send_to_char(ch, "Oh I saw what you trying to do here and the answer is NO.\r\n");    
   }
 }
 

@@ -3,7 +3,7 @@ eliminate spell~
 1 c 1
 gain~
 if %self.carried_by.level% >= 31
-if %cmd% == gain && %arg.is_pc%
+if %cmd.mudcommand% == gain && %arg.is_pc%
 if %arg.room% == %actor.room%
 %force% %actor% say Eliminate ON! Target %arg.name%!
 else
@@ -29,17 +29,14 @@ end
 ~
 #1001
 peek spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg.is_pc% == 1
 %force% %actor% say Peek ON! Target %arg.name%!
 wait 1 sec
@@ -65,7 +62,7 @@ eval counter 0
 eval i %arg.inventory(3203).contents%
 while %i%
 set next %i.next_in_list%
-if %i.type% != TREASURE
+if %i.type% != RESTRICTED
 %send% %actor% %i.shortdesc%
 eval counter %counter% +1
 end
@@ -84,17 +81,14 @@ end
 ~
 #1002
 fluroscopy spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg.is_pc% == 1
 %force% %actor% say Fluroscopy ON! Target %arg.name%!
 wait 1 sec
@@ -118,7 +112,7 @@ eval counter 0
 eval i %arg.inventory(3203).contents%
 while %i%
 set next %i.next_in_list%
-if %i.type%==TREASURE
+if %i.type%==RESTRICTED
 %send% %actor% %i.shortdesc%
 eval counter %counter% +1
 end
@@ -137,13 +131,10 @@ end
 ~
 #1003
 defensive wall spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
@@ -151,13 +142,13 @@ if %actor.varexists(defensive_wall)%
 %send% %actor% This spell is already active.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 %force% %actor% say Defensive Wall ON!
 wait 1 sec
 %force% %actor% remove %self.name%
 detach 3216 %self.id%
 attach 3226 %self.id%
-%transform% 2653
+%transform% 1053
 eval defensive_wall %actor.name%
 remote defensive_wall %actor.id%
 %send% %actor% A faint aura covers you.
@@ -173,13 +164,10 @@ end
 ~
 #1004
 reflection spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
@@ -187,13 +175,13 @@ if %actor.varexists(reflection_spell)%
 %send% %actor% This spell is already active.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 %force% %actor% say Reflection ON!
 wait 1 sec
 %force% %actor% remove %self.name%
 detach 3216 %self.id%
 attach 3226 %self.id%
-%transform% 2654
+%transform% 1054
 eval reflection_spell 1
 remote reflection_spell %actor.id%
 %send% %actor% A faint aura covers you.
@@ -209,26 +197,22 @@ end
 ~
 #1005
 magnetic force spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg.is_pc% == 1
 %force% %actor% say Magnetic Force ON! Target %arg.name%!
 %zoneecho% %arg.room.vnum% You see a bolt of energy flying through the skies.
 wait 1 sec
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-%force% %actor% close binder
-%purge% %actor.book_purge_leaves%
-rdelete book_purge_leaves %actor.id%
+
+
 set prevloc %self.room.vnum%
 %teleport% %actor% %arg.room.vnum%
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -247,17 +231,14 @@ end
 ~
 #1006
 pick pocket spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg.is_pc% == 1
 %force% %actor% say Pick Pocket ON! Target %arg.name%!
 wait 1 sec
@@ -289,7 +270,7 @@ eval max 0
 eval u %arg.inventory(3203).contents%
 while %u%
 set next %u.next_in_list%
-if %u.type% != TREASURE && %actor.varexists(good_luck)%
+if %u.type% != RESTRICTED && %actor.varexists(good_luck)%
 if %u.cost% >= 6600
 %load% obj %u.vnum% %actor% inv
 %send% %actor% You stealed %u.shortdesc% from %arg.name%!
@@ -300,7 +281,7 @@ rdelete good_luck %actor.id%
 break
 end
 end
-if %u.type% != TREASURE
+if %u.type% != RESTRICTED
 eval max %max% + 1
 end
 set u %next%
@@ -310,7 +291,7 @@ eval steal %%random.%max%%%
 eval counter 0
 while %i%
 set next %i.next_in_list%
-if %i.type% != TREASURE
+if %i.type% != RESTRICTED
 eval counter %counter% + 1
 if %steal% == %counter% 
 break
@@ -340,17 +321,14 @@ end
 ~
 #1007
 thief spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg.is_pc% == 1
 %force% %actor% say Thief ON! Target %arg.name%!
 wait 1 sec
@@ -373,7 +351,7 @@ eval max 0
 eval u %arg.inventory(3203).contents%
 while %u%
 set next %u.next_in_list%
-if %u.type% == TREASURE && %actor.varexists(good_luck)%
+if %u.type% == RESTRICTED && %actor.varexists(good_luck)%
 if %u.cost% >= 130000
 %load% obj %u.vnum% %actor% inv
 %send% %actor% You stealed %u.shortdesc% from %arg.name%!
@@ -384,7 +362,7 @@ rdelete good_luck %actor.id%
 break
 end
 end
-if %u.type% == TREASURE
+if %u.type% == RESTRICTED
 eval max %max% + 1
 end
 set u %next%
@@ -394,7 +372,7 @@ eval steal %%random.%max%%%
 eval counter 0
 while %i%
 set next %i.next_in_list%
-if %i.type% == TREASURE
+if %i.type% == RESTRICTED
 eval counter %counter% + 1
 if %steal% == %counter% 
 break
@@ -424,31 +402,28 @@ end
 ~
 #1008
 trade spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg.is_pc% == 1
 * Check if actor not cheating.
 eval c %actor.inventory%
 while %c%
 set next %c.next_in_list%
-if %c.type% == SCROLL
+if %c.type% == SPELLCARD
 %send% %actor% Trade spell only works when all the cards are in the binder.
 halt
 end
-if %c.type% == OTHER
+if %c.type% == UNRESTRICTED
 %send% %actor% Trade spell only works when all the cards are in the binder.
 halt
 end
-if %c.type% == TREASURE
+if %c.type% == RESTRICTED
 %send% %actor% Trade spell only works when all the cards are in the binder.
 halt
 end
@@ -510,7 +485,7 @@ if !%i%
 %purge% %self%
 halt
 end
-if %u.type% == TREASURE && %arg.varexists(prison_spell)%
+if %u.type% == RESTRICTED && %arg.varexists(prison_spell)%
 %send% %actor% %arg.name% was protected by a spell and trade fails!
 %echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
 %send% %arg% Prison spell protects you.
@@ -541,25 +516,21 @@ end
 ~
 #1009
 return spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg% == antokiba && %actor.varexists(visited_antokiba)%
 %force% %actor% say Return ON! Antokiba!
 wait 1 sec
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-%force% %actor% close binder
-%purge% %actor.book_purge_leaves%
-rdelete book_purge_leaves %actor.id%
+
+
 set prevloc %self.room.vnum%
 %teleport% %actor% %actor.visited_antokiba%
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -573,9 +544,8 @@ elseif %arg% == masadora && %actor.varexists(visited_masadora)%
 wait 1 sec
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-%force% %actor% close binder
-%purge% %actor.book_purge_leaves%
-rdelete book_purge_leaves %actor.id%
+
+
 set prevloc %self.room.vnum%
 %teleport% %actor% %actor.visited_masadora%
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -589,9 +559,8 @@ elseif %arg% == rabicuta && %actor.varexists(visited_rabicuta)%
 wait 1 sec
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-%force% %actor% close binder
-%purge% %actor.book_purge_leaves%
-rdelete book_purge_leaves %actor.id%
+
+
 set prevloc %self.room.vnum%
 %teleport% %actor% %actor.visited_rabicuta%
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -610,42 +579,39 @@ end
 ~
 #1010
 transform spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
 eval cardf %arg.car.name%
 eval cards %arg.cdr.name%
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 * Check if you have the card will be transformed
 eval f %actor.inventory%
 while %f%
 set next %f.next_in_list%
 if %f.name% == %cardf%
-if %f.type% == SCROLL
+if %f.type% == SPELLCARD
 break
 end
-if %f.type% == OTHER
+if %f.type% == UNRESTRICTED
 break
 end
-if %f.type% == TREASURE
+if %f.type% == RESTRICTED
 break
 end	
 end			
 set f %next%
 done
 if !%f%
-if %actor.inventory.type% == SCROLL
+if %actor.inventory.type% == SPELLCARD
 eval f %actor.inventory%
-elseif %actor.inventory.type% == OTHER
+elseif %actor.inventory.type% == UNRESTRICTED
 eval f %actor.inventory%
-elseif %actor.inventory.type% == TREASURE
+elseif %actor.inventory.type% == RESTRICTED
 eval f %actor.inventory%
 else
 %send% %actor% You need at least 1 card into your inventory to be transformed.
@@ -656,13 +622,13 @@ eval s %actor.inventory(3203).contents%
 while %s%
 set next %s.next_in_list%
 if %s.name% == %cards%
-if %s.type% == SCROLL
+if %s.type% == SPELLCARD
 break
 end
-if %s.type% == OTHER
+if %s.type% == UNRESTRICTED
 break
 end
-if %s.type% == TREASURE
+if %s.type% == RESTRICTED
 break
 end
 end
@@ -688,17 +654,14 @@ end
 ~
 #1011
 clone spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg.is_pc% == 1
 %force% %actor% say Clone ON! Target %arg.name%!
 wait 1 sec
@@ -714,7 +677,7 @@ eval max 0
 eval u %arg.inventory(3203).contents%
 while %u%
 set next %u.next_in_list%
-if %u.type% == TREASURE && %actor.varexists(good_luck)%
+if %u.type% == RESTRICTED && %actor.varexists(good_luck)%
 if %u.cost% >= 130000
 %echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
 eval revert %u.vnum%
@@ -726,7 +689,7 @@ rdelete good_luck %actor.id%
 break
 end
 end
-if %u.type% == TREASURE
+if %u.type% == RESTRICTED
 eval max %max% + 1
 end
 set u %next%
@@ -736,7 +699,7 @@ eval steal %%random.%max%%%
 eval counter 0
 while %i%
 set next %i.next_in_list%
-if %i.type% == TREASURE
+if %i.type% == RESTRICTED
 eval counter %counter% + 1
 if %steal% == %counter% 
 break
@@ -766,17 +729,14 @@ end
 ~
 #1012
 railguide spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg.is_pc% == 1
 %force% %actor% say Railguide ON! Target %arg.name%!
 wait 1 sec
@@ -799,26 +759,22 @@ end
 ~
 #1013
 departure effect~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 eval depart 40000 + %random.8%
 %force% %actor% say Departure ON!
 %zoneecho% %depart% You see a bolt of energy flying through the skies.
 wait 1 sec
-%force% %actor% close binder
+
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-%purge% %actor.book_purge_leaves%
-rdelete book_purge_leaves %actor.id%
+
 set prevloc %self.room.vnum%
 %teleport% %actor% %depart%
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -833,24 +789,20 @@ end
 ~
 #1014
 leave spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 %force% %actor% say Leave ON!
 wait 1 sec
-%force% %actor% close binder
+
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-%purge% %actor.book_purge_leaves%
-rdelete book_purge_leaves %actor.id%
+
 set prevloc %self.room.vnum%
 %teleport% %actor% 1406
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -865,17 +817,14 @@ end
 ~
 #1015
 sightvision spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg.is_pc% == 1
 %force% %actor% say Sightvision ON! Target %arg.name%!
 wait 1 sec
@@ -903,17 +852,17 @@ eval counteru 0
 eval i %arg.inventory(3203).contents%
 while %i%
 set next %i.next_in_list%
-if %i.type% == TREASURE
+if %i.type% == RESTRICTED
 %send% %actor% %i.shortdesc%
 eval countert %countert% +1
 eval counterr %counterr% +1
 end
-if %i.type% == SCROLL
+if %i.type% == SPELLCARD
 %send% %actor% %i.shortdesc%
 eval countert %countert% +1
 eval counters %counters% +1
 end
-if %i.type% == OTHER
+if %i.type% == UNRESTRICTED
 %send% %actor% %i.shortdesc%
 eval countert %countert% +1
 eval counteru %counteru% +1
@@ -938,17 +887,14 @@ end
 ~
 #1016
 drift spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 %force% %actor% say Drift ON!
 wait 1 sec
 if  %actor.varexists(visited_antokiba)% && %actor.varexists(visited_masadora)% && %actor.varexists(visited_rabicuta)%
@@ -965,9 +911,8 @@ eval visited_antokiba 12064
 remote visited_antokiba %actor.id%
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-%force% %actor% close binder
-%purge% %actor.book_purge_leaves%
-rdelete book_purge_leaves %actor.id%
+
+
 set prevloc %self.room.vnum%
 %teleport% %actor% 12064
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -985,9 +930,8 @@ eval visited_masadora 3053
 remote visited_masadora %actor.id%
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-%force% %actor% close binder
-%purge% %actor.book_purge_leaves%
-rdelete book_purge_leaves %actor.id%
+
+
 set prevloc %self.room.vnum%
 %teleport% %actor% 3053
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -1005,9 +949,8 @@ eval visited_rabicuta 40031
 remote visited_rabicuta %actor.id%
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-%force% %actor% close binder
-%purge% %actor.book_purge_leaves%
-rdelete book_purge_leaves %actor.id%
+
+
 set prevloc %self.room.vnum%
 %teleport% %actor% 40031
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -1027,17 +970,17 @@ end
 ~
 #1017
 collision spell~
-1 c 3
-gai~
+1 c 1
+ga~
 if %self.carried_by% == %actor%
   %echo% You must hold something before gain it.
   halt
 end
-if !%actor.varexists(book_purge_leaves)%
+if !%actor.is_book%
   %send% %actor% You need your book activated before gain a spell card.
   halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
   %force% %actor% say Collision ON!
   while (%counter% < 100)
     makeuid mob 2+%counter%
@@ -1047,10 +990,7 @@ if %cmd% == gain
           %zoneecho% %mob.room.vnum% You see a bolt of energy flying through the skies.
           wait 1 sec
           %send% %actor% A bolt of energy envelops you!
-          %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-          %force% %actor% close binder
-          %purge% %actor.book_purge_leaves%
-          rdelete book_purge_leaves %actor.id%
+          %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.          
           set prevloc %self.room.vnum%
           %teleport% %actor% %mob.room.vnum%
           %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -1074,17 +1014,14 @@ end
 ~
 #1018
 levy spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 %force% %actor% say Levy ON!
 if %actor.room.roomflag(NO_MAGIC)%
 %send% %actor% Nothing happens.
@@ -1100,7 +1037,7 @@ eval u %i.inventory(3203).contents%
 while %u%
 set next %u.next_in_list%
 if %actor.varexists(good_luck)% && !%i.varexists(prison_spell)%
-if %u.type% == TREASURE
+if %u.type% == RESTRICTED
 %load% obj %u.vnum% %actor% inv
 %send% %actor% You stealed %u.shortdesc% from %i.name%!
 %echoaround% %actor% %actor.name% cast a spell card on %i.name%.
@@ -1133,19 +1070,19 @@ set card %actor.inventory(3203).contents%
 %echoaround% %i% %i.name% reflects a spell card back on %actor.name%.
 %send% %i% A defensive spell ends.
 rdelete reflection_spell %i.id%
-%purge% %i.inventory(2654)%
+%purge% %i.inventory(1054)%
 set y 0
 elseif %i.varexists(defensive_wall)%
 %send% %actor% %i.name% was protected by a spell!
 %send% %i% A defensive spell ends.
 rdelete defensive_wall %i.id%
-%purge% %i.inventory(2653)%
+%purge% %i.inventory(1053)%
 set y 0
 elseif %i.varexists(castle_gate)%
 %send% %actor% %i.name% was protected by a spell!
 %send% %i% A defensive spell ends.
 rdelete castle_gate %i.id%
-%purge% %i.inventory(2669)%
+%purge% %i.inventory(1069)%
 set y 0
 elseif %i.varexists(holy_water)%
 %send% %actor% %i.name% was protected by a spell!
@@ -1154,7 +1091,7 @@ remote holy_water %i.id%
 if %i.holy_water% < 1
 rdelete holy_water %i.id%
 %send% %i% A defensive spell ends.
-%purge% %i.inventory(2676)%
+%purge% %i.inventory(1076)%
 set y 0
 else
 %send% %i% A defensive spell weakens.
@@ -1185,13 +1122,10 @@ end
 ~
 #1019
 castle wall spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
@@ -1199,13 +1133,13 @@ if %actor.varexists(castle_gate)%
 %send% %actor% This spell is already active.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 %force% %actor% say Castle Wall ON!
 wait 1 sec
 %force% %actor% remove %self.name%
 detach 3216 %self.id%
 attach 3226 %self.id%
-%transform% 2669
+%transform% 1069
 eval castle_gate %actor.name%
 remote castle_gate %actor.id%
 %send% %actor% A faint aura covers you.
@@ -1221,17 +1155,14 @@ end
 ~
 #1020
 fake spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 %force% %actor% say Fake ON!
 wait 1 sec
 eval revert %self.vnum%
@@ -1241,7 +1172,6 @@ set new %actor.inventory%
 %send% %actor% The %self.shortdesc% transformed into %new.shortdesc%.
 %echoaround% %actor% %actor.name% cast a spell card on himself.
 detach all %new.id%
-attach 2670 %new.id%
 remote revert %new.id%
 %purge% %self%
 else
@@ -1250,19 +1180,16 @@ end
 ~
 #1021
 rob spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
 eval card %arg.car%
 eval target %arg.cdr%
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %target.is_pc%
 %force% %actor% say Rob ON! Target %target.name%!
 wait 1 sec
@@ -1278,13 +1205,13 @@ eval s %target.inventory(3203).contents%
 while %s%
 set next %s.next_in_list%
 if %s.name% == %card.name%
-if %s.type% == SCROLL
+if %s.type% == SPELLCARD
 break
 end
-if %s.type% == OTHER
+if %s.type% == UNRESTRICTED
 break
 end
-if %s.type% == TREASURE
+if %s.type% == RESTRICTED
 if %arg.varexists(prison_spell)%
 %send% %actor% %arg.name% was protected by a spell!
 %echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
@@ -1319,17 +1246,14 @@ end
 ~
 #1024
 penetrate spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg.is_pc% == 1
 %force% %actor% say Penetrate ON! Target %arg.name%!
 wait 1 sec
@@ -1345,15 +1269,15 @@ eval s %arg.inventory(3203).contents%
 while %s%
 set next %s.next_in_list%
 if %s.revert% > 0
-if %s.type% == SCROLL
+if %s.type% == SPELLCARD
 %load% obj %s.revert% %arg% inv
 %purge% %s%
 end
-if %s.type% == OTHER
+if %s.type% == UNRESTRICTED
 %load% obj %s.revert% %arg% inv
 %purge% %s%
 end
-if %s.type% == TREASURE
+if %s.type% == RESTRICTED
 if !%arg.varexists(prison_spell)%
 %purge% %s%
 end
@@ -1372,15 +1296,15 @@ eval i %actor.inventory(3203).contents%
 while %i%
 set next %i.next_in_list%
 if %i.revert% > 0
-if %i.type% == SCROLL
+if %i.type% == SPELLCARD
 %load% obj %i.revert% %actor% inv
 %purge% %i%
 end
-if %i.type% == OTHER
+if %i.type% == UNRESTRICTED
 %load% obj %i.revert% %actor% inv
 %purge% %i%
 end
-if %i.type% == TREASURE
+if %i.type% == RESTRICTED
 %purge% %i%
 end
 end
@@ -1399,13 +1323,10 @@ end
 ~
 #1025
 blackout curtain spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
@@ -1413,7 +1334,7 @@ if %actor.varexists(blackout_curtain)%
 %send% %actor% This spell is already active.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 %force% %actor% say Blackout Curtain ON!
 wait 1 sec
 eval blackout_curtain %actor.name%
@@ -1426,13 +1347,10 @@ end
 ~
 #1026
 holy water spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
@@ -1440,13 +1358,13 @@ if %actor.varexists(holy_water)%
 %send% %actor% This spell is already active.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 %force% %actor% say Holy Water ON!
 wait 1 sec
 %force% %actor% remove %self.name%
 detach 3216 %self.id%
 attach 3226 %self.id%
-%transform% 2676
+%transform% 1076
 eval holy_water 10
 remote holy_water %actor.id%
 %send% %actor% A strong aura covers you.
@@ -1457,17 +1375,14 @@ end
 ~
 #1027
 trace spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg.is_pc% == 1
 %force% %actor% say Trace ON! Target %arg.name%!
 wait 1 sec
@@ -1487,7 +1402,7 @@ remote holy_water %arg.id%
 if %arg.holy_water% < 1
 rdelete holy_water %arg.id%
 %send% %arg% A defensive spell ends.
-%purge% %arg.inventory(2676)%
+%purge% %arg.inventory(1076)%
 %purge% %self%
 halt
 else
@@ -1511,17 +1426,14 @@ end
 ~
 #1028
 stone throw spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg.is_pc% == 1
 %force% %actor% say Stone Throw ON! Target %arg.name%!
 wait 1 sec
@@ -1541,7 +1453,7 @@ remote holy_water %arg.id%
 if %arg.holy_water% < 1
 rdelete holy_water %arg.id%
 %send% %arg% A defensive spell ends.
-%purge% %arg.inventory(2676)%
+%purge% %arg.inventory(1076)%
 %purge% %self%
 halt
 else
@@ -1554,7 +1466,7 @@ eval max 0
 eval u %arg.inventory(3203).contents%
 while %u%
 set next %u.next_in_list%
-if %u.type% != TREASURE && %actor.varexists(good_luck)%
+if %u.type% != RESTRICTED && %actor.varexists(good_luck)%
 if %u.cost% >= 6600
 %load% obj %u.vnum% %actor% inv
 %send% %actor% You detroyed %u.shortdesc% from %arg.name%!
@@ -1565,7 +1477,7 @@ rdelete good_luck %actor.id%
 break
 end
 end
-if %u.type% != TREASURE
+if %u.type% != RESTRICTED
 eval max %max% + 1
 end
 set u %next%
@@ -1575,7 +1487,7 @@ eval steal %%random.%max%%%
 eval counter 0
 while %i%
 set next %i.next_in_list%
-if %i.type% != TREASURE
+if %i.type% != RESTRICTED
 eval counter %counter% + 1
 if %steal% == %counter% 
 break
@@ -1604,17 +1516,14 @@ end
 ~
 #1029
 shot spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg.is_pc% == 1
 %force% %actor% say Shot ON! Target %arg.name%!
 wait 1 sec
@@ -1637,7 +1546,7 @@ eval max 0
 eval u %arg.inventory(3203).contents%
 while %u%
 set next %u.next_in_list%
-if %u.type% == TREASURE && %actor.varexists(good_luck)%
+if %u.type% == RESTRICTED && %actor.varexists(good_luck)%
 if %u.cost% >= 130000
 %send% %actor% You destroyed %u.shortdesc% from %arg.name%!
 %echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
@@ -1647,7 +1556,7 @@ rdelete good_luck %actor.id%
 break
 end
 end
-if %u.type% == TREASURE
+if %u.type% == RESTRICTED
 eval max %max% + 1
 end
 set u %next%
@@ -1657,7 +1566,7 @@ eval steal %%random.%max%%%
 eval counter 0
 while %i%
 set next %i.next_in_list%
-if %i.type% == TREASURE
+if %i.type% == RESTRICTED
 eval counter %counter% + 1
 if %steal% == %counter% 
 break
@@ -1686,18 +1595,15 @@ end
 ~
 #1030
 guidepost spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
 set number %arg%
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %number% > 0 && %number% < 100
 %force% %actor% say Guidepost ON! Number %number%
 wait 1 sec
@@ -1718,7 +1624,7 @@ set item 653%number%
 %purge% %self%
 break
 default
-%send% %actor% This card number does not exist yet, try another.
+%send% %actor% This card number does not exist yet, try anUNRESTRICTED.
 break
 done
 else
@@ -1731,18 +1637,15 @@ end
 ~
 #1031
 analysis spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
 set number %arg%
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %number% > 0 && %number% < 100
 %force% %actor% say Analysis ON! Number %number%
 wait 1 sec
@@ -1763,7 +1666,7 @@ set item 653%number%
 %purge% %self%
 break
 default
-%send% %actor% This card number does not exist yet, try another.
+%send% %actor% This card number does not exist yet, try anUNRESTRICTED.
 break
 done
 else
@@ -1776,17 +1679,14 @@ end
 ~
 #1032
 lottery spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 %force% %actor% say Lottery ON!
 wait 1 sec
 set old %self.shortdesc%
@@ -1872,17 +1772,14 @@ end
 ~
 #1033
 adhesion spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg.is_pc% == 1
 %force% %actor% say Adhesion ON! Target %arg.name%!
 wait 1 sec
@@ -1902,7 +1799,7 @@ remote holy_water %arg.id%
 if %arg.holy_water% < 1
 rdelete holy_water %arg.id%
 %send% %arg% A defensive spell ends.
-%purge% %arg.inventory(2676)%
+%purge% %arg.inventory(1076)%
 %purge% %self%
 halt
 else
@@ -1926,17 +1823,14 @@ end
 ~
 #1034
 purify spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 eval f %actor.inventory%
 while %f%
 set next %f.next_in_list%
@@ -1969,13 +1863,10 @@ end
 ~
 #1035
 prison spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
@@ -1983,7 +1874,7 @@ if %actor.varexists(prison_spell)%
 %send% %actor% This spell is already active.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 %force% %actor% say Prison ON!
 wait 1 sec
 eval prison_spell 1
@@ -1997,13 +1888,10 @@ end
 ~
 #1036
 god eye spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
@@ -2011,7 +1899,7 @@ if %actor.varexists(god_eye)%
 %send% %actor% This spell is already active.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 %force% %actor% say God Eye ON!
 wait 1 sec
 eval god_eye 1
@@ -2023,17 +1911,14 @@ end
 ~
 #1037
 recycle spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 eval f %actor.inventory%
 while %f%
 set next %f.next_in_list%
@@ -2062,17 +1947,14 @@ end
 ~
 #1038
 list spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg.is_pc% == 1
 %send% %actor% Cannot find the target of your spell!
 halt
@@ -2085,23 +1967,20 @@ halt
 else
 eval locate %arg%
 remote locate %actor.id%
-attach 2688 %actor.id%
+attach 1088 %actor.id%
 %force% %actor% say List ON! %arg%!
 end
 ~
 #1039
 accompany spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg.is_pc% == 1
 set target %arg.room.vnum%
 %force% %actor% say Accompany ON! %arg.name%!
@@ -2109,11 +1988,6 @@ set target %arg.room.vnum%
 wait 1 sec
 * Your master first
 %send% %actor.master% A bolt of energy envelops you!
-if %actor.master.varexists(book_purge_leaves)%
-%force% %actor.master% close binder
-%purge% %actor.master.book_purge_leaves%
-rdelete book_purge_leaves %actor.master.id%
-end
 %teleport% %actor.master% %target%
 %force% %actor.master% look
 * Now your followers
@@ -2122,11 +1996,7 @@ while %i%
 set next %i.next_in_room%
 if %i.master% == %actor%
 %send% %i% A bolt of energy envelops you!
-if %i.varexists(book_purge_leaves)%
-%force% %i% close binder
-%purge% %i.book_purge_leaves%
-rdelete book_purge_leaves %i.id%
-end
+
 %teleport% %i% %target%
 %force% %i% look
 end
@@ -2136,9 +2006,8 @@ done
 %echoaround% %actor% A bolt of energy envelops %actor.name%'s group and sent them far away.
 %send% %target% A bolt of energy hits the ground near at you!
 %echoaround% %target% A bolt of energy hits the ground near at you!
-%force% %actor% close binder
-%purge% %actor.book_purge_leaves%
-rdelete book_purge_leaves %actor.id%
+
+
 %teleport% %actor% %target%
 %force% %actor% look
 %purge% %self%
@@ -2150,11 +2019,7 @@ set target %actor.visited_masadora%
 wait 1 sec
 * Your master first
 %send% %actor.master% A bolt of energy envelops you!
-if %actor.master.varexists(book_purge_leaves)%
-%force% %actor.master% close binder
-%purge% %actor.master.book_purge_leaves%
-rdelete book_purge_leaves %actor.master.id%
-end
+
 %teleport% %actor.master% %target%
 %force% %actor.master% look
 * Now your followers
@@ -2163,11 +2028,7 @@ while %i%
 set next %i.next_in_room%
 if %i.master% == %actor%
 %send% %i% A bolt of energy envelops you!
-if %i.varexists(book_purge_leaves)%
-%force% %i% close binder
-%purge% %i.book_purge_leaves%
-rdelete book_purge_leaves %i.id%
-end
+
 %teleport% %i% %target%
 %force% %i% look
 end
@@ -2175,9 +2036,8 @@ set i %next%
 done
 * And now you
 %echoaround% %actor% A bolt of energy envelops %actor.name%'s group and sent them far away.
-%force% %actor% close binder
-%purge% %actor.book_purge_leaves%
-rdelete book_purge_leaves %actor.id%
+
+
 %teleport% %actor% %target%
 %echoaround% %actor% A bolt of energy hits the ground near at you!
 %force% %actor% look
@@ -2190,11 +2050,7 @@ set target %actor.visited_antokiba%
 wait 1 sec
 * Your master first
 %send% %actor.master% A bolt of energy envelops you!
-if %actor.master.varexists(book_purge_leaves)%
-%force% %actor.master% close binder
-%purge% %actor.master.book_purge_leaves%
-rdelete book_purge_leaves %actor.master.id%
-end
+
 %teleport% %actor.master% %target%
 %force% %actor.master% look
 * Now your followers
@@ -2203,11 +2059,7 @@ while %i%
 set next %i.next_in_room%
 if %i.master% == %actor%
 %send% %i% A bolt of energy envelops you!
-if %i.varexists(book_purge_leaves)%
-%force% %i% close binder
-%purge% %i.book_purge_leaves%
-rdelete book_purge_leaves %i.id%
-end
+
 %teleport% %i% %target%
 %force% %i% look
 end
@@ -2215,9 +2067,8 @@ set i %next%
 done
 * And now you
 %echoaround% %actor% A bolt of energy envelops %actor.name%'s group and sent them far away.
-%force% %actor% close binder
-%purge% %actor.book_purge_leaves%
-rdelete book_purge_leaves %actor.id%
+
+
 %teleport% %actor% %target%
 %echoaround% %actor% A bolt of energy hits the ground near at you!
 %force% %actor% look
@@ -2230,11 +2081,7 @@ set target %actor.visited_rabicuta%
 wait 1 sec
 * Your master first
 %send% %actor.master% A bolt of energy envelops you!
-if %actor.master.varexists(book_purge_leaves)%
-%force% %actor.master% close binder
-%purge% %actor.master.book_purge_leaves%
-rdelete book_purge_leaves %actor.master.id%
-end
+
 %teleport% %actor.master% %target%
 %force% %actor.master% look
 * Now your followers
@@ -2243,11 +2090,7 @@ while %i%
 set next %i.next_in_room%
 if %i.master% == %actor%
 %send% %i% A bolt of energy envelops you!
-if %i.varexists(book_purge_leaves)%
-%force% %i% close binder
-%purge% %i.book_purge_leaves%
-rdelete book_purge_leaves %i.id%
-end
+
 %teleport% %i% %target%
 %force% %i% look
 end
@@ -2255,9 +2098,8 @@ set i %next%
 done
 * And now you
 %echoaround% %actor% A bolt of energy envelops %actor.name%'s group and sent them far away.
-%force% %actor% close binder
-%purge% %actor.book_purge_leaves%
-rdelete book_purge_leaves %actor.id%
+
+
 %teleport% %actor% %target%
 %echoaround% %actor% A bolt of energy hits the ground near at you!
 %force% %actor% look
@@ -2273,13 +2115,10 @@ end
 ~
 #1040
 contact spell~
-1 c 3
-gai~
-if %self.carried_by% == %actor%
-%echo% You must hold something before gain it.
-halt
-end
-if !%actor.varexists(book_purge_leaves)%
+1 c 1
+ga~
+
+if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
@@ -2287,18 +2126,18 @@ if %actor.varexists(contact)%
 %send% %actor% This spell is already active.
 halt
 end
-if %cmd% == gain
+if %cmd.mudcommand% == gain
 if %arg.is_pc% == 1
 %force% %actor% say Contact ON! %arg.name%!
 %at% 1407 %force% elena tell %arg.name% A player used a Contact to start a communication with you. Just use 	Rreply	r.
 %force% %actor% remove card
-%transform% 2680
+%transform% 1080
 wait 1 sec
 eval contact %arg.name%
 remote contact %actor.id%
 eval contact %actor.name%
 remote contact %arg.id%
-%at% 1407 %force% elena tell %actor.name% Now you can 	Rtell	r with the other player for the next 3 minutes.
+%at% 1407 %force% elena tell %actor.name% Now you can 	Rtell	r with the UNRESTRICTED player for the next 3 minutes.
 wait 180 sec
 %send% %arg% Contact with the player ends.
 %send% %actor% the communication time with the player got expired.
@@ -2340,6 +2179,6 @@ dg_cast 'locate obj' %self.locate%
 nop %actor.level(%lvl%)%
 rdelete locate %self.id%
 %purge% %self.eq(hold)%
-detach 2688 %self.id%
+detach 1088 %self.id%
 ~
 $~

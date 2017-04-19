@@ -317,12 +317,12 @@ void generic_complete_quest(struct char_data *ch)
         happy_gold = MAX(happy_gold, 0);
         increase_gold(ch, happy_gold);
         send_to_char(ch,
-              "You have been awarded %d gold coins for your service.\r\n",
+              "You have been awarded %d Jenny for your service.\r\n",
               happy_gold);
 	  } else {
         increase_gold(ch, QST_GOLD(rnum));
         send_to_char(ch,
-              "You have been awarded %d gold coins for your service.\r\n",
+              "You have been awarded %d Jenny for your service.\r\n",
               QST_GOLD(rnum));
       }
     }
@@ -770,7 +770,7 @@ ACMD(do_quest)
       case SCMD_QUEST_LIST:
       case SCMD_QUEST_JOIN:
         /* list, join should hve been handled by questmaster spec proc */
-        send_to_char(ch, "Sorry, but you cannot do that here!\r\n");
+        send_to_char(ch, "It seems has no questmaster here.\r\n");
         break;
       case SCMD_QUEST_HISTORY:
         quest_hist(ch);

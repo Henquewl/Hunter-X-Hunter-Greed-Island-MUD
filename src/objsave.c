@@ -22,6 +22,7 @@
 #include "config.h"
 #include "modify.h"
 #include "genolc.h" /* for strip_cr and sprintascii */
+#include "dg_scripts.h"
 
 /* these factors should be unique integers */
 #define RENT_FACTOR    1
@@ -513,10 +514,7 @@ static int Crash_is_unrentable(struct obj_data *obj)
   if (!obj)
     return FALSE;
 
-  if (OBJ_FLAGGED(obj, ITEM_NORENT) ||
-      GET_OBJ_RENT(obj) < 0 ||
-      GET_OBJ_RNUM(obj) == NOTHING ||
-      GET_OBJ_TYPE(obj) == ITEM_KEY) {
+  if (GET_OBJ_TYPE(obj) == ITEM_KEY) {
  log("Crash_is_unrentable: removing object %s", obj->short_description);
     return TRUE;
   }
@@ -779,7 +777,7 @@ static void Crash_rent_deadline(struct char_data *ch, struct char_data *recep,
   if (!cost)
     return;
 
-  rent_deadline = ((GET_GOLD(ch) + GET_BANK_GOLD(ch)) / cost);
+  rent_deadline = (((GET_GOLD(ch) + GET_BANK_GOLD(ch)) / cost) + (GET_LEVEL(ch) * 3));
   snprintf(buf, sizeof(buf), "$n tells you, 'You can stay out of the island for %ld day%s without losing your\r\n"
          "belongings.'\r\n", rent_deadline, rent_deadline != 1 ? "s" : "");
 act(buf, FALSE, recep, 0, ch, TO_VICT);
@@ -792,11 +790,14 @@ static int Crash_report_unrentables(struct char_data *ch, struct char_data *rece
   int has_norents = 0;
 
   if (obj) {
-    if (Crash_is_unrentable(obj)) {
+    if (Crash_is_unrentable(obj) || (!SCRIPT(obj) && GET_OBJ_TYPE(obj) == ITEM_TREASURE)) {
       has_norents = 1;
-      sprintf(buf, "$n tells you, 'You cannot leave with %s, please get rid of it first.'", OBJS(obj, ch));
+	  if (GET_OBJ_TYPE(obj) == ITEM_TREASURE)
+		sprintf(buf, "$n tells you, 'You cannot leave with %s fake, please get rid of it first.'", OBJS(obj, ch));
+	  else
+        sprintf(buf, "$n tells you, 'You cannot leave with %s, please get rid of it first.'", OBJS(obj, ch));
       act(buf, FALSE, recep, 0, ch, TO_VICT);
-    }
+    }		
     has_norents += Crash_report_unrentables(ch, recep, obj->contains);
     has_norents += Crash_report_unrentables(ch, recep, obj->next_content);
   }
@@ -914,15 +915,16 @@ static int gen_receptionist(struct char_data *ch, struct char_data *recep, int c
     if (mode == RENT_FACTOR)
       snprintf(buf, sizeof(buf), "$n tells you, 'Saving player's restricted cards in slots and items...'");
     else if (mode == CRYO_FACTOR)
-      snprintf(buf, sizeof(buf), "$n tells you, 'It will cost you %d gold coins to be frozen.'", cost);
+      snprintf(buf, sizeof(buf), "$n tells you, 'It will cost you %d Jenny to be frozen.'", cost);
     act(buf, FALSE, recep, 0, ch, TO_VICT);
 
-/*    if (cost > GET_GOLD(ch) + GET_BANK_GOLD(ch)) {
+/*  if (cost > GET_GOLD(ch) + GET_BANK_GOLD(ch)) {
       act("$n tells you, '...which I see you can't afford.'",
 	  FALSE, recep, 0, ch, TO_VICT);
       return (TRUE);
     }*/
-    if (cost && (mode == RENT_FACTOR))
+	
+	if (cost && (mode == RENT_FACTOR))
       Crash_rent_deadline(ch, recep, cost);
 
     if (mode == RENT_FACTOR) {

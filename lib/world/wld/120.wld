@@ -22,7 +22,7 @@ walls.  These windows provide a complete view of the competition fields.
 There are several scorecards, pencils and other items that are used by the
 judges sitting on a table.  The only exit is a trapdoor leading down.
 ~
-120 8 0 0 0 0
+120 32776 0 0 0 0
 D5
 There is a rickety ladder leading down.
 ~
@@ -46,7 +46,7 @@ the chariot races with an unobstructed view.  The seats are upholstered in
 red velvet and are in top-notch condition.  There is a rickety ladder leading
 up and a marble staircase leading down.
 ~
-120 12 0 0 0 0
+120 32780 0 0 0 0
 D4
 You see a rickety ladder with a trapdoor leading up.
 ~
@@ -196,7 +196,7 @@ on here; just bare dirty stone.  The view of the surrounding country is
 spectacular.  Unfortunately you can barely see the playing field.  There is
 a set of steps here, leading down.
 ~
-120 0 0 0 0 1
+120 32768 0 0 0 1
 D5
 Watch your step!
 ~
@@ -217,7 +217,7 @@ in preparation for the games.  The dust rising from the parched earth makes you
 want to sneeze.  Some stairs leads to north and the thunder of crowd can be
 heard coming from the east.
 ~
-120 12 0 0 0 0
+120 32780 0 0 0 0
 D1
 A large wooden door has a plaque attached who says:
 "Every day 15 until we have a winner"
@@ -255,7 +255,7 @@ The Rock-Paper-Scissors Arena~
 people watching your match and some vendors of hotdogs.  The only exit is locked
 by the Judge, to the west.
 ~
-120 148 0 0 0 1
+120 32916 0 0 0 1
 D3
 ~
 door~
@@ -307,7 +307,7 @@ D2
 It is difficult to see through the haze and dust.
 ~
 door~
-1 -1 12013
+1 0 12013
 D3
 It is difficult to see through the haze and dust.
 ~
@@ -324,8 +324,8 @@ from the east and passages lead north and south.
 D0
 A dusty road lies to the north.
 ~
-~
-0 -1 12012
+door~
+1 0 12012
 D1
 What is that smell??!!!  It is enough to make a yak gag!!!
 ~
@@ -492,7 +492,7 @@ S
 A Very Closed Trail~
 
 ~
-120 768 0 0 0 2
+120 33536 0 0 0 2
 D0
 ~
 ~
@@ -1009,6 +1009,10 @@ heart of Antokiba.  There are large crowds of people to the west and the road
 continues to the east.  The aqueduct is directly south of here.
 ~
 120 32768 0 0 0 1
+D0
+~
+~
+0 0 -1
 D1
 Clay Avenue continues in that direction.
 ~
@@ -1210,6 +1214,18 @@ at the entrance to the building.  The main entrance to the building
 is at the top of the steps.
 ~
 120 0 0 0 0 1
+D1
+~
+~
+0 0 12046
+D2
+~
+~
+0 0 12046
+D3
+~
+~
+0 0 12046
 D5
 The steps terminate onto Clay Avenue.
 ~
@@ -1693,9 +1709,11 @@ Clay Avenue lies in that direction.
 ~
 0 -1 12046
 D3
+A fake shelf hides a door.
+The shopkeeper of Antokiba says, 'Buzz off! employees only...'
 ~
-~
-4 0 12053
+door~
+4 -1 12053
 S
 #12064
 Before Antokiba~
@@ -1797,7 +1815,7 @@ S
 A Very Closed Trail~
 
 ~
-120 768 0 0 0 2
+120 33536 0 0 0 2
 D7
 ~
 ~
@@ -1843,7 +1861,7 @@ S
 Backyard Of The Tavern~
 
 ~
-120 28 0 0 0 0
+120 32796 0 0 0 0
 D0
 ~
 ~
@@ -1853,7 +1871,7 @@ S
 A Very Closed Trail~
 
 ~
-120 768 0 0 0 2
+120 33536 0 0 0 2
 D7
 ~
 ~
@@ -1862,5 +1880,29 @@ D9
 ~
 ~
 0 0 12070
+S
+#12075
+Hotel California~
+You are in an unfinished room.
+~
+120 0 0 0 0 0
+D2
+~
+~
+0 0 12039
+D4
+~
+~
+0 0 12076
+S
+#12076
+Room~
+
+~
+120 0 0 0 0 0
+D5
+~
+~
+0 0 12075
 S
 $~

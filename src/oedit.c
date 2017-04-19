@@ -430,7 +430,7 @@ static void oedit_disp_val1_menu(struct descriptor_data *d)
     write_to_output(d, "Hours to fill stomach : ");
     break;
   case ITEM_MONEY:
-    write_to_output(d, "Number of gold coins : ");
+    write_to_output(d, "Number of Jenny : ");
     break;
   case ITEM_FURNITURE:
     write_to_output(d, "Number of people it can hold : ");

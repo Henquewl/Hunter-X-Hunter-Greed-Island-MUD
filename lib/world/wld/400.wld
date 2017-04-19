@@ -445,16 +445,16 @@ D9
 ~
 0 0 40015
 E
-road dust dusty~
-   The road is well used, and quite dusty.  
+trail~
+   The forest trail winds westwards through the trees.  
 ~
 E
 tree trees forest~
    The trees are quite tall considering most of them appear to be quite young.
 ~
 E
-trail~
-   The forest trail winds westwards through the trees.  
+road dust dusty~
+   The road is well used, and quite dusty.  
 ~
 S
 #40017
@@ -1387,7 +1387,7 @@ E
 sign newbie~
 Dificult: H - G
 Tip: Start killing the crawlers.
-Useful Skills here: Infravision and Gyo
+Useful Skills here: Infravision and Detect concealed
 ~
 S
 #40071

@@ -254,7 +254,7 @@ Level     18
 Room      5575
 Flags     0 0 0 0
 End
-Text       killer mobs~
+Text      killer mobs~
 Body      I had a mob kill me and I was sent to the menu, still no ring. Had to die a second time to get a ring again.
 ~
 Name      Keberus~
@@ -263,4 +263,85 @@ Dated     1490071466
 Level     19
 Room      40000
 Flags     0 0 0 0
+End
+Text      peddler in the town square~
+Body      When the brass knuckes were gained and sold to the peddler, the cost is out of
+alignment:
+ ##   Available   Item                                               Cost
+----------------------------------------------------------------------------
+  1)          1   3146 Bronze Breast Plate F-250 card                4468
+  2)          1   H-0 Pet dragon collar card                            0
+  3)          1   2803 a brass knuckles H-285 card    306
+  4)          2   H-0 Bright green newbie vest card                     0
+  5)          3   18656 Shiny Newbie Dagger H-0 card                   72
+  6)  Unlimited   A canteen of clear water                             43
+  7)  Unlimited   A cup of lemonade                                     5
+  8)  Unlimited   An apple                                              4
+~
+Name      Enda~
+IdNum     29
+Dated     1491794960
+Level     4
+Room      12032
+Flags     0 0 0 0
+End
+Text      book is deleting cards in inventory~
+Body      bug submit book is deleting cards in inventory
+~
+Name      Testsubone~
+IdNum     2
+Dated     1491869767
+Level     10
+Room      18611
+Flags     1 0 0 0
+End
+Text      change antokiba mobs feet wear from scroll to sandalds ~
+Body      bug submit change antokiba mobs feet wear from scroll to sandalds 
+~
+Name      Henque~
+IdNum     1
+Dated     1492192669
+Level     34
+Room      12032
+Flags     1 0 0 0
+End
+Text      review spell booster pack trigger~
+Body      bug submit review spell booster pack trigger
+~
+Name      Henque~
+IdNum     1
+Dated     1492200304
+Level     34
+Room      12042
+Flags     4 0 0 0
+End
+Text      WARNING: EOF on socket read (connection broken by peer)~
+Body      bug submit WARNING: EOF on socket read (connection broken by peer)
+~
+Name      Henque~
+IdNum     1
+Dated     1492203607
+Level     34
+Room      208
+Flags     4 0 0 0
+End
+Text      Gyo~
+Body      Gyo is listed as detect concealed in skill list and cast 'gyo' results in message: Cast what?!?
+~
+Name      Fyriole~
+IdNum     23
+Dated     1492295322
+Level     8
+Room      40000
+Flags     1 0 0 0
+End
+Text      !IS_NPC for book command~
+Body      bug submit !IS_NPC for book command
+~
+Name      Henque~
+IdNum     1
+Dated     1492298140
+Level     34
+Room      40000
+Flags     1 0 0 0
 End

@@ -61,18 +61,20 @@ end
 ~
 #2806
 clear room~
-2 abs 100
+2 s 100
 ~
 wait 0.1 sec
 if %actor.has_item(1405)% || %actor.has_item(1406)% || %actor.has_item(1407)%
-%send% %actor% Loading...
-%teleport% %actor% 1407
-%force% %actor% give all.token elena
-%force% %actor% down
+  %send% %actor% Loading...
+  %teleport% %actor% 1407
+  %force% %actor% give all.token elena
+  %force% %actor% receive
+  %force% %actor% down
 elseif %actor.level% >= 2 || %actor.has_item(3203)%
-%send% %actor% Loading...
-%teleport% %actor% 1407
-%force% %actor% down
+  %send% %actor% Loading...
+  %teleport% %actor% 1407
+  %force% %actor% receive
+  %force% %actor% down
 end
 ~
 #2807
@@ -81,15 +83,16 @@ beans greet~
 has entered the game.~
 wait 2 sec
 if %actor.level% <= 1 && %actor.room% /= %self.room%
-say Hello candidate number %actor.id%
-wait 4 sec
-say You might be %actor.name%-sama, do you?
-wait 4 sec
-say Go 	Ynorth	n to learn more at Hunter exams!
-wait 4 sec
-say or go down if you already played MUD before.
-wait 4 sec
-smile %actor.name%
+  say Hello candidate number %actor.id%
+  wait 4 sec
+  say You might be %actor.name%-sama, do you?
+  wait 4 sec
+  say Go 	Ynorth	n to learn more at Hunter exams!
+  wait 4 sec
+  say or go down if you already played MUD before.
+  wait 4 sec
+  smile %actor.name%
+end
 ~
 #2808
 beans advice~

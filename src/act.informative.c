@@ -83,8 +83,7 @@ static void show_obj_to_char(struct obj_data *obj, struct char_data *ch, int mod
         goto end;
       }
     }
-  }
-
+  }  
   switch (mode) {
   case SHOW_OBJ_LONG:
     /* Hide objects starting with . from non-holylighted people. - Elaseth */
@@ -133,8 +132,24 @@ static void show_obj_to_char(struct obj_data *obj, struct char_data *ch, int mod
       send_to_char(ch, "It looks like a drink container.");
       break;
 
-    default:
-      send_to_char(ch, "You see nothing special..");
+    case ITEM_SCROLL:
+	  send_to_char(ch, "Unrestricted/Free slot spell card\r\n");
+	  send_to_char(ch, "You found a card without description, please report to the GMs!");
+	  break;
+	case ITEM_TREASURE:      
+	  send_to_char(ch, "Specified/Restricted slot card\r\n");
+      send_to_char(ch, "You found a card without description, please report to the GMs!");
+	  break;
+	  
+	case ITEM_OTHER:
+	  send_to_char(ch, "Unrestricted/Free slot card\r\n");
+	  send_to_char(ch, "This card contains an item!\r\n");
+	  send_to_char(ch, "\tcHow to use:\tY hold\tn this card and then\tY gain\tn.");
+	  break;
+	  
+	default:	  
+      send_to_char(ch, "You see nothing special..\r\n");
+	  send_to_char(ch, "\tcHow to use:\tY wear\tn or\tY wield\tn this item, or\tY hold\tn it and then\tY gain\tn.");
       break;
     }
     break;
@@ -206,6 +221,9 @@ static void list_obj_to_char(struct obj_data *list, struct char_data *ch, int mo
           if (display == i && !CAN_SEE_OBJ(ch, display))
             display = j;
         }
+		else if (!CAN_SEE_OBJ(ch, j) && j->carried_by == ch) {
+		  send_to_char(ch, "Something\r\n");
+		}
 
     /* When looking in room, hide objects starting with '.', except for holylight */
     if (num > 0 && (mode != SHOW_OBJ_LONG || *display->description != '.' ||
@@ -277,7 +295,7 @@ static void look_at_char(struct char_data *i, struct char_data *ch)
     act("$n is using:", FALSE, i, 0, ch, TO_VICT);
     for (j = 0; j < NUM_WEARS; j++)
       if (GET_EQ(i, j) && CAN_SEE_OBJ(ch, GET_EQ(i, j))) {
-	send_to_char(ch, "%s[%s%s%s]%s  ", QBCYN, QCYN, wear_where[j], QBCYN, QNRM);
+	send_to_char(ch, "%s[ %s%s%s]%s  ", QBCYN, QCYN, wear_where[j], QBCYN, QNRM);
 	show_obj_to_char(GET_EQ(i, j), ch, SHOW_OBJ_SHORT);
       }
   }
@@ -341,7 +359,7 @@ static void list_one_char(struct char_data *i, struct char_data *ch)
     if (AFF_FLAGGED(i, AFF_BLIND) && GET_LEVEL(i) < LVL_IMMORT)
       act("...$e is groping around blindly!", FALSE, i, 0, ch, TO_VICT);
     if (AFF_FLAGGED(i, AFF_FLYING) && GET_LEVEL(i) < LVL_IMMORT)
-      act("...$e is hovering over the ground!", FALSE, i, 0, ch, TO_VICT);
+      act("...$e is hovering over the ground!", FALSE, i, 0, ch, TO_VICT);    
 
     return;
   }
@@ -398,6 +416,13 @@ static void list_one_char(struct char_data *i, struct char_data *ch)
 
   if (AFF_FLAGGED(i, AFF_SANCTUARY))
     act("...$e glows with a bright light!", FALSE, i, 0, ch, TO_VICT);
+  if (AFF_FLAGGED(i, AFF_BLIND))
+    act("...$e is groping around blindly!", FALSE, i, 0, ch, TO_VICT);
+  if (AFF_FLAGGED(i, AFF_FLYING))
+    act("...$e is hovering over the ground!", FALSE, i, 0, ch, TO_VICT);  
+  if (PLR_FLAGGED(i, PLR_BOOK))
+	act("...$e is with the \tcG.I. \tBBook\ty open!\tn", FALSE, i, 0, ch, TO_VICT);
+  
 }
 
 static void list_char_to_char(struct char_data *list, struct char_data *ch)
@@ -797,12 +822,21 @@ ACMD(do_gold)
   else if (GET_GOLD(ch) == 1)
     send_to_char(ch, "You have one miserable little gold coin.\r\n");
   else
-    send_to_char(ch, "You have %d gold coins.\r\n", GET_GOLD(ch));
+    send_to_char(ch, "You have %d Jenny.\r\n", GET_GOLD(ch));
 }
 
 ACMD(do_score)
 {
   struct time_info_data playing_time;
+  int calc_accuracy;
+
+  calc_accuracy = 20;
+  calc_accuracy -= thaco(GET_CLASS(ch), GET_LEVEL(ch));
+  calc_accuracy += str_app[STRENGTH_APPLY_INDEX(ch)].tohit;
+  calc_accuracy += GET_HITROLL(ch);
+  calc_accuracy += (int) ((GET_DEX(ch) - 11) / 2);
+  calc_accuracy += (int) ((GET_INT(ch) - 11) / 3.5);
+  calc_accuracy += (int) ((GET_WIS(ch) - 11) / 3.5);
 
   if (IS_NPC(ch))
     return;
@@ -816,20 +850,26 @@ ACMD(do_score)
 	  QYEL, QCYN, GET_HIT(ch), GET_MAX_HIT(ch), QYEL, QCYN,  GET_MANA(ch), GET_MAX_MANA(ch),
 	  QYEL, QCYN, GET_MOVE(ch), GET_MAX_MOVE(ch), QYEL);
 
-  send_to_char(ch, "%sAura-Type: [%s%d%s]  AC: [%s%d(%d)%s]  Align: [%s%d%s]  Age: [%s%d%s]\r\n",
-	  QYEL, QCYN, (GET_CLASS(ch) + 1), QYEL, QCYN, compute_armor_class(ch), (compute_armor_class(ch) / 10), QYEL, QCYN,
-	  GET_ALIGNMENT(ch), QYEL, QCYN, GET_AGE(ch), QYEL);
+  send_to_char(ch, "%sAura-Type: [%s%d%s]  AR: [%s%d%s]  Align: [%s%d%s]  Age: [%s%d%s]\r\n",
+	  QYEL, QCYN, (GET_CLASS(ch) + 1), QYEL, QCYN, ((compute_armor_class(ch) - 100) * -1), QYEL, QCYN,
+	  GET_ALIGNMENT(ch), QYEL, QCYN, GET_AGE(ch), QYEL);  
 	  
   send_to_char(ch, "%sStr: [%s%d/%d%s]  Int: [%s%d%s]  Wis: [%s%d%s]  Dex: [%s%d%s]  Con: [%s%d%s]  Cha: [%s%d%s]\r\n",
       QYEL, QCYN, GET_STR(ch), GET_ADD(ch), QYEL, QCYN, GET_INT(ch), QYEL, QCYN, GET_WIS(ch),
 	  QYEL, QCYN, GET_DEX(ch), QYEL, QCYN, GET_CON(ch), QYEL, QCYN, GET_CHA(ch), QYEL);
-	  
-  send_to_char(ch, "%sHitroll: [%s%d%s]  Damroll: [%s%d%s]  Hatsu Saving Throw: [%s%d%s]\r\n",
-      QYEL, QCYN, GET_HITROLL(ch), QYEL, QCYN, GET_DAMROLL(ch), QYEL, QCYN, GET_SAVE(ch, SAVING_SPELL), QYEL);
 
+  if (!GET_EQ(ch, WEAR_WIELD)) {	  
+    send_to_char(ch, "%sAccuracy: [%s%d%s]  Damage: [%s1~2+%d%s]  Hatsu Saving Throw: [%s%d%s]\r\n",
+        QYEL, QCYN, calc_accuracy, QYEL, QCYN, (str_app[STRENGTH_APPLY_INDEX(ch)].todam + GET_DAMROLL(ch)), QYEL, QCYN, GET_SAVE(ch, SAVING_SPELL), QYEL);
+  }
+  else {  
+    send_to_char(ch, "%sAccuracy: [%s%d%s]  Damage: [%s%d~%d+%d%s]  Hatsu Saving Throw: [%s%d%s]\r\n",
+        QYEL, QCYN, calc_accuracy, QYEL, QCYN, GET_OBJ_VAL(GET_EQ(ch, WEAR_WIELD), 1), (GET_OBJ_VAL(GET_EQ(ch, WEAR_WIELD), 2) * GET_OBJ_VAL(GET_EQ(ch, WEAR_WIELD), 1)), (str_app[STRENGTH_APPLY_INDEX(ch)].todam + GET_DAMROLL(ch)), QYEL, QCYN, GET_SAVE(ch, SAVING_SPELL), QYEL);
+  }
   send_to_char(ch, "%sExp: [%s%d%s]  Gold: [%s%d%s]  Quest Points: [%s%d%s]\r\n",
 	  QYEL, QCYN, GET_EXP(ch), QYEL, QCYN, GET_GOLD(ch), QYEL, QCYN, GET_QUESTPOINTS(ch), QYEL);
 
+	  
   if (GET_LEVEL(ch) < LVL_IMMORT)
     send_to_char(ch, "%sYou need %s%d %sexp to reach your next level.\r\n",
 	QYEL, QCYN, level_exp(GET_CLASS(ch), GET_LEVEL(ch) + 1) - GET_EXP(ch), QYEL);
@@ -998,6 +1038,82 @@ ACMD(do_affects)
   }
 }
 
+ACMD(do_progress)
+{
+  struct char_data *tmp_char;
+  struct obj_data *tmp_object, *next_obj;
+  int binder, total = 0, card = 65300, i = 2, number = 0, found = FALSE;   
+  
+  if (!(binder = generic_find("binder", FIND_OBJ_INV, ch, &tmp_char, &tmp_object))){
+	send_to_char(ch, "Complete the tutorial first!\r\n");    	
+  } else {
+	for (next_obj = tmp_object->contains; next_obj; next_obj = next_obj->next_content){
+	  if (GET_OBJ_VNUM(next_obj) == card){
+	    send_to_char(ch, "00{|--------------------------|%-27.27s \tn|--------------------------|\r\n", next_obj->short_description);
+        total++;		
+        found = TRUE;
+	  }
+	}
+    if (!found){
+	  send_to_char(ch, "00{|--------------------------|           \tD%-14.3d\tn |--------------------------|\r\n", number);          		  
+	}
+    card++;
+	number++;
+	
+    while (i < 35){
+	  i++;
+	  found = FALSE;
+      for (next_obj = tmp_object->contains; next_obj; next_obj = next_obj->next_content){
+	    if (GET_OBJ_VNUM(next_obj) == card){
+	      send_to_char(ch, "%-2.2d{| %-26.26s \tn|", (i / 3), next_obj->short_description);
+          total++;
+		  if (!SCRIPT(next_obj))
+		    total--;		  
+          found = TRUE;
+	    }
+	  }
+      if (!found){
+	  send_to_char(ch, "%-2.2d{|           \tD%-14.3d\tn |",(i / 3) , number);        		  
+	  } else {
+		
+	  }
+	  card++;
+	  number++;
+	  found = FALSE;
+	  for (next_obj = tmp_object->contains; next_obj; next_obj = next_obj->next_content){
+	    if (GET_OBJ_VNUM(next_obj) == card){
+	      send_to_char(ch, " %-26.26s \tn|", next_obj->short_description);
+          total++;		  
+          found = TRUE;
+	    }
+	  }
+      if (!found){
+	  send_to_char(ch, "           \tD%-14.3d\tn |", number);
+	  }
+	  card++;
+	  number++;
+	  found = FALSE;
+	  for (next_obj = tmp_object->contains; next_obj; next_obj = next_obj->next_content){
+	    if (GET_OBJ_VNUM(next_obj) == card){
+	      send_to_char(ch, " %-26.26s \tn|\r\n", next_obj->short_description);
+          total++;		  
+          found = TRUE;
+	    }
+	  }
+      if (!found){
+	  send_to_char(ch, "           \tD%-14.3d\tn |\r\n", number);
+	  }
+	  card++;
+	  number++;      
+	}
+	send_to_char(ch, "-------------------------------------------------------------------------------------\r\n");
+    send_to_char(ch, "Restricted/Specified slot cards obtained: %d/100\r\n", total);
+	if (total >= 35)
+	  mudlog(BRF, LVL_GOD, TRUE, "END GAME: %s has obtained %d restricted cards!", GET_NAME(ch), total);
+  }	 
+}	
+
+
 ACMD(do_inventory)
 {
   send_to_char(ch, "You are carrying:\r\n");
@@ -1011,16 +1127,16 @@ ACMD(do_equipment)
   send_to_char(ch, "You are using:\r\n");
   for (i = 0; i < NUM_WEARS; i++) {
     if (!GET_EQ(ch, i)) {
-      send_to_char(ch, "%s[%s%s%s]%s  ", QBCYN, QCYN, wear_where[i], QBCYN, QNRM);
+      send_to_char(ch, "%s[ %s%s%s]%s  ", QBCYN, QCYN, wear_where[i], QBCYN, QNRM);
       send_to_char(ch, "None.\r\n"); 
       continue;
 	} else {
 //      found = TRUE;
       if (CAN_SEE_OBJ(ch, GET_EQ(ch, i))) {
-        send_to_char(ch, "%s[%s%s%s]%s  ", QBCYN, QCYN, wear_where[i], QBCYN, QNRM);
+        send_to_char(ch, "%s[ %s%s%s]%s  ", QBCYN, QCYN, wear_where[i], QBCYN, QNRM);
         show_obj_to_char(GET_EQ(ch, i), ch, SHOW_OBJ_SHORT);
       } else {
-        send_to_char(ch, "%s[%s%s%s]%s  ", QBCYN, QCYN, wear_where[i], QBCYN, QNRM);
+        send_to_char(ch, "%s[ %s%s%s]%s  ", QBCYN, QCYN, wear_where[i], QBCYN, QNRM);
         send_to_char(ch, "Something.\r\n");
       }
     }
@@ -1188,7 +1304,7 @@ ACMD(do_who)
   struct char_data *tch;
   int i, num_can_see = 0;
   char name_search[MAX_INPUT_LENGTH], buf[MAX_INPUT_LENGTH];
-  char mode;
+//  char mode;
   int low = 0, high = LVL_IMPL, localwho = 0, questwho = 0;
   int showclass = 0, short_list = 0, outlaws = 0;
   int who_room = 0, showgroup = 0, showleader = 0;
@@ -1200,46 +1316,46 @@ ACMD(do_who)
     int count; /* must always start as 0 */
   } rank[] = {
     { "Game Masters\r\n------------\r\n", LVL_IMMORT, LVL_IMPL, 0},
-    { "Players\r\n-------\r\n", 1, LVL_IMMORT - 1, 0 },
+    { "Online Players\r\n-------\r\n", 1, LVL_IMMORT - 1, 0 },
     { "\n", 0, 0, 0 }
   };
 
   skip_spaces(&argument);
   strcpy(buf, argument);   /* strcpy: OK (sizeof: argument == buf) */
   name_search[0] = '\0';
-
+/*
   while (*buf) {
     char arg[MAX_INPUT_LENGTH], buf1[MAX_INPUT_LENGTH];
 
     half_chop(buf, arg, buf1);
     if (isdigit(*arg)) {
       sscanf(arg, "%d-%d", &low, &high);
-      strcpy(buf, buf1);   /* strcpy: OK (sizeof: buf1 == buf) */
+      strcpy(buf, buf1);
     } else if (*arg == '-') {
-      mode = *(arg + 1);       /* just in case; we destroy arg in the switch */
+      mode = *(arg + 1);
       switch (mode) {
       case 'k':
         outlaws = 1;
-        strcpy(buf, buf1);   /* strcpy: OK (sizeof: buf1 == buf) */
+        strcpy(buf, buf1);
         break;
       case 'z':
         localwho = 1;
-        strcpy(buf, buf1);   /* strcpy: OK (sizeof: buf1 == buf) */
+        strcpy(buf, buf1);
         break;
       case 's':
         short_list = 1;
-        strcpy(buf, buf1);   /* strcpy: OK (sizeof: buf1 == buf) */
+        strcpy(buf, buf1);
         break;
       case 'q':
         questwho = 1;
-        strcpy(buf, buf1);   /* strcpy: OK (sizeof: buf1 == buf) */
+        strcpy(buf, buf1);
         break;
       case 'n':
         half_chop(buf1, name_search, buf);
         break;
       case 'r':
         who_room = 1;
-        strcpy(buf, buf1);   /* strcpy: OK (sizeof: buf1 == buf) */
+        strcpy(buf, buf1);
         break;
       case 'c':
         half_chop(buf1, arg, buf);
@@ -1247,11 +1363,11 @@ ACMD(do_who)
         break;
       case 'l':
         showleader = 1;
-        strcpy(buf, buf1);   /* strcpy: OK (sizeof: buf1 == buf) */
+        strcpy(buf, buf1);
         break;
       case 'g':
         showgroup = 1;
-        strcpy(buf, buf1);   /* strcpy: OK (sizeof: buf1 == buf) */
+        strcpy(buf, buf1);
         break;
       default:
         send_to_char(ch, "%s", WHO_FORMAT);
@@ -1262,7 +1378,9 @@ ACMD(do_who)
       return;
     }
   }
-
+*/
+  short_list = 1;  
+  
   for (d = descriptor_list; d && !short_list; d = d->next) {
     if (d->original)
       tch = d->original;
@@ -1300,7 +1418,7 @@ ACMD(do_who)
       continue;
 
     if (short_list)
-      send_to_char(ch, "Players\r\n-------\r\n");
+      send_to_char(ch, "Online Players\r\n-------\r\n");
     else
       send_to_char(ch, "%s", rank[i].disp);
 
@@ -1335,9 +1453,10 @@ ACMD(do_who)
         continue;
 
       if (short_list) {
-        send_to_char(ch, "%s%-12.12s%s%s",
-          (GET_LEVEL(tch) >= LVL_IMMORT ? CCYEL(ch, C_SPR) : "" || GET_LEVEL(tch) < LVL_IMMORT ? CCCYN(ch, C_SPR) : ""),
-          GET_NAME(tch), CCNRM(ch, C_SPR), ((!(++num_can_see % 4)) ? "\r\n" : ""));
+        sprintf(buf, "%s%s%s", GET_NAME(tch), (*GET_TITLE(tch) ? " " : ""), GET_TITLE(tch));
+		send_to_char(ch, "%s%-23.23s%s%s",
+          (GET_LEVEL(tch) >= LVL_IMMORT ? CBYEL(ch, C_SPR) : "" || GET_LEVEL(tch) < LVL_IMMORT ? CBWHT(ch, C_SPR) : ""),
+          buf, CCNRM(ch, C_SPR), ((!(++num_can_see % 3)) ? "\r\n" : "   "));
       } else {
         num_can_see++;
         send_to_char(ch, "%s* %s%s%s%s",
@@ -1393,8 +1512,6 @@ ACMD(do_who)
           send_to_char(ch, " (noshout)");
         if (PRF_FLAGGED(tch, PRF_NOTELL))
           send_to_char(ch, " (notell)");
-        if (PRF_FLAGGED(tch, PRF_QUEST))
-          send_to_char(ch, " (quest)");
         if (PLR_FLAGGED(tch, PLR_THIEF))
           send_to_char(ch, " (THIEF)");
         if (PLR_FLAGGED(tch, PLR_KILLER))

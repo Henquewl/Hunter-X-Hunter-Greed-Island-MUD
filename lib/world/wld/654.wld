@@ -1564,25 +1564,19 @@ D3
 0 0 65494
 S
 #65471
-Inside 6 First Avenue~
-   This room is a convenient space where the owner of the house can leave things
-to have them protected against crashes and reboots.  If this is a vacant house,
-do not leave your things here.  Only owned houses are protected.  
- 
-   Guests can also leave things.  If this is your house, typing 'house' with the
-name of a player will add that player to your guest list if the player is not on
-the list, or will remove the player from the guest list if the player is already
-on the list.  The player specified must be in the player database for the MUD,
-Although he or she does not necessarily have to be logged on at the time.  
-Typing 'house' with no arguments gives a list of the people currently on your
-house's guest list.
+Shit happens~
+
 ~
 654 8 0 0 0 0
 D3
    The atrium of the house lies this way.
 ~
 ~
-0 0 65470
+0 0 -1
+D5
+~
+~
+0 0 40000
 S
 #65472
 Atrium - 7 First Avenue~

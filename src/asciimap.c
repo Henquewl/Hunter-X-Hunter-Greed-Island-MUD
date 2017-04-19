@@ -111,11 +111,11 @@ static struct map_info_type compact_door_info[] =
 /* New sectors also need to be added to the perform_map function below */
 static struct map_info_type map_info[] =
 {
-  { SECT_INSIDE,       "\tc[\tw.\tc]\tn" }, /* 0 */
-  { SECT_CITY,         "\tc[\tWR\tc]\tn" },
-  { SECT_FIELD,        "\tc[\tG,\tc]\tn" },
-  { SECT_FOREST,       "\tc[\tgF\tc]\tn" },
-  { SECT_HILLS,        "\tc[\tyH\tc]\tn" },
+  { SECT_INSIDE,       "\tc[\tn.\tc]\tn" }, /* 0 */
+  { SECT_CITY,         "\tc[\tyR\tc]\tn" },
+  { SECT_FIELD,        "\tc[\tg,\tc]\tn" },
+  { SECT_FOREST,       "\tc[\tGF\tc]\tn" },
+  { SECT_HILLS,        "\tc[\twH\tc]\tn" },
   { SECT_MOUNTAIN,     "\tc[\tDM\tc]\tn" }, /* 5 */
   { SECT_WATER_SWIM,   "\tc[\tc~\tc]\tn" },
   { SECT_WATER_NOSWIM, "\tc[\tB=\tc]\tn" },

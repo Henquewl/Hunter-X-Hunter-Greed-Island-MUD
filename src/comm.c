@@ -1124,7 +1124,7 @@ static char *make_prompt(struct descriptor_data *d)
 
   if (d->showstr_count)
     snprintf(prompt, sizeof(prompt),
-      "[ Enter to continue, (q)uit, (r)efresh, (b)ack, or page number (%d/%d) ]",
+      "[ PRESS ENTER to continue, (q)uit, (r)efresh, (b)ack, or page number (%d/%d) ]",
       d->showstr_page, d->showstr_count);
   else if (d->str)
     strcpy(prompt, "] ");	/* strcpy: OK (for 'MAX_PROMPT_LENGTH >= 3') */
@@ -1181,6 +1181,12 @@ static char *make_prompt(struct descriptor_data *d)
         if (count >= 0)
           len += count;
       }
+    }
+	
+	if (PLR_FLAGGED(d->character, PLR_BOOK) && len < sizeof(prompt)) {
+      count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%sBOOK%s> ", BYEL, CNRM);
+      if (count >= 0)
+        len += count;
     }
 
     if (PRF_FLAGGED(d->character, PRF_BUILDWALK) && len < sizeof(prompt)) {

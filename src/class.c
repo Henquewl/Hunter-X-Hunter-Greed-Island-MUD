@@ -117,10 +117,10 @@ bitvector_t find_class_bitvector(const char *arg)
 
 int prac_params[4][NUM_CLASSES] = {
   /* MAG	CLE	THE	WAR MAN */
-  { 95,		95,	95,	80,	95, 95	},	/* learned level */
-  { 100,	100,	100,	40,	100, 100	},	/* max per practice */
+  { 95,		95,	95,	95,	95, 95	},	/* learned level */
+  { 100,	100,	100,	100,	100, 100	},	/* max per practice */
   { 25,		25,	25,	25,	25, 25	},	/* min per practice */
-  { SKILL,	SKILL,	SKILL,	SKILL,	SKILL, SKILL	},	/* prac name */
+  { SPELL,	SPELL,	SPELL,	SKILL,	SPELL, SPELL	},	/* prac name */
 };
 
 /* The appropriate rooms for each guildmaster/guildguard; controls which types
@@ -2004,7 +2004,6 @@ void do_start(struct char_data *ch)
   GET_EXP(ch) = 1;
 
   set_title(ch, NULL);
-  roll_real_abils(ch);
 
   GET_MAX_HIT(ch)  = 18;
   GET_MAX_MANA(ch) = 100;
@@ -2013,54 +2012,58 @@ void do_start(struct char_data *ch)
   switch (GET_CLASS(ch)) {
 
   case CLASS_MAGIC_USER:
-    SET_SKILL(ch, SKILL_SNEAK, 50);
-    SET_SKILL(ch, SKILL_HIDE, 50);
+    SET_SKILL(ch, SKILL_SNEAK, 45);
+    SET_SKILL(ch, SKILL_HIDE, 45);
     SET_SKILL(ch, SKILL_STEAL, 95);
-    SET_SKILL(ch, SKILL_PICK_LOCK, 50);
-    SET_SKILL(ch, SKILL_TRACK, 50);
+    SET_SKILL(ch, SKILL_PICK_LOCK, 45);
+    SET_SKILL(ch, SKILL_TRACK, 20);
+	SET_SKILL(ch, SKILL_RESCUE, 45);
     break;
 
   case CLASS_CLERIC:
-    SET_SKILL(ch, SKILL_SNEAK, 50);
-    SET_SKILL(ch, SKILL_HIDE, 50);
-    SET_SKILL(ch, SKILL_STEAL, 50);
+    SET_SKILL(ch, SKILL_SNEAK, 45);
+    SET_SKILL(ch, SKILL_HIDE, 45);
+    SET_SKILL(ch, SKILL_STEAL, 45);
     SET_SKILL(ch, SKILL_PICK_LOCK, 95);
-    SET_SKILL(ch, SKILL_TRACK, 50);
+    SET_SKILL(ch, SKILL_TRACK, 20);
+	SET_SKILL(ch, SKILL_RESCUE, 45);
     break;
 
   case CLASS_THIEF:
     SET_SKILL(ch, SKILL_SNEAK, 95);
-    SET_SKILL(ch, SKILL_HIDE, 50);
-    SET_SKILL(ch, SKILL_STEAL, 50);
-    SET_SKILL(ch, SKILL_PICK_LOCK, 50);
-    SET_SKILL(ch, SKILL_TRACK, 50);
+    SET_SKILL(ch, SKILL_HIDE, 45);
+    SET_SKILL(ch, SKILL_STEAL, 45);
+    SET_SKILL(ch, SKILL_PICK_LOCK, 45);
+    SET_SKILL(ch, SKILL_TRACK, 20);
+	SET_SKILL(ch, SKILL_RESCUE, 45);
 	break;
 
   case CLASS_WARRIOR:
-    SET_SKILL(ch, SKILL_SNEAK, 40);
-    SET_SKILL(ch, SKILL_HIDE, 40);
-    SET_SKILL(ch, SKILL_STEAL, 40);
-    SET_SKILL(ch, SKILL_PICK_LOCK, 40);
-    SET_SKILL(ch, SKILL_TRACK, 40);
-	SET_SKILL(ch, SKILL_RESCUE, 80);
-	SET_SKILL(ch, SKILL_KICK, 40);
+    SET_SKILL(ch, SKILL_SNEAK, 45);
+    SET_SKILL(ch, SKILL_HIDE, 45);
+    SET_SKILL(ch, SKILL_STEAL, 45);
+    SET_SKILL(ch, SKILL_PICK_LOCK, 45);
+    SET_SKILL(ch, SKILL_TRACK, 20);
+	SET_SKILL(ch, SKILL_RESCUE, 95);
+	SET_SKILL(ch, SKILL_KICK, 20);
 	break;
 	
   case CLASS_MANIPULATOR:
-    SET_SKILL(ch, SKILL_SNEAK, 50);
+    SET_SKILL(ch, SKILL_SNEAK, 45);
     SET_SKILL(ch, SKILL_HIDE, 95);
-    SET_SKILL(ch, SKILL_STEAL, 50);
-    SET_SKILL(ch, SKILL_PICK_LOCK, 50);
-    SET_SKILL(ch, SKILL_TRACK, 50);
+    SET_SKILL(ch, SKILL_STEAL, 45);
+    SET_SKILL(ch, SKILL_PICK_LOCK, 45);
+    SET_SKILL(ch, SKILL_TRACK, 20);
+	SET_SKILL(ch, SKILL_RESCUE, 45);
 	break;
   case CLASS_SPECIALIST:
-    SET_SKILL(ch, SKILL_SNEAK, 50);
-    SET_SKILL(ch, SKILL_HIDE, 50);
-    SET_SKILL(ch, SKILL_STEAL, 50);
-    SET_SKILL(ch, SKILL_PICK_LOCK, 50);
-    SET_SKILL(ch, SKILL_TRACK, 50);
-	SET_SKILL(ch, SKILL_KICK, 50);
-	SET_SKILL(ch, SKILL_RESCUE, 50);
+    SET_SKILL(ch, SKILL_SNEAK, 45);
+    SET_SKILL(ch, SKILL_HIDE, 45);
+    SET_SKILL(ch, SKILL_STEAL, 45);
+    SET_SKILL(ch, SKILL_PICK_LOCK, 45);
+    SET_SKILL(ch, SKILL_TRACK, 20);
+	SET_SKILL(ch, SKILL_KICK, 20);
+	SET_SKILL(ch, SKILL_RESCUE, 45);
 	break;
   }
 
@@ -2136,12 +2139,12 @@ void advance_level(struct char_data *ch)
 
   if (GET_LEVEL(ch) > 1)
     ch->points.max_mana += add_mana;
-
+/*
   if (IS_MAGIC_USER(ch) || IS_CLERIC(ch) || IS_THIEF(ch) || IS_MANIPULATOR(ch) || IS_SPECIALIST(ch))
     GET_PRACTICES(ch) += MAX(3, wis_app[GET_WIS(ch)].bonus);
   else
     GET_PRACTICES(ch) += MIN(3, MAX(2, wis_app[GET_WIS(ch)].bonus));
-
+*/
   if (GET_LEVEL(ch) >= LVL_IMMORT) {
     for (i = 0; i < 3; i++)
       GET_COND(ch, i) = (char) -1;
@@ -2202,6 +2205,7 @@ void init_spell_levels(void)
   spell_level(SKILL_HIDE, CLASS_MAGIC_USER, 1);
   spell_level(SKILL_TRACK, CLASS_MAGIC_USER, 1);
   spell_level(SKILL_STEAL, CLASS_MAGIC_USER, 1);
+  spell_level(SKILL_RESCUE, CLASS_MAGIC_USER, 1);
   spell_level(SPELL_DETECT_INVIS, CLASS_MAGIC_USER, 1);
   spell_level(SPELL_CURE_LIGHT, CLASS_MAGIC_USER, 1);
   spell_level(SPELL_DETECT_MAGIC, CLASS_MAGIC_USER, 2);
@@ -2230,6 +2234,7 @@ void init_spell_levels(void)
   spell_level(SKILL_HIDE, CLASS_CLERIC, 1);
   spell_level(SKILL_TRACK, CLASS_CLERIC, 1);
   spell_level(SKILL_STEAL, CLASS_CLERIC, 1);
+  spell_level(SKILL_RESCUE, CLASS_CLERIC, 1);
   spell_level(SPELL_DETECT_INVIS, CLASS_CLERIC, 1);
   spell_level(SPELL_ARMOR, CLASS_CLERIC, 1);
   spell_level(SPELL_CREATE_FOOD, CLASS_CLERIC, 2);
@@ -2262,6 +2267,7 @@ void init_spell_levels(void)
   spell_level(SKILL_HIDE, CLASS_THIEF, 1);
   spell_level(SKILL_TRACK, CLASS_THIEF, 1);
   spell_level(SKILL_STEAL, CLASS_THIEF, 1);
+  spell_level(SKILL_RESCUE, CLASS_THIEF, 1);
   spell_level(SPELL_DETECT_INVIS, CLASS_THIEF, 1);
   spell_level(SPELL_MAGIC_MISSILE, CLASS_THIEF, 1);
   spell_level(SPELL_BLESS, CLASS_THIEF, 2);
@@ -2311,6 +2317,7 @@ void init_spell_levels(void)
   spell_level(SKILL_HIDE, CLASS_MANIPULATOR, 1);
   spell_level(SKILL_TRACK, CLASS_MANIPULATOR, 1);
   spell_level(SKILL_STEAL, CLASS_MANIPULATOR, 1);
+  spell_level(SKILL_RESCUE, CLASS_MANIPULATOR, 1);
   spell_level(SPELL_DETECT_INVIS, CLASS_MANIPULATOR, 1);
   spell_level(SPELL_CHILL_TOUCH, CLASS_MANIPULATOR, 1);
   spell_level(SPELL_DETECT_MAGIC, CLASS_MANIPULATOR, 2);

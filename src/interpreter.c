@@ -95,7 +95,7 @@ cpp_extern const struct command_info cmd_info[] = {
   { "astat"    , "ast"     , POS_DEAD    , do_astat    , 0, 0 },
   { "attach"   , "attach"  , POS_DEAD    , do_attach   , LVL_BUILDER, 0 },
   { "auction"  , "auc"     , POS_SLEEPING, do_gen_comm , LVL_IMMORT, SCMD_AUCTION },
-  { "autoexits" , "autoex"  , POS_DEAD    , do_gen_tog , 0, SCMD_AUTOEXIT },
+  { "autoexits" , "autoex" , POS_DEAD    , do_gen_tog , 0, SCMD_AUTOEXIT },
   { "autoassist","autoass" , POS_DEAD    , do_gen_tog , 0, SCMD_AUTOASSIST },
   { "autodoor" , "autodoor", POS_DEAD    , do_gen_tog , 0, SCMD_AUTODOOR },
   { "autogold" , "autogold", POS_DEAD    , do_gen_tog , 0, SCMD_AUTOGOLD },
@@ -105,13 +105,14 @@ cpp_extern const struct command_info cmd_info[] = {
   { "autosac"  , "autosac" , POS_DEAD    , do_gen_tog , LVL_IMMORT, SCMD_AUTOSAC },
   { "autosplit", "autospl" , POS_DEAD    , do_gen_tog , 0, SCMD_AUTOSPLIT },
 
+  { "book"     , "bo"      , POS_SITTING , do_book , 0, 0 },
   { "backstab" , "ba"      , POS_STANDING, do_backstab , LVL_IMMORT, 0 },
   { "ban"      , "ban"     , POS_DEAD    , do_ban      , LVL_GRGOD, 0 },
   { "balance"  , "bal"     , POS_STANDING, do_not_here , LVL_IMMORT, 0 },
   { "bash"     , "bas"     , POS_FIGHTING, do_bash     , 1, 0 },
   { "brief"    , "br"      , POS_DEAD    , do_gen_tog  , 0, SCMD_BRIEF },
   { "buildwalk", "buildwalk", POS_STANDING, do_gen_tog , LVL_BUILDER, SCMD_BUILDWALK },
-  { "buy"      , "bu"      , POS_STANDING, do_not_here , 0, 0 },
+  { "buy"      , "bu"      , POS_SITTING , do_not_here , 0, 0 },
   { "bug"      , "bug"     , POS_DEAD    , do_ibt      , 0, SCMD_BUG },
 
   { "cast"     , "c"       , POS_SITTING , do_cast     , 1, 0 },
@@ -160,6 +161,7 @@ cpp_extern const struct command_info cmd_info[] = {
   { "freeze"   , "freeze"  , POS_DEAD    , do_wizutil  , LVL_GRGOD, SCMD_FREEZE },
 
   { "get"      , "g"       , POS_RESTING , do_get      , 0, 0 },
+  { "gain"     , "ga"      , POS_RESTING , do_gain     , 0, 0 },
   { "gecho"    , "gecho"   , POS_DEAD    , do_gecho    , LVL_GOD, 0 },
   { "gemote"   , "gem"     , POS_SLEEPING, do_gen_comm , 0, SCMD_GEMOTE },
   { "give"     , "giv"     , POS_RESTING , do_give     , 0, 0 },
@@ -196,7 +198,8 @@ cpp_extern const struct command_info cmd_info[] = {
   { "info"     , "info"    , POS_SLEEPING, do_gen_ps   , 0, SCMD_INFO },
   { "invis"    , "invi"    , POS_DEAD    , do_invis    , LVL_IMMORT, 0 },
 
-  { "junk"     , "j"       , POS_RESTING , do_drop     , 0, SCMD_JUNK },
+  { "jenny"    , "j"       , POS_RESTING , do_gold     , 0, 0 },
+  { "junk"     , "ju"      , POS_RESTING , do_drop     , 0, SCMD_JUNK },
   { "jajanken" , "jaj"     , POS_FIGHTING, do_whirlwind, LVL_IMPL, 0 },
   
   { "kill"     , "k"       , POS_FIGHTING, do_kill     , 0, 0 },
@@ -209,11 +212,12 @@ cpp_extern const struct command_info cmd_info[] = {
   { "list"     , "lis"     , POS_SITTING , do_not_here , 0, 0 },
   { "links"    , "lin"     , POS_STANDING, do_links    , LVL_GOD, 0 },
   { "lock"     , "loc"     , POS_SITTING , do_gen_door , 0, SCMD_LOCK },
-  { "load"     , "load"     , POS_DEAD    , do_load     , LVL_BUILDER, 0 },
+  { "load"     , "load"    , POS_DEAD    , do_load     , LVL_BUILDER, 0 },
 
-  { "motd"     , "mo"    , POS_DEAD    , do_gen_ps   , 0, SCMD_MOTD },
-  { "mail"     , "mail"    , POS_STANDING, do_not_here , 1, 0 },
-  { "map"      , "m"     , POS_STANDING, do_map      , 1, 0 },
+  { "map"      , "m"       , POS_STANDING, do_map      , 1, 0 },
+  { "money"    , "mo"      , POS_RESTING , do_gold     , 0, 0 },
+  { "motd"     , "mot"     , POS_DEAD    , do_gen_ps   , 0, SCMD_MOTD },
+  { "mail"     , "mail"    , POS_STANDING, do_not_here , 1, 0 },  
   { "medit"    , "med"     , POS_DEAD    , do_oasis_medit, LVL_BUILDER, 0 },
   { "mlist"    , "mlist"   , POS_DEAD    , do_oasis_list, LVL_BUILDER, SCMD_OASIS_MLIST },
   { "mcopy"    , "mcopy"   , POS_DEAD    , do_oasis_copy, LVL_GOD, CON_MEDIT },
@@ -251,7 +255,8 @@ cpp_extern const struct command_info cmd_info[] = {
   { "plist"    , "plist"   , POS_DEAD    , do_plist    , LVL_GOD, 0 },
   { "policy"   , "pol"     , POS_DEAD    , do_gen_ps   , 0, SCMD_POLICIES },
   { "pour"     , "pour"    , POS_STANDING, do_pour     , 0, SCMD_POUR },
-  { "prompt"   , "pro"     , POS_DEAD    , do_display  , 0, 0 },
+  { "progress" , "pro"     , POS_DEAD    , do_progress , 0, 0 },	
+  { "prompt"   , "prom"    , POS_DEAD    , do_display  , 0, 0 },
   { "prefedit" , "pre"     , POS_DEAD    , do_oasis_prefedit , 0, 0 },
   { "purge"    , "purge"   , POS_DEAD    , do_purge    , LVL_BUILDER, 0 },
 
@@ -487,6 +492,9 @@ void command_interpreter(struct char_data *ch, char *argument)
   char arg[MAX_INPUT_LENGTH];
 
   REMOVE_BIT_AR(AFF_FLAGS(ch), AFF_HIDE);
+  
+  if (PRF_FLAGGED(ch, PRF_AFK))
+	do_gen_tog(ch, 0, 0, 19);  
 
   /* just drop to next line for hitting CR */
   skip_spaces(&argument);
@@ -560,8 +568,8 @@ void command_interpreter(struct char_data *ch, char *argument)
     send_to_char(ch, "You try, but the mind-numbing cold prevents you...\r\n");
   else if (complete_cmd_info[cmd].command_pointer == NULL)
     send_to_char(ch, "Sorry, that command hasn't been implemented yet.\r\n");
-//  else if (IS_NPC(ch) && complete_cmd_info[cmd].minimum_level >= LVL_IMMORT)
-//    send_to_char(ch, "You can't use immortal commands while switched.\r\n");
+  else if (IS_NPC(ch) && complete_cmd_info[cmd].minimum_level >= LVL_IMMORT)
+    send_to_char(ch, "You can't use immortal commands while switched.\r\n");
   else if (GET_POS(ch) < complete_cmd_info[cmd].minimum_position)
     switch (GET_POS(ch)) {
     case POS_DEAD:
@@ -1441,7 +1449,7 @@ void nanny(struct descriptor_data *d, char *arg)
         CREATE(d->character->player.name, char, strlen(tmp_name) + 1);
         strcpy(d->character->player.name, CAP(tmp_name));	/* strcpy: OK (size checked above) */
 
-        write_to_output(d, "Did I get that right, %s (\t(Y\t)/\t(N\t))? ", tmp_name);
+        write_to_output(d, "Did I get that right, %s [\t(Y\t)/\t(N\t)]? ", tmp_name);
         STATE(d) = CON_NAME_CNFRM;
       }
     }
@@ -1586,7 +1594,7 @@ void nanny(struct descriptor_data *d, char *arg)
     echo_on(d);
 
     if (STATE(d) == CON_CNFPASSWD) {
-      write_to_output(d, "\r\nWhat is your sex (\t(M\t)/\t(F\t)/\t(N\t))? ");
+      write_to_output(d, "\r\nWhat is your sex [\t(M\t)/\t(F\t)/\t(N\t)]? ");
       STATE(d) = CON_QSEX;
     } else {
       save_char(d->character);
@@ -1617,12 +1625,12 @@ void nanny(struct descriptor_data *d, char *arg)
 
     write_to_output(d, "%s\r\nAura Type or Help: ", class_menu);
     STATE(d) = CON_QCLASS;
-    break;
-
+    break;   	  
+  
   case CON_QCLASS:
     load_result = parse_class(*arg);
     if (load_result == CLASS_UNDEFINED) {
-      write_to_output(d, "Invalid aura type, please select a valid aura type.\r\n\r\ne[N]hancer:     The warrior type, excellent for resist and do some physical damage (tank).\r\n\r\n[E]mitter:      Can use aura to throw against others or enfold objects (offensive).\r\n\r\n[C]onjurer:     Create items and use them to assist you and other people (support).\r\n\r\n[T]ransmuter:   Bend aura to serve many purposes includes heal, protect and attack (mixed role).\r\n\r\n[M]anipulator:  A psychic user, expert to avoid trouble and blackmail the enemies (defensive).\r\n\r\n[S]pecialist:   Only a gifted person can born as specialist or people who achieved maximum proficiency,\r\n                specialists can learn any skills as if it had all kinds of aura (remort only).\r\n\r\nChoose your Aura Type letter: ");
+      write_to_output(d, "Invalid aura type, please select a valid aura type.\r\n\r\ne[N]hancer:     The warrior type, excellent for resist and do some physical damage.\r\n\r\n[E]mitter:      Can use aura to throw against others or enfold objects.\r\n\r\n[C]onjurer:     Has unique skills like exorcise, can create and modify objects.\r\n\r\n[T]ransmuter:   Bend aura to serve many purposes includes heal, protect and attack.\r\n\r\n[M]anipulator:  The mind controller, capable to blur or even control people's mind.\r\n\r\n[S]pecialist:   Only a gifted person can born as specialist or people who achieved maximum proficiency,\r\n                specialists can learn any skills as if it had all kinds of aura (remort only).\r\n\r\nChoose your Aura Type letter: ");
       return;
 	} else
       GET_CLASS(d->character) = load_result;
@@ -1637,8 +1645,14 @@ void nanny(struct descriptor_data *d, char *arg)
     init_char(d->character);
     save_char(d->character);
     save_player_index();
-    write_to_output(d, "%s\r\n*** PRESS ENTER: ", motd);
-    STATE(d) = CON_RMOTD;
+	
+	roll_real_abils(d->character);	
+	write_to_output(d, "\r\nRolled stats: Str [%d/%d]  Int [%d]  Wis [%d]  Dex [%d]  Con [%d]  Cha [%d]\r\n",
+	    GET_STR(d->character), GET_ADD(d->character), GET_INT(d->character), GET_WIS(d->character),
+	    GET_DEX(d->character), GET_CON(d->character), GET_CHA(d->character));
+    write_to_output(d, "This stats are ok? [y/n] ");
+	STATE(d) = CON_REROLL;
+	
     /* make sure the last log is updated correctly. */
     GET_PREF(d->character)= rand_number(1, 128000);
     GET_HOST(d->character)= strdup(d->host);
@@ -1651,6 +1665,43 @@ void nanny(struct descriptor_data *d, char *arg)
       mudlog(BRF, MAX(LVL_IMMORT, GET_INVIS_LEV(d->character)), TRUE, "Failure to AddRecentPlayer (returned FALSE).");
     }
     break;
+
+  case CON_REROLL:
+    if (!*arg) {
+      roll_real_abils(d->character);
+	  write_to_output(d, "\r\nRolled stats: Str [%d/%d]  Int [%d]  Wis [%d]  Dex [%d]  Con [%d]  Cha [%d]\r\n",
+	      GET_STR(d->character), GET_ADD(d->character), GET_INT(d->character), GET_WIS(d->character),
+	      GET_DEX(d->character), GET_CON(d->character), GET_CHA(d->character));
+      write_to_output(d, "This stats are ok? [y/n] ");
+	}
+	switch (*arg) {
+    case 'N':
+	case 'n':
+	  roll_real_abils(d->character);
+	  write_to_output(d, "\r\nRolled stats: Str [%d/%d]  Int [%d]  Wis [%d]  Dex [%d]  Con [%d]  Cha [%d]\r\n",
+	      GET_STR(d->character), GET_ADD(d->character), GET_INT(d->character), GET_WIS(d->character),
+	      GET_DEX(d->character), GET_CON(d->character), GET_CHA(d->character));
+      write_to_output(d, "This stats are ok? [y/n]: ");
+	  return;
+	case 'Y':
+    case 'y':
+      d->character->real_abils.intel = GET_INT(d->character);
+      d->character->real_abils.wis = GET_WIS(d->character);
+      d->character->real_abils.dex = GET_DEX(d->character);
+      d->character->real_abils.str = GET_STR(d->character);
+      d->character->real_abils.str_add = GET_ADD(d->character);
+      d->character->real_abils.con = GET_CON(d->character);
+      d->character->real_abils.cha = GET_CHA(d->character);	
+	  break;
+    default:
+      if (*arg)
+	    write_to_output(d, "\r\nPlease just Y or N: ");
+      return;
+	}
+	
+	write_to_output(d, "%s\r\n*** PRESS ENTER: ", motd);
+    STATE(d) = CON_RMOTD;
+	break;
 
   case CON_RMOTD:		/* read CR after printing motd   */
     write_to_output(d, "%s", CONFIG_MENU);
