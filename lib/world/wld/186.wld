@@ -13,7 +13,7 @@ You see the start of the newbie zone.
 D3
 ~
 ~
-0 0 40069
+0 0 40074
 S
 #18601
 The Beginning Of The Passage~
@@ -129,7 +129,7 @@ east, or you can stay and annoy him a bit more.  There also appears
 to be some type of well down here also, but it has a rather secure
 grate covering it.
 ~
-186 8 0 0 0 0
+186 12 0 0 0 0
 D0
 More of the hallway there... how exciting!
 ~
@@ -152,7 +152,7 @@ More Of The Hallway~
 more exciting through that door to the west?  Or you can keep searching
 the hallways to the north or south.
 ~
-186 8 0 0 0 0
+186 12 0 0 0 0
 D0
 More of the hallway there... how exciting!
 ~
@@ -189,10 +189,14 @@ S
 #18609
 The End Of The Passage~
     Ahhh... at last, the end of the hallway... you can exit into open
-air to the west,or return to the east and make sure you didn't miss
+air to the north, or return to the east and make sure you didn't miss
 anything.
 ~
 186 8 0 0 0 0
+D0
+~
+~
+0 0 18600
 D1
 More of the hallway there... how exciting!
 ~
@@ -201,7 +205,7 @@ More of the hallway there... how exciting!
 D3
 ~
 ~
-0 0 40071
+0 0 -1
 S
 #18610
 A Brighter Hallway~
@@ -253,7 +257,7 @@ written on the walls too... couldn't he buy some paper?  There is a door
 to the north, and also a dark stairway in the corner leading down, with a
 large sign next to it that you probably should read...
 ~
-186 8 0 0 0 0
+186 12 0 0 0 0
 D0
 A nice shiny hallway!
 ~

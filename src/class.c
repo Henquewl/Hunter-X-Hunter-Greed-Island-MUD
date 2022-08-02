@@ -25,7 +25,7 @@
 #include "interpreter.h"
 #include "constants.h"
 #include "act.h"
-
+#include "comm.h"
 
 /* Names first */
 const char *class_abbrevs[] = {
@@ -35,29 +35,205 @@ const char *class_abbrevs[] = {
   "En",
   "Ma",
   "Sp",
+  "Hu",
+  "\n"
+};
+
+const char *class_colors[] = {
+  "\x1B[0;35m", /* 0 Transmuter Magenta */
+  "\x1B[0;32m", /* 1 Conjurer Green */
+  "\x1B[0;33m", /* 2 Emissor Yellow  */
+  "\x1B[0;36m", /* 3 Enhancer Cyan */
+  "\x1B[1;30m", /* 4 Manipulator Gray */
+  "\x1B[0;31m", /* 5 Specialist Red */
+  "\x1B[0;0m",  /* 6 Hunter Normal */
+  "\n"
+};
+
+const char *show_color[] = {
+  "",
+  "\x1B[0;37m",
+  "\x1B[1;37m",
+  "\x1B[0;33m",
+  "\x1B[1;30m",
+  "\x1B[1;33m",
+  "\x1B[0;34m",
+  "\x1B[1;34m",
+  "\x1B[0;31m",
+  "\x1B[1;31m",
+  "\x1B[0;32m",
+  "\x1B[1;32m",
+  "\x1B[0;35m",
+  "\x1B[1;35m",
+  "\x1B[0;36m",
+  "\x1B[1;36m",
   "\n"
 };
 
 const char *pc_class_types[] = {
-  "Transmuter",
-  "Conjurer",
-  "Emitter",
-  "Enhancer",
-  "Manipulator",
-  "Specialist",
+  "\x1B[0;35mTransmuter\x1B[0;0m",
+  "\x1B[0;32mConjurer\x1B[0;0m",
+  "\x1B[0;33mEmitter\x1B[0;0m",
+  "\x1B[0;36mEnhancer\x1B[0;0m",
+  "\x1B[1;30mManipulator\x1B[0;0m",
+  "\x1B[0;31mSpecialist\x1B[0;0m",
+  "\x1B[0;0mHunter",
+  "\n"
+};
+
+const char *pc_special_abs[] = {
+  "Menacing Presence",
+  "Double Item Affect",
+  "Armor Piercing",
+  "Regenaration",
+  "Headhunter",
+  "Scarlet Eyes",
+  "None",
+  "\n"
+};
+
+const char *cosmetic_color[] = {
+  "None",
+  "White",
+  "Pale",
+  "Tan",
+  "Black",
+  "Yellow",
+  "Azure",
+  "Blue",
+  "Crimson",
+  "Red",
+  "Green",
+  "Emerald",
+  "Magenta",
+  "Pink",
+  "Teal",
+  "Cyan",
+  "\n"
+};
+
+const char *eye_color[] = {
+  "None",
+  "Clouded",
+  "White",
+  "Hazel",
+  "Black",
+  "Yellow",
+  "Azure",
+  "Blue",
+  "Scarlet",
+  "Red",
+  "Green",
+  "Emerald",
+  "Magenta",
+  "Pink",
+  "Teal",
+  "Cyan",
+  "\n"
+};
+
+const char *hair_style[] = {
+  "None",
+  "Bald",
+  "Buzz cut",
+  "Bowl cut",
+  "Short",
+  "Long",
+  "Parted",
+  "Flattop",
+  "Afro",
+  "Cornrows",
+  "Dreadlocks",
+  "Spiked",
+  "Mohawk",
+  "Bun",
+  "Pigtails",
+  "Ponytail",
   "\n"
 };
 
 /* The menu for choosing a class in interpreter.c: */
 const char *class_menu =
 "\r\n"
-"Select an aura type:\r\n"
-"  E[\t(N\t)]hancer\r\n"
-"  [\t(E\t)]mitter\r\n"
-"  [\t(C\t)]onjurer\r\n"
-"  [\t(T\t)]ransmuter\r\n"
-"  [\t(M\t)]anipulator\r\n"
-"  [\t(S\t)]pecialist (remort)\r\n";
+"Select a class number:\r\n\r\n"
+"1. \x1B[0;36m\t<send href=\"1\">Enhancer\t</send>\x1B[0;0m\r\n"
+"2. \x1B[0;33m\t<send href=\"2\">Emitter\t</send>\x1B[0;0m\r\n"
+"3. \x1B[0;32m\t<send href=\"3\">Conjurer\t</send>\x1B[0;0m\r\n"
+"4. \x1B[0;35m\t<send href=\"4\">Transmuter\t</send>\x1B[0;0m\r\n"
+"5. \x1B[1;30m\t<send href=\"5\">Manipulator\t</send>\x1B[0;0m\r\n"
+"6. \x1B[0;31m\t<send href=\"6\">Specialist\t</send>\tn\x1B[0;0m\r\n";
+
+const char *skin_menu =
+"\r\nSelect a skin style:\r\n\r\n"
+" 1 = \tc[\twwhite\tc]\tn\r\n"
+" 2 = \tc[\tWpale\tc]\tn\r\n"
+" 3 = \tc[\tytan\tc]\tn\r\n"
+" 4 = \tc[\tDblack\tc]\tn\r\n"
+" 5 = \tc[\tYyellow\tc]\tn\r\n"
+" 6 = \tc[\tbazure\tc]\tn\r\n"
+" 7 = \tc[\tBblue\tc]\tn\r\n"
+" 8 = \tc[\trcrimson\tc]\tn\r\n"
+" 9 = \tc[\tRred\tc]\tn\r\n"
+"10 = \tc[\tggreen\tc]\tn\r\n"
+"11 = \tc[\tGemerald\tc]\tn\r\n"
+"12 = \tc[\tmmagenta\tc]\tn\r\n"
+"13 = \tc[\tMpink\tc]\tn\r\n"
+"14 = \tc[\tcteal\tc]\tn\r\n"
+"15 = \tc[\tCcyan\tc]\tn\r\n";
+
+const char *eye_menu =
+"\r\nSelect eye color:\r\n\r\n"
+" 1 = \tc[\twclouded\tc]\tn\r\n"
+" 2 = \tc[\tWwhite\tc]\tn\r\n"
+" 3 = \tc[\tyhazel\tc]\tn\r\n"
+" 4 = \tc[\tDblack\tc]\tn\r\n"
+" 5 = \tc[\tYyellow\tc]\tn\r\n"
+" 6 = \tc[\tbazure\tc]\tn\r\n"
+" 7 = \tc[\tBblue\tc]\tn\r\n"
+" 8 = \tc[\trscarlet\tc]\tn\r\n"
+" 9 = \tc[\tRred\tc]\tn\r\n"
+"10 = \tc[\tggreen\tc]\tn\r\n"
+"11 = \tc[\tGemerald\tc]\tn\r\n"
+"12 = \tc[\tmmagenta\tc]\tn\r\n"
+"13 = \tc[\tMpink\tc]\tn\r\n"
+"14 = \tc[\tcteal\tc]\tn\r\n"
+"15 = \tc[\tCcyan\tc]\tn\r\n";
+
+const char *hair_menu =
+"\r\nSelect a hair style:\r\n\r\n"
+" 1 = \tc[\tCbald\tc]\tn\r\n"
+" 2 = \tc[\tCbuzz cut\tc]\tn\r\n"
+" 3 = \tc[\tCbowl cut\tc]\tn\r\n"
+" 4 = \tc[\tCshort\tc]\tn\r\n"
+" 5 = \tc[\tClong\tc]\tn\r\n"
+" 6 = \tc[\tCparted\tc]\tn\r\n"
+" 7 = \tc[\tCflattop\tc]\tn\r\n"
+" 8 = \tc[\tCafro\tc]\tn\r\n"
+" 9 = \tc[\tCcornrows\tc]\tn\r\n"
+"10 = \tc[\tCdreadlocks\tc]\tn\r\n"
+"11 = \tc[\tCspiked\tc]\tn\r\n"
+"12 = \tc[\tCmohawk\tc]\tn\r\n"
+"13 = \tc[\tCbun\tc]\tn\r\n"
+"14 = \tc[\tCpigtails\tc]\tn\r\n"
+"15 = \tc[\tCponytail\tc]\tn\r\n";
+
+const char *hcolor_menu =
+"\r\nSelect a hair color:\r\n\r\n"
+" 1 = \tc[\twsilver\tc]\tn\r\n"
+" 2 = \tc[\tWwhite\tc]\tn\r\n"
+" 3 = \tc[\tybrown\tc]\tn\r\n"
+" 4 = \tc[\tDblack\tc]\tn\r\n"
+" 5 = \tc[\tYyellow\tc]\tn\r\n"
+" 6 = \tc[\tbazure\tc]\tn\r\n"
+" 7 = \tc[\tBblue\tc]\tn\r\n"
+" 8 = \tc[\trcrimson\tc]\tn\r\n"
+" 9 = \tc[\tRred\tc]\tn\r\n"
+"10 = \tc[\tggreen\tc]\tn\r\n"
+"11 = \tc[\tGemerald\tc]\tn\r\n"
+"12 = \tc[\tmmagenta\tc]\tn\r\n"
+"13 = \tc[\tMpink\tc]\tn\r\n"
+"14 = \tc[\tcteal\tc]\tn\r\n"
+"15 = \tc[\tCcyan\tc]\tn\r\n";
 
 /* The code to interpret a class letter -- used in interpreter.c when a new
  * character is selecting a class and by 'set class' in act.wizard.c. */
@@ -66,11 +242,12 @@ int parse_class(char arg)
   arg = LOWER(arg);
 
   switch (arg) {
-  case 't': return CLASS_MAGIC_USER;
-  case 'c': return CLASS_CLERIC;
-  case 'n': return CLASS_WARRIOR;
-  case 'e': return CLASS_THIEF;
-  case 'm': return CLASS_MANIPULATOR;
+  case '4': return CLASS_MAGIC_USER;
+  case '3': return CLASS_CLERIC;
+  case '1': return CLASS_WARRIOR;
+  case '2': return CLASS_THIEF;
+  case '5': return CLASS_MANIPULATOR;
+  case '6': return CLASS_SPECIALIST;
   default:  return CLASS_UNDEFINED;
   }
 }
@@ -115,11 +292,15 @@ bitvector_t find_class_bitvector(const char *arg)
 /* #define MIN_PER_PRAC		2  min percent gain in skill per practice */
 /* #define PRAC_TYPE		3  should it say 'spell' or 'skill'?	*/
 
-int prac_params[4][NUM_CLASSES] = {
-  /* MAG	CLE	THE	WAR MAN */
-  { 95,		95,	95,	95,	95, 95	},	/* learned level */
-  { 100,	100,	100,	100,	100, 100	},	/* max per practice */
-  { 25,		25,	25,	25,	25, 25	},	/* min per practice */
+int prac_params[8][NUM_CLASSES] = {
+  /* MAG	CLE	THE	WAR MAN SPC HUN */
+  { 100,	80,	60,	80, 40, 100, 0	},	/* learned level TRANSMUTER */
+  { 80,		100, 40, 60, 60, 100, 1	},	/* learned level CONJURER */
+  { 60,		40,	100,	80, 80, 100, 0	},	/* learned level EMITTER */
+  { 80,		60,	80,	100, 60, 100, 0	},	/* learned level ENHANCER */
+  { 40,		60,	80,	60, 100, 100, 1	},	/* learned level MANIPULATOR */
+  { 0,		1,	0,	0, 1, 100, 0	},	/* learned level HUNTER */
+  { 100,	100,	100,	100,	100, 100, 100	},	/* learned level SPECIALIST */
   { SPELL,	SPELL,	SPELL,	SKILL,	SPELL, SPELL	},	/* prac name */
 };
 
@@ -342,52 +523,7 @@ byte saving_throws(int class_num, int type, int level)
 	break;
       }
     case SAVING_SPELL:	/* Generic spells */
-      switch (level) {
-      case  0: return 90;
-      case  1: return 75;
-      case  2: return 74;
-      case  3: return 73;
-      case  4: return 71;
-      case  5: return 70;
-      case  6: return 68;
-      case  7: return 65;
-      case  8: return 63;
-      case  9: return 60;
-      case 10: return 59;
-      case 11: return 58;
-      case 12: return 56;
-      case 13: return 55;
-      case 14: return 54;
-      case 15: return 53;
-      case 16: return 51;
-      case 17: return 50;
-      case 18: return 49;
-      case 19: return 48;
-      case 20: return 47;
-      case 21: return 46;
-      case 22: return 45;
-      case 23: return 43;
-      case 24: return 41;
-      case 25: return 39;
-      case 26: return 37;
-      case 27: return 35;
-      case 28: return 34;
-      case 29: return 33;
-      case 30: return 32;
-      case 31: return  0;
-      case 32: return  0;
-      case 33: return  0;
-      case 34: return  0;
-      case 35: return  0;
-      case 36: return  0;
-      case 37: return  0;
-      case 38: return  0;
-      case 39: return  0;
-      case 40: return  0;
-      default:
-	log("SYSERR: Missing level for mage spell saving throw.");
-	break;
-      }
+      return (100 - level);
     default:
       log("SYSERR: Invalid saving throw type.");
       break;
@@ -584,52 +720,7 @@ byte saving_throws(int class_num, int type, int level)
 	break;
       }
     case SAVING_SPELL:	/* Generic spells */
-      switch (level) {
-      case  0: return 90;
-      case  1: return 75;
-      case  2: return 74;
-      case  3: return 73;
-      case  4: return 71;
-      case  5: return 70;
-      case  6: return 68;
-      case  7: return 65;
-      case  8: return 63;
-      case  9: return 60;
-      case 10: return 59;
-      case 11: return 58;
-      case 12: return 56;
-      case 13: return 55;
-      case 14: return 54;
-      case 15: return 53;
-      case 16: return 51;
-      case 17: return 50;
-      case 18: return 49;
-      case 19: return 48;
-      case 20: return 47;
-      case 21: return 46;
-      case 22: return 45;
-      case 23: return 43;
-      case 24: return 41;
-      case 25: return 39;
-      case 26: return 37;
-      case 27: return 35;
-      case 28: return 34;
-      case 29: return 33;
-      case 30: return 32;
-      case 31: return  0;
-      case 32: return  0;
-      case 33: return  0;
-      case 34: return  0;
-      case 35: return  0;
-      case 36: return  0;
-      case 37: return  0;
-      case 38: return  0;
-      case 39: return  0;
-      case 40: return  0;
-      default:
-	log("SYSERR: Missing level for cleric spell saving throw.");
-	break;
-      }
+      return (100 - level);
     default:
       log("SYSERR: Invalid saving throw type.");
       break;
@@ -826,52 +917,7 @@ byte saving_throws(int class_num, int type, int level)
 	break;
       }
     case SAVING_SPELL:	/* Generic spells */
-      switch (level) {
-      case  0: return 90;
-      case  1: return 75;
-      case  2: return 73;
-      case  3: return 71;
-      case  4: return 69;
-      case  5: return 67;
-      case  6: return 65;
-      case  7: return 63;
-      case  8: return 61;
-      case  9: return 59;
-      case 10: return 57;
-      case 11: return 55;
-      case 12: return 53;
-      case 13: return 51;
-      case 14: return 49;
-      case 15: return 47;
-      case 16: return 45;
-      case 17: return 43;
-      case 18: return 41;
-      case 19: return 39;
-      case 20: return 37;
-      case 21: return 35;
-      case 22: return 33;
-      case 23: return 31;
-      case 24: return 29;
-      case 25: return 27;
-      case 26: return 25;
-      case 27: return 23;
-      case 28: return 21;
-      case 29: return 19;
-      case 30: return 17;
-      case 31: return  0;
-      case 32: return  0;
-      case 33: return  0;
-      case 34: return  0;
-      case 35: return  0;
-      case 36: return  0;
-      case 37: return  0;
-      case 38: return  0;
-      case 39: return  0;
-      case 40: return  0;
-      default:
-	log("SYSERR: Missing level for thief spell saving throw.");
-	break;
-      }
+      return (100 - level);
     default:
       log("SYSERR: Invalid saving throw type.");
       break;
@@ -1108,62 +1154,7 @@ byte saving_throws(int class_num, int type, int level)
 	break;
       }
     case SAVING_SPELL:	/* Generic spells */
-      switch (level) {
-      case  0: return 90;
-      case  1: return 85;
-      case  2: return 83;
-      case  3: return 82;
-      case  4: return 80;
-      case  5: return 77;
-      case  6: return 73;
-      case  7: return 70;
-      case  8: return 68;
-      case  9: return 67;
-      case 10: return 65;
-      case 11: return 62;
-      case 12: return 58;
-      case 13: return 55;
-      case 14: return 53;
-      case 15: return 52;
-      case 16: return 50;
-      case 17: return 47;
-      case 18: return 43;
-      case 19: return 40;
-      case 20: return 39;
-      case 21: return 38;
-      case 22: return 36;
-      case 23: return 35;
-      case 24: return 34;
-      case 25: return 33;
-      case 26: return 31;
-      case 27: return 30;
-      case 28: return 29;
-      case 29: return 28;
-      case 30: return 27;
-      case 31: return 25;
-      case 32: return 23;
-      case 33: return 21;
-      case 34: return 19;
-      case 35: return 17;
-      case 36: return 15;
-      case 37: return 13;
-      case 38: return 11;
-      case 39: return  9;
-      case 40: return  7;
-      case 41: return  6;
-      case 42: return  5;
-      case 43: return  4;
-      case 44: return  3;
-      case 45: return  2;
-      case 46: return  1;
-      case 47: return  0;
-      case 48: return  0;
-      case 49: return  0;
-      case 50: return  0;
-      default:
-	log("SYSERR: Missing level for warrior spell saving throw.");
-	break;
-      }
+      return (100 - level);
     default:
       log("SYSERR: Invalid saving throw type.");
       break;
@@ -1359,52 +1350,7 @@ byte saving_throws(int class_num, int type, int level)
 	break;
       }
     case SAVING_SPELL:	/* Generic spells */
-      switch (level) {
-      case  0: return 90;
-      case  1: return 60;
-      case  2: return 58;
-      case  3: return 56;
-      case  4: return 54;
-      case  5: return 52;
-      case  6: return 50;
-      case  7: return 48;
-      case  8: return 46;
-      case  9: return 45;
-      case 10: return 44;
-      case 11: return 42;
-      case 12: return 40;
-      case 13: return 38;
-      case 14: return 36;
-      case 15: return 35;
-      case 16: return 34;
-      case 17: return 32;
-      case 18: return 30;
-      case 19: return 28;
-      case 20: return 26;
-      case 21: return 25;
-      case 22: return 24;
-      case 23: return 22;
-      case 24: return 20;
-      case 25: return 18;
-      case 26: return 16;
-      case 27: return 14;
-      case 28: return 12;
-      case 29: return 10;
-      case 30: return  8;
-      case 31: return  0;
-      case 32: return  0;
-      case 33: return  0;
-      case 34: return  0;
-      case 35: return  0;
-      case 36: return  0;
-      case 37: return  0;
-      case 38: return  0;
-      case 39: return  0;
-      case 40: return  0;
-      default:
-	log("SYSERR: Missing level for manipulator spell saving throw.");
-	break;
-      }
+      return (100 - level);
     default:
       log("SYSERR: Invalid saving throw type.");
       break;
@@ -1600,38 +1546,46 @@ byte saving_throws(int class_num, int type, int level)
 	break;
       }
     case SAVING_SPELL:	/* Generic spells */
+      return (100 - level);
+    default:
+      log("SYSERR: Invalid saving throw type.");
+      break;
+    }
+	case CLASS_HUNTER:
+    switch (type) {
+    case SAVING_PARA:	/* Paralyzation */
       switch (level) {
       case  0: return 90;
-      case  1: return 75;
-      case  2: return 74;
-      case  3: return 73;
-      case  4: return 71;
-      case  5: return 70;
-      case  6: return 68;
-      case  7: return 65;
-      case  8: return 63;
+      case  1: return 70;
+      case  2: return 69;
+      case  3: return 68;
+      case  4: return 67;
+      case  5: return 66;
+      case  6: return 65;
+      case  7: return 63;
+      case  8: return 61;
       case  9: return 60;
       case 10: return 59;
-      case 11: return 58;
-      case 12: return 56;
-      case 13: return 55;
-      case 14: return 54;
+      case 11: return 57;
+      case 12: return 55;
+      case 13: return 54;
+      case 14: return 53;
       case 15: return 53;
-      case 16: return 51;
-      case 17: return 50;
-      case 18: return 49;
+      case 16: return 52;
+      case 17: return 51;
+      case 18: return 50;
       case 19: return 48;
-      case 20: return 47;
-      case 21: return 46;
-      case 22: return 45;
-      case 23: return 43;
-      case 24: return 41;
-      case 25: return 39;
-      case 26: return 37;
-      case 27: return 35;
-      case 28: return 34;
-      case 29: return 33;
-      case 30: return 32;
+      case 20: return 46;
+      case 21: return 45;
+      case 22: return 44;
+      case 23: return 42;
+      case 24: return 40;
+      case 25: return 38;
+      case 26: return 36;
+      case 27: return 34;
+      case 28: return 32;
+      case 29: return 30;
+      case 30: return 28;
       case 31: return  0;
       case 32: return  0;
       case 33: return  0;
@@ -1643,9 +1597,152 @@ byte saving_throws(int class_num, int type, int level)
       case 39: return  0;
       case 40: return  0;
       default:
-	log("SYSERR: Missing level for warrior spell saving throw.");
+	log("SYSERR: Missing level for mage paralyzation saving throw.");
 	break;
       }
+    case SAVING_ROD:	/* Rods */
+      switch (level) {
+      case  0: return 90;
+      case  1: return 55;
+      case  2: return 53;
+      case  3: return 51;
+      case  4: return 49;
+      case  5: return 47;
+      case  6: return 45;
+      case  7: return 43;
+      case  8: return 41;
+      case  9: return 40;
+      case 10: return 39;
+      case 11: return 37;
+      case 12: return 35;
+      case 13: return 33;
+      case 14: return 31;
+      case 15: return 30;
+      case 16: return 29;
+      case 17: return 27;
+      case 18: return 25;
+      case 19: return 23;
+      case 20: return 21;
+      case 21: return 20;
+      case 22: return 19;
+      case 23: return 17;
+      case 24: return 15;
+      case 25: return 14;
+      case 26: return 13;
+      case 27: return 12;
+      case 28: return 11;
+      case 29: return 10;
+      case 30: return  9;
+      case 31: return  0;
+      case 32: return  0;
+      case 33: return  0;
+      case 34: return  0;
+      case 35: return  0;
+      case 36: return  0;
+      case 37: return  0;
+      case 38: return  0;
+      case 39: return  0;
+      case 40: return  0;
+      default:
+	log("SYSERR: Missing level for mage rod saving throw.");
+	break;
+      }
+    case SAVING_PETRI:	/* Petrification */
+      switch (level) {
+      case  0: return 90;
+      case  1: return 65;
+      case  2: return 63;
+      case  3: return 61;
+      case  4: return 59;
+      case  5: return 57;
+      case  6: return 55;
+      case  7: return 53;
+      case  8: return 51;
+      case  9: return 50;
+      case 10: return 49;
+      case 11: return 47;
+      case 12: return 45;
+      case 13: return 43;
+      case 14: return 41;
+      case 15: return 40;
+      case 16: return 39;
+      case 17: return 37;
+      case 18: return 35;
+      case 19: return 33;
+      case 20: return 31;
+      case 21: return 30;
+      case 22: return 29;
+      case 23: return 27;
+      case 24: return 25;
+      case 25: return 23;
+      case 26: return 21;
+      case 27: return 19;
+      case 28: return 17;
+      case 29: return 15;
+      case 30: return 13;
+      case 31: return  0;
+      case 32: return  0;
+      case 33: return  0;
+      case 34: return  0;
+      case 35: return  0;
+      case 36: return  0;
+      case 37: return  0;
+      case 38: return  0;
+      case 39: return  0;
+      case 40: return  0;
+      default:
+	log("SYSERR: Missing level for mage petrification saving throw.");
+	break;
+      }
+    case SAVING_BREATH:	/* Breath weapons */
+      switch (level) {
+      case  0: return 90;
+      case  1: return 75;
+      case  2: return 73;
+      case  3: return 71;
+      case  4: return 69;
+      case  5: return 67;
+      case  6: return 65;
+      case  7: return 63;
+      case  8: return 61;
+      case  9: return 60;
+      case 10: return 59;
+      case 11: return 57;
+      case 12: return 55;
+      case 13: return 53;
+      case 14: return 51;
+      case 15: return 50;
+      case 16: return 49;
+      case 17: return 47;
+      case 18: return 45;
+      case 19: return 43;
+      case 20: return 41;
+      case 21: return 40;
+      case 22: return 39;
+      case 23: return 37;
+      case 24: return 35;
+      case 25: return 33;
+      case 26: return 31;
+      case 27: return 29;
+      case 28: return 27;
+      case 29: return 25;
+      case 30: return 23;
+      case 31: return  0;
+      case 32: return  0;
+      case 33: return  0;
+      case 34: return  0;
+      case 35: return  0;
+      case 36: return  0;
+      case 37: return  0;
+      case 38: return  0;
+      case 39: return  0;
+      case 40: return  0;
+      default:
+	log("SYSERR: Missing level for mage breath saving throw.");
+	break;
+      }
+    case SAVING_SPELL:	/* Generic spells */
+      return (100 - level);
     default:
       log("SYSERR: Invalid saving throw type.");
       break;
@@ -1662,253 +1759,12 @@ byte saving_throws(int class_num, int type, int level)
 /* THAC0 for classes and levels.  (To Hit Armor Class 0) */
 int thaco(int class_num, int level)
 {
-  switch (class_num) {
-  case CLASS_MAGIC_USER:
-    switch (level) {
-    case  0: return 100;
-    case  1: return  20;
-    case  2: return  20;
-    case  3: return  20;
-    case  4: return  19;
-    case  5: return  19;
-    case  6: return  19;
-    case  7: return  18;
-    case  8: return  18;
-    case  9: return  18;
-    case 10: return  17;
-    case 11: return  17;
-    case 12: return  17;
-    case 13: return  16;
-    case 14: return  16;
-    case 15: return  16;
-    case 16: return  15;
-    case 17: return  15;
-    case 18: return  15;
-    case 19: return  14;
-    case 20: return  14;
-    case 21: return  14;
-    case 22: return  13;
-    case 23: return  13;
-    case 24: return  13;
-    case 25: return  12;
-    case 26: return  12;
-    case 27: return  12;
-    case 28: return  11;
-    case 29: return  11;
-    case 30: return  11;
-    case 31: return  10;
-    case 32: return  10;
-    case 33: return  10;
-    case 34: return   9;
-    default:
-      log("SYSERR: Missing level for mage thac0.");
-    }
-  case CLASS_CLERIC:
-    switch (level) {
-    case  0: return 100;
-    case  1: return  20;
-    case  2: return  20;
-    case  3: return  20;
-    case  4: return  18;
-    case  5: return  18;
-    case  6: return  18;
-    case  7: return  16;
-    case  8: return  16;
-    case  9: return  16;
-    case 10: return  14;
-    case 11: return  14;
-    case 12: return  14;
-    case 13: return  12;
-    case 14: return  12;
-    case 15: return  12;
-    case 16: return  10;
-    case 17: return  10;
-    case 18: return  10;
-    case 19: return   8;
-    case 20: return   8;
-    case 21: return   8;
-    case 22: return   6;
-    case 23: return   6;
-    case 24: return   6;
-    case 25: return   4;
-    case 26: return   4;
-    case 27: return   4;
-    case 28: return   2;
-    case 29: return   2;
-    case 30: return   2;
-    case 31: return   1;
-    case 32: return   1;
-    case 33: return   1;
-    case 34: return   1;
-    default:
-      log("SYSERR: Missing level for cleric thac0.");
-    }
-  case CLASS_THIEF:
-    switch (level) {
-    case  0: return 100;
-    case  1: return  20;
-    case  2: return  19;
-    case  3: return  18;
-    case  4: return  17;
-    case  5: return  16;
-    case  6: return  15;
-    case  7: return  14;
-    case  8: return  14;
-    case  9: return  13;
-    case 10: return  12;
-    case 11: return  11;
-    case 12: return  10;
-    case 13: return   9;
-    case 14: return   8;
-    case 15: return   7;
-    case 16: return   6;
-    case 17: return   5;
-    case 18: return   4;
-    case 19: return   3;
-    case 20: return   2;
-    case 21: return   1;
-    case 22: return   1;
-    case 23: return   1;
-    case 24: return   1;
-    case 25: return   1;
-    case 26: return   1;
-    case 27: return   1;
-    case 28: return   1;
-    case 29: return   1;
-    case 30: return   1;
-    case 31: return   1;
-    case 32: return   1;
-    case 33: return   1;
-    case 34: return   1;	
-    default:
-      log("SYSERR: Missing level for thief thac0.");
-    }
-  case CLASS_WARRIOR:
-    switch (level) {
-    case  0: return 100;
-    case  1: return  20;
-    case  2: return  20;
-    case  3: return  19;
-    case  4: return  19;
-    case  5: return  18;
-    case  6: return  18;
-    case  7: return  17;
-    case  8: return  17;
-    case  9: return  16;
-    case 10: return  16;
-    case 11: return  15;
-    case 12: return  15;
-    case 13: return  14;
-    case 14: return  14;
-    case 15: return  13;
-    case 16: return  13;
-    case 17: return  12;
-    case 18: return  12;
-    case 19: return  11;
-    case 20: return  11;
-    case 21: return  10;
-    case 22: return  10;
-    case 23: return   9;
-    case 24: return   9;
-    case 25: return   8;
-    case 26: return   8;
-    case 27: return   7;
-    case 28: return   7;
-    case 29: return   6;
-    case 30: return   6;
-    case 31: return   5;
-    case 32: return   5;
-    case 33: return   4;
-    case 34: return   4;
-    default:
-      log("SYSERR: Missing level for warrior thac0.");
-    }
-	case CLASS_MANIPULATOR:
-    switch (level) {
-    case  0: return 100;
-    case  1: return  20;
-    case  2: return  20;
-    case  3: return  20;
-    case  4: return  19;
-    case  5: return  19;
-    case  6: return  19;
-    case  7: return  18;
-    case  8: return  18;
-    case  9: return  18;
-    case 10: return  17;
-    case 11: return  17;
-    case 12: return  17;
-    case 13: return  16;
-    case 14: return  16;
-    case 15: return  16;
-    case 16: return  15;
-    case 17: return  15;
-    case 18: return  15;
-    case 19: return  14;
-    case 20: return  14;
-    case 21: return  14;
-    case 22: return  13;
-    case 23: return  13;
-    case 24: return  13;
-    case 25: return  12;
-    case 26: return  12;
-    case 27: return  12;
-    case 28: return  11;
-    case 29: return  11;
-    case 30: return  11;
-    case 31: return  10;
-    case 32: return  10;
-    case 33: return  10;
-    case 34: return   9;
-    default:
-      log("SYSERR: Missing level for manipulator thac0.");
-    }
-	case CLASS_SPECIALIST:
-    switch (level) {
-    case  0: return 100;
-    case  1: return  20;
-    case  2: return  20;
-    case  3: return  20;
-    case  4: return  19;
-    case  5: return  19;
-    case  6: return  19;
-    case  7: return  18;
-    case  8: return  18;
-    case  9: return  18;
-    case 10: return  17;
-    case 11: return  17;
-    case 12: return  17;
-    case 13: return  16;
-    case 14: return  16;
-    case 15: return  16;
-    case 16: return  15;
-    case 17: return  15;
-    case 18: return  15;
-    case 19: return  14;
-    case 20: return  14;
-    case 21: return  14;
-    case 22: return  13;
-    case 23: return  13;
-    case 24: return  13;
-    case 25: return  12;
-    case 26: return  12;
-    case 27: return  12;
-    case 28: return  11;
-    case 29: return  11;
-    case 30: return  11;
-    case 31: return  10;
-    case 32: return  10;
-    case 33: return  10;
-    case 34: return   9;
-    default:
-      log("SYSERR: Missing level for specialist thac0.");
-    }
-  default:
-    log("SYSERR: Unknown class in thac0 chart.");
-  }
-
-  /* Will not get there unless something is wrong. */
-  return 100;
+  if (level <= 0)
+	return 100;
+  else if (level < 31)
+    return ((32 - level) / 1.5);
+  else
+	return 1;  
 }
 
 
@@ -1969,10 +1825,10 @@ void roll_real_abils(struct char_data *ch)
     break;
   case CLASS_WARRIOR:
     ch->real_abils.str = table[0];
-    ch->real_abils.dex = table[1];
-    ch->real_abils.con = table[2];
-    ch->real_abils.wis = table[3];
-    ch->real_abils.intel = table[4];
+    ch->real_abils.con = table[1];
+    ch->real_abils.dex = table[2];
+    ch->real_abils.intel = table[3];
+    ch->real_abils.wis = table[4];
     ch->real_abils.cha = table[5];
     if (ch->real_abils.str == 18)
       ch->real_abils.str_add = rand_number(0, 100);
@@ -1986,6 +1842,15 @@ void roll_real_abils(struct char_data *ch)
     ch->real_abils.con = table[5];  
     break;
   case CLASS_SPECIALIST:
+    ch->real_abils.wis = 6 + (rand_number(1, 6) + rand_number(1, 6));
+	ch->real_abils.intel = 6 + (rand_number(1, 6) + rand_number(1, 6));
+	ch->real_abils.cha = 6 + (rand_number(1, 6) + rand_number(1, 6));
+    ch->real_abils.dex = (rand_number(1, 6) + rand_number(1, 6) + rand_number(1, 6));
+    ch->real_abils.str = (rand_number(1, 6) + rand_number(1, 6) + rand_number(1, 6));
+    ch->real_abils.con = (rand_number(1, 6) + rand_number(1, 6) + rand_number(1, 6));
+    
+    break;
+  case CLASS_HUNTER:
     ch->real_abils.wis = table[0];
 	ch->real_abils.intel = table[1];
     ch->real_abils.dex = table[2];
@@ -2001,82 +1866,30 @@ void roll_real_abils(struct char_data *ch)
 void do_start(struct char_data *ch)
 {
   GET_LEVEL(ch) = 1;
-  GET_EXP(ch) = 1;
-
-  set_title(ch, NULL);
-
-  GET_MAX_HIT(ch)  = 18;
+  GET_EXP(ch) = 1;  
+  
+  GET_MAX_HIT(ch)  = 250;  
   GET_MAX_MANA(ch) = 100;
-  GET_MAX_MOVE(ch) = 100;
-
-  switch (GET_CLASS(ch)) {
-
-  case CLASS_MAGIC_USER:
-    SET_SKILL(ch, SKILL_SNEAK, 45);
-    SET_SKILL(ch, SKILL_HIDE, 45);
-    SET_SKILL(ch, SKILL_STEAL, 95);
-    SET_SKILL(ch, SKILL_PICK_LOCK, 45);
-    SET_SKILL(ch, SKILL_TRACK, 20);
-	SET_SKILL(ch, SKILL_RESCUE, 45);
-    break;
-
-  case CLASS_CLERIC:
-    SET_SKILL(ch, SKILL_SNEAK, 45);
-    SET_SKILL(ch, SKILL_HIDE, 45);
-    SET_SKILL(ch, SKILL_STEAL, 45);
-    SET_SKILL(ch, SKILL_PICK_LOCK, 95);
-    SET_SKILL(ch, SKILL_TRACK, 20);
-	SET_SKILL(ch, SKILL_RESCUE, 45);
-    break;
-
-  case CLASS_THIEF:
-    SET_SKILL(ch, SKILL_SNEAK, 95);
-    SET_SKILL(ch, SKILL_HIDE, 45);
-    SET_SKILL(ch, SKILL_STEAL, 45);
-    SET_SKILL(ch, SKILL_PICK_LOCK, 45);
-    SET_SKILL(ch, SKILL_TRACK, 20);
-	SET_SKILL(ch, SKILL_RESCUE, 45);
-	break;
-
-  case CLASS_WARRIOR:
-    SET_SKILL(ch, SKILL_SNEAK, 45);
-    SET_SKILL(ch, SKILL_HIDE, 45);
-    SET_SKILL(ch, SKILL_STEAL, 45);
-    SET_SKILL(ch, SKILL_PICK_LOCK, 45);
-    SET_SKILL(ch, SKILL_TRACK, 20);
-	SET_SKILL(ch, SKILL_RESCUE, 95);
-	SET_SKILL(ch, SKILL_KICK, 20);
-	break;
-	
-  case CLASS_MANIPULATOR:
-    SET_SKILL(ch, SKILL_SNEAK, 45);
-    SET_SKILL(ch, SKILL_HIDE, 95);
-    SET_SKILL(ch, SKILL_STEAL, 45);
-    SET_SKILL(ch, SKILL_PICK_LOCK, 45);
-    SET_SKILL(ch, SKILL_TRACK, 20);
-	SET_SKILL(ch, SKILL_RESCUE, 45);
-	break;
-  case CLASS_SPECIALIST:
-    SET_SKILL(ch, SKILL_SNEAK, 45);
-    SET_SKILL(ch, SKILL_HIDE, 45);
-    SET_SKILL(ch, SKILL_STEAL, 45);
-    SET_SKILL(ch, SKILL_PICK_LOCK, 45);
-    SET_SKILL(ch, SKILL_TRACK, 20);
-	SET_SKILL(ch, SKILL_KICK, 20);
-	SET_SKILL(ch, SKILL_RESCUE, 45);
-	break;
-  }
+  GET_MAX_MOVE(ch) = 100;  
+  
+  GET_PAGE_LENGTH(ch) = 40;
+  
+  SET_SKILL(ch, SKILL_POWER, (GET_WIS(ch) + 1));    
+  SET_BIT_AR(PRF_FLAGS(ch), PRF_AUTOGOLD);
+  SET_BIT_AR(PRF_FLAGS(ch), PRF_AUTODOOR);
+  SET_BIT_AR(PRF_FLAGS(ch), PRF_AUTOMAP); 
 
   advance_level(ch);
 
   GET_HIT(ch) = GET_MAX_HIT(ch);
   GET_MANA(ch) = GET_MAX_MANA(ch);
   GET_MOVE(ch) = GET_MAX_MOVE(ch);
-
-  GET_COND(ch, THIRST) = 24;
-  GET_COND(ch, HUNGER) = 24;
+  
+  GET_COND(ch, THIRST) = 100;
+  GET_COND(ch, HUNGER) = 100;
   GET_COND(ch, DRUNK) = 0;
-
+  GET_ADD_HIT(ch)  = 0; 
+  
   if (CONFIG_SITEOK_ALL)
     SET_BIT_AR(PLR_FLAGS(ch), PLR_SITEOK);
 }
@@ -2085,8 +1898,8 @@ void do_start(struct char_data *ch)
  * class every time they gain a level. */
 void advance_level(struct char_data *ch)
 {
-  int add_hp, add_mana = 0, add_move = 0, i;
-
+  int i, pract = 3;
+/*  int add_hp, add_mana = 0, add_move = 0, i;
   add_hp = con_app[GET_CON(ch)].hitp;
 
   switch (GET_CLASS(ch)) {
@@ -2132,6 +1945,13 @@ void advance_level(struct char_data *ch)
     add_move = rand_number(((GET_LEVEL(ch) + (GET_DEX(ch) * 2)) / 10), (int)(2 * (GET_LEVEL(ch) + (GET_DEX(ch) * 2)) / 10));
     break;
 	
+  case CLASS_HUNTER:
+    add_hp += rand_number(((GET_LEVEL(ch) + (GET_CON(ch) * 2)) / 8), (int)(2 * (GET_LEVEL(ch) + (GET_CON(ch) * 2)) / 8));
+    add_mana = rand_number(((GET_LEVEL(ch) + (GET_INT(ch) * 2)) / 5), (int)(2 * (GET_LEVEL(ch) + (GET_INT(ch) * 2)) / 5));
+    add_mana = MIN(add_mana, 10);
+    add_move = rand_number(((GET_LEVEL(ch) + (GET_DEX(ch) * 2)) / 10), (int)(2 * (GET_LEVEL(ch) + (GET_DEX(ch) * 2)) / 10));
+    break;
+	
   }
 
   ch->points.max_hit += MAX(1, add_hp);
@@ -2139,12 +1959,21 @@ void advance_level(struct char_data *ch)
 
   if (GET_LEVEL(ch) > 1)
     ch->points.max_mana += add_mana;
-/*
+
   if (IS_MAGIC_USER(ch) || IS_CLERIC(ch) || IS_THIEF(ch) || IS_MANIPULATOR(ch) || IS_SPECIALIST(ch))
     GET_PRACTICES(ch) += MAX(3, wis_app[GET_WIS(ch)].bonus);
   else
     GET_PRACTICES(ch) += MIN(3, MAX(2, wis_app[GET_WIS(ch)].bonus));
+
+
+  if (GET_LEVEL(ch) % 2)
+    pract = 2;
+  else
+	pract = 3;
 */
+  GET_PRACTICES(ch) += pract;
+  send_to_char(ch, "\tDYour upgrade points was increased by \tG%d\tD!\tn\r\n", pract);
+  
   if (GET_LEVEL(ch) >= LVL_IMMORT) {
     for (i = 0; i < 3; i++)
       GET_COND(ch, i) = (char) -1;
@@ -2199,220 +2028,115 @@ int invalid_class(struct char_data *ch, struct obj_data *obj)
  * skill. */
 void init_spell_levels(void)
 {
+	
   /* TRANSMUTER */
-  spell_level(SKILL_SNEAK, CLASS_MAGIC_USER, 1);
-  spell_level(SKILL_PICK_LOCK, CLASS_MAGIC_USER, 1);
-  spell_level(SKILL_HIDE, CLASS_MAGIC_USER, 1);
-  spell_level(SKILL_TRACK, CLASS_MAGIC_USER, 1);
-  spell_level(SKILL_STEAL, CLASS_MAGIC_USER, 1);
-  spell_level(SKILL_RESCUE, CLASS_MAGIC_USER, 1);
-  spell_level(SPELL_DETECT_INVIS, CLASS_MAGIC_USER, 1);
-  spell_level(SPELL_CURE_LIGHT, CLASS_MAGIC_USER, 1);
-  spell_level(SPELL_DETECT_MAGIC, CLASS_MAGIC_USER, 2);
-  spell_level(SPELL_INFRAVISION, CLASS_MAGIC_USER, 3);
-  spell_level(SPELL_ARMOR, CLASS_MAGIC_USER, 4);
-  spell_level(SPELL_BURNING_HANDS, CLASS_MAGIC_USER, 5);
-  spell_level(SPELL_INVISIBLE, CLASS_MAGIC_USER, 6);    
+  spell_level(SPELL_BURNING_HANDS, CLASS_MAGIC_USER, 1);
+  spell_level(SPELL_INFRAVISION, CLASS_MAGIC_USER, 2);
+  spell_level(SPELL_CURE_LIGHT, CLASS_MAGIC_USER, 3);
+  spell_level(SPELL_MASSAGIST, CLASS_MAGIC_USER, 5);
   spell_level(SPELL_SHOCKING_GRASP, CLASS_MAGIC_USER, 7);
-  spell_level(SPELL_DARKNESS, CLASS_MAGIC_USER, 8);
-  spell_level(SPELL_LIGHTNING_BOLT, CLASS_MAGIC_USER, 9);
-  spell_level(SPELL_REMOVE_POISON, CLASS_MAGIC_USER, 10);
-  spell_level(SPELL_CURE_BLIND, CLASS_MAGIC_USER, 11);
-  spell_level(SPELL_CURE_CRITIC, CLASS_MAGIC_USER, 12);
-  spell_level(SPELL_ENCHANT_WEAPON, CLASS_MAGIC_USER, 14);
-  spell_level(SPELL_COLOR_SPRAY, CLASS_MAGIC_USER, 16);
-  spell_level(SPELL_SENSE_LIFE, CLASS_MAGIC_USER, 18);
-  spell_level(SPELL_HARM, CLASS_MAGIC_USER, 20);
-  spell_level(SPELL_FLY, CLASS_MAGIC_USER, 22);
-  spell_level(SPELL_SANCTUARY, CLASS_MAGIC_USER, 24);
-  spell_level(SPELL_STRENGTH, CLASS_MAGIC_USER, 26);
+  spell_level(SPELL_CURE_CRITIC, CLASS_MAGIC_USER, 10);
+  spell_level(SPELL_ENCHANT_WEAPON, CLASS_MAGIC_USER, 12);
+  spell_level(SPELL_LIGHTNING_BOLT, CLASS_MAGIC_USER, 14);
+  spell_level(SPELL_COLOR_SPRAY, CLASS_MAGIC_USER, 17);
+  spell_level(SPELL_HARM, CLASS_MAGIC_USER, 23);
   
 
   /* CONJURER */
-  spell_level(SKILL_SNEAK, CLASS_CLERIC, 1);
-  spell_level(SKILL_PICK_LOCK, CLASS_CLERIC, 1);
-  spell_level(SKILL_HIDE, CLASS_CLERIC, 1);
-  spell_level(SKILL_TRACK, CLASS_CLERIC, 1);
-  spell_level(SKILL_STEAL, CLASS_CLERIC, 1);
-  spell_level(SKILL_RESCUE, CLASS_CLERIC, 1);
-  spell_level(SPELL_DETECT_INVIS, CLASS_CLERIC, 1);
-  spell_level(SPELL_ARMOR, CLASS_CLERIC, 1);
+  spell_level(SPELL_TIGHTEN_CHAINS, CLASS_CLERIC, 1);
   spell_level(SPELL_CREATE_FOOD, CLASS_CLERIC, 2);
-  spell_level(SPELL_CREATE_WATER, CLASS_CLERIC, 2);
-  spell_level(SPELL_DETECT_POISON, CLASS_CLERIC, 3);
-  spell_level(SPELL_DETECT_ALIGN, CLASS_CLERIC, 3);
-  spell_level(SPELL_BLESS, CLASS_CLERIC, 4);
-  spell_level(SPELL_ANIMATE_DEAD, CLASS_CLERIC, 5);
-  spell_level(SPELL_CURE_LIGHT, CLASS_CLERIC, 6);
-  spell_level(SPELL_IDENTIFY, CLASS_CLERIC, 7);
-  spell_level(SPELL_POISON, CLASS_CLERIC, 8);
-  spell_level(SPELL_ENCHANT_WEAPON, CLASS_CLERIC, 9);
-  spell_level(SPELL_REMOVE_CURSE, CLASS_CLERIC, 10);
-  spell_level(SPELL_CURE_CRITIC, CLASS_CLERIC, 11);
+  spell_level(SPELL_CREATE_WATER, CLASS_CLERIC, 3);  
+  spell_level(SPELL_IDENTIFY, CLASS_CLERIC, 4);
+  spell_level(SPELL_REPAIR, CLASS_CLERIC, 5);
+  spell_level(SPELL_INVISIBLE, CLASS_CLERIC, 7);  
+  spell_level(SPELL_REMOVE_CURSE, CLASS_CLERIC, 10);  
   spell_level(SPELL_CALL_LIGHTNING, CLASS_CLERIC, 12);
-  spell_level(SPELL_CURE_BLIND, CLASS_CLERIC, 13);
-  spell_level(SPELL_REMOVE_POISON, CLASS_CLERIC, 14);
-  spell_level(SPELL_SENSE_LIFE, CLASS_CLERIC, 15);
+  spell_level(SPELL_CLONE, CLASS_CLERIC, 14);
   spell_level(SPELL_HEAL, CLASS_CLERIC, 16);
-  spell_level(SPELL_GROUP_ARMOR, CLASS_CLERIC,18);
-  spell_level(SPELL_GROUP_HEAL, CLASS_CLERIC, 20);  
-  spell_level(SPELL_FLY, CLASS_CLERIC, 22);
-  spell_level(SPELL_SANCTUARY, CLASS_CLERIC, 24);
-  spell_level(SPELL_HARM, CLASS_CLERIC, 26);
+  spell_level(SPELL_GROUP_ARMOR, CLASS_CLERIC,18);  
+  spell_level(SPELL_GROUP_HEAL, CLASS_CLERIC, 20);
   
 
   /* EMISSOR */
-  spell_level(SKILL_SNEAK, CLASS_THIEF, 1);
-  spell_level(SKILL_PICK_LOCK, CLASS_THIEF, 1);
-  spell_level(SKILL_HIDE, CLASS_THIEF, 1);
-  spell_level(SKILL_TRACK, CLASS_THIEF, 1);
-  spell_level(SKILL_STEAL, CLASS_THIEF, 1);
-  spell_level(SKILL_RESCUE, CLASS_THIEF, 1);
-  spell_level(SPELL_DETECT_INVIS, CLASS_THIEF, 1);
-  spell_level(SPELL_MAGIC_MISSILE, CLASS_THIEF, 1);
-  spell_level(SPELL_BLESS, CLASS_THIEF, 2);
-  spell_level(SPELL_DETECT_POISON, CLASS_THIEF, 4);
-  spell_level(SPELL_ARMOR, CLASS_THIEF, 6);
-  spell_level(SPELL_DARKNESS, CLASS_THIEF, 8);
-  spell_level(SPELL_ENCHANT_WEAPON, CLASS_THIEF, 10);
-  spell_level(SPELL_REMOVE_POISON, CLASS_THIEF, 12);
-  spell_level(SPELL_CURE_BLIND, CLASS_THIEF, 14);
-  spell_level(SPELL_FIREBALL, CLASS_THIEF, 16);
+  spell_level(SPELL_MAGIC_MISSILE, CLASS_THIEF, 1);  
+  spell_level(SPELL_DARKNESS, CLASS_THIEF, 2);
+  spell_level(SPELL_WATERWALK, CLASS_THIEF, 3);
+  spell_level(SKILL_DODGE, CLASS_THIEF, 5);
+  spell_level(SPELL_TELEPORT, CLASS_THIEF, 7);  
+  spell_level(SPELL_NEN_BEAST, CLASS_THIEF, 8);
+  spell_level(SKILL_RECALL, CLASS_THIEF, 9);
+  spell_level(SKILL_SENSE, CLASS_THIEF, 10);
+  spell_level(SPELL_FLY, CLASS_THIEF, 12);
+  spell_level(SKILL_REMOTE_PUNCH, CLASS_THIEF, 15);  
   spell_level(SPELL_SENSE_LIFE, CLASS_THIEF, 18);
-  spell_level(SPELL_WORD_OF_RECALL, CLASS_THIEF, 20);
-  spell_level(SPELL_FLY, CLASS_THIEF, 22);
-  spell_level(SPELL_SANCTUARY, CLASS_THIEF, 24);
-  spell_level(SPELL_REMOVE_CURSE, CLASS_THIEF, 26);
-/*spell_level(SKILL_BACKSTAB, CLASS_THIEF, 3);*/
+  spell_level(SPELL_FIREBALL, CLASS_THIEF, 22);
+  
 
 
   /* ENHANCER */
-  spell_level(SKILL_SNEAK, CLASS_WARRIOR, 1);
-  spell_level(SKILL_PICK_LOCK, CLASS_WARRIOR, 1);
-  spell_level(SKILL_HIDE, CLASS_WARRIOR, 1);
-  spell_level(SKILL_TRACK, CLASS_WARRIOR, 1);
-  spell_level(SKILL_STEAL, CLASS_WARRIOR, 1);
-  spell_level(SPELL_DETECT_INVIS, CLASS_WARRIOR, 1);
   spell_level(SKILL_KICK, CLASS_WARRIOR, 1);
-  spell_level(SKILL_RESCUE, CLASS_WARRIOR, 1);
-  spell_level(SPELL_DETECT_MAGIC, CLASS_WARRIOR, 2);
-  spell_level(SPELL_DETECT_POISON, CLASS_WARRIOR, 4);
-  spell_level(SKILL_WHIRLWIND, CLASS_WARRIOR, 5);
-  spell_level(SPELL_ARMOR, CLASS_WARRIOR, 6);
-  spell_level(SPELL_BLESS, CLASS_WARRIOR, 8);
+  spell_level(SPELL_REMOVE_POISON, CLASS_WARRIOR, 3);
+  spell_level(SPELL_CURE_BLIND, CLASS_WARRIOR, 4);
+  spell_level(SKILL_JAJANKEN, CLASS_WARRIOR, 5);  
+  spell_level(SKILL_PARRY, CLASS_WARRIOR, 7);
   spell_level(SKILL_BASH, CLASS_WARRIOR, 10);
-  spell_level(SPELL_STRENGTH, CLASS_WARRIOR, 12);
-  spell_level(SPELL_REMOVE_POISON, CLASS_WARRIOR, 14);
-  spell_level(SPELL_CURE_BLIND, CLASS_WARRIOR, 16);
-  spell_level(SPELL_SENSE_LIFE, CLASS_WARRIOR, 18);  
-  spell_level(SPELL_SANCTUARY, CLASS_WARRIOR, 20);
-  spell_level(SPELL_ENCHANT_WEAPON, CLASS_WARRIOR, 22);
-  spell_level(SPELL_FLY, CLASS_THIEF, 24);
-  spell_level(SPELL_EARTHQUAKE, CLASS_WARRIOR, 26);
+  spell_level(SKILL_BACKSTAB, CLASS_WARRIOR, 12);  
+  spell_level(SPELL_STRENGTH, CLASS_WARRIOR, 16);
+  spell_level(SPELL_EARTHQUAKE, CLASS_WARRIOR, 20);
+  spell_level(SKILL_BAREHANDED_EXPERT, CLASS_WARRIOR, 21);
+  spell_level(SKILL_ENHANCE, CLASS_WARRIOR, 23);
+  spell_level(SPELL_SANCTUARY, CLASS_WARRIOR, 25);
     
   
   /* MANIPULATOR */
-  spell_level(SKILL_SNEAK, CLASS_MANIPULATOR, 1);
-  spell_level(SKILL_PICK_LOCK, CLASS_MANIPULATOR, 1);
-  spell_level(SKILL_HIDE, CLASS_MANIPULATOR, 1);
-  spell_level(SKILL_TRACK, CLASS_MANIPULATOR, 1);
-  spell_level(SKILL_STEAL, CLASS_MANIPULATOR, 1);
-  spell_level(SKILL_RESCUE, CLASS_MANIPULATOR, 1);
-  spell_level(SPELL_DETECT_INVIS, CLASS_MANIPULATOR, 1);
   spell_level(SPELL_CHILL_TOUCH, CLASS_MANIPULATOR, 1);
-  spell_level(SPELL_DETECT_MAGIC, CLASS_MANIPULATOR, 2);
   spell_level(SPELL_DETECT_POISON, CLASS_MANIPULATOR, 2);
-  spell_level(SPELL_INFRAVISION, CLASS_MANIPULATOR, 3);
-  spell_level(SPELL_DETECT_ALIGN, CLASS_MANIPULATOR, 3);
-  spell_level(SPELL_BLESS, CLASS_MANIPULATOR, 4);
-  spell_level(SPELL_ANIMATE_DEAD, CLASS_MANIPULATOR, 5);
-  spell_level(SPELL_IDENTIFY, CLASS_MANIPULATOR, 5);
-  spell_level(SPELL_LOCATE_OBJECT, CLASS_MANIPULATOR, 6);
-  spell_level(SPELL_INVISIBLE, CLASS_MANIPULATOR, 6);
-  spell_level(SPELL_POISON, CLASS_MANIPULATOR, 8);
-  spell_level(SPELL_BLINDNESS, CLASS_MANIPULATOR, 9);
-  spell_level(SPELL_CURSE, CLASS_MANIPULATOR, 10);
-  spell_level(SPELL_REMOVE_POISON, CLASS_MANIPULATOR, 11);
-  spell_level(SPELL_CURE_BLIND, CLASS_MANIPULATOR, 12);
-  spell_level(SPELL_ENERGY_DRAIN, CLASS_MANIPULATOR, 13);
-  spell_level(SPELL_SLEEP, CLASS_MANIPULATOR, 14);
-  spell_level(SPELL_SUMMON, CLASS_MANIPULATOR, 15);
-  spell_level(SPELL_SENSE_LIFE, CLASS_MANIPULATOR, 16);
-  spell_level(SPELL_REMOVE_CURSE, CLASS_MANIPULATOR, 17);
-  spell_level(SPELL_SANCTUARY, CLASS_MANIPULATOR, 18);
-  spell_level(SPELL_CLONE, CLASS_MANIPULATOR, 19);
-  spell_level(SPELL_DISPEL_EVIL, CLASS_MANIPULATOR, 20);
-  spell_level(SPELL_DISPEL_GOOD, CLASS_MANIPULATOR, 20);
-  spell_level(SPELL_STRENGTH, CLASS_MANIPULATOR, 23);
-  spell_level(SPELL_CHARM, CLASS_MANIPULATOR, 26);
+  spell_level(SPELL_DETECT_MAGIC, CLASS_MANIPULATOR, 3);
+  spell_level(SPELL_DETECT_ALIGN, CLASS_MANIPULATOR, 4);
+  spell_level(SPELL_BLESS, CLASS_MANIPULATOR, 5);  
+  spell_level(SPELL_ANIMATE_DEAD, CLASS_MANIPULATOR, 6);
+  spell_level(SPELL_POISON, CLASS_MANIPULATOR, 7);
+  spell_level(SPELL_BLINDNESS, CLASS_MANIPULATOR, 8);
+  spell_level(SPELL_CURSE, CLASS_MANIPULATOR, 9);
+  spell_level(SPELL_DISPEL_EVIL, CLASS_MANIPULATOR, 10);
+  spell_level(SPELL_DISPEL_GOOD, CLASS_MANIPULATOR, 12);  
+  spell_level(SPELL_SLEEP, CLASS_MANIPULATOR, 15);  
+  spell_level(SPELL_ENERGY_DRAIN, CLASS_MANIPULATOR, 20);
+  spell_level(SPELL_CHARM, CLASS_MANIPULATOR, 25);
 
-
-  /* SPECIALIST */
-  spell_level(SKILL_SNEAK, CLASS_SPECIALIST, 1);
-  spell_level(SKILL_PICK_LOCK, CLASS_SPECIALIST, 1);
-  spell_level(SKILL_HIDE, CLASS_SPECIALIST, 1);
-  spell_level(SKILL_TRACK, CLASS_SPECIALIST, 1);
-  spell_level(SKILL_STEAL, CLASS_SPECIALIST, 1);
-  spell_level(SKILL_KICK, CLASS_SPECIALIST, 1);
-  spell_level(SKILL_RESCUE, CLASS_SPECIALIST, 1);  
-  spell_level(SPELL_DETECT_INVIS, CLASS_SPECIALIST, 1);
-  spell_level(SPELL_MAGIC_MISSILE, CLASS_SPECIALIST, 1);
-  spell_level(SPELL_ARMOR, CLASS_SPECIALIST, 1);
-  spell_level(SPELL_CURE_LIGHT, CLASS_SPECIALIST, 1);
-  spell_level(SPELL_CREATE_FOOD, CLASS_CLERIC, 2);
-  spell_level(SPELL_CREATE_WATER, CLASS_CLERIC, 2);
-  spell_level(SPELL_CHILL_TOUCH, CLASS_SPECIALIST, 2);
-  spell_level(SPELL_DETECT_MAGIC, CLASS_SPECIALIST, 2);
-  spell_level(SPELL_DETECT_POISON, CLASS_SPECIALIST, 2);
-  spell_level(SPELL_BLESS, CLASS_SPECIALIST, 2);
-  spell_level(SPELL_INFRAVISION, CLASS_SPECIALIST, 3);
-  spell_level(SPELL_DETECT_ALIGN, CLASS_SPECIALIST, 3);
-  spell_level(SPELL_ANIMATE_DEAD, CLASS_SPECIALIST, 5);
-  spell_level(SPELL_IDENTIFY, CLASS_SPECIALIST, 5);
-  spell_level(SPELL_BURNING_HANDS, CLASS_SPECIALIST, 5);
-  spell_level(SKILL_WHIRLWIND, CLASS_SPECIALIST, 5);
-  spell_level(SPELL_LOCATE_OBJECT, CLASS_SPECIALIST, 6);
-  spell_level(SPELL_INVISIBLE, CLASS_SPECIALIST, 6);
-  spell_level(SPELL_SHOCKING_GRASP, CLASS_SPECIALIST, 7);
-  spell_level(SPELL_POISON, CLASS_SPECIALIST, 8);
-  spell_level(SPELL_DARKNESS, CLASS_SPECIALIST, 8);
-  spell_level(SPELL_BLINDNESS, CLASS_SPECIALIST, 9);
-  spell_level(SPELL_ENCHANT_WEAPON, CLASS_SPECIALIST, 9);
-  spell_level(SPELL_LIGHTNING_BOLT, CLASS_SPECIALIST, 9);
-  spell_level(SKILL_BASH, CLASS_SPECIALIST, 10);
-  spell_level(SPELL_CURSE, CLASS_SPECIALIST, 10);
-  spell_level(SPELL_REMOVE_POISON, CLASS_SPECIALIST, 11);
-  spell_level(SPELL_CURE_BLIND, CLASS_SPECIALIST, 11);
-  spell_level(SPELL_CALL_LIGHTNING, CLASS_SPECIALIST, 11);
-  spell_level(SPELL_STRENGTH, CLASS_SPECIALIST, 12);
-  spell_level(SPELL_ENERGY_DRAIN, CLASS_SPECIALIST, 13);
-  spell_level(SPELL_SLEEP, CLASS_SPECIALIST, 14);
-  spell_level(SPELL_SUMMON, CLASS_SPECIALIST, 15);
-  spell_level(SPELL_SENSE_LIFE, CLASS_SPECIALIST, 16);
-  spell_level(SPELL_COLOR_SPRAY, CLASS_SPECIALIST, 16);
-  spell_level(SPELL_FIREBALL, CLASS_SPECIALIST, 16);
-  spell_level(SPELL_GROUP_ARMOR, CLASS_SPECIALIST,16);
-  spell_level(SPELL_SANCTUARY, CLASS_SPECIALIST, 18);
-  spell_level(SPELL_CLONE, CLASS_SPECIALIST, 19);
-  spell_level(SPELL_HARM, CLASS_MAGIC_USER, 20);
-  spell_level(SPELL_DISPEL_EVIL, CLASS_SPECIALIST, 20);
-  spell_level(SPELL_DISPEL_GOOD, CLASS_SPECIALIST, 20);
-  spell_level(SPELL_WORD_OF_RECALL, CLASS_SPECIALIST, 20);
-  spell_level(SPELL_HEAL, CLASS_SPECIALIST, 20);
-  spell_level(SPELL_EARTHQUAKE, CLASS_SPECIALIST, 26);
-  spell_level(SPELL_CHARM, CLASS_SPECIALIST, 26);
-  spell_level(SPELL_REMOVE_CURSE, CLASS_SPECIALIST, 26);  
+  /* SPECIALIST */  
+  spell_level(SPELL_GROUP_RECALL, CLASS_SPECIALIST, 10);  
+  spell_level(SPELL_LOCATE_OBJECT, CLASS_SPECIALIST, 20);   
+  spell_level(SPELL_SUMMON, CLASS_SPECIALIST, 30);
+  spell_level(SPELL_LUCK, CLASS_SPECIALIST, 40);
+  
+  /* HUNTER */
+  spell_level(SKILL_POWER, CLASS_HUNTER, 1);
+  spell_level(SPELL_DETECT_INVIS, CLASS_HUNTER, 1);
+  spell_level(SKILL_PICK_LOCK, CLASS_HUNTER, 2);
+  spell_level(SKILL_ANALYSIS, CLASS_HUNTER, 3);
+  spell_level(SKILL_HIDE, CLASS_HUNTER, 4);
+  spell_level(SKILL_RESCUE, CLASS_HUNTER, 5);
+  spell_level(SKILL_SNEAK, CLASS_HUNTER, 6);  
+  spell_level(SKILL_TRACK, CLASS_HUNTER, 7);  
+  spell_level(SKILL_STEAL, CLASS_HUNTER, 8);
+  spell_level(SPELL_ARMOR, CLASS_HUNTER, 9);
+  spell_level(SKILL_SECOND_ATTACK, CLASS_HUNTER, 10);
+  spell_level(SKILL_INSTANT_FORTIFY, CLASS_HUNTER, 15);
+  spell_level(SKILL_THIRD_ATTACK, CLASS_HUNTER, 20);  
+  spell_level(SKILL_FOURTH_ATTACK, CLASS_HUNTER, 30);    
   
 }
 
 /* This is the exp given to implementors -- it must always be greater than the
  * exp required for immortality, plus at least 20,000 or so. */
-#define EXP_MAX  10000000
+#define EXP_MAX  1000000000
 
 /* Function to return the exp required for each class/level */
-int level_exp(int chclass, int level)
-{
-  if (level > LVL_IMPL || level < 0) {
+int level_exp(int level)
+{  
+  
+  if (level > LVL_IMPL || level <= 0) {
     log("SYSERR: Requesting exp for invalid level %d!", level);
     return 0;
   }
@@ -2422,238 +2146,60 @@ int level_exp(int chclass, int level)
    if (level > LVL_IMMORT) {
      return EXP_MAX - ((LVL_IMPL - level) * 1000);
    }
-
-  /* Exp required for normal mortals is below */
-  switch (chclass) {
-
-    case CLASS_MAGIC_USER:
+   
     switch (level) {
-      case  0: return 0;
-      case  1: return 1;
-      case  2: return 2500;
-      case  3: return 5000;
-      case  4: return 10000;
-      case  5: return 20000;
-      case  6: return 40000;
-      case  7: return 60000;
-      case  8: return 90000;
-      case  9: return 135000;
-      case 10: return 250000;
-      case 11: return 375000;
-      case 12: return 750000;
-      case 13: return 1125000;
-      case 14: return 1500000;
-      case 15: return 1875000;
-      case 16: return 2250000;
-      case 17: return 2625000;
-      case 18: return 3000000;
-      case 19: return 3375000;
-      case 20: return 3750000;
-      case 21: return 4250000;
-      case 22: return 5000000;
-      case 23: return 6000000;
-      case 24: return 7000000;
-      case 25: return 8000000;
-      case 26: return 9000000;
-      case 27: return 10000000;
-      case 28: return 12500000;
-      case 29: return 17500000;
-      case 30: return 25000000;
-      /* add new levels here */
-      case LVL_IMMORT: return 35000000;
-    }
-    break;
-
-    case CLASS_CLERIC:
-	switch (level) {
-      case  0: return 0;
-      case  1: return 1;
-      case  2: return 1250;
-      case  3: return 2500;
-      case  4: return 5000;
-      case  5: return 10000;
-      case  6: return 20000;
-      case  7: return 40000;
-      case  8: return 70000;
-      case  9: return 110000;
-      case 10: return 160000;
-      case 11: return 220000;
-      case 12: return 440000;
-      case 13: return 660000;
-      case 14: return 880000;
-      case 15: return 1100000;
-      case 16: return 1500000;
-      case 17: return 2000000;
-      case 18: return 2500000;
-      case 19: return 3000000;
-      case 20: return 3500000;
-      case 21: return 4000000;
-      case 22: return 4750000;
-      case 23: return 5500000;
-      case 24: return 6500000;
-      case 25: return 7500000;
-      case 26: return 8500000;
-      case 27: return 9500000;
-      case 28: return 11000000;
-      case 29: return 12500000;
-      case 30: return 17500000;
-      /* add new levels here */
-      case LVL_IMMORT: return 25000000;	  
-    }
-    break;
-
-    case CLASS_THIEF:
-    switch (level) {
-      case  0: return 0;
-      case  1: return 1;
-      case  2: return 2000;
-      case  3: return 4000;
-      case  4: return 8000;
-      case  5: return 16000;
-      case  6: return 32000;
-      case  7: return 64000;
-      case  8: return 125000;
-      case  9: return 250000;
-      case 10: return 500000;
-      case 11: return 750000;
-      case 12: return 1000000;
-      case 13: return 1250000;
-      case 14: return 1500000;
-      case 15: return 1850000;
-      case 16: return 2200000;
-      case 17: return 2550000;
-      case 18: return 2900000;
-      case 19: return 3250000;
-      case 20: return 3600000;
-      case 21: return 4100000;
-      case 22: return 4750000;
-      case 23: return 5750000;
-      case 24: return 6750000;
-      case 25: return 7750000;
-      case 26: return 8750000;
-      case 27: return 9750000;
-      case 28: return 12500000;
-      case 29: return 15000000;
-      case 30: return 20000000;
-	  /* add new levels here */
-      case LVL_IMMORT: return 30000000;
-    }
-    break;
-
-    case CLASS_WARRIOR:
-    switch (level) {
-	  case  0: return 0;
-      case  1: return 1;
-      case  2: return 2500;
-      case  3: return 5000;
-      case  4: return 10000;
-      case  5: return 20000;
-      case  6: return 40000;
-      case  7: return 60000;
-      case  8: return 90000;
-      case  9: return 135000;
-      case 10: return 250000;
-      case 11: return 375000;
-      case 12: return 750000;
-      case 13: return 1125000;
-      case 14: return 1500000;
-      case 15: return 1875000;
-      case 16: return 2250000;
-      case 17: return 2625000;
-      case 18: return 3000000;
-      case 19: return 3375000;
-      case 20: return 3750000;
-      case 21: return 4250000;
-      case 22: return 5000000;
-      case 23: return 6000000;
-      case 24: return 7000000;
-      case 25: return 8000000;
-      case 26: return 9000000;
-      case 27: return 10000000;
-      case 28: return 12500000;
-      case 29: return 17500000;
-      case 30: return 25000000;
-      /* add new levels here */
-      case LVL_IMMORT: return 35000000;	  
-    }
-    break;
-
-    case CLASS_MANIPULATOR:
-    switch (level) {
-      case  0: return 0;
-      case  1: return 1;
-      case  2: return 1500;
-      case  3: return 3000;
-      case  4: return 6000;
-      case  5: return 13000;
-      case  6: return 27500;
-      case  7: return 55000;
-      case  8: return 110000;
-      case  9: return 225000;
-      case 10: return 450000;
-      case 11: return 675000;
-      case 12: return 900000;
-      case 13: return 1125000;
-      case 14: return 1350000;
-      case 15: return 1575000;
-      case 16: return 1800000;
-      case 17: return 2100000;
-      case 18: return 2400000;
-      case 19: return 2700000;
-      case 20: return 3500000;
-      case 21: return 4000000;
-      case 22: return 4750000;
-      case 23: return 5500000;
-      case 24: return 6500000;
-      case 25: return 7500000;
-      case 26: return 8500000;
-      case 27: return 9500000;
-      case 28: return 11000000;
-      case 29: return 12500000;
-      case 30: return 17500000;
-	  /* add new levels here */
-      case LVL_IMMORT: return 27500000;	  
-    }
-    break;
-	
-	case CLASS_SPECIALIST:
-    switch (level) {
-      case  0: return 0;
-      case  1: return 1;
-      case  2: return 3000;
-      case  3: return 6000;
-      case  4: return 12000;
-      case  5: return 24000;
-      case  6: return 48000;
-      case  7: return 70000;
-      case  8: return 90000;
-      case  9: return 135000;
-      case 10: return 250000;
-      case 11: return 375000;
-      case 12: return 750000;
-      case 13: return 1150000;
-      case 14: return 1500000;
-      case 15: return 2000000;
-      case 16: return 2750000;
-      case 17: return 3750000;
-      case 18: return 5000000;
-      case 19: return 6500000;
-      case 20: return 8500000;
-      case 21: return 11000000;
-      case 22: return 14000000;
-      case 23: return 17000000;
-      case 24: return 20000000;
-      case 25: return 23000000;
-      case 26: return 26000000;
-      case 27: return 29000000;
-      case 28: return 32000000;
-      case 29: return 35000000;
-      case 30: return 40000000;
-	  /* add new levels here */
-      case LVL_IMMORT: return 50000000;
-    }
-    break;
-  }
+	  case 1: return 250;
+	  case 2: return 1000;
+	  case 3: return 2250;
+	  case 4: return 3750;
+	  case 5: return 5500;
+	  case 6: return 7500;
+	  case 7: return 10000;
+	  case 8: return 13000;
+	  case 9: return 16500;
+      case 10: return 20500;
+	  case 11: return 26000;
+	  case 12: return 32000;
+	  case 13: return 39000;
+	  case 14: return 47000;
+	  case 15: return 57000;
+	  case 16: return 69000;
+	  case 17: return 83000;
+	  case 18: return 99000;
+	  case 19: return 119000;
+      case 20: return 143000;
+	  case 21: return 175000;
+	  case 22: return 210000;
+	  case 23: return 255000;
+	  case 24: return 310000;
+	  case 25: return 375000;
+	  case 26: return 450000;
+	  case 27: return 550000;
+	  case 28: return 675000;
+	  case 29: return 825000;
+      case 30: return 1000000;
+	  case 31: return 2250000;
+	  case 32: return 3750000;
+	  case 33: return 5500000;
+	  case 34: return 7500000;
+	  case 35: return 10000000;
+	  case 36: return 13000000;
+	  case 37: return 16500000;
+	  case 38: return 20500000;
+	  case 39: return 26000000;
+	  case 40: return 32000000;
+	  case 41: return 39000000;
+	  case 42: return 47000000;
+	  case 43: return 57000000;
+	  case 44: return 69000000;
+	  case 45: return 83000000;
+	  case 46: return 99000000;
+	  case 47: return 119000000;
+	  case 48: return 143000000;
+	  case 49: return 175000000;
+	  case 50: return 210000000;
+	  default: return EXP_MAX;
+	}
 
   /* This statement should never be reached if the exp tables in this function
    * are set up properly.  If you see exp of 123456 then the tables above are
@@ -2663,142 +2209,64 @@ int level_exp(int chclass, int level)
 }
 
 /* Default titles of male characters. */
-const char *title_male(int chclass, int level)
+const char *title_hunter(int level)
 {
+  static char buf[MAX_STRING_LENGTH];
+  int rank;  
+  
   if (level <= 0 || level > LVL_IMPL)
     return "the Hunter";
   if (level == LVL_IMPL)
     return "the Chairman";
 
-  switch (chclass) {
-
-    case CLASS_MAGIC_USER:
-    switch (level) {
-      case LVL_IMMORT: return "the 1-Star Hunter";
-      case LVL_GOD: return "the 2-Star Hunter";
-      case LVL_GRGOD: return "the 3-Star Hunter";
-      default: return "the player";
-    }
-    break;
-
-    case CLASS_CLERIC:
-    switch (level) {
-      case LVL_IMMORT: return "the 1-Star Hunter";
-      case LVL_GOD: return "the 2-Star Hunter";
-      case LVL_GRGOD: return "the 3-Star Hunter";
-      default: return "the player";
-    }
-    break;
-
-    case CLASS_THIEF:
-    switch (level) {
-      case LVL_IMMORT: return "the 1-Star Hunter";
-      case LVL_GOD: return "the 2-Star Hunter";
-      case LVL_GRGOD: return "the 3-Star Hunter";
-      default: return "the player";
-    }
-    break;
-
-    case CLASS_WARRIOR:
-    switch(level) {
-      case LVL_IMMORT: return "the 1-Star Hunter";
-      case LVL_GOD: return "the 2-Star Hunter";
-      case LVL_GRGOD: return "the 3-Star Hunter";
-      default: return "the player";
-    }
-    break;
-	
-    case CLASS_MANIPULATOR:
-    switch (level) {
-      case LVL_IMMORT: return "the 1-Star Hunter";
-      case LVL_GOD: return "the 2-Star Hunter";
-      case LVL_GRGOD: return "the 3-Star Hunter";
-      default: return "the player";
-    }
-    break;
-	
-	case CLASS_SPECIALIST:
-    switch (level) {
-      case LVL_IMMORT: return "the 1-Star Hunter";
-      case LVL_GOD: return "the 2-Star Hunter";
-      case LVL_GRGOD: return "the 3-Star Hunter";
-      default: return "the player";
-    }
-    break;
-	
+  switch (level) {
+	  case 1: return "a H rank Hunter";
+	  case 2: return "a G rank Hunter";
+	  case 3: return "a F rank Hunter";
+	  case 4: return "a E rank Hunter";
+	  case 5: return "a D rank Hunter";
+	  case 6: return "a C rank Hunter";
+	  case 7: return "a B rank Hunter";
+	  case 8: return "a A rank Hunter";
+	  case 9: return "a S rank Hunter";
+      case 10: return "a 1-Star Hunter";
+	  case 11: return "a 1S H rank Hunter";
+	  case 12: return "a 1S G rank Hunter";
+	  case 13: return "a 1S F rank Hunter";
+	  case 14: return "a 1S E rank Hunter";
+	  case 15: return "a 1S D rank Hunter";
+	  case 16: return "a 1S C rank Hunter";
+	  case 17: return "a 1S B rank Hunter";
+	  case 18: return "a 1S A rank Hunter";
+	  case 19: return "a 1S S rank Hunter";
+      case 20: return "a 2-Star Hunter";
+	  case 21: return "a 2S H rank Hunter";
+	  case 22: return "a 2S G rank Hunter";
+	  case 23: return "a 2S F rank Hunter";
+	  case 24: return "a 2S E rank Hunter";
+	  case 25: return "a 2S D rank Hunter";
+	  case 26: return "a 2S C rank Hunter";
+	  case 27: return "a 2S B rank Hunter";
+	  case 28: return "a 2S A rank Hunter";
+	  case 29: return "a 2S S rank Hunter";
+      case 30: return "the 3-Star Hunter";
+	  case 31: return "the 3S H rank Hunter";
+	  case 32: return "the 3S G rank Hunter";
+	  case 33: return "the 3S F rank Hunter";
+	  case 34: return "the 3S E rank Hunter";
+	  case 35: return "the 3S D rank Hunter";
+	  case 36: return "the 3S C rank Hunter";
+	  case 37: return "the 3S B rank Hunter";
+	  case 38: return "the 3S A rank Hunter";
+	  case 39: return "the 3S S rank Hunter";
+	  case 40: return "the 3S SS rank Hunter";
+	  default:
+	    rank = 51 - level;
+		sprintf(buf, "the SS-%d rank Hunter", rank);
+		return (buf);
   }
+  
 
   /* Default title for classes which do not have titles defined */
   return "the Classless";
 }
-
-/* Default titles of female characters. */
-const char *title_female(int chclass, int level)
-{
-  if (level <= 0 || level > LVL_IMPL)
-    return "the Woman";
-  if (level == LVL_IMPL)
-    return "the Implementress";
-
-  switch (chclass) {
-
-    case CLASS_MAGIC_USER:
-    switch (level) {
-      case LVL_IMMORT: return "the 1-Star Hunter";
-      case LVL_GOD: return "the 2-Star Hunter";
-      case LVL_GRGOD: return "the 3-Star Hunter";
-      default: return "the player";
-    }
-    break;
-
-    case CLASS_CLERIC:
-    switch (level) {
-      case LVL_IMMORT: return "the 1-Star Hunter";
-      case LVL_GOD: return "the 2-Star Hunter";
-      case LVL_GRGOD: return "the 3-Star Hunter";
-      default: return "the player";
-    }
-    break;
-
-    case CLASS_THIEF:
-    switch (level) {
-      case LVL_IMMORT: return "the 1-Star Hunter";
-      case LVL_GOD: return "the 2-Star Hunter";
-      case LVL_GRGOD: return "the 3-Star Hunter";
-      default: return "the player";
-    }
-    break;
-
-    case CLASS_WARRIOR:
-    switch(level) {
-      case LVL_IMMORT: return "the 1-Star Hunter";
-      case LVL_GOD: return "the 2-Star Hunter";
-      case LVL_GRGOD: return "the 3-Star Hunter";
-      default: return "the player";
-    }
-    break;
-	
-    case CLASS_MANIPULATOR:
-    switch (level) {
-      case LVL_IMMORT: return "the 1-Star Hunter";
-      case LVL_GOD: return "the 2-Star Hunter";
-      case LVL_GRGOD: return "the 3-Star Hunter";
-      default: return "the player";
-    }
-    break;
-	
-	case CLASS_SPECIALIST:
-    switch (level) {
-      case LVL_IMMORT: return "the 1-Star Hunter";
-      case LVL_GOD: return "the 2-Star Hunter";
-      case LVL_GRGOD: return "the 3-Star Hunter";
-      default: return "the player";
-    }
-    break;
-	
-  }
-
-  /* Default title for classes which do not have titles defined */
-  return "the Classless";
-}
-

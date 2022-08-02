@@ -175,11 +175,11 @@ static void weather_change(void)
     weather_info.sky = SKY_LIGHTNING;
     break;
   case 5:
-    send_to_outdoor("\twThe rain stops.\r\n");
+    send_to_outdoor("\twThe rain stops.\tn\r\n");
     weather_info.sky = SKY_CLOUDY;
     break;
   case 6:
-    send_to_outdoor("\tBThe lightning stops.\r\n");
+    send_to_outdoor("\tBThe lightning stops.\tn\r\n");
     weather_info.sky = SKY_RAINING;
     break;
   default:

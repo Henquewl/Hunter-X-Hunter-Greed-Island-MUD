@@ -1,30 +1,30 @@
-Apr 19 12:05:11 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:11 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:22 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:22 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:22 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:22 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:22 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:22 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:22 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:22 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:22 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:22 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:24 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:24 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:24 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:24 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:24 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:24 201  :: SYSERR: Mob using '((ch)->player_specials->saved.pref)' at interpreter.c:496.
-Apr 19 12:05:33 201  :: (GC) Shutdown by Henque.
-Apr 19 12:05:33 201  :: Closing all sockets.
-Apr 19 12:05:33 201  :: Closing link to: Testsubone.
-Apr 19 12:05:33 201  :: Closing link to: Henque.
-Apr 19 12:05:33 201  :: Saving current MUD time.
-Apr 19 12:05:33 201  :: Normal termination of game.
-Apr 19 12:05:33 201  :: Clearing game world.
-Apr 19 12:05:33 201  :: Clearing other memory.
-Apr 19 12:05:33 201  :: Done.
-Quick boot mode -- rent check supressed.
-Using file descriptor for logging.
-autoscript terminated qua, 19 de abr de 2017 12:05:33
+Aug 01 15:45:26 202  :: Losing descriptor without char.
+Aug 01 15:45:26 202  :: No connections.  Going to sleep.
+Aug 01 15:45:36 202  :: New connection.  Waking up.
+Aug 01 15:46:06 202  :: Losing descriptor without char.
+Aug 01 15:46:06 202  :: No connections.  Going to sleep.
+Aug 01 15:47:18 202  :: New connection.  Waking up.
+Aug 01 15:47:23 202  :: Henque has connected. (invis 54)
+Aug 01 15:47:23 202  :: Henque retrieving crash-saved items and entering game.
+Aug 01 15:47:23 202  :: Henque (level 54) has 46 objects (max 300).
+Aug 01 15:50:18 202  :: nusage: 1   sockets connected, 1   sockets playing
+Aug 01 15:55:18 202  :: nusage: 1   sockets connected, 1   sockets playing
+Aug 01 16:00:18 202  :: nusage: 1   sockets connected, 1   sockets playing
+Aug 01 16:05:18 202  :: nusage: 1   sockets connected, 1   sockets playing
+Aug 01 16:10:18 202  :: nusage: 1   sockets connected, 1   sockets playing
+Aug 01 16:15:18 202  :: nusage: 1   sockets connected, 1   sockets playing
+Aug 01 16:20:18 202  :: nusage: 1   sockets connected, 1   sockets playing
+Aug 01 16:25:18 202  :: nusage: 1   sockets connected, 1   sockets playing
+Aug 01 16:30:18 202  :: nusage: 1   sockets connected, 1   sockets playing
+Aug 01 16:35:18 202  :: nusage: 1   sockets connected, 1   sockets playing
+Aug 01 16:40:18 202  :: nusage: 1   sockets connected, 1   sockets playing
+Aug 01 16:45:18 202  :: nusage: 1   sockets connected, 1   sockets playing
+Aug 01 16:50:18 202  :: nusage: 1   sockets connected, 1   sockets playing
+Aug 01 16:55:18 202  :: nusage: 1   sockets connected, 1   sockets playing
+Aug 01 16:59:00 202  :: (GC) Shutdown by Henque.
+Aug 01 16:59:00 202  :: Closing all sockets.
+Aug 01 16:59:00 202  :: Closing link to: Henque.
+Aug 01 16:59:00 202  :: Saving current MUD time.
+Aug 01 16:59:00 202  :: Normal termination of game.
+Aug 01 16:59:00 202  :: Clearing game world.
+autoscript terminated seg,  1 de ago de 2022 16:59:02

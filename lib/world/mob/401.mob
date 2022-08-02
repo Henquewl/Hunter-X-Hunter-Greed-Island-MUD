@@ -1,0 +1,106 @@
+#40100
+ninja sick~
+a sick ninja~
+A sick ninja is here taking some breath, begging you for help.
+~
+ 
+~
+30 0 0 0 589824 0 0 0 100 E
+3 20 7 1d10+30 1d8+0
+30 900
+6 8 1
+BareHandAttack: 3
+E
+T 40101
+T 40102
+#40101
+old man~
+an old man~
+An old man is sitting here, caring a sick child.
+~
+He is old, bald and wears a wise white beard with hairy eyebrows
+what makes impossible eye contact. Wearing a black kimono with
+some white stripes and wooden slippers.
+~
+26 0 0 0 75856 0 0 0 500 E
+5 18 7 0d0+50 1d4+1
+50 2500
+6 6 1
+Dex: 13
+Int: 16
+Wis: 18
+SavingPara: 1
+SavingRod: 1
+SavingPetri: 1
+SavingBreath: 1
+SavingSpell: 1
+E
+T 40103
+T 40104
+#40102
+child sick kid~
+a sick child~
+A sick child is lying down here, with a high fever.
+~
+Blanket wrapped in a sleeping bag, this child is suffering in pain.
+~
+262152 0 0 0 65536 0 0 0 1000 E
+1 20 10 0d0+0 0d0+0
+0 0
+4 8 0
+BareHandAttack: 4
+E
+#40103
+cyclop giant~
+a Giant Cyclop~
+A Giant Cyclop is here, staring at you.
+~
+He is ugly, bald and one-eyed giant and very dangerous.
+~
+104 0 0 0 0 0 0 0 -500 E
+3 20 10 1d11+49 1d10+0
+100 5000
+8 8 1
+Str: 18
+SavingPara: 1
+SavingRod: 1
+SavingPetri: 1
+SavingBreath: 1
+SavingSpell: 1
+E
+#40196
+old man~
+an old man~
+A grateful old man is here.
+~
+He is old, bald and wears a wise white beard with hairy eyebrows
+what makes impossible eye contact. Wearing a black kimono with
+some white stripes and wooden slippers.
+~
+26 0 0 0 75856 0 0 0 500 E
+5 18 7 0d0+50 1d4+1
+50 2500
+8 8 1
+Dex: 13
+Int: 16
+Wis: 18
+SavingPara: 1
+SavingRod: 1
+SavingPetri: 1
+SavingBreath: 1
+SavingSpell: 1
+E
+T 40196
+#40197
+villager healthy~
+a healthy villager~
+A healthy villager is here, emotioned for being healed.
+~
+Those villagers is flooding the ground with their tears.
+~
+262152 0 0 0 0 0 0 0 0 E
+0 20 10 1d1+0 1d1+0
+0 0
+8 8 1
+E
+$

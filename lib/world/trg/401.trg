@@ -90,8 +90,6 @@ wait 2 sec
 say We owe our lives to you...
 wait 2 sec
 %load% obj 40097 %self%
-eval revert 40096
-remote revert %self.inventory.id%
 give card %actor.name%
 %echo% A lot of energy bolts invade the house and attach with your new card.
 %at% 40100 %echo% Something strange is happening here... you see some flash lights to the east.
@@ -115,47 +113,42 @@ load sick villagers quest~
 %echo% This trigger commandlist is not complete!
 ~
 #40196
-old man ask to return~
+Old man reward~
 0 n 100
 ~
 wait 1 sec
-set myroom %self.room%
-if %myroom.vnum% != 40103
-eval i %myroom.people%
-while %i%
-set next %i.next_in_room%
-if %i.is_pc%
-wait 1 sec
-say Oh dear, you healed us!
-wait 2 sec
-say I see we are away from home...
-wait 2 sec
-say If not too much to ask, can you bring us back to home?
-wait 1 sec
-mfollow %i%
-%send% %actor% The healthy villagers starts following you.
-wait 1 sec
-say Thank you, %i.name%. Let's go!
-eval player %i.name%
-remote player %self.id%
-attach 40096 %self.id%
-detach 40196 %self.id%
-halt
-break
-end
-set i %next%
+eval player %self.room.people%
+while %player%
+  set next %player.next_in_room%
+  if %player.is_pc%
+    say Oh dear, you saved us!
+    wait 1 sec
+    say Take this as a token of our gratitude, was with my family for generations
+    wait 1 sec
+    %load% obj 65475 %self% inv
+    give ring %player.name%
+    wait 1 sec
+    say Farewell, adventurer
+    %purge% %self%
+	halt
+  end
+  set player %next%
 done
-else
-attach 40096 %self.id%
-detach 40196 %self.id%
-halt
-end
+%load% obj 65375
+%purge% %self%
 ~
 #40197
-destroy letter~
-1 f 100
+Villagers quest completed~
+1 b 100
 ~
-%send% %self.carried_by% %self.shortdesc% dissolves itself.
+%echo% The old man comes out of the crowd.
+%load% mob 40196
 %purge% %self%
+~
+#40199
+No purge timer~
+1 t 100
+~
+* No Script
 ~
 $~

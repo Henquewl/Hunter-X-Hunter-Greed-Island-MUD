@@ -114,7 +114,7 @@ fmtint(char *buffer, size_t *currlen, size_t maxlen, long value, int base,
        int min, int max, int flags);
 
 static void
-fmtfp(char *buffer, size_t *currlen, size_t maxlen, long double fvalue,
+fmtfp(char *buffer, size_t *currlen, size_t maxlen, long int fvalue,
       int min, int max, int flags);
 
 static void
@@ -159,7 +159,7 @@ dopr(char *buffer, size_t maxlen, const char *format, va_list args)
 	char *strvalue;
 	char ch;
 	long value;
-	long double fvalue;
+	long int fvalue;
 	int min = 0;
 	int max = -1;
 	int state = DP_S_DEFAULT;
@@ -320,9 +320,9 @@ dopr(char *buffer, size_t maxlen, const char *format, va_list args)
 						break;
 					case 'f':
 						if (cflags == DP_C_LDOUBLE)
-							fvalue = va_arg(args, long double);
+							fvalue = va_arg(args, long int);
 						else
-							fvalue = va_arg(args, double);
+							fvalue = va_arg(args, int);
 						/* um, floating point? */
 						fmtfp(buffer, &currlen, maxlen, fvalue, min, max, flags);
 						break;
@@ -330,17 +330,17 @@ dopr(char *buffer, size_t maxlen, const char *format, va_list args)
 						flags |= DP_F_UP;
 					case 'e':
 						if (cflags == DP_C_LDOUBLE)
-							fvalue = va_arg(args, long double);
+							fvalue = va_arg(args, long int);
 						else
-							fvalue = va_arg(args, double);
+							fvalue = va_arg(args, int);
 						break;
 					case 'G':
 						flags |= DP_F_UP;
 					case 'g':
 						if (cflags == DP_C_LDOUBLE)
-							fvalue = va_arg(args, long double);
+							fvalue = va_arg(args, long int);
 						else
-							fvalue = va_arg(args, double);
+							fvalue = va_arg(args, int);
 						break;
 					case 'c':
 						dopr_outch(buffer, &currlen, maxlen, va_arg(args, int));
@@ -518,10 +518,10 @@ fmtint(char *buffer, size_t *currlen, size_t maxlen,
 	}
 }
 
-static long double
+static long int
 pow10(int exp)
 {
-	long double result = 1;
+	long int result = 1;
 
 	while (exp) {
 		result *= 10;
@@ -532,7 +532,7 @@ pow10(int exp)
 }
 
 static long
-round(long double value)
+round(long int value)
 {
 	long intpart = value;
 
@@ -544,7 +544,7 @@ round(long double value)
 }
 
 static void
-fmtfp(char *buffer, size_t *currlen, size_t maxlen, long double fvalue,
+fmtfp(char *buffer, size_t *currlen, size_t maxlen, long int fvalue,
       int min, int max, int flags)
 {
 	char iconvert[20];
@@ -557,7 +557,7 @@ fmtfp(char *buffer, size_t *currlen, size_t maxlen, long double fvalue,
 	int caps = 0;
 	long intpart;
 	long fracpart;
-	long double ufvalue;
+	long int ufvalue;
 
 	/*
 	 * AIX manpage says the default is 0, but Solaris says the default
@@ -718,7 +718,7 @@ main(void)
 		"%3.2f",
 		NULL
 	};
-	double fp_nums[] = {
+	int fp_nums[] = {
 		-1.5,
 		134.21,
 		91340.2,

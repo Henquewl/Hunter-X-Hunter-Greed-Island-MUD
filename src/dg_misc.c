@@ -91,6 +91,9 @@ void do_dg_cast(void *go, struct script_data *sc, trig_data *trig, int type, cha
   if (t != NULL) {
     one_argument(strcpy(buf2, t), t);
     skip_spaces(&t);
+	
+	/* Copy target to global cast_arg2, for use in spells like locate object */
+    strcpy(cast_arg2, t);
   }
   if (IS_SET(SINFO.targets, TAR_IGNORE)) {
     target = TRUE;
@@ -260,11 +263,11 @@ void send_char_pos(struct char_data *ch, int dam)
       send_to_char(ch, "You are dead!  Sorry...\r\n");
       break;
     default:                        /* >= POSITION SLEEPING */
-      if (dam > (GET_MAX_HIT(ch) >> 2))
+      if (dam > (GET_TOTAL_HIT(ch) / 2))
         act("That really did HURT!", FALSE, ch, 0, 0, TO_CHAR);
-      if (GET_HIT(ch) < (GET_MAX_HIT(ch) >> 2))
-        send_to_char(ch, "%sYou wish that your wounds would stop BLEEDING so much!%s\r\n",
-                         CCRED(ch, C_SPR), CCNRM(ch, C_SPR));
+/*      if (GET_HIT(ch) < (GET_MAX_HIT(ch) >> 2))
+          send_to_char(ch, "%sYou wish that your wounds would stop BLEEDING so much!%s\r\n",
+                         CCRED(ch, C_SPR), CCNRM(ch, C_SPR)); */
   }
 }
 

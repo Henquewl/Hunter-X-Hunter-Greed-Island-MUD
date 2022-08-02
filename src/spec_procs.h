@@ -31,7 +31,9 @@ void assign_rooms(void);
  ****************************************************************************/
 /* Utility functions */
 void sort_spells(void);
+void list_of_skills(struct char_data *ch, int lvl);
 void list_skills(struct char_data *ch);
+void list_trains(struct char_data *ch);
 /* Special functions */
 SPECIAL(guild);
 SPECIAL(dump);

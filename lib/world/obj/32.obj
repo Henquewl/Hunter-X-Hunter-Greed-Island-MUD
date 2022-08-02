@@ -1,0 +1,213 @@
+#3200
+undefined~
+@cG.I. @BBook@n~
+A @cG.I. @BBook@n is floating here, open and ready for a fight.~
+~
+1 degq 0 0 0 0 0 0 0 0 0 0 0
+0 0 -1 0
+0 0 0 0 24
+T 3205
+T 3213
+T 3214
+E
+book~
+It is a card binder for store all cards.
+Has 100 Restricted and 45 non-restricted card slots.
+~
+#3201
+xxbkbindkxx~
+@d@n~
+@d@n~
+~
+18 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+0 0 0 0 0
+#3202
+ring gi~
+@gthe @GG.I. @DRing@n~
+It's a lost ring from some dead player.~
+~
+13 deq 0 0 0 ab 0 0 0 0 0 0 0
+0 0 0 0
+0 0 0 0 0
+T 3200
+T 3201
+T 3203
+T 3212
+T 3237
+T 3228
+T 3236
+T 3238
+A
+1 1
+A
+2 1
+A
+3 1
+A
+4 1
+A
+5 1
+A
+6 1
+#3203
+book binder slots~
+@WBinder slots@n~
+.A destroyed player's book, something wicked happened here.~
+~
+15 dqt 0 0 0 0 0 0 0 0 0 0 0
+1 0 -1 0
+1 0 0 0 0
+T 3202
+E
+book restricted binder slots~
+There is 17 pages with 145 slots to insert cards.
+Each page can hold 9 cards, has 100 numbered spaces between 000 and 099
+and more 45 free slots for unrestricted cards.
+Slot 000 is the only with a single page. The back cover has a panel
+with a slot for spell activation and 2 buttons for "who" and "progress".
+~
+#3205
+free~
+@WFree card binder slots@n~
+A free card binder slots is lying here.~
+~
+15 d 0 0 0 a 0 0 0 0 0 0 0
+1 0 -1 0
+1 0 0 0 0
+T 3217
+T 3220
+E
+free binder slots~
+There are 45 slots to insert any un-restricted cards.
+~
+#3206
+hunter license~
+a @RHunter @CLicense@n~
+A @RHunter @CLicense@n is lying here.~
+~
+11 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+0 1000000 0 0 0
+#3207
+sword shattered~
+a shattered sword~
+A shattered sword was junked here.~
+~
+13 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+15 0 0 0 0
+T 3245
+E
+sword shattered~
+This sword was shattered in multiple pieces, but somehow it seems
+to have less pieces than the last time you saw it, looking less
+ruined.
+~
+#3208
+rulers invitation letter~
+an invitation letter~
+An invitation letter is lying here.~
+   Congratulations winner!
+
+   You is invited to meet the castle and be the new Ruler of the island.
+   Please come to Limeiro and show this letter to the castle's guard.
+
+                                              The Ruler
+~
+16 d 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+0 1000000 0 0 2
+T 18600
+#3250
+booster pack boosterpack~
+@Da b@woos@Wter @wpa@Dck@n~
+@DA b@woos@Wter @wpa@Dck@g is lying here.@n~
+~
+14 aqt 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+3 0 0 0 0
+E
+booster pack boosterpack~
+This booster pack contains 	_	-3	n random cards. (Non-toxic)
+Not recommended for children below 3 years old.
+
+Each pack has 5% chance to contains 	m1 	nRestricted card
+  and 10% for 	B1 	nspellcard, even in the same pack!
+
+	YUnpack booster 	nNOW!!!
+~
+#3251
+spell booster pack boosterpack~
+@ba @Bspell @Db@woos@Wter @wpa@Dck@n~
+@bA @Bspell @Db@woos@Wter @wpa@Dck@n is lying here.~
+~
+14 aqt 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+3 50000 0 0 0
+T 3252
+E
+booster pack boosterpack~
+This booster pack contains 3 random spell cards.
+
+Usage: unpack
+
+~
+#3258
+rulers invitation card~
+@y110 Ruler's Invitation SS-1 card@n~
+The @y110 Ruler's Invitation SS-1 card@n is lying here.~
+~
+24 dt 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+0 1000000 0 0 2
+T 18601
+T 18602
+E
+rulers invitation card~
+A letter which extends a warm invitation to visit the game's capital city, Limeiro.
+A visit to this city's castle is also included.
+~
+#3298
+notice sign~
+a @Bnotice @gsign@n~
+A @Bnotice @gsign is here. @n<@Ytype read notice or read sign@n>~
+~
+13 e 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0
+100 0 0 0 0
+E
+notice sign~
+________________________________________________	B
+
+                  N O T I C E	n
+________________________________________________
+
+	BBeta test only, expect for bugs and unfinished
+rooms, mobs and items. Be free to explore the
+world and be brutal with bugs, report them
+immediately!
+You received a beta test starter "deck" into
+your binder, almost all spell cards is in there.
+Cards left out of the binder will expire after 1
+minute (auto-gain), remember that!
+Useful help files: type 	Yhelp 	B<	Ysubject	B>
+(	Ynewbie	B, 	Ybackground	B, 	Ycards	B, 	Ygain	B, 	Ybook	B, 	Ytoggle	B, 	Yinfo	B)
+The following commands explains how use book and cards.
+	W> 	Btype <	Ybook	B> and then <	Ylook in book	B>
+	W> 	Btype <	Yget leave book	B> and <	Yget dagger book	B>
+	W> 	Btype <	Ygain dagger	B> and then <	Ywield dagger	B>
+	W> 	Btype <	Ylook leave	B> and <	Yput leave book	B>	n
+TIP: You will find newbie zone to southwest.
+Going further also has a city and a nen master.
+TIP2: Use recall command if you get lost.
+~
+#3299
+prizer~
+@d@n~
+@d@n~
+~
+15 0 0 0 0 0 0 0 0 0 0 0 0
+-1 0 -1 0
+1 0 0 0 0
+$~

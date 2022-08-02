@@ -66,10 +66,39 @@ ACMD(do_assist)
   }
 }
 
-ACMD(do_hit)
+ACMD(do_punch)
 {
   char arg[MAX_INPUT_LENGTH];
   struct char_data *vict;
+  
+  one_argument(argument, arg);
+  
+  if (!*arg)
+    send_to_char(ch, "Hit who?\r\n");
+  else if (!(vict = get_char_vis(ch, arg, NULL, FIND_CHAR_ROOM)))
+    send_to_char(ch, "That target is not here.\r\n");
+  else if (vict == ch) {
+    send_to_char(ch, "You hit yourself...OUCH!.\r\n");
+    act("$n hits $mself, and says OUCH!", FALSE, ch, 0, vict, TO_ROOM);
+  } else if (AFF_FLAGGED(ch, AFF_CHARM) && (ch->master == vict))
+    act("$N is just such a good friend, you simply can't hit $M.", FALSE, ch, 0, vict, TO_CHAR);
+  else {	
+	send_to_char(ch, "\tBYou retracts your left arm...\tn\r\n");
+    send_to_char(vict, "\tR%s retracts %s left arm...\tn\r\n", GET_NAME(ch), HSSH(ch));
+	act("$n retracts $s left arm...", FALSE, ch, 0, vict, TO_NOTVICT);
+    GET_HTIMER(ch) = 0;
+	GET_HTIMER(ch) = (3 * PASSES_PER_SEC);	
+	if (GET_POS(ch) > POS_STUNNED && (FIGHTING(ch) == NULL))
+      set_fighting(ch, vict);
+    if (GET_POS(vict) > POS_STUNNED && (FIGHTING(vict) == NULL))
+      set_fighting(vict, ch);
+  }
+}
+
+ACMD(do_hit)
+{
+  char arg[MAX_INPUT_LENGTH];
+  struct char_data *vict;  
 
  one_argument(argument, arg);
 
@@ -85,8 +114,22 @@ ACMD(do_hit)
   else {
 //    if (!CONFIG_PK_ALLOWED && !IS_NPC(vict) && !IS_NPC(ch)) 
 //      check_killer(ch, vict);
+    if (!IS_NPC(ch) && !IS_NPC(vict)) {
+      if (IS_GOOD(ch) && (IS_NEUTRAL(vict) || IS_GOOD(vict))) {
+	    send_to_char(ch, "Your mom never tells you that good people don't kill each other?!\r\n");
+	    send_to_char(ch, "\tBGOOD \tcalign only can attack \tREVIL\tc players.\tn\r\n");
+	    return;
+	  } else if (IS_NEUTRAL(ch) && IS_GOOD(vict)) {
+	    send_to_char(ch, "You are not a bad person, why start now?\r\n");
+	    send_to_char(ch, "NEUTRAL \tcalign only can attack other \tnNEUTRAL \tcor \tREVIL\tc players.\tn\r\n");
+	    return;
+      } else if ((IS_AFFECTED(ch, AFF_NOPK) || IS_AFFECTED(vict, AFF_NOPK) || GET_TOTAL_HIT(vict) < (GET_TOTAL_HIT(ch) / 1.5) || GET_LEVEL(vict) == 1)) {
+	    send_to_char(ch, "Pick on someone your own size!\r\n");	    
+	    return;
+	  }
+	}
 
-    if ((GET_POS(ch) == POS_STANDING) && (vict != FIGHTING(ch))) { 
+    if ((GET_POS(ch) == POS_STANDING) && (vict != FIGHTING(ch))) {
       if (GET_DEX(ch) > GET_DEX(vict) || (GET_DEX(ch) == GET_DEX(vict) && rand_number(1, 2) == 1))  /* if faster */
         hit(ch, vict, TYPE_UNDEFINED);  /* first */
       else hit(vict, ch, TYPE_UNDEFINED);  /* or the victim is first */
@@ -99,7 +142,7 @@ ACMD(do_hit)
 ACMD(do_kill)
 {
   char arg[MAX_INPUT_LENGTH];
-  struct char_data *vict;
+  struct char_data *vict;  
 
   if (GET_LEVEL(ch) < LVL_GRGOD || IS_NPC(ch) || !PRF_FLAGGED(ch, PRF_NOHASSLE)) {
     do_hit(ch, argument, cmd, subcmd);
@@ -123,37 +166,63 @@ ACMD(do_kill)
   }
 }
 
+ACMD(do_snapneck)
+{
+  char arg[MAX_INPUT_LENGTH];
+  struct char_data *vict;  
+
+  if (IS_NPC(ch))    
+    return;
+  
+  one_argument(argument, arg);
+
+  if (!*arg) {
+    send_to_char(ch, "Snap whose neck?\r\n");
+  } else {
+    if (!(vict = get_char_vis(ch, arg, NULL, FIND_CHAR_ROOM)))
+      send_to_char(ch, "That target is not here.\r\n");
+    else if (ch == vict)
+      send_to_char(ch, "Your mother would be so sad.. :(\r\n");
+    else if (GET_LEVEL(vict) == 1 || IS_AFFECTED(ch, AFF_NOPK))
+	  send_to_char(ch, "P'takh! You should be ashamed when trying to kill a protected player!\r\n");
+    else if (GET_POS(vict) > POS_STUNNED)
+	  send_to_char(ch, "You can't finish %s right now!\r\n", GET_NAME(vict));
+    else {
+      act("You snap $M's neck! *CRACK*", FALSE, ch, 0, vict, TO_CHAR);
+      act("$N snaps your neck!", FALSE, vict, 0, ch, TO_CHAR);
+      act("$n brutally snap $N's neck!", FALSE, ch, 0, vict, TO_NOTVICT);
+      raw_kill(vict, ch);
+    }
+  }
+}
+
 ACMD(do_backstab)
 {
   char buf[MAX_INPUT_LENGTH];
   struct char_data *vict;
-  int percent, prob;
-
+  int percent, prob, i;  
+  
   if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_BACKSTAB)) {
-    send_to_char(ch, "You have no idea how to do that.\r\n");
+    send_to_char(ch, "Unpractised you are, a master you must seek, hum.\r\n");
     return;
   }
 
   one_argument(argument, buf);
-
+  
   if (!(vict = get_char_vis(ch, buf, NULL, FIND_CHAR_ROOM))) {
-    send_to_char(ch, "Backstab who?\r\n");
-    return;
+    if (FIGHTING(ch) && IN_ROOM(ch) == IN_ROOM(FIGHTING(ch))) {
+      vict = FIGHTING(ch);
+    } else {
+	  send_to_char(ch, "Flurry of blows on who?\r\n");
+      return;
+	}
   }
   if (vict == ch) {
-    send_to_char(ch, "How can you sneak up on yourself?\r\n");
+    send_to_char(ch, "Want a free massage, eh?\r\n");
     return;
   }
-  if (!GET_EQ(ch, WEAR_WIELD)) {
-    send_to_char(ch, "You need to wield a weapon to make it a success.\r\n");
-    return;
-  }
-  if (GET_OBJ_VAL(GET_EQ(ch, WEAR_WIELD), 3) != TYPE_PIERCE - TYPE_HIT) {
-    send_to_char(ch, "Only piercing weapons can be used for backstabbing.\r\n");
-    return;
-  }
-  if (FIGHTING(vict)) {
-    send_to_char(ch, "You can't backstab a fighting person -- they're too alert!\r\n");
+  if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_PEACEFUL) || (IS_NPC(vict) && MOB_FLAGGED(vict, MOB_NOKILL))) {
+    send_to_char(ch, "This room just has such a peaceful, easy feeling...\r\n");
     return;
   }
 
@@ -164,16 +233,47 @@ ACMD(do_backstab)
     hit(vict, ch, TYPE_UNDEFINED);
     return;
   }
-
+  
   percent = rand_number(1, 101);	/* 101% is a complete failure */
   prob = GET_SKILL(ch, SKILL_BACKSTAB);
+  
 
-  if (AWAKE(vict) && (percent > prob))
-    damage(ch, vict, 0, SKILL_BACKSTAB);
-  else
-    hit(ch, vict, SKILL_BACKSTAB);
-
-  WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+  if (AWAKE(vict) && (percent > prob)) {	  
+	damage(ch, vict, 0, TYPE_UNDEFINED);
+	damage(ch, vict, 0, TYPE_UNDEFINED);
+  } else {
+	if (MOB_FLAGGED(vict, MOB_AWARE) && AWAKE(vict)) {
+    act("You notice $N lunging at you!", FALSE, vict, 0, ch, TO_CHAR);
+    act("$e notices you lunging at $m!", FALSE, vict, 0, ch, TO_VICT);
+    act("$n notices $N lunging at $m!", FALSE, vict, 0, ch, TO_NOTVICT);
+	hit(vict, ch, TYPE_UNDEFINED);
+	hit(ch, vict, TYPE_UNDEFINED);    
+	WAIT_STATE(ch, PULSE_VIOLENCE);
+    return;
+    }
+	hit(ch, vict, TYPE_UNDEFINED);
+	if (!IS_NPC(ch) && GET_SKILL(ch, SKILL_SECOND_ATTACK) > 0) {
+	  for (i = 142; i < 145; i++) {		
+        if (GET_SKILL(ch, i) > 0 && (GET_SKILL(ch, i) + rand_number(0, 100)) > 100) {
+	      hit(ch, FIGHTING(ch), TYPE_UNDEFINED);
+		  pracskill(ch, i, 20); 
+		}
+	  }
+	}	  
+  }
+	  
+/*	for (i = 0; i > u; i++)
+	  send_to_char(ch, "attack damage: %d\r\n", i);
+      damage(ch, vict, 0, SKILL_BACKSTAB);    
+  } else {
+	for (i = 0; i > u; i++)
+	  send_to_char(ch, "attack hit: %d\r\n", i);
+      hit(ch, vict, SKILL_BACKSTAB); 
+  }
+*/
+  pracskill(ch, SKILL_BACKSTAB, 10);
+  GET_MANA(ch) -= 4;
+  WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
 }
 
 ACMD(do_order)
@@ -255,8 +355,9 @@ ACMD(do_flee)
         if (was_fighting && !IS_NPC(ch)) {
 	  loss = GET_MAX_HIT(was_fighting) - GET_HIT(was_fighting);
 	  loss *= (GET_LEVEL(was_fighting)) * 2;
-	  gain_exp(ch, -loss);
-	  send_to_char(ch, "You lose %d points of experience.\r\n", (loss / 2));
+      GET_MANA(ch) = (GET_MANA(ch) - 3);
+//	  gain_exp(ch, -loss);
+//	  send_to_char(ch, "You lose %d points of experience.\r\n", (loss / 2));
         }
       if (FIGHTING(ch)) 
         stop_fighting(ch); 
@@ -275,22 +376,14 @@ ACMD(do_bash)
 {
   char arg[MAX_INPUT_LENGTH];
   struct char_data *vict;
-  int percent, prob, skill_num, skilladd;
+  int percent, prob;
 
   one_argument(argument, arg);
 
   if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_BASH)) {
-    send_to_char(ch, "You have no idea how.\r\n");
+    send_to_char(ch, "Unpractised you are, a master you must seek, hum.\r\n");
     return;
-  }
-  if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_PEACEFUL)) {
-    send_to_char(ch, "This room just has such a peaceful, easy feeling...\r\n");
-    return;
-  }
-  if (!GET_EQ(ch, WEAR_WIELD)) {
-    send_to_char(ch, "You need to wield a weapon to make it a success.\r\n");
-    return;
-  }
+  }  
   if (!(vict = get_char_vis(ch, arg, NULL, FIND_CHAR_ROOM))) {
     if (FIGHTING(ch) && IN_ROOM(ch) == IN_ROOM(FIGHTING(ch))) {
       vict = FIGHTING(ch);
@@ -303,11 +396,33 @@ ACMD(do_bash)
     send_to_char(ch, "Aren't we funny today...\r\n");
     return;
   }
-  if (MOB_FLAGGED(vict, MOB_NOKILL)) {
-    send_to_char(ch, "This mob is protected.\r\n");
+  if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_PEACEFUL) || (IS_NPC(vict) && MOB_FLAGGED(vict, MOB_NOKILL))) {
+    send_to_char(ch, "This room just has such a peaceful, easy feeling...\r\n");
     return;
   }
-  if (GET_MOVE(ch) <= 3) {
+  if (!IS_NPC(ch) && !IS_NPC(vict)) {
+    if (IS_GOOD(ch) && (IS_NEUTRAL(vict) || IS_GOOD(vict))) {
+	  send_to_char(ch, "Your mom never tells you that good people don't kill each other?!\r\n");
+	  send_to_char(ch, "\tBGOOD \tcalign only can attack \tREVIL\tc players.\tn\r\n");
+	  return;
+    } else if (IS_NEUTRAL(ch) && IS_GOOD(vict)) {
+	  send_to_char(ch, "You are not a bad person, why start now?\r\n");
+	  send_to_char(ch, "NEUTRAL \tcalign only can attack other \tnNEUTRAL \tcor \tREVIL\tc players.\tn\r\n");
+	  return;
+    } else if ((IS_AFFECTED(ch, AFF_NOPK) || IS_AFFECTED(vict, AFF_NOPK) || GET_TOTAL_HIT(vict) < (GET_TOTAL_HIT(ch) / 1.5) || GET_LEVEL(vict) == 1)) {
+	  send_to_char(ch, "Pick on someone your own size!\r\n");	    
+	  return;
+    }
+  }
+  if (MOB_FLAGGED(vict, MOB_NOKILL)) {
+    send_to_char(ch, "Your attack has suddenly blocked!\r\n");
+    return;
+  }
+  if (IS_AFFECTED(vict, AFF_NOPK)) {
+	send_to_char(ch, "The target player is protected by NO_PK flag.\r\n");
+	return;
+  }
+  if (GET_MANA(ch) <= 4) {
 	send_to_char(ch, "You are too tired to do this.\r\n");
 	return;
   }
@@ -315,17 +430,7 @@ ACMD(do_bash)
   percent = rand_number(1, 101);	/* 101% is a complete failure */
   prob = GET_SKILL(ch, SKILL_BASH);
   
-  skill_num = find_skill_num("bash");
-
-  if ((GET_SKILL(ch, skill_num) < 95) && ((rand_number(1, 20) + wis_app[GET_WIS(ch)].bonus) >= 10)){ 
-    skilladd = GET_SKILL(ch, skill_num);
-    skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
-    SET_SKILL(ch, skill_num, MIN(95, skilladd));
-	if (GET_SKILL(ch, skill_num) >= 95)
-      send_to_char(ch, "\r\nYou mastered this skill!\r\n");
-    else
-	  send_to_char(ch, "\r\nYou get better with this skill...\r\n");
-  }  
+  pracskill(ch, SKILL_BASH, 10);
 
   if (MOB_FLAGGED(vict, MOB_NOBASH))
     percent = 101;
@@ -340,24 +445,27 @@ ACMD(do_bash)
      * first to make sure they don't flee, then we can't bash them!  So now
      * we only set them sitting if they didn't flee. -gg 9/21/98
      */
-    if (damage(ch, vict, GET_LEVEL(ch) / 4, SKILL_BASH) > 0) {	/* -1 = dead, 0 = miss */
+    if (damage(ch, vict, GET_HIT(ch) / rand_number(10, 12), SKILL_BASH) > 0) {	/* -1 = dead, 0 = miss */
       WAIT_STATE(vict, PULSE_VIOLENCE);
       if (IN_ROOM(ch) == IN_ROOM(vict))
         GET_POS(vict) = POS_SITTING;
     }
   }
-  GET_MANA(ch) = (GET_MANA(ch) - 2);
-  WAIT_STATE(ch, PULSE_VIOLENCE * 2);
+  if (IS_WARRIOR(ch))
+    GET_MANA(ch) = (GET_MANA(ch) - 2);
+  else
+	GET_MANA(ch) = (GET_MANA(ch) - 4);
+  WAIT_STATE(ch, PULSE_VIOLENCE * 3);
 }
 
 ACMD(do_rescue)
 {
   char arg[MAX_INPUT_LENGTH];
   struct char_data *vict, *tmp_ch;
-  int percent, prob, skill_num, skilladd;
+  int percent, prob;
 
   if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_RESCUE)) {
-    send_to_char(ch, "You have no idea how to do that.\r\n");
+    send_to_char(ch, "Unpractised you are, a master you must seek, hum.\r\n");
     return;
   }
 
@@ -390,24 +498,14 @@ ACMD(do_rescue)
     act("But nobody is fighting $M!", FALSE, ch, 0, vict, TO_CHAR);
     return;
   }
-  if (GET_MOVE(ch) <= 9) {
+  if (GET_MANA(ch) <= 3) {
 	send_to_char(ch, "You are too tired to do this.\r\n");
 	return;
   }
   percent = rand_number(1, 101);	/* 101% is a complete failure */
   prob = GET_SKILL(ch, SKILL_RESCUE);
   
-  skill_num = find_skill_num("rescue");
-
-  if ((GET_SKILL(ch, skill_num) < 95) && ((rand_number(1, 20) + wis_app[GET_WIS(ch)].bonus) >= 10)){ 
-    skilladd = GET_SKILL(ch, skill_num);
-    skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
-    SET_SKILL(ch, skill_num, MIN(95, skilladd));
-	if (GET_SKILL(ch, skill_num) >= 95)
-      send_to_char(ch, "\r\nYou mastered this skill!\r\n");
-    else
-	  send_to_char(ch, "\r\nYou get better with this skill...\r\n");
-  }  
+  pracskill(ch, SKILL_RESCUE, 10);
 
   if (percent > prob) {
     send_to_char(ch, "You fail the rescue!\r\n");
@@ -498,7 +596,7 @@ ACMD(do_whirlwind)
     return;
   }
   
-  if ROOM_FLAGGED(IN_ROOM(ch), ROOM_PEACEFUL) {
+  if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_PEACEFUL)) {
     send_to_char(ch, "This room just has such a peaceful, easy feeling...\r\n");
     return;
   }
@@ -528,16 +626,95 @@ ACMD(do_whirlwind)
   WAIT_STATE(ch, PULSE_VIOLENCE * 3);
 }
 
+ACMD(do_remote_punch)
+{
+  char arg[MAX_INPUT_LENGTH];
+  struct char_data *vict;
+  int i, u, percent, prob;
+  
+  if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_REMOTE_PUNCH)) {
+    send_to_char(ch, "Unpractised you are, a master you must seek, hum.\r\n");
+    return;
+  }  
+  
+  one_argument(argument, arg);    
+  
+  if (!*arg && FIGHTING(ch)) {
+	vict = FIGHTING(ch);
+	goto end;
+  } else if (!*arg) {
+	send_to_char(ch, "Remote Punch who?\r\n");
+	return;
+  }
+
+  /* Check if the vict is already in fight or in room */    
+  if (!(vict = get_char_vis(ch, arg, NULL, FIND_CHAR_ROOM))) {
+    if (FIGHTING(ch) && IN_ROOM(ch) == IN_ROOM(FIGHTING(ch))) {
+      vict = FIGHTING(ch);
+	  goto end;
+	}
+  } else if (vict == ch) {
+    send_to_char(ch, "Aren't we funny today...\r\n");
+    return;
+  } else if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_PEACEFUL) || ROOM_FLAGGED(IN_ROOM(vict), ROOM_PEACEFUL) || (IS_NPC(vict) && MOB_FLAGGED(vict, MOB_NOKILL))) {
+    send_to_char(ch, "This room just has such a peaceful, easy feeling...\r\n");
+    return;  
+  } else if (vict) {
+	goto end;
+  }
+  /* vict not in room */    
+	room_vnum vroom;
+	room_rnum rroom;
+	u = (zone_table[world[IN_ROOM(ch)].zone].number * 100);	
+	for (i = (u + 100); u < i; u++) {
+	  vroom = u;
+	  rroom = real_room(vroom);
+	  if (rroom == NOWHERE || ROOM_FLAGGED(rroom, ROOM_PEACEFUL) || ROOM_FLAGGED(rroom, ROOM_NOMAGIC))
+		continue;
+      if (world[rroom].people) {	
+	    for (vict = world[rroom].people; vict; vict = vict->next_in_room)
+          if (isname(arg, vict->player.name))
+            if (CAN_SEE(ch, vict))
+			  break;
+	  }
+	  if (vict)
+		break;
+    }
+  
+  if (!vict) {
+	send_to_char(ch, "You failed to lock on a target.\r\n");	
+	return;
+  } 
+  
+  rroom = IN_ROOM(ch);
+  char_from_room(ch);
+  char_to_room(ch, IN_ROOM(vict));
+  look_at_room(ch, 0);
+  send_to_room(rroom, "%s punches the ground and %s body is sucked in nen wormhole-like!\r\n", GET_NAME(ch), HSHR(ch));
+  
+  end:  
+  
+  percent = GET_SAVE(vict, SAVING_SPELL) + rand_number(1, 100);
+  prob = GET_SKILL(ch, SKILL_REMOTE_PUNCH);  
+
+  if (percent < prob) {
+    hit(ch, vict, SKILL_REMOTE_PUNCH);   
+  } else
+    damage(ch, vict, 0, SKILL_REMOTE_PUNCH);
+  GET_MANA(ch) = (GET_MANA(ch) - 4);
+  WAIT_STATE(ch, PULSE_VIOLENCE * 3);
+}
+
 ACMD(do_kick)
 {
   char arg[MAX_INPUT_LENGTH];
   struct char_data *vict;
-  int percent, prob, skill_num, skilladd;
+  int percent, prob;
 
   if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_KICK)) {
-    send_to_char(ch, "You have no idea how.\r\n");
+    send_to_char(ch, "Unpractised you are, a master you must seek, hum.\r\n");
     return;
-  }
+  }  
 
   one_argument(argument, arg);
 
@@ -553,7 +730,25 @@ ACMD(do_kick)
     send_to_char(ch, "Aren't we funny today...\r\n");
     return;
   }
-  if (GET_MOVE(ch) <= 2) {
+  if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_PEACEFUL) || (IS_NPC(vict) && MOB_FLAGGED(vict, MOB_NOKILL))) {
+    send_to_char(ch, "This room just has such a peaceful, easy feeling...\r\n");
+    return;
+  }
+  if (!IS_NPC(ch) && !IS_NPC(vict)) {
+    if (IS_GOOD(ch) && (IS_NEUTRAL(vict) || IS_GOOD(vict))) {
+	  send_to_char(ch, "Your mom never tells you that good people don't kill each other?!\r\n");
+	  send_to_char(ch, "\tBGOOD \tcalign only can attack \tREVIL\tc players.\tn\r\n");
+	  return;
+    } else if (IS_NEUTRAL(ch) && IS_GOOD(vict)) {
+	  send_to_char(ch, "You are not a bad person, why start now?\r\n");
+	  send_to_char(ch, "NEUTRAL \tcalign only can attack other \tnNEUTRAL \tcor \tREVIL\tc players.\tn\r\n");
+	  return;
+    } else if ((IS_AFFECTED(ch, AFF_NOPK) || IS_AFFECTED(vict, AFF_NOPK) || GET_TOTAL_HIT(vict) < (GET_TOTAL_HIT(ch) / 1.5) || GET_LEVEL(vict) == 1)) {
+	  send_to_char(ch, "Pick on someone your own size!\r\n");
+	  return;
+    }
+  }
+  if (GET_MANA(ch) <= 2) {
 	send_to_char(ch, "You are too tired to do this.\r\n");
 	return;
   }
@@ -561,43 +756,54 @@ ACMD(do_kick)
   percent = ((10 - (compute_armor_class(vict) / 10)) * 2) + rand_number(1, 101);
   prob = GET_SKILL(ch, SKILL_KICK);
 
-  if (percent > prob)
-    damage(ch, vict, 0, SKILL_KICK);
-  else if (GET_STR(ch) == 14)
-	damage(ch, vict, GET_LEVEL(ch) / 1.9, SKILL_KICK);
-  else if (GET_STR(ch) == 15)
-	damage(ch, vict, GET_LEVEL(ch) / 1.8, SKILL_KICK);
-  else if (GET_STR(ch) == 16)
-	damage(ch, vict, GET_LEVEL(ch) / 1.7, SKILL_KICK);
-  else if (GET_STR(ch) == 17)
-	damage(ch, vict, GET_LEVEL(ch) / 1.6, SKILL_KICK);
-  else if (GET_STR(ch) >= 18 && GET_ADD(ch) <= 19)
-	damage(ch, vict, GET_LEVEL(ch) / 1.5, SKILL_KICK);
-  else if (GET_STR(ch) >= 18 && GET_ADD(ch) >= 20 && GET_ADD(ch) <= 39)
-	damage(ch, vict, GET_LEVEL(ch) / 1.4, SKILL_KICK);
-  else if (GET_STR(ch) >= 18 && GET_ADD(ch) >= 40 && GET_ADD(ch) <= 59)
-	damage(ch, vict, GET_LEVEL(ch) / 1.3, SKILL_KICK);
-  else if (GET_STR(ch) >= 18 && GET_ADD(ch) >= 60 && GET_ADD(ch) <= 79)
-	damage(ch, vict, GET_LEVEL(ch) / 1.2, SKILL_KICK);
-  else if (GET_STR(ch) >= 18 && GET_ADD(ch) >= 80 && GET_ADD(ch) <= 99)
-	damage(ch, vict, GET_LEVEL(ch) / 1.1, SKILL_KICK);
-  else if (GET_STR(ch) >= 18 && GET_ADD(ch) == 100)
-	damage(ch, vict, GET_LEVEL(ch), SKILL_KICK);
-  else
-    damage(ch, vict, GET_LEVEL(ch) / 2, SKILL_KICK);
-  
-  skill_num = find_skill_num("kick");
-
-  if ((GET_SKILL(ch, skill_num) < 95) && ((rand_number(1, 20) + wis_app[GET_WIS(ch)].bonus) >= 10)){ 
-    skilladd = GET_SKILL(ch, skill_num);
-    skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
-    SET_SKILL(ch, skill_num, MIN(95, skilladd));
-	if (GET_SKILL(ch, skill_num) >= 95)
-      send_to_char(ch, "You mastered this skill!\r\n");
+  if (percent < prob) {
+    if (!IS_WARRIOR(ch))
+      damage(ch, vict, GET_HIT(ch) / rand_number((31 - GET_STR(ch)), (33 - GET_STR(ch))), SKILL_KICK);
     else
-	  send_to_char(ch, "You get better with this skill...\r\n");
+	  damage(ch, vict, GET_HIT(ch) / rand_number((29 - GET_STR(ch)), (31 - GET_STR(ch))), SKILL_KICK);   
+  } else
+    damage(ch, vict, 0, SKILL_KICK);	
+
+  pracskill(ch, SKILL_KICK, 10);
+  if (IS_WARRIOR(ch))
+    GET_MANA(ch) = (GET_MANA(ch) - 3);
+  else
+	GET_MANA(ch) = (GET_MANA(ch) - 4);
+  WAIT_STATE(ch, PULSE_VIOLENCE * 3);
+}
+
+ACMD(do_jajanken)
+{
+  if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_JAJANKEN)) {
+    send_to_char(ch, "Unpractised you are, a master you must seek, hum.\r\n");
+    return;
+  }  
+  
+  if (PLR_FLAGGED(ch, PLR_JAJANKEN) || (!PLR_FLAGGED(ch, PLR_JAJANKEN) && GET_MAX_MOVE(ch) > 170)) {
+	send_to_char(ch, "You stop charging.\r\n");
+	REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_JAJANKEN);	
+	if (GET_MAX_MOVE(ch) > 370)
+	  GET_MAX_MOVE(ch) -= 300;
+	else if (GET_MAX_MOVE(ch) > 270)
+	  GET_MAX_MOVE(ch) -= 200;
+	else if (GET_MAX_MOVE(ch) > 170)	
+	  GET_MAX_MOVE(ch) -= 100;
+    WAIT_STATE(ch, PULSE_VIOLENCE * 2);
+	return;	
   }
   
-  GET_MANA(ch) = (GET_MANA(ch) - 1);
-  WAIT_STATE(ch, PULSE_VIOLENCE * 3);
+  if (GET_POS(ch) == POS_FIGHTING) {
+	send_to_char(ch, "You can't do this in middle of a fight!\r\n");
+	return;
+  }
+  
+  if (GET_MANA(ch) <= 10) {
+	send_to_char(ch, "You are too tired to do this.\r\n");
+	return;
+  }
+  do_say(ch, "Saisho wa guu...", 0, 0);
+  GET_MANA(ch) = (GET_MANA(ch) - 10);
+  send_to_char(ch, "You concentrates an amount of aura over your fist.\r\n");
+  SET_BIT_AR(PLR_FLAGS(ch), PLR_JAJANKEN);
+  pracskill(ch, SKILL_JAJANKEN, 15);
 }

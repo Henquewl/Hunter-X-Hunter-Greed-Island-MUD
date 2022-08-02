@@ -112,20 +112,17 @@ return 0
 end
 ~
 #18606
-gain card to obj +100~
-1 c 1
-ga~
-eval hold %actor.eq(hold)%
-if %cmd.mudcommand% == gain && %hold.id% /= %self.id%
-eval card %self.vnum% + 100
-%force% %actor% say GAIN!
-wait 1 sec
-%load% obj %card% %actor% inv
-%send% %actor% Your %self.shortdesc% turns into %actor.inventory.shortdesc%.
-%echoaround% %actor% %actor.name%'s %self.shortdesc% turns into %actor.inventory.shortdesc%.
-%purge% %self%
+Guard receive collar~
+0 j 100
+~
+if %object.vnum% == 18607
+  say It was supposed to bring the dragon ALIVE you know...
+elseif %object.cost_per_day% == 18607
+  say I don't want that bloody card... I want the thing!
+  return 0
 else
-return 0
+  say I don't want that!
+  return 0
 end
 ~
 #18607

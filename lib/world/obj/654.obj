@@ -1,0 +1,290 @@
+#65403
+pitcher eternal water~
+the Pitcher of Eternal Water~
+The Pitcher Eternal Water is left here... flooding the ground.~
+~
+17 gi 0 0 0 ao 0 0 0 0 0 0 0
+-1 2 15 0
+2 0 0 0 0
+#65407
+stones two~
+a pair of stones~
+A pair of @Bblue @nand @Mpink @ncolored stones is here.~
+~
+8 dg 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+14 0 0 0 0
+E
+stones~
+  There are two 	Bblue 	nand 	Mpink 	ncolored stones.
+Each stone has a symbol, mars and venus respectively.
+Despite their small size, they are very heavy.
+~
+#65417
+breath archangel~
+the @CArchangel@n~
+Erm...~
+~
+13 cdehqr 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 0 0 0 0
+T 3265
+#65425
+dice black icosahedron risky die~
+@wa b@Dl@wa@Dc@rk @wd@Di@wc@De@n~
+An icosahedron black dice was thrown here.~
+~
+13 0 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+T 65425
+E
+dice black icosahedron risky die~
+   This dice have 20 faces, 19 has engraved a star and 1 side has a skull.  
+What can happen if I drop that skull?...
+~
+#65431
+postcard old~
+a very old postcard~
+A very old postcard is here, covered by dust.~
+   Hello my dear.
+
+My spirit is fine, I've met so many friends up here.
+Please! Do not wish to stay here too soon about what
+I said... live with peace and avoid wars, unlike me.
+
+PS: Ask for that old man who clean the chapel do it
+more often... has dust everywhere!
+
+                                     Uncle Ben
+~
+16 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+#65461
+scanner~
+a full-body medical scanner~
+A full-body medical scanner is here.~
+~
+12 bg 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 0 0 0 0
+T 65461
+T 3203
+E
+scanner~
+  Outside the scan has a plaque that says:
+'Full-body automated exam: 500 Jenny'
+'Usage: scan'
+'*Money will be deducted automatically'
+~
+#65462
+rule club~
+a "club"~
+Some kind of weird club is lying here.~
+~
+4 bg 0 0 0 ao 0 0 0 0 0 0 0
+30 0 1 7
+2 0 62 0 0
+E
+rule club~
+This weird club looks like a scepter with a
+"disco globe" spinning at the tip... too much tacky.
+~
+#65468
+vial pills virility~
+a vial full of pills~
+A vial full of pills is sitting here.~
+~
+19 dg 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+T 65468
+E
+pills~
+  The pills looks like micro purple mushrooms.
+You feel warm from within when you smell the
+sweet odor that comes from the pills.
+~
+E
+vial~
+  Has a label with says: 'Pills of virility'
+~
+#65473
+jade night~
+@Da night jade@n~
+A @Dnight jade@g was thrown here.@n~
+~
+11 gj 0 0 0 aco 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+A
+24 -4
+A
+20 -4
+A
+21 -4
+A
+22 -4
+A
+23 -4
+#65474
+aquamarine stone~
+@Can aquamarine stone@n~
+An @Caquamarine stone@g was thrown here.@n~
+~
+11 gk 0 0 0 amo 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+A
+3 2
+#65475
+alexandrite ring~
+@can @ralexandrite @bring@n~
+An @ralexandrite @bring @gwas thrown here.@n~
+~
+11 g 0 0 0 abo 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+E
+alexandrite ring~
+   This ornate ring is studded with an alexandrite stone.
+~
+A
+4 2
+#65480
+levitation stone~
+@ca levitation stone@n~
+A @cstone@g is here, floating with the air.@n~
+~
+11 g 0 0 0 ao 0 0 0 hqr 0 0 0
+0 0 0 0
+2 0 0 0 0
+E
+levitation stone~
+   This cyan jewel ignores completely the gravity.
+Appears useful to land softly, walk over the water and
+do not leave any foot prints when walks while holding it.
+Also gives a feeling of weightless, easing a hike.
+~
+A
+10 -2
+#65481
+jewel blue planet~
+the @Bblue planet@n jewel~
+The @Bblue planet@g jewel is rolling here.@n~
+~
+8 adeg 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 0 0 0 0
+A
+6 3
+A
+24 3
+#65483
+sword truth~
+the Sword of Truth~
+On the floor rests a sword with symbols engraved over its blade.~
+~
+5 gk 0 0 0 ano 0 0 0 0 0 0 0
+0 3 6 3
+12 0 0 0 0
+T 65483
+T 3246
+E
+two-handed sword~
+   You notice that there has been inscribed some runes and a sort of pattern,
+which resembles flames running along the edge.  
+~
+E
+runes~
+   On the blade you can read 'Flame And Strength United Are My Soul Power'.  
+~
+A
+18 3
+A
+19 3
+#65484
+paladin necklace~
+a paladin's necklace~
+A paladin's necklace was left here.~
+~
+11 gk 0 0 0 ac 0 0 0 x 0 0 0
+0 0 0 0
+2 0 0 0 0
+T 65484
+E
+paladin necklace~
+   Has a golden chain and some cross stamped in a blue gem adorned with swords.
+~
+A
+1 1
+A
+5 1
+A
+6 1
+A
+13 20
+A
+12 2
+A
+24 -1
+#65487
+shield faith round large~
+the Shield of Faith~
+A large round shield has been left here.~
+~
+9 0 0 0 0 ajo 0 0 0 0 0 0 0
+5 0 0 0
+15 0 0 0 0
+E
+shield round large~
+   It is made from hard wood that has been reinforced with heavy iron bands.  
+Some strange painting was made on this shield, like runic marks.
+~
+A
+13 25
+A
+12 75
+A
+14 50
+#65489
+gauntlet collector tax~
+the tax collector's gauntlet~
+A beautiful gauntlet is rolling here.~
+~
+9 gq 0 0 0 amo 0 0 0 0 0 0 0
+1 0 0 0
+5 0 0 0 0
+E
+gauntlet collector tax~
+   A beautiful green gauntlet without the part of hands, is possible wear this
+over the wrist.
+~
+#65490
+memory helmet~
+a memory helmet~
+Some sort of mad scientist did a helmet that was deployed here.~
+~
+9 g 0 0 0 aeo 0 0 0 0 0 0 0
+5 0 0 0
+50 0 0 0 0
+E
+memory helmet~
+   An extremely large and heavy helmet with some antennas over it.
+~
+A
+14 20
+#65494
+bandit blade~
+a bandit's blade~
+A bandit's blade is here, waiting for the next victim.~
+~
+5 dfh 0 0 0 ano 0 0 0 0 0 0 0
+0 5 3 11
+3 0 0 0 0
+A
+18 -3
+A
+19 -1
+$~

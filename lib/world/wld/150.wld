@@ -8,7 +8,7 @@ that the road seems to be perfectly smooth and perfectly straight.
 surrounds the road at this point.
 A traveller passes by and waves cheerfully at you.
 ~
-150 4 0 0 0 1
+150 65540 0 0 0 1
 D1
 The King's Road continues in a straight line to the east towards a grand
 castle.
@@ -36,7 +36,7 @@ The King's Road~
    You stand in the center of the great King's Road.  The road is very well
 built, and goes in a straight line due east-west.
 ~
-150 0 0 0 0 1
+150 65536 0 0 0 1
 D1
 The King's Road continues in a straight line to the east.
 ~
@@ -54,7 +54,7 @@ The King's Road~
 skill of the builders is apparent, since it is impossible to notice
 any turn or irregularity in the road.
 ~
-150 0 0 0 0 1
+150 65536 0 0 0 1
 D1
 You see a castle in the far east.
 ~
@@ -75,7 +75,7 @@ by a deep moat, and its windows are just narrow slits for archers
 to shoot through.  To the north there is a drawbridge across the
 moat.
 ~
-150 0 0 0 0 1
+150 65536 0 0 0 1
 D0
 You see the drawbridge.
 ~
@@ -93,7 +93,7 @@ On The Drawbridge~
 you is a huge, double-doored gate.  It seems very strong.  You see some
 whirls in the moat.
 ~
-150 4 0 0 0 1
+150 65540 0 0 0 1
 D0
 The gate has huge, but intricately carved hinges.  As the Castle itself,
 it seems designed not only for strength, but also for beauty.
@@ -449,16 +449,16 @@ D9
 ~
 0 0 15011
 E
-throne ivory~
-   It is large and very beautiful.  The carvings are mainly of animals and magic
-beasts.  
-~
-E
 roof paintings paint~
    The paintings on the roof depict the great heroes and gods.  One of the gods
 is fairly heavy-bellied and incredibly hairy, with a massive beard.  Also among
 them are the great enemies and wrongdoers, such as the evil Goddess Yochlol and
 the powerful evil Wizard Tharoecon.  
+~
+E
+throne ivory~
+   It is large and very beautiful.  The carvings are mainly of animals and magic
+beasts.  
 ~
 S
 #15018
@@ -646,13 +646,13 @@ The stairs lead up to the second floor.
 ~
 0 -1 15049
 E
-pillar pillars tree trees~
-   Very nice.  Squirrels and little birds all over.  
-~
-E
 stairs stair~
    Made out of marble, and as all the rest of the Castle made primarily for
 beauty and with great skill.  
+~
+E
+pillar pillars tree trees~
+   Very nice.  Squirrels and little birds all over.  
 ~
 S
 #15026
@@ -1148,17 +1148,17 @@ The door is large, and made out of oak.
 door large oak~
 1 15014 15049
 E
-chairs~
-   The chairs are arranged around the fireplace.  
+fire fireplace~
+   The fire is built out of logs, and seems to be able to burn for quite a while
+longer.  
 ~
 E
 table~
    The table is made of mahogany, and elegant in a cosy way(!  )
 ~
 E
-fire fireplace~
-   The fire is built out of logs, and seems to be able to burn for quite a while
-longer.  
+chairs~
+   The chairs are arranged around the fireplace.  
 ~
 S
 #15051
@@ -1177,13 +1177,9 @@ There is a large and cosy room to the west.
 ~
 0 -1 15050
 E
-magic~
-   Beginner?  This book goes beyond most of what YOU know about magic anyway.  
-But then, there are levels of magical knowledge, it seems.  
-~
-E
-history midgaard~
-   A dry tome, filled with boring knowledge.  
+books book shelf shelves bookshelf bookshelves~
+   Most of the books seem worn, as if thoroughly studied.  The King evidently is
+interested in keeping himself educated.  
 ~
 E
 bed~
@@ -1191,9 +1187,13 @@ bed~
 Royal Bed!  
 ~
 E
-books book shelf shelves bookshelf bookshelves~
-   Most of the books seem worn, as if thoroughly studied.  The King evidently is
-interested in keeping himself educated.  
+history midgaard~
+   A dry tome, filled with boring knowledge.  
+~
+E
+magic~
+   Beginner?  This book goes beyond most of what YOU know about magic anyway.  
+But then, there are levels of magical knowledge, it seems.  
 ~
 S
 #15052
@@ -1210,12 +1210,12 @@ The stairs go down the tower.
 ~
 0 -1 15034
 E
-candle~
-   Small, uninteresting...  A candle that is as normal as can be.  
-~
-E
 table~
    On the table are various objects, all very strange-looking.  
+~
+E
+candle~
+   Small, uninteresting...  A candle that is as normal as can be.  
 ~
 S
 #15053
@@ -1323,14 +1323,14 @@ A small stairwell built into the western wall of the room leads upwards.
 ~
 0 -1 15055
 E
-card floor~
-   The card on the floor seems to be the Ace of Spades...  A bad card to find
-indeed.  What could be the bad luck brought about by this discovery?  
-~
-E
 table cards deck~
    There is a deck of cards on the table in a small pile.  There is one card
 lying on the floor however.  
+~
+E
+card floor~
+   The card on the floor seems to be the Ace of Spades...  A bad card to find
+indeed.  What could be the bad luck brought about by this discovery?  
 ~
 S
 #15057

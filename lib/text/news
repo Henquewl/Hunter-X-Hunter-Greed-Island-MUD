@@ -4,9 +4,389 @@
 
 NEW COMMANDS AND NEW MUD BEHAVIOR:
 ---------------------------------
-**  BETA TEST STAGE ON! Lots to be implemented, wait for a better experience.
+
+> 2021 <
+
+MAR 12 **
+- Fixed the bug that deletes a card from inventory when open
+a door;
+- Ai Ai mobs level raised for 31~35;
+Mob's leveling balance between areas in progress;
+Crash issue during combat still in progress for fixing.
+https://youtu.be/ErvgV4P6Fzc
+
+MAR 11 **
+Back from another Hiatus x Hiatus, graduated this time.
+- Fixed upgrade points bug when train an atribute;
+- Nen obtained by powering down capped to level 6 or lower;
+- Containers can't store cards anymore, only book's slots;
+- Accumalitive duration of skills reduced to +1 after 48;
+- Focus skill boosted;
+- Armor skill boosted;
+- Boost skill was... you know... boosted;
+- Enhance skill nen boosted and changed strenght addition
+to stamina pool.
+
+> 2020 <
+
+MAY 11 **
+Sorry for Hiatus x Hiatus, was busy with my graduation.
+Dorias, The Gambling City coming in the next uptade. yay
+
+JAN 13 **
+- New City: Ai Ai
+
+JAN 09 **
+- Flurry of Blows issue fixed;
+- Barehanded expert and Instant fortify nerfed to occur 50%
+of the times instead 100%;
+- Weak mobs not cast auraball anymore;
+- Mob skills will occour more often
+(the thing get serious now);
+- Skills casted by mobs now consumes its stamina.
+
+JAN 08 **
+- Nen improvment score fixed;
+- Locate object no longer locate cards;
+- Stealing cards with steal skill gets more difficult now;
+- Flurry of blows crash bug fixed;
+- Luck skill level raised and now belongs to Specialist;
+- Practice recall fixed.
+
+JAN 07 **
+- Random nen gain in middle of fight reduced;
+(Wisdom may help)
+- Random upgrade point gain changed to occour less often;
+(Strong enemy and Intelligence may help)
+
+JAN 06 **
+Happy 2020! We are back after a short Hiatus x Hiatus.
+Latest changes: Version 0.89
+- Score crash issue fixed;
+- Nen gain changed to increase a cap instead 9 when defeat
+very strong enemies;
+- Nen is now displayed with commas;
+- Lock/Unlock now works properly and require keys;
+- Fixed issue that show everyone as 'strong';
+- Fixed a bug that prevent a mob to get killed at near death;
+- Elena accept send mudmail again;
+- Some minor corrections.
+
+> 2019 <
+
+DEC 19 **
+Group skills no longer requires group, affect you and the
+   followers, if exists.
+
+DEC 18 **
+New player crash fixed.
+Nen inversions fixed.
+Nen increment fixed.
+Nen no longer recover when not resting/sleeping (expt regen).   
+
+DEC 17 **
+Some bugs fixed.
+Disabled STAMINEN affect activated as NEN_GAIN. Help nen.
+Leveling table requirements changed.
+New titles for each level up.
+All nen gain after battle or trained cut in half.
+Nen gain cap increased to 50%~150%, otherwise = 9 nen.
+New combat messages.
+Earthquake skill now does a crater.
+
+DEC 16 **
+Minor tweaks and fixes.
+Earthquake bug fixed and also can't affect players.
+Enhance skill unkeep reduced from 2 to 1 stamina.
+Score now shows class special abilities.
+Practice points is now Upgrade points.
+Train nen is now 5% of non-incremented nen instead level based.
+Cap nen received after battle changed to 1/4 instead 1/2.
+Train command now show player's real attributes.
+Train cost reduced by 1 for attributes 10 or below.
+
+DEC 13 **
+Nen changed from data type int to int to avoid
+  negative inversion in high numbers.
+Group report now shows real stats.
+Sense skill implemented. Also sense all function.
+Remote Punch implemented.
+
+DEC 12 **
+Creation skills bug crash fixed.
+Fixed all related second attacks bugs.
+List spell card fixed.
+Mobs can use skills now.
+Skill immunity bug after level 30 fixed.
+Skill Dimensional Hole removed due redundancy.
+Flurry of Blows skill now belongs to Enhancer.
+New Emitter skill: Sense (not implemented)
+New Emitter skill: Remote Punch (not implemented)
+
+DEC 11 **
+Some fixes and tweaks.
+Bash skill damage buffed.
+PK full implemented. (Not tested, volunteers?)
+
+DEC 10 **
+Recycle spell card full implemented.
+Skills cooldown changed to real time (120 seconds).
+New enhancer skill: Boost
+Enhance skill changed, help enhance for more info.
+
+DEC 09 **
+Second attacks code redone. (need more testing to be sure)
+Transmuter skills improvement fixed. (tested)
+Cards now expires in 60 real time seconds. (well tested)
+Booster pack drop chance reduced.
+Recall issue fixed, need a little adjustment but is safe.
+After battle nen improvement exploit fixed.
+  No more group fast leveling. (Need testing)
+  PS: None reports about it, shame.
+Create water redone, in next update will be named "refill".
+Save vs Skill changed to Skill Deflect Bonus.
+All good negative numbers (AC AND SDB) changed to positive.
+Flurry of blows not require target in battle anymore.
+
+DEC 06 **
+Living armor exploit fixed.
+New command: snapneck
+New PK system added, type help PK for more info.
+Booster pack crash bug fixed (tested).
+Fixed group bug crash. (not tested yet)
+Armor durability loss temporarily disabled due crashing.
+Cards not expires after hold anymore. (test needed)
+Lion quest crash fixed, reason weapon durability loss.
+Newbie guard quests no longer repeatable.
+
+DEC 04 **
+NPCs (shopkeepers, master, questmaster, etc) appears in
+  pink on local map [@M*@W]
+Aurablast skill name changed to blast.
+Fight crash bugs fixed *finally*, they are:
+- Enhancer regeneration;
+- Emmitter armor piercing;
+- Transmuter menacing presence;
+- Aurablast (blast).
+
+DEC 03 **
+Emitter's armor piercing crash bug fixed.
+Href removed from who command.
+
+DEC 02 **
+Automap now working properly.
+Map command adjusted for mobile users with compact mode.
+Fixed G.I. Ring issue for new players.
+Anti-panic page string added.
+
+NOV 26 **
+Version 0.87 is now on. Type MOTD for more information.
+
+NOV 25 **
+Minor tweaks, fixes and cosmetic changes.
+Mapping changes, type help map for more information.
+Players nearby can be detected with analysis skill,
+  type help analysis for more information.
+Tutorial level option added to character creation.
+Class colors rearranged and changed to a non-bright colors.
+Eye color cannot be selected for Specialists in character
+  creation anymore, the color will be scarlet by default.
+For some yet unknown reason some players crash after character
+  creation, automap and power skill can be affected, if that
+  happens report the issue with bug command and try delete and
+  recreate your character. help delete for more information.
+  A preemptive coding will be online tomorrow to at least
+  avoid the problem if occurs while not permanent fixed.
+
+NOV 22 **
+Fixed crash bug after use Return and Accompany spell cards.
+Analysis skill now can sense players nearby (same area).
+Added overland map in outdoor areas to ease walking through.
+Map and automap now shows where has players (and mobs in
+  internal area maps).
+
+NOV 21 **
+Held items stay equipped after logoff now.
+Practice and auto-wake crash bug fixed.
+Analysis skill upgrade issue fixed.
+Forcequit now works. (I swear)
+Unpolluted character load after login.
+
+NOV 19 **
+Wow so much crash bugs fixed, many readers, such knowledge.
+Autogold crash bug fixed.
+Weapon and damage increment now works proprerly.
+Fixed bug that makes npc tries to access pc stats during combat.
+Fixed code issues and crashes with wear, wield and hold items.
+Fixed glitch that not reduce stats after remove a held item.
+
+NOV 18 **
+New skill for Manipulators: Luck (type help luck for more info).
+Fixed huge shop listings and adjustments.
+Type MOTD for more information about next steps and updates.
+
+NOV 16 **
+Wait...just..one...more... bug... fixed.
+Tighten chains skill name changed to Dowzing chain.
+Only specialized shops now can buy cards, other shops accept
+  items instead.
+Container items fully implemented, however only book binders
+  can sustain cards in their own form.
+
+NOV 15 **
+  Version 0.85 released.
+  Major of bug fixes.
+  Hold slot now counts for eq benefits and affects.
+  Quit command more friendly when not carring restricted cards.
+  Gain command fully implemented.
+  Booster packs now can drop almost every in-game item, including money.
+  Show loot after defeat a mob (if autoloot is off).
+  New shortcuts for mobile users using touch on highlighted words.
+  Spell cards that requires previously met players and cities now
+fully implemented.  
+
+NOV 08 **
+  New function: Previously met city. (type 	Yhelp met 	Wfor more info.)
+  Spellcards receving new codes, in special spellcards that uses
+previously met player/city.
+
+NOV 04 **
+New function: Previously met player. (type 	Yhelp met 	Wfor more info.)
+Whois/Analysis command now works with previously met players, even if
+the target is offline.
+
+OCT 31 **
+Gain command do not gain equipped item anymore, instead of it you
+  can gain a item direct from the inventory or with gain all.item .
+  (hold still working for gain purposes, specially for spellcards)
+Fixed the unpack crash issue.
+Mobs now has a bigger range of the amount nen, helping the escalade
+  of the players leveling up. (See OCT 30 news as well)
+Card command (or look in book) now show the cards in order of types,
+  also, new commands to check cards by specific type: 	mrestricted	W,
+  	yunrestricted	W and 	Bspells	W.
+
+
+OCT 30 **
+Nen cap buffed, received after battle changed to more than player
+  half and less than player int, more or less than that = 9 nen.
+Book space increased, now spellcards don't share with unrestricted
+  cards and have 40 spellcard slots. (145 to 185 total slots now)
+
+OCT 28 **
+Fixed and prevented alot of crash issues.
+Unpack and Booster pack fully implemented (sometimes crashes for yet
+  unknown reason, the player file is saved before and after unpack.)
+Spell and restricted cards need testing due last changes. Report any bugs.
+Train command: fixed to real atributes, nen increase has no cap and stamina
+  now receives 2 per PP. Stats above 18 need 3 PP to upgrade. To 25 need
+  4 PP, the cap is 25.
+
+OCT 25 **  Cards timer autogain disabled due crash, maybe in future.
+		   Major bug fixes, need further tests using skills and looting corpses.
+		   Teleport skill updated, see help teleport for more info.
+		   Energy drain skill updated, see help energy-drain for more info.
+		   Damage of normal attacks has incresed, the fights were lasting
+		     longer than expected.		   
+			 
+OCT 24 **  Mobs don't power up in middle of fight anymore (wow so much bugs).
+		   Major changes and bug fixing of 'gain', now every time you get
+		     an item it transforms into a card, if gain this card to an
+			 item, this item will be NO_GAIN. (same anime's Greed Island rules).
+		   Restricted cards has a global limit gain, (like the anime) after that
+			 the item turns into a voucher instead the card, help voucher for
+		 	 details. Ex: Levitation stone S-7 (7 means the limit) and in the
+			 world already has 7 cards of this item (among players, mobs, rooms,
+			 etc), the 8th card will be gained as a voucher instead a card.
+		   Cards inside inventory will autogain after (more or less) 80 seconds.		   
+
+OCT 22 **  Each class has now a unique advantage, help classes for more info.
+		   Age is selectable for new players (between 11 and 100 years old).
+		   Teleport now belogs to Emitter instead Specialist.
+		   Enfold now belongs to Transmuter instead Emitter.		   
+
+OCT 21 **  Version 0.82 is now on.
+		   Direct command full implemented, cast command no more.
+		   Some skills changed their name.
+		   New help files and updates.
+		   Str has no more /100 modifiers, cap is 25.
+
+OCT 18 **  Manipulator class buffed and new skill detect poison.
+		   Transmuter new skill 'massagist' (not kidding).
+		   Nen cure skill belogs now to Transmuter instead Conjurer.
+		   Specialist new skills, teleport and mass escape.
+		   Little Flower skill "buffed" (wide range damage).
+		   Direct command for skills halfway done, cast command may bug
+		     while that. Cast command will be removed when finished.
+		   Clones stops to powerup automatically but can be ordered.
+
+OCT 17 **  October 17th. daylight... The bugs have overtaken the code.
+		   Somehow... I'm still alive...
+
+OCT 14 **  All aggressive skills stamina cost reduced.
+		   Mobs now power up after fight if not defeated.
+		   High level mobs now can power up in middle of fight.
+		   Skills with no target will try target yourself or fighting enemy.
+		   Manipulators and Conjurers now can train Specialist skills (1%).
+		   Skill cap returned to 100%>80%>60%>40% like the HxH lore.
+		   Healing rate is now based on constitution, not more by age.
+		   Train cost of some attributes decreased from 3 to 2.
+		   An item that was a card before cannot be gain again, like HxH G.I.
+		   Forcequit now gain all inventory cards and junk restricted cards,
+		     all items and other cards inside book will be preserved.
+
+OCT 11 **  Jajanken buffed, type help jajanken for more info.
+		   Specialist class can now be selected, type help specialist.		   
+
+OCT 10 **  Version 0.80 is now on. All files backed up to until this date.
+		   Kick skill 	dnerfed	W adjusted to new damage table.
+		   Now you can give Jenny with give x jenny/money/gold command.
+		   Breath of Archangel now fully heals.
+
+OCT 09 **  Gain bug fixed and some adjustments.
+		   Newbie zone reformulated.
+		   Nen advance cut by half, more challenging level up now.
+		   Drink fixed.
+		   Shops now is 24/7.
+		   Parry, Dodge and Barehanded expert now can be learned.
+		   All damage table reduced by half, fights will last longer.
+		   Nen and stamina recovery increased in temples.
+		   Proper class skills has slight advantage of damage and stamina loss.
+
+OCT 08 **  Some aesthetics changes.
+		   Flurry of blows nerfed.
+		   Analysis now show enemy's stamina and nen level when 100% trained.
+		   Recall until level 3, goes to leaving room. Newbie friendly measure.
+		   Now you can drink and eat 4x more and feed yourself less often.
+
+OCT 07 **  Major bug fixes.
+		   Animate dead now has stamina unkeep cost and some other fixes.
+		   Fixed the bug who prevents to learn some skills.
+		   New char selection now is by numbers instead letters.
+		   Some skills adjustments like the difficult to improve skills and stuff.
+		   Power up or down now stops if you're not standing or fighting.
+		   Barehaded skill now belongs to Enhancer class instead Hunter class.
+		   Lower percent cap to learn from other classes.			
+
+> 2018 <
+
+FEV 09 **  Nen loss when faint reduced to half.
+           Dying will not make you lose items, but Nen loss amount persist.
+		   @RForcequit@W now just erase your book and spell/restricted cards
+		   from inventory, rather than all stuff.
 
 > 2017 <
+
+MAY 23 **  New command: train (similar as practice)
+           Practice points (PPs) now can be earned after combat, 1 to 5%
+           chance if weaker than you, 10% if equal than you and 20% if
+           stronger than you, enhance down your nen gives no benefit.		   
+
+MAY 05 **  1 YEAR CELEBRATION! New 4 skills for balance!!!
+		   For Hunters: barehand expert and instant fortify
+		   For Enhancer: parry
+		   For Emissor: dodge
+		   For Conjurer: tighten chains
 
 APR 19 **  Version 0.71 released and this is the final open beta update,
            for now on I'll work in closed beta for the new system and after
@@ -14,9 +394,9 @@ APR 19 **  Version 0.71 released and this is the final open beta update,
 
 APR 18 **  Nen masters and practice points no longer required to learn new
            skills and practice them, now you have to master your skills and
-		   hatsu in the hard way, using them. HINT: type @Rhelp stats@W.
+		   skill in the hard way, using them. HINT: type @Rhelp stats@W.
 
-APR 17 **  Now using hatsus will also practice them, soon practice points
+APR 17 **  Now using skills will also practice them, soon practice points
            will be entirely replaced by this new system.
 
 APR 16 **  18 new quests added. type @Rhelp quest@W for more information.
@@ -77,7 +457,7 @@ MAR 23 **  To avoid the book bug, the command to open the booster pack changed
 MAR 22 **  Book fixed (I hope). Enfold weapons changed name to just Enfold
            and has been improved and Exorcise as well, type @Rhelp enfold@W and
 		   @Rhelp exorcise@W for more information. New command created, type
-		   @Raffects@W or just @Raff@W to check your active hatsus/spells.
+		   @Raffects@W or just @Raff@W to check your active skills/spells.
 
 MAR 20 **  Keys gone when use it to lock or unlock and for now on any keys,
            consumable items or used wand/staffs cannot be gained. Remember

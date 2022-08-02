@@ -1,0 +1,1313 @@
+#41000
+Landing Platform~
+
+~
+410 65536 0 0 0 1
+D0
+~
+~
+0 0 41002
+D1
+~
+~
+0 0 -1
+D3
+~
+~
+0 0 -1
+S
+#41001
+An Open Gateway~
+
+~
+410 65536 0 0 0 1
+D1
+~
+~
+0 0 40060
+D3
+~
+~
+0 0 41002
+S
+#41002
+Paved Road~
+
+~
+410 65536 0 0 0 1
+D1
+~
+~
+0 0 41001
+D2
+~
+~
+0 0 41000
+D3
+~
+~
+0 0 41003
+S
+#41003
+Paved Road~
+
+~
+410 65536 0 0 0 1
+D1
+~
+~
+0 0 41002
+D3
+~
+~
+0 0 41004
+S
+#41004
+Paved Road~
+
+~
+410 65536 0 0 0 1
+D1
+~
+~
+0 0 41003
+D3
+~
+~
+0 0 41005
+S
+#41005
+Entrance~
+   A marble balcony shows a huge entrance of the building leads
+through giant mahogany double-doors studded with silver.
+Alot of people is here talking and smoking, a row of outraged
+ones try to enter the building without success. So a rich man
+skips the line, whisper at the bouncer and give him some bribe
+and get in, to the fury of those in the queue.
+The entrance of the Dorias building is to west and a paved road
+leads to east.
+~
+410 4 0 0 0 0
+D1
+~
+~
+0 0 41004
+D3
+~
+~
+0 0 41006
+S
+#41006
+New BuildWalk Room~
+
+~
+410 8 0 0 0 0
+D0
+~
+~
+0 0 41007
+D1
+~
+~
+0 0 41005
+D2
+~
+~
+0 0 41016
+D3
+~
+~
+0 -1 41015
+D6
+~
+~
+0 0 41008
+D9
+~
+~
+0 0 41019
+S
+#41007
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D2
+~
+~
+0 0 41006
+D3
+~
+~
+0 0 41008
+S
+#41008
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41007
+D3
+~
+~
+0 0 41009
+D8
+~
+~
+0 0 41006
+S
+#41009
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41008
+D2
+~
+~
+0 0 41014
+D3
+~
+~
+0 0 41010
+D8
+~
+~
+0 0 41015
+D9
+~
+~
+0 0 41013
+S
+#41010
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41009
+D3
+~
+~
+0 0 41011
+D9
+~
+~
+0 0 41012
+S
+#41011
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41010
+D2
+~
+~
+0 0 41012
+S
+#41012
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41011
+D1
+~
+~
+0 0 41013
+D2
+~
+~
+0 0 41022
+D3
+~
+~
+0 0 41023
+D7
+~
+~
+0 0 41010
+D8
+~
+~
+0 0 41021
+S
+#41013
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41014
+D3
+~
+~
+0 0 41012
+D7
+~
+~
+0 0 41009
+D8
+~
+~
+0 0 41020
+S
+#41014
+Elevator - Ground Floor~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41009
+D1
+~
+~
+0 0 41015
+D2
+~
+~
+0 0 41020
+D3
+~
+~
+0 0 41013
+D4
+~
+~
+0 0 41024
+S
+#41015
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41006
+D3
+~
+~
+0 0 41014
+D6
+~
+~
+0 0 41009
+D9
+~
+~
+0 0 41020
+S
+#41016
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41006
+D3
+~
+~
+0 0 41019
+S
+#41017
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D3
+~
+~
+0 0 41018
+S
+#41018
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41017
+S
+#41019
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41016
+D3
+~
+~
+0 0 41020
+D7
+~
+~
+0 0 41006
+S
+#41020
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41014
+D1
+~
+~
+0 0 41019
+D3
+~
+~
+0 0 41021
+D6
+~
+~
+0 0 41013
+D7
+~
+~
+0 0 41015
+S
+#41021
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41020
+D3
+~
+~
+0 0 41022
+D6
+~
+~
+0 0 41012
+S
+#41022
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41012
+D1
+~
+~
+0 0 41021
+S
+#41023
+Dorias' Backdoor~
+   An unguarded entrance for the building, or exit? Who knows?!
+On the walls you see some interesting banners.
+To the east is the main hall of Dorias and you can leave the
+building to the west.
+~
+410 4 0 0 0 0
+D1
+~
+~
+0 0 41012
+D9
+~
+~
+0 0 -1
+E
+banners folders walls~
+
+"Keep calm and make profit"
+"Visit Soufrabi - paradisiacal beaches and special local food"
+"I want YOU forEVER - make your wedding party in Dorias today!"
+"Visit Antokiba - special prizes and fun competitions - sponsored by Caveau de Riquewihr"
+~
+S
+#41024
+Elevator - Upper Floor~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41029
+D1
+~
+~
+0 0 41025
+D2
+~
+~
+0 0 41034
+D3
+~
+~
+0 0 41027
+D4
+~
+~
+0 0 41039
+D5
+~
+~
+0 0 41014
+S
+#41025
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41030
+D1
+~
+~
+0 0 41026
+D2
+~
+~
+0 0 41035
+D3
+~
+~
+0 0 41024
+D6
+~
+~
+0 0 41029
+D7
+~
+~
+0 0 41031
+D8
+~
+~
+0 0 41036
+D9
+~
+~
+0 0 41034
+S
+#41026
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41031
+D2
+~
+~
+0 0 41036
+D3
+~
+~
+0 0 41025
+D6
+~
+~
+0 0 41030
+D9
+~
+~
+0 0 41035
+S
+#41027
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41032
+D1
+~
+~
+0 0 41024
+D2
+~
+~
+0 0 41037
+D3
+~
+~
+0 0 41028
+D6
+~
+~
+0 0 41033
+D7
+~
+~
+0 0 41029
+D8
+~
+~
+0 0 41034
+D9
+~
+~
+0 0 41038
+S
+#41028
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41033
+D1
+~
+~
+0 0 41027
+D2
+~
+~
+0 0 41038
+D7
+~
+~
+0 0 41032
+D8
+~
+~
+0 0 41037
+S
+#41029
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41030
+D2
+~
+~
+0 0 41024
+D3
+~
+~
+0 0 41032
+D8
+~
+~
+0 0 41025
+D9
+~
+~
+0 0 41027
+S
+#41030
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41031
+D2
+~
+~
+0 0 41025
+D3
+~
+~
+0 0 41029
+D8
+~
+~
+0 0 41026
+S
+#41031
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D2
+~
+~
+0 0 41026
+D3
+~
+~
+0 0 41030
+D9
+~
+~
+0 0 41025
+S
+#41032
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41029
+D2
+~
+~
+0 0 41027
+D3
+~
+~
+0 0 41033
+D9
+~
+~
+0 0 41028
+S
+#41033
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41032
+D2
+~
+~
+0 0 41028
+D8
+~
+~
+0 0 41027
+S
+#41034
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41024
+D1
+~
+~
+0 0 41035
+D3
+~
+~
+0 0 41037
+D6
+~
+~
+0 0 41027
+D7
+~
+~
+0 0 41025
+S
+#41035
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41025
+D1
+~
+~
+0 0 41036
+D3
+~
+~
+0 0 41034
+D7
+~
+~
+0 0 41026
+S
+#41036
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41026
+D3
+~
+~
+0 0 41035
+D6
+~
+~
+0 0 41025
+S
+#41037
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41027
+D1
+~
+~
+0 0 41034
+D3
+~
+~
+0 0 41038
+D6
+~
+~
+0 0 41028
+S
+#41038
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41028
+D1
+~
+~
+0 0 41037
+D7
+~
+~
+0 0 41027
+S
+#41039
+Elevator - Lounge~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41044
+D1
+~
+~
+0 0 41042
+D2
+~
+~
+0 0 41047
+D3
+~
+~
+0 0 41040
+D4
+~
+~
+0 0 41050
+D5
+~
+~
+0 0 41024
+S
+#41040
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41045
+D1
+~
+~
+0 0 41039
+D2
+~
+~
+0 0 41048
+D3
+~
+~
+0 0 41041
+D7
+~
+~
+0 0 41044
+D8
+~
+~
+0 0 41047
+S
+#41041
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41040
+D7
+~
+~
+0 0 41045
+D8
+~
+~
+0 0 41048
+S
+#41042
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41046
+D1
+~
+~
+0 0 41043
+D2
+~
+~
+0 0 41049
+D3
+~
+~
+0 0 41039
+D6
+~
+~
+0 0 41044
+D9
+~
+~
+0 0 41047
+S
+#41043
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D3
+~
+~
+0 0 41042
+D6
+~
+~
+0 0 41046
+D9
+~
+~
+0 0 41049
+S
+#41044
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41046
+D2
+~
+~
+0 0 41039
+D3
+~
+~
+0 0 41045
+D8
+~
+~
+0 0 41042
+D9
+~
+~
+0 0 41040
+S
+#41045
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41044
+D2
+~
+~
+0 0 41040
+D9
+~
+~
+0 0 41041
+S
+#41046
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D2
+~
+~
+0 0 41042
+D3
+~
+~
+0 0 41044
+D8
+~
+~
+0 0 41043
+S
+#41047
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41039
+D1
+~
+~
+0 0 41049
+D3
+~
+~
+0 0 41048
+D6
+~
+~
+0 0 41040
+D7
+~
+~
+0 0 41042
+S
+#41048
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41040
+D1
+~
+~
+0 0 41047
+D6
+~
+~
+0 0 41041
+S
+#41049
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41042
+D3
+~
+~
+0 0 41047
+D7
+~
+~
+0 0 41043
+S
+#41050
+Elevator - Lookout~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41051
+D1
+~
+~
+0 0 41055
+D2
+~
+~
+0 0 41056
+D3
+~
+~
+0 0 41054
+D4
+~
+~
+3 0 41059
+D5
+~
+~
+0 0 41039
+S
+#41051
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41053
+D2
+~
+~
+0 0 41050
+D3
+~
+~
+0 0 41052
+D8
+~
+~
+0 0 41055
+D9
+~
+~
+0 0 41054
+S
+#41052
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D1
+~
+~
+0 0 41051
+D2
+~
+~
+0 0 41054
+S
+#41053
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D2
+~
+~
+0 0 41055
+D3
+~
+~
+0 0 41051
+S
+#41054
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41052
+D1
+~
+~
+0 0 41050
+D2
+~
+~
+0 0 41057
+D7
+~
+~
+0 0 41051
+D8
+~
+~
+0 0 41056
+S
+#41055
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41053
+D2
+~
+~
+0 0 41058
+D3
+~
+~
+0 0 41050
+D6
+~
+~
+0 0 41051
+D9
+~
+~
+0 0 41056
+S
+#41056
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41050
+D1
+~
+~
+0 0 41058
+D3
+~
+~
+0 0 41057
+D6
+~
+~
+0 0 41054
+D7
+~
+~
+0 0 41055
+S
+#41057
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41054
+D1
+~
+~
+0 0 41056
+S
+#41058
+New BuildWalk Room~
+
+~
+410 0 0 0 0 0
+D0
+~
+~
+0 0 41055
+D3
+~
+~
+0 0 41056
+S
+#41059
+Elevator - Boss Office~
+
+~
+410 68 0 0 0 0
+D0
+~
+~
+0 0 41060
+D5
+~
+~
+0 0 41050
+S
+#41060
+New BuildWalk Room~
+
+~
+410 64 0 0 0 0
+D0
+~
+~
+0 0 41061
+D2
+~
+~
+0 0 41059
+S
+#41061
+The Boss Office~
+   The walls and the floor is lined with a red valvet and
+the ceiling with huge chandeliers. Boss desk is the only
+furniture of this place, on his desk has a plaque with
+the boss name.
+Besides the windows, south is the only safe exit from here.
+~
+410 64 0 0 0 0
+D2
+~
+~
+0 0 41060
+E
+plaque name~
+
+     "Dlanod Pmart"
+Dorias' Elected President
+~
+S
+$~

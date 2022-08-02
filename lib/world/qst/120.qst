@@ -1,0 +1,151 @@
+#12001
+Give 5 long swords to Titus' shopkeeper~
+Give 5 long swords to Titus' shopkeeper (medium) (R)~
+Give 5 long swords to Titus' shopkeeper (card form).
+Some people in town bought some long swords and didn't pay the installments!
+Bring 5 long sword cards to Titus' Shopkeeper.
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+5 12012 a 3122 -1 -1 -1
+0 0 0 104 -1 12011 5
+4000 150 3146
+S
+#12002
+Give 5 shields to leather craftman~
+Give 5 shields to leather craftman (easy) (R)~
+Give 5 shields to leather craftman (card form).
+The leathers guy bought a shipment of shields but they delivered to Titus
+by mistake and the worse part... Titus start to sell it to the entire town!
+Reduce the loss and bring 5 shield cards back to the original owner.
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+5 12012 a 3142 -1 -1 -1
+0 0 0 34 -1 12038 5
+2000 100 3195
+S
+#12003
+Give 10 apples to the cat diner~
+Give 10 apples to the cat diner (very easy) (R)~
+Give 10 apples to the cat diner (original form)
+"I got a recipe of meowpple pie to suit the new kind of customers purfurence...
+but I'm very busy and have no time for fair meow..." - Cat Diner
+Hint: These apples don't fall from trees and you will find them listed where the quest was started.
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+5 12012 a 12006 -1 -1 -1
+0 0 0 34 -1 12036 10
+1000 50 3119
+S
+#12004
+Save the lion from gladiators~
+Save the lion from gladiators (hard) (R)~
+Kill the gladiators before they kill the lion.
+FAPPING - Feline Association for Preservation and Protecting ask for help.
+A lion in coliseum of Antokiba is suffering harassment and he deserve
+respect as any other people... lol what?!
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+4 12012 a 12008 -1 -1 -1
+0 0 5 34 12 -1 1
+8000 500 3250
+S
+#12005
+A x Hard x Master?~
+Find the Nen Master (very easy)~
+He heard about newcomers and is eager to meet you.
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+2 12012 0 12039 -1 -1 -1
+0 0 0 34 -1 -1 1
+0 100 3250
+S
+#12006
+Find the Reading Room~
+Find the Reading Room (easy)~
+There is a place where you can go when you feel low, when you feel blue...
+And it's your mind, and there's no time when you're alone...
+Hint: This room has only one entry with no door
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+1 12012 0 12069 -1 -1 -1
+0 0 0 34 -1 -1 1
+0 100 3250
+S
+#12007
+Give flask of illness to nobleman~
+Give flask of illness to nobleman (easy)~
+A nobleman ask for someone brings to him a flask of illness, the purpose of his request is unknown...
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+5 12012 0 12030 -1 -1 -1
+0 0 0 34 -1 12004 1
+2000 200 3190
+S
+#12008
+Give a mana potion card to Froboz' shop~
+Give a mana potion card to Froboz' shopkeeper (medium)~
+Give a mana potion card to Froboz' shopkeeper (card form).
+Froboz is conducting some experiments that requires alot of physical and spiritual energy.
+He requires that card should never have been gained before, some kind of transfomation limit issue.
+Hint: This potion is only found in booster packs.
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+5 12012 0 12076 -1 -1 -1
+0 0 0 34 -1 12034 1
+4000 300 3251
+S
+#12009
+Give an elixir to the healer~
+Give an elixir to the healer (hard)~
+Give an elixir to the healer (original form).
+The healer is trying to heal a patient, but he return everyday ill again, only an elixir can solve the problem.
+Hint: There are 2 ways to get an elixir, anyways it's concealed.
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+5 12012 0 12029 -1 -1 -1
+0 0 0 34 -1 12009 1
+6000 400 12059
+S
+#12010
+y~
+Brake-in The Commoner's House (easy)~
+Brake-in The Commoner's House, next to Titus store.
+The applicant of this quest is unknown, the only instruction is "left the door open".
+Hint: help pick lock
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+1 12012 0 12013 -1 -1 -1
+0 0 0 104 -1 -1 1
+0 200 12041
+S
+$~

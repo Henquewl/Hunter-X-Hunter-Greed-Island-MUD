@@ -20,6 +20,7 @@
 #include "constants.h"
 #include "genzon.h" /* for zone_rnum real_zone_by_thing */
 #include "fight.h"  /* for die() */
+#include "act.h"
 
 /* Local functions, macros, defines and structs */
 
@@ -489,14 +490,23 @@ WCMD(do_wload)
           load_otrigger(object);
           return;
         }
-        obj_to_char(object, tch);
+		if (!(GET_OBJ_TYPE(object) == ITEM_RESTRICTED || GET_OBJ_TYPE(object) == ITEM_SPELLCARD) ||
+			((GET_OBJ_TYPE(object) == ITEM_RESTRICTED || GET_OBJ_TYPE(object) == ITEM_SPELLCARD) &&
+				obj_index[GET_OBJ_RNUM(object)].number <= GET_OBJ_RENT(object)))
+          obj_to_char(object, tch);
+	    else {
+		  extract_obj(object);
+		  return;
+		}
         load_otrigger(object);
+		if (*arg2 && is_abbrev(arg2, "card"))		  
+		    make_card(tch, tch->carrying, FALSE);	
         return;
       }
       cnt = get_obj_in_room(room, arg1);
       if (cnt && GET_OBJ_TYPE(cnt) == ITEM_CONTAINER) {
       	obj_to_obj(object, cnt);
-        load_otrigger(object);
+        load_otrigger(object);		
       	return;
       }
       /* neither char nor container found - just dump it in room */

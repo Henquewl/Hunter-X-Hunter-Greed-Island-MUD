@@ -1,0 +1,31 @@
+#40001
+Ninja village quest~
+Help a poor kid from a terrible disease~
+Few... I thought they will attack me... but the ninjas was just desperateful for help.
+Go to east from ninjas and talk with the elder in the hidden village.
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+0 40100 a 40097 -1 40002 -1
+0 0 0 34 -1 -1 1
+0 500 65535
+S
+#40002
+Restore the villagers health~
+Restore the villagers health~
+The elder from a hidden village entrusted to you the life of all the villagers.
+They will probably die if the card of sick villagers get gained or wait too
+much to help them.
+Find a way to restore the card and then gain the healthy villagers.
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+0 40196 a 40196 40001 -1 -1
+0 0 0 34 -1 -1 1
+0 1000 65375
+S
+$~

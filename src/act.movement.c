@@ -30,7 +30,7 @@
 static int has_boat(struct char_data *ch);
 /* do_gen_door utility functions */
 static int find_door(struct char_data *ch, const char *type, char *dir, const char *cmdname);
-static int has_key(struct char_data *ch, obj_vnum key);
+static int has_key(struct char_data *ch, obj_vnum key, int scmd);
 static void do_doorcmd(struct char_data *ch, struct obj_data *obj, int door, int scmd);
 static int ok_pick(struct char_data *ch, obj_vnum keynum, int pickproof, int scmd);
 
@@ -139,7 +139,8 @@ int do_simple_move(struct char_data *ch, int dir, int need_specials_check)
   room_rnum going_to = EXIT(ch, dir)->to_room;
   /* How many movement points are required to travel from was_in to going_to.
    * We redefine this later when we need it. */
-  int need_movement = 0;
+  int need_movement = 0;  
+  int city = 0;
   /* Contains the "leave" message to display to the was_in room. */
   char leave_message[SMALL_BUFSIZE];
   /*---------------------------------------------------------------------*/
@@ -153,7 +154,7 @@ int do_simple_move(struct char_data *ch, int dir, int need_specials_check)
    * also might prevent the movement. Special requires commands, so we pass
    * in the "command" equivalent of the direction (ie. North is '1' in the
    * command list, but NORTH is defined as '0').
-   * Note -- only check if following; this avoids 'double spec-proc' bug */
+   * Note -- only check if following; this avoids 'int spec-proc' bug */
   if (need_specials_check && special(ch, dir + 1, spec_proc_args))
     return 0;
 
@@ -217,7 +218,7 @@ int do_simple_move(struct char_data *ch, int dir, int need_specials_check)
   if ((ZONE_MINLVL(GET_ROOM_ZONE(going_to)) != -1) && ZONE_MINLVL(GET_ROOM_ZONE(going_to)) > GET_LEVEL(ch)) {
     send_to_char(ch, "THIS ZONE IS ABOVE YOUR RECOMMENDED LEVEL!!!\r\n");
   }
-
+  
   /* Check zone flag restrictions */
   if (ZONE_FLAGGED(GET_ROOM_ZONE(going_to), ZONE_CLOSED)) {
     send_to_char(ch, "A mysterious barrier forces you back! That area is off-limits.\r\n");
@@ -249,19 +250,12 @@ int do_simple_move(struct char_data *ch, int dir, int need_specials_check)
   /* All checks passed, nothing will prevent movement now other than lack of
    * move points. */
   /* move points needed is avg. move loss for src and destination sect type */
-  if (AFF_FLAGGED(ch, AFF_FLYING)) {
-  need_movement = (movement_loss[SECT(was_in)] +
-		   movement_loss[SECT(going_to)]) / 4;
-  }
+  if (!AFF_FLAGGED(ch, AFF_FLYING))
+    need_movement = ((movement_loss[SECT(was_in)] + movement_loss[SECT(going_to)]) / 2);   
   
-  if (!AFF_FLAGGED(ch, AFF_FLYING)) {
-  need_movement = (movement_loss[SECT(was_in)] +
-		   movement_loss[SECT(going_to)]) / 2;
-  }
-
   /* Move Point Requirement Check */
-  if (GET_MOVE(ch) < need_movement && !IS_NPC(ch))
-  {
+  if ((GET_MANA(ch) < need_movement) && !IS_NPC(ch))
+  {  
     if (need_specials_check && ch->master)
       send_to_char(ch, "You are too exhausted to follow.\r\n");
     else
@@ -278,11 +272,14 @@ int do_simple_move(struct char_data *ch, int dir, int need_specials_check)
   /*---------------------------------------------------------------------*/
   /* If applicable, subtract movement cost. */
   if (GET_LEVEL(ch) < LVL_IMMORT && !IS_NPC(ch))
-    GET_MOVE(ch) -= need_movement;
+    GET_MANA(ch) -= need_movement;    
   
   /* If book is activated, closes it*/
   if (PLR_FLAGGED(ch, PLR_BOOK))
 	do_book(ch, 0, 0, 0);
+
+  if (PLR_FLAGGED(ch, PLR_JAJANKEN))
+	do_jajanken(ch, 0, 0, 0);
 
   /* Generate the leave message and display to others in the was_in room. */
   if (!AFF_FLAGGED(ch, AFF_SNEAK))
@@ -316,6 +313,20 @@ int do_simple_move(struct char_data *ch, int dir, int need_specials_check)
   /* ... and the room description to the character. */
   if (ch->desc != NULL)
     look_at_room(ch, 0);
+
+    /* Check zone level recommendations */
+  if ((ZONE_MINLVL(GET_ROOM_ZONE(going_to)) != -1) && ZONE_MINLVL(GET_ROOM_ZONE(going_to)) > GET_LEVEL(ch)) {
+    send_to_char(ch, "THIS ZONE IS ABOVE YOUR RECOMMENDED LEVEL!!!\r\n");
+  }
+  
+  if (ZONE_FLAGGED(GET_ROOM_ZONE(going_to), ZONE_CITY)) {	
+	city += cmet_check(ZONE_NUMBER(GET_ROOM_ZONE(going_to)), ch);
+	if (city >= 0) {
+	  GET_CITY_MET(ch)++;
+	  ch->player_specials->saved.city_met[city] = zone_table[GET_ROOM_ZONE(going_to)].number;
+	  send_to_char(ch, "\r\n\tDNew city met: \tG%s\tD!\tn\r\n", zone_table[GET_ROOM_ZONE(going_to)].name);
+	}	  
+  }
 
   /* ... and Kill the player if the room is a death trap. */
   if (ROOM_FLAGGED(going_to, ROOM_DEATH) && GET_LEVEL(ch) < LVL_IMMORT)
@@ -468,20 +479,24 @@ static int find_door(struct char_data *ch, const char *type, char *dir, const ch
   }
 }
 
-int has_key(struct char_data *ch, obj_vnum key)
+int has_key(struct char_data *ch, obj_vnum key, int scmd)
 {
   struct obj_data *o;
 
-  for (o = ch->carrying; o; o = o->next_content)
-    if (GET_OBJ_VNUM(o) == key)
-      extract_obj(o);
+  for (o = ch->carrying; o; o = o->next_content) {
+    if (GET_OBJ_VNUM(o) == key && GET_OBJ_VNUM(o) != 65535) {
+      if (scmd != SCMD_LOCK)
+	    extract_obj(o);
       return (1);
-
-  if (GET_EQ(ch, WEAR_HOLD))
-    if (GET_OBJ_VNUM(GET_EQ(ch, WEAR_HOLD)) == key)
-	  extract_obj(o);
+    }
+  }
+  if (GET_EQ(ch, WEAR_HOLD)) {
+    if (GET_OBJ_VNUM(GET_EQ(ch, WEAR_HOLD)) == key && GET_OBJ_VNUM(o) != 65535) {
+	  if (scmd != SCMD_LOCK)
+	    extract_obj(o);	  
       return (1);
-
+	}
+  }
   return (0);
 }
 
@@ -531,8 +546,7 @@ static void do_doorcmd(struct char_data *ch, struct obj_data *obj, int door, int
   char buf[MAX_STRING_LENGTH];
   size_t len;
   room_rnum other_room = NOWHERE;
-  struct room_direction_data *back = NULL;
-  int skill_num, skilladd;
+  struct room_direction_data *back = NULL;  
 
   if (!door_mtrigger(ch, scmd, door))
     return;
@@ -565,15 +579,14 @@ static void do_doorcmd(struct char_data *ch, struct obj_data *obj, int door, int
     LOCK_DOOR(IN_ROOM(ch), obj, door);
     if (back)
       LOCK_DOOR(other_room, obj, rev_dir[door]);
-    send_to_char(ch, "*Click*\r\nThe key dissolves into the keyhole.\r\n");
+    send_to_char(ch, "*Click*\r\n");
     break;
 
   case SCMD_UNLOCK:
     UNLOCK_DOOR(IN_ROOM(ch), obj, door);
     if (back)
       UNLOCK_DOOR(other_room, obj, rev_dir[door]);
-    send_to_char(ch, "*Click*\r\nThe key dissolves into the keyhole.\r\n");
-	
+    send_to_char(ch, "*Click*\r\nThe key dissolves into the keyhole.\r\n");	
     break;
 
   case SCMD_PICK:
@@ -582,16 +595,7 @@ static void do_doorcmd(struct char_data *ch, struct obj_data *obj, int door, int
       TOGGLE_LOCK(other_room, obj, rev_dir[door]);
     send_to_char(ch, "The lock quickly yields to your skills.\r\n");
     len = strlcpy(buf, "$n skillfully picks the lock on ", sizeof(buf));	
-	skill_num = find_skill_num("pick");
-	if (GET_SKILL(ch, skill_num) < 95) { 
-      skilladd = GET_SKILL(ch, skill_num);
-      skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
-      SET_SKILL(ch, skill_num, MIN(95, skilladd));
-	  if (GET_SKILL(ch, skill_num) >= 95)
-        send_to_char(ch, "You mastered this skill!\r\n");
-      else
-	    send_to_char(ch, "You get better with this skill...\r\n");
-    }
+	pracskill(ch, SKILL_PICK_LOCK, 0);
 	GET_MANA(ch) = (GET_MANA(ch) - 1);
     break;
   }
@@ -611,11 +615,15 @@ static void do_doorcmd(struct char_data *ch, struct obj_data *obj, int door, int
 }
 
 static int ok_pick(struct char_data *ch, obj_vnum keynum, int pickproof, int scmd)
-{
-  int percent, skill_lvl, skill_num, skilladd;
-
+{ 
+  int percent, skill_lvl;
   if (scmd != SCMD_PICK)
     return (1);
+
+  if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_PICK_LOCK)) {
+    send_to_char(ch, "Unpractised you are, a master you must seek, hum.\r\n");
+    return (0);
+  }
 
   percent = rand_number(1, 101);
   skill_lvl = GET_SKILL(ch, SKILL_PICK_LOCK) + dex_app_skill[GET_DEX(ch)].p_locks;
@@ -624,20 +632,11 @@ static int ok_pick(struct char_data *ch, obj_vnum keynum, int pickproof, int scm
     send_to_char(ch, "Odd - you can't seem to find a keyhole.\r\n");
   else if (pickproof)
     send_to_char(ch, "It resists your attempts to pick it.\r\n");
-  else if (percent > skill_lvl)
+  else if (percent > skill_lvl) {
     send_to_char(ch, "You failed to pick the lock.\r\n");
-    skill_num = find_skill_num("pick");
-    if ((GET_SKILL(ch, skill_num) < 95) && ((rand_number(1, 20) + wis_app[GET_WIS(ch)].bonus) >= 20)){ 
-      skilladd = GET_SKILL(ch, skill_num);
-      skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
-      SET_SKILL(ch, skill_num, MIN(95, skilladd));
-	  if (GET_SKILL(ch, skill_num) >= 95)
-        send_to_char(ch, "You mastered this skill!\r\n");
-      else
-	    send_to_char(ch, "You get better with this skill...\r\n");
-	
+    pracskill(ch, SKILL_PICK_LOCK, 20);
 	GET_MANA(ch) = (GET_MANA(ch) - 1);
-    }    
+  }
   else
     return (1);
   
@@ -690,20 +689,20 @@ ACMD(do_gen_door)
       send_to_char(ch, "But it's currently open!\r\n");
     else if (!(DOOR_IS_LOCKED(ch, obj, door)) && IS_SET(flags_door[subcmd], NEED_LOCKED))
       send_to_char(ch, "Oh.. it wasn't locked, after all..\r\n");
-    else if (!(DOOR_IS_UNLOCKED(ch, obj, door)) && IS_SET(flags_door[subcmd], NEED_UNLOCKED) && ((!IS_NPC(ch) && PRF_FLAGGED(ch, PRF_AUTOKEY))) && (has_key(ch, keynum)) )
+    else if (!(DOOR_IS_UNLOCKED(ch, obj, door)) && IS_SET(flags_door[subcmd], NEED_UNLOCKED) && ((!IS_NPC(ch) && PRF_FLAGGED(ch, PRF_AUTOKEY))) && (has_key(ch, keynum, subcmd)) )
     {
       send_to_char(ch, "It is locked, but you have the key.\r\n");
-      send_to_char(ch, "*Click*\r\nThe key dissolves into the keyhole.\r\n");
-      do_doorcmd(ch, obj, door, subcmd);
+      do_doorcmd(ch, obj, door, SCMD_UNLOCK);
+	  do_doorcmd(ch, obj, door, subcmd);
     }
-    else if (!(DOOR_IS_UNLOCKED(ch, obj, door)) && IS_SET(flags_door[subcmd], NEED_UNLOCKED) && ((!IS_NPC(ch) && PRF_FLAGGED(ch, PRF_AUTOKEY))) && (!has_key(ch, keynum)) )
+    else if (!(DOOR_IS_UNLOCKED(ch, obj, door)) && IS_SET(flags_door[subcmd], NEED_UNLOCKED) && ((!IS_NPC(ch) && PRF_FLAGGED(ch, PRF_AUTOKEY))) && (!has_key(ch, keynum, subcmd)) )
     {
       send_to_char(ch, "It is locked, and you do not have the key!\r\n");
     }
     else if (!(DOOR_IS_UNLOCKED(ch, obj, door)) && IS_SET(flags_door[subcmd], NEED_UNLOCKED) &&
              (GET_LEVEL(ch) < LVL_IMMORT || (!IS_NPC(ch) && !PRF_FLAGGED(ch, PRF_NOHASSLE))))
       send_to_char(ch, "It seems to be locked.\r\n");
-    else if (!has_key(ch, keynum) && (GET_LEVEL(ch) < LVL_GOD) && ((subcmd == SCMD_LOCK) || (subcmd == SCMD_UNLOCK)))
+    else if (!has_key(ch, keynum, subcmd) && (GET_LEVEL(ch) < LVL_GOD) && ((subcmd == SCMD_LOCK) || (subcmd == SCMD_UNLOCK)))
       send_to_char(ch, "You don't seem to have the proper key.\r\n");
     else if (ok_pick(ch, keynum, DOOR_IS_PICKPROOF(ch, obj, door), subcmd))
       do_doorcmd(ch, obj, door, subcmd);
@@ -764,7 +763,11 @@ ACMD(do_leave)
 }
 
 ACMD(do_book)
-{ 
+{
+	
+  struct obj_data *obj, *next_obj;
+  struct obj_data *newbook;
+  
   if (!IS_NPC(ch)){
     if (PLR_FLAGGED(ch, PLR_BOOK)) {
       act("Your \tcG.I. \tBBook\tn closes itself and return into your \tGG.I. \tDRing\tn.", FALSE, ch, 0, 0, TO_CHAR);
@@ -776,6 +779,18 @@ ACMD(do_book)
 	  act("An energy comes out of your \tGG.I. \tDRing\tn and transforms into a book!", FALSE, ch, 0, 0, TO_CHAR);
 	  act("An energy comes out of $n's ring and transforms into a book!", FALSE, ch, 0, 0, TO_ROOM);
       SET_BIT_AR(PLR_FLAGS(ch), PLR_BOOK);
+	  int found = 0;
+	  for (obj = ch->carrying; obj; obj = next_obj) {
+	    next_obj = obj->next_content;
+	    if (GET_OBJ_VNUM(obj) == 3203) {
+		  found = 1;
+		  break;
+	    }		  	  		
+	  }
+	  if (found == 0) {
+		newbook = read_object(3203, VIRTUAL);
+	    obj_to_char(newbook, ch);
+	  }
     }  
   } else {
 	send_to_char(ch, "Oh I saw what you trying to do here and the answer is NO.\r\n");    
@@ -810,8 +825,8 @@ ACMD(do_stand)
     send_to_char(ch, "Do you not consider fighting as standing?\r\n");
     break;
   default:
-    send_to_char(ch, "You stop floating around, and put your feet on the ground.\r\n");
-    act("$n stops floating around, and puts $s feet on the ground.",
+    send_to_char(ch, "You stops levitating, and put your feet on the ground.\r\n");
+    act("$n stops levitating, and puts $s feet on the ground.",
 	TRUE, ch, 0, 0, TO_ROOM);
     GET_POS(ch) = POS_STANDING;
     break;
@@ -884,8 +899,8 @@ ACMD(do_sit)
     send_to_char(ch, "Sit down while fighting? Are you MAD?\r\n");
     break;
   default:
-    send_to_char(ch, "You stop floating around, and sit down.\r\n");
-    act("$n stops floating around, and sits down.", TRUE, ch, 0, 0, TO_ROOM);
+    send_to_char(ch, "You stops levitating, and sit down.\r\n");
+    act("$n stops levitating, and sits down.", TRUE, ch, 0, 0, TO_ROOM);
     GET_POS(ch) = POS_SITTING;
     break;
   }
@@ -914,8 +929,8 @@ ACMD(do_rest)
     send_to_char(ch, "Rest while fighting?  Are you MAD?\r\n");
     break;
   default:
-    send_to_char(ch, "You stop floating around, and stop to rest your tired bones.\r\n");
-    act("$n stops floating around, and rests.", FALSE, ch, 0, 0, TO_ROOM);
+    send_to_char(ch, "You stops levitating, and stop to rest your tired bones.\r\n");
+    act("$n stops levitating, and rests.", FALSE, ch, 0, 0, TO_ROOM);
     GET_POS(ch) = POS_RESTING;
     break;
   }
@@ -938,8 +953,8 @@ ACMD(do_sleep)
     send_to_char(ch, "Sleep while fighting?  Are you MAD?\r\n");
     break;
   default:
-    send_to_char(ch, "You stop floating around, and lie down to sleep.\r\n");
-    act("$n stops floating around, and lie down to sleep.",
+    send_to_char(ch, "You stops levitating, and lie down to sleep.\r\n");
+    act("$n stops levitating, and lie down to sleep.",
 	TRUE, ch, 0, 0, TO_ROOM);
     GET_POS(ch) = POS_SLEEPING;
     break;

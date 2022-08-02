@@ -1,64 +1,17 @@
 #40000
-player config~
-2 q 100
+Login player~
+2 s 100
 ~
-if %direction% == down
-%damage% %actor% -%actor.maxhitp%
-if !%actor.eq(*)%
-%load% obj 3202 %actor% rfinger
-%load% obj 3203 %actor% inv
-end
-if !%actor.inventory(3203).contents%
-eval book_purge_leaves 1
-remote book_purge_leaves %actor.id%
-%teleport% %actor% 1400
-%load% obj 1001 %actor% inv
-%load% obj 1002 %actor% inv
-%load% obj 1003 %actor% inv
-%load% obj 1004 %actor% inv
-%load% obj 1005 %actor% inv
-%load% obj 1006 %actor% inv
-%load% obj 1007 %actor% inv
-%load% obj 1008 %actor% inv
-%load% obj 1009 %actor% inv
-%load% obj 1010 %actor% inv
-%load% obj 1011 %actor% inv
-%load% obj 1013 %actor% inv
-%load% obj 1014 %actor% inv
-%load% obj 1015 %actor% inv
-%load% obj 1016 %actor% inv
-%load% obj 1017 %actor% inv
-%load% obj 1018 %actor% inv
-%load% obj 1019 %actor% inv
-%load% obj 1020 %actor% inv
-%load% obj 1021 %actor% inv
-%load% obj 1024 %actor% inv
-%load% obj 1025 %actor% inv
-%load% obj 1026 %actor% inv
-%load% obj 1027 %actor% inv
-%load% obj 1030 %actor% inv
-%load% obj 1031 %actor% inv
-%load% obj 1032 %actor% inv
-%load% obj 1033 %actor% inv
-%load% obj 1034 %actor% inv
-%load% obj 1037 %actor% inv
-%load% obj 1039 %actor% inv
-%load% obj 1040 %actor% inv
-%load% obj 3119 %actor% inv
-%load% obj 3120 %actor% inv
-%load% obj 3130 %actor% inv
-%load% obj 40000 %actor% inv
-%load% obj 65303 %actor% inv
-%force% %actor% open binder
-%force% %actor% put all.card in binder
-%force% %actor% close binder
-rdelete book_purge_leaves %actor.id%
-%force% %actor% cls
 wait 0.1 sec
-%force% %actor% down
-else
-%load% obj 1014 %actor% inv
-end
+if ((%actor.level% > 1) || (%actor.inventory(3203)%))
+  if !%actor.eq(*)%
+    %load% obj 3202 %actor% rfinger
+  end
+  if !%actor.inventory(3203)%
+    %load% obj 3203 %actor% inv
+  end
+  %force% %actor% receive
+  %force% %actor% down
 end
 ~
 #40001
@@ -75,9 +28,8 @@ eval i %actor.room.people%
 while %i%
 set next %i.next_in_room%
 if %i.vnum% == 40000
-%echo% The suit of armor dismantles itself!  R.I.P.
-eval xp 405 - (%actor.level% * 8)
-%send% %actor% You receive %xp% experience points.
+%echo% A living armor collapses!  R.I.P.
+set xp 31
 nop %actor.exp(%xp%)%
 %purge% living
 break

@@ -798,7 +798,7 @@ static void do_stat_character(struct char_data *ch, struct char_data *k)
 	  CCCYN(ch, C_NRM), GET_CHA(k), CCNRM(ch, C_NRM));
 
   send_to_char(ch, "Hit p.:[%s%d/%d+%d%s]  Mana p.:[%s%d/%d+%d%s]  Move p.:[%s%d/%d+%d%s]\r\n",
-	  CCGRN(ch, C_NRM), GET_HIT(k), GET_MAX_HIT(k), hit_gain(k), CCNRM(ch, C_NRM),
+	  CCGRN(ch, C_NRM), GET_HIT(k), GET_TOTAL_HIT(k), hit_gain(k), CCNRM(ch, C_NRM),
 	  CCGRN(ch, C_NRM), GET_MANA(k), GET_MAX_MANA(k), mana_gain(k), CCNRM(ch, C_NRM),
 	  CCGRN(ch, C_NRM), GET_MOVE(k), GET_MAX_MOVE(k), move_gain(k), CCNRM(ch, C_NRM));
 
@@ -1154,6 +1154,12 @@ ACMD(do_snoop)
   else if (victim->desc->snooping == ch->desc)
     send_to_char(ch, "Don't be stupid.\r\n");
   else {
+	protocol_t * protc = victim->desc->pProtocol;
+	protocol_t * protv = victim->desc->pProtocol;
+	if (protv->bMXP && !protc->bMXP) {
+	  send_to_char(ch, "Incomapatible MXP protocol.\r\n");
+	  return;
+	}
     if (victim->desc->original)
       tch = victim->desc->original;
     else
@@ -1329,6 +1335,8 @@ ACMD(do_load)
       act("$n makes a strange magical gesture.", TRUE, ch, 0, 0, TO_ROOM);
       act("$n has created $p!", FALSE, ch, obj, 0, TO_ROOM);
       act("You create $p.", FALSE, ch, obj, 0, TO_CHAR);
+	  if (IS_CARD(obj) && GET_OBJ_TIMER(obj))
+	    GET_OBJ_TIMER(obj) = 903;
       load_otrigger(obj);
     }
   } else
@@ -1537,7 +1545,7 @@ ACMD(do_advance)
    GET_COND(victim, DRUNK)  = -1;
   }
 
-  gain_exp_regardless(victim, level_exp(GET_CLASS(victim), newlevel) - GET_EXP(victim));
+  gain_exp_regardless(victim, level_exp(newlevel) - GET_EXP(victim));
   save_char(victim);
 }
 
@@ -1560,7 +1568,7 @@ ACMD(do_restore)
       if (!IS_PLAYING(j) || !(vict = j->character) || GET_LEVEL(vict) >= LVL_IMMORT)
      continue;
 
-      GET_HIT(vict)  = GET_MAX_HIT(vict);
+      GET_HIT(vict)  = GET_TOTAL_HIT(vict);
       GET_MANA(vict) = GET_MAX_MANA(vict);
       GET_MOVE(vict) = GET_MAX_MOVE(vict);
 
@@ -1574,7 +1582,7 @@ ACMD(do_restore)
   else if (!IS_NPC(vict) && ch != vict && GET_LEVEL(vict) >= GET_LEVEL(ch))
     act("$E doesn't need your help.", FALSE, ch, 0, vict, TO_CHAR);
   else {
-    GET_HIT(vict) = GET_MAX_HIT(vict);
+    GET_HIT(vict) = GET_TOTAL_HIT(vict);
     GET_MANA(vict) = GET_MAX_MANA(vict);
     GET_MOVE(vict) = GET_MAX_MOVE(vict);
 
@@ -1588,7 +1596,7 @@ ACMD(do_restore)
 	vict->real_abils.intel = 25;
 	vict->real_abils.wis = 25;
 	vict->real_abils.dex = 25;
-	vict->real_abils.str = 18;
+	vict->real_abils.str = 25;
 	vict->real_abils.con = 25;
 	vict->real_abils.cha = 25;
       }
@@ -2728,14 +2736,11 @@ ACMD(do_show)
 
   /* show experience tables */
   case 12:
-    len = strlcpy(buf, "LvL - Mu     Cl     Th     Wa\r\n--------------------------\r\n", sizeof(buf));
+    len = strlcpy(buf, "LvL - Nen for next level\r\n--------------------------\r\n", sizeof(buf));
 
     for (i = 1; i < LVL_IMMORT; i++) { 
-      nlen = snprintf(buf + len, sizeof(buf) - len,  "%-3d - %-6d %-6d %-6d %-6d\r\n", i,  
-				level_exp(CLASS_MAGIC_USER, i) - level_exp(CLASS_MAGIC_USER, i - 1),
-				level_exp(CLASS_CLERIC, i) - level_exp(CLASS_CLERIC, i - 1),
-				level_exp(CLASS_THIEF, i) - level_exp(CLASS_THIEF, i - 1),
-				level_exp(CLASS_WARRIOR, i) - level_exp(CLASS_WARRIOR, i - 1));
+      nlen = snprintf(buf + len, sizeof(buf) - len,  "%3d - %d\r\n", i,
+				level_exp(i) - level_exp(i - 1));
       if (len + nlen >= sizeof(buf))
         break;
       len += nlen;
@@ -2807,7 +2812,7 @@ ACMD(do_show)
    { "frozen",		LVL_GRGOD, 	PC,	BINARY },  /* 15 */
    { "gold",		LVL_BUILDER, 	BOTH, 	NUMBER },
    { "height",		LVL_BUILDER,	BOTH,	NUMBER },
-   { "hitpoints",       LVL_BUILDER, 	BOTH, 	NUMBER },
+   { "hitp",       LVL_BUILDER, 	BOTH, 	NUMBER },
    { "hitroll",		LVL_BUILDER, 	BOTH, 	NUMBER },
    { "hunger",		LVL_BUILDER, 	BOTH, 	MISC },    /* 20 */
    { "int", 		LVL_BUILDER, 	BOTH, 	NUMBER },
@@ -2847,11 +2852,19 @@ ACMD(do_show)
    { "wis", 		LVL_BUILDER, 	BOTH, 	NUMBER }, /* 55 */
    { "questpoints",     LVL_GOD,        PC,     NUMBER },
    { "questhistory",    LVL_GOD,        PC,   NUMBER },
+   { "nenadd",      LVL_GOD,        PC,   NUMBER },
+   { "skin",      LVL_GOD,        PC,   NUMBER }, 
+   { "eyes",      LVL_GOD,        PC,   NUMBER }, /* 60 */
+   { "hstyle",      LVL_GOD,        PC,   NUMBER },
+   { "hcolor",      LVL_GOD,        PC,   NUMBER },
+   { "skill",      LVL_GOD,        PC,   NUMBER },
+   { "nopk",	LVL_GOD, 	PC, 	NUMBER },
    { "\n", 0, BOTH, MISC }
   };
 
 static int perform_set(struct char_data *ch, struct char_data *vict, int mode, char *val_arg)
 {
+  struct affected_type af;
   int i, on = 0, off = 0, value = 0, qvnum;
   room_rnum rnum;
   room_vnum rvnum;
@@ -2992,7 +3005,7 @@ static int perform_set(struct char_data *ch, struct char_data *vict, int mode, c
       affect_total(vict);
       break;
     case 18: /* hit */
-      vict->points.hit = RANGE(-100, vict->points.max_hit);
+      vict->points.hit = RANGE(0, (vict->points.max_hit + vict->points.add_hit));
       affect_total(vict);
       break;
     case 19: /* hitroll */
@@ -3005,11 +3018,11 @@ static int perform_set(struct char_data *ch, struct char_data *vict, int mode, c
         send_to_char(ch, "%s's hunger is now off.\r\n", GET_NAME(vict));
       } else if (is_number(val_arg)) {
         value = atoi(val_arg);
-        RANGE(0, 24);
+        RANGE(0, 255);
         GET_COND(vict, HUNGER) = value;
         send_to_char(ch, "%s's hunger set to %d.\r\n", GET_NAME(vict), value);
       } else {
-        send_to_char(ch, "Must be 'off' or a value from 0 to 24.\r\n");
+        send_to_char(ch, "Must be 'off' or a value from 0 to 255.\r\n");
         return (0);
        }
        break;
@@ -3065,7 +3078,7 @@ static int perform_set(struct char_data *ch, struct char_data *vict, int mode, c
       affect_total(vict);
       break;
     case 28: /* maxhit */
-      vict->points.max_hit = RANGE(1, 5000);
+      vict->points.max_hit = RANGE(250, 2100000000);
       affect_total(vict);
       break;
     case 29: /* maxmana */
@@ -3201,8 +3214,8 @@ static int perform_set(struct char_data *ch, struct char_data *vict, int mode, c
       break;
     case 49: /* stradd */
       vict->real_abils.str_add = RANGE(0, 100);
-      if (value > 0)
-        vict->real_abils.str = 18;
+//      if (value > 0)
+//        vict->real_abils.str = 18;
       affect_total(vict);
       break;
     case 50: /* thief */
@@ -3214,11 +3227,11 @@ static int perform_set(struct char_data *ch, struct char_data *vict, int mode, c
         send_to_char(ch, "%s's thirst is now off.\r\n", GET_NAME(vict));
       } else if (is_number(val_arg)) {
         value = atoi(val_arg);
-        RANGE(0, 24);
+        RANGE(0, 255);
         GET_COND(vict, THIRST) = value;
         send_to_char(ch, "%s's thirst set to %d.\r\n", GET_NAME(vict), value);
       } else {
-        send_to_char(ch, "Must be 'off' or a value from 0 to 24.\r\n");
+        send_to_char(ch, "Must be 'off' or a value from 0 to 255.\r\n");
         return (0);
       }
       break;
@@ -3259,8 +3272,39 @@ static int perform_set(struct char_data *ch, struct char_data *vict, int mode, c
           send_to_char(ch, "Quest %d added to history for player %s.\r\n",
      qvnum, GET_NAME(vict));
         }
-        break;
+        break;	
       }
+	case 58: /* hit add */
+	  vict->points.add_hit = RANGE(0, 2100000000);
+      affect_total(vict);
+	  break;
+	case 59: /* saving para */
+	  vict->char_specials.saved.apply_saving_throw[SAVING_PARA] = RANGE(0, 15);
+      affect_total(vict);
+	  break;
+	case 60: /* saving rod */
+	  vict->char_specials.saved.apply_saving_throw[SAVING_ROD] = RANGE(0, 15);
+      affect_total(vict);
+	  break;
+	case 61: /* saving petri */
+	  vict->char_specials.saved.apply_saving_throw[SAVING_PETRI] = RANGE(0, 15);
+      affect_total(vict);
+	  break;
+	case 62: /* saving breath */
+	  vict->char_specials.saved.apply_saving_throw[SAVING_BREATH] = RANGE(0, 15);
+      affect_total(vict);
+	  break;
+	case 63: /* saving skill */
+	  vict->char_specials.saved.apply_saving_throw[SAVING_SPELL] = RANGE(-20, 20);
+      affect_total(vict);
+	  break;
+	case 64: /* no pk flag */
+	  new_affect(&af);
+      af.spell = SKILL_NOPK;
+      af.duration = RANGE(0, 999);
+      SET_BIT_AR(af.bitvector, AFF_NOPK);
+      affect_join(vict, &af, FALSE, FALSE, FALSE, FALSE);
+	  break;
     default:
       send_to_char(ch, "Can't set that!\r\n");
       return (0);
@@ -3596,12 +3640,12 @@ ACMD (do_zcheck)
         if (GET_DAMROLL(mob)>MAX_DAMROLL_ALLOWED && (found=1))
           len += snprintf(buf + len, sizeof(buf) - len,
                           "- Damroll of %d is too high (limit: %d)\r\n",
-                          GET_DAMROLL(mob), MAX_DAMROLL_ALLOWED);
+                          GET_DAMROLL(mob), (int)MAX_DAMROLL_ALLOWED);
 
         if (GET_HITROLL(mob)>MAX_HITROLL_ALLOWED && (found=1))
           len += snprintf(buf + len, sizeof(buf) - len,
                           "- Hitroll of %d is too high (limit: %d)\r\n",
-                          GET_HITROLL(mob), MAX_HITROLL_ALLOWED);
+                          GET_HITROLL(mob), (int)MAX_HITROLL_ALLOWED);
 
         /* avg. dam including damroll per round of combat */
         avg_dam = (((mob->mob_specials.damsizedice / 2.0) * mob->mob_specials.damnodice)+GET_DAMROLL(mob));

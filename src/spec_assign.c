@@ -65,9 +65,8 @@ void assign_mobiles(void)
 {
   assign_kings_castle();
   
-  ASSIGNMOB(3095, cryogenicist);
+  ASSIGNMOB(3095, cryogenicist);  
   
-  ASSIGNMOB(10, guild);
   ASSIGNMOB(120, guild);
   ASSIGNMOB(121, guild);
   ASSIGNMOB(122, guild);
@@ -86,6 +85,7 @@ void assign_mobiles(void)
   ASSIGNMOB(5402, guild);
   ASSIGNMOB(5403, guild);
   ASSIGNMOB(11518, guild);
+  ASSIGNMOB(12039, guild);
   ASSIGNMOB(25720, guild);
   ASSIGNMOB(25721, guild);
   ASSIGNMOB(25722, guild);
@@ -157,13 +157,13 @@ void assign_rooms(void)
   room_rnum i;
 
   ASSIGNROOM(3031, pet_shops);
-  ASSIGNROOM(10738, pet_shops);
+/*  ASSIGNROOM(10738, pet_shops);
   ASSIGNROOM(23281, pet_shops);
   ASSIGNROOM(25722, pet_shops);
   ASSIGNROOM(27155, pet_shops);
   ASSIGNROOM(27616, pet_shops);
   ASSIGNROOM(31523, pet_shops);
-
+*/
   if (CONFIG_DTS_ARE_DUMPS)
     for (i = 0; i <= top_of_world; i++)
       if (ROOM_FLAGGED(i, ROOM_DEATH))

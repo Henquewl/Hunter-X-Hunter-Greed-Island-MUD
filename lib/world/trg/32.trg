@@ -21,30 +21,10 @@ return 0
 end
 ~
 #3202
-G.I. Ring~
-1 c 1
-book~
-if %cmd%==book && %actor.varexists(book_purge_leaves)%
-  if %actor.room.contents.vnum% == 3200
-    return 0
-    halt
-  else
-    %force% %actor% say BOOK!
-    wait 1 sec
-    %force% %actor% open binder
-    %send% %actor% An energy comes out of your ring and transforms into a book.
-    %echoaround% %actor% An energy comes out of %actor.name%'s ring and transforms into a book.
-    halt
-  end
-elseif %cmd%==book
-  %force% %actor% say BOOK!
-  wait 1 sec
-  eval book_purge_leaves %actor.room.contents%
-  remote book_purge_leaves %actor.id%
-  %force% %actor% open binder
-  %send% %actor% An energy comes out of your ring and transforms into a book.
-  %echoaround% %actor% An energy comes out of %actor.name%'s ring and transforms into a book.
-else
+Book no drop no put~
+1 h 100
+~
+if %actor.level% < 52
   return 0
 end
 ~
@@ -52,11 +32,11 @@ end
 No get~
 1 g 100
 ~
-if %actor.level% >= 31
-return 1
+if %actor.level% > 100
+  return 1
 else
-%send% %actor% It's not belongs to you.
-return 0
+  %send% %actor% %self.shortdesc%: you can't take that!
+  return 0
 end
 ~
 #3204
@@ -146,13 +126,12 @@ detach greet~
 ~
 wait 1 sec
 detach 3210 %actor.id%
-rdelete book_purge_leaves %actor.id%
 ~
 #3212
 GI ring no remove~
 1 l 100
 ~
-if %actor.level% >= 31
+if %actor.level% >= 100
 return 1
 else
 %send% %actor% You must keep %self.shortdesc% in your finger to keep playing properly.
@@ -164,7 +143,6 @@ book return~
 1 c 4
 book~
 if %cmd%==book && %actor.varexists(book_purge_leaves)%
-
 eval ringdesc %actor.eq(rfinger)%
 %send% %actor% You returned your %self.shortdesc% into %ringdesc.shortdesc%.
 %echoaround% %actor% %actor.name% return %actor.hisher% %self.shortdesc% into %ringdesc.shortdesc%.
@@ -411,7 +389,7 @@ case 14
 say If you even try to kill another character, you can be appointed as a killer.
 break
 case 15
-say Some events are hidden, waiting your actions to trigger it.
+say Some events are hidden, waiting for your actions to trigger it.
 break
 case 16
 say When a player dies, all belongings disappears too.
@@ -736,8 +714,8 @@ eval original %actor.damroll% - 1
 if %actor.damroll% < 0
 eval original %actor.damroll% + 1
 end
-eval consume (25)
-if %actor.mana% >= 25
+eval consume (10)
+if %actor.mana% > 10
 eval jajanken_loading 1
 remote jajanken_loading %actor.id%
 %force% %actor% say Saisho wa guu...
@@ -790,7 +768,7 @@ end
 rdelete jajanken_loading %actor.id%
 halt
 end
-if %actor.mana% >= 25 && %actor.level% >= 10
+if %actor.mana% > 10 && %actor.level% >= 10
 eval jajanken_loading 2
 remote jajanken_loading %actor.id%
 %send% %actor% You concentrates an 	Wintense aura	n over your fist.
@@ -1000,53 +978,56 @@ archangel point~
 0 e 0
 points at~
 if %actor.varexists(player_arch)%
-if %arg.cdr% == points at himself, suggesting that the center of matters is %actor.heshe%.
-detach 3249 %self.id%
-wait 2 sec
-say 	CThen, I shall heal your body.	n
-wait 2 sec
-emote blows her magical breath.
-wait 1 sec
-dg_cast 'heal' %actor.name%
-dg_cast 'exorc' %actor.name%
-dg_cast 'remove poison' %actor.name%
-%echo% %actor.name% is healed!
-wait 2 sec
-rdelete player_arch %actor.id%
-say 	CNow then, farewell.	n
-emote vanishes away...
-%purge% %self%
-end
-eval i %self.room.people%
-while %i%
-set next %i.next_in_room%
-user
-if %i.vnum% != %self.vnum% && %arg.cdr% /= points at %i.name%.
-detach 3249 %self.id%
-wait 2 sec
-say 	CThen, I shall heal %i.hisher% body.	n
-wait 2 sec
-emote blows her magical breath.
-wait 1 sec
-dg_cast 'heal' %i.name%
-dg_cast 'exorc' %i.name%
-dg_cast 'remove poison' %i.name%
-if %i.is_pc%
-%echo% %i.name% is healed!
-else
-%echo% %i.shortdesc% is healed!
-end
-wait 2 sec
-rdelete player_arch %actor.id%
-say 	CNow then, farewell.	n
-emote vanishes away...
-%purge% %self%
-end
-eval i %next%
-done
-wait 1 sec
-confuse
-end
+  if %arg.cdr% == points at himself, suggesting that the center of matters is %actor.heshe%.
+    detach 3249 %self.id%
+    wait 2 sec
+    say 	CThen, I shall heal your body.	n
+    wait 2 sec
+    emote blows her magical breath.
+    wait 1 sec
+    %damage% %actor% -%actor.maxhitp%
+    nop %actor.mana(%actor.maxmana%)%
+    dg_cast 'heal' %actor.name%
+    dg_cast 'exorc' %actor.name%
+    dg_cast 'cure poison' %actor.name%%
+    %echo% %actor.name% is healed!
+    wait 2 sec
+    rdelete player_arch %actor.id%
+    say 	CNow then, farewell.	n
+    emote vanishes away...
+    %purge% %self%
+  end
+  eval i %self.room.people%
+  while %i%
+    set next %i.next_in_room%
+    user
+    if %i.vnum% != %self.vnum% && %arg.cdr% /= points at %i.name%.
+      detach 3249 %self.id%
+      wait 2 sec
+      say 	CThen, I shall heal %i.hisher% body.	n
+      wait 2 sec
+      emote blows her magical breath.
+      wait 1 sec
+      %damage% %actor% -%actor.maxhitp%
+      nop %actor.mana(%actor.maxmana%)%
+      dg_cast 'heal' %i.name%
+      dg_cast 'exorc' %i.name%
+      dg_cast 'cure poison' %i.name%
+      if %i.is_pc%
+        %echo% %i.name% is healed!
+      else
+        %echo% %i.shortdesc% is healed!
+      end
+      wait 2 sec
+      rdelete player_arch %actor.id%
+      say 	CNow then, farewell.	n
+      emote vanishes away...
+      %purge% %self%
+    end
+    eval i %next%
+  done
+  wait 1 sec
+  confuse
 end
 ~
 #3248
@@ -1080,7 +1061,7 @@ emote blows her magical breath.
 wait 1 sec
 dg_cast 'heal' %actor.name%
 dg_cast 'exorc' %actor.name%
-dg_cast 'remove poison' %actor.name%
+dg_cast 'cure poison' %actor.name%
 %echo% %actor.name% is healed!
 wait 2 sec
 rdelete player_arch %actor.id%
@@ -1096,7 +1077,7 @@ emote blows her magical breath.
 wait 1 sec
 dg_cast 'heal' %actor.name%
 dg_cast 'exorc' %actor.name%
-dg_cast 'remove poison' %actor.name%
+dg_cast 'cure poison' %actor.name%
 %echo% %actor.name% is healed!
 wait 2 sec
 rdelete player_arch %actor.id%
@@ -1116,7 +1097,7 @@ emote blows her magical breath.
 wait 1 sec
 dg_cast 'heal' %i.name%
 dg_cast 'exorc' %i.name%
-dg_cast 'remove poison' %i.name%
+dg_cast 'cure poison' %i.name%
 if %i.is_pc%
 %echo% %i.name% is healed!
 else
@@ -1391,6 +1372,120 @@ if %actor.varexists(good_luck)%
 end
 %load% obj %spell% %actor% inv
 %send% %actor% You unpacked %actor.inventory.shortdesc%!
+%purge% %self%
+~
+#3253
+Cookie heal~
+0 b 100
+~
+set actor %random.char%
+if ((!%actor%) || (%actor.vnum% == %self.vnum%))  
+  %purge% %self%
+end
+if ((%actor.pos% != Fighting) && %actor.is_pc% == 1)
+  if %actor.hitp% < %actor.maxhitp%
+    eval h %actor.maxhitp% / 20
+    %damage% %actor% -%h%
+  end
+  if %actor.mana% < %actor.maxmana%
+    eval m %actor.maxmana% / 20
+    nop %actor.mana(%m%)%
+    if %actor.mana% > %actor.maxmana%
+      nop %actor.mana(%actor.maxmana%)%
+    end
+  end
+  if %actor.move% < %actor.maxmove%
+    set v %actor.level%
+    nop %actor.move(%v%)%
+    if %actor.move% > %actor.maxmove%
+      eval v %actor.maxmove% - %actor.move%
+      nop %actor.move(%v%)%
+    end
+  end
+  if (%actor.pos% == Standing)
+    stand
+    %send% %actor% %self.name% gently massages your shoulders.
+    %echoaround% %actor% gently massages %actor.name%'s shoulders.
+  elseif (%actor.pos% == Sitting)
+    %send% %actor% %self.name% gently pat your shoulders with flat hands... woowie.
+    %echoaround% %actor% gently pat %actor.name%'s shoulders with flat hands.
+  else
+    sit
+    %send% %actor% %self.name% massages your back with her velvety hands... oh my...
+    %echoaround% %actor% massages %actor.name%'s back.
+  end
+end
+~
+#3254
+Mob bows~
+0 n 100
+~
+bow
+set i %self.room.people%
+while %i%
+  set next %i.next_in_room%
+  set skl %i.skill(massagist)%
+  if %i.is_pc% && %skl% > 0    
+    eval time %skl% + 20
+    wait %time% sec
+    %echo% %self.name% depletes her aura and vanishes into thin air.
+    %purge% %self%
+  end
+  eval i %next%
+done
+~
+#3255
+gain card to obj 100~
+1 c 1
+ga~
+eval hold %actor.eq(hold)%
+if %cmd%==gain && %hold.id% /= %self.id%
+eval card %self.vnum% + 100
+%force% %actor% say GAIN!
+wait 1 sec
+%load% obj %card% %actor% inv
+%send% %actor% Your %self.shortdesc% turns into %actor.inventory.shortdesc%.
+%echoaround% %actor% %actor.name%'s %self.shortdesc% turns into %actor.inventory.shortdesc%.
+%purge% %self%
+else
+return 0
+end
+~
+#3256
+gain obj to card 100~
+1 c 1
+ga~
+eval hold %actor.eq(hold)%
+if %cmd%==gain && %hold.id% /= %self.id%
+eval card %self.vnum% - 100
+%force% %actor% say GAIN!
+wait 1 sec
+%load% obj %card% %actor% inv
+%send% %actor% Your %self.shortdesc% turns into %actor.inventory.shortdesc%.
+%echoaround% %actor% %actor.name%'s %self.shortdesc% turns into %actor.inventory.shortdesc%.
+%purge% %self%
+else
+return 0
+end
+~
+#3265
+archangel gain~
+1 abn 100
+~
+if %self.carried_by.level% > 100 || %self.worn_by.level% > 100
+  return 0
+end
+if %self.carried_by% || %self.worn_by%
+  if %self.carried_by%
+    eval actor %self.carried_by%
+  end
+  if %self.worn_by%
+    eval actor %self.worn_by%
+  end
+  %load% mob 65417
+  eval player_arch 1
+  remote player_arch %actor.id%
+end
 %purge% %self%
 ~
 #3299

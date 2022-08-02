@@ -75,7 +75,7 @@ void affect_update(void)
 	      send_to_char(i, "%s\r\n", spell_info[af->spell].wear_off_msg);
 	affect_remove(i, af);
       }
-    }
+    }	
 }
 
 /* Checks for up to 3 vnums (spell reagents) in the player's inventory. If
@@ -204,50 +204,49 @@ int mag_damage(int level, struct char_data *ch, struct char_data *victim,
     /* Mostly mages */
   case SPELL_MAGIC_MISSILE:
     if (IS_THIEF(ch))
-	  dam = dice(1, 6) + level;
+	  dam = GET_HIT(ch) / rand_number(8, 10);
     else
-      dam = dice(1, 4) + level;
+      dam = GET_HIT(ch) / rand_number(9, 11);
   case SPELL_CHILL_TOUCH:	/* chill touch also has an affect */
-    if (IS_MAGIC_USER(ch))
-      dam = dice(1, 8) + level;
+    if (IS_MANIPULATOR(ch))
+      dam = GET_HIT(ch) / rand_number(9, 11);
     else
-      dam = dice(1, 6) + level;
+      dam = GET_HIT(ch) / rand_number(10, 12);
     break;
   case SPELL_BURNING_HANDS:
     if (IS_MAGIC_USER(ch))
-      dam = dice(3, 8) + level;
+      dam = GET_HIT(ch) / rand_number(7, 11);
     else
-      dam = dice(3, 6) + level;
+      dam = GET_HIT(ch) / rand_number(8, 12);
     break;
   case SPELL_SHOCKING_GRASP:
     if (IS_MAGIC_USER(ch))
-      dam = dice(5, 8) + level;
+      dam = GET_HIT(ch) / rand_number(6, 9);
     else
-      dam = dice(5, 6) + level;
+      dam = GET_HIT(ch) / rand_number(7, 10);
     break;
   case SPELL_LIGHTNING_BOLT:
     if (IS_MAGIC_USER(ch))
-      dam = dice(7, 8) + level;
+      dam = GET_HIT(ch) / rand_number(5, 7);
     else
-      dam = dice(7, 6) + level;
-    break;
+      dam = GET_HIT(ch) / rand_number(6, 8);
   case SPELL_COLOR_SPRAY:
     if (IS_MAGIC_USER(ch))
-      dam = dice(9, 8) + level;
+      dam = GET_HIT(ch) / 6;
     else
-      dam = dice(9, 6) + level;
+      dam = GET_HIT(ch) / rand_number(7, 9);
     break;
   case SPELL_FIREBALL:
     if (IS_THIEF(ch))
-      dam = dice(11, 8) + level;
+      dam = GET_HIT(ch) / rand_number(4, 6);
     else
-      dam = dice(11, 6) + level;
+      dam = GET_HIT(ch) / rand_number(5, 7);
     break;
 
     /* Mostly clerics */
   case SPELL_DISPEL_EVIL:
   
-    dam = dice(7, 8) + level;
+    dam = GET_HIT(ch) / rand_number(5, 9);
     if (IS_EVIL(ch)) {
       victim = ch;
       dam = GET_HIT(ch) - 1;
@@ -257,7 +256,7 @@ int mag_damage(int level, struct char_data *ch, struct char_data *victim,
     }
     break;
   case SPELL_DISPEL_GOOD:
-    dam = dice(7, 8) + level;
+    dam = GET_HIT(ch) / rand_number(5, 9);
     if (IS_GOOD(ch)) {
       victim = ch;
       dam = GET_HIT(ch) - 1;
@@ -270,25 +269,37 @@ int mag_damage(int level, struct char_data *ch, struct char_data *victim,
 
   case SPELL_CALL_LIGHTNING:
     if (IS_CLERIC(ch))
-	  dam = dice(5, 8) + level;
+	  dam = GET_HIT(ch) / rand_number(5, 8);
     else
-      dam = dice(5, 6) + level;
+      dam = GET_HIT(ch) / rand_number(6, 9);
     break;
 
   case SPELL_HARM:
     if (IS_MAGIC_USER(ch))
-	  dam = dice(9, 10) + level;
+	  dam = GET_HIT(ch) / rand_number(2, 12);
     else
-	  dam = dice(9, 8) + level;
+	  dam = GET_HIT(ch) / rand_number(3, 15);
     break;
 
   case SPELL_ENERGY_DRAIN:
-    dam = dice(1, 10) + level;
+    dam = GET_HIT(victim) / rand_number(4, 8);	
+    GET_HIT(ch) += (dam / 2);
 	break;
 
     /* Area spells */
   case SPELL_EARTHQUAKE:
-    dam = dice(2, 8) + level;
+    if (IS_WARRIOR(ch))
+      dam = GET_HIT(ch) / rand_number(14, 18);
+	else
+      dam = GET_HIT(ch) / rand_number(15, 20);
+    break;
+	
+  case SPELL_TIGHTEN_CHAINS:
+    if (IS_CLERIC(ch))
+      dam = GET_HIT(ch) / rand_number(9, 11);
+    else
+      dam = GET_HIT(ch) / rand_number(10, 12);
+    GET_MANA(victim) -= 4;
     break;
 
   } /* switch(spellnum) */
@@ -296,7 +307,7 @@ int mag_damage(int level, struct char_data *ch, struct char_data *victim,
 
   /* divide damage by two if victim makes his saving throw */
   if (mag_savingthrow(victim, savetype, 0))
-    dam /= 2;
+    dam = 0;
 
   /* and finally, inflict the damage */
   return (damage(ch, victim, dam, spellnum));
@@ -354,20 +365,28 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
       af[0].duration = 1;
     else
       af[0].duration = 4;
-    af[0].modifier = -1 - (GET_LEVEL(ch) / 8);
+    if (GET_WIS(ch) > 11)
+      af[0].modifier = -1 - ((GET_WIS(ch) / 2) - 5);
+    else
+	  af[0].modifier = -1;
     accum_duration = TRUE;
+	accum_affect = FALSE;
     to_vict = "You feel your strength wither!";
     break;
 
   case SPELL_ARMOR:
+    if (victim != ch && !IS_MANIPULATOR(ch)) {
+      send_to_char(ch, "Only manipulators can perform these skills on others.\r\n");
+      return;
+    }
     af[0].location = APPLY_AC;
-    af[0].modifier = -20 - (GET_LEVEL(ch));
-    af[0].duration = 18 + (GET_LEVEL(ch));
+    af[0].modifier = -25 - (GET_LEVEL(ch) * 1.5);
+    af[0].duration = 10 + (GET_LEVEL(ch));
   //accum_duration = TRUE;
     to_vict = "You feel an aura protecting you.";
     break;
 	
-  case SPELL_CHAIN:
+  case SPELL_CHAIN_PROTECTION:
     af[0].location = APPLY_AC;
     af[0].modifier = -20 - (GET_LEVEL(ch));
     af[0].duration = 18 + (GET_LEVEL(ch));
@@ -376,18 +395,18 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
     break;
 
   case SPELL_BLESS:
-    if (victim != ch && GET_CLASS(ch) <= 3) {
-      send_to_char(ch, "Your manipulation technique is not enough to perform this.\r\n");
+    if (victim != ch && !IS_MANIPULATOR(ch)) {
+      send_to_char(ch, "Only manipulators can perform these skills on others.\r\n");
       return;
     }
   
     af[0].location = APPLY_HITROLL;
-    af[0].modifier = 2 + (GET_LEVEL(ch) / 8);
-    af[0].duration = 6 + (GET_LEVEL(ch) / 4);
+    af[0].modifier = 4 + (GET_LEVEL(ch) / 8);
+    af[0].duration = 8 + (GET_LEVEL(ch) / 4);
 
     af[1].location = APPLY_SAVING_SPELL;
-    af[1].modifier = -1 - (GET_LEVEL(ch) / 16);
-    af[1].duration = 6 + (GET_LEVEL(ch) / 4);
+    af[1].modifier = -2 - (GET_LEVEL(ch) / 16);
+    af[1].duration = 8 + (GET_LEVEL(ch) / 4);
 
     //accum_duration = TRUE;
     to_vict = "You feel focused.";
@@ -436,6 +455,10 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
     break;
 
   case SPELL_DETECT_ALIGN:
+    if (victim != ch && !IS_MANIPULATOR(ch)) {
+      send_to_char(ch, "Only manipulators can perform these skills on others.\r\n");
+      return;
+    }
     af[0].duration = 12 + level;
     SET_BIT_AR(af[0].bitvector, AFF_DETECT_ALIGN);
     accum_duration = TRUE;
@@ -443,6 +466,10 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
     break;
 
   case SPELL_DETECT_INVIS:
+    if (victim != ch && !IS_MANIPULATOR(ch)) {
+      send_to_char(ch, "Only manipulators can perform these skills on others.\r\n");
+      return;
+    }
     af[0].duration = 12 + level;
     SET_BIT_AR(af[0].bitvector, AFF_DETECT_INVIS);
     accum_duration = TRUE;
@@ -451,13 +478,32 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
     break;
 
   case SPELL_DETECT_MAGIC:
+    if (victim != ch && !IS_MANIPULATOR(ch)) {
+      send_to_char(ch, "Only manipulators can perform these skills on others.\r\n");
+      return;
+    }
     af[0].duration = 12 + level;
     SET_BIT_AR(af[0].bitvector, AFF_DETECT_MAGIC);
     accum_duration = TRUE;
     to_vict = "Your eyes tingle.";
     break;
+	
+  case SPELL_DETECT_POISON:
+    if (victim != ch && !IS_MANIPULATOR(ch)) {
+      send_to_char(ch, "Only manipulators can perform these skills on others.\r\n");
+      return;
+    }
+    af[0].duration = 12 + level;
+    SET_BIT_AR(af[0].bitvector, AFF_DETECT_MAGIC);
+    accum_duration = TRUE;
+    to_vict = "Now you can detect diseases.";
+    break;
 
   case SPELL_FLY:
+    if (victim != ch && !IS_MANIPULATOR(ch)) {
+      send_to_char(ch, "Only manipulators can perform these skills on others.\r\n");
+      return;
+    }
     af[0].duration = 24;
     SET_BIT_AR(af[0].bitvector, AFF_FLYING);
     accum_duration = TRUE;
@@ -465,6 +511,10 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
     break;
 
   case SPELL_INFRAVISION:
+    if (victim != ch && !IS_MANIPULATOR(ch)) {
+      send_to_char(ch, "Only manipulators can perform these skills on others.\r\n");
+      return;
+    }
     af[0].duration = 12 + level;
     SET_BIT_AR(af[0].bitvector, AFF_INFRAVISION);
     accum_duration = TRUE;
@@ -473,6 +523,10 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
     break;
 
   case SPELL_INVISIBLE:
+    if (victim != ch && !IS_MANIPULATOR(ch)) {
+      send_to_char(ch, "Only manipulators can perform these skills on others.\r\n");
+      return;
+    }
     if (!victim)
       victim = ch;
 
@@ -492,21 +546,18 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
     }
 
     af[0].location = APPLY_STR;
-    af[0].duration = GET_LEVEL(ch);
+    af[0].duration = GET_LEVEL(ch) / 16;
     af[0].modifier = -2 - (GET_LEVEL(ch) / 16);
     SET_BIT_AR(af[0].bitvector, AFF_POISON);
     to_vict = "You feel very sick.";
     to_room = "$n gets violently ill!";
-    break;
-
-  case SPELL_PROT_FROM_EVIL:
-    af[0].duration = 24;
-    SET_BIT_AR(af[0].bitvector, AFF_PROTECT_EVIL);
-    accum_duration = TRUE;
-    to_vict = "You feel invulnerable!";
-    break;
+    break;  
 
   case SPELL_SANCTUARY:
+    if (victim != ch && !IS_MANIPULATOR(ch)) {
+      send_to_char(ch, "Only manipulators can perform these skills on others.\r\n");
+      return;
+    }
     af[0].duration = 4 + (GET_LEVEL(ch) / 8);
     SET_BIT_AR(af[0].bitvector, AFF_SANCTUARY);
 
@@ -534,18 +585,33 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
     break;
 
   case SPELL_STRENGTH:
-    if (GET_ADD(victim) == 100)
+    if (victim != ch && !IS_MANIPULATOR(ch)) {
+      send_to_char(ch, "Only manipulators can perform these skills on others.\r\n");
       return;
-
-    af[0].location = APPLY_STR;
-    af[0].duration = (GET_LEVEL(ch) / 2) + 4;
-    af[0].modifier = 1 + (level > 14);
-    accum_duration = TRUE;
-    accum_affect = TRUE;
-    to_vict = "You feel stronger!";
+    }
+	
+/*	SET_BIT_AR(af[0].bitvector, AFF_ENHANCE);
+    af[0].location = APPLY_STR;    
+	if (IS_WARRIOR(ch) || IS_WARRIOR(victim)) {
+	  af[0].duration = GET_LEVEL(ch) + 4;
+      af[0].modifier = 25;
+	  af[0].location = APPLY_HIT;
+	  af[0].duration = GET_LEVEL(ch) + 4;
+      af[0].modifier = 25;
+	  to_vict = "Your body grows in height and muscles!";
+    } else {
+*/	  af[0].location = APPLY_DAMROLL;    
+	  af[0].duration = 12 + (GET_LEVEL(ch) / 4);
+      af[0].modifier = (level / 5);
+	  SET_BIT_AR(af[0].bitvector, AFF_BOOST);
+	  to_vict = "\tRYour aura color changes!\tn";		
     break;
 
   case SPELL_SENSE_LIFE:
+    if (victim != ch && !IS_MANIPULATOR(ch)) {
+      send_to_char(ch, "Only manipulators can perform these skills on others.\r\n");
+      return;
+    }
     to_vict = "Your feel your awareness improve.";
     af[0].duration = GET_LEVEL(ch);
     SET_BIT_AR(af[0].bitvector, AFF_SENSE_LIFE);
@@ -553,12 +619,27 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
     break;
 
   case SPELL_WATERWALK:
+    if (victim != ch && !IS_MANIPULATOR(ch)) {
+      send_to_char(ch, "Only manipulators can perform these skills on others.\r\n");
+      return;
+    }
     af[0].duration = 24;
     SET_BIT_AR(af[0].bitvector, AFF_WATERWALK);
     accum_duration = TRUE;
     to_vict = "You feel webbing between your toes.";
     break;
-  }
+	
+  case SPELL_LUCK:
+    if (victim != ch && !IS_MANIPULATOR(ch)) {
+      send_to_char(ch, "Only manipulators can perform these skills on others.\r\n");
+      return;
+    }
+    af[0].duration = 1;
+    SET_BIT_AR(af[0].bitvector, AFF_LUCK);
+    accum_duration = FALSE;
+    to_vict = "You feel luckier.";
+    break;
+  }  
 
   /* If this is a mob that has this affect set in its mob file, do not perform
    * the affect.  This prevents people from un-sancting mobs by sancting them
@@ -576,7 +657,7 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
 
   /* If the victim is already affected by this spell, and the spell does not
    * have an accumulative effect, then fail the spell. */
-  if (affected_by_spell(victim,spellnum) && !(accum_duration||accum_affect)) {
+  if (affected_by_spell(victim,spellnum) && !(accum_duration||accum_affect) && af[0].duration < 99) {
     send_to_char(ch, "%s", CONFIG_NOEFFECT);
     return;
   }
@@ -584,8 +665,8 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
   for (i = 0; i < MAX_SPELL_AFFECTS; i++)
     if (af[i].bitvector[0] || af[i].bitvector[1] ||
         af[i].bitvector[2] || af[i].bitvector[3] ||
-        (af[i].location != APPLY_NONE))
-      affect_join(victim, af+i, accum_duration, FALSE, accum_affect, FALSE);
+        (af[i].location != APPLY_NONE))		
+			affect_join(victim, af+i, accum_duration, FALSE, accum_affect, FALSE);		
 
   if (to_vict != NULL)
     act(to_vict, FALSE, victim, 0, ch, TO_CHAR);
@@ -603,10 +684,10 @@ static void perform_mag_groups(int level, struct char_data *ch,
     mag_points(level, ch, tch, SPELL_HEAL, savetype);
     break;
   case SPELL_GROUP_ARMOR:
-    mag_affects(level, ch, tch, SPELL_CHAIN, savetype);
+    mag_affects(level, ch, tch, SPELL_CHAIN_PROTECTION, savetype);
     break;
   case SPELL_GROUP_RECALL:
-    spell_recall(level, ch, tch, NULL);
+    spell_teleport(level, ch, tch, NULL);
     break;
   }
 }
@@ -617,13 +698,24 @@ static void perform_mag_groups(int level, struct char_data *ch,
  * add new group spells, you shouldn't have to change anything in mag_groups.
  * Just add a new case to perform_mag_groups. */
 void mag_groups(int level, struct char_data *ch, int spellnum, int savetype)
-{
-  struct char_data *tch;
+{  
+  struct follow_type *k, *next;
 
   if (ch == NULL)
     return;
 
-  if (!GROUP(ch))
+  perform_mag_groups(level, ch, ch, spellnum, savetype);
+
+  if (ch->followers) {
+	for (k = ch->followers; k; k = next) {
+	  next = k->next;			
+	  if (IN_ROOM(k->follower) != IN_ROOM(ch))
+		continue;
+	  perform_mag_groups(level, ch, k->follower, spellnum, savetype);
+	}
+  }
+
+/*  if (!GROUP(ch))
     return;
     
   while ((tch = (struct char_data *) simple_list(GROUP(ch)->members)) != NULL) {
@@ -631,6 +723,7 @@ void mag_groups(int level, struct char_data *ch, int spellnum, int savetype)
       continue;
     perform_mag_groups(level, ch, tch, spellnum, savetype);
   }
+*/
 }
 
 
@@ -666,10 +759,12 @@ void mag_areas(int level, struct char_data *ch, int spellnum, int savetype)
    * the damaging part of the spell.   */
   switch (spellnum) {
   case SPELL_EARTHQUAKE:
-    to_char = "You gesture and the earth begins to shake all around you!";
-    to_room ="$n gracefully gestures and the earth begins to shake violently!";
+    to_char = "You hit the ground and the earth begins to shake all around you!";
+    to_room ="$n hit the ground and the earth begins to shake violently!";
     break;
   }
+  
+  SET_BIT_AR(ROOM_FLAGS(IN_ROOM(ch)), ROOM_CRATER);
 
   if (to_char != NULL)
     act(to_char, FALSE, ch, 0, 0, TO_CHAR);
@@ -688,7 +783,7 @@ void mag_areas(int level, struct char_data *ch, int spellnum, int savetype)
      *            6: Flying people if earthquake is the spell                         */
     if (tch == ch)
       continue;
-    if (!IS_NPC(tch) && GET_LEVEL(tch) >= LVL_IMMORT)
+    if (!IS_NPC(tch))
       continue;
    /*if (!CONFIG_PK_ALLOWED && !IS_NPC(ch) && !IS_NPC(tch))
       continue;*/
@@ -696,7 +791,7 @@ void mag_areas(int level, struct char_data *ch, int spellnum, int savetype)
       continue;
     if (!IS_NPC(tch) && spell_info[spellnum].violent && GROUP(tch) && GROUP(ch) && GROUP(ch) == GROUP(tch))
       continue;
-	if ((spellnum == SPELL_EARTHQUAKE) && AFF_FLAGGED(tch, AFF_FLYING))
+	if ((spellnum == SPELL_EARTHQUAKE) && (SECT(IN_ROOM(ch)) == SECT_WATER_SWIM || SECT(IN_ROOM(ch)) == SECT_WATER_NOSWIM || AFF_FLAGGED(tch, AFF_FLYING)))
 	  continue;
     /* Doesn't matter if they die here so we don't check. -gg 6/24/98 */
     mag_damage(level, ch, tch, spellnum, 1);
@@ -741,12 +836,15 @@ static const char *mag_summon_fail_msgs[] = {
 #define MOB_CLONE            10   /**< vnum for the clone mob. */
 #define OBJ_CLONE            161  /**< vnum for clone material. */
 #define MOB_ZOMBIE           11   /**< vnum for the zombie mob. */
+#define MOB_BEAST            35   /**< vnum for the nen beast mob. */
+#define MOB_COOKIE			 36   /**< vnum for cookie, the nen massagist. */
 
 void mag_summons(int level, struct char_data *ch, struct obj_data *obj,
 		      int spellnum, int savetype)
 {
   struct char_data *mob = NULL;
   struct obj_data *tobj, *next_obj;
+  char buf[256];
   int pfail = 0, msg = 0, fmsg = 0, num = 1, handle_corpse = FALSE, i;
   mob_vnum mob_num;
 
@@ -785,6 +883,20 @@ void mag_summons(int level, struct char_data *ch, struct obj_data *obj,
     mob_num = MOB_ZOMBIE;
     pfail = 10;	/* 10% failure, should vary in the future. */
     break;
+	
+  case SPELL_NEN_BEAST:
+    msg = 10;
+    fmsg = rand_number(2, 6);	/* Random fail message. */
+    mob_num = MOB_BEAST;    
+	pfail = 10;
+    break;
+	
+  case SPELL_MASSAGIST:
+    msg = 10;
+    fmsg = rand_number(2, 6);	/* Random fail message. */
+    mob_num = MOB_COOKIE;    
+	pfail = 10;
+    break;
 
   default:
     return;
@@ -802,24 +914,52 @@ void mag_summons(int level, struct char_data *ch, struct obj_data *obj,
     if (!(mob = read_mobile(mob_num, VIRTUAL))) {
       send_to_char(ch, "You don't quite remember how to make that creature.\r\n");
       return;
-    }
+    }	
     char_to_room(mob, IN_ROOM(ch));
     IS_CARRYING_W(mob) = 0;
     IS_CARRYING_N(mob) = 0;
-    SET_BIT_AR(AFF_FLAGS(mob), AFF_CHARM);
+	if (GET_MOB_VNUM(mob) != 36)
+      SET_BIT_AR(AFF_FLAGS(mob), AFF_CHARM);
+  
     if (spellnum == SPELL_CLONE) {
       /* Don't mess up the prototype; use new string copies. */
+	  sprintf(buf, "%s%s%s", GET_NAME(ch), *GET_TITLE(ch) ? " " : "", GET_TITLE(ch));
       mob->player.name = strdup(GET_NAME(ch));
-      mob->player.short_descr = strdup(GET_NAME(ch));
-	  mob->player.long_descr = ch->player.long_descr;
+      mob->player.short_descr = strdup(buf);
+	  mob->player.long_descr = ch->player.long_descr;	  
+	  if (ch->player.description)
+	    mob->player.description = strdup(ch->player.description);	  
 	  mob->player.level = ch->player.level;
 	  mob->player.sex = ch->player.sex;
-    }
+	  mob->points.max_hit = GET_TOTAL_HIT(ch);
+	  mob->points.hit = ch->points.hit;
+	  mob->points.mana = (ch->points.mana - 20);
+	  mob->aff_abils.str = ch->aff_abils.str;
+	  mob->aff_abils.str_add = ch->aff_abils.str_add;
+	  mob->aff_abils.dex = ch->aff_abils.dex;
+	  mob->aff_abils.con = ch->aff_abils.con;
+	  mob->aff_abils.intel = ch->aff_abils.intel;
+	  mob->aff_abils.wis = ch->aff_abils.wis;
+	  mob->aff_abils.cha = ch->aff_abils.cha;
+	  mob->char_specials.saved.alignment = ch->char_specials.saved.alignment;
+	  mob->char_specials.saved.apply_saving_throw[SAVING_PARA] = ch->char_specials.saved.apply_saving_throw[SAVING_PARA];
+	  mob->char_specials.saved.apply_saving_throw[SAVING_ROD] = ch->char_specials.saved.apply_saving_throw[SAVING_ROD];
+	  mob->char_specials.saved.apply_saving_throw[SAVING_PETRI] = ch->char_specials.saved.apply_saving_throw[SAVING_PETRI];
+	  mob->char_specials.saved.apply_saving_throw[SAVING_BREATH] = ch->char_specials.saved.apply_saving_throw[SAVING_BREATH];
+    } else if (spellnum == SPELL_NEN_BEAST) {
+		mob->player.level = ch->player.level;
+		mob->player.sex = ch->player.sex;
+		mob->points.max_hit = (GET_TOTAL_HIT(ch) / rand_number(2, 4));
+		mob->points.hit = mob->points.max_hit;
+		mob->char_specials.saved.alignment = ch->char_specials.saved.alignment;
+	}
+	  
     act(mag_summon_msgs[msg], FALSE, ch, 0, mob, TO_ROOM);
     load_mtrigger(mob);
-    add_follower(mob, ch);
+	if (GET_MOB_VNUM(mob) != 36)
+      add_follower(mob, ch);
     
-    if (GROUP(ch) && GROUP_LEADER(GROUP(ch)) == ch)
+    if (GROUP(ch) && GROUP_LEADER(GROUP(ch)) == ch && GET_MOB_VNUM(mob) != 36)
       join_group(mob, GROUP(ch));    
   }
   if (handle_corpse) {
@@ -845,27 +985,32 @@ void mag_summons(int level, struct char_data *ch, struct obj_data *obj,
 void mag_points(int level, struct char_data *ch, struct char_data *victim,
 		     int spellnum, int savetype)
 {
-  int healing = 0, move = 0;
 
   if (victim == NULL)
     return;
 
+  if (AFF_FLAGGED(victim, AFF_HEALED)) {
+	send_to_char(ch, "%s can't bear this skill so often! (Cooldown timer: \tR%d\tn seconds)\r\n", (victim == ch) ? "You" : GET_NAME(victim), victim->char_specials.cooldown - 1);
+	return;
+  }
+
   switch (spellnum) {
-  case SPELL_CURE_LIGHT:
-    healing = dice(1, 8) + level;
+  case SPELL_CURE_LIGHT:    
+	GET_MANA(victim) = MIN(GET_MAX_MANA(victim), GET_MANA(victim) + 15);	
     send_to_char(victim, "You feel better.\r\n");
     break;
   case SPELL_CURE_CRITIC:
-    healing = dice(3, 8) + 2 + level;
-    send_to_char(victim, "You feel a lot better!\r\n");
+    GET_HIT(victim) = MIN(GET_TOTAL_HIT(victim), (GET_HIT(victim) + (GET_TOTAL_HIT(victim) / 5)));
+    send_to_char(victim, "You feel energized!\r\n");
     break;
   case SPELL_HEAL:
-    healing = 100 + dice(9, 8) + level;
+    GET_HIT(victim) = MIN(GET_TOTAL_HIT(victim), (GET_HIT(victim) + (GET_TOTAL_HIT(victim) / 10)));
+	GET_MANA(victim) = MIN(GET_MAX_MANA(victim), (GET_MANA(victim) + 10));	
     send_to_char(victim, "A warm feeling floods your body.\r\n");
     break;
   }
-  GET_HIT(victim) = MIN(GET_MAX_HIT(victim), GET_HIT(victim) + healing);
-  GET_MOVE(victim) = MIN(GET_MAX_MOVE(victim), GET_MOVE(victim) + move);
+  SET_BIT_AR(AFF_FLAGS(ch), AFF_HEALED);
+  ch->char_specials.cooldown = 122;
   update_pos(victim);
 }
 
@@ -943,7 +1088,7 @@ void mag_alter_objs(int level, struct char_data *ch, struct obj_data *obj,
     case SPELL_INVISIBLE:
       if (!OBJ_FLAGGED(obj, ITEM_NOINVIS) && !OBJ_FLAGGED(obj, ITEM_INVISIBLE)) {
         SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_INVISIBLE);
-		SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_NOSELL);
+		SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_CONCEALED);
         to_char = "$p vanishes.";
       }
       break;

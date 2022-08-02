@@ -1,0 +1,67 @@
+#2800
+wing teacher~
+Wing, the Nen Teacher~
+Wing - the teacher of Nen skills is sitting here, waiting someone to teach.
+~
+   He looks skinny and has heavy glasses.  Also he looks rather intelligent.  
+Half of his shirt is out of his pants, what a slovenly man!
+To be taught what you can, type <prac> now.
+~
+516122 0 0 0 2384 0 0 0 0 E
+10 19 8 0d0+0 1d2+0
+30 900
+6 6 1
+BareHandAttack: 7
+SavingPara: 15
+SavingRod: 3
+SavingPetri: 3
+SavingBreath: 3
+E
+#2801
+piglet pig~
+the piglet~
+A small piglet is sleeping here.
+~
+   It's a small piglet, sleeping, unaware that soon it will be pork chops.  
+Type <consider piglet> first and read what you're told.  Then <kill piglet> to
+start fighting it.  
+~
+10 0 0 0 0 0 0 0 0 E
+1 20 20 0d0+0 0d0+0
+30 100
+4 4 0
+BareHandAttack: 4
+SavingPara: 13
+SavingRod: 4
+SavingPetri: 6
+SavingBreath: 4
+E
+#2802
+shopkeeper keeper~
+the shopkeeper~
+The shopkeeper for Hunter Exams is ready to sell newbie-items.
+~
+   He looks like any other merchant, only his clothes are ragged.  He must have
+too low prices.  To see what he sells type <list>, then <buy> to buy it.  
+~
+10 0 0 0 0 0 0 0 0 E
+3 19 8 0d0+30 1d2+0
+30 900
+8 8 1
+E
+#2803
+beans~
+@GBeans@n~
+@GBeans @yis here, entertaing new players.@n
+~
+  He is a bean-headed little man wearing a suit, he looks
+very happy doing this job.
+~
+262170 0 0 0 0 0 0 0 0 E
+1 20 10 0d0+0 1d1+0
+0 0
+8 8 1
+E
+T 2807
+T 2808
+$

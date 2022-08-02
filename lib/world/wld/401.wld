@@ -59,7 +59,7 @@ D1
 a wooden sliding door
 ~
 door~
-2 0 40104
+1 0 40104
 D3
 ~
 ~
@@ -209,7 +209,7 @@ D3
 0 0 40109
 S
 #40114
-A Small Canyon~
+Cave Entrance at Ridge of the Mountain~
 
 ~
 401 0 0 0 0 5
@@ -226,7 +226,7 @@ S
 A Cave~
 
 ~
-401 5 0 0 0 0
+401 65541 0 0 0 0
 D0
 ~
 ~
@@ -240,7 +240,7 @@ S
 A Tunnel Tapering~
 
 ~
-401 1 0 0 0 0
+401 65537 0 0 0 0
 D0
 ~
 ~
@@ -249,15 +249,5 @@ D2
 ~
 ~
 0 0 4027
-S
-#40199
-R75 ROOM~
-DO NOT TOUCH ANYTHING!!!!!
-~
-401 1228 0 0 0 0
-D2
-~
-~
-0 0 40103
 S
 $~

@@ -11,64 +11,84 @@ wait 5 sec
 ~
 #12001
 Magic User - 12009, 20, 25, 30-32~
-0 k 10
+0 k 95
 ~
-switch %actor.level%
+eval hit %random.96% + %self.level%
+if %self.mana% > 24 && %hit% >= 50
+eval skill %%random.%self.level%%%
+switch %skill%
   case 1
   case 2
   case 3
-  break
   case 4
-    dg_cast 'magic missile' %actor%
+    dg_cast 'blast' %actor%
+    nop %self.mana(-2)%
   break
   case 5
-    dg_cast 'chill touch' %actor%
+    dg_cast 'chilltouch' %actor%
+    nop %self.mana(-2)%
   break
   case 6
-    dg_cast 'burning hands' %actor%
+    dg_cast 'burninghands' %actor%
+    nop %self.mana(-2)%
   break
   case 7
   case 8
-    dg_cast 'shocking grasp' %actor%
+    dg_cast 'shockinggrasp' %actor%
+    nop %self.mana(-3)%
   break
   case 9
   case 10
   case 11
-    dg_cast 'lightning bolt' %actor%
+    dg_cast 'lightningbolt' %actor%
+    nop %self.mana(-4)%
   break
   case 12
-    dg_cast 'color spray' %actor%
+    dg_cast 'bungeegum' %actor%
+    nop %self.mana(-5)%
   break
   case 13
-    dg_cast 'energy drain' %actor%
+    dg_cast 'energydrain' %actor%
+    nop %self.mana(-5)%
   break
   case 14
     dg_cast 'curse' %actor%
+    nop %self.mana(-5)%
   break
   case 15
     dg_cast 'poison' %actor%
+    nop %self.mana(-5)%
   break
   case 16
     if %actor.align% > 0
-      dg_cast 'dispel good' %actor%
+      dg_cast 'dispelgood' %actor%
+      nop %self.mana(-6)%
     else
-      dg_cast 'dispel evil' %actor%
+      dg_cast 'dispelevil' %actor%
+      nop %self.mana(-6)%
     end
- break
+  break
   case 17
   case 18
-    dg_cast 'call lightning' %actor%
+    dg_cast 'chainjail' %actor%
+    nop %self.mana(-7)%
   break
   case 19
   case 20
   case 21
   case 22
-    dg_cast 'harm' %actor%
+    dg_cast 'littleflower' %actor%
+    nop %self.mana(-8)%
   break
   default
-    dg_cast 'fireball' %actor%
+    if %skill% > 22
+      dg_cast 'auraball' %actor%
+      nop %self.mana(-8)%
+    end
   break
 done
+wait 5 sec
+end
 ~
 #12002
 Cityguard - 12018, 21~
@@ -129,14 +149,17 @@ Heal players~
 0 ab 20
 ~
 set player %random.char%
+if !%player%
+  return
+end
 if %player.hitp% < %player.maxhitp% && %player.is_pc% /= 1
-dg_cast 'heal' %player.name%
-dg_cast 'remove poison' %player.name%
-dg_cast 'exorcise' %player.name%
-say %player.name% is Healed!
+  dg_cast 'heal' %player.name%
+  dg_cast 'curepoison' %player.name%
+  dg_cast 'exorcise' %player.name%
+  say %player.name% is Healed!
 else
-dg_cast 'remove poison' %player.name%
-dg_cast 'exorcise' %player.name%
+  dg_cast 'curepoison' %player.name%
+  dg_cast 'exorcise' %player.name%
 end
 ~
 #12012
@@ -144,8 +167,9 @@ peedler talk a little~
 0 g 50
 ~
 if %actor.is_pc%
-wait 1 sec
-say hey you, can you buy something? or help me some money?
+  wait 1 sec
+  say hey you, can you buy something? or lend me some money?
+  %echo% HINT: help give
 end
 ~
 #12013
@@ -260,24 +284,8 @@ end
 mana potion~
 1 s 100
 ~
-if %actor.mana% < %actor.maxmana%
-  set m 30
-  nop %actor.mana(%m%)%
-  if %actor.mana% > %actor.maxmana%
-    eval m %actor.maxmana% - %actor.mana%
-    nop %actor.mana(%m%)%
-  end
-end
-if %actor.move% < %actor.maxmove%
-  set v 30
-  nop %actor.move(%v%)%
-  if %actor.move% > %actor.maxmove%
-    eval v %actor.maxmove% - %actor.move%
-    nop %actor.move(%v%)%
-  end
-end
+nop %actor.hit(%actor.maxhitp%)%
 %send% %actor% You feel energized.
-%send% %actor% You feel refreshed.
 ~
 #12027
 rock paper scissors~
@@ -470,7 +478,7 @@ say Today who eat two platefuls of pasta at once will not pay!
 wait 4 sec
 say and plus will receive a 	yF-185 Galgaida card	n!
 wait 4 sec
-say did you nian accept the challange?
+say do you nian accept the challenge?
 attach 12037 %self.id%
 ~
 #12037
@@ -478,39 +486,39 @@ player say yes~
 0 d 100
 yes~
 if %actor.pos% == SITTING && %actor.is_pc%
-wait 1 sec
-say MeOK! Here is it, but I don't know if you nian can do it.
-%load% obj 3000 %self%
-%load% obj 3000 %self%
-give plateful %actor.name%
-give plateful %actor.name%
-wait 2 sec
-say You do not have so meotch time to eat it, so go fast!
-wait 2 sec
-say or will gonna pay for that...
-wait 2 sec
-grin %actor.name%
-wait 2 sec
-say TIME IS MEOWVER!
-look %actor.name%
-if %actor.hunger% >= 23 && !%actor.has_item(3000)%
-wait 2 sec
-say I CAN NOT BELIEVE! YOU DID IT!
-wait 2 sec
-shake %actor.name%
-wait 2 sec
-say Congratulations! Here, takes this card as prize.
-%load% obj 40098 %self%
-give card %actor.name%
-detach 12037 %self.id%
+  wait 1 sec
+  say MeOK! Here is it, but I don't know if you nian can do it.
+  %load% obj 3000 %self%
+  %load% obj 3000 %self%
+  give plateful %actor.name%
+  give plateful %actor.name%
+  wait 2 sec
+  say You do not have so meotch time to eat it, so go fast!
+  wait 2 sec
+  say or will gonna pay for that...
+  wait 2 sec
+  grin %actor.name%
+  wait 2 sec
+  say TIME IS MEOWVER!
+  look %actor.name%
+  if %actor.hunger% >= 23 && !%actor.has_item(3000)%
+    wait 2 sec
+    say I CAN NOT BELIEVE! YOU DID IT!
+    wait 2 sec
+    shake %actor.name%
+    wait 2 sec
+    say Congratulations! Here, takes this card as prize.
+    %load% obj 1217 %self% card
+    give card %actor.name%
+    detach 12037 %self.id%
+  else
+    say Oh meow... you loose...
+    emote deducts 200 coins from %actor.name% as payment.
+    nop %actor.gold(-100)%
+    detach 12037 %self.id%
+  end
 else
-say Oh meow... you loose...
-emote deducts 200 coins from %actor.name% as payment.
-nop %actor.gold(-100)%
-detach 12037 %self.id%
-end
-else
-detach 12037 %self.id%
+  detach 12037 %self.id%
 end
 ~
 #12040
@@ -551,12 +559,7 @@ end
 10000 coins gain~
 1 c 3
 ga~
-if %self.carried_by% == %actor%
-  %send% %actor% You must hold something before gain it.
-  halt
-end
-eval hold %actor.eq(hold)%
-if %cmd.mudcommand%==gain && %hold.id% /= %self.id%
+if %cmd.mudcommand%==gain
   %force% %actor% say GAIN!
   wait 1 sec
   %send% %actor% Your %self.shortdesc% turns into 10000 jenny coins.

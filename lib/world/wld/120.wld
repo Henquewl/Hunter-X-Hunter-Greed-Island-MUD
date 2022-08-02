@@ -22,21 +22,21 @@ walls.  These windows provide a complete view of the competition fields.
 There are several scorecards, pencils and other items that are used by the
 judges sitting on a table.  The only exit is a trapdoor leading down.
 ~
-120 32776 0 0 0 0
+120 8 0 0 0 0
 D5
 There is a rickety ladder leading down.
 ~
 trapdoor~
 1 12033 12002
 E
-pencils pencil~
-   An ordinary #2 lead pencil.  Judging by the teeth marks on the shaft, the
-user should see a dentist very soon!  
-~
-E
 scorecards~
    The cards all have been filled in with the judges evaluations of today's
 combatants.  It seems that Sparticus is having a good day.  
+~
+E
+pencils pencil~
+   An ordinary #2 lead pencil.  Judging by the teeth marks on the shaft, the
+user should see a dentist very soon!  
 ~
 S
 #12002
@@ -46,7 +46,7 @@ the chariot races with an unobstructed view.  The seats are upholstered in
 red velvet and are in top-notch condition.  There is a rickety ladder leading
 up and a marble staircase leading down.
 ~
-120 32780 0 0 0 0
+120 12 0 0 0 0
 D4
 You see a rickety ladder with a trapdoor leading up.
 ~
@@ -66,7 +66,7 @@ everywhere and the smell makes you want to puke.  Stairs lead up to Caesar's
 private box, a small ramp leads down to the playing field and a hallway 
 leads south.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D2
 You see a small hallway that leads to a larger area.
 ~
@@ -95,7 +95,7 @@ here are made of stone and are probably centuries old.  A few scratches on
 one of the benches catch your eye.  An acrid smell is coming from the east
 and a tunnel leads off to the north.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D0
 The tunnel looks like it leads to another seating area.
 ~
@@ -120,7 +120,7 @@ bars, it hasn't been open for years.  Looking through the gate at the barren
 landscape that lies beyond, you can see why.  A dirt road leads off to the east,
 and a store is directly south.  
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D1
 Through the clouds of dust, you can make out a passable road.
 ~
@@ -151,7 +151,7 @@ and in gleaming glass cases.  More common weapons are stacked like wood on
 the floor.  To the north you can barely make out a gate.  There is a very
 secure looking door to the south.
 ~
-120 32920 0 0 0 0
+120 152 0 0 0 0
 D0
 You can see a city gate to the north.
 ~
@@ -176,7 +176,7 @@ you haven't seen anything yet!!  There is barely enough room to walk amongst
 the crates of armor and swords.  No wonder Antokiba will stand for a thousand
 years.  The only exit is through a door to the north.
 ~
-120 32777 0 0 0 0
+120 9 0 0 0 0
 D0
 Through the piles of weapons, you can see a door leading north to the rest of 
 the store.
@@ -196,7 +196,7 @@ on here; just bare dirty stone.  The view of the surrounding country is
 spectacular.  Unfortunately you can barely see the playing field.  There is
 a set of steps here, leading down.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D5
 Watch your step!
 ~
@@ -217,7 +217,7 @@ in preparation for the games.  The dust rising from the parched earth makes you
 want to sneeze.  Some stairs leads to north and the thunder of crowd can be
 heard coming from the east.
 ~
-120 32780 0 0 0 0
+120 12 0 0 0 0
 D1
 A large wooden door has a plaque attached who says:
 "Every day 15 until we have a winner"
@@ -229,8 +229,13 @@ D4
 ~
 0 0 12003
 E
-coach trainer~
-   The coach tell you "Stop bothering my athletes and get lost!  "
+gladiator~
+   He is a big muscular man with lots of armor.  He sizes you up and decides
+that you aren't worth his time or trouble.  
+~
+E
+driver~
+   The driver is too busy changing a wheel on his chariot to notice you.  
 ~
 E
 chariot~
@@ -240,13 +245,8 @@ the chariot as belonging to Drucilis 'Lightning-whip' Octavious, a favorite
 driver of the masses.  
 ~
 E
-driver~
-   The driver is too busy changing a wheel on his chariot to notice you.  
-~
-E
-gladiator~
-   He is a big muscular man with lots of armor.  He sizes you up and decides
-that you aren't worth his time or trouble.  
+coach trainer~
+   The coach tell you "Stop bothering my athletes and get lost!  "
 ~
 S
 #12010
@@ -255,7 +255,7 @@ The Rock-Paper-Scissors Arena~
 people watching your match and some vendors of hotdogs.  The only exit is locked
 by the Judge, to the west.
 ~
-120 32916 0 0 0 1
+120 148 0 0 0 1
 D3
 ~
 door~
@@ -275,7 +275,7 @@ The First-Aid Station~
 medical apparati lying about here.  From the west comes the roar of the
 crowd, and a hall leads east.  The healer will be with you shortly.
 ~
-120 32796 0 0 0 0
+120 28 0 0 0 0
 D1
 You see hundreds, perhaps thousands of people.
 ~
@@ -297,7 +297,7 @@ A Dirt Road~
    You are on a parched and dusty rural road which runs east and west.  There
 is a structure lying to the south.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D1
 Through the dust, you see a paved road.
 ~
@@ -320,7 +320,7 @@ The Commoner's House~
 The furnishings are sparse and it is warm here.  A putrid odor is coming
 from the east and passages lead north and south.
 ~
-120 32776 0 0 0 0
+120 8 0 0 0 0
 D0
 A dusty road lies to the north.
 ~
@@ -349,7 +349,7 @@ It looks like the commoner's wife has been shirking her duties lately, as
 there is a big pile of soiled laundry here.  The only way out is from where
 you came.
 ~
-120 32780 0 0 0 0
+120 12 0 0 0 0
 D0
 You see the living quarters to the north.
 ~
@@ -366,7 +366,7 @@ The Noblemans' Box~
 There is a large seating area to the east and a staircase leading up here.  The
 view of the chariot track is pretty good.  
 ~
-120 32768 0 0 0 0
+120 0 0 0 0 0
 D1
 Rows upon rows of bleachers lie to the east.
 ~
@@ -384,7 +384,7 @@ Leatherworking And Tanning~
 taking sunlight at a great window.  Hundreds of pieces of leather and clothes
 fulfills the walls, exposing products.
 ~
-120 32920 0 0 0 0
+120 152 0 0 0 0
 D3
 ~
 ~
@@ -413,7 +413,7 @@ statue of Caligula the Mad Emperor overlooks the area.  There are long
 lines standing to the east, and an acrid smell is coming from the west.
 A busy road lies to the south.
 ~
-120 32772 0 0 0 1
+120 4 0 0 0 1
 D1
 The lines are very long and people look impatient.
 ~
@@ -441,7 +441,7 @@ The Main Highway~
    This is a well built and heavily traveled road running from east to west
 and there is a large structure built entirely of stone to the north.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D0
 You can hear the roar of a large crowd of people coming from that direction.
 ~
@@ -467,18 +467,13 @@ is dug.  The odor intensifies as you move closer and there is a roll of toilet
 paper sitting on the ground.  The only exit is to the west and your nose and
 stomach are strongly suggesting that you use it.
 ~
-120 32776 0 0 0 0
+120 8 0 0 0 0
 D3
 The living quarters lie in that direction.  Why don't you stop pussyfooting 
 around and go that way??!!  Please?
 ~
 ~
 0 -1 12013
-E
-roll paper~
-   Hey!!  This is first-class stuff!!  - White Cloud brand with lotion.  The
-roll is about half-used.  
-~
 E
 hole toilet~
    You walk over to the hole and see that there is a large turd floating in a
@@ -487,20 +482,29 @@ closer to get a better look, your nose catches a concentrated dose of the
 fragrant aroma wafting upwards.  Your stomach decides that it has had enough of
 this shoddy treatment and you puke until it is empty.  
 ~
+E
+roll paper~
+   Hey!!  This is first-class stuff!!  - White Cloud brand with lotion.  The
+roll is about half-used.  
+~
 S
 #12021
 A Very Closed Trail~
 
 ~
-120 33536 0 0 0 2
+120 768 0 0 0 2
 D0
 ~
 ~
 0 0 -1
-D7
+D1
 ~
 ~
 0 0 12070
+D6
+~
+~
+0 0 3664
 D9
 ~
 ~
@@ -515,7 +519,7 @@ areas, this place could stand extensive renovation and a thorough cleaning.
 This area extends to the south and a much more elegant seating area can be
 seen to the west.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D2
 The common seating area continues.
 ~
@@ -534,7 +538,7 @@ games.  Like the other commoners' areas in the coliseum, it could use
 extensive renovation and cleaning.  This area extends to the north and
 lots of noise can be heard coming from the south.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D0
 The common seating area continues.
 ~
@@ -554,7 +558,7 @@ Emperor of a time long since passed, stands here looking out over the crowd.
 There is a passage to the north, the ticket booth is to the south and a gate 
 opening to the city lies to the east.
 ~
-120 32772 0 0 0 1
+120 4 0 0 0 1
 D0
 You see rows upon rows of dilapidated wooden bleachers.
 ~
@@ -582,7 +586,7 @@ vendors working furiously.  Ticket stubs litter the ground and you can see
 that the people are getting very impatient.  There is a large, open cashbox
 here.  Main entrances to the Coliseum are to the north and west.  
 ~
-120 32776 0 0 0 0
+120 8 0 0 0 0
 D0
 You see hundreds, if not thousands of people.
 ~
@@ -607,7 +611,7 @@ A Paved Road~
 looking estate to the south and to the north-west, off in the distance, you
 can see a very large stone structure.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D1
 The road leads off to the east.
 ~
@@ -639,7 +643,7 @@ situated to enhance and adorn the three statues of dedicated to gods Jupiter,
 Venus and Neptune.  A tranquil path leads east and west, there is a paved road
 to the north and an extravagant house lies to the south.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D0
 You see a paved road in the distance.
 ~
@@ -661,10 +665,14 @@ Off through the trees, you see a small, plain hut.
 ~
 0 -1 -1
 E
-trees tree shrubs shrub plants plant~
-   All of the plants, trees and shrubs are perfectly trimmed, without so much as
-a dead leaf anywhere to be seen.  You welcome the shade that they give from the
-harsh sun above.  
+Venus~
+   Venus, the Antokiban goddess of beauty and knowledge is displayed in a all of her
+splendor.  
+~
+E
+Jupiter~
+   A statue made of pure gold depicts Jupiter sitting on his throne.  The throne
+looks like it is made of silver.  
 ~
 E
 Neptune~
@@ -673,14 +681,10 @@ It is sitting in the center of a small pond which has hundreds of beautiful fish
 swimming in it.  
 ~
 E
-Jupiter~
-   A statue made of pure gold depicts Jupiter sitting on his throne.  The throne
-looks like it is made of silver.  
-~
-E
-Venus~
-   Venus, the Antokiban goddess of beauty and knowledge is displayed in a all of her
-splendor.  
+trees tree shrubs shrub plants plant~
+   All of the plants, trees and shrubs are perfectly trimmed, without so much as
+a dead leaf anywhere to be seen.  You welcome the shade that they give from the
+harsh sun above.  
 ~
 S
 #12028
@@ -692,16 +696,16 @@ glass windows bathes the room in splendor and the furniture looks as though
 it was made by master craftsmen from all over the empire.  A path through the
 estate is north of here.
 ~
-120 32780 0 0 0 0
+120 12 0 0 0 0
 D0
 You see a well manicured path that winds through the estate.
 ~
 ~
 0 -1 12027
 E
-furniture~
-   You hope to eventually be able to own a piece of furniture just like these
-someday.  These are only dreams, of course.  
+floor tile~
+   Very expensive!  A lot of master craftsmen labored long and hard to produce
+such a work of art.  
 ~
 E
 windows~
@@ -709,9 +713,9 @@ windows~
 the gods.  
 ~
 E
-floor tile~
-   Very expensive!  A lot of master craftsmen labored long and hard to produce
-such a work of art.  
+furniture~
+   You hope to eventually be able to own a piece of furniture just like these
+someday.  These are only dreams, of course.  
 ~
 S
 #12029
@@ -720,7 +724,7 @@ The Great North Gate~
 to be closed and locked against intrusion.  A large road muddy road runs
 through the gate and into the countryside.  Nero Drive runs south from here.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D0
 The gate is made of solid iron and is well maintained.
 ~
@@ -736,12 +740,12 @@ Nero Drive continues in that direction.
 ~
 0 -1 12030
 E
-road~
-   The road is wide and very muddy.  
-~
-E
 gate~
    The gate is made of solid iron and is well maintained.  
+~
+E
+road~
+   The road is wide and very muddy.  
 ~
 S
 #12030
@@ -750,7 +754,7 @@ Nero Drive~
 A great gate is directly north of here.  The Antokiban citizens are very friendly
 and tip their hats or say hello as you pass.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D0
 To the north, you can see a gate leading out of the city.
 ~
@@ -767,6 +771,7 @@ Nero Drive continues in that direction.
 0 -1 12031
 D3
 You see the bakery of Antokiba.
+You see the Caveau de Riquewihr, an italian food restaurant.
 ~
 ~
 0 -1 12062
@@ -779,7 +784,7 @@ to say hello.  Most of the people are either coming from or going to the
 town square.  Nero Drive continues to the north, and you can see a large
 open area to the south.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D0
 Nero drive continues in that direction.
 ~
@@ -807,7 +812,7 @@ southeast, off in the distance, you can see the aqueduct and the buildings
 of the Antokiban government lie to the northwest.  Nero Drive leads north and
 south from here and Clay Avenue runs east.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D0
 Nero Drive heads in the direction of the northern gate.
 ~
@@ -825,15 +830,15 @@ aqueduct and buildings of the Antokiban government.
 ~
 0 -1 12033
 E
-aqueduct~
-   To the southeast, off in the distance, stands a large stone structure that is
-used to channel water into the city.  
-~
-E
 vendor vendors~
    There are several sidewalk vendors here, selling fresh fruits and vegetables,
 home baked goods, fine jewelry and other items.  Most of the items for sale are
 of very high quality.  
+~
+E
+aqueduct~
+   To the southeast, off in the distance, stands a large stone structure that is
+used to channel water into the city.  
 ~
 S
 #12033
@@ -844,7 +849,7 @@ them are either coming from or going to the town square which lies to the
 north.  Nero Drive continues to the south.  There is an observation area
 overlooking the aqueduct to the east and a paved road leads west.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D0
 The town square lies in that direction.
 ~
@@ -874,7 +879,7 @@ the city lies to the south and a small path goes west towards a nobleman's
 estate.  To the east, off in the distance, lies the great mountain.  It is
 rumored that the Gods watch over and protect the empire from there.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D0
 Nero Drive leads in that direction.
 ~
@@ -899,7 +904,7 @@ closed and locked.  Looking through the bars, you see a heavily traveled
 road leading out of the city.  Nero Drive starts here and runs north and
 a wizard's shop lies to the east.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D0
 Nero Drive leads towards the center of town.
 ~
@@ -945,13 +950,10 @@ The south door leads directly to the senate chambers.
 door wooden~
 2 12035 12037
 E
-flowers plants flower plant~
-   The plants contribute to a very relaxing atmosphere.  
-~
-E
-bookcase books~
-   The books are very old and contain the wisdom of wise men from throughout the
-entire Antokiban empire.  They appear to be collecting dust.  
+desk~
+   The desk is made of solid walnut and gold inlay.  It is exquisitely carved
+with superior craftsmanship, the likes of which has rarely been seen.  It was
+probably brought to Antokiba from Gaul.  
 ~
 E
 documents decrees paperwork document decree papers paper~
@@ -959,10 +961,13 @@ documents decrees paperwork document decree papers paper~
 sealed with wax.  
 ~
 E
-desk~
-   The desk is made of solid walnut and gold inlay.  It is exquisitely carved
-with superior craftsmanship, the likes of which has rarely been seen.  It was
-probably brought to Antokiba from Gaul.  
+bookcase books~
+   The books are very old and contain the wisdom of wise men from throughout the
+entire Antokiban empire.  They appear to be collecting dust.  
+~
+E
+flowers plants flower plant~
+   The plants contribute to a very relaxing atmosphere.  
 ~
 S
 #12037
@@ -1006,13 +1011,13 @@ S
 Clay Avenue~
    You are on a wide well traveled road running east and west through the
 heart of Antokiba.  There are large crowds of people to the west and the road
-continues to the east.  The aqueduct is directly south of here.
+continues to the east.  The temple is directly south of here.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D0
 ~
 ~
-0 0 -1
+0 0 12076
 D1
 Clay Avenue continues in that direction.
 ~
@@ -1041,7 +1046,7 @@ and most of the walls are covered by ancient wall paintings picturing Gods,
 giants and peasants.  To the south, you see the Reading Room.  The donation room
 is in a small alcove to your east.
 ~
-120 32924 0 0 0 0
+120 156 0 0 0 0
 D0
 ~
 ~
@@ -1060,6 +1065,17 @@ You can see a busy street in that direction.
 ~
 0 -1 12033
 E
+telescope~
+   If it were operational, it would offer a spectacular view of the Mountain of
+the Gods.  Unfortunately, it appears to have been vandalized.  
+~
+E
+aqueduct~
+   The aqueduct is a massive stone structure that channels water into Antokiba from
+the Mountain of the Gods.  During the rainy season, it is filled to the top.  
+However, due to recent drought, the water level appears to be very low.  
+~
+E
 sign~
    ********************************************
    *                                          *
@@ -1070,17 +1086,6 @@ sign~
    *           Magic Platform Company         *
    *                                          *
    ********************************************
-~
-E
-aqueduct~
-   The aqueduct is a massive stone structure that channels water into Antokiba from
-the Mountain of the Gods.  During the rainy season, it is filled to the top.  
-However, due to recent drought, the water level appears to be very low.  
-~
-E
-telescope~
-   If it were operational, it would offer a spectacular view of the Mountain of
-the Gods.  Unfortunately, it appears to have been vandalized.  
 ~
 S
 T 3020
@@ -1121,7 +1126,7 @@ way to drip on you.
 ~
 S
 #12042
-The Mage's Shop~
+Wig & Pen~
    You are standing in the mage's shop.  Magical ointments, charms and
 potions are sitting on shelves and behind a glass counter.  There is a
 dense neon blue fog hugging the floor here, making it impossible to see
@@ -1136,7 +1141,7 @@ out.  'Is everyone alright?  Sorry about that.  I was testing a new
 spell.  I'll try to give advance notice next time.', he says.  The door
 then closes.
 ~
-120 32792 0 0 0 0
+120 24 0 0 0 0
 D1
 The door is reinforced with steel and looks VERY sturdy.  Considering the
 'test' that you just witnessed, you are glad that it stands between you and
@@ -1195,49 +1200,48 @@ You see a hallway leading north to what looks like a waiting room.
 ~
 ~
 0 -1 12043
+D2
+~
+~
+0 0 12045
 D3
 There is a large door to the west that blocks your path.
 ~
 door~
 1 12036 12037
-D5
-You see a stairway leading out of the building.
-~
-~
-0 -1 12045
 S
 #12045
-Outside The Capitol Building~
+Streets x And x Capitol Building~
    You stand on white marble steps that lead up and into the Capitol
 Building.  There are several statues, none of any real significance,
 at the entrance to the building.  The main entrance to the building
 is at the top of the steps.
+The streets keep leading east and west.
 ~
 120 0 0 0 0 1
+D0
+~
+~
+0 0 12044
 D1
 ~
 ~
-0 0 12046
+0 0 12051
 D2
 ~
 ~
-0 0 12046
+0 0 -1
 D3
 ~
 ~
 0 0 12046
-D5
-The steps terminate onto Clay Avenue.
-~
-~
-0 -1 12046
-E
-statue statues~
-   There is really nothing noteworthy about them.  
-~
 E
 stairs stairway steps~
    The stairs are immaculately polished and made of white marble.  
+~
+E
+statue statues~
+   There is really nothing noteworthy about them.  
 ~
 S
 #12046
@@ -1247,7 +1251,7 @@ through the heart of the city.  There are marble steps leading up.  To the
 south, off in the distance, you can see a large stone structure and a mountain
 that is partially obscured by the haze.  There is a general store to the north.
 ~
-120 32768 0 0 0 1
+120 0 0 0 0 1
 D0
 The general store lies in that direction.
 ~
@@ -1257,21 +1261,21 @@ D1
 There is what appears to be a large gate in that direction.
 ~
 ~
-0 -1 12051
+0 -1 12045
 D3
 Clay Avenue continues.
 ~
 ~
 0 -1 12039
 E
-mountain~
-   Off to the southwest, you can see a huge mountain that is partially obscured
-by the haze.  It is rumored that the gods reside there and protect the city.  
-~
-E
 stone structure aqueduct~
    You see a massive stone structure, built several centuries ago, that is used
 to channel water into the city.  
+~
+E
+mountain~
+   Off to the southwest, you can see a huge mountain that is partially obscured
+by the haze.  It is rumored that the gods reside there and protect the city.  
 ~
 S
 #12047
@@ -1345,21 +1349,21 @@ paladin and all of equipment has been reduced to a large pile of flaming
 cinders.  Froboz throws his head back and cackles with insane glee.  'Now, my
 young friends, what can I do for you?  ', he asks.  
 ~
-120 32776 0 0 0 0
+120 8 0 0 0 0
 D3
 There is a door, reinforced with steel, in that direction.
 ~
 door~
 2 12038 12042
 E
-cinders ashes pile~
-   The ashes are a very fine grayish white powder that seems to be the only
-worldly remains of Froboz's "test specimens".  
-~
-E
 workbench workbenches tubes beakers crucibles dishes~
    These are all tools of great power.  You cannot even begin to understand what
 any of this stuff does.  
+~
+E
+cinders ashes pile~
+   The ashes are a very fine grayish white powder that seems to be the only
+worldly remains of Froboz's "test specimens".  
 ~
 S
 #12050
@@ -1389,14 +1393,14 @@ The waiting room lies in that direction.
 ~
 0 -1 12043
 E
-seal~
-   The seal of the Emperor is mounted above the judge's stand.  
-~
-E
 bench stand box jury~
    You see large wooden structures that are designed to separate the judge, jury
 and witnesses from the rest of the courtroom.  They are made of polished oak and
 are strictly functional.  
+~
+E
+seal~
+   The seal of the Emperor is mounted above the judge's stand.  
 ~
 S
 #12051
@@ -1407,7 +1411,7 @@ eastern side of the city.  The gate is currently open and to the east,
 there is a heavily used road, made of packed clay, that leads out of Antokiba. 
 Another road leads westward into the city.
 ~
-120 32768 0 0 0 1
+120 98304 0 0 0 1
 D1
 The clay road heads eastwards.
 ~
@@ -1417,16 +1421,20 @@ D3
 The clay street leads into the city.
 ~
 ~
-0 -1 12046
-E
-gate~
-   The gate is fabricated from iron and has been designed to keep intruders out
-of the city.  
+0 -1 12045
+D4
 ~
+~
+0 0 -1
 E
 spires towers~
    There are two tall spires on either side of the gate and are constantly
 manned by the city guards.  They are made of stone and stand about 40 feet tall.
+~
+E
+gate~
+   The gate is fabricated from iron and has been designed to keep intruders out
+of the city.  
 ~
 S
 #12052
@@ -1455,8 +1463,16 @@ S
 Storage Room~
    There is a empty room, with a warning fixed on the wall.
 ~
-120 32768 0 0 0 0
-D1
+120 0 0 0 0 0
+D0
+~
+~
+0 0 -1
+D2
+~
+~
+0 0 -1
+D5
 ~
 ~
 0 0 12063
@@ -1515,14 +1531,14 @@ The courtroom lies in that direction.
 door~
 1 12039 12050
 E
+tombs books~
+   The books are very large and filled with Antokiban legal precedent.  
+~
+E
 papers documents~
    There are hundreds of pages of petitions, lawsuits and court orders sitting
 on the desk.  One particularly interesting case involves a nobleman, a slave and
 a roll of toilet paper.  
-~
-E
-tombs books~
-   The books are very large and filled with Antokiban legal precedent.  
 ~
 S
 #12056
@@ -1544,13 +1560,13 @@ You see a small trail, leading down.
 ~
 0 -1 12059
 E
-trail path~
-   The path is a little muddy, possibly due to a recent thundershower.  
-~
-E
 tree trees vegetation~
    All of the vegetation is lush, green and in full bloom.  You wish that you
 could take the time to stop and enjoy it properly.  
+~
+E
+trail path~
+   The path is a little muddy, possibly due to a recent thundershower.  
 ~
 S
 #12057
@@ -1610,19 +1626,19 @@ You see a path leading up the mountain.
 ~
 0 -1 12059
 E
-trees fruit~
-   The fruit trees, nourished by the fertile ground at the edge of the stream
-and sustained by the brilliant sunshine, line the banks of the stream and are
-laden with fruit.  
+stream brook~
+   A stream of the clearest, cleanest water that you have ever seen winds its
+way through the valley.  
 ~
 E
 fish~
    A variety of species swims peacefully in the cool, clear water.  
 ~
 E
-stream brook~
-   A stream of the clearest, cleanest water that you have ever seen winds its
-way through the valley.  
+trees fruit~
+   The fruit trees, nourished by the fertile ground at the edge of the stream
+and sustained by the brilliant sunshine, line the banks of the stream and are
+laden with fruit.  
 ~
 S
 #12059
@@ -1686,11 +1702,11 @@ The holding cells lie in that direction.
 0 -1 12060
 S
 #12062
-The Meowth Restaurant~
+Caveau de Riquewihr~
    You are standing in the restaurant of Antokiba and your mouth waters at the
 delicious aromas wafting from the kitchen.  The only exit is to the east.
 ~
-120 32920 0 0 0 0
+120 152 0 0 0 0
 D1
 ~
 ~
@@ -1702,19 +1718,19 @@ The General Store~
 are covered with all of the various items required by Antokiban citizens and 
 stalwart adventurers.  Clay Avenue lies to the south.
 ~
-120 32920 0 0 0 0
+120 152 0 0 0 0
 D2
 Clay Avenue lies in that direction.
 ~
 ~
 0 -1 12046
-D3
-A fake shelf hides a door.
-The shopkeeper of Antokiba says, 'Buzz off! employees only...'
+D4
+Only employees
 ~
-door~
-4 -1 12053
+~
+0 0 -1
 S
+T 1201
 #12064
 Before Antokiba~
    You travel upon an East-West road wide enough for 30 men to march
@@ -1722,7 +1738,7 @@ abreast.  It is packed hard through heavy use.  To the west stands the
 Gates of Antokiba inviting you to enter and partake of all the glory and
 splendor that is Antokiba.
 ~
-120 32776 0 0 0 1
+120 65536 0 0 0 1
 D1
 ~
 ~
@@ -1732,14 +1748,13 @@ D3
 gate~
 0 -1 12051
 S
-T 12064
 #12065
 Clay Road~
    You travel upon an East-West road wide enough for 30 men to march
 abreast.  It is packed hard through heavy use.  To the west, your eyes
 catch the splendors of a mighty city.
 ~
-120 32776 0 0 0 1
+120 65536 0 0 0 1
 D1
 ~
 ~
@@ -1755,7 +1770,7 @@ The Antokiba Donation Room~
 a couple of small wooden benches here where people occasionally sit while they
 wait for items to appear.  The temple is to the west.
 ~
-120 32796 0 0 0 0
+120 28 0 0 0 0
 D3
 ~
 ~
@@ -1767,37 +1782,29 @@ The End Of The Clay Road~
 here.  You feel a surge run through your body as you look East into the
 lands that Antokiba turned into its mighty empire.
 ~
-120 32776 0 0 0 1
-D1
-A dirt trail leads towards the desert to the east.
-~
-~
-0 -1 12068
+120 65536 0 0 0 1
 D3
 ~
 ~
 0 0 12065
-S
-#12068
-A Small Dirt Trail~
-   This small dirt path seems to be a joint between a large clay road
-located a short distance to the west and the expanse of sand which opens
-up before you to the east.  The clay road appears to lead through the
-foothills towards the snowcapped mountain chain to the west.  Perhaps
-there is a city or settlement in that direction.
-   You cannot see any breaks in the horizon of the sand which fills your
-vision as you look to the east, it seems to stretch forever.
-~
-120 32772 0 0 0 1
-D3
-A large clay road begins a short distance to the west.
-~
-~
-0 -1 12067
 D7
 ~
 ~
+0 0 12068
+S
+#12068
+A Small Dirt Trail~
+
+~
+120 65540 0 0 0 1
+D1
+~
+~
 0 0 40079
+D9
+~
+~
+0 0 12067
 S
 #12069
 The Reading Room~
@@ -1805,7 +1812,7 @@ The Reading Room~
 desks and benches.  To the north you hear the bustle of the Temple of Antokiba,
 a sharp contrast to the relative quiet of this peaceful room.
 ~
-120 32924 0 0 0 0
+120 156 0 0 0 0
 D0
 ~
 ~
@@ -1815,21 +1822,30 @@ S
 A Very Closed Trail~
 
 ~
-120 33536 0 0 0 2
-D7
+120 768 0 0 0 2
+D1
 ~
 ~
-0 0 12074
-D9
+0 0 12075
+D3
 ~
 ~
 0 0 12021
+D9
+~
+~
+0 0 -1
 S
 #12071
 The Entrance of Antokiba's Inn~
-
+   You are outside of one biggest Inn in
+city, alot of people comes in and out of
+the building and it is diffucult to say
+who is NPC and who is not.
+The Tavern inside inn is to east and the
+streets lies to west.
 ~
-120 32768 0 0 0 0
+120 0 0 0 0 0
 D1
 ~
 ~
@@ -1841,9 +1857,17 @@ D3
 S
 #12072
 The Antokiba's Tavern~
-
+   As much as you try to relax here, you can't
+ignore the presence of a Hunter to the yard at
+south and feel a pulsating nen energy coming
+from that direction.
+The bartender not looks like a regular NPC but
+is not human as well, just well programmed perhaps?
+Some people leaves a tip for the bartender and he
+whispers something back. The exits from here is
+the yard to south or the main street to west.
 ~
-120 32772 0 0 0 0
+120 28 0 0 0 0
 D2
 ~
 ~
@@ -1859,9 +1883,14 @@ D7
 S
 #12073
 Backyard Of The Tavern~
-
+   This place is so quiet it doesn't even look like
+a tavern, leather craft and grocery backyards.
+The evergreen grass is neatly cut and in middle
+of it is the nen master where you feel a pulsating
+huge nen, this guy must be strong and wise.
+The only polite exit is to the north.
 ~
-120 32796 0 0 0 0
+120 4 0 0 0 0
 D0
 ~
 ~
@@ -1871,38 +1900,42 @@ S
 A Very Closed Trail~
 
 ~
-120 33536 0 0 0 2
+120 768 0 0 0 2
+D3
+~
+~
+0 0 12075
 D7
 ~
 ~
-0 0 40076
-D9
+0 0 40075
+S
+#12075
+A Very Closed Trail~
+
+~
+120 768 0 0 0 2
+D1
+~
+~
+0 0 12074
+D3
 ~
 ~
 0 0 12070
 S
-#12075
-Hotel California~
-You are in an unfinished room.
+#12076
+Antokiba Money Changer~
+   After walk a little in a comercial narrow street,
+you see a shop with a counter in front that exchange
+money for cards with the same value, however they
+charge a fee for that, nothing new.
+   The only exit is go back to south.
 ~
-120 0 0 0 0 0
+120 24 0 0 0 0
 D2
 ~
 ~
 0 0 12039
-D4
-~
-~
-0 0 12076
-S
-#12076
-Room~
-
-~
-120 0 0 0 0 0
-D5
-~
-~
-0 0 12075
 S
 $~

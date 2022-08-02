@@ -26,7 +26,7 @@
 
 
 /* Special spells appear below. */
-ASPELL(spell_energy_drain)
+/*ASPELL(spell_energy_drain)
 {
   if (victim == NULL || ch == NULL)
     return;
@@ -39,24 +39,27 @@ ASPELL(spell_energy_drain)
   if (mag_savingthrow(victim, SAVING_SPELL, 0)) {
     return;
   }
-	
+//	
   if (GET_EXP(victim) <= 1000 + (GET_LEVEL(ch) * 1300)) {
-    send_to_char(ch, "You receive %d experience points.", (GET_EXP(victim) / 4));
+    send_to_char(ch, "\tDYour nen was increased by \tG%d\tD.\tn", (GET_EXP(victim) / 4));
 	GET_EXP(ch) += GET_EXP(victim) / 4;
 	  if (IS_NPC(victim))
 	    GET_EXP(victim) -= GET_EXP(victim) / 4;
       else
         GET_EXP(victim) = 1;
   } else {
-	send_to_char(ch, "You receive %d experience points.", ((1000 + (GET_LEVEL(ch) * 1300)) / 4));
+	send_to_char(ch, "\tDYour nen was increased by \tG%d\tD.\tn", ((1000 + (GET_LEVEL(ch) * 1300)) / 4));
       if (IS_NPC(victim))
 	    GET_EXP(victim) -= ((1000 + (GET_LEVEL(ch) * 1300)) / 4);
       else
 		GET_EXP(victim) -= 1000 + (GET_LEVEL(ch) * 1300);
     GET_EXP(ch) += ((1000 + (GET_LEVEL(ch) * 1300)) / 4);
   }
+//
+  GET_MANA(victim) = (GET_MANA(victim) - 5);
+  GET_HIT(ch) += (GET_HIT(victim) / 20);
 }
-
+*/
 ASPELL(spell_create_water)
 {
   int water;
@@ -66,7 +69,23 @@ ASPELL(spell_create_water)
   /* level = MAX(MIN(level, LVL_IMPL), 1);	 - not used */
 
   if (GET_OBJ_TYPE(obj) == ITEM_DRINKCON) {
-    if ((GET_OBJ_VAL(obj, 2) != LIQ_WATER) && (GET_OBJ_VAL(obj, 1) != 0)) {
+	if (GET_OBJ_VAL(obj, 0) > 0 && GET_OBJ_VAL(obj, 1) < GET_OBJ_VAL(obj, 0)) {
+	  water = MAX(GET_OBJ_VAL(obj, 0) - GET_OBJ_VAL(obj, 1), 0);
+	  GET_OBJ_VAL(obj, 1) += water;
+	  weight_change_object(obj, water);
+	  act("$p is filled.", FALSE, ch, obj, 0, TO_CHAR);	  
+	} else {
+      if (GET_OBJ_VAL(obj, 0) == -1 || GET_OBJ_VAL(obj, 0) == GET_OBJ_VAL(obj, 1))
+	    send_to_char(ch, "But %s is already full!", obj->short_description);
+	  else	
+	    send_to_char(ch, "You tried to fill %s but it can't sustain a single drop.", obj->short_description);
+	  return;
+	}
+  } else
+	send_to_char(ch, "Is it a mirage or do you think %s is a liquid container?", obj->short_description); 
+ 
+	 
+/*    if ((GET_OBJ_VAL(obj, 2) != LIQ_WATER) && (GET_OBJ_VAL(obj, 1) != 0)) {
       name_from_drinkcon(obj);
       GET_OBJ_VAL(obj, 2) = LIQ_SLIME;
       name_to_drinkcon(obj, LIQ_SLIME);
@@ -82,11 +101,13 @@ ASPELL(spell_create_water)
 	act("$p is filled.", FALSE, ch, obj, 0, TO_CHAR);
       }
     }
-  }
+*/
 }
 
 ASPELL(spell_recall)
 {
+  room_rnum to_room;	
+	
   if (victim == NULL || IS_NPC(victim))
     return;
 
@@ -94,10 +115,12 @@ ASPELL(spell_recall)
     send_to_char(ch, "A bright flash prevents your spell from working!");
     return;
   }
+  
+  to_room = real_room(40000);
 
   act("$n disappears.", TRUE, victim, 0, 0, TO_ROOM);
   char_from_room(victim);
-  char_to_room(victim, r_mortal_start_room);
+  char_to_room(victim, to_room);
   act("$n appears in the middle of the room.", TRUE, victim, 0, 0, TO_ROOM);
   look_at_room(victim, 0);
   entry_memory_mtrigger(victim);
@@ -107,17 +130,53 @@ ASPELL(spell_recall)
 
 ASPELL(spell_teleport)
 {
-  room_rnum to_room;
+	struct follow_type *k, *next;
+	bool found;
+    room_rnum to_room;    
 
-  if (victim == NULL || IS_NPC(victim))
-    return;
 
+  if (victim == NULL)
+	return;
+  
+  if (IS_NPC(victim) && !AFF_FLAGGED(victim, AFF_CHARM)) {
+    act("$n has an indifferent look.", FALSE, victim, 0, 0, TO_ROOM);
+	return;   
+  }  
+  
   if (ZONE_FLAGGED(GET_ROOM_ZONE(IN_ROOM(victim)), ZONE_NOASTRAL)) {
     send_to_char(ch, "A bright flash prevents your spell from working!");
     return;
-  }
+  }  
+  
+  if (!IS_NPC(victim))
+	found = TRUE;
+  
+  if (IS_NPC(victim) && AFF_FLAGGED(victim, AFF_CHARM) && victim->followers)
+	for (k = victim->followers; k; k = next) {
+	  next = k->next;
+	  if (k == ch)
+		found = TRUE;	
+	  }  
+	if (!found)
+	  return;
+//  to_room = GET_LOADROOM(ch);
+  if (victim == ch)
+    send_to_char(ch, "You close your eyes trying to sense the teleport aura marking...\r\n");
+  act("$n slowly fades out of existence and is gone.",
+      FALSE, victim, 0, 0, TO_ROOM);
+  char_from_room(victim);
+  if (GET_LOADROOM(ch) == NOWHERE) {
+	to_room = real_room(40000);
+	char_to_room(victim, to_room);
+  } else
+    char_to_room(victim, GET_LOADROOM(ch));
+  act("$n slowly fades into existence.", FALSE, victim, 0, 0, TO_ROOM);
+  look_at_room(victim, 0);
+  entry_memory_mtrigger(victim);
+  greet_mtrigger(victim, -1);
+  greet_memory_mtrigger(victim);
 
-  do {
+/*  do {
     to_room = rand_number(0, top_of_world);
   } while (ROOM_FLAGGED(to_room, ROOM_PRIVATE) || ROOM_FLAGGED(to_room, ROOM_DEATH) ||
            ROOM_FLAGGED(to_room, ROOM_GODROOM) || ZONE_FLAGGED(GET_ROOM_ZONE(to_room), ZONE_CLOSED) ||
@@ -132,6 +191,7 @@ ASPELL(spell_teleport)
   entry_memory_mtrigger(victim);
   greet_mtrigger(victim, -1);
   greet_memory_mtrigger(victim);
+*/
 }
 
 #define SUMMON_FAIL "You failed.\r\n"
@@ -172,8 +232,7 @@ ASPELL(spell_summon)
   }
   } */
 
-  if (!PRF_FLAGGED(victim, PRF_SUMMONABLE) && (!IS_NPC(victim) &&
-      (!PLR_FLAGGED(victim, PLR_KILLER) && mag_savingthrow(victim, SAVING_SPELL, 0)))) {
+  if (!IS_NPC(victim) && !PRF_FLAGGED(victim, PRF_SUMMONABLE) && ((!PLR_FLAGGED(victim, PLR_KILLER) && mag_savingthrow(victim, SAVING_SPELL, 0)))) {
 	send_to_char(ch, "%s", SUMMON_FAIL);
     return;	 
   }		 
@@ -244,25 +303,78 @@ int isname_obj(char *search, char *list)
     return 0;
 }
 
+ASPELL(spell_locate_card)
+{
+  struct obj_data *i;
+  char name[MAX_INPUT_LENGTH];
+  int j;  
+  
+  /*  added a global var to catch 2nd arg. */  
+  sprintf(name, "%s", cast_arg2); 
+
+  if (!obj) {
+    send_to_char(ch, "No card with this name in database.\r\n");
+    return;
+  } 
+
+  j = 31;
+  
+  for (i = object_list; i && (j > 0); i = i->next) {		
+    if (!isname_obj(name, i->name))
+      continue;
+	else if (!IS_CARD(i))
+	  continue; 
+    else if (i->carried_by && GET_MOB_SPEC(i->carried_by))
+	  continue;
+    else if (IN_ROOM(i) != NOWHERE && (ROOM_FLAGGED(IN_ROOM(i), ROOM_GODROOM) || ROOM_FLAGGED(IN_ROOM(i), ROOM_PRIVATE)))
+	  continue;
+
+    send_to_char(ch, "%c%s", UPPER(*i->short_description), i->short_description + 1);
+
+    if (i->carried_by)	  
+      send_to_char(ch, " is being carried by %s.\r\n", PERS(i->carried_by, ch));
+    else if (IN_ROOM(i) != NOWHERE)
+      send_to_char(ch, " is in %s.\r\n", world[IN_ROOM(i)].name);    
+	else if (i->in_obj) {
+	  if (i->in_obj->carried_by)
+		send_to_char(ch, " is in %s being carried by %s.\r\n", i->in_obj->short_description, PERS(i->in_obj->carried_by, ch));  
+	  else if (i->in_obj->worn_by)
+	    send_to_char(ch, " is in %s being worn by %s.\r\n", i->in_obj->short_description, PERS(i->in_obj->carried_by, ch));
+	  else if (IN_ROOM(i->in_obj) != NOWHERE)
+		send_to_char(ch, " is inside %s in %s.\r\n", i->in_obj->short_description, world[IN_ROOM(i->in_obj)].name);
+	  else
+        send_to_char(ch, " is in %s.\r\n", i->in_obj->short_description);
+    } else if (i->worn_by)
+      send_to_char(ch, " is being worn by %s.\r\n", PERS(i->worn_by, ch));
+    else
+      send_to_char(ch, "'s location is uncertain.\r\n");
+
+    j--;
+  }  
+}
+
 ASPELL(spell_locate_object)
 {
   struct obj_data *i;
   char name[MAX_INPUT_LENGTH];
-  int j;
+  int j; 
 
   if (!obj) {
     send_to_char(ch, "You sense nothing.\r\n");
     return;
   }
 
-  /*  added a global var to catch 2nd arg. */
-  sprintf(name, "%s", cast_arg2);
+  sprintf(name, "%s", cast_arg2);   
 
-  j = GET_LEVEL(ch) / 2;  /* # items to show = twice char's level */
+  /*  added a global var to catch 2nd arg. */  
+
+  j = GET_LEVEL(ch) / 3;  /* # items to show = twice char's level */
 
   for (i = object_list; i && (j > 0); i = i->next) {
-    if (!isname_obj(name, i->name))
-      continue;
+	if (!isname_obj(name, i->name))
+      continue;	
+    else if (IS_CARD(i))
+	  continue;
 
   send_to_char(ch, "%c%s", UPPER(*i->short_description), i->short_description + 1);
 
@@ -270,9 +382,16 @@ ASPELL(spell_locate_object)
       send_to_char(ch, " is being carried by %s.\r\n", PERS(i->carried_by, ch));
     else if (IN_ROOM(i) != NOWHERE)
       send_to_char(ch, " is in %s.\r\n", world[IN_ROOM(i)].name);
-    else if (i->in_obj)
-      send_to_char(ch, " is in %s.\r\n", i->in_obj->short_description);
-    else if (i->worn_by)
+    else if (i->in_obj) {
+	  if (i->in_obj->carried_by)
+		send_to_char(ch, " is in %s being carried by %s.\r\n", i->in_obj->short_description, PERS(i->in_obj->carried_by, ch));  
+	  else if (i->in_obj->worn_by)
+	    send_to_char(ch, " is in %s being worn by %s.\r\n", i->in_obj->short_description, PERS(i->in_obj->carried_by, ch));
+	  else if (IN_ROOM(i->in_obj) != NOWHERE)
+		send_to_char(ch, " is inside %s in %s.\r\n", i->in_obj->short_description, world[IN_ROOM(i->in_obj)].name);
+	  else
+        send_to_char(ch, " is in %s.\r\n", i->in_obj->short_description);
+    } else if (i->worn_by)
       send_to_char(ch, " is being worn by %s.\r\n", PERS(i->worn_by, ch));
     else
       send_to_char(ch, "'s location is uncertain.\r\n");
@@ -396,17 +515,17 @@ ASPELL(spell_identify)
     for (i = 0; i < MAX_OBJ_AFFECT; i++) {
       if ((obj->affected[i].location != APPLY_NONE) &&
 	  (obj->affected[i].modifier != 0)) {
-	if (!found) {
-	  send_to_char(ch, "Can affect you as :\r\n");
-	  found = TRUE;
-	}
-	if (obj->affected[i].location == APPLY_AC){
-	  sprinttype(obj->affected[i].location, apply_types, bitbuf, sizeof(bitbuf));
-	  send_to_char(ch, "   Affects: %s By %d\r\n", bitbuf, (obj->affected[i].modifier * -1));
-	} else {
-	  sprinttype(obj->affected[i].location, apply_types, bitbuf, sizeof(bitbuf));
-	  send_to_char(ch, "   Affects: %s By %d\r\n", bitbuf, obj->affected[i].modifier);
-	}		
+	    if (!found) {
+	      send_to_char(ch, "Can affect you as :\r\n");
+	      found = TRUE;
+	    }
+	    if (obj->affected[i].location == APPLY_AC || obj->affected[i].location == APPLY_SAVING_SPELL) {
+	      sprinttype(obj->affected[i].location, apply_types, bitbuf, sizeof(bitbuf));
+	      send_to_char(ch, "   Affects: %s By %d\r\n", bitbuf, (obj->affected[i].modifier * -1));		
+		} else {
+	      sprinttype(obj->affected[i].location, apply_types, bitbuf, sizeof(bitbuf));
+	      send_to_char(ch, "   Affects: %s By %d\r\n", bitbuf, obj->affected[i].modifier);
+	    }		
       }
     }
   } else if (victim) {		/* victim */
@@ -416,9 +535,9 @@ ASPELL(spell_identify)
 	      GET_NAME(victim), age(victim)->year, age(victim)->month,
 	      age(victim)->day, age(victim)->hours);
     send_to_char(ch, "Height %d cm, Weight %d pounds\r\n", GET_HEIGHT(victim), GET_WEIGHT(victim));
-    send_to_char(ch, "Level: %d, Hits: %d/%d, Nen: %d/%d, Move: %d/%d\r\n", GET_LEVEL(victim), GET_HIT(victim), GET_MAX_HIT(victim),
+    send_to_char(ch, "Level: %d, Hits: %d/%d, Nen: %d/%d, Move: %d/%d\r\n", GET_LEVEL(victim), GET_HIT(victim), GET_TOTAL_HIT(victim),
 	    GET_MANA(victim), GET_MAX_MANA(victim), GET_MOVE(victim), GET_MAX_MOVE(victim));
-    send_to_char(ch, "AR: %d, Hitroll: %d, Damroll: %d, Hatsu Affection: %d\r\n",
+    send_to_char(ch, "AR: %d, Hitroll: %d, Damroll: %d, Skill Affection: %d\r\n",
     	((compute_armor_class(victim) - 100) * -1), GET_HITROLL(victim), GET_DAMROLL(victim), GET_SAVE(victim, SAVING_SPELL));
     send_to_char(ch, "Str: %d/%d, Int: %d, Wis: %d, Dex: %d, Con: %d, Cha: %d\r\n",
 	GET_STR(victim), GET_ADD(victim), GET_INT(victim),
@@ -437,7 +556,7 @@ ASPELL(spell_enchant_weapon)
 
   /* Either already enchanted. */
   if (OBJ_FLAGGED(obj, ITEM_MAGIC)){
-    send_to_char(ch, "This item rejects receive another enfold.\r\n");    
+    send_to_char(ch, "%c%s already enfold and nothing happens.\r\n", UPPER(*obj->short_description), obj->short_description + 1);    
   }
   else {
 
@@ -501,7 +620,41 @@ ASPELL(spell_enchant_weapon)
 
 }
 
-ASPELL(spell_detect_poison)
+ASPELL(spell_repair)
+{
+  if (ch == NULL || obj == NULL)
+    return;
+
+  switch(GET_OBJ_TYPE(obj)){
+	case ITEM_LIGHT:
+	  if (GET_OBJ_VAL(obj, 2) == 0) {
+		GET_OBJ_VAL(obj, 2) = (GET_LEVEL(ch) * 2);
+        act("$p lights again!", FALSE, ch, obj, 0, TO_CHAR);
+	  } else
+		act("$p needs no repairs.", FALSE, ch, obj, 0, TO_CHAR);
+      break;
+    case ITEM_STAFF:
+	  GET_HIT(ch) -= ((GET_TOTAL_HIT(ch) * GET_OBJ_VAL(obj, 1)) / 20);
+	case ITEM_WAND:
+	  GET_HIT(ch) -= ((GET_TOTAL_HIT(ch) * GET_OBJ_VAL(obj, 1)) / 20);
+	  if (GET_OBJ_VAL(obj, 2) == 0) {
+		GET_OBJ_VAL(obj, 2) = GET_OBJ_VAL(obj, 1);
+        act("$p was recharged!", FALSE, ch, obj, 0, TO_CHAR);
+	  } else
+		act("$p needs no repairs.", FALSE, ch, obj, 0, TO_CHAR);
+      break;
+	default:
+	  if (GET_OBJ_DURABILITY(obj) == 100 || GET_OBJ_DURABILITY(obj) <= 0)
+	    act("$p needs no repairs.", FALSE, ch, obj, 0, TO_CHAR);
+      else { 
+        GET_OBJ_DURABILITY(obj) = 100;
+        act("$p was fully repaired!", FALSE, ch, obj, 0, TO_CHAR);	  
+	  }
+	  break;
+  }    
+}
+
+/*ASPELL(spell_detect_poison)
 {
   if (victim) {
     if (victim == ch) {
@@ -532,4 +685,4 @@ ASPELL(spell_detect_poison)
       send_to_char(ch, "You sense that it should not be consumed.\r\n");
     }
   }
-}
+} */

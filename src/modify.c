@@ -26,12 +26,14 @@
 #include "modify.h"
 #include "quest.h"
 #include "ibt.h"
+#include "act.h"
 
 /* local (file scope) function prototpyes  */
 static char *next_page(char *str, struct char_data *ch);
 static int count_pages(char *str, struct char_data *ch);
 static void playing_string_cleanup(struct descriptor_data *d, int action);
 static void exdesc_string_cleanup(struct descriptor_data *d, int action);
+static bool panic;
 
 /* Local (file scope) global variables */
 /* @deprecated string_fields appears to be no longer be used.
@@ -376,10 +378,10 @@ ACMD(do_skillset)
     send_to_char(ch, "You can't set NPC skills.\r\n");
     return;
   }
-  if ((spell_info[skill].min_level[(pc)] >= LVL_IMMORT) && (pl < LVL_IMMORT)) {
+/*  if ((spell_info[skill].min_level[(pc)] >= LVL_IMMORT) && (pl < LVL_IMMORT)) {
     send_to_char(ch, "%s cannot be learned by mortals.\r\n", spell_info[skill].name);
-    return;
-  } else if (spell_info[skill].min_level[(pc)] > pl) {
+    return;*/   
+  if (spell_info[skill].min_level[(pc)] > pl) {
     send_to_char(ch, "%s is a level %d %s.\r\n", GET_NAME(vict), pl, pc_class_types[pc]);
     send_to_char(ch, "The minimum level for %s is %d for %ss.\r\n", spell_info[skill].name, spell_info[skill].min_level[(pc)], pc_class_types[pc]);
   }
@@ -466,13 +468,15 @@ void paginate_string(char *str, struct descriptor_data *d)
 /* The call that gets the paging ball rolling... */
 void page_string(struct descriptor_data *d, char *str, int keep_internal)
 {
-  char actbuf[MAX_INPUT_LENGTH] = "";
+  char actbuf[MAX_INPUT_LENGTH] = "";  
 
   if (!d)
     return;
 
   if (!str || !*str)
     return;
+
+  panic = FALSE;
 
   if (GET_PAGE_LENGTH(d->character) < 5)
     GET_PAGE_LENGTH(d->character) = PAGE_LENGTH;
@@ -497,7 +501,7 @@ void show_string(struct descriptor_data *d, char *input)
   any_one_arg(input, buf);
 
   /* Q is for quit. :) */
-  if (LOWER(*buf) == 'q') {
+  if (LOWER(*buf) == 'q' || LOWER(*buf) == 'l') {
     free(d->showstr_vector);
     d->showstr_vector = NULL;
     d->showstr_count = 0;
@@ -505,6 +509,8 @@ void show_string(struct descriptor_data *d, char *input)
       free(d->showstr_head);
       d->showstr_head = NULL;
     }
+	if (LOWER(*buf) == 'l')
+	  do_look(d->character, "", 0, 0);
     return;
   }
   /* Back up one page internally so we can display it again. */
@@ -520,7 +526,20 @@ void show_string(struct descriptor_data *d, char *input)
     d->showstr_page = MAX(0, MIN(atoi(buf) - 1, d->showstr_count - 1));
 
   else if (*buf) {
-    send_to_char(d->character, "\r\nPRESS ENTER to continue or \tRQ\tn.\r\n");
+	if (panic == TRUE) {
+	  send_to_char(d->character, "\r\nThe player enters in panic, leaving page mode.\r\n\r\n");
+	  free(d->showstr_vector);
+      d->showstr_vector = NULL;
+      d->showstr_count = 0;
+      if (d->showstr_head) {
+        free(d->showstr_head);
+        d->showstr_head = NULL;
+      }	
+	  do_look(d->character, "", 0, 0);
+      return;
+	}
+	panic = TRUE;
+    send_to_char(d->character, "\r\nDON'T PANIC... PRESS ENTER to continue or \tRQ\tn to return.\r\n");
     return;
   }
   /* If we're displaying the last page, just send it to the character, and
@@ -557,4 +576,5 @@ void show_string(struct descriptor_data *d, char *input)
     send_to_char(d->character, "%s", buffer);
     d->showstr_page++;
   }
+  panic = FALSE;
 }

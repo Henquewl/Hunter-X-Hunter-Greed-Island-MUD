@@ -24,7 +24,7 @@
  * @todo cpp_extern isn't needed here (or anywhere) as the extern reserved word
  * works correctly with C compilers (at least in my Experience)
  * Jeremy Osborne 1/28/2008 */
-cpp_extern const char *tbamud_version = "Greed Island 0.71";
+cpp_extern const char *tbamud_version = "Greed Island 0.89";
 
 /* strings corresponding to ordinals/bitvectors in structs.h */
 /* (Note: strings for class definitions in class.c instead of here) */
@@ -83,6 +83,7 @@ const char *room_bits[] = {
   "OLC",
   "*",				/* The BFS Mark. */
   "WORLDMAP",
+  "CRATER",
   "\n"
 };
 
@@ -97,6 +98,7 @@ const char *zone_bits[] = {
   "NOBUILD",
   "!ASTRAL",
   "WORLDMAP",
+  "CITY",
   "\n"
 };
 
@@ -125,6 +127,9 @@ const char *sector_types[] = {
   "Water (No Swim)",
   "In Flight",
   "Underwater",
+  "Crater",
+  "Tree",
+  "Trunk",
   "\n"
 };
 
@@ -133,9 +138,9 @@ const char *sector_types[] = {
  * Must end array with a single newline. */
 const char *genders[] =
 {
-  "neutral",
-  "male",
-  "female",
+  "Neutral",
+  "Male",
+  "Female",
   "\n"
 };
 
@@ -281,8 +286,14 @@ const char *affected_bits[] =
   "SCUBA",
   "SNEAK",
   "HIDE",
-  "UNUSED",
+  "HEALED",
   "CHARM",
+  "DET-POISON",
+  "GUMMED",
+  "LUCKY",
+  "NO_PK",
+  "ENHANCE",
+  "BOOST",
   "\n"
 };
 
@@ -381,19 +392,19 @@ const char *equipment_types[] = {
 const char *item_types[] = {
   "UNDEFINED",
   "LIGHT",
-  "SPELLCARD",
+  "SCROLL",
   "WAND",
   "STAFF",
   "WEAPON",
   "FURNITURE",
   "FREE",
-  "RESTRICTED",
+  "TREASURE",
   "ARMOR",
   "POTION",
   "WORN",
-  "UNRESTRICTED",
+  "OTHER",
   "TRASH",
-  "FREE2",
+  "BOOSTER PACK",
   "CONTAINER",
   "NOTE",
   "LIQ CONTAINER",
@@ -403,6 +414,9 @@ const char *item_types[] = {
   "PEN",
   "BOAT",
   "FOUNTAIN",
+  "CARD",
+  "SPELLCARD",
+  "RESTRICTED",
   "\n"
 };
 
@@ -452,6 +466,7 @@ const char *extra_bits[] = {
   "QUEST_ITEM",
   "ENFOLDED",
   "NO_GAIN",
+  "CONCEALED",
   "\n"
 };
 
@@ -471,19 +486,19 @@ const char *apply_types[] = {
   "AGE",
   "CHAR_WEIGHT",
   "CHAR_HEIGHT",
-  "MAXMANA",
-  "MAXHIT",
-  "MAXMOVE",
+  "STAMINA",
+  "NEN",
+  "NEN_GAIN",
   "GOLD",
   "EXP",
   "ARMOR",
   "HITROLL",
   "DAMROLL",
-  "SAVING_PARA",
-  "SAVING_ROD",
-  "SAVING_PETRI",
-  "SAVING_BREATH",
-  "SAVING_SPELL",
+  "SKIN_COLOR",
+  "EYE_COLOR",
+  "HAIR_STYLE",
+  "HAIR_COLOR",
+  "SKILL_DEFLECT",
   "\n"
 };
 
@@ -573,22 +588,22 @@ int drink_aff[][3] = {
  * Must end array with a single newline. */
 const char *color_liquid[] =
 {
-  "clear",
-  "brown",
-  "clear",
-  "brown",
-  "dark",
-  "golden",
-  "red",
-  "green",
-  "clear",
-  "light green",
-  "white",
-  "brown",
-  "black",
-  "red",
-  "clear",
-  "crystal clear",
+  "clear\tn",
+  "\tybrown\tn",
+  "\twclear\tn",
+  "\tybrown\tn",
+  "\tDdark\tn",
+  "\tYgolden\tn",
+  "\tRred\tn",
+  "\tggreen\tn",
+  "\twclear\tn",
+  "\tGlight green\tn",
+  "\tWwhite\tn",
+  "\tybrown\tn",
+  "\tDblack\tn",
+  "\tRred\tn",
+  "\tDclear\tn",
+  "\tWcrystal clear\tn",
   "\n"
 };
 
@@ -617,26 +632,26 @@ cpp_extern const struct str_app_type str_app[] = {
   {0, 0, 100, 8},
   {0, 0, 100, 9},
   {0, 0, 115, 10},	/* str = 10 */
-  {0, 0, 115, 11},
-  {0, 0, 140, 12},
-  {0, 0, 140, 13},
-  {0, 0, 170, 14},
-  {0, 0, 170, 15},	/* str = 15 */
-  {0, 1, 195, 16},
-  {1, 1, 220, 18},
-  {1, 2, 255, 20},	/* str = 18 */
-  {3, 7, 640, 40},
-  {3, 8, 700, 40},	/* str = 20 */
-  {4, 9, 810, 40},
-  {4, 10, 970, 40},
-  {5, 11, 1130, 40},
-  {6, 12, 1440, 40},
-  {7, 14, 1750, 40},	/* str = 25 */
-  {1, 3, 280, 22},	/* str = 18/0 - 18-50 */
-  {2, 3, 305, 24},	/* str = 18/51 - 18-75 */
-  {2, 4, 330, 26},	/* str = 18/76 - 18-90 */
-  {2, 5, 380, 28},	/* str = 18/91 - 18-99 */
-  {3, 6, 480, 30}	/* str = 18/100 */
+  {0, 1, 115, 11},
+  {0, 2, 140, 12},
+  {1, 3, 140, 13},
+  {1, 4, 170, 14},
+  {2, 5, 170, 15},	/* str = 15 */
+  {2, 6, 195, 16},
+  {3, 7, 220, 18},
+  {3, 8, 255, 20},	/* str = 18 */
+  {4, 9, 640, 22},
+  {4, 10, 700, 24},	/* str = 20 */
+  {5, 11, 810, 28},
+  {5, 12, 970, 32},
+  {6, 13, 1130, 36},
+  {6, 14, 1440, 40},
+  {7, 15, 1750, 50}	/* str = 25 */
+//  {1, 3, 280, 22},	/* str = 18/0 - 18-50 */
+//  {2, 3, 305, 24},	/* str = 18/51 - 18-75 */
+//  {2, 4, 330, 26},	/* str = 18/76 - 18-90 */
+//  {2, 5, 380, 28},	/* str = 18/91 - 18-99 */
+//  {3, 6, 480, 30}	/* str = 18/100 */
 };
 
 /** Dexterity skill modifiers for thieves.
@@ -651,22 +666,22 @@ cpp_extern const struct dex_skill_type dex_app_skill[] = {
   {-40, -40, -20, -40, -25},
   {-30, -30, -15, -30, -20},
   {-20, -20, -15, -20, -15},
-  {-15, -10, -10, -20, -10},
-  {-10, -5, -10, -15, -5},	/* dex = 10 */
-  {-5, 0, -5, -10, 0},
-  {0, 0, 0, -5, 0},
+  {-15, -10, -10, -15, -10},
+  {-10, -5, -10, -10, -5},	/* dex = 10 */
+  {-5, 0, -5, -5, 0},
   {0, 0, 0, 0, 0},
-  {0, 0, 0, 0, 0},
-  {0, 0, 0, 0, 0},		/* dex = 15 */
-  {0, 5, 0, 0, 0},
+  {0, 0, 0, 1, 1},
+  {0, 0, 0, 2, 2},
+  {0, 0, 0, 3, 3},		/* dex = 15 */
+  {0, 5, 0, 4, 4},
   {5, 10, 0, 5, 5},
-  {10, 15, 5, 10, 10},		/* dex = 18 */
-  {15, 20, 10, 15, 15},
+  {10, 15, 5, 7, 8},		/* dex = 18 */
+  {15, 20, 10, 10, 10},
   {15, 20, 10, 15, 15},		/* dex = 20 */
-  {20, 25, 10, 15, 20},
-  {20, 25, 15, 20, 20},
-  {25, 25, 15, 20, 20},
-  {25, 30, 15, 25, 25},
+  {20, 25, 10, 15, 21},
+  {20, 25, 15, 21, 22},
+  {25, 25, 15, 22, 23},
+  {25, 30, 15, 23, 24},
   {25, 30, 15, 25, 25}		/* dex = 25 */
 };
 
@@ -686,50 +701,50 @@ cpp_extern const struct dex_app_type dex_app[] = {
   {0, 0, 0},		/* dex = 10 */
   {0, 0, 0},
   {0, 0, 0},
-  {0, 0, 0},
-  {0, 0, 0},
-  {0, 0, -1},		/* dex = 15 */
-  {1, 1, -2},
-  {2, 2, -3},
-  {2, 2, -4},		/* dex = 18 */
-  {3, 3, -4},
-  {3, 3, -4},		/* dex = 20 */
-  {4, 4, -5},
-  {4, 4, -5},
-  {4, 4, -5},
+  {1, 1, 0},
+  {1, 1, 0},
+  {2, 2, 0},		/* dex = 15 */
+  {2, 2, -1},
+  {3, 3, -2},
+  {3, 3, -3},		/* dex = 18 */
+  {4, 4, -4},
+  {4, 4, -5},		/* dex = 20 */
   {5, 5, -6},
-  {5, 5, -6}		/* dex = 25 */
+  {5, 5, -7},
+  {6, 6, -8},
+  {6, 6, -9},
+  {7, 7, -10}		/* dex = 25 */
 };
 
 /** Constitution attribute affects.
  * The field referenced is for hitpoint bonus. */
 cpp_extern const struct con_app_type con_app[] = {
-  {-4},		/* con = 0 */
-  {-3},		/* con = 1 */
-  {-2},
-  {-2},
-  {-1},
-  {-1},		/* con = 5 */
-  {-1},
-  {0},
-  {0},
-  {0},
-  {0},		/* con = 10 */
-  {0},
-  {0},
-  {0},
-  {0},
-  {1},		/* con = 15 */
-  {2},
-  {2},
-  {3},		/* con = 18 */
-  {3},
-  {4},		/* con = 20 */
-  {5},
-  {5},
-  {5},
-  {6},
-  {6}		/* con = 25 */
+  { 50},		/* con = 0 */
+  { 55},		/* con = 1 */
+  { 60},
+  { 65},
+  { 70},
+  { 75},		/* con = 5 */
+  { 80},
+  { 85},
+  { 90},
+  { 95},
+  {100},		/* con = 10 */
+  {105},
+  {110},
+  {115},
+  {120},
+  {125},		/* con = 15 */
+  {130},
+  {135},
+  {140},		/* con = 18 */
+  {145},
+  {150},		/* con = 20 */
+  {160},
+  {170},
+  {180},
+  {190},
+  {200}		/* con = 25 */
 };
 
 /** Intelligence attribute affects.
@@ -747,20 +762,20 @@ cpp_extern const struct int_app_type int_app[] = {
   {0},
   {0},		/* int = 10 */
   {0},
+  {0},
+  {1},
+  {1},
+  {2},		/* int = 15 */
   {2},
   {3},
+  {3},		/* int = 18 */
   {4},
-  {5},		/* int = 15 */
+  {4},		/* int = 20 */
+  {5},
+  {5},
   {6},
-  {7},
-  {8},		/* int = 18 */
-  {9},
-  {10},		/* int = 20 */
-  {11},
-  {12},
-  {13},
-  {14},
-  {15}		/* int = 25 */
+  {6},
+  {7}		/* int = 25 */
 };
 
 /** Wisdom attribute affects.
@@ -778,19 +793,19 @@ cpp_extern const struct wis_app_type wis_app[] = {
   {0},
   {0},  /* wis = 10 */
   {0},
-  {2},
+  {0},
+  {1},
+  {1},
+  {2},  /* wis = 15 */
   {2},
   {3},
-  {3},  /* wis = 15 */
-  {3},
+  {3},	/* wis = 18 */
   {4},
-  {5},	/* wis = 18 */
+  {4},  /* wis = 20 */
+  {5},
+  {5},
   {6},
-  {6},  /* wis = 20 */
   {6},
-  {6},
-  {7},
-  {7},
   {7}  /* wis = 25 */
 };
 
@@ -812,16 +827,19 @@ int rev_dir[] =
 /** How much movement is lost moving through a particular sector type. */
 int movement_loss[] =
 {
-  1,	/* Inside     */
-  1,	/* City       */
-  2,	/* Field      */
-  3,	/* Forest     */
-  4,	/* Hills      */
-  6,	/* Mountains  */
-  4,	/* Swimming   */
-  1,	/* Unswimable */
+  0,	/* Inside     */
+  0,	/* City       */
+  1,	/* Field      */
+  1,	/* Forest     */
+  2,	/* Hills      */
+  3,	/* Mountains  */
+  3,	/* Swimming   */
+  2,	/* Unswimable */
   1,	/* Flying     */
-  5   /* Underwater */
+  4,    /* Underwater */
+  2,    /* Crater */
+  0,    /* Tree */
+  0     /* Trunk */
 };
 
 /** The names of the days of the mud week. Not used in sprinttype(). */

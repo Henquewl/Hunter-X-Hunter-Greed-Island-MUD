@@ -502,8 +502,8 @@ struct time_info_data *age(struct char_data *ch)
 {
   static struct time_info_data player_age;
 
-  player_age = *mud_time_passed(time(0), ch->player.time.birth);
-
+  player_age = *mud_time_passed(time(0), ch->player.time.birth);  
+  
   player_age.year += 17;	/* All players start at 17 */
 
   return (&player_age);
@@ -547,7 +547,7 @@ void stop_follower(struct char_data *ch)
     return;
   }
 
-  if (AFF_FLAGGED(ch, AFF_CHARM)) {
+  if ((AFF_FLAGGED(ch, AFF_CHARM) && !IS_NPC(ch)) || (AFF_FLAGGED(ch, AFF_CHARM) && IS_NPC(ch) && GET_MOB_VNUM(ch) > 100)) {
     act("You realize that $N is a jerk!", FALSE, ch, 0, ch->master, TO_CHAR);
     act("$n realizes that $N is a jerk!", FALSE, ch, 0, ch->master, TO_NOTVICT);
     act("$n hates your guts!", FALSE, ch, 0, ch->master, TO_VICT);

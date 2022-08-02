@@ -116,6 +116,8 @@ int objsave_save_obj_record(struct obj_data *obj, FILE *fp, int locate)
     fprintf(fp, "Cost: %d\n", GET_OBJ_COST(obj));
   if (TEST_OBJN(cost_per_day))
     fprintf(fp, "Rent: %d\n", GET_OBJ_RENT(obj));
+  if (TEST_OBJN(durability))
+	fprintf(fp, "Dura: %d\n", GET_OBJ_DURABILITY(obj));
   if (TEST_OBJN(bitvector))
     fprintf(fp, "Perm: %d %d %d %d\n", GET_OBJ_AFFECT(obj)[0], GET_OBJ_AFFECT(obj)[1], GET_OBJ_AFFECT(obj)[2], GET_OBJ_AFFECT(obj)[3]);
   if (TEST_OBJN(wear_flags))
@@ -230,7 +232,7 @@ static void auto_equip(struct char_data *ch, struct obj_data *obj, int location)
         location = LOC_INVENTORY;
       break;
     case WEAR_HOLD:
-      if (CAN_WEAR(obj, ITEM_WEAR_HOLD))
+      if (CAN_WEAR(obj, ITEM_WEAR_HOLD))		
         break;
       if (IS_WARRIOR(ch) && CAN_WEAR(obj, ITEM_WEAR_WIELD) && GET_OBJ_TYPE(obj) == ITEM_WEAPON)
         break;
@@ -244,11 +246,11 @@ static void auto_equip(struct char_data *ch, struct obj_data *obj, int location)
       if (!GET_EQ(ch,j)) {
         /* Check the characters's alignment to prevent them from being zapped
 	 * through the auto-equipping. */
-        if (invalid_align(ch, obj) || invalid_class(ch, obj))
+        if (invalid_align(ch, obj))
           location = LOC_INVENTORY;
         else
           equip_char(ch, obj, j);
-      } else {  /* Oops, saved a player with double equipment? */
+      } else {  /* Oops, saved a player with int equipment? */
         mudlog(BRF, LVL_IMMORT, TRUE,
                "SYSERR: autoeq: '%s' already equipped in position %d.", GET_NAME(ch), location);
         location = LOC_INVENTORY;
@@ -777,7 +779,8 @@ static void Crash_rent_deadline(struct char_data *ch, struct char_data *recep,
   if (!cost)
     return;
 
-  rent_deadline = (((GET_GOLD(ch) + GET_BANK_GOLD(ch)) / cost) + (GET_LEVEL(ch) * 3));
+//  rent_deadline = (((GET_GOLD(ch) + GET_BANK_GOLD(ch)) / cost) + (GET_LEVEL(ch) * 3));
+    rent_deadline = 10;
   snprintf(buf, sizeof(buf), "$n tells you, 'You can stay out of the island for %ld day%s without losing your\r\n"
          "belongings.'\r\n", rent_deadline, rent_deadline != 1 ? "s" : "");
 act(buf, FALSE, recep, 0, ch, TO_VICT);
@@ -790,9 +793,9 @@ static int Crash_report_unrentables(struct char_data *ch, struct char_data *rece
   int has_norents = 0;
 
   if (obj) {
-    if (Crash_is_unrentable(obj) || (!SCRIPT(obj) && GET_OBJ_TYPE(obj) == ITEM_TREASURE)) {
+    if (Crash_is_unrentable(obj) && GET_OBJ_TYPE(obj) == ITEM_RESTRICTED) {
       has_norents = 1;
-	  if (GET_OBJ_TYPE(obj) == ITEM_TREASURE)
+	  if (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED)
 		sprintf(buf, "$n tells you, 'You cannot leave with %s fake, please get rid of it first.'", OBJS(obj, ch));
 	  else
         sprintf(buf, "$n tells you, 'You cannot leave with %s, please get rid of it first.'", OBJS(obj, ch));
@@ -838,8 +841,9 @@ static int Crash_offer_rent(struct char_data *ch, struct char_data *recep,
   if (norent)
     return FALSE;
 
-  totalcost = CONFIG_MIN_RENT_COST * factor;
-
+//  totalcost = CONFIG_MIN_RENT_COST * factor;
+	totalcost = 10 * factor;
+	
   Crash_report_rent(ch, recep, ch->carrying, &totalcost, &numitems, display, factor);
 
   for (i = 0; i < NUM_WEARS; i++)
@@ -1097,6 +1101,8 @@ obj_save_data *objsave_parse_objects(FILE *fl)
     case 'D':
       if (!strcmp(tag, "Desc"))
         temp->description = strdup(line);
+	  else if (!strcmp(tag, "Dura"))
+		GET_OBJ_DURABILITY(temp) = num;
       break;
     case 'E':
       if(!strcmp(tag, "EDes")) {

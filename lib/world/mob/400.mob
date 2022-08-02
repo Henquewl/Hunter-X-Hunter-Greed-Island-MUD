@@ -1,0 +1,46 @@
+#40000
+armor empty living suit~
+a living armor~
+A living armor is here, marching slowly towards you!
+~
+This mysterious armor moves without a body, very strange!
+~
+42 0 0 0 2064 0 0 0 0 E
+1 20 8 0d0+0 0d0+0
+0 400
+8 8 0
+BareHandAttack: 3
+SavingPara: 16
+SavingRod: 16
+E
+T 40001
+#40001
+rat remote control~
+a remote control rat~
+A remote control rat is here, controlling the suit of armor.
+~
+   These hard to catch creatures use aura to control a suit of armor.  As a
+defensive measure, it uses this armor to mislead a target into thinking the
+armor is the enemy whilst the true creature can escape.
+~
+152 0 0 0 20 0 0 0 0 E
+0 20 10 0d0+5 0d0+0
+125 400
+8 8 0
+BareHandAttack: 4
+E
+T 40002
+#40002
+villagers elder ninja kid~
+a bunch of healthy villagers~
+A bunch of healthy villagers is here, celebrating life.
+~
+All the villagers are healthy again! The ninjas, the elder and even the dying kid.
+~
+417818 0 0 0 329936 0 0 0 0 E
+0 20 10 1d1+0 1d1+0
+0 0
+8 8 0
+E
+T 40003
+$

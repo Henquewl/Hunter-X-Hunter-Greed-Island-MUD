@@ -1,3 +1,5 @@
 bin/*
 src/*.o
 src/util/*.o
+lib/plrfiles/*
+lib/plrobjs/*

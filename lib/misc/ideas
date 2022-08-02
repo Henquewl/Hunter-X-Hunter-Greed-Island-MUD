@@ -212,3 +212,94 @@ Level     34
 Room      40000
 Flags     1 0 0 0
 End
+Text      todo list~
+Body      - all kind of hit remove stamina
+- enhancer with skill to null stamina from received attacks and dealt
+- hunter parry skill
+- items with durability
+~
+Name      Kobayashi~
+IdNum     7
+Dated     1493580799
+Level     1
+Room      18609
+Flags     0 0 0 0
+End
+Text      Make paladin necklace remove curse from items.~
+Body      I currently have a cursed green ring and cursed bag. I tried touching them with my paladin necklace but nothing happened.
+It would make sense for paladin necklace to remove the cursed feature from items obtained in greed island. (maybe not a real nen curse)
+~
+Name      Elmemas~
+IdNum     231
+Dated     1575658766
+Level     7
+Room      3502
+Flags     0 0 0 0
+End
+Text      idea list flags~
+Body      when I type idea list. it should say green is implemented, red is discarded, yellow is being thought upon'
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575687359
+Level     9
+Room      40000
+Flags     6 0 0 0
+End
+Text      reduce item card value~
+Body      one can get super-rich by just killing the 4 rooks. there are items out there that sell for 600,000 to the grocery shop. even general items like rook armour is super valuable if sold in card form
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575900855
+Level     44
+Room      40000
+Flags     0 0 0 0
+End
+Text      "reached max" after stat is 25~
+Body      title ^
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575902861
+Level     44
+Room      40000
+Flags     0 0 0 0
+End
+Text      add flurry to Enhancer~
+Body      since title ^
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575935396
+Level     44
+Room      40000
+Flags     1 0 0 0
+End
+Text      quest and event~
+Body      seperate events and quests.
+~
+Name      Estarossa~
+IdNum     225
+Dated     1576026350
+Level     44
+Room      12032
+Flags     0 0 0 0
+End
+Text      Utilize Gyo to activate other abilities~
+Body      Constantly have to use detectenfold, and detectconceal, and infravision, is starting to be a bit of a pain
+I recommend having a new ability, named Gyo.
+When you use Gyo you activate these other abilities.
+that would mean that detection would become a passive ability
+an example would be if I used Gyo and I only have detect enfold and detect conceal
+gossip so because my detect conceal is on a low skill level. Both abilities activate but only enfold succeeds, while conceal fails
+I would still get better at using conceal, but this way gyo doing everything would help people enjoy the game a bit more by worrying less
+about activating everything and just say gyo
+~
+Name      Elacil~
+IdNum     268
+Dated     1576080996
+Level     19
+Room      3005
+Flags     0 0 0 0
+End

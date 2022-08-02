@@ -84,6 +84,7 @@
 #include "quest.h"
 #include "ibt.h" /* for free_ibt_lists */
 #include "mud_event.h"
+#include "class.h" /* for vs. colors */
 
 #ifndef INVALID_SOCKET
 #define INVALID_SOCKET (-1)
@@ -849,7 +850,7 @@ void game_loop(socket_t local_mother_desc)
 	      if (process_input(d) < 0)
 	        close_socket(d);
        }
-    }
+    }	
 
     /* Process commands we just read from process_input */
     for (d = descriptor_list; d; d = next_d) {
@@ -995,8 +996,17 @@ void heartbeat(int heart_pulse)
   if (!(heart_pulse % PULSE_MOBILE))
     mobile_activity();
 
+  if (!(heart_pulse % PULSE_RECOVER))      /* 6 seconds */
+    recover_update();
+
+  if (!(heart_pulse % PULSE_POWER))        /* 3 seconds */
+    power_update();
+	
   if (!(heart_pulse % PULSE_VIOLENCE))
     perform_violence();
+
+  if (!(heart_pulse % PULSE_SECOND))
+    second_update();
 
   if (!(heart_pulse % (SECS_PER_MUD_HOUR * PASSES_PER_SEC))) {  /* Tick ! */
     next_tick = SECS_PER_MUD_HOUR;  /* Reset tick coundown */
@@ -1004,7 +1014,7 @@ void heartbeat(int heart_pulse)
     check_time_triggers();
     affect_update();
     point_update();
-    check_timed_quests();
+    check_timed_quests();	
   }
 
   if (CONFIG_AUTO_SAVE && !(heart_pulse % PULSE_AUTOSAVE)) {	/* 1 minute */
@@ -1142,8 +1152,9 @@ static char *make_prompt(struct descriptor_data *d)
     /* show only when below 25% */
     if (PRF_FLAGGED(d->character, PRF_DISPAUTO) && len < sizeof(prompt)) {
       struct char_data *ch = d->character;
-      if (GET_HIT(ch) << 2 < GET_MAX_HIT(ch) ) {
-        count = snprintf(prompt + len, sizeof(prompt) - len, "/ <%d/%dHp> ", GET_HIT(ch), GET_MAX_HIT(ch));
+//      if (GET_HIT(ch) << 2 < GET_MAX_HIT(ch) ) {
+	  if (GET_HIT(ch) < GET_TOTAL_HIT(ch) / 4) {
+        count = snprintf(prompt + len, sizeof(prompt) - len, "/ <%d/%dnen> ", GET_HIT(ch), GET_TOTAL_HIT(ch));
         if (count >= 0)
           len += count;
       }
@@ -1152,35 +1163,78 @@ static char *make_prompt(struct descriptor_data *d)
         if (count >= 0)
           len += count;
       }
-      if (GET_MOVE(ch) << 2 < GET_MAX_MOVE(ch) && len < sizeof(prompt)) {
+/*      if (GET_MOVE(ch) << 2 < GET_MAX_MOVE(ch) && len < sizeof(prompt)) {
         count = snprintf(prompt + len, sizeof(prompt) - len, "<%d/%dMv> ", GET_MOVE(ch), GET_MAX_MOVE(ch));
         if (count >= 0)
           len += count;
-      }
+      } */
     } else { /* not auto prompt */
       if (PRF_FLAGGED(d->character, PRF_DISPMANA) && len < sizeof(prompt)) {
-        count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%s%d%s/%s%d%%%s> ", BBLU, GET_MANA(d->character), CNRM, BBLU, ((GET_MANA(d->character) * 100) / GET_MAX_MANA(d->character)), CNRM);
-        if (count >= 0)
-          len += count;
+		if ((GET_MAX_MANA(d->character) < 100 || GET_MAX_MANA(d->character) > 100) && GET_MANA(d->character) != GET_MAX_MANA(d->character)) {
+		if (GET_MANA(d->character) <= 15)
+          count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%s%.1f%%%s> ", BRED, ((GET_MANA(d->character) * 100.0) / GET_MAX_MANA(d->character)), CNRM);
+	    else if (GET_MANA(d->character) <= 50)
+		  count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%s%.1f%%%s> ", BYEL, ((GET_MANA(d->character) * 100.0) / GET_MAX_MANA(d->character)), CNRM);
+		else
+		  count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%s%.1f%%%s> ", BBLU, ((GET_MANA(d->character) * 100.0) / GET_MAX_MANA(d->character)), CNRM);
+        len += count;
+		} else {
+		  if (GET_MANA(d->character) <= 15)
+            count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%s%d%%%s> ", BRED, ((GET_MANA(d->character) * 100) / GET_MAX_MANA(d->character)), CNRM);
+	      else if (GET_MANA(d->character) <= 50)
+		    count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%s%d%%%s> ", BYEL, ((GET_MANA(d->character) * 100) / GET_MAX_MANA(d->character)), CNRM);
+		  else
+		    count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%s%d%%%s> ", BBLU, ((GET_MANA(d->character) * 100) / GET_MAX_MANA(d->character)), CNRM);
+          len += count;	
+		}			
       }
-
+/*
 	  if (PRF_FLAGGED(d->character, PRF_DISPMOVE) && len < sizeof(prompt)) {
-        count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%s%d%s/%s%d%%%s> ", BGRN, GET_MOVE(d->character), CNRM, BGRN, ((GET_MOVE(d->character) * 100) / GET_MAX_MOVE(d->character)), CNRM);
+        count = snprintf(prompt + len, sizeof(prompt) , "<%s%d%s/%s%d%%%s> ", BGRN, GET_MOVE(d->character), CNRM, BGRN, ((GET_MOVE(d->character) * 100) / GET_MAX_MOVE(d->character)), CNRM);
         if (count >= 0)
           len += count;
       }
-	  
+*/	  
 	  if (PRF_FLAGGED(d->character, PRF_DISPHP) && len < sizeof(prompt)) {
-        count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "/ <%s%d%s/%s%d%s> ", BRED, GET_HIT(d->character), CNRM, BRED, GET_MAX_HIT(d->character), CNRM);
-        if (count >= 0)
-          len += count;
+        count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "/ %s<%s%s%s%s/", GET_ALIGNMENT(d->character) >= 350 ? BBLU : (GET_ALIGNMENT(d->character) <= -350 ? BRED : CNRM), CLASS_COLOR(d->character), AFF_FLAGGED(d->character, AFF_ENHANCE) ? BYEL : CNUL, printfcomma(GET_HIT(d->character)), GET_ALIGNMENT(d->character) >= 350 ? BBLU : (GET_ALIGNMENT(d->character) <= -350 ? BRED : CNRM));
+		len += count;
+		count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "%s%s%s%snen%s>%s ", CLASS_COLOR(d->character), AFF_FLAGGED(d->character, AFF_ENHANCE) ? BYEL : CNUL, printfcomma(GET_TOTAL_HIT(d->character)), AFF_FLAGGED(d->character, AFF_BOOST) ? BRED : CNRM, GET_ALIGNMENT(d->character) >= 350 ? BBLU : (GET_ALIGNMENT(d->character) <= -350 ? BRED : CNRM), CNRM);
+        len += count;
       }
-	  
 	  if ((GET_POS(d->character) == POS_FIGHTING) && len < sizeof(prompt)) {
-        count = snprintf(prompt + len, sizeof(prompt) - len, "/ vs. <%s%d%%%s> ", BRED, ((GET_HIT(FIGHTING(d->character)) * 100) / GET_MAX_HIT(FIGHTING(d->character))), CNRM);
+		if (GET_SKILL(d->character, SKILL_ANALYSIS) == 100) {
+		  if (GET_MANA(FIGHTING(d->character)) <= 15)
+		    count = snprintf(prompt + len, sizeof(prompt) - len, "vs. <%s%d%%%s> <%s%s%s> ", BRED, ((GET_MANA(FIGHTING(d->character)) * 100) / GET_MAX_MANA(FIGHTING(d->character))), CNRM, IS_NPC(FIGHTING(d->character)) ? KYEL : CLASS_COLOR(FIGHTING(d->character)), printfcomma(GET_HIT(FIGHTING(d->character))), CNRM);
+		  else if (GET_MANA(FIGHTING(d->character)) <= 50)
+		    count = snprintf(prompt + len, sizeof(prompt) - len, "vs. <%s%d%%%s> <%s%s%s> ", BYEL, ((GET_MANA(FIGHTING(d->character)) * 100) / GET_MAX_MANA(FIGHTING(d->character))), CNRM, IS_NPC(FIGHTING(d->character)) ? KYEL : CLASS_COLOR(FIGHTING(d->character)), printfcomma(GET_HIT(FIGHTING(d->character))), CNRM);
+		  else 
+		    count = snprintf(prompt + len, sizeof(prompt) - len, "vs. <%s%d%%%s> <%s%s%s> ", BBLU, ((GET_MANA(FIGHTING(d->character)) * 100) / GET_MAX_MANA(FIGHTING(d->character))), CNRM, IS_NPC(FIGHTING(d->character)) ? KYEL : CLASS_COLOR(FIGHTING(d->character)), printfcomma(GET_HIT(FIGHTING(d->character))), CNRM);
+/*		if (GET_LEVEL(d->character) >= 9) {
+		  count = snprintf(prompt + len, sizeof(prompt) - len, "vs. <%s%d%%%s> <%s%d%s> ", BBLU, ((GET_MANA(FIGHTING(d->character)) * 100) / GET_MAX_MANA(FIGHTING(d->character))), CNRM, CLASS_COLOR(FIGHTING(d->character)), GET_HIT(FIGHTING(d->character)), CNRM);
+*/		} else {
+		  if ((100 * GET_HIT(FIGHTING(d->character))) / GET_HIT(d->character) >= 125)
+		    count = snprintf(prompt + len, sizeof(prompt) - len, "vs. <%sstrong%s> ", BRED, CNRM);
+	      else if ((100 * GET_HIT(FIGHTING(d->character))) / GET_HIT(d->character) <= 75)
+		    count = snprintf(prompt + len, sizeof(prompt) - len, "vs. <%sweak%s> ", KYEL, CNRM);
+	      else
+	        count = snprintf(prompt + len, sizeof(prompt) - len, "vs. <%sequal%s> ", BBLU, CNRM);	
+		}		  
+        if (count >= 0)
+          len += count;
+	  }
+/*
+	  if ((GET_POS(d->character) == POS_FIGHTING) && len < sizeof(prompt)) {
+        count = snprintf(prompt + len, sizeof(prompt) - len, "/ vs. <%s%d%snen> ", CLASS_COLOR(FIGHTING(d->character)), GET_HIT(FIGHTING(d->character)), CNRM);
         if (count >= 0)
           len += count;
       }
+*/
+    }	
+	
+	if ((AFF_FLAGGED(d->character, AFF_DETECT_POISON) && AFF_FLAGGED(d->character, AFF_POISON)) && len < sizeof(prompt)) {
+      count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%sPOISON%s> ", BGRN, CNRM);
+      if (count >= 0)
+        len += count;
     }
 	
 	if (PLR_FLAGGED(d->character, PLR_BOOK) && len < sizeof(prompt)) {
@@ -1918,7 +1972,7 @@ static int process_input(struct descriptor_data *t)
 	}
       } else if (isascii(*ptr) && isprint(*ptr)) {
 	if ((*(write_point++) = *ptr) == '$') {		/* copy one character */
-	  *(write_point++) = '$';	/* if it's a $, double it */
+	  *(write_point++) = '$';	/* if it's a $, int it */
 	  space_left -= 2;
 	} else
 	  space_left--;

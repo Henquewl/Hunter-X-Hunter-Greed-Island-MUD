@@ -20,6 +20,7 @@
 #include "genshp.h"
 #include "oasis.h"
 #include "handler.h"
+#include "class.h"
 #include "constants.h"
 #include "improved-edit.h"
 #include "dg_olc.h"
@@ -473,7 +474,7 @@ static void medit_disp_stats_menu(struct descriptor_data *d)
   "(%s1%s) Level:       %s[%s%4d%s]%s\r\n"
   "(%s2%s) %sAuto Set Stats (based on level)%s\r\n\r\n"
   "Hit Points  (xdy+z):        Bare Hand Damage (xdy+z): \r\n"
-  "(%s3%s) HP NumDice:  %s[%s%5d%s]%s    (%s6%s) BHD NumDice:  %s[%s%5d%s]%s\r\n"
+  "(%s3%s) HP NumDice:  %s[%s%d%s]%s    (%s6%s) BHD NumDice:  %s[%s%5d%s]%s\r\n"
   "(%s4%s) HP SizeDice: %s[%s%5d%s]%s    (%s7%s) BHD SizeDice: %s[%s%5d%s]%s\r\n"
   "(%s5%s) HP Addition: %s[%s%5d%s]%s    (%s8%s) DamRoll:      %s[%s%5d%s]%s\r\n"
   "%-*s(range %s%d%s to %s%d%s)\r\n\r\n"
@@ -500,12 +501,12 @@ static void medit_disp_stats_menu(struct descriptor_data *d)
   if (CONFIG_MEDIT_ADVANCED) {
     /* Bottom section - non-standard stats, togglable in cedit */
     write_to_output(d,
-    "(%sF%s) Str: %s[%s%2d/%3d%s]%s   Saving Throws\r\n"
-    "(%sG%s) Int: %s[%s%3d%s]%s      (%sL%s) Paralysis     %s[%s%3d%s]%s\r\n"
-    "(%sH%s) Wis: %s[%s%3d%s]%s      (%sM%s) Rods/Staves   %s[%s%3d%s]%s\r\n"
-    "(%sI%s) Dex: %s[%s%3d%s]%s      (%sN%s) Petrification %s[%s%3d%s]%s\r\n"
-    "(%sJ%s) Con: %s[%s%3d%s]%s      (%sO%s) Breath        %s[%s%3d%s]%s\r\n"
-    "(%sK%s) Cha: %s[%s%3d%s]%s      (%sP%s) Spells        %s[%s%3d%s]%s\r\n\r\n",
+    "(%sF%s) Str: %s[%s%2d/%3d%s]%s   Saving Throw and Cosmetics.\r\n"
+    "(%sG%s) Int: %s[%s%3d%s]%s      (%sL%s) Skin Color:   %s[%s%3d%s]%s\r\n"
+    "(%sH%s) Wis: %s[%s%3d%s]%s      (%sM%s) Eye Color:    %s[%s%3d%s]%s\r\n"
+    "(%sI%s) Dex: %s[%s%3d%s]%s      (%sN%s) Hair Style:   %s[%s%3d%s]%s\r\n"
+    "(%sJ%s) Con: %s[%s%3d%s]%s      (%sO%s) Hair Color:   %s[%s%3d%s]%s\r\n"
+    "(%sK%s) Cha: %s[%s%3d%s]%s      (%sP%s) Saving-Skill: %s[%s%3d%s]%s\r\n\r\n",
         cyn, nrm, cyn, yel, GET_STR(mob), GET_ADD(mob), cyn, nrm,
         cyn, nrm, cyn, yel, GET_INT(mob), cyn, nrm,   cyn, nrm, cyn, yel, GET_SAVE(mob, SAVING_PARA), cyn, nrm,
         cyn, nrm, cyn, yel, GET_WIS(mob), cyn, nrm,   cyn, nrm, cyn, yel, GET_SAVE(mob, SAVING_ROD), cyn, nrm,
@@ -786,6 +787,7 @@ void medit_parse(struct descriptor_data *d, char *arg)
         write_to_output(d, "Invalid Choice!\r\nEnter Choice : ");
         return;
 	  }
+	  write_to_output(d, "%s\r\nSkin color number: ", skin_menu);
       OLC_MODE(d) = MEDIT_PARA;
       i++;
       break;
@@ -795,7 +797,8 @@ void medit_parse(struct descriptor_data *d, char *arg)
         write_to_output(d, "Invalid Choice!\r\nEnter Choice : ");
         return;
 	  }
-      OLC_MODE(d) = MEDIT_ROD;
+	  write_to_output(d, "%s\r\nEye color number: ", eye_menu);
+      OLC_MODE(d) = MEDIT_ROD;	  
       i++;
       break;
     case 'n':
@@ -804,6 +807,7 @@ void medit_parse(struct descriptor_data *d, char *arg)
         write_to_output(d, "Invalid Choice!\r\nEnter Choice : ");
         return;
 	  }
+	  write_to_output(d, "%s\r\nHair style number: ", hair_menu);
       OLC_MODE(d) = MEDIT_PETRI;
       i++;
       break;
@@ -813,6 +817,7 @@ void medit_parse(struct descriptor_data *d, char *arg)
         write_to_output(d, "Invalid Choice!\r\nEnter Choice : ");
         return;
 	  }
+	  write_to_output(d, "%s\r\nHair color number: ", hcolor_menu);
       OLC_MODE(d) = MEDIT_BREATH;
       i++;
       break;
@@ -1050,7 +1055,7 @@ void medit_parse(struct descriptor_data *d, char *arg)
     break;
 
   case MEDIT_LEVEL:
-    GET_LEVEL(OLC_MOB(d)) = LIMIT(i, 1, LVL_IMPL);
+    GET_LEVEL(OLC_MOB(d)) = LIMIT(i, 0, LVL_IMPL);
     OLC_VAL(d) = TRUE;
     medit_disp_stats_menu(d);
     return;

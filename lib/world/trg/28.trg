@@ -2,17 +2,21 @@
 Veteran transport~
 2 q 100
 ~
-if %actor.level% >= 2 || %actor.has_item(3203)% 
-%send% %actor% You already completed Hunter exam before.
-%teleport% %actor% 1406
-%force% %actor% look
-halt
-end
-if %actor.level% >= 2 && %direction% /= north
-%load% obj 3037 %actor% light
-%send% %actor% You already completed Hunter exam before.
-%teleport% %actor% 2813
-%force% %actor% down
+if %actor.has_item(3202)% || %actor.has_item(3203)%
+  %send% %actor% You already completed Hunter exam before.
+  if %actor.has_item(3202)% && %actor.has_item(3203)%
+    %teleport% %actor% 1407
+    %force% %actor% down
+    halt
+  elseif %actor.has_item(3202)% && !%actor.has_item(3203)%
+    %teleport% %actor% 1404
+    %force% %actor% look
+    halt
+  else
+    %teleport% %actor% 2814
+    %force% %actor% down
+    halt
+  end
 end
 ~
 #2801
@@ -53,7 +57,7 @@ if %actor.room.vnum% == 1401
 elseif %actor.room.vnum% == 1407
 %force% %actor% rent
 else
-%send% %actor% 	CYou only can save your items in front of Elena, otherwise type 	Rforcequit	C.	n
+%send% %actor% 	CALERT! You cannot save your restricted cards quitting here 	B<	Ytype help quit	B>	C, otherwise type 	Rforcequit	C.	n
 end
 else
 return 0
@@ -64,14 +68,13 @@ clear room~
 2 s 100
 ~
 wait 0.1 sec
-if %actor.has_item(1405)% || %actor.has_item(1406)% || %actor.has_item(1407)%
-  %send% %actor% Loading...
-  %teleport% %actor% 1407
-  %force% %actor% give all.token elena
-  %force% %actor% receive
-  %force% %actor% down
-elseif %actor.level% >= 2 || %actor.has_item(3203)%
-  %send% %actor% Loading...
+if %actor.level% > 1
+  if !%actor.eq(*)%
+    %load% obj 3202 %actor% rfinger
+  end
+  if !%actor.inventory(3203)%
+    %load% obj 3203 %actor% inv
+  end
   %teleport% %actor% 1407
   %force% %actor% receive
   %force% %actor% down

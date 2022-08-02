@@ -1,0 +1,13 @@
+#14
+Rumble~
+Start and Leave G.I~
+1400 1499 30 2 f 0 0 0 -1 -1
+M 0 1401 1 1405 	(Eta the newbie assistant)
+G 1 1404 1 -1 	(GD key)
+D 1 1405 5 2 	(Preparation Room)
+M 0 1402 1 1408 	(Elena)
+M 0 3005 1 1407 	(Elena)
+M 0 1400 1 1401 	(Tsezguerra, the Jackpot Hunter)
+O 0 1403 1 1401 	(Joystation Console)
+S
+$
