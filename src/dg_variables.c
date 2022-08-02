@@ -628,7 +628,7 @@ void find_replacement(void *go, struct script_data *sc, trig_data *trig,
           else if (!str_cmp(field, "cha")) {
             if (subfield && *subfield) {
               int addition = atoi(subfield);
-              int max = (IS_NPC(c) || GET_LEVEL(c) >= LVL_GRGOD) ? 25 : 18;
+              int max = 25;
               GET_CHA(c) += addition;
               if (GET_CHA(c) > max) GET_CHA(c) = max;
               if (GET_CHA(c) < 3) GET_CHA(c) = 3;
@@ -650,7 +650,7 @@ void find_replacement(void *go, struct script_data *sc, trig_data *trig,
           else if (!str_cmp(field, "con")) {
             if (subfield && *subfield) {
               int addition = atoi(subfield);
-              int max = (IS_NPC(c) || GET_LEVEL(c) >= LVL_GRGOD) ? 25 : 18;
+              int max = 25;
               GET_CON(c) += addition;
               if (GET_CON(c) > max) GET_CON(c) = max;
               if (GET_CON(c) < 3) GET_CON(c) = 3;
@@ -668,7 +668,7 @@ void find_replacement(void *go, struct script_data *sc, trig_data *trig,
             } else if (!str_cmp(field, "dex")) {
               if (subfield && *subfield) {
                 int addition = atoi(subfield);
-                int max = (IS_NPC(c) || GET_LEVEL(c) >= LVL_GRGOD) ? 25 : 18;
+                int max = 25;
                 GET_DEX(c) += addition;
                 if (GET_DEX(c) > max) GET_DEX(c) = max;
                 if (GET_DEX(c) < 3) GET_DEX(c) = 3;
@@ -792,7 +792,7 @@ void find_replacement(void *go, struct script_data *sc, trig_data *trig,
           else if (!str_cmp(field, "int")) {
             if (subfield && *subfield) {
               int addition = atoi(subfield);
-              int max = (IS_NPC(c) || GET_LEVEL(c) >= LVL_GRGOD) ? 25 : 18;
+              int max = 25;
               GET_INT(c) += addition;
               if (GET_INT(c) > max) GET_INT(c) = max;
               if (GET_INT(c) < 3) GET_INT(c) = 3;
@@ -1049,7 +1049,7 @@ void find_replacement(void *go, struct script_data *sc, trig_data *trig,
           else if (!str_cmp(field, "str")) {
             if (subfield && *subfield) {
               int addition = atoi(subfield);
-              int max = (IS_NPC(c) || GET_LEVEL(c) >= LVL_GRGOD) ? 25 : 18;
+              int max = 25;
               GET_STR(c) += addition;
               if (GET_STR(c) > max) GET_STR(c) = max;
               if (GET_STR(c) < 3) GET_STR(c) = 3;
@@ -1057,7 +1057,7 @@ void find_replacement(void *go, struct script_data *sc, trig_data *trig,
             snprintf(str, slen, "%d", GET_STR(c));
           }
           else if (!str_cmp(field, "stradd")) {
-            if (GET_STR(c) >= 18) {
+//            if (GET_STR(c) >= 18) {
               if (subfield && *subfield) {
                 int addition = atoi(subfield);
                 GET_ADD(c) += addition;
@@ -1065,7 +1065,7 @@ void find_replacement(void *go, struct script_data *sc, trig_data *trig,
                 if (GET_ADD(c) < 0) GET_ADD(c) = 0;
               }
               snprintf(str, slen, "%d", GET_ADD(c));
-            }
+//            }
           }
           break;
         case 't':
@@ -1117,7 +1117,7 @@ void find_replacement(void *go, struct script_data *sc, trig_data *trig,
           else if (!str_cmp(field, "wis")) {
             if (subfield && *subfield) {
               int addition = atoi(subfield);
-              int max = (IS_NPC(c) || GET_LEVEL(c) >= LVL_GRGOD) ? 25 : 18;
+              int max = 25;
               GET_WIS(c) += addition;
               if (GET_WIS(c) > max) GET_WIS(c) = max;
               if (GET_WIS(c) < 3) GET_WIS(c) = 3;
@@ -1677,7 +1677,7 @@ o->contains) ? "1" : "0"));
  * if the field returns a name or a script UID or the like it can recurse. If
  * you supply a value like, %actor.int.str% it wont blow up on you either. Now
  * also lets subfields have variables parsed inside of them so that: %echo%
- * %actor.gold(%actor.gold%)% will double the actors gold every time its called.
+ * %actor.gold(%actor.gold%)% will int the actors gold every time its called.
  * - Jamie Nelson */
 
 /* substitutes any variables into line and returns it as buf */
@@ -1716,7 +1716,7 @@ void var_subst(void *go, struct script_data *sc, trig_data *trig,
 
     *buf = '\0';
 
-    /* double % */
+    /* int % */
     if (*p && (*(++p) == '%') && (left > 0)) {
       *(buf++) = *(p++);
       *buf = '\0';
@@ -1724,7 +1724,7 @@ void var_subst(void *go, struct script_data *sc, trig_data *trig,
       continue;
     }
 
-    /* so it wasn't double %'s */
+    /* so it wasn't int %'s */
     else if (*p && (left > 0)) {
 
       /* search until end of var or beginning of field */

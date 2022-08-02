@@ -73,16 +73,20 @@ cpp_extern const struct command_info cmd_info[] = {
   { "up"       , "u"       , POS_STANDING, do_move     , 0, SCMD_UP },
   { "down"     , "d"       , POS_STANDING, do_move     , 0, SCMD_DOWN },
   { "northwest", "northw"  , POS_STANDING, do_move     , 0, SCMD_NW },
+  { "nowest"   , "nowest"  , POS_STANDING, do_move     , 0, SCMD_NW },
   { "nw"       , "nw"      , POS_STANDING, do_move     , 0, SCMD_NW },
   { "northeast", "northe"  , POS_STANDING, do_move     , 0, SCMD_NE },
+  { "noeast"   , "noeast"  , POS_STANDING, do_move     , 0, SCMD_NE },
   { "ne"       , "ne"      , POS_STANDING, do_move     , 0, SCMD_NE },
   { "southeast", "southe"  , POS_STANDING, do_move     , 0, SCMD_SE },
+  { "soeast"   , "soeast"  , POS_STANDING, do_move     , 0, SCMD_SE },
   { "se"       , "se"      , POS_STANDING, do_move     , 0, SCMD_SE },
   { "southwest", "southw"  , POS_STANDING, do_move     , 0, SCMD_SW },
+  { "sowest"   , "sowest"  , POS_STANDING, do_move     , 0, SCMD_SW },
   { "sw"       , "sw"      , POS_STANDING, do_move     , 0, SCMD_SW },
   
   /* now, the main list */
-  { "analyze"  , "an"      , POS_RESTING , do_whois    , 0, 0 },
+  { "analysis" , "an"      , POS_RESTING , do_whois    , 0, 0 },
   { "at"       , "at"      , POS_DEAD    , do_at       , LVL_IMMORT, 0 },
   { "advance"  , "adv"     , POS_DEAD    , do_advance  , LVL_GRGOD, 0 },
   { "aedit"    , "aed"     , POS_DEAD    , do_oasis_aedit, LVL_GOD, 0 },
@@ -90,10 +94,13 @@ cpp_extern const struct command_info cmd_info[] = {
   { "afk"      , "afk"     , POS_DEAD    , do_gen_tog  , 0, SCMD_AFK },
   { "affects"  , "aff"     , POS_DEAD    , do_affects  , 0, 0 },
   { "areas"    , "are"     , POS_DEAD    , do_areas    , 0, 0 },
+  { "armor"    , "arm"     , POS_SITTING , do_cast     , 1, SPELL_ARMOR },
+  { "animatedead", "ani"   , POS_SITTING , do_cast     , 1, SPELL_ANIMATE_DEAD },
   { "assist"   , "as"      , POS_FIGHTING, do_assist   , 1, 0 },
   { "ask"      , "ask"     , POS_RESTING , do_spec_comm, 0, SCMD_ASK },
   { "astat"    , "ast"     , POS_DEAD    , do_astat    , 0, 0 },
-  { "attach"   , "attach"  , POS_DEAD    , do_attach   , LVL_BUILDER, 0 },
+  { "attach"   , "attach"  , POS_DEAD    , do_attach   , LVL_BUILDER, 0 },  
+  { "auraball" , "aurab"  , POS_SITTING , do_cast     , 1, SPELL_FIREBALL },
   { "auction"  , "auc"     , POS_SLEEPING, do_gen_comm , LVL_IMMORT, SCMD_AUCTION },
   { "autoexits" , "autoex" , POS_DEAD    , do_gen_tog , 0, SCMD_AUTOEXIT },
   { "autoassist","autoass" , POS_DEAD    , do_gen_tog , 0, SCMD_AUTOASSIST },
@@ -104,60 +111,101 @@ cpp_extern const struct command_info cmd_info[] = {
   { "automap"  , "automap" , POS_DEAD    , do_gen_tog , 0, SCMD_AUTOMAP },
   { "autosac"  , "autosac" , POS_DEAD    , do_gen_tog , LVL_IMMORT, SCMD_AUTOSAC },
   { "autosplit", "autospl" , POS_DEAD    , do_gen_tog , 0, SCMD_AUTOSPLIT },
-
-  { "book"     , "bo"      , POS_SITTING , do_book , 0, 0 },
-  { "backstab" , "ba"      , POS_STANDING, do_backstab , LVL_IMMORT, 0 },
+  
+  { "book"     , "boo"      , POS_SITTING , do_book     , 0, 0 },
+  { "boost"    , "boos"      , POS_SITTING , do_cast     , 1, SPELL_STRENGTH },
+  { "barehanded", "bar"    , POS_SLEEPING, do_passive  , 1, SCMD_BAREHANDED_EXPERT },  
   { "ban"      , "ban"     , POS_DEAD    , do_ban      , LVL_GRGOD, 0 },
   { "balance"  , "bal"     , POS_STANDING, do_not_here , LVL_IMMORT, 0 },
   { "bash"     , "bas"     , POS_FIGHTING, do_bash     , 1, 0 },
+  { "blast"    , "blast"   , POS_SITTING , do_cast     , 1, SPELL_MAGIC_MISSILE },
+  { "blindness", "bli"     , POS_SITTING , do_cast     , 1, SPELL_BLINDNESS },
   { "brief"    , "br"      , POS_DEAD    , do_gen_tog  , 0, SCMD_BRIEF },
   { "buildwalk", "buildwalk", POS_STANDING, do_gen_tog , LVL_BUILDER, SCMD_BUILDWALK },
   { "buy"      , "bu"      , POS_SITTING , do_not_here , 0, 0 },
+  { "bungeegum", "bun"     , POS_SITTING , do_cast     , 1, SPELL_COLOR_SPRAY },
+  { "burninghands", "bur"  , POS_SITTING , do_cast     , 1, SPELL_BURNING_HANDS },
   { "bug"      , "bug"     , POS_DEAD    , do_ibt      , 0, SCMD_BUG },
 
-  { "cast"     , "c"       , POS_SITTING , do_cast     , 1, 0 },
+//  { "cast"     , "c"       , POS_SITTING , do_cast     , 1, 0 },
+  { "calculate", "calc"    , POS_DEAD    , do_calculate, LVL_GOD, 0 },
   { "cedit"    , "cedit"   , POS_DEAD    , do_oasis_cedit, LVL_IMPL, 0 },
   { "changelog", "cha"     , POS_DEAD    , do_changelog, LVL_IMPL, 0 },
+  { "cards"    , "ca"      , POS_RESTING , do_cards    , 1, SCMD_CARDS },
   { "check"    , "ch"      , POS_STANDING, do_not_here , 1, 0 },
+  { "circleofen", "cir"    , POS_SITTING , do_cast     , 1, SPELL_SENSE_LIFE },
+  { "chainjail", "cha"     , POS_SITTING , do_cast     , 1, SPELL_CALL_LIGHTNING },
+  { "charm"    , "char"    , POS_SITTING , do_cast     , 1, SPELL_CHARM },
+  { "chilltouch", "chi"    , POS_SITTING , do_cast     , 1, SPELL_CHILL_TOUCH },
   { "checkload", "checkl"  , POS_DEAD    , do_checkloadstatus, LVL_GOD, 0 },
   { "close"    , "cl"      , POS_SITTING , do_gen_door , 0, SCMD_CLOSE },
   { "clear"    , "cle"     , POS_DEAD    , do_gen_ps   , 0, SCMD_CLEAR },
+  { "clone"    , "clo"     , POS_SITTING , do_cast     , 1, SPELL_CLONE },
   { "cls"      , "cls"     , POS_DEAD    , do_gen_ps   , 0, SCMD_CLEAR },
-  { "consider" , "con"     , POS_RESTING , do_consider , 0, 0 },
+  { "city"     , "cit"     , POS_RESTING , do_city     , 1, 0 },
+  { "conceal"  , "conc"    , POS_SITTING , do_cast     , 1, SPELL_INVISIBLE },
+  { "consider" , "cons"    , POS_RESTING , do_consider , 0, 0 },
+  { "controlweater", "cont", POS_SITTING , do_cast     , 1, SPELL_CONTROL_WEATHER },
   { "commands" , "com"     , POS_DEAD    , do_commands , 0, SCMD_COMMANDS },
-  { "compact"  , "comp"    , POS_DEAD    , do_gen_tog  , 0, SCMD_COMPACT },
+  { "compare"  , "comp"    , POS_RESTING , do_compare  , 1, 0 },
+  { "compact"  , "compa"   , POS_DEAD    , do_gen_tog  , 0, SCMD_COMPACT },
   { "copyover" , "copyover", POS_DEAD    , do_copyover , LVL_GRGOD, 0 },
+  { "createfood", "createf", POS_SITTING , do_cast     , 1, SPELL_CREATE_FOOD },
+  { "refill"   , "ref"     , POS_SITTING , do_cast     , 1, SPELL_CREATE_WATER },
   { "credits"  , "cred"    , POS_DEAD    , do_gen_ps   , 0, SCMD_CREDITS },
+  { "cureblind", "cureb"   , POS_SITTING , do_cast     , 1, SPELL_CURE_BLIND },
+  { "curepoison", "curep"  , POS_SITTING , do_cast     , 1, SPELL_REMOVE_POISON },
+  { "curse"    , "curs"    , POS_SITTING , do_cast     , 1, SPELL_CURSE },
 
   { "date"     , "da"      , POS_DEAD    , do_date     , LVL_IMMORT, SCMD_DATE },
+  { "detectconcealed", "det" , POS_SITTING , do_cast     , 1, SPELL_DETECT_INVIS },
+  { "detectalignment", "detecta" , POS_SITTING , do_cast     , 1, SPELL_DETECT_ALIGN },
+  { "detectenfolded", "detecte" , POS_SITTING , do_cast     , 1, SPELL_DETECT_MAGIC },
+  { "detectpoison", "detectp" , POS_SITTING , do_cast     , 1, SPELL_DETECT_POISON },
+  { "darkness" , "darkn"   , POS_SITTING , do_cast     , 1, SPELL_DARKNESS },
   { "dc"       , "dc"      , POS_DEAD    , do_dc       , LVL_GOD, 0 },
   { "deposit"  , "depo"    , POS_STANDING, do_not_here , LVL_IMMORT, 0 },
   { "destroy"  , "dest"    , POS_RESTING , do_drop     , 0, SCMD_JUNK },
   { "detach"   , "detach"  , POS_DEAD    , do_detach   , LVL_BUILDER, 0 },
   { "diagnose" , "diag"    , POS_RESTING , do_diagnose , 0, 0 },
   { "dig"      , "dig"     , POS_DEAD    , do_dig      , LVL_BUILDER, 0 },
-  { "display"  , "disp"    , POS_DEAD    , do_display  , 0, 0 },
+  { "dispelevil", "dispele", POS_SITTING , do_cast     , 1, SPELL_DISPEL_EVIL },
+  { "dispelgood", "dispelg", POS_SITTING , do_cast     , 1, SPELL_DISPEL_GOOD },  
+  { "display"  , "displ"    , POS_DEAD    , do_display  , 0, 0 },
   { "donate"   , "don"     , POS_RESTING , do_drop     , 0, SCMD_DONATE },
+  { "dodge"    , "dod"     , POS_SLEEPING, do_passive  , 1, SCMD_DODGE },
+  { "dowzingchain", "dowz"  , POS_SITTING , do_cast     , 1, SPELL_TIGHTEN_CHAINS },  
   { "drink"    , "dri"     , POS_RESTING , do_drink    , 0, SCMD_DRINK },
   { "drop"     , "dro"     , POS_RESTING , do_drop     , 0, SCMD_DROP },
 
   { "eat"      , "ea"      , POS_RESTING , do_eat      , 0, SCMD_EAT },
+  { "earthquake", "ear"    , POS_SITTING , do_cast     , 1, SPELL_EARTHQUAKE },
   { "echo"     , "ec"      , POS_SLEEPING, do_echo     , LVL_IMMORT, SCMD_ECHO },
   { "emote"    , "em"      , POS_RESTING , do_echo     , 0, SCMD_EMOTE },
-  { ":"        , ":"       , POS_RESTING, do_echo      , 1, SCMD_EMOTE },
+  { ":"        , ":"       , POS_RESTING , do_echo     , 1, SCMD_EMOTE },  
+  { "energydrain", "ene"   , POS_SITTING , do_cast     , 1, SPELL_ENERGY_DRAIN },
+  { "enhance"  , "enh"     , POS_SLEEPING, do_enhance  , 1, 0 },
+  { "enfold"   , "enf"     , POS_SITTING , do_cast     , 1, SPELL_ENCHANT_WEAPON },
   { "enter"    , "ent"     , POS_STANDING, do_enter    , 0, 0 },
   { "equipment", "eq"      , POS_SLEEPING, do_equipment, 0, 0 },
   { "exits"    , "ex"      , POS_RESTING , do_exits    , 0, 0 },
   { "examine"  , "exa"     , POS_SITTING , do_examine  , 0, 0 },
+  { "expert"   , "exp"     , POS_SLEEPING, do_passive  , 1, SCMD_BAREHANDED_EXPERT },
   { "export"   , "export"  , POS_DEAD    , do_export_zone, LVL_IMPL, 0 },
-
+  { "exorcise" , "exo"     , POS_SITTING , do_cast     , 1, SPELL_REMOVE_CURSE },
+  
   { "force"    , "force"   , POS_SLEEPING, do_force    , LVL_GOD, 0 },
-  { "forcequi" , "forcequi", POS_DEAD   , do_quit     , 0, 0 },
-  { "forcequit", "forcequit", POS_DEAD   , do_quit     , 0, SCMD_QUIT },
+  { "fortify"  , "fort"    , POS_SITTING , do_cast     , 1, SPELL_SANCTUARY },
+  { "forcequi" , "forcequi", POS_DEAD    , do_quit     , 0, 0 },  
+  { "forcequit", "forcequit", POS_DEAD   , do_quit     , 0, SCMD_FORCEQUIT },
   { "fill"     , "fil"     , POS_STANDING, do_pour     , 0, SCMD_FILL },
   { "file"     , "file"    , POS_SLEEPING, do_file     , LVL_GOD, 0 },
   { "flee"     , "fl"      , POS_FIGHTING, do_flee     , 1, 0 },
+  { "flurry"   , "flu"     , POS_FIGHTING, do_backstab , 1, 0 },  
+  { "focus"    , "foc"     , POS_SITTING , do_cast     , 1, SPELL_BLESS },
+  { "food"     , "foo"     , POS_SITTING , do_cast     , 1, SPELL_CREATE_FOOD },
   { "follow"   , "fol"     , POS_RESTING , do_follow   , 0, 0 },
+  { "fourth"   , "fou"     , POS_SLEEPING, do_passive  , 1, 0 },
   { "freeze"   , "freeze"  , POS_DEAD    , do_wizutil  , LVL_GRGOD, SCMD_FREEZE },
 
   { "get"      , "g"       , POS_RESTING , do_get      , 0, 0 },
@@ -178,10 +226,10 @@ cpp_extern const struct command_info cmd_info[] = {
   { "happyhour", "ha"      , POS_DEAD    , do_happyhour, 0, 0 },
   { "hedit"    , "hedit"   , POS_DEAD    , do_oasis_hedit, LVL_GOD , 0 },
   { "helpcheck", "helpch"  , POS_DEAD    , do_helpcheck, LVL_GOD, 0 },
+  { "heal"     , "hea"     , POS_SITTING , do_cast     , 1, SPELL_HEAL },
   { "hide"     , "hi"      , POS_RESTING , do_hide     , 1, 0 },
   { "hindex"   , "hind"    , POS_DEAD    , do_hindex   , 0, 0 },
   { "handbook" , "handb"   , POS_DEAD    , do_gen_ps   , LVL_IMMORT, SCMD_HANDBOOK },
-  { "hatsus"   , "hats"    , POS_RESTING , do_practice , 1, 0 },
   { "hcontrol" , "hcontrol", POS_DEAD    , do_hcontrol , LVL_GRGOD, 0 },
   { "history"  , "history" , POS_DEAD    , do_history, 0, 0},
   { "hit"      , "hit"     , POS_FIGHTING, do_hit      , 0, SCMD_HIT },
@@ -191,16 +239,18 @@ cpp_extern const struct command_info cmd_info[] = {
   { "house"    , "house"   , POS_RESTING , do_house    , 0, 0 },
 
   { "inventory", "i"       , POS_DEAD    , do_inventory, 0, 0 },
-  { "identify" , "id"      , POS_STANDING, do_not_here , 1, 0 },
+  { "identify" , "id"      , POS_SITTING , do_cast     , 1, SPELL_IDENTIFY },  
   { "idea"     , "ide"     , POS_DEAD    , do_ibt      , 0, SCMD_IDEA },
   { "imotd"    , "imo"     , POS_DEAD    , do_gen_ps   , LVL_IMMORT, SCMD_IMOTD },
   { "immlist"  , "imm"     , POS_DEAD    , do_gen_ps   , 0, SCMD_IMMLIST },
+  { "instant"  , "ins"     , POS_SLEEPING, do_passive  , 1, SCMD_INSTANT_FORTIFY },
   { "info"     , "info"    , POS_SLEEPING, do_gen_ps   , 0, SCMD_INFO },
+  { "infravision", "infr"  , POS_SITTING , do_cast     , 0, SPELL_INFRAVISION },
   { "invis"    , "invi"    , POS_DEAD    , do_invis    , LVL_IMMORT, 0 },
 
   { "jenny"    , "j"       , POS_RESTING , do_gold     , 0, 0 },
   { "junk"     , "ju"      , POS_RESTING , do_drop     , 0, SCMD_JUNK },
-  { "jajanken" , "jaj"     , POS_FIGHTING, do_whirlwind, LVL_IMPL, 0 },
+  { "jajanken" , "ja"      , POS_FIGHTING, do_jajanken , 1, 0 },
   
   { "kill"     , "k"       , POS_FIGHTING, do_kill     , 0, 0 },
   { "kick"     , "ki"      , POS_FIGHTING, do_kick     , 1, 0 },
@@ -209,12 +259,22 @@ cpp_extern const struct command_info cmd_info[] = {
   { "last"     , "last"    , POS_DEAD    , do_last     , LVL_GOD, 0 },
   { "leave"    , "lea"     , POS_STANDING, do_not_here , 1, 0 },
   { "levels"   , "lev"     , POS_DEAD    , do_levels   , 0, 0 },
+  { "levitate" , "levi"    , POS_SITTING , do_cast     , 1, SPELL_FLY },
   { "list"     , "lis"     , POS_SITTING , do_not_here , 0, 0 },
   { "links"    , "lin"     , POS_STANDING, do_links    , LVL_GOD, 0 },
+  { "littleflower", "lit"  , POS_SITTING , do_cast     , 1, SPELL_HARM },
+  { "lightningbolt", "lig" , POS_SITTING , do_cast     , 1, SPELL_LIGHTNING_BOLT },
   { "lock"     , "loc"     , POS_SITTING , do_gen_door , 0, SCMD_LOCK },
+  { "locateobject", "loca" , POS_SITTING , do_cast     , 1, SPELL_LOCATE_OBJECT },
+  { "locatecard", "locatec", POS_DEAD    , do_cast     , LVL_GOD, SPELL_LOCATE_CARD },
   { "load"     , "load"    , POS_DEAD    , do_load     , LVL_BUILDER, 0 },
+  { "luck"     , "luck"    , POS_SITTING , do_cast     , 1, SPELL_LUCK },
 
   { "map"      , "m"       , POS_STANDING, do_map      , 1, 0 },
+  { "massagist", "ma"      , POS_SITTING , do_cast     , 1, SPELL_MASSAGIST },
+  { "massheal" , "massh"   , POS_SITTING , do_cast     , 1, SPELL_GROUP_HEAL },
+  { "massescape", "masse"  , POS_SITTING , do_cast     , 1, SPELL_GROUP_RECALL },
+  { "massarmor", "massa"   , POS_SITTING , do_cast     , 1, SPELL_GROUP_ARMOR },
   { "money"    , "mo"      , POS_RESTING , do_gold     , 0, 0 },
   { "motd"     , "mot"     , POS_DEAD    , do_gen_ps   , 0, SCMD_MOTD },
   { "mail"     , "mail"    , POS_STANDING, do_not_here , 1, 0 },  
@@ -224,6 +284,9 @@ cpp_extern const struct command_info cmd_info[] = {
   { "msgedit"  , "msgedit" , POS_DEAD    , do_msgedit,   LVL_GOD, 0 },
   { "mute"     , "mu"    , POS_DEAD    , do_wizutil  , LVL_GOD, SCMD_MUTE },
 
+  { "nencure"  , "nenc"    , POS_SITTING , do_cast     , 1, SPELL_CURE_CRITIC },
+  { "nenstitches", "nens"  , POS_SITTING , do_cast     , 1, SPELL_CURE_LIGHT },
+  { "nenbeast" , "nenb"    , POS_SITTING , do_cast     , 1, SPELL_NEN_BEAST },
   { "news"     , "news"    , POS_SLEEPING, do_gen_ps   , 0, SCMD_NEWS },
   { "noauction", "noauction",POS_DEAD    , do_gen_tog  , LVL_IMMORT, SCMD_NOAUCTION },
   { "nogossip" , "nogossip", POS_DEAD    , do_gen_tog  , LVL_IMMORT, SCMD_NOGOSSIP },
@@ -245,19 +308,24 @@ cpp_extern const struct command_info cmd_info[] = {
   { "oedit"    , "oedit"   , POS_DEAD    , do_oasis_oedit, LVL_BUILDER, 0 },
   { "oset"     , "oset"    , POS_DEAD    , do_oset,        LVL_BUILDER, 0 },  
   { "ocopy"    , "ocopy"   , POS_DEAD    , do_oasis_copy, LVL_GOD, CON_OEDIT },
+  { "ocalc"    , "ocalc"   , POS_DEAD    , do_calculate, LVL_GOD, 1 },
 
   { "put"      , "p"       , POS_RESTING , do_put      , 0, 0 },
   { "peace"    , "pe"      , POS_DEAD    , do_peace    , LVL_BUILDER, 0 },
   { "pick"     , "pi"      , POS_STANDING, do_gen_door , 1, SCMD_PICK },
   { "practice" , "pr"      , POS_RESTING , do_practice , 1, 0 },
   { "page"     , "pag"     , POS_DEAD    , do_page     , LVL_IMMORT, 0 },
+  { "parry"    , "parr"    , POS_SLEEPING, do_passive  , 1, SCMD_PARRY },
   { "pardon"   , "pardon"  , POS_DEAD    , do_wizutil  , LVL_GOD, SCMD_PARDON },
   { "plist"    , "plist"   , POS_DEAD    , do_plist    , LVL_GOD, 0 },
+  { "power"    , "po"      , POS_FIGHTING, do_power    , 0, 0 },
+  { "poison"   , "poi"     , POS_SITTING , do_cast     , 1, SPELL_POISON },
   { "policy"   , "pol"     , POS_DEAD    , do_gen_ps   , 0, SCMD_POLICIES },
   { "pour"     , "pour"    , POS_STANDING, do_pour     , 0, SCMD_POUR },
-  { "progress" , "pro"     , POS_DEAD    , do_progress , 0, 0 },	
+  { "progress" , "pro"     , POS_DEAD    , do_progress , 0, 0 },
   { "prompt"   , "prom"    , POS_DEAD    , do_display  , 0, 0 },
   { "prefedit" , "pre"     , POS_DEAD    , do_oasis_prefedit , 0, 0 },
+  { "punch"    , "pu"      , POS_FIGHTING, do_punch    , LVL_GOD, 0 },
   { "purge"    , "purge"   , POS_DEAD    , do_purge    , LVL_BUILDER, 0 },
 
   { "qedit"    , "qedit"   , POS_DEAD    , do_oasis_qedit, LVL_BUILDER, 0 },
@@ -269,20 +337,25 @@ cpp_extern const struct command_info cmd_info[] = {
   { "quit"     , "quit"    , POS_DEAD    , do_quit     , 0, SCMD_QUIT },
   { "qsay"     , "qsay"    , POS_RESTING , do_qcomm    , 0, SCMD_QSAY },
 
-  { "reply"    , "r"       , POS_SLEEPING, do_reply    , 0, 0 },
+  { "reply"    , "rep"     , POS_SLEEPING, do_reply    , 0, 0 },
   { "rest"     , "res"     , POS_RESTING , do_rest     , 0, 0 },
   { "read"     , "rea"     , POS_RESTING , do_look     , 0, SCMD_READ },
   { "reload"   , "reload"  , POS_DEAD    , do_reboot   , LVL_IMPL, 0 },
+  { "recall"   , "reca"    , POS_RESTING , do_recall   , 1, 0 },
   { "recite"   , "reci"    , POS_RESTING , do_use      , 0, SCMD_RECITE },
   { "receive"  , "rece"    , POS_STANDING, do_not_here , 1, 0 },
   { "recent"   , "recent"  , POS_DEAD    , do_recent   , LVL_IMMORT, 0 },
   { "remove"   , "rem"     , POS_RESTING , do_remove   , 0, 0 },
+  { "remotepunch", "remot" , POS_FIGHTING , do_remote_punch, 1, SKILL_REMOTE_PUNCH },
   { "rent"     , "rent"    , POS_STANDING, do_not_here , 1, 0 },
+  { "repair"   , "repa"    , POS_SITTING , do_cast     , 1, SPELL_REPAIR },
   { "report"   , "repo"    , POS_RESTING , do_report   , 0, 0 },
   { "reroll"   , "rero"    , POS_DEAD    , do_wizutil  , LVL_GRGOD, SCMD_REROLL },
   { "rescue"   , "resc"    , POS_FIGHTING, do_rescue   , 1, 0 },
   { "restore"  , "resto"   , POS_DEAD    , do_restore  , LVL_GOD, 0 },
+  { "restricted", "restr"  , POS_RESTING , do_cards    , 1, SCMD_RESTR },
   { "return"   , "retu"    , POS_DEAD    , do_return   , 0, 0 },
+  { "revert"   , "reve"    , POS_SLEEPING, do_enhance  , 1, 0 },
   { "redit"    , "redit"   , POS_DEAD    , do_oasis_redit, LVL_BUILDER, 0 },
   { "rlist"    , "rlist"   , POS_DEAD    , do_oasis_list, LVL_BUILDER, SCMD_OASIS_RLIST },
   { "rcopy"    , "rcopy"   , POS_DEAD    , do_oasis_copy, LVL_GOD, CON_REDIT },
@@ -291,7 +364,7 @@ cpp_extern const struct command_info cmd_info[] = {
   { "sacrifice", "sac"     , POS_RESTING , do_sac      , LVL_GOD, 0 },
   { "say"      , "s"       , POS_RESTING , do_say      , 0, 0 },
   { "score"    , "sc"      , POS_DEAD    , do_score    , 0, 0 },
-  { "scan"     , "sca"     , POS_RESTING , do_scan     , 15, 0 },
+//  { "scan"     , "sca"     , POS_RESTING , do_scan     , 1, 0 },
   { "scopy"    , "scopy"   , POS_DEAD    , do_oasis_copy, LVL_GOD, CON_SEDIT },
   { "sit"      , "si"      , POS_RESTING , do_sit      , 0, 0 },
   { "'"        , "'"       , POS_RESTING , do_say      , 0, 0 },
@@ -301,34 +374,44 @@ cpp_extern const struct command_info cmd_info[] = {
   { "sedit"    , "sedit"   , POS_DEAD    , do_oasis_sedit, LVL_BUILDER, 0 },
   { "send"     , "send"    , POS_SLEEPING, do_send     , LVL_GOD, 0 },
   { "set"      , "set"     , POS_DEAD    , do_set      , LVL_IMMORT, 0 },
+  { "second"   , "sec"     , POS_SLEEPING, do_passive  , 1, 0 },
+  { "sense"    , "sen"     , POS_RESTING , do_scan     , 1, 0 },
+  { "shockinggrasp", "shoc", POS_SITTING , do_cast     , 1, SPELL_SHOCKING_GRASP },
   { "shout"    , "sho"     , POS_RESTING , do_gen_comm , 0, SCMD_SHOUT },
   { "show"     , "show"    , POS_DEAD    , do_show     , LVL_IMMORT, 0 },
   { "shutdow"  , "shutdow" , POS_DEAD    , do_shutdown , LVL_IMPL, 0 },
   { "shutdown" , "shutdown", POS_DEAD    , do_shutdown , LVL_IMPL, SCMD_SHUTDOWN },
   { "sip"      , "sip"     , POS_RESTING , do_drink    , 0, SCMD_SIP },
-  { "skills"    , "sk"      , POS_RESTING , do_practice , 1, 0 },
+  { "skills"    , "sk"      , POS_RESTING, do_practice , 1, 0 },
   { "skillset" , "skillset", POS_SLEEPING, do_skillset , LVL_GRGOD, 0 },
   { "sleep"    , "sl"      , POS_SLEEPING, do_sleep    , 0, 0 },
   { "slist"    , "slist"   , POS_SLEEPING, do_oasis_list, LVL_BUILDER, SCMD_OASIS_SLIST },
+  { "slumber"  , "slu"     , POS_SITTING , do_cast     , 1, SPELL_SLEEP },
+  { "snapneck" , "snap"    , POS_STANDING, do_snapneck , 1, 0 },
   { "sneak"    , "sneak"   , POS_STANDING, do_sneak    , 1, 0 },
   { "snoop"    , "snoop"   , POS_DEAD    , do_snoop    , LVL_GOD, 0 },
   { "socials"  , "socials" , POS_DEAD    , do_commands , 0, SCMD_SOCIALS },
+//  { "spells"   , "spel"    , POS_RESTING , do_cards    , 1, SCMD_SPELL },
   { "split"    , "split"   , POS_SITTING , do_split    , 1, 0 },
   { "stand"    , "st"      , POS_RESTING , do_stand    , 0, 0 },
   { "stat"     , "stat"    , POS_DEAD    , do_stat     , LVL_IMMORT, 0 },
   { "steal"    , "ste"     , POS_STANDING, do_steal    , 1, 0 },
+  { "summon"   , "sum"     , POS_SITTING , do_cast     , 1, SPELL_SUMMON },
   { "switch"   , "switch"  , POS_DEAD    , do_switch   , LVL_GOD, 0 },
 
   { "tell"     , "t"       , POS_DEAD    , do_tell     , 0, 0 },
   { "take"     , "ta"      , POS_RESTING , do_get      , 0, 0 },
   { "taste"    , "tas"     , POS_RESTING , do_eat      , 0, SCMD_TASTE },
-  { "teleport" , "tele"    , POS_DEAD    , do_teleport , LVL_BUILDER, 0 },
+  { "telepor"  , "tele"    , POS_DEAD    , do_teleport , LVL_BUILDER, 0 },
+  { "teleport" , "telep"   , POS_SITTING , do_cast     , 1, SPELL_TELEPORT },
   { "tedit"    , "tedit"   , POS_DEAD    , do_tedit    , LVL_GOD, 0 },  /* XXX: Oasisify */
   { "thaw"     , "thaw"    , POS_DEAD    , do_wizutil  , LVL_GRGOD, SCMD_THAW },
+  { "third"    , "thi"     , POS_SLEEPING, do_passive  , 1, 0 },  
   { "title"    , "title"   , POS_DEAD    , do_title    , 0, 0 },
   { "time"     , "time"    , POS_DEAD    , do_time     , 0, 0 },
   { "toggle"   , "toggle"  , POS_DEAD    , do_toggle   , 0, 0 },
   { "track"    , "track"   , POS_STANDING, do_track    , 0, 0 },
+  { "train"    , "train"   , POS_RESTING , do_train    , 1, 0 },
   { "transfer" , "transfer", POS_SLEEPING, do_trans    , LVL_GOD, 0 },
   { "trigedit" , "trigedit", POS_DEAD    , do_oasis_trigedit, LVL_BUILDER, 0 },
   { "typo"     , "typo"    , POS_DEAD    , do_ibt      , 0, SCMD_TYPO },
@@ -338,8 +421,11 @@ cpp_extern const struct command_info cmd_info[] = {
 
   { "unlock"   , "unlock"  , POS_SITTING , do_gen_door , 0, SCMD_UNLOCK },
   { "unban"    , "unban"   , POS_DEAD    , do_unban    , LVL_GRGOD, 0 },
+  { "unpack"   , "unpack"  , POS_RESTING , do_unpack   , 0, 0 },
   { "unaffect" , "unaffect", POS_DEAD    , do_wizutil  , LVL_GOD, SCMD_UNAFFECT },
+  { "upgrade"  , "upg"     , POS_RESTING , do_train    , 1, 0 },
   { "uptime"   , "uptime"  , POS_DEAD    , do_date     , LVL_GOD, SCMD_UPTIME },
+  { "unrestricted", "unrestr", POS_RESTING , do_cards    , 1, SCMD_UNRES },
   { "use"      , "use"     , POS_SITTING , do_use      , 1, SCMD_USE },
   { "users"    , "users"   , POS_DEAD    , do_users    , LVL_GOD, 0 },
 
@@ -351,12 +437,15 @@ cpp_extern const struct command_info cmd_info[] = {
   { "vdelete"  , "vdelete" , POS_DEAD    , do_vdelete  , LVL_BUILDER, 0 },
 
   { "wake"     , "wake"    , POS_SLEEPING, do_wake     , 0, 0 },
+  { "water"    , "wat"     , POS_SITTING , do_cast     , 1, SPELL_CREATE_WATER },
+  { "waterwalk", "waterw"  , POS_SITTING , do_cast     , 1, SPELL_WATERWALK },
   { "wear"     , "wea"     , POS_RESTING , do_wear     , 0, 0 },
   { "weather"  , "weather" , POS_RESTING , do_weather  , 0, 0 },
   { "who"      , "wh"      , POS_DEAD    , do_who      , 0, 0 },
   { "whois"    , "whoi"    , POS_RESTING , do_whois    , 0, 0 },
   { "whoami"   , "whoami"  , POS_DEAD    , do_gen_ps   , 0, SCMD_WHOAMI },
   { "where"    , "where"   , POS_RESTING , do_where    , 1, 0 },
+  { "whatis"   , "wha"     , POS_STANDING, do_not_here , 1, 0 },
   { "whisper"  , "whisper" , POS_RESTING , do_spec_comm, 0, SCMD_WHISPER },
   { "wield"    , "wie"     , POS_RESTING , do_wield    , 0, 0 },
   { "withdraw" , "withdraw", POS_STANDING, do_not_here , 1, 0 },
@@ -493,9 +582,11 @@ void command_interpreter(struct char_data *ch, char *argument)
 
   REMOVE_BIT_AR(AFF_FLAGS(ch), AFF_HIDE);
   
-  if (PRF_FLAGGED(ch, PRF_AFK))
-	do_gen_tog(ch, 0, 0, 19);  
-
+  if (!IS_NPC(ch) && PRF_FLAGGED(ch, PRF_AFK)) {
+    REMOVE_BIT_AR(PRF_FLAGS(ch), PRF_AFK);
+	act("$n has come back from AFK.", TRUE, ch, 0, 0, TO_ROOM);
+  }
+  
   /* just drop to next line for hitting CR */
   skip_spaces(&argument);
   if (!*argument)
@@ -565,7 +656,7 @@ void command_interpreter(struct char_data *ch, char *argument)
     }
   }
   else if (!IS_NPC(ch) && PLR_FLAGGED(ch, PLR_FROZEN) && GET_LEVEL(ch) < LVL_IMPL)
-    send_to_char(ch, "You try, but the mind-numbing cold prevents you...\r\n");
+    send_to_char(ch, "You try, but the mind-numbing cold prevents you...\r\n");  
   else if (complete_cmd_info[cmd].command_pointer == NULL)
     send_to_char(ch, "Sorry, that command hasn't been implemented yet.\r\n");
   else if (IS_NPC(ch) && complete_cmd_info[cmd].minimum_level >= LVL_IMMORT)
@@ -831,7 +922,7 @@ void skip_spaces(char **string)
   for (; **string && **string != '\t' && isspace(**string); (*string)++);
 }
 
-/* Given a string, change all instances of double dollar signs ($$) to single
+/* Given a string, change all instances of int dollar signs ($$) to single
  * dollar signs ($).  When strings come in, all $'s are changed to $$'s to
  * avoid having users be able to crash the system if the inputted string is
  * eventually sent to act().  If you are using user input to produce screen
@@ -875,9 +966,9 @@ int reserved_word(char *argument)
  * to 'first_arg'; return a pointer to the remainder of the string. */
 char *one_argument(char *argument, char *first_arg)
 {
-  char *begin = first_arg;
+  char *begin = first_arg;  
 
-  if (!argument) {
+  if (!argument) {	
     log("SYSERR: one_argument received a NULL pointer!");
     *first_arg = '\0';
     return (NULL);
@@ -1356,6 +1447,8 @@ void nanny(struct descriptor_data *d, char *arg)
     { CON_MSGEDIT, msgedit_parse },
     { -1, NULL }
   };
+  
+
 
   skip_spaces(&arg);
 
@@ -1622,15 +1715,40 @@ void nanny(struct descriptor_data *d, char *arg)
 		"What IS your sex? ");
       return;
     }
+	
+	write_to_output(d, "\r\nHow years old will have [between 11 and 100]?: ");
+    STATE(d) = CON_QAGE;
+    break;
 
-    write_to_output(d, "%s\r\nAura Type or Help: ", class_menu);
+  case CON_QAGE:  
+    if (is_number(arg)) {	  
+	  d->character->player.time.birth = atoi(arg);
+      if (d->character->player.time.birth < 11) {
+	    write_to_output(d, "Hey kiddo... valid only a number between 11 and 100: ");
+        return;
+      } else if (d->character->player.time.birth > 100) {
+	    write_to_output(d, "Listen granpa... valid only a number between 11 and 100: ");	
+	    return;		
+      }
+	} else {
+	  write_to_output(d, "Valid only a number between 11 and 100: ");
+	  return;
+    }
+	d->character->player.time.birth = time(0);
+	if (atoi(arg) < 17)
+	  d->character->player.time.birth -= ((atoi(arg) - 18) * SECS_PER_MUD_YEAR); 
+    else
+	  d->character->player.time.birth -= ((atoi(arg) - 17) * SECS_PER_MUD_YEAR);
+    write_to_output(d, "%s\r\nClass number or Help: ", class_menu);
     STATE(d) = CON_QCLASS;
-    break;   	  
+    break;
   
   case CON_QCLASS:
     load_result = parse_class(*arg);
     if (load_result == CLASS_UNDEFINED) {
-      write_to_output(d, "Invalid aura type, please select a valid aura type.\r\n\r\ne[N]hancer:     The warrior type, excellent for resist and do some physical damage.\r\n\r\n[E]mitter:      Can use aura to throw against others or enfold objects.\r\n\r\n[C]onjurer:     Has unique skills like exorcise, can create and modify objects.\r\n\r\n[T]ransmuter:   Bend aura to serve many purposes includes heal, protect and attack.\r\n\r\n[M]anipulator:  The mind controller, capable to blur or even control people's mind.\r\n\r\n[S]pecialist:   Only a gifted person can born as specialist or people who achieved maximum proficiency,\r\n                specialists can learn any skills as if it had all kinds of aura (remort only).\r\n\r\nChoose your Aura Type letter: ");
+//      write_to_output(d, "\r\nInvalid aura type, please select a valid aura type.\r\n\r\n1. Enhancer:     The warrior type, excellent for resist and do some physical damage.\r\n\r\n2. Emitter:      Can use aura to throw against others or enfold objects.\r\n\r\n3. Conjurer:     Has unique skills like exorcise, can create and modify objects.\r\n\r\n4. Transmuter:   Bend aura to serve many purposes includes heal, protect and attack.\r\n\r\n5. Manipulator:  The mind controller, capable to blur or even control people's mind.\r\n\r\n6. Specialist:   Only a gifted person can born as specialist or people who achieved maximum proficiency,\r\n                specialists can learn all skills at 100% but don't receive proper class bonuses.\r\n\r\nChoose your Aura Type number: ");
+	  write_to_output(d, "%s", help_table[search_help("classresume", 0)].entry);
+	  write_to_output(d, "\r\n\x1B[0;0mPlease, type the Aura Type number (\x1B[1;33m1~6\x1B[0;0m): ");
       return;
 	} else
       GET_CLASS(d->character) = load_result;
@@ -1640,18 +1758,121 @@ void nanny(struct descriptor_data *d, char *arg)
         d->olc = NULL;
       }
       if (GET_PFILEPOS(d->character) < 0)
-      GET_PFILEPOS(d->character) = create_entry(GET_PC_NAME(d->character));
+      GET_PFILEPOS(d->character) = create_entry(GET_PC_NAME(d->character)); 
+
     /* Now GET_NAME() will work properly. */
-    init_char(d->character);
-    save_char(d->character);
-    save_player_index();
+    init_char(d->character);  
 	
-	roll_real_abils(d->character);	
-	write_to_output(d, "\r\nRolled stats: Str [%d/%d]  Int [%d]  Wis [%d]  Dex [%d]  Con [%d]  Cha [%d]\r\n",
-	    GET_STR(d->character), GET_ADD(d->character), GET_INT(d->character), GET_WIS(d->character),
+	write_to_output(d, "%s\r\nSkin color number: ", skin_menu);
+    STATE(d) = CON_SKINCOLOR;
+    break;	
+  
+  case CON_SKINCOLOR:  
+    
+	if (is_number(arg)) {
+	  GET_SAVE(d->character, SAVING_PARA) = atoi(arg);
+	  if (GET_SAVE(d->character, SAVING_PARA) < 1 || GET_SAVE(d->character, SAVING_PARA) > 15){
+		write_to_output(d, "\r\nPlease, type a valid color number: ");
+	    return;
+      }
+	  if (GET_CLASS(d->character) != CLASS_SPECIALIST) {
+	    write_to_output(d, "%s\r\nEye color number: ", eye_menu);
+        STATE(d) = CON_EYECOLOR;            
+	  } else {
+		GET_SAVE(d->character, SAVING_ROD) = 8;
+		write_to_output(d, "%s\r\nHair style number: ", hair_menu);
+        STATE(d) = CON_HAIRSTYLE;
+	  }
+	} else {
+	  write_to_output(d, "\r\nPlease, type a valid color number: ");
+	  return;
+	}
+    break;	
+  
+  case CON_EYECOLOR:
+    if (is_number(arg)) {
+	  GET_SAVE(d->character, SAVING_ROD) = atoi(arg);
+	  if (GET_SAVE(d->character, SAVING_ROD) < 1 || GET_SAVE(d->character, SAVING_ROD) > 15){
+		write_to_output(d, "\r\nPlease, type a valid color number: ");
+	    return;
+      }
+	  write_to_output(d, "%s\r\nHair style number: ", hair_menu);
+      STATE(d) = CON_HAIRSTYLE;     
+	} else {
+	  write_to_output(d, "\r\nPlease, type a valid color number: ");
+	  return;
+	}
+    break;	
+	
+  
+  case CON_HAIRSTYLE:  
+    if (is_number(arg)) {
+      GET_SAVE(d->character, SAVING_PETRI) = atoi(arg);
+	  if (GET_SAVE(d->character, SAVING_PETRI) < 1 || GET_SAVE(d->character, SAVING_PETRI) > 15){
+		write_to_output(d, "\r\nPlease, type a valid hair style number: ");
+	    return;
+      }
+	  write_to_output(d, "%s\r\nHair color number: ", hcolor_menu);
+      STATE(d) = CON_HAIRCOLOR;
+	} else {
+	  write_to_output(d, "\r\nPlease, type a valid hair style number: ");
+	  return;
+	}
+    break;    
+  
+  case CON_HAIRCOLOR:
+    if (is_number(arg)) {
+	  GET_SAVE(d->character, SAVING_BREATH) = atoi(arg);
+      if (GET_SAVE(d->character, SAVING_BREATH) < 1 || GET_SAVE(d->character, SAVING_BREATH) > 15){
+		write_to_output(d, "\r\nPlease, type a valid color number: ");
+	    return;
+      }	  
+	} else {
+	  write_to_output(d, "\r\nPlease, type a valid color number: ");
+	  return;
+	}
+
+	write_to_output(d, "\r\nDid you ever played a Multi-user Dungeon (MUD) before?\r\n\r\n");
+	write_to_output(d, "1. MUD Tutorial Level (Learn the basics and advanced)\r\n");
+	write_to_output(d, "2. Greed Island Tutorial (Skip to advanced tutorials)\r\n");
+	write_to_output(d, "3. Skip Tutorials (Skip basic and advanced tutorials)\r\n");
+	write_to_output(d, "\r\nChoose one option between 1 and 3: ");
+    
+	STATE(d) = CON_TUTORIAL;
+	
+	break;
+	
+  case CON_TUTORIAL:
+  
+    if (is_number(arg)) {	  	  
+      switch (atoi(arg)) {
+		case 1:
+		  GET_LOADROOM(d->character) = 2800;
+		  break;
+		case 2:		  
+		  GET_LOADROOM(d->character) = 1401;
+		  GET_GOLD(d->character) = 1000;
+		  break;
+		case 3:
+		  GET_LOADROOM(d->character) = 1407;
+		  GET_GOLD(d->character) = 1000;
+		  break;
+		default:
+		  write_to_output(d, "Please select one option between 1 and 3: ");
+          return;		
+	  }
+	} else {
+	  write_to_output(d, "Please select one option between 1 and 3: ");
+	  return;
+    }
+	
+	roll_real_abils(d->character);    
+	  write_to_output(d, "\r\nPress ENTER or N to reroll or Y to accept.\r\n");
+	  write_to_output(d, "\r\nRolled stats: Str [%d]  Int [%d]  Wis [%d]  Dex [%d]  Con [%d]  Cha [%d]\r\n",
+	    GET_STR(d->character), GET_INT(d->character), GET_WIS(d->character),
 	    GET_DEX(d->character), GET_CON(d->character), GET_CHA(d->character));
-    write_to_output(d, "This stats are ok? [y/n] ");
-	STATE(d) = CON_REROLL;
+  write_to_output(d, "This stats are ok? [\t(y\t)/\t(n\t)]: ");
+	  STATE(d) = CON_REROLL;
 	
     /* make sure the last log is updated correctly. */
     GET_PREF(d->character)= rand_number(1, 128000);
@@ -1669,19 +1890,19 @@ void nanny(struct descriptor_data *d, char *arg)
   case CON_REROLL:
     if (!*arg) {
       roll_real_abils(d->character);
-	  write_to_output(d, "\r\nRolled stats: Str [%d/%d]  Int [%d]  Wis [%d]  Dex [%d]  Con [%d]  Cha [%d]\r\n",
-	      GET_STR(d->character), GET_ADD(d->character), GET_INT(d->character), GET_WIS(d->character),
+	  write_to_output(d, "\r\nRolled stats: Str [%d]  Int [%d]  Wis [%d]  Dex [%d]  Con [%d]  Cha [%d]\r\n",
+	      GET_STR(d->character), GET_INT(d->character), GET_WIS(d->character),
 	      GET_DEX(d->character), GET_CON(d->character), GET_CHA(d->character));
-      write_to_output(d, "This stats are ok? [y/n] ");
+      write_to_output(d, "This stats are ok? [\t(y\t)/\t(n\t)]: ");
 	}
 	switch (*arg) {
     case 'N':
 	case 'n':
 	  roll_real_abils(d->character);
-	  write_to_output(d, "\r\nRolled stats: Str [%d/%d]  Int [%d]  Wis [%d]  Dex [%d]  Con [%d]  Cha [%d]\r\n",
-	      GET_STR(d->character), GET_ADD(d->character), GET_INT(d->character), GET_WIS(d->character),
+	  write_to_output(d, "\r\nRolled stats: Str [%d]  Int [%d]  Wis [%d]  Dex [%d]  Con [%d]  Cha [%d]\r\n",
+	      GET_STR(d->character), GET_INT(d->character), GET_WIS(d->character),
 	      GET_DEX(d->character), GET_CON(d->character), GET_CHA(d->character));
-      write_to_output(d, "This stats are ok? [y/n]: ");
+      write_to_output(d, "This stats are ok? [\t(y\t)/\t(n\t)]: ");
 	  return;
 	case 'Y':
     case 'y':
@@ -1689,7 +1910,7 @@ void nanny(struct descriptor_data *d, char *arg)
       d->character->real_abils.wis = GET_WIS(d->character);
       d->character->real_abils.dex = GET_DEX(d->character);
       d->character->real_abils.str = GET_STR(d->character);
-      d->character->real_abils.str_add = GET_ADD(d->character);
+//      d->character->real_abils.str_add = GET_ADD(d->character);
       d->character->real_abils.con = GET_CON(d->character);
       d->character->real_abils.cha = GET_CHA(d->character);	
 	  break;
@@ -1698,6 +1919,9 @@ void nanny(struct descriptor_data *d, char *arg)
 	    write_to_output(d, "\r\nPlease just Y or N: ");
       return;
 	}
+
+    save_char(d->character);
+    save_player_index();
 	
 	write_to_output(d, "%s\r\n*** PRESS ENTER: ", motd);
     STATE(d) = CON_RMOTD;
@@ -1739,8 +1963,8 @@ void nanny(struct descriptor_data *d, char *arg)
 
       STATE(d) = CON_PLAYING;
       MXPSendTag( d, "<VERSION>" );
-      if (GET_LEVEL(d->character) == 0) {
-	do_start(d->character);
+      if (GET_LEVEL(d->character) == 0) {    
+	do_start(d->character);	
 	send_to_char(d->character, "%s", CONFIG_START_MESSG);
       }
       look_at_room(d->character, 0);
@@ -1748,7 +1972,7 @@ void nanny(struct descriptor_data *d, char *arg)
 	send_to_char(d->character, "You have mail waiting.\r\n");
       if (load_result == 2) {	/* rented items lost */
 	send_to_char(d->character, "\r\n\007You passed more than 10 days out!\r\n"
-		"Your possesions have been erased!\r\n");
+		"Your restricted cards been erased!\r\n");
       }
       d->has_prompt = 0;
       /* We've updated to 3.1 - some bits might be set wrongly: */
@@ -1847,7 +2071,12 @@ void nanny(struct descriptor_data *d, char *arg)
       STATE(d) = CON_MENU;
     }
     break;
-
+/*  case CON_QUIT:
+	if (!strcmp(arg, "yes") || !strcmp(arg, "YES"))
+	  STATE(d) = CON_MENU;
+	else
+	  STATE(d) = CON_PLAYING;
+	break;  */
   /* It is possible, if enough pulses are missed, to kick someone off while they
    * are at the password prompt. We'll let the game_loop()axe them. */
   case CON_CLOSE:

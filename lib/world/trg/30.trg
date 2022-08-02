@@ -436,21 +436,21 @@ Kind Soul Gives Newbie Equipment~
 ~
 if %direction% == south
 if !%actor.eq(*)%
-%load% obj 3037 %actor% light
-%load% obj 3082 %actor% neck1
-%load% obj 3082 %actor% neck2
-%load% obj 3043 %actor% body
-%load% obj 3076 %actor% head
-%load% obj 3081 %actor% legs
-%load% obj 3084 %actor% feet
-%load% obj 3071 %actor% hands
-%load% obj 3086 %actor% arms
-%load% obj 3042 %actor% shield
-%load% obj 3087 %actor% about
-%load% obj 3088 %actor% waist
-%load% obj 3089 %actor% rwrist
-%load% obj 3089 %actor% lwrist
-%load% obj 3023 %actor% wield
+%load%obj 3037 %actor% light
+%load%obj 3082 %actor% neck1
+%load%obj 3082 %actor% neck2
+%load%obj 3043 %actor% body
+%load%obj 3076 %actor% head
+%load%obj 3081 %actor% legs
+%load%obj 3084 %actor% feet
+%load%obj 3071 %actor% hands
+%load%obj 3086 %actor% arms
+%load%obj 3042 %actor% shield
+%load%obj 3087 %actor% about
+%load%obj 3088 %actor% waist
+%load%obj 3089 %actor% rwrist
+%load%obj 3089 %actor% lwrist
+%load%obj 3023 %actor% wield
 end
 end
 ~
@@ -460,24 +460,24 @@ Mortal Greet~
 ~
 wait 1 sec
 if %actor.level% < 2
-%load% obj 3037 %actor% light
-%load% obj 3083 %actor% rfinger
-%load% obj 3083 %actor% lfinger
-%load% obj 3082 %actor% neck1
-%load% obj 3082 %actor% neck2
-%load% obj 3043 %actor% body
-%load% obj 3076 %actor% head
-%load% obj 3081 %actor% legs
-%load% obj 3084 %actor% feet
-%load% obj 3071 %actor% hands
-%load% obj 3086 %actor% arms
-%load% obj 3042 %actor% shield
-%load% obj 3087 %actor% about
-%load% obj 3088 %actor% waist
-%load% obj 3089 %actor% rwrist
-%load% obj 3089 %actor% lwrist
-%load% obj 3023 %actor% wield
-%load% obj 18606 %actor% hold
+%load%obj 3037 %actor% light
+%load%obj 3083 %actor% rfinger
+%load%obj 3083 %actor% lfinger
+%load%obj 3082 %actor% neck1
+%load%obj 3082 %actor% neck2
+%load%obj 3043 %actor% body
+%load%obj 3076 %actor% head
+%load%obj 3081 %actor% legs
+%load%obj 3084 %actor% feet
+%load%obj 3071 %actor% hands
+%load%obj 3086 %actor% arms
+%load%obj 3042 %actor% shield
+%load%obj 3087 %actor% about
+%load%obj 3088 %actor% waist
+%load%obj 3089 %actor% rwrist
+%load%obj 3089 %actor% lwrist
+%load%obj 3023 %actor% wield
+%load%obj 18606 %actor% hold
 %purge% %actor.inventory(3037)%
 %purge% %actor.inventory(3083)%
 %purge% %actor.inventory(3083)%
@@ -499,7 +499,7 @@ if %actor.level% < 2
 end
 if %actor.level% =< 10
 %purge% %actor.inventory(18)%
-%load% obj 18 %actor% inv
+%load%obj 18 %actor% inv
 end
 ~
 #3018
@@ -508,29 +508,29 @@ Kind Soul Gives Newbie Equipment~
 ~
 if !%actor.eq(*)%
 say get some clothes on! Here, I will help.
-%load% obj 3037 %actor% light
-%load% obj 3083 %actor% rfinger
-%load% obj 3083 %actor% lfinger
-%load% obj 3082 %actor% neck1
-%load% obj 3082 %actor% neck2
-%load% obj 3040 %actor% body
-%load% obj 3076 %actor% head
-%load% obj 3080 %actor% legs
-%load% obj 3084 %actor% feet
-%load% obj 3071 %actor% hands
-%load% obj 3086 %actor% arms
-%load% obj 3042 %actor% shield
-%load% obj 3087 %actor% about
-%load% obj 3088 %actor% waist
-%load% obj 3089 %actor% rwrist
-%load% obj 3089 %actor% lwrist
-%load% obj 3021 %actor% wield
-%load% obj 3055 %actor% hold
-%load% obj 18 %actor% inv
-%load% obj 3010 %actor% inv
-%load% obj 3014 %actor% inv
-%load% obj 3018 %actor% inv
-%load% obj 3104 %actor% inv
+%load%obj 3037 %actor% light
+%load%obj 3083 %actor% rfinger
+%load%obj 3083 %actor% lfinger
+%load%obj 3082 %actor% neck1
+%load%obj 3082 %actor% neck2
+%load%obj 3040 %actor% body
+%load%obj 3076 %actor% head
+%load%obj 3080 %actor% legs
+%load%obj 3084 %actor% feet
+%load%obj 3071 %actor% hands
+%load%obj 3086 %actor% arms
+%load%obj 3042 %actor% shield
+%load%obj 3087 %actor% about
+%load%obj 3088 %actor% waist
+%load%obj 3089 %actor% rwrist
+%load%obj 3089 %actor% lwrist
+%load%obj 3021 %actor% wield
+%load%obj 3055 %actor% hold
+%load%obj 18 %actor% inv
+%load%obj 3010 %actor% inv
+%load%obj 3014 %actor% inv
+%load%obj 3018 %actor% inv
+%load%obj 3104 %actor% inv
 say There, take some coins and buy something for you.
 give 1000 coins %actor.name%
 halt
@@ -538,7 +538,7 @@ end
 if !%actor.eq(light)%
 Say you really shouldn't be wandering these parts without a light source %actor.name%.
 shake
-%load% obj 3037
+%load%obj 3037
 give candle %actor.name%
 halt
 end
@@ -562,11 +562,11 @@ Temple heal~
 set actor %random.char%
 if %actor.hunger% == 0 && %actor.thirst% == 0
 if %actor.hitp% < %actor.maxhitp%
-eval h %actor.level% / 4
+eval h %actor.maxhitp% / 50
 %damage% %actor% -%h%
 end
 if %actor.mana% < %actor.maxmana%
-eval m %actor.level% / 4
+eval m %actor.maxmana% / 50
 nop %actor.mana(%m%)%
 if %actor.mana% > %actor.maxmana%
 eval m %actor.maxmana% - %actor.mana%
@@ -583,13 +583,13 @@ end
 end
 halt
 end
-if %actor.hunger% == 0
+if %actor.hunger% == 0 && %actor.thirst% > 0
 if %actor.hitp% < %actor.maxhitp%
-eval h %actor.level% / 2
+eval h %actor.maxhitp% / 20
 %damage% %actor% -%h%
 end
 if %actor.mana% < %actor.maxmana%
-eval m %actor.level% / 2
+eval m %actor.maxmana% / 50
 nop %actor.mana(%m%)%
 if %actor.mana% > %actor.maxmana%
 eval m %actor.maxmana% - %actor.mana%
@@ -606,13 +606,13 @@ end
 end
 halt
 end
-if %actor.thirst% == 0
+if %actor.thirst% == 0 && %actor.hunger% > 0
 if %actor.hitp% < %actor.maxhitp%
-eval h %actor.level% / 2
+eval h %actor.maxhitp% / 50
 %damage% %actor% -%h%
 end
 if %actor.mana% < %actor.maxmana%
-eval m %actor.level% / 2
+eval m %actor.maxmana% / 20
 nop %actor.mana(%m%)%
 if %actor.mana% > %actor.maxmana%
 eval m %actor.maxmana% - %actor.mana%
@@ -630,14 +630,14 @@ end
 halt
 end
 if %actor.hitp% < %actor.maxhitp%
-%damage% %actor% -%actor.level%
+eval h %actor.maxhitp% / 20
+%damage% %actor% -%h%
 end
 if %actor.mana% < %actor.maxmana%
-set m %actor.level%
+eval m %actor.maxmana% / 20
 nop %actor.mana(%m%)%
 if %actor.mana% > %actor.maxmana%
-eval m %actor.maxmana% - %actor.mana%
-nop %actor.mana(%m%)%
+nop %actor.mana(%actor.maxmana%)%
 end
 end
 if %actor.move% < %actor.maxmove%
@@ -649,11 +649,178 @@ nop %actor.move(%v%)%
 end
 end
 ~
+#3021
+master heal players~
+0 ab 100
+~
+set player %random.char%
+dg_cast 'nen cure' %player.name%
+dg_cast 'nen cure' %player.name%
+dg_cast 'heal' %player.name%
+say Keep going %player.name%, or I'll make you do 1000 pushups!
+~
+#3030
+Defensive spell stock~
+2 f 100
+~
+set actor %self.people% 
+while %actor% 
+  set tmp_target %actor.next_in_room% 
+  if !%actor.is_pc% && %actor.vnum(3036)%
+    %load% obj 1003 %actor% inv
+    %load% obj 1003 %actor% inv
+    %load% obj 1003 %actor% inv
+    %load% obj 1003 %actor% inv
+    %load% obj 1004 %actor% inv
+    if %random.5% == 5
+      %load% obj 1004 %actor% inv
+    end
+    %load% obj 1019 %actor% inv
+    %load% obj 1019 %actor% inv
+    %load% obj 1025 %actor% inv
+    %load% obj 1025 %actor% inv
+	if %random.5% == 5
+    %load% obj 1026 %actor% inv
+	end
+    if %random.10% == 10
+      %load% obj 1035 %actor% inv
+    end
+    if %random.10% == 10
+      %load% obj 1036 %actor% inv
+    end
+  end 
+  set actor %tmp_target% 
+done 
+~
+#3031
+Regular spell stock~
+2 f 100
+~
+set actor %self.people% 
+while %actor% 
+  set tmp_target %actor.next_in_room% 
+  if !%actor.is_pc% && %actor.vnum(3000)%
+    %load% obj 1001 %actor% inv
+    %load% obj 1001 %actor% inv
+    %load% obj 1002 %actor% inv
+    if %random.2% == 2
+      %load% obj 1002 %actor% inv
+    end
+    if %random.2% == 2
+      %load% obj 1005 %actor% inv
+    end
+    %load% obj 1009 %actor% inv
+    %load% obj 1009 %actor% inv
+    %load% obj 1009 %actor% inv
+    if %random.10% > 2
+      %load% obj 1009 %actor% inv
+    end
+    if %random.5% == 5
+      %load% obj 1010 %actor% inv
+    end
+    if %random.10% > 3
+      %load% obj 1011 %actor% inv
+    end
+    %load% obj 1012 %actor% inv
+    if %random.10% > 6
+      %load% obj 1012 %actor% inv
+    end
+    if %random.100% > 35
+      %load% obj 1013 %actor% inv
+    end
+    if %random.10% > 7
+      %load% obj 1014 %actor% inv
+    end
+    if %random.10% > 3
+      %load% obj 1015 %actor% inv
+    end
+    %load% obj 1016 %actor% inv
+    %load% obj 1016 %actor% inv
+    %load% obj 1017 %actor% inv
+    %load% obj 1017 %actor% inv
+    if %random.10% > 6
+      %load% obj 1020 %actor% inv
+    end
+    if %random.10% > 2
+      %load% obj 1024 %actor% inv
+    end
+    %load% obj 1030 %actor% inv
+    if %random.5% == 5
+      %load% obj 1030 %actor% inv
+    end
+	%load% obj 1031 %actor% inv
+	%load% obj 1031 %actor% inv
+	%load% obj 1031 %actor% inv
+	%load% obj 1031 %actor% inv
+    %load% obj 1032 %actor% inv
+    %load% obj 1032 %actor% inv
+    %load% obj 1032 %actor% inv
+    if %random.2% == 2
+      %load% obj 1032 %actor% inv
+    end
+    if %random.100% > 45
+      %load% obj 1034 %actor% inv
+    end
+    %load% obj 1037 %actor% inv
+    if %random.10% > 3
+      %load% obj 1037 %actor% inv
+    end
+    %load% obj 1038 %actor% inv
+    %load% obj 1038 %actor% inv
+    %load% obj 1038 %actor% inv
+    if %random.2% == 2
+      %load% obj 1038 %actor% inv
+    end
+    %load% obj 1039 %actor% inv
+    if %random.10% > 7
+      %load% obj 1039 %actor% inv
+    end
+    %load% obj 1040 %actor% inv
+    %load% obj 1040 %actor% inv
+  end 
+  set actor %tmp_target% 
+done 
+~
+#3032
+Attack spell stock~
+2 f 100
+~
+set actor %self.people% 
+while %actor% 
+  set tmp_target %actor.next_in_room% 
+  if !%actor.is_pc% && %actor.vnum(3035)%
+    %load% obj 1006 %actor% inv
+    if %random.10% > 3
+      %load% obj 1006 %actor% inv
+    end
+    if %random.2% == 2
+      %load% obj 1007 %actor% inv
+    end
+    %load% obj 1008 %actor% inv
+    if %random.4% == 4
+      %load% obj 1018 %actor% inv
+    end
+    if %random.10% > 7
+      %load% obj 1021 %actor% inv
+    end
+    if %random.10% != 1
+      %load% obj 1027 %actor% inv
+    end
+    %load% obj 1028 %actor% inv
+    if %random.4% == 4
+      %load% obj 1029 %actor% inv
+    end
+    if %random.2% == 2
+      %load% obj 1033 %actor% inv
+    end
+  end 
+  set actor %tmp_target% 
+done 
+~
 #3033
 wizard spell store~
 0 ab 100
 ~
-%at% 3034 get all.card
 switch %random.99%
 case 99
 say I am too tired to give explanations about cards...
@@ -677,84 +844,82 @@ wait 13 sec
 wizard spell store 2~
 0 ab 100
 ~
-%at% 3038 get all.card
 set actor %random.char%
 if %actor.is_pc% == 1
-switch %random.20%
-case 1
-say You come to the right place!
-break
-case 2
-say Welcome to best shop EVER!
-break
-case 3
-smile %actor.name%
-break
-case 4
-grin %actor.name%
-break
-case 5
-curtsey %actor.name%
-break
-case 6
-shake %actor.name%
-break
-case 7
-hug %actor.name%
-say Attack spells... attack spells everywhere!
-break
-case 8
-say Rob is the best attack spell EVER! Make someone cry RIGHT NOW!
-break
-case 9
-say Levy is the best attack spell EVER! Make other people cry RIGHT NOW!
-break
-case 10
-say Did you would be interested in making a card from our store?
-wait 2 sec
-say What I'm saying?! WE sell cards!
-laugh
-break
-case 11
-handraise %actor.name%
-break
-case 12
-handshake %actor.name%
-break
-case 13
-salute %actor.name%
-break
-case 14
-salute
-break
-case 15
-cough
-break
-case 16
-sneeze
-break
-case 17
-yawn
-break
-case 18
-stretch
-break
-case 19
-cheers %actor.name%
-break
-case 20
-comb
-break
-default
-break
-done
+  switch %random.20%
+    case 1
+      say You come to the right place!
+    break
+    case 2
+      say Welcome to best shop EVER!
+    break
+    case 3
+      smile %actor.name%
+    break
+    case 4
+      grin %actor.name%
+    break
+    case 5
+      curtsey %actor.name%
+    break
+    case 6
+      shake %actor.name%
+    break
+    case 7
+      hug %actor.name%
+      say Attack spells... attack spells everywhere!
+    break
+    case 8
+      say Rob is the best attack spell EVER! Make someone cry RIGHT NOW!
+    break
+    case 9
+      say Levy is the best attack spell EVER! Make other people cry RIGHT NOW!
+    break
+    case 10
+      say Did you would be interested in making a card from our store?
+      wait 2 sec
+      say What I'm saying?! WE sell cards!
+      laugh
+    break
+    case 11
+      handraise %actor.name%
+    break
+    case 12
+      handshake %actor.name%
+    break
+    case 13
+      salute %actor.name%
+    break
+    case 14
+      salute
+    break
+    case 15
+      cough
+    break
+    case 16
+      sneeze
+    break
+    case 17
+      yawn
+    break
+    case 18
+      stretch
+    break
+    case 19
+      cheers %actor.name%
+    break
+    case 20
+      comb
+    break
+    default
+    break
+  done
 end
 ~
 #3036
 wizard spell store 3~
 0 ab 100
 ~
-%at% 3039 get all.card
 switch %random.60%
 case 10
 say Defensive Wall spell protect against one attack spell about to be casted on you.
@@ -824,7 +989,7 @@ end
 if %cmd% == gain && %actor.eq(hold).id% /= %self.id%
 %force% %actor% say GAIN!
 wait 1 sec
-%load% obj 3166 %actor% inv
+%load%obj 3166 %actor% inv
 %send% %actor% Your %self.shortdesc% turns into %actor.inventory.shortdesc%.
 %echoaround% %actor% %actor.name%'s %self.shortdesc% turns into %actor.inventory.shortdesc%.
 %purge% %self%

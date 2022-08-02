@@ -1231,10 +1231,17 @@ eval present3 %present2% + %random.4%
 %send% %actor% You begin unwrapping the present.
 %echoaround% %actor% %actor.name% begins unwrapping %actor.hisher% present.
 wait 1 s
+set prev %actor.inventory%
 %load% obj %present3% %actor% inv
 eval inv %actor.inventory%
-%echo% As the wrapping falls apart, it reveals... %inv.shortdesc%.
-%purge% %self%
+if %prev.id% == %inv.id%
+  %echo% As the wrapping falls apart, it reveals... %self.shortdesc%.
+  wait 1 sec
+  %send% %actor% It seems you fell in a practical joke...
+else
+  %echo% As the wrapping falls apart, it reveals... %inv.shortdesc%.
+  %purge% %self%
+end
 ~
 #1974
 testing2~

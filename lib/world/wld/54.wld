@@ -272,6 +272,10 @@ desert.
 to the north.
 ~
 54 4 0 0 0 1
+D0
+~
+gate~
+1 5401 5413
 D2
 ~
 ~
@@ -313,7 +317,7 @@ D0
 D2
 ~
 gate~
-1 0 40099
+1 5401 5411
 S
 #5414
 Northwestern Market Square~
@@ -541,7 +545,7 @@ D2
 D3
 ~
 gate~
-1 0 40031
+1 0 5495
 S
 #5424
 West Main Street~
@@ -969,7 +973,7 @@ D0
 D2
 ~
 ~
-3 0 40094
+0 0 5486
 S
 #5444
 West Casbah~
@@ -1872,5 +1876,19 @@ D1
 ~
 ~
 0 0 5508
+S
+#5495
+Entrance To Rabicuta~
+
+~
+54 98304 0 0 0 1
+D1
+~
+gate~
+1 0 5423
+D3
+~
+~
+0 0 40030
 S
 $~

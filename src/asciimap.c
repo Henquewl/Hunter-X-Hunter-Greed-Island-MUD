@@ -21,6 +21,8 @@
 #include "house.h"
 #include "constants.h"
 #include "dg_scripts.h"
+#include "class.h"
+#include "shop.h"
 #include "asciimap.h"
 
 /******************************************************************************
@@ -42,6 +44,11 @@
 #define SECT_EMPTY 30 /* anything greater than num sect types */
 #define SECT_STRANGE (SECT_EMPTY + 1)
 #define SECT_HERE  (SECT_STRANGE + 1)
+#define SECT_PLAYER (SECT_HERE + 1)
+#define SECT_MOB (SECT_PLAYER + 1)
+#define SECT_DARK (SECT_MOB + 1)
+#define SECT_SAFE (SECT_DARK + 1)
+#define SECT_SHOP (SECT_SAFE + 1)
 
 #define DOOR_NS   -1
 #define DOOR_EW   -2
@@ -63,6 +70,7 @@
 
 #define MAP_NORMAL  0
 #define MAP_COMPACT 1
+#define MAP_MOBILE 2
 
 static bool show_worldmap(struct char_data *ch);
 
@@ -111,19 +119,19 @@ static struct map_info_type compact_door_info[] =
 /* New sectors also need to be added to the perform_map function below */
 static struct map_info_type map_info[] =
 {
-  { SECT_INSIDE,       "\tc[\tn.\tc]\tn" }, /* 0 */
-  { SECT_CITY,         "\tc[\tyR\tc]\tn" },
-  { SECT_FIELD,        "\tc[\tg,\tc]\tn" },
-  { SECT_FOREST,       "\tc[\tGF\tc]\tn" },
-  { SECT_HILLS,        "\tc[\twH\tc]\tn" },
-  { SECT_MOUNTAIN,     "\tc[\tDM\tc]\tn" }, /* 5 */
-  { SECT_WATER_SWIM,   "\tc[\tc~\tc]\tn" },
-  { SECT_WATER_NOSWIM, "\tc[\tB=\tc]\tn" },
-  { SECT_FLYING,       "\tc[\tC^\tc]\tn" },
-  { SECT_UNDERWATER,   "\tc[\tbU\tc]\tn" },
-  { -1,                ""        }, /* 10 */
-  { -1,                ""        },
-  { -1,                ""        },
+  { SECT_INSIDE,       "\tc[\ty.\tc]\tn"  }, /* 0 */
+  { SECT_CITY,         "\tc[\tW.\tc]\tn"  },
+  { SECT_FIELD,        "\tc[\tg.\tc]\tn"  },
+  { SECT_FOREST,       "\tc[\tG.\tc]\tn"  },
+  { SECT_HILLS,        "\tc[\ty^\tc]\tn"  },
+  { SECT_MOUNTAIN,     "\tc[\tW^\tc]\tn"  }, /* 5 */
+  { SECT_WATER_SWIM,   "\tc[\tB~\tc]\tn"  },
+  { SECT_WATER_NOSWIM, "\tc[\tb~\tc]\tn"  },
+  { SECT_FLYING,       "\tc[\tW~\tc]\tn"  },
+  { SECT_UNDERWATER,   "\tc[\tD~\tc]\tn"  },
+  { SECT_CRATER,       "\tc[\tD@\tc]\tn"  },  /* 10 */
+  { SECT_TREE,         "\tc[\tg@\tc]\tn"  },
+  { SECT_TRUNK,        "\tc[\ty|\tc]\tn"  },
   { -1,                ""        },
   { -1,                ""        },
   { -1,                ""        }, /* 15 */
@@ -142,25 +150,30 @@ static struct map_info_type map_info[] =
   { -1,                ""        },
   { -1,                ""        },
   { SECT_EMPTY,        "   "     }, /* 30 */
-  { SECT_STRANGE,      "\tc[\tR?\tc]\tn" },
+  { SECT_STRANGE,      "\tc[\tn?\tc]\tn" },
   { SECT_HERE,         "\tc[\tC*\tc]\tn"     },
+  { SECT_PLAYER,	   "\tc[\tR*\tc]\tn" },
+  { SECT_MOB,	   "\tc[\ty*\tc]\tn" },
+  { SECT_DARK,	   "\tc[\tD.\tc]\tn" },
+  { SECT_SAFE,	   "\tc[\tY.\tc]\tn" },
+  { SECT_SHOP,	   "\tc[\tM*\tc]\tn" },
 };
 
 static struct map_info_type world_map_info[] =
 {
-  { SECT_INSIDE,       "\tw."  }, /* 0 */
-  { SECT_CITY,         "\tWC"  },
-  { SECT_FIELD,        "\tG,"  },
-  { SECT_FOREST,       "\tgY"  },
-  { SECT_HILLS,        "\tyH"  },
-  { SECT_MOUNTAIN,     "\tDM"  }, /* 5 */
-  { SECT_WATER_SWIM,   "\tc~"  },
-  { SECT_WATER_NOSWIM, "\tB="  },
-  { SECT_FLYING,       "\tC^"  },
-  { SECT_UNDERWATER,   "\tbU"  },
-  { -1,                ""     }, /* 10 */
-  { -1,                ""     },
-  { -1,                ""     },
+  { SECT_INSIDE,       "\ty."  }, /* 0 */
+  { SECT_CITY,         "\tW."  },
+  { SECT_FIELD,        "\tg."  },
+  { SECT_FOREST,       "\tG."  },
+  { SECT_HILLS,        "\ty^"  },
+  { SECT_MOUNTAIN,     "\tW^"  }, /* 5 */
+  { SECT_WATER_SWIM,   "\tB~"  },
+  { SECT_WATER_NOSWIM, "\tb~"  },
+  { SECT_FLYING,       "\tW~"  },
+  { SECT_UNDERWATER,   "\tD~"  },
+  { SECT_CRATER,       "\tD@"  },  /* 10 */
+  { SECT_TREE,         "\tg@"  },
+  { SECT_TRUNK,        "\ty|"  },
   { -1,                ""     },
   { -1,                ""     },
   { -1,                ""     }, /* 15 */
@@ -178,13 +191,20 @@ static struct map_info_type world_map_info[] =
   { -1,                ""     },
   { -1,                ""     },
   { -1,                ""     },
-  { SECT_EMPTY,        " "    }, /* 30 */
-  { SECT_STRANGE,      "\tR?"  },
+  { SECT_EMPTY,        "\tg^"  }, /* 30 */
+  { SECT_STRANGE,      "\tn?"  },
   { SECT_HERE,         "\tC*"  },
+  { SECT_PLAYER,       "\tR*"  },
+  { SECT_MOB, 	       "\ty*"  },
+  { SECT_DARK, 	       "\tD."  },
+  { SECT_SAFE, 	       "\tY."  },
+  { SECT_SHOP, 	       "\tM*"  },
 };
 
 
 static int map[MAX_MAP][MAX_MAP];
+static int cnt_nearby;
+static int nearby[32];
 /*
 static int offsets[4][2] ={ {-2, 0},{ 0, 2},{ 2, 0},{ 0, -2} };
 static int offsets_worldmap[4][2] ={ {-1, 0},{ 0, 1},{ 1, 0},{ 0, -1} };
@@ -203,6 +223,7 @@ static int vdoor_marks[4] = { VDOOR_NS, VDOOR_EW, VDOOR_NS, VDOOR_EW };
 /******************************************************************************
  * Begin Local (File Scope) Function Prototypes
  *****************************************************************************/
+static void player_sense(struct char_data *ch);
 static void MapArea(room_rnum room, struct char_data *ch, int x, int y, int min, int max, sh_int xpos, sh_int ypos, bool worldmap);
 static char *StringMap(int centre, int size);
 static char *WorldMap(int centre, int size, int mapshape, int maptype );
@@ -223,23 +244,88 @@ bool can_see_map(struct char_data *ch) {
   return TRUE;
 }
 
+static void player_sense(struct char_data *ch)
+{
+  struct char_data *i;
+  struct descriptor_data *d;
+  int cnt;
+  bool found = FALSE;
+
+  if (!ch)
+    return;
+
+    for (d = descriptor_list; d; d = d->next) {	  
+      if (STATE(d) != CON_PLAYING || d->character == ch)
+		continue;
+      if ((i = (d->original ? d->original : d->character)) == NULL)
+		continue;
+      if (IN_ROOM(i) == NOWHERE || !CAN_SEE(ch, i) || (IS_DARK(IN_ROOM(i)) && !CAN_SEE_IN_DARK(ch)) || (GET_HIT(i) <= 5 && !IS_NPC(i)))
+		continue;
+	  if (GET_SKILL(ch, SKILL_ANALYSIS) < 100) {
+		found = TRUE;
+	    goto end;
+	  }
+	  for (cnt = 0; cnt < cnt_nearby; cnt++) {
+		if (!found && nearby[cnt] == GET_IDNUM(i)) {
+		  send_to_char(ch, "\tc[ Players Nearby: %s%s ", CLASS_COLOR(i), GET_NAME(i));
+		  found = TRUE;
+	    } else if (found && nearby[cnt] == GET_IDNUM(i))
+	      send_to_char(ch, "\tc| %s%s ", CLASS_COLOR(i), GET_NAME(i));	    
+	  }	  
+    }
+  
+  if (found)
+	send_to_char(ch, "\tc]\tn\r\n");
+  end:
+  if (GET_SKILL(ch, SKILL_ANALYSIS) < 100 && found)
+	send_to_char(ch, "\r\nYou feel the presence of players nearby in this area.\r\n");
+  cnt_nearby = 0;
+  return;
+}
+
 /* MapArea function - create the actual map */
 static void MapArea(room_rnum room, struct char_data *ch, int x, int y, int min, int max, sh_int xpos, sh_int ypos, bool worldmap)
 {
   room_rnum prospect_room;
   struct room_direction_data *pexit;
+  struct char_data *player;
   int door, ew_size=0, ns_size=0, x_exit_pos=0, y_exit_pos=0;
   sh_int prospect_xpos, prospect_ypos;
 
   if (map[x][y] < 0)
     return; /* this is a door */
 
-  /* marks the room as visited */
-  if(room == IN_ROOM(ch))
+  /* Check if is dark or has players and marks the room as visited */
+  if ((IS_DARK(room) && !CAN_SEE_IN_DARK(ch)) || AFF_FLAGGED(ch, AFF_BLIND))
+	map[x][y] = SECT_DARK;
+  else if (room == IN_ROOM(ch))
     map[x][y] = SECT_HERE;
+  else if (ROOM_FLAGGED(room, ROOM_PEACEFUL))
+	map[x][y] = SECT_SAFE;
+  else if (ROOM_FLAGGED(room, ROOM_CRATER))
+	map[x][y] = SECT_CRATER;
   else
-    map[x][y] = SECT(room);
-
+    map[x][y] = SECT(room);	 
+  
+  if (world[room].people) {
+	  for (player = world[room].people; player; player = player->next_in_room) {
+	    if (!IS_NPC(player) && player != ch && CAN_SEE(ch, player) && GET_HIT(player) > 5) { 
+		  if (map[x][y] == SECT(room) || map[x][y] == SECT_SAFE)
+		    map[x][y] = SECT_PLAYER;
+		  if (!cnt_nearby)
+		    cnt_nearby = 0;
+		  nearby[cnt_nearby] = GET_IDNUM(player);
+		  cnt_nearby++;
+		  break;
+		} else if (!worldmap && IS_NPC(player) && CAN_SEE(ch, player)) {
+		  if (GET_MOB_SPEC(player))
+		    map[x][y] = SECT_SHOP;	
+	      else
+		    map[x][y] = SECT_MOB;
+		}
+	  }
+    }
+  
   if ( (x < min) || ( y < min) || ( x > max ) || ( y > max) ) return;
 
   /* Check for exits */
@@ -261,8 +347,11 @@ static void MapArea(room_rnum room, struct char_data *ch, int x, int y, int min,
     if ( (pexit = world[room].dir_option[door]) != NULL  &&
          (pexit->to_room > 0 ) && (pexit->to_room != NOWHERE) &&
          (!IS_SET(pexit->exit_info, EX_CLOSED)) &&
-         (!IS_SET(pexit->exit_info, EX_HIDDEN) || PRF_FLAGGED(ch, PRF_HOLYLIGHT)) )
+         (!IS_SET(pexit->exit_info, EX_HIDDEN) || PRF_FLAGGED(ch, PRF_HOLYLIGHT) || (AFF_FLAGGED(ch, AFF_INFRAVISION) && AFF_FLAGGED(ch, AFF_DETECT_INVIS))) )
     { /* A real exit */
+	
+	if (ROOM_FLAGGED(pexit->to_room, ROOM_DARK) && !CAN_SEE_IN_DARK(ch))
+	  continue;
 
       /* But is the door here... */
       switch (door) {
@@ -382,9 +471,9 @@ static char *StringMap(int centre, int size)
 
 static char *WorldMap(int centre, int size, int mapshape, int maptype )
 {
-  static char strmap[MAX_MAP*MAX_MAP*4 + MAX_MAP*2 + 1];
+  static char strmap[MAX_MAP*MAX_MAP*4 + MAX_MAP*2 + 1], buf[MAX_STRING_LENGTH];
   char *mp = strmap;
-  int x, y;
+  int x, y/*, i, u = 1*/;
   int xmin, xmax, ymin, ymax;
 
   switch(maptype) {
@@ -394,32 +483,59 @@ static char *WorldMap(int centre, int size, int mapshape, int maptype )
       ymin = centre - 2*size;
       ymax = centre + 2*size;
       break;
+	case MAP_MOBILE:
+	  xmin = centre - CANVAS_HEIGHT/2;
+      xmax = centre + CANVAS_HEIGHT/2;
+      ymin = centre - CANVAS_HEIGHT/2;
+      ymax = centre + CANVAS_HEIGHT/2;
+	  break;
     default:
       xmin = centre - CANVAS_HEIGHT/2;
       xmax = centre + CANVAS_HEIGHT/2;
       ymin = centre - CANVAS_WIDTH/2;
       ymax = centre + CANVAS_WIDTH/2;
-  }
-
+  }  
 
   /* every row */
   /* for (x = centre - size; x <= centre + size; x++) { */
   for (x = xmin; x <= xmax; x++) {
     /* every column */
     /* for (y = centre - (2*size) ; y <= centre + (2*size) ; y++) {  */
-    for (y = ymin ; y <= ymax ; y++) {
-
-      if((mapshape == MAP_RECTANGLE && abs(centre - y) <= size*2  && abs(centre - x) <= size ) ||
-   ((mapshape == MAP_CIRCLE) && (centre-x)*(centre-x) + (centre-y)*(centre-y)/4 <= (size * size + 1))) {
+    for (y = (ymin - 1); y <= (ymax + 1) ; y++) {
+		
+	if (y == (ymin - 1))
+	  strcpy(mp++, "[");
+    else if (y == (ymax + 1)) {
+	  sprintf(buf, "\tn]");
+	  strcpy(mp, buf);
+	  mp += strlen(buf);
+	} else if(((mapshape == MAP_RECTANGLE && abs(centre - y) <= size*2  && abs(centre - x) <= size ) ||
+   ((mapshape == MAP_CIRCLE) && (centre-x)*(centre-x) + (centre-y)*(centre-y)/4 <= (size * size + 1))) && (y <= ymax)) {
         strcpy(mp, world_map_info[map[x][y]].disp);
         mp += strlen(world_map_info[map[x][y]].disp);
       } else {
- strcpy(mp++, " ");
-      }
-    }
+/*		if (y == (ymax + 1))
+		  strcpy(mp++, "[");
+		else if (y == (ymax + 2)) {
+		  strcpy(mp, "\tn\r\n");
+		  if (i >= 0)
+		    sprintf(buf, "%d", i);		    
+		  else {
+			sprintf(buf, "%d", u);		    
+		    u++;
+		  }
+		  i--;
+		  strcpy(mp++, buf);
+		} else if (y == (ymax + 3))
+		  strcpy(mp++, "]");
+	    else
+*/		  strcpy(mp++, " ");
+      }	  
+		
+    }	
     strcpy(mp, "\tn\r\n");
     mp+=4;
-  }
+  }  
   *mp='\0';
   return strmap;
 }
@@ -453,30 +569,31 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
 {
   int size = DEFAULT_MAP_SIZE;
   int centre, x, y, min, max;
-  char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH], buf[MAX_STRING_LENGTH], buf1[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH];
+  char arg[MAX_INPUT_LENGTH], buf[MAX_STRING_LENGTH], buf1[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH];
   int count = 0;
   int ew_size=0, ns_size=0;
   int mapshape = MAP_CIRCLE;
 
-  two_arguments( argument, arg1 , arg2 );
-  if(*arg1)
+  one_argument(argument, arg);
+  
+  size = 4 + (GET_LEVEL(ch) / 4);
+  
+  if (*arg)
   {
-    size = atoi(arg1);
-  }
-  if (*arg2)
-  {
-    if (is_abbrev(arg2, "normal")) worldmap=FALSE;
-    else if (is_abbrev(arg2, "world")) worldmap=TRUE;
+    if (is_abbrev(arg, "normal")) worldmap=FALSE;
+    else if (is_abbrev(arg, "world")) worldmap=TRUE;
     else {
-      send_to_char(ch, "Usage: \tymap <distance> [ normal | world ]\tn");
+      send_to_char(ch, "Usage: \tymap [ normal | world ]\tn");
       return;
     }
   }
-
-  if(size<0) {
-    size = -size;
+  
+  if (AFF_FLAGGED(ch, AFF_FLYING))
     mapshape = MAP_RECTANGLE;
-  }
+
+  if(size<0)
+    size = -size;    
+  
   size = URANGE(1,size,MAX_MAP_SIZE);
 
   centre = MAX_MAP/2;
@@ -495,7 +612,8 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
            map[x][y]= (!(y%2) && !worldmap) ? DOOR_NONE : SECT_EMPTY;
 
   /* starts the mapping with the centre room */
-  MapArea(IN_ROOM(ch), ch, centre, centre, min, max, ns_size/2, ew_size/2, worldmap);
+  
+    MapArea(IN_ROOM(ch), ch, centre, centre, min, max, ns_size/2, ew_size/2, worldmap);
 
   /* marks the center, where ch is */
   map[centre][centre] = SECT_HERE;
@@ -504,9 +622,36 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
   send_to_char(ch, " \tY-\tyGreed Island Map System\tY-\tn\r\n"
                    "\tD  .-.__--.,--.__.-.\tn\r\n" );
 
+  if (worldmap) {
+  count += sprintf(buf + count, "\tn%s -> You\\\\", world_map_info[SECT_HERE].disp);
+  count += sprintf(buf + count, "\tn%s -> Player\\\\", world_map_info[SECT_PLAYER].disp);
+  count += sprintf(buf + count, "\tn%s -> Safe\\\\", world_map_info[SECT_SAFE].disp);
+  count += sprintf(buf + count, "\tn%s -> Dark\\\\", world_map_info[SECT_DARK].disp);
+  count += sprintf(buf + count, "\tn%s -> Wilderness\\\\", world_map_info[SECT_EMPTY].disp);
+  count += sprintf(buf + count, "\tn%s -> Displaced\\\\", world_map_info[SECT_STRANGE].disp);
+  count += sprintf(buf + count, "\tn%s -> Place\\\\", world_map_info[SECT_INSIDE].disp);
+  count += sprintf(buf + count, "\tn%s -> Road\\\\", world_map_info[SECT_CITY].disp);
+  count += sprintf(buf + count, "\tn%s -> Field\\\\", world_map_info[SECT_FIELD].disp);
+  count += sprintf(buf + count, "\tn%s -> Forest\\\\", world_map_info[SECT_FOREST].disp);
+  count += sprintf(buf + count, "\tn%s -> Hills\\\\", world_map_info[SECT_HILLS].disp);
+  count += sprintf(buf + count, "\tn%s -> Mountain\\\\", world_map_info[SECT_MOUNTAIN].disp);
+  count += sprintf(buf + count, "\tn%s -> Shallow\\\\", world_map_info[SECT_WATER_SWIM].disp);
+  count += sprintf(buf + count, "\tn%s -> Deep\\\\", world_map_info[SECT_WATER_NOSWIM].disp);
+  count += sprintf(buf + count, "\tn%s -> Flying\\\\", world_map_info[SECT_FLYING].disp);
+  count += sprintf(buf + count, "\tn%s -> Underwater\\\\", world_map_info[SECT_UNDERWATER].disp);
+  count += sprintf(buf + count, "\tn%s -> Crater\\\\", world_map_info[SECT_CRATER].disp);
+  count += sprintf(buf + count, "\tn%s -> Tree\\\\", world_map_info[SECT_TREE].disp);
+  count += sprintf(buf + count, "\tn%s -> Trunk\\\\", world_map_info[SECT_TRUNK].disp);
+  } else {
   count += sprintf(buf + count, "\tn\tn\tn%s Up\\\\", door_info[NUM_DOOR_TYPES + DOOR_UP].disp);
   count += sprintf(buf + count, "\tn\tn\tn%s Down\\\\", door_info[NUM_DOOR_TYPES + DOOR_DOWN].disp);
   count += sprintf(buf + count, "\tn%s You\\\\", map_info[SECT_HERE].disp);
+  count += sprintf(buf + count, "\tn%s Player\\\\", map_info[SECT_PLAYER].disp);
+  count += sprintf(buf + count, "\tn%s Mob\\\\", map_info[SECT_MOB].disp);
+  count += sprintf(buf + count, "\tn%s NPC\\\\", map_info[SECT_SHOP].disp);
+  count += sprintf(buf + count, "\tn%s Safe\\\\", map_info[SECT_SAFE].disp);
+  count += sprintf(buf + count, "\tn%s Dark\\\\", map_info[SECT_DARK].disp);
+  count += sprintf(buf + count, "\tn%s Displaced\\\\", map_info[SECT_STRANGE].disp);
   count += sprintf(buf + count, "\tn%s Place\\\\", map_info[SECT_INSIDE].disp);
   count += sprintf(buf + count, "\tn%s Road\\\\", map_info[SECT_CITY].disp);
   count += sprintf(buf + count, "\tn%s Field\\\\", map_info[SECT_FIELD].disp);
@@ -517,22 +662,38 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
   count += sprintf(buf + count, "\tn%s Deep\\\\", map_info[SECT_WATER_NOSWIM].disp);
   count += sprintf(buf + count, "\tn%s Flying\\\\", map_info[SECT_FLYING].disp);
   count += sprintf(buf + count, "\tn%s Underwater\\\\", map_info[SECT_UNDERWATER].disp);
+  count += sprintf(buf + count, "\tn%s Crater\\\\", map_info[SECT_CRATER].disp);
+  count += sprintf(buf + count, "\tn%s Tree\\\\", map_info[SECT_TREE].disp);
+  count += sprintf(buf + count, "\tn%s Trunk\\\\", map_info[SECT_TRUNK].disp);
+  }
 
-  strcpy(buf, strfrmt(buf, LEGEND_WIDTH, CANVAS_HEIGHT + 2, FALSE, TRUE, TRUE));
+  if (GET_SCREEN_WIDTH(ch) == 40 || PRF_FLAGGED(ch, PRF_COMPACT)) {
+	strlcpy(buf, strfrmt(buf, (LEGEND_WIDTH / 2), CANVAS_HEIGHT + 3, FALSE, TRUE, TRUE), 1);
+     /* Start with an empty column */
+     strcpy(buf1, strfrmt("",0, CANVAS_HEIGHT + 3, FALSE, FALSE, TRUE));
+
+    /* Paste the legend */
+    strcpy(buf2, strpaste(buf1, buf, "\tn"));
+  } else {
+    strcpy(buf, strfrmt(buf, LEGEND_WIDTH, CANVAS_HEIGHT + 3, FALSE, TRUE, TRUE));
 
   /* Start with an empty column */
-  strcpy(buf1, strfrmt("",0, CANVAS_HEIGHT + 2, FALSE, FALSE, TRUE));
+  strcpy(buf1, strfrmt("",0, CANVAS_HEIGHT + 3, FALSE, FALSE, TRUE));
 
   /* Paste the legend */
   strcpy(buf2, strpaste(buf1, buf, "\tD | \tn"));
-
+  }
   /* Set up the map */
   memset(buf, ' ', CANVAS_WIDTH);
   count = (CANVAS_WIDTH);
-  if(worldmap)
-    count += sprintf(buf + count , "\r\n%s", WorldMap(centre, size, mapshape, MAP_NORMAL));
-  else
+  if(worldmap) {
+	if (GET_SCREEN_WIDTH(ch) == 40 || PRF_FLAGGED(ch, PRF_COMPACT))
+	  count += sprintf(buf + count , "\r\n%s", WorldMap(centre, size, mapshape, MAP_MOBILE));
+	else
+      count += sprintf(buf + count , "\r\n%s", WorldMap(centre, size, mapshape, MAP_NORMAL));
+  } else 
     count += sprintf(buf + count , "\r\n%s", StringMap(centre, size));
+  
   memset(buf + count, ' ', CANVAS_WIDTH);
   strcpy(buf + count + CANVAS_WIDTH, "\r\n");
   /* Paste it on */
@@ -547,23 +708,28 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
 }
 
 /* Display a string with the map beside it */
-void str_and_map(char *str, struct char_data *ch, room_vnum target_room ) {
+void str_and_map(char *str, struct char_data *ch, room_vnum target_room, bool onlysense) {
   int size, centre, x, y, min, max, char_size;
   int ew_size=0, ns_size=0;
   bool worldmap;
+  int mapshape;
 
   /* Check MUDs map config options - if disabled, just show room decsription */
-  if (!can_see_map(ch)) {
+  if (!can_see_map(ch) && !onlysense) {
     send_to_char(ch, "%s", strfrmt(str, GET_SCREEN_WIDTH(ch), 1, FALSE, FALSE, FALSE));
     return;
   }
 
   worldmap = show_worldmap(ch);
+  
+  if (onlysense && *str)
+	*str = '\0';
 
-  if(!PRF_FLAGGED(ch, PRF_AUTOMAP)) {
+  if (!PRF_FLAGGED(ch, PRF_AUTOMAP) && !PRF_FLAGGED(ch, PRF_BRIEF)) {
     send_to_char(ch, "%s", strfrmt(str, GET_SCREEN_WIDTH(ch), 1, FALSE, FALSE, FALSE));
-    return;
-  }
+	if (!onlysense)
+      return;
+  }  
 
   size = CONFIG_MINIMAP_SIZE;
   centre = MAX_MAP/2;
@@ -583,35 +749,49 @@ MapArea(target_room, ch, centre, centre, min, max, ns_size/2, ew_size/2, worldma
     char_size = size * 4 + 5;
   else
     char_size = 3*(size+1) + (size) + 4;
+  
+  if (!onlysense) {
+  if(worldmap) {
+	if ((weather_info.sunlight == SUN_SET || weather_info.sunlight == SUN_DARK) && !AFF_FLAGGED(ch, AFF_FLYING))
+	  mapshape = MAP_CIRCLE;
+    else
+	  mapshape = MAP_RECTANGLE;
 
-  if(worldmap)
-    send_to_char(ch, "%s", strpaste(strfrmt(str, GET_SCREEN_WIDTH(ch) - char_size, size*2 + 1, FALSE, TRUE, TRUE), WorldMap(centre, size, MAP_CIRCLE, MAP_COMPACT), " \tn"));
-  else
-    send_to_char(ch, "%s", strpaste(strfrmt(str, GET_SCREEN_WIDTH(ch) - char_size, size*2 + 1, FALSE, TRUE, TRUE), CompactStringMap(centre, size), " \tn"));
+	if (strlen(str) < 12)
+	  send_to_char(ch, "%s \tn", WorldMap(centre, size, mapshape, MAP_COMPACT));
+	else
+	send_to_char(ch, "%s", strpaste(WorldMap(centre, size, mapshape, MAP_COMPACT), strfrmt(str, GET_SCREEN_WIDTH(ch) - char_size, size*2 + 1, FALSE, TRUE, TRUE), " \tn"));	
+//      send_to_char(ch, "%s", strpaste(strfrmt(str, GET_SCREEN_WIDTH(ch) - char_size, size*2 + 1, FALSE, TRUE, TRUE), WorldMap(centre, size, mapshape, MAP_COMPACT), " \tn"));
+	
+  } else
+    send_to_char(ch, "%s", strpaste(CompactStringMap(centre, size), strfrmt(str, GET_SCREEN_WIDTH(ch) - char_size, size*2 + 1, FALSE, TRUE, TRUE), " \tn"));
+  }
 
+  if (GET_SKILL(ch, SKILL_ANALYSIS) && cnt_nearby)
+    player_sense(ch);  
 }
 
 static bool show_worldmap(struct char_data *ch) {
   room_rnum rm = IN_ROOM(ch);
   zone_rnum zn = GET_ROOM_ZONE(rm);
 
-  if (ROOM_FLAGGED(rm, ROOM_WORLDMAP)) return TRUE;
-  if (ZONE_FLAGGED(zn, ZONE_WORLDMAP)) return TRUE;
-
-  return FALSE;
+  if (ZONE_FLAGGED(zn, ZONE_WORLDMAP) && !ROOM_FLAGGED(rm, ROOM_WORLDMAP)) return TRUE;
+  else if (ROOM_FLAGGED(rm, ROOM_WORLDMAP) && !ZONE_FLAGGED(zn, ZONE_WORLDMAP)) return TRUE;
+  else return FALSE;
 }
 
 ACMD(do_map) {
-  if (!can_see_map(ch)) {
+  if (IS_NPC(ch) || !can_see_map(ch)) {
     send_to_char(ch, "Sorry, the map is disabled!\r\n");
     return;
   }
-  if (IS_DARK(IN_ROOM(ch)) && !CAN_SEE_IN_DARK(ch)) {
-    send_to_char(ch, "It is too dark to see the map.\r\n");
-    return;
-  } else if (AFF_FLAGGED(ch, AFF_BLIND) && GET_LEVEL(ch) < LVL_IMMORT) {
+  if (AFF_FLAGGED(ch, AFF_BLIND) && GET_LEVEL(ch) < LVL_IMMORT) {
     send_to_char(ch, "You can't see the map while blind!\r\n");
     return;
   }
   perform_map(ch, argument, show_worldmap(ch));
+  
+  if (GET_SKILL(ch, SKILL_ANALYSIS) && cnt_nearby)
+    player_sense(ch);
+  
 }

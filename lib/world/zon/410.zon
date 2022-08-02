@@ -1,0 +1,23 @@
+#410
+Henque~
+Dorias~
+41000 41099 30 2 h 0 0 0 20 -1
+M 0 41003 1 41024 	(the King)
+R 0 41002 41000 -1 	(a Floor Standing Ashtray)
+O 0 41000 100 41002 	(a Floor Standing Ashtray)
+O 0 41001 1 41000 	(Some outdoor banners)
+M 0 41002 10 41051 	(a security officer)
+M 0 41002 10 41044 	(a security officer)
+M 0 41002 10 41033 	(a security officer)
+M 0 41002 10 41038 	(a security officer)
+M 0 41002 10 41036 	(a security officer)
+M 0 41002 10 41031 	(a security officer)
+M 0 41002 10 41011 	(a security officer)
+M 0 41002 10 41022 	(a security officer)
+M 0 41002 10 41016 	(a security officer)
+M 0 41002 10 41007 	(a security officer)
+M 0 41001 1 41005 	(Bouncer)
+M 0 41000 1 41061 	(the Boss of Dorias)
+G 1 65481 5 -1 	(the 	Bblue planet	n jewel)
+S
+$

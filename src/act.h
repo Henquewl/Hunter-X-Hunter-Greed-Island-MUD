@@ -53,12 +53,19 @@ ACMD(do_write);
 /* Utility Functions */
 /** @todo Move to a utility library */
 char *find_exdesc(char *word, struct extra_descr_data *list);
+char *printfcomma(int n);
 /** @todo Move to a mud centric string utility library */
 void space_to_minus(char *str);
 /** @todo Move to a help module? */
 int search_help(const char *argument, int level);
 void free_history(struct char_data *ch, int type);
 void free_recent_players(void);
+/** Show target powerlevel to char */
+void powerlevel(struct char_data *i, struct char_data *ch);
+int cmet_check(zone_rnum zrnum, struct char_data *ch);
+int pmet_check(struct char_data *ch, struct char_data *tch);
+/** do_look, do_inventory utility functions */
+void list_obj_to_char(struct obj_data *list, struct char_data *ch, int mode, int show);
 /* functions with subcommands */
 /* do_commands */
 ACMD(do_commands);
@@ -83,9 +90,16 @@ ACMD(do_gen_ps);
 ACMD(do_look);
 #define SCMD_LOOK 0
 #define SCMD_READ 1
+/* do_cards */
+ACMD(do_cards);
+#define SCMD_CARDS 0
+#define SCMD_RESTR 1
+#define SCMD_UNRES 2
+//#define SCMD_SPELL 3
 /* functions without subcommands */
 ACMD(do_areas);
 ACMD(do_affects);
+ACMD(do_city);
 ACMD(do_consider);
 ACMD(do_diagnose);
 ACMD(do_equipment);
@@ -116,6 +130,9 @@ int find_eq_pos(struct char_data *ch, struct obj_data *obj, char *arg);
 void name_from_drinkcon(struct obj_data *obj);
 void name_to_drinkcon(struct obj_data *obj, int type);
 void weight_change_object(struct obj_data *obj, int weight);
+int make_card(struct char_data *ch, struct obj_data *obj, bool show);
+void make_card_cnt(struct obj_data *obj);
+void make_card_room(struct obj_data *obj);
 /* functions with subcommands */
 /* do_drop */
 ACMD(do_drop);
@@ -139,10 +156,13 @@ ACMD(do_get);
 ACMD(do_give);
 ACMD(do_grab);
 ACMD(do_put);
+ACMD(do_calculate);
+ACMD(do_compare);
 ACMD(do_remove);
 ACMD(do_sac);
 ACMD(do_wear);
 ACMD(do_wield);
+ACMD(do_unpack);
 
 
 /*****************************************************************************
@@ -185,11 +205,15 @@ ACMD(do_assist);
 ACMD(do_bash);
 ACMD(do_backstab);
 ACMD(do_flee);
+ACMD(do_remote_punch);
 ACMD(do_kick);
+ACMD(do_jajanken);
 ACMD(do_kill);
+ACMD(do_snapneck);
 ACMD(do_order);
 ACMD(do_rescue);
 ACMD(do_whirlwind);
+ACMD(do_punch);
 
 /*****************************************************************************
  * Begin Functions and defines for act.other.c
@@ -235,11 +259,18 @@ ACMD(do_gen_tog);
 ACMD(do_quit);
 #define SCMD_QUI  0
 #define SCMD_QUIT 1
+#define SCMD_FORCEQUIT 2
 /* do_use */
 ACMD(do_use);
 #define SCMD_USE  0
 #define SCMD_QUAFF  1
 #define SCMD_RECITE 2
+/* do_passive */
+ACMD(do_passive);
+#define SCMD_BAREHANDED_EXPERT	1 
+#define SCMD_INSTANT_FORTIFY	2
+#define SCMD_DODGE				3
+#define SCMD_PARRY				4
 /* Functions without subcommands */
 ACMD(do_display);
 ACMD(do_group);
@@ -247,13 +278,17 @@ ACMD(do_happyhour);
 ACMD(do_hide);
 ACMD(do_not_here);
 ACMD(do_practice);
+ACMD(do_train);
 ACMD(do_report);
 ACMD(do_save);
+ACMD(do_recall);
+ACMD(do_enhance);
 ACMD(do_sneak);
 ACMD(do_split);
 ACMD(do_steal);
 ACMD(do_title);
 ACMD(do_visible);
+ACMD(do_power);
 
 
 /*****************************************************************************

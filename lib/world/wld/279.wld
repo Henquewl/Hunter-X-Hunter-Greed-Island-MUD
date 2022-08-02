@@ -1,12 +1,12 @@
 #27900
-The Entrance to France~
+The Entrance of Ai Ai~
    This large street of France is flooded with candlelight from surrounding
 high lamps, the flickering glow adding an air of romance to the atmosphere. A
 large sign reminds visitors to be sure to visit the cathedral of Paris here.
 The street continues on to the east, the Champs Elysees lies to the north, and
 off to the south the town of Lyon can be seen.   
 ~
-279 4 0 0 0 1
+279 98308 0 0 0 1
 D0
 ~
 ~
@@ -19,6 +19,10 @@ D2
 ~
 ~
 0 27900 27937
+D3
+~
+~
+0 0 40203
 E
 credits info~
    An area based on the Notre Dame Cathedral in Paris and the Three Musketeers.

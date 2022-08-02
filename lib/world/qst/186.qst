@@ -1,0 +1,90 @@
+#18600
+Return the pet dragon collar~
+Return the pet dragon collar to Newbie Guard~
+Find the pet dragon and return it to the guard.
+He didn't mention to bring it alive, did he?
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+5 18604 0 18607 -1 18601 -1
+0 0 0 104 -1 18604 1
+1000 100 18601
+S
+#18601
+Retrive the newbie alchemist jar~
+Reach the pit-beast part 1~
+Find the newbie alchemist and take his light jar.
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+0 18604 0 18609 18600 18602 -1
+0 0 0 34 -1 -1 1
+2500 200 18658
+S
+#18602
+Reach the pit-beast~
+Reach the pit-beast part 2~
+Hold the newbie jar and then enter the room below from Newbie Guard.
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+2 18604 0 18601 18601 18603 18609
+0 0 0 34 -1 -1 1
+5000 300 18665
+S
+#18603
+Newbie ultimate weapon~
+Obtain the ultimate newbie weapon~
+Behind the dark doors has a smart newbie who wields the ultimate newbie weapon...
+THE GLOWING NEWBIE MACE!
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+0 18604 0 18614 18602 18604 -1
+0 0 0 34 -1 -1 1
+7500 400 3250
+S
+#18604
+Kill the minotaur~
+Kill the massive Minotaur~
+Down from the alchemist room has a dark maze...
+Where the dead lives and the wicked sleeps...
+And the guardian make the weak shake it knees...
+Try go prepared or will be raze.
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+3 18604 0 18609 18603 18605 -1
+0 0 0 34 -1 -1 1
+10000 500 3151
+S
+#18605
+Hunt for paladins necklace~
+Gain the paladin's necklace~
+Once upon a time brave Paladin tried to find the Minotaur...
+The king offered the hand of the princess for who bring the beast hide...
+He never came back and his soul was trapped into a large room...
+Where he would spend eternity forgotten... invisible... unrecognized...
+For the love for the princess he swore never give up, even if it cost his
+soul and the princess gave to him a beutiful necklace to protect him
+against the fouled... the unholy... the evil.
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+0 18604 0 65384 18604 -1 -1
+0 0 0 34 -1 -1 1
+10000 1000 3251
+S
+$~

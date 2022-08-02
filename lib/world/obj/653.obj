@@ -1,0 +1,561 @@
+#65300
+000 ruler blessing card~
+@m000 Ruler's Blessing SS-1 card@n~
+The @m000 Ruler's Blessing SS-1 card@g is lying here.@n~
+~
+26 dgrt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 2000000 1 0 999
+E
+000 ruler blessing card~
+A castle given as a prize for winning the contest, town with population 10,000 included.
+Its residents will live according to whatever laws and commands you issue.
+~
+#65301
+1 patch forest card~
+@m1 Patch of Forest SS-3 card@n~
+The @m1 Patch of Forest SS-3 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 937500 3 0 62
+E
+1 patch forest card~
+The 	mentrance to the giant forest called the "Mountain God's Garden" where many unique endemic species live.
+They are all tame and friendly.
+~
+#65302
+2 patch shore card~
+@m2 Patch of Shore SS-3 card@n~
+The @m2 Patch of Shore SS-3 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 937500 3 0 62
+E
+2 patch shore card~
+The 	mentrance to a cave called "Poseidon's Cavern."
+The 	mcave changes its path at each visit, confusing intruders.
+~
+#65303
+3 pitcher eternal water card~
+@m3 Pitcher of Eternal Water A-17 card@n~
+The @m3 Pitcher of Eternal Water A-17 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 104000 17 0 62
+E
+3 pitcher eternal water card~
+A jar from which pure, clean water (1440 L per day) continually flows.
+~
+#65304
+4 Skin Care Hot Springs card~
+@m4 Skin Care Hot Springs A-15 card@n~
+The @m4 Skin Care Hot Springs A-15 card@G is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 105000 15 0 62
+E
+4 Skin Care Hot Springs card~
+A hot spring that cures you of any skin condition.
+Bathing in it for half an hour a day gives you skin as soft and smooth as a baby's.
+~
+#65305
+5 Spirited Away Hollow card~
+@m5 Spirited Away Hollow S-8 card@n~
+The @mSpirited Away Hollow S-8 card@G is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 285000 8 0 62
+E
+5 Spirited Away Hollow~
+Enter and then exit this hollow and you will be transported to a desolate location within the country.
+Circumstances will allow you to return to where you started without you having to spend any money.
+~
+#65306
+6 Liquor Spring card~
+@m6 Liquor Spring A-15 card@n~
+The @mLiquor Spring A-15 card@G is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 105000 15 0 62
+E
+6 Liquor Spring card~
+Draw some of this spring's water and one hour later it will become a
+random alcoholic drink of exquisite taste and extraordinary quality.
+~
+#65307
+7 pregnancy stones card~
+@m7 Pregnancy Stones S-10 card@n~
+The @m7 Pregnancy Stones S-10 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 279000 10 0 62
+E
+7 Pregnancy Stones card~
+Carry a stone (weighing 7 lb. each) for one month and you will get pregnant, even if you're male.
+You may choose the sex of the baby by the female or male stone.
+~
+#65308
+8 mystery pond card~
+@m8 Mystery Pond S-10 card  @n~
+The @mMystery Pond card@G is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 279000 10 0 62
+E
+8 Mystery Pond card~
+Release one fish into this pond, and there will be one more fish of that type the next day.
+You can keep any combination of fish in this pond, even saltwater and freshwater fish together! 
+~
+#65309
+9 tree plenty card~
+@m9 Tree of Plenty S-20 card@n~
+The @mTree of Plenty S-20 card@G is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 249000 20 0 62
+E
+9 Tree Plenty card~
+A tree that bears all sorts of fruit.
+No matter how much you harvest, it will be full again the next day.
+The 	mtype and number of fruit are random.
+~
+#65310
+10 golden guidebook card~
+@m10 Golden Guidebook A-20 card@n~
+The @mGolden Guidebook A-20 card@G is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
+#65311
+11 golden scales card~
+@m11 Golden Scales B-30 card@n~
+The @mGolden Scales B-30 card@G is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 0 0 62
+E
+11 golden scales card~
+When faced with a two-option choice, these scales
+will tell you which is better for your future.
+~
+#65312
+12 golden dictionary card~
+@m12 Golden Dictionary S-10 card@n~
+The @mGolden Dictionary S-10 card@G is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 279000 10 0 62
+E
+12 golden dictionary card~
+Each day you will find a word glowing gold.
+You should learn those words because they
+will come in handy the next day.
+~
+#65313
+13 luck bankbook card~
+@m13 Luck Bankbook A-20 card@n~
+The @m13 Luck Bankbook A-20 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
+E
+13 luck bankbook book card~
+Refrain from using the little things of good luck in your daily life,
+and you can accumulate and convert them into cash.
+~
+#65314
+14 Connection Severing Scissors card~
+@m14 Connection Severing Scissors B-22 card@n~
+The @m14 Connection Severing Scissors B-22 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 51315 22 0 62
+E
+14 Connection Severing Scissors card~
+Cut a picture of someone you don't want to see with these scissors, and you will never see them again.
+Caution: It will take effect on everyone in the picture (except yourself).
+~
+#65315
+15 Fickle Genie card~
+@m15 Fickle Genie S-10 card@n~
+The @m15 Fickle Genie S-10 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 279000 10 0 62
+E
+15 Fickle Genie card~
+This genie will grant you three wishes, but you need to suggest 1000 potential,
+significantly different wishes and he will choose three from among them.
+(No cheating by asking for different increments of money.)
+~
+#65316
+16 Fairy King's Advice card~
+@m16 Fairy King's Advice S-6 card@n~
+The @m16 Fairy King's Advice S-6 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 291000 6 0 62
+E
+16 Fairy King's Advice card~
+The 	mFairy King offers you gentle, apt advice on what you lack or what you should fix.
+The 	mannoying thing is he appears when he wants to.
+~
+#65317
+17 breath archangel card~
+@m17 Breath of Archangel SS-3 card@n~
+The @m17 Breath of Archangel SS-3 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 937500 3 0 62
+E
+17 breath archangel card~
+She cures one person of all wounds and ills, restoring them to perfect health.
+She will only appear once.
+~
+#65325
+25 risky dice card~
+@m25 Risky Dice B-30 card@n~
+The @m25 Risky Dice B-30 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
+E
+25 risky dice card~
+   A twenty-sided die with one skull face and 19 star faces.  Great things
+happen when you roll a star, but rolling the skull will be bad enough to cancel
+out all the previous great events.
+~
+#65326
+26 night shift dwarves card~
+@m26 Night Shift Dwarves A-20 card@n~
+The @m26 Night Shift Dwarves A-20 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
+E
+26 night shift dwarves card~
+They can do any work you can do, and they will work as long as you are asleep.
+They cannot do anything beyond your abilities.
+~
+#65331
+31 returned postcard dead card~
+@m31 Returned Postcard from the Dead S-13 card@n~
+The @m31 Returned Postcard from the Dead S-13 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 270000 13 0 62
+E
+31 returned postcard dead card~
+   Address and mail this return postage-paid postcard to a deceased person, and
+you will get a reply the next day.
+~
+#65339
+39 fledgling politician card~
+@m39 Fledgling Politician B-30 card@n~
+The @m39 Fledgling Politician B-30 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 13 0 62
+E
+84 paladin necklace card~
+   A player wearing this will reflect curses cast upon him, and be able to undo
+curses placed on cards he touches.
+~
+#65346
+46 gold dust girl card~
+@m46 Gold Dust Girl A-13 card@n~
+The @m46 Gold Dust Girl A-13 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 106000 13 0 62
+E
+84 paladin necklace card~
+   A player wearing this will reflect curses cast upon him, and be able to undo
+curses placed on cards he touches.
+~
+#65356
+memory studio perfect card~
+@m56 Perfect Memory Studio B-25 card~
+The @m56 Perfect Memory Studio B-25 card@g is lying here.~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50850 56 0 62
+E
+studio perfect memory card~
+Specify a time and date to get a picture of yourself in the past.
+You may also request a sequence of photographs.
+~
+#65361
+61 vending checkup card~
+@m61 Vending Check-Up A-20 card@n~
+The @m61 Vending Check-Up A-20 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
+E
+61 vending checkup card~
+A full-body medical scan for just 500 g. However, the only results are
+"All Clear" or "Anomaly Detected," in which case it is recommended you see a doctor.
+~
+#65362
+club you rule card~
+@m62 Club "You Rule" B-20 card@n~
+The @m62 Club "You Rule" B-20 card@g is lying here.~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 62 0 62
+E
+club you rule card~
+This card allows the caster to effectively
+control everyone within a club.
+~
+#65364
+64 witch love potion card~
+@m64 Witch's Love Potion B-30 card@n~
+The @m64 Witch's Love Potion B-30 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
+#65365
+65 witch rejuvenation potion card~
+@m65 Witch's Rejuvenation Potion S-10 card@n~
+The @m65 Witch's Rejuvenation Potion S-10 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 279000 10 0 62
+#65366
+66 witch diet potion card~
+@m66 Witch's Diet Potion B-28 card@n~
+The @m66 Witch's Diet Potion B-28 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 36000 28 0 62
+#65367
+67 doyen growth pills card~
+@m67 Doyen's Growth Pills B-30 card@n~
+The @m67 Doyen's Growth Pills B-30 card@n@G is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
+#65368
+68 doyen virility pills card~
+@m68 Doyen's Virility Pills A-20 card@n~
+The @m68 Doyen's Virility Pills A-20 card@n@G is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
+#65369
+69 doyen hair restorer card~
+@m69 Doyen's Hair Restorer B-30 card@n~
+The @m69 Doyen's Hair Restorer B-30 card@n@G is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
+#65371
+pheromones scientists mad card~
+@m71 Mad Scientist's Pheromones A-20 card@n~
+The @m71 Mad Scientist's Pheromones A-20 card@g is lying here.~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 71 0 62
+E
+pheromones scientists mad card~
+Spray on your body to attract the opposite sex.
+However, you cannot adjust the strength of its effect,
+so be careful as it may cause a proliferation of stalkers.
+~
+#65373
+73 night jade card~
+@m73 Night Jade A-15 card  @n~
+The @m73 Night Jade A-15 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 105000 15 0 62
+E
+73 night jade card~
+   A jewel "blessed" by the Devil.  When danger is about to befall its owner, it
+will deflect it to someone else.
+~
+#65374
+74 sage aquamarine card~
+@m74 Sage's Aquamarine A-15 card@n~
+The @m74 Sage's Aquamarine A-15 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 105000 15 0 62
+E
+74 sage aquamarine card~
+   Its owner will have many intelligent friends and keep those friendships for
+their entire lives.
+~
+#65375
+75 wild luck alexandrite card~
+@m75 Wild Luck Alexandrite A-20 card@n~
+The @m75 Wild Luck Alexandrite A-20 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
+E
+75 wild luck alexandrite card~
+   Its owner will get to have once-in-a-lifetime experiences, though you cannot
+choose whether they're for better or for worse...
+~
+#65380
+80 levitation stone card~
+@m80 Levitation Stone S-7 card@n~
+The @m80 Levitation Stone S-7 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 120000 7 0 62
+E
+84 paladin necklace card~
+   A player wearing this will reflect curses cast upon him, and be able to undo
+curses placed on cards he touches.
+~
+#65381
+blue planet card~
+@m81 Blue Planet SS-5 card@n~
+The @m81 Blue Planet SS-5 card@g is lying here.~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 300000 5 0 62
+E
+blue planet card~
+A jewel shining in a true blue. The structural composition is
+not of anything found on the earth, so the name was given as
+"A Gift from the Universe".
+~
+#65383
+83 sword truth card~
+@m83 Sword of Truth B-22 card@n~
+The @m83 Sword of Truth B-22 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 45000 22 0 62
+E
+83 sword truth card~
+   Splits in two anything and anyone deceitful.  In trials, it's a criminal's
+worst nightmare.  The 	msword will shatter when used to cut something true, but
+will regenerate after one day.
+~
+#65384
+84 paladin necklace card~
+@m84 Paladin's Necklace D-60 card@n~
+The @m84 Paladin's Necklace D-60 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 9600 60 0 62
+E
+84 paladin necklace card~
+   A player wearing this will reflect curses cast upon him, and be able to undo
+curses placed on cards he touches.
+~
+#65385
+85 sacrifice armor card~
+@m85 Sacrifice Armor S-8 card@n~
+The @m85 Sacrifice Armor S-8 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 285000 8 0 62
+E
+84 paladin necklace card~
+   A player wearing this will reflect curses cast upon him, and be able to undo
+curses placed on cards he touches.
+~
+#65387
+87 shield faith card~
+@m87 Shield of Faith S-15 card@n~
+The @m87 Shield of Faith S-15 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 264000 15 0 62
+E
+87 shield faith card~
+   The 	mspells "Railguide," "Return," "Drift," "and "Collision" will be rendered
+ineffective within the same room of player armed with this shield.
+~
+#65389
+89 gauntlet collector tax card~
+@m89 Tax Collector's Gauntlet A-20 card@n~
+The @m89 Tax Collector's Gauntlet A-20 card@g@G is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
+E
+89 gauntlet collector tax card~
+   Grants you the ability to cast "Levy."  However, it will destroy one random
+specified slot card from your binder every time.  (You cannot cast it if your
+specified slots are empty.  )
+
+Usage: levy
+~
+#65390
+90 memory helmet card~
+@m90 Memory Helmet A-20 card@n~
+The @m90 Memory Helmet A-20 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
+E
+90 memory helmet card~
+   You will never forget things you see or hear while wearing this helmet.  
+Unfortunately, it's extremely large and heavy.
+~
+#65394
+94 bandit blade card~
+@m94 Bandit's Blade S-10 card@n~
+The @m94 Bandit's Blade S-10 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 279000 10 0 62
+E
+94 bandit blade card~
+   A successful attack with this weapon will cast "Rob", "Pick Pocket", or
+"Thief" on the target.  Not effective on someone using "Defensive Spells" or
+"Paladin's Necklace".
+~
+$~

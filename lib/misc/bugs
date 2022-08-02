@@ -345,3 +345,734 @@ Level     34
 Room      40000
 Flags     1 0 0 0
 End
+Text      jajanken for level 5 only~
+Body      bug submit jajanken for level 5 only
+~
+Name      Kobayashi~
+IdNum     43
+Dated     1492721254
+Level     1
+Room      2806
+Flags     0 0 0 0
+End
+Text      diner~
+Body      at the cat diner, I sit at the chair, accept the challenge, and then the cat keeps talking, and then money is deducted
+He doesn't give me the pasta.
+~
+Name      Azorath~
+Notes     Your inventory probably was full, ill do an override for that.
+~
+IdNum     5
+Dated     1493211366
+Level     5
+Room      12062
+Flags     4 0 0 0
+End
+Text      picklock only for level 4~
+Body      bug submit picklock only for level 4
+~
+Name      Kobayashi~
+IdNum     7
+Dated     1493262059
+Level     2
+Room      12032
+Flags     0 0 0 0
+End
+Text      aura blast dont work even when i learn it says i dont have it when i use it. and lost all my points into it~
+Body      hi aura blast is bug. i practice it but when i use it it says i dont have it yet. and i lost all my points practiceing it.
+~
+Name      Koto~
+IdNum     143
+Dated     1570203753
+Level     6
+Room      12073
+Flags     1 0 0 0
+End
+Text      barehanded expert~
+Body      hi the barehanded expert cant be practice. ~/
+~.
+~/
+s/
+~
+Name      Koto~
+IdNum     143
+Dated     1570496952
+Level     28
+Room      12073
+Flags     0 0 0 0
+End
+Text      cant be conshtions~
+Body      hi i died and cant come back alove like always. its a bug. cant quit cause of forcequit dont wana lose my eq and some things.
+~
+Name      Koto~
+IdNum     143
+Dated     1570504701
+Level     28
+Room      6444
+Flags     1 0 0 0
+End
+Text      skills and kill~
+Body      hi for some reason when i use a skill or attack i get logout automaticly. and it says debug when i use a skill and when i attack a mob
+~
+Name      Koto~
+IdNum     143
+Dated     1571929041
+Level     37
+Room      40000
+Flags     0 0 0 0
+End
+Text      burning hands causes sv crash~
+Body      tried using burning hands but as soon as it was applied the game crashed. This happened twice so i just refrained using burning hands.
+~
+Name      Estarossa~
+Notes     Tested, this skill not provoke crash, must be something else
+~
+IdNum     225
+Dated     1575502262
+Level     4
+Room      40007
+Flags     1 0 0 0
+End
+Text      co-op play bug using follow command~
+Body      This was when Elmemas and I (Estarossa) were together. Quite frequently, the game crashed while fighting opponents in this manner. Also, there was a funny instance once. Elmemas was following me and I commanded "kill cyclop" but the cyclop started fighting ELmemas instead of I and the game crashed during the fight.
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575502362
+Level     4
+Room      40007
+Flags     4 0 0 0
+End
+Text      accompany expiring/vanishing~
+Body      happened thrice today. As soon as I grab/hold accompany in hands it vanishes. I reckon its got something to do with the timer but then again, it doesn't vanish from the inventroy but vanishes right after i grab or hold it.
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575516617
+Level     5
+Room      40000
+Flags     7 0 0 0
+End
+Text      sv crashing case~
+Body      this happened twice today. Once with a newbie and on another instance against a cyclop. Whenever they had enough nen which can be taken away by a single attack from me, the sv crashes. to put it in better way I'm gonna post what happened -k cyclop
+You tickle a Giant Cyclop as you hit him. =[559]=
+<81%> / <6152/6152nen> vs. <99%> <1301> 
+A Giant Cyclop tickles you as he hits you. =[143]=
+You tickle a Giant Cyclop as you hit him. =[655]=
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575517100
+Level     5
+Room      40000
+Flags     1 0 0 0
+End
+Text      sv crashing part 3~
+Body      i accidentally entered it without completing my case. So, as you can see the cyclop had 1301 hp and i hit him 655 which brought his nen down to 646, in which case the cyclop might have been dead on the next hit. same happened against a newbie. the crash happened after this line appeared "<79%> / <6009/6152nen> vs. <97%> <646> ". Therefore I believe that the crash might have been because of the cyclop being in 1 hit range; might be some other reason for it. The part 2 - doesnt have an entry because i was l
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575517671
+Level     5
+Room      40000
+Flags     1 0 0 0
+End
+Text      card grab time~
+Body      some issue with it my fluroscopy expired after 10 seconds and it was a card i had just bought.
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575537547
+Level     5
+Room      3025
+Flags     7 0 0 0
+End
+Text      quest bug~
+Body      this happnd - i have to kill alchemist and get the jar. I am still in questmaster room. now if I take a jar out of my bag which i previously had, the quest completes. i will now post the commandlines - <100%> / <15798/15798nen> 
+get jar 4.bag
+You have completed the quest.
+You have been awarded 0 quest points for your service.
+You have been awarded 3000 Jenny for your service.
+Your nen was increased by 9.
+You have been presented with 18608 Wee little key H-0 card for your service.
+The next stage of your quest awaits:
+Hold the newbie jar and then enter the room below from Newbie Guard.
+You get a brightly glowing jar from a bag.
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575559570
+Level     6
+Room      18606
+Flags     4 0 0 0
+End
+Text      quest bug~
+Body      same happened with newbie mace quest. mission was to kill smart newbie and get mace but i did not move from quest master room and just took out mace from my bag and is said that i completed the quest.
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575560274
+Level     6
+Room      18606
+Flags     4 0 0 0
+End
+Text      quest completion flag~
+Body      quest completion flags are broken and so are quest progress flags. the command "quest leave" shouldn't exactly be disabled but atleast quest progress should be tracked so that if the player comes back to coplete the quest, he can start from where he left off.
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575572281
+Level     6
+Room      18607
+Flags     4 0 0 0
+End
+Text      card without description~
+Body      examine relegate
+Unrestricted/Free slot spell card
+You found a card without description, please report to the GMs!
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575573603
+Level     6
+Room      12073
+Flags     4 0 0 0
+End
+Text      dowzing chain crash~
+Body      dowzing chain causes crash on next turn iteration.
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575578157
+Level     8
+Room      40000
+Flags     1 0 0 0
+End
+Text      npc duplication~
+Body      so, i was farming in chess board and tried to challenge the rook. he had 98k while i had 52 k so needless to say i lost but to prevent my loss I disconnected and when i reconnected, the tiles surrounding the rook had duplicate or multiple opponents. had two pawn in front of rook had two knight and two priests
+~
+Name      Estarossa~
+Notes     I know it seems strange but it is normal when the area is half empty and respawn
+~
+IdNum     225
+Dated     1575580978
+Level     9
+Room      3602
+Flags     1 0 0 0
+End
+Text      bugged bishop?~
+Body      tried fighting the bishop 7-8 times and game kept getting crashed while fighting. i only won 3 times against him
+inv
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575582191
+Level     9
+Room      40000
+Flags     1 0 0 0
+End
+Text      possible identify bug?~
+Body      so, i cant use identify. not even identify self or identify estarossa. whenever i identify something, it says this - identify estarossa
+Done.
+Your magic fizzles out and dies. Also   - identify flail
+Done.
+Your magic fizzles out and dies. AND - identify sword
+Done.
+Your magic fizzles out and dies.
+~
+Name      Estarossa~
+Notes     Shops and protected areas prevent using skills
+~
+IdNum     225
+Dated     1575609219
+Level     9
+Room      12006
+Flags     1 0 0 0
+End
+Text      bishop update and rook bug?~
+Body      so, last bug report on bishop said that fighting it crashes the game but now that I've nen value around bishop's value, i win some and i "crash"some. Also, fighting rooks, all ofwhich are over 80k while i'm 65k causes crashes in between fights at random moments. I've crashed the game fighting rooks for lik over 10 times and i can't pinpoint what triggers it. I believe it must be because of the fight dragging for too long. Also, if i start using blast, dowzingchain, kick, burninghands etc.. the game crashe
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575621397
+Level     9
+Room      40000
+Flags     1 0 0 0
+End
+Text      problem with gladiators in quest~
+Body      Whenever I accept the quest number 4 neark the Antokiba peddler board,
+I go to its destination to save a lion from gladiatos
+Since im strong I kill the gladiators in one shot
+so as soon as I kill a gladiator I type kill gladiator again for the next one
+Game crashed here
+~
+Name      Elmemas~
+IdNum     231
+Dated     1575663985
+Level     9
+Room      40000
+Flags     6 0 0 0
+End
+Text      focus lowers saving throw.~
+Body      I currently have Skill Saving Throw: -1
+When I used focus and checked my score
+it lowered to Skill Saving Throw: -2
+it should go up?
+~
+Name      Elmemas~
+Notes     Lower is better, help saving
+~
+IdNum     231
+Dated     1575664975
+Level     9
+Room      40000
+Flags     1 0 0 0
+End
+Text      infravision progress bug~
+Body      whenever using infravision, it never say "you've gotten better with infravision" thus making progress is impossible in the skill. pls fix
+sleep
+skill
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575689108
+Level     10
+Room      3608
+Flags     5 0 0 0
+End
+Text      massescape~
+Body      The ability doesnt have a help section.
+~
+Name      Estarossa~
+Notes     Added however this skill is unfinished.
+~
+IdNum     225
+Dated     1575693476
+Level     11
+Room      12073
+Flags     1 0 0 0
+End
+Text      card still vanishing.~
+Body      as soon as i grabbed the Transform card, it vanished.
+~
+Name      Estarossa~
+Notes     Changing card timer to second precision instead ticks in next update, wait for 'news'.
+~
+IdNum     225
+Dated     1575704903
+Level     14
+Room      40007
+Flags     5 0 0 0
+End
+Text      slumber skill~
+Body      no help for slumber
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575707931
+Level     15
+Room      12073
+Flags     1 0 0 0
+End
+Text      flurry of blows~
+Body      no help section
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575707980
+Level     15
+Room      12073
+Flags     1 0 0 0
+End
+Text      chill crashes game~
+Body      I used chilltouch on creepy little crawling thing and it crashes the game
+I do not know if its because the stamina drain and the kiling is basically killing him from 2 ways
+or its related to double attack
+~
+Name      Elacil~
+Notes     Chill touch tested and its fine, second skills seems fine as well but need further testing to be sure.
+~
+IdNum     268
+Dated     1575737793
+Level     13
+Room      40000
+Flags     5 0 0 0
+End
+Text      transmuter skills bugged~
+Body      none of the transmuter skill can progress. pls fix
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575905580
+Level     44
+Room      40007
+Flags     1 0 0 0
+End
+Text      nenstitches~
+Body      change the command for nenstitches. type help nenstitches and help nencure for mroe info.
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575935809
+Level     44
+Room      40000
+Flags     1 0 0 0
+End
+Text      nencure and nenstitches timer.~
+Body      the skill timer needs some working it's been lik 10 minutes and the skill haven't been cooldown. meesage it gives is > You can't bear this skill so often...
+~
+Name      Estarossa~
+IdNum     225
+Dated     1575935843
+Level     44
+Room      40000
+Flags     1 0 0 0
+End
+Text      skill affection number (still negative)~
+Body      when using the "identify" command, the skill affection/deflect is showin in negative. pls fix.
+~
+Name      Meruem~
+Notes     Nothing wrong with identify, the item that has a bad affect, so this item really gives you -1 SDB
+~
+IdNum     271
+Dated     1575962667
+Level     19
+Room      5105
+Flags     1 0 0 0
+End
+Text      death by stamina loss not giving nen~
+Body      I was fighting a pit monster(who had 6 times my strength)
+and the fight lasted so long he lost his stamina and ended up collapsed on the ground
+gossip I decided to aura blast him killing him, got no nen(experience)
+I tried again when he came back, and I tried to strangle him, but nothing.
+Is it possible to still gain nen atleast from a monster you beat in unconventional ways( I got him down to 30% health before he collapsed.
+~
+Name      Elacil~
+IdNum     268
+Dated     1576104001
+Level     19
+Room      12040
+Flags     1 0 0 0
+End
+Text      createfood causing crash everytime~
+Body      createfood causes crash on every instance.
+~
+Name      Estarossa~
+IdNum     271
+Dated     1576144649
+Level     43
+Room      40000
+Flags     1 0 0 0
+End
+Text      Why does this command exist :|~
+Body      junk binder..... (T_T)
+~
+Name      Estarossa~
+IdNum     271
+Dated     1576491072
+Level     43
+Room      40000
+Flags     1 0 0 0
+End
+Text      STAMINEN~
+Body      some items have Staminen effect.. what is it? it doesn't affect stamina or nen.
+~
+Name      Estarossa~
+IdNum     271
+Dated     1576491480
+Level     43
+Room      40078
+Flags     1 0 0 0
+End
+Text      risky dice~
+Body      when putting the dice in a container, it rolls. I typed "put dice carriage" and it said - 
+The dice is rolling... The dice landed with "Good Luck" face up!. Shit got me scared, what if it ended up on the skull (-.-) My life is no joke.
+~
+Name      Estarossa~
+IdNum     271
+Dated     1576557070
+Level     44
+Room      3013
+Flags     4 0 0 0
+End
+Text      item effect~
+Body      "Affects: EXP By 50" what does it do?
+s/s
+~
+Name      Estarossa~
+Notes     Only memory helmet has that, fixed.
+~
+IdNum     271
+Dated     1576573738
+Level     44
+Room      3605
+Flags     1 0 0 0
+End
+Text      equipment nen increment~
+Body      i don't know how to explain it but increase in nen decrease nen increment effect and restores it after i requip my items
+~
+Name      Estarossa~
+Notes     This happens when I edit an item and it is eqpd, I only can fix you when online and all eq removed
+~
+IdNum     271
+Dated     1576640704
+Level     44
+Room      29916
+Flags     1 0 0 0
+End
+Text      buggo~
+Body      above 2 bill hp and everytime I get an increase in nen after battle I faint. All Iyou can do right now is think about the stars.
+~
+Name      Estarossa~
+IdNum     271
+Dated     1576656446
+Level     44
+Room      24519
+Flags     1 0 0 0
+End
+Text      risky dice~
+Body      the dice rolls when put in carriage
+~
+Name      Estarossa~
+IdNum     271
+Dated     1576826831
+Level     25
+Room      3012
+Flags     0 0 0 0
+End
+Text      mailing~
+Body      can't mail while standing in front of elena :/
+~
+Name      Estarossa~
+IdNum     287
+Dated     1576944024
+Level     1
+Room      1406
+Flags     1 0 0 0
+End
+Text      that shop bug~
+Body      the bug where u can't buy after typing list. have to exit the list and then buy.
+~
+Name      Estarossa~
+Notes     It is not a bug, you cant do anything in page mode unless you type quit first
+I recommend you to toggle page 30 to avoid shop page.
+~
+IdNum     288
+Dated     1578414152
+Level     37
+Room      40067
+Flags     1 0 0 0
+End
+Text      flurry~
+Body      flurry works on shoppkeepers and crashes the server
+~
+Name      Estarossa~
+IdNum     288
+Dated     1578415710
+Level     37
+Room      40067
+Flags     1 0 0 0
+End
+Text      jokenpo~
+Body      doing the lion quest and entering the jokenpo. we can reenter the room after playing it and can play again.
+~
+Name      Estarossa~
+IdNum     288
+Dated     1578415763
+Level     37
+Room      40067
+Flags     4 0 0 0
+End
+Text      gladiator quest~
+Body      gladiator quest flag bug.
+~
+Name      Estarossa~
+IdNum     288
+Dated     1578415829
+Level     37
+Room      40067
+Flags     0 0 0 0
+End
+Text      card name format~
+Body      some cards are named "rank-limit name; ex.- SS-5 Blue Planet" instead of "name rank-limit; ex.- Blue Planet SS-5"
+~
+Name      Estarossa~
+IdNum     288
+Dated     1578416103
+Level     37
+Room      40067
+Flags     1 0 0 0
+End
+Text      can't prac recall~
+Body      title
+~
+Name      Estarossa~
+IdNum     288
+Dated     1578416606
+Level     37
+Room      12073
+Flags     1 0 0 0
+End
+Text      track and sense~
+Body      both have same purpose...????
+~
+Name      Estarossa~
+Notes     Sense is just a second command for track.
+~
+IdNum     288
+Dated     1578416664
+Level     37
+Room      12073
+Flags     1 0 0 0
+End
+Text      locate object~
+Body      using the skill shows cards in binder and items related to the card. for ex locate bandit shows the bandit's blade in my book and shows the name of the blade holder. i can use summon to summon the guy holding the blade and gain the card.
+~
+Name      Estarossa~
+IdNum     288
+Dated     1578416686
+Level     37
+Room      12073
+Flags     1 0 0 0
+End
+Text      leveling idea~
+Body      the leveling system is good for lower levels but at around 1million we start getting good gear and thus nen gain increases. this makes leveling way too easier. I suggest that you increase the gap in levels from 1 million
+~
+Name      Estarossa~
+IdNum     288
+Dated     1578416876
+Level     37
+Room      12071
+Flags     0 0 0 0
+End
+Text      item level cap~
+Body      most powerful items have very low level cap and the max is 30 which is easily achievable and thus I'd like to advise you that you put level caps on items.
+~
+Name      Estarossa~
+Notes     Studing a level cap based on rarity of the item
+~
+IdNum     288
+Dated     1578417017
+Level     37
+Room      12071
+Flags     4 0 0 0
+End
+Text      the shop bug~
+Body      i still have to exit the list before i can use another command
+~
+Name      Estarossa~
+Notes     Not a bug, read the answer in bug 78
+~
+IdNum     288
+Dated     1578503262
+Level     37
+Room      3037
+Flags     0 0 0 0
+End
+Text      flurry~
+Body      even a new player can use flurry without practicing it. check the bug. Also, bye.
+~
+Name      Estarossa~
+IdNum     288
+Dated     1578553629
+Level     37
+Room      30208
+Flags     1 0 0 0
+End
+Text       Estarossa here!~
+Body      haha. I AM THE BUG NOW!!
+~
+Name      Estarossa~
+IdNum     317
+Dated     1581075585
+Level     1
+Room      40000
+Flags     0 0 0 0
+End

@@ -1,0 +1,30 @@
+#1400
+Meet the Ruler~
+Find the Ruler in Limeiro and deliver the invitation letter~
+The last restricted card will be rewarded by who deliver the invitation
+letter to the Ruler.
+~
+You got the rarest card in the game!
+~
+You have abandoned the quest.
+~
+5 1400 a 3208 1401 -1 -1
+999999 0 0 34 -1 1400 1
+99999 99999 65300
+S
+#1401
+End of game~
+@WA quiz for everyone if a player reach 99/100 restricted cards@n~
+This quest will be lead by all game masters including Eeta and Elena when goal was reached.
+If you reach the goal and sure has no fake cards into your specified binder slots,
+claim to the Game Masters you is the winner for check of goal parameters.
+~
+You have completed the quest.
+~
+You have abandoned the quest.
+~
+5 1401 a 3203 -1 1400 -1
+100000 0 0 34 -1 1402 1
+10000 99999 3258
+S
+$~

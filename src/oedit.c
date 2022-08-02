@@ -444,7 +444,7 @@ static void oedit_disp_val1_menu(struct descriptor_data *d)
   case ITEM_PEN:
   case ITEM_BOAT:
   case ITEM_FREE:   /* Not implemented, but should be handled here */
-  case ITEM_FREE2:  /* Not implemented, but should be handled here */
+  case ITEM_BOOSTER:
     oedit_disp_menu(d);
     break;
   default:

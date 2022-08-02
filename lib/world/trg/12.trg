@@ -140,7 +140,7 @@ end
 ~
 #1205
 Object Affects Example~
-1 n 100
+1 bn 100
 ~
 * By Rumble of The Builder Academy    tbamud.com 9091
 if %self.affects(BLIND)% 
@@ -1095,6 +1095,19 @@ elseif %direction% == west
   %send% %actor% The door slides open, you leave, and it quickly slides shut behind you.
   %echoaround% %actor% The door slides open, %actor.name% walks out, and the door slides shut.
 end
+~
+#1250
+Henque's testing trigger~
+1 j 100
+~
+%attach% 1251 %actor.id%
+~
+#1251
+Henque's 2~
+0 b 100
+~
+dg_cast 'luck' %actor%
+%detach% 1251 %self.id%
 ~
 #1267
 secret drawer magic~

@@ -72,7 +72,7 @@
 #define SPELL_LOCATE_OBJECT          31 /* Reserved Skill[] DO NOT CHANGE */
 #define SPELL_MAGIC_MISSILE          32 /* Reserved Skill[] DO NOT CHANGE */
 #define SPELL_POISON                 33 /* Reserved Skill[] DO NOT CHANGE */
-#define SPELL_PROT_FROM_EVIL         34 /* Reserved Skill[] DO NOT CHANGE */
+#define SPELL_MASSAGIST              34 /* Reserved Skill[] DO NOT CHANGE */
 #define SPELL_REMOVE_CURSE           35 /* Reserved Skill[] DO NOT CHANGE */
 #define SPELL_SANCTUARY              36 /* Reserved Skill[] DO NOT CHANGE */
 #define SPELL_SHOCKING_GRASP         37 /* Reserved Skill[] DO NOT CHANGE */
@@ -93,9 +93,14 @@
 #define SPELL_IDENTIFY               52 /* Reserved Skill[] DO NOT CHANGE */
 #define SPELL_FLY                    53 /* Reserved Skill[] DO NOT CHANGE */
 #define SPELL_DARKNESS               54
-#define SPELL_CHAIN                  55
+#define SPELL_CHAIN_PROTECTION       55
+#define SPELL_TIGHTEN_CHAINS         56
+#define SPELL_NEN_BEAST              57
+#define SPELL_REPAIR                 58
+#define SPELL_LOCATE_CARD            59
+#define SPELL_LUCK		             60
 /** Total Number of defined spells */
-#define NUM_SPELLS                   55
+#define NUM_SPELLS                   60
 
 /* Insert new spells here, up to MAX_SPELLS */
 #define MAX_SPELLS		    130
@@ -110,8 +115,25 @@
 #define SKILL_RESCUE                137 /* Reserved Skill[] DO NOT CHANGE */
 #define SKILL_SNEAK                 138 /* Reserved Skill[] DO NOT CHANGE */
 #define SKILL_STEAL                 139 /* Reserved Skill[] DO NOT CHANGE */
-#define SKILL_TRACK		              140 /* Reserved Skill[] DO NOT CHANGE */
+#define SKILL_TRACK		            140 /* Reserved Skill[] DO NOT CHANGE */
+#define SKILL_POWER                 141
+#define SKILL_SECOND_ATTACK         142
+#define SKILL_THIRD_ATTACK          143
+#define SKILL_FOURTH_ATTACK         144
+#define SKILL_ANALYSIS              145
+#define SKILL_DODGE                 146
+#define SKILL_PARRY                 147
+#define SKILL_INSTANT_FORTIFY       148
+#define SKILL_BAREHANDED_EXPERT     149
+#define SKILL_JAJANKEN				150
+#define SKILL_RECALL                151
+#define SKILL_ENHANCE               152
+#define SKILL_SENSE                 153
+#define SKILL_REMOTE_PUNCH          154
+#define SKILL_CHANGE                155
+#define SKILL_NOPK                  156
 /* New skills may be added here up to MAX_SKILLS (200) */
+#define NUM_VALID_SKILLS            154
 
 /* NON-PLAYER AND OBJECT SPELLS AND SKILLS: The practice levels for the spells
  * and skills below are _not_ recorded in the players file; therefore, the
@@ -142,8 +164,10 @@
 #define TYPE_BLAST		  312
 #define TYPE_PUNCH		  313
 #define TYPE_STAB		    314
+#define TYPE_PARRY		    315
+#define TYPE_DODGE		    316
 /** The total number of attack types */
-#define NUM_ATTACK_TYPES  15
+#define NUM_ATTACK_TYPES  17
 
 /* new attack types can be added here - up to TYPE_SUFFERING */
 #define TYPE_SUFFERING		     399
@@ -178,7 +202,7 @@
 #define TAR_OBJ_INV     (1 << 7)
 #define TAR_OBJ_ROOM    (1 << 8)
 #define TAR_OBJ_WORLD   (1 << 9)
-#define TAR_OBJ_EQUIP	  (1 << 10)
+#define TAR_OBJ_EQUIP	(1 << 10)
 
 struct spell_info_type {
    byte min_position;	/* Position for caster	 */
@@ -221,11 +245,13 @@ ASPELL(spell_create_water);
 ASPELL(spell_recall);
 ASPELL(spell_teleport);
 ASPELL(spell_summon);
+ASPELL(spell_locate_card);
 ASPELL(spell_locate_object);
 ASPELL(spell_charm);
 ASPELL(spell_information);
 ASPELL(spell_identify);
 ASPELL(spell_enchant_weapon);
+ASPELL(spell_repair);
 ASPELL(spell_detect_poison);
 
 /* basic magic calling functions */

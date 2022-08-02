@@ -716,6 +716,11 @@ D2
 ~
 ~
 0 -1 24119
+E
+window~
+The ship is traveling at warp 8 and the stars
+runs backwards, making alot of silver traces.
+~
 S
 #24122
 Shuttle Bay~
@@ -1059,6 +1064,7 @@ D1
 ~
 0 -1 24138
 S
+T 24111
 #24136
 Main Bridge - Upper Half~
    You find yourself on the upper half of the main bridge of the USS 

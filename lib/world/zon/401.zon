@@ -1,0 +1,14 @@
+#401
+Henque~
+Path to G.I. southern~
+40100 40199 30 2 g 0 0 0 2 5
+T 0 2 40100 40100 	(Sick villagers quest)
+M 0 40101 1 40104 	(an old man)
+M 0 40102 1 40104 	(a sick child)
+D 0 40103 1 2 	(Outside A Small Cabin In The Forest)
+M 0 40103 4 40113 	(a Giant Cyclop)
+M 0 40103 4 40112 	(a Giant Cyclop)
+M 0 40103 4 40111 	(a Giant Cyclop)
+M 0 40103 4 40110 	(a Giant Cyclop)
+S
+$

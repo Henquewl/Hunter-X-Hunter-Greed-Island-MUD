@@ -142,11 +142,6 @@ You see the Market Square.
 ~
 ~
 0 -1 3014
-D3
-You see the entrance to the Clerics' Guild.
-~
-~
-0 -1 3004
 S
 #3006
 The Entrance Hall Of The Grunting Boar Inn~
@@ -768,7 +763,7 @@ leads to various spell cards types.  To the west, there are defensive spell
 section and beyond.  Regular spell section to north and attack spell section at
 east.
 ~
-30 28 0 0 0 0
+30 12 0 0 0 0
 D0
 ~
 ~
@@ -788,16 +783,6 @@ D3
 0 0 3036
 S
 T 3034
-#3034
-SPELLSHOP REGULAR SPELLS STOREROOM~
-ONLY GAME MASTERS ARE PERMITTED HERE.
-~
-30 1220 0 0 0 0
-D2
-~
-~
-0 0 3037
-S
 #3035
 @BAttack Spell Section@n~
 This unfinished room was created by Henque.
@@ -812,6 +797,7 @@ D3
 ~
 0 0 3033
 S
+T 3032
 #3036
 @BDefensive Spell Section And Beyond@n~
 This unfinished room was created by Henque.
@@ -826,6 +812,7 @@ D1
 ~
 0 0 3033
 S
+T 3030
 #3037
 @BRegular Spell Section@n~
 This unfinished room was created by Henque.
@@ -836,26 +823,7 @@ D2
 ~
 0 0 3033
 S
-#3038
-SPELLSHOP ATTACK SPELLS STOREROOM~
-ONLY GAME MASTERS ARE PERMITTED HERE.
-~
-30 1220 0 0 0 0
-D2
-~
-~
-0 0 3035
-S
-#3039
-SPELLSHOP DEFENSIVE SPELLS STOREROOM~
-ONLY GAME MASTERS ARE PERMITTED HERE.
-~
-30 1220 0 0 0 0
-D2
-~
-~
-0 0 3036
-S
+T 3031
 #3040
 @MInside @GThe @mWest @YGate @gOf @wMasadora@n~
    You are by two small towers that have been built into the city wall and
@@ -1094,6 +1062,10 @@ You see the alley.
 ~
 ~
 0 -1 3045
+D2
+~
+~
+0 0 3203
 S
 #3050
 The Deserted Warehouse~
@@ -1184,7 +1156,7 @@ Outside The East Gate Of Masadora~
 connected with a footbridge across the heavy wooden gate.  To the east the
 plains stretch out in the distance.
 ~
-30 0 0 0 0 1
+30 98304 0 0 0 1
 D1
 You see the plains.
 ~
@@ -1217,7 +1189,6 @@ wall~
 some kind of mortar.  It is far too high to climb.  
 ~
 S
-T 3053
 #3054
 By The Temple Altar~
    You are by the temple altar in the northern end of the Temple of Masadora. 

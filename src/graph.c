@@ -142,11 +142,11 @@ ACMD(do_track)
 {
   char arg[MAX_INPUT_LENGTH];
   struct char_data *vict;
-  int dir, skill_num, skilladd;  
+  int dir;  
 
   /* The character must have the track skill. */
   if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_TRACK)) {
-    send_to_char(ch, "You have no idea how.\r\n");
+    send_to_char(ch, "Unpractised you are, a master you must seek, hum.\r\n");
     return;
   }
   one_argument(argument, arg);
@@ -156,36 +156,38 @@ ACMD(do_track)
   }
   /* The person can't see the victim. */
   if (!(vict = get_char_vis(ch, arg, NULL, FIND_CHAR_WORLD))) {
-    send_to_char(ch, "No one is around by that name.\r\n");
+	if (vict == NULL)
+	  send_to_char(ch, "No one is around by that name.\r\n");
+	else
+      send_to_char(ch, "The target is masking its own presence.\r\n");
     return;
   }
   /* We can't track the victim. */
-  if (AFF_FLAGGED(vict, AFF_NOTRACK)) {
-    send_to_char(ch, "You sense no trail.\r\n");
+  if (!CAN_TRACK(ch, vict)) {
+    if (!IS_NPC(vict))
+	  send_to_char(ch, "The target is masking its own presence.\r\n");
+	else
+	  send_to_char(ch, "You sense no trail.\r\n");
     return;
   }
 
   /* 101 is a complete failure, no matter what the proficiency. */
-  if (rand_number(0, 101) >= GET_SKILL(ch, SKILL_TRACK)) {
+  if (rand_number(0, 101) > GET_SKILL(ch, SKILL_TRACK)) {
     int tries = 10;
     /* Find a random direction. :) */
     do {
       dir = rand_number(0, DIR_COUNT - 1);
     } while (!CAN_GO(ch, dir) && --tries);
-    send_to_char(ch, "You sense a trail %s from here!\r\n", dirs[dir]);
+	if (IS_MANIPULATOR(ch)) {
+      send_to_char(ch, "You sense %s's trail %s from here! ", GET_NAME(vict), dirs[dir]);
+	  powerlevel(vict, ch);
+	  send_to_char(ch, "\tn\r\n");
+	} else
+      send_to_char(ch, "You sense %s's trail %s from here!\r\n", GET_NAME(vict), dirs[dir]);
     return;
   }
   
-  skill_num = find_skill_num("track");
-  if ((GET_SKILL(ch, skill_num) < 95) && ((rand_number(1, 20) + wis_app[GET_WIS(ch)].bonus) >= 20)) { 
-    skilladd = GET_SKILL(ch, skill_num);
-    skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
-    SET_SKILL(ch, skill_num, MIN(95, skilladd));
-    if (GET_SKILL(ch, skill_num) >= 95)
-      send_to_char(ch, "You mastered this skill!\r\n");
-    else
-      send_to_char(ch, "You get better with this skill...\r\n");
-  }
+  pracskill(ch, SKILL_TRACK, 20); 
   
   GET_MANA(ch) = (GET_MANA(ch) - 1);
 
@@ -202,8 +204,14 @@ ACMD(do_track)
   case BFS_NO_PATH:
     send_to_char(ch, "You can't sense a trail to %s from here.\r\n", HMHR(vict));
     break;
-  default:	/* Success! */
-    send_to_char(ch, "You sense a trail %s from here!\r\n", dirs[dir]);
+  default:
+      /* Success! */
+	if (IS_MANIPULATOR(ch)) {
+      send_to_char(ch, "You sense %s's trail %s from here! ", GET_NAME(vict), dirs[dir]);
+      powerlevel(vict, ch);
+	  send_to_char(ch, "\tn\r\n");
+	} else
+      send_to_char(ch, "You sense %s's trail %s from here!\r\n", GET_NAME(vict), dirs[dir]);
     break;
   }
 }

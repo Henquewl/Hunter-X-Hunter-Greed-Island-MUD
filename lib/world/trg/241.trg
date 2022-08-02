@@ -1306,4 +1306,13 @@ Blank~
 ~
 * No Script
 ~
+#24147
+Interact replicator~
+0 b 100
+~
+eval obj %self.room.random.obj%
+if %obj%
+  say tea earl gray hot
+end
+~
 $~

@@ -335,6 +335,25 @@ else
 return 0
 end
 ~
+#65361
+Scanner gain~
+1 c 4
+ga~
+if %cmd.mudcommand% == gain && scanner /= %arg%
+  detach 3203 %self.id%
+  %force% %actor% get %self.name%
+else
+  return 0
+end
+~
+#65368
+Virility effect~
+0 b 100
+~
+dg_cast 'enhance' %self%
+dg_cast 'focus' %self%
+detach 65368 %self.id%
+~
 #65383
 sword of truth bind~
 0 k 100

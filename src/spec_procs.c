@@ -30,7 +30,6 @@
 
 /* locally defined functions of local (file) scope */
 static int compare_spells(const void *x, const void *y);
-static const char *how_good(int percent);
 static void npc_steal(struct char_data *ch, struct char_data *victim);
 
 /* Special procedures for mobiles. */
@@ -57,99 +56,506 @@ void sort_spells(void)
   qsort(&spell_sort_info[1], MAX_SKILLS, sizeof(int), compare_spells);
 }
 
-static const char *how_good(int percent)
-{
-  if (percent < 0)
-    return " error)";
-  if (percent == 0)
-    return " (not learned)";
-  if (percent <= 10)
-    return " (awful)";
-  if (percent <= 20)
-    return " (bad)";
-  if (percent <= 40)
-    return " (poor)";
-  if (percent <= 55)
-    return " (average)";
-  if (percent <= 70)
-    return " (fair)";
-  if (percent <= 80)
-    return " (good)";
-  if (percent <= 85)
-    return " (very good)";
-
-  return " (superb)";
-}
-
 const char *prac_types[] = {
-  "hatsu",
+  "skill",
   "skill"
 };
 
-#define LEARNED_LEVEL	0	/* % known which is considered "learned" */
-#define MAX_PER_PRAC	1	/* max percent gain in skill per practice */
-#define MIN_PER_PRAC	2	/* min percent gain in skill per practice */
-#define PRAC_TYPE	3	/* should it say 'spell' or 'skill'?	 */
+#define LEARNED_TRA	0	/* % known which is considered "learned" */
+#define LEARNED_CON	1	/* % known which is considered "learned" */
+#define LEARNED_EMT	2	/* % known which is considered "learned" */
+#define LEARNED_ENH	3	/* % known which is considered "learned" */
+#define LEARNED_MAN	4	/* % known which is considered "learned" */
+#define LEARNED_SPE	5	/* % known which is considered "learned" */
+#define LEARNED_SKL	6	/* % known which is considered "learned" */
+#define PRAC_TYPE	7	/* should it say 'spell' or 'skill'?	 */
 
-#define LEARNED(ch) (prac_params[LEARNED_LEVEL][(int)GET_CLASS(ch)])
-#define MINGAIN(ch) (prac_params[MIN_PER_PRAC][(int)GET_CLASS(ch)])
-#define MAXGAIN(ch) (prac_params[MAX_PER_PRAC][(int)GET_CLASS(ch)])
+#define LEARNED0(ch) (prac_params[LEARNED_TRA][(int)GET_CLASS(ch)])
+#define LEARNED1(ch) (prac_params[LEARNED_CON][(int)GET_CLASS(ch)])
+#define LEARNED2(ch) (prac_params[LEARNED_EMT][(int)GET_CLASS(ch)])
+#define LEARNED3(ch) (prac_params[LEARNED_ENH][(int)GET_CLASS(ch)])
+#define LEARNED4(ch) (prac_params[LEARNED_MAN][(int)GET_CLASS(ch)])
+#define LEARNED5(ch) (prac_params[LEARNED_SPE][(int)GET_CLASS(ch)])
+#define LEARNEDSKL(ch) (prac_params[LEARNED_SKL][(int)GET_CLASS(ch)])
 #define SPLSKL(ch) (prac_types[prac_params[PRAC_TYPE][(int)GET_CLASS(ch)]])
+
+/** Practice chance for all skills when used. */
+/*void pracskill(struct char_data *ch, int skill_num, int chance)
+{
+  struct obj_data *booster;
+  int i, skilladd, dice, found = 0;
+	
+  skill_num = find_skill_num(skill_num);
+  dice = rand_number(1, 20);  
+  
+  if (!ch || IS_NPC(ch) || dice == 1)
+	return;
+  
+  for (i = 0; i < NUM_CLASSES; i++){    
+	if (GET_LEVEL(ch) >= spell_info[skill_num].min_level[i])
+      found = i;	  
+  }
+ 
+  if ((GET_SKILL(ch, skill_num) < (prac_params[found][(int) GET_CLASS(ch)])) && ((dice + (((wis_app[GET_WIS(ch)].bonus) / 2) + 1) >= chance) || dice == 20)){ 
+    skilladd = GET_SKILL(ch, skill_num);
+    skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
+    SET_SKILL(ch, skill_num, MIN((prac_params[found][(int) GET_CLASS(ch)]), skilladd));
+	if (GET_SKILL(ch, skill_num) >= (prac_params[found][(int) GET_CLASS(ch)])) {
+      send_to_char(ch, "\tDYou mastered \tG%s\tD!\tn\r\n", spell_info[skill_num].name);
+	  booster = read_object(3250, VIRTUAL);
+	  obj_to_char(booster, ch);
+	  send_to_char(ch, "Congratulations! You have been rewarded by the Game Masters with %s!\r\n", booster->short_description);
+    } else
+	  send_to_char(ch, "\tcYou get better with \tC%s\tc...\tn\r\n", spell_info[skill_num].name);
+  }
+  return;
+} 
+*/
+void list_of_skills(struct char_data *ch, int lvl)
+{
+  int i, skl, skclass = 0, sortpos, line = 0;
+/*  size_t len = 0;
+  char buf2[MAX_STRING_LENGTH];*/
+  const char *skill_area[] = {	
+	"Transmuter Skill",
+	"Conjurer Skill",
+	"Emitter Skill",
+	"Enhancer Skills",
+	"Manipulator Skill",
+	"Specialist Skill",
+	"Hunter Skills"
+  };
+
+//	len = snprintf(buf2, sizeof(buf2), "\r\n[ ::::::::::: \tc%-17.17s (max %3d%%)\tn :::::::::::: ]\r\n\r\n", skill_area[6], LEARNED5(ch));
+  
+  send_to_char(ch, "[ ::::::::::: %s%-17.17s (max %3d%%)\tn :::::::::::: ]\r\n", class_colors[6], skill_area[6], LEARNEDSKL(ch));
+  for (sortpos = 1; sortpos <= MAX_SKILLS; sortpos++) {    
+	i = spell_sort_info[sortpos];
+	skl = spell_info[i].min_level[6];	
+    if (lvl >= skl) {
+      if (line == 1) {	
+        send_to_char(ch, "%s%-20s \tn(L%3d\tn)\r\n", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, skl);
+	    line = 0;
+	  } else {
+	    send_to_char(ch, "%s%-20s \tn(L%3d\tn) | ", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, skl);
+		line = 1;
+	  }
+    }
+	sortpos++;
+	i = spell_sort_info[sortpos];
+	skl = spell_info[i].min_level[6];	
+	if (lvl >= skl) {
+	  if (line == 1) {	
+        send_to_char(ch, "%s%-20s \tn(L%3d\tn)\r\n", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, skl);
+	    line = 0;
+	  } else {
+	    send_to_char(ch, "%s%-20s \tn(L%3d\tn) | ", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, skl);
+		line = 1;
+	  }
+
+    }
+  }
+  while (skclass < 6) {
+  line = 0; 
+  send_to_char(ch, "\r\n\r\n[ ::::::::::: %s%-17.17s (max %3d%%)\tn :::::::::::: ]\r\n", class_colors[skclass], skill_area[skclass], prac_params[skclass][(int)GET_CLASS(ch)]);  
+  for (sortpos = 1; sortpos <= MAX_SKILLS; sortpos++) {    
+	i = spell_sort_info[sortpos];
+	skl = spell_info[i].min_level[skclass];
+    if (lvl >= skl) {
+      if (line == 1) {	
+        send_to_char(ch, "%s%-20s \tn(L%3d\tn)\r\n", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, skl);
+	    line = 0;
+	  } else {
+	    send_to_char(ch, "%s%-20s \tn(L%3d\tn) | ", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, skl);
+		line = 1;
+	  }
+
+    }
+	sortpos++;
+	i = spell_sort_info[sortpos];
+	skl = spell_info[i].min_level[skclass];
+	if (lvl >= skl) {
+	  if (line == 1) {	
+        send_to_char(ch, "%s%-20s \tn(L%3d\tn)\r\n", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, skl);
+	    line = 0;
+	  } else {
+	    send_to_char(ch, "%s%-20s \tn(L%3d\tn) | ", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, skl);
+		line = 1;
+	  }
+    }
+  }
+  skclass++;
+  }
+  send_to_char(ch, "\r\n");
+  return;
+}
 
 void list_skills(struct char_data *ch)
 {
-  const char *overflow = "\r\n**OVERFLOW**\r\n";
-  int i, sortpos, ret, line = 0;
-  size_t len = 0;
-  char buf2[MAX_STRING_LENGTH];
+//  const char *overflow = "\r\n**OVERFLOW**\r\n";
+  int i, skclass = 0, sortpos, line = 0;
+/*  size_t len = 0;
+  char buf2[MAX_STRING_LENGTH];*/
+  const char *skill_area[] = {	
+	"Transmuter Skill",
+	"Conjurer Skill",
+	"Emitter Skill",
+	"Enhancer Skills",
+	"Manipulator Skill",
+	"Specialist Skill",
+	"Hunter Skills"
+  };
 
-  len = snprintf(buf2, sizeof(buf2), "You know of the following %ss:\r\n", SPLSKL(ch));
+//	len = snprintf(buf2, sizeof(buf2), "\r\n[ ::::::::::: \tc%-17.17s (max %3d%%)\tn :::::::::::: ]\r\n\r\n", skill_area[6], LEARNED5(ch));
+  
+  send_to_char(ch, "[ ::::::::::: %s%-17.17s (max %3d%%)\tn :::::::::::: ]\r\n", class_colors[6], skill_area[6], LEARNEDSKL(ch));
+  for (sortpos = 1; sortpos <= MAX_SKILLS; sortpos++) {    
+	i = spell_sort_info[sortpos];
+    if (GET_LEVEL(ch) >= spell_info[i].min_level[6]) {
+      if (line == 1) {	
+        send_to_char(ch, "%s%-20s \tn(\tC%3d%%\tn)\r\n", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, GET_SKILL(ch, i));
+	    line = 0;
+	  } else {
+	    send_to_char(ch, "%s%-20s \tn(\tC%3d%%\tn) | ", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, GET_SKILL(ch, i));
+		line = 1;
+	  }
 
+    }
+	sortpos++;
+	i = spell_sort_info[sortpos];
+	if (GET_LEVEL(ch) >= spell_info[i].min_level[6]) {
+	  if (line == 1) {	
+        send_to_char(ch, "%s%-20s \tn(\tC%3d%%\tn)\r\n", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, GET_SKILL(ch, i));
+	    line = 0;
+	  } else {
+	    send_to_char(ch, "%s%-20s \tn(\tC%3d%%\tn) | ", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, GET_SKILL(ch, i));
+		line = 1;
+	  }
+
+    }
+  }
+  while (skclass < 5) {
+  line = 0; 
+  send_to_char(ch, "\r\n\r\n[ ::::::::::: %s%-17.17s (max %3d%%)\tn :::::::::::: ]\r\n", class_colors[skclass], skill_area[skclass], prac_params[skclass][(int)GET_CLASS(ch)]);  
+  for (sortpos = 1; sortpos <= MAX_SKILLS; sortpos++) {    
+	i = spell_sort_info[sortpos];
+    if (GET_LEVEL(ch) >= spell_info[i].min_level[skclass]) {
+      if (line == 1) {	
+        send_to_char(ch, "%s%-20s \tn(\tC%3d%%\tn)\r\n", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, GET_SKILL(ch, i));
+	    line = 0;
+	  } else {
+	    send_to_char(ch, "%s%-20s \tn(\tC%3d%%\tn) | ", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, GET_SKILL(ch, i));
+		line = 1;
+	  }
+
+    }
+	sortpos++;
+	i = spell_sort_info[sortpos];
+	if (GET_LEVEL(ch) >= spell_info[i].min_level[skclass]) {
+	  if (line == 1) {	
+        send_to_char(ch, "%s%-20s \tn(\tC%3d%%\tn)\r\n", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, GET_SKILL(ch, i));
+	    line = 0;
+	  } else {
+	    send_to_char(ch, "%s%-20s \tn(\tC%3d%%\tn) | ", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, GET_SKILL(ch, i));
+		line = 1;
+	  }
+
+    }
+  }
+  skclass++;
+  }  
+  line = 0;
+  send_to_char(ch, "\r\n\r\n[ ::::::::::: %s%-17.17s (max %3d%%)\tn :::::::::::: ]\r\n", class_colors[5], skill_area[5], LEARNED5(ch));    
+  if ((GET_CLASS(ch) == 1 || GET_CLASS(ch) >= 4)){
+    for (sortpos = 1; sortpos <= MAX_SKILLS; sortpos++) {    
+	i = spell_sort_info[sortpos];
+    if (GET_LEVEL(ch) >= spell_info[i].min_level[5]) {
+      if (line == 1) {	
+        send_to_char(ch, "%s%-20s \tn(\tC%3d%%\tn)\r\n", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, GET_SKILL(ch, i));
+	    line = 0;
+	  } else {
+	    send_to_char(ch, "%s%-20s \tn(\tC%3d%%\tn) | ", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, GET_SKILL(ch, i));
+		line = 1;
+	  }
+
+    }
+	sortpos++;
+	i = spell_sort_info[sortpos];
+	if (GET_LEVEL(ch) >= spell_info[i].min_level[5]) {
+	  if (line == 1) {	
+        send_to_char(ch, "%s%-20s \tn(\tC%3d%%\tn)\r\n", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, GET_SKILL(ch, i));
+	    line = 0;
+	  } else {
+	    send_to_char(ch, "%s%-20s \tn(\tC%3d%%\tn) | ", GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", spell_info[i].name, GET_SKILL(ch, i));
+		line = 1;
+	  }
+
+    }
+  }
+	}
+/*
   for (sortpos = 1; sortpos <= MAX_SKILLS; sortpos++) {    
 	i = spell_sort_info[sortpos];
     if (GET_LEVEL(ch) >= spell_info[i].min_level[(int) GET_CLASS(ch)]) {
       if (line == 1) {	
-        ret = snprintf(buf2 + len, sizeof(buf2) - len, "%-20s (%3d%%)\r\n", spell_info[i].name, (GET_SKILL(ch, i) + 5));
+        ret = snprintf(buf2 + len, sizeof(buf2) - len, "\tc%-20s \tn(%s%3d%%\tn)\r\n", spell_info[i].name, GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", GET_SKILL(ch, i));
 	    line = 0;
 	  } else {
-	    ret = snprintf(buf2 + len, sizeof(buf2) - len, "%-20s (%3d%%) | ", spell_info[i].name, (GET_SKILL(ch, i) + 5));
+	    ret = snprintf(buf2 + len, sizeof(buf2) - len, "\tc%-20s \tn(%s%3d%%\tn) | ", spell_info[i].name, GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", GET_SKILL(ch, i));
 		line = 1;
 	  }
-	
-      if (ret < 0 || len + ret >= sizeof(buf2))
-        break;
-      len += ret;
+
     }
 	sortpos++;
 	i = spell_sort_info[sortpos];
 	if (GET_LEVEL(ch) >= spell_info[i].min_level[(int) GET_CLASS(ch)]) {
 	  if (line == 1) {	
-        ret = snprintf(buf2 + len, sizeof(buf2) - len, "%-20s (%3d%%)\r\n", spell_info[i].name, (GET_SKILL(ch, i) + 5));
+        ret = snprintf(buf2 + len, sizeof(buf2) - len, "\tc%-20s \tn(%s%3d%%\tn)\r\n", spell_info[i].name, GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", GET_SKILL(ch, i));
 	    line = 0;
 	  } else {
-	    ret = snprintf(buf2 + len, sizeof(buf2) - len, "%-20s (%3d%%) | ", spell_info[i].name, (GET_SKILL(ch, i) + 5));
+	    ret = snprintf(buf2 + len, sizeof(buf2) - len, "\tc%-20s \tn(%s%3d%%\tn) | ", spell_info[i].name, GET_SKILL(ch, i) <= 0 ? "\tD" : "\tc", GET_SKILL(ch, i));
 		line = 1;
 	  }
-	
-      if (ret < 0 || len + ret >= sizeof(buf2))
-        break;
-      len += ret;
+
     }
   }
   if (len >= sizeof(buf2))
-    strcpy(buf2 + sizeof(buf2) - strlen(overflow) - 1, overflow); /* strcpy: OK */
+    strcpy(buf2 + sizeof(buf2) - strlen(overflow) - 1, overflow);
+  
+  page_string(ch->desc, buf2, TRUE);*/
+  send_to_char(ch, "\r\n\tDUpgrade/Practice points remaining: \tG%d\tn\r\n", GET_PRACTICES(ch));
+}
 
-  page_string(ch->desc, buf2, TRUE);
+void list_trains(struct char_data *ch)
+{
+   int str = 2, dex = 2, con = 2, intl = 2, wis = 2, cha = 2;
+   
+   if (ch->real_abils.str >= 24)
+	  str += 2;
+    else if (ch->real_abils.str > 18)
+	  str++;
+    else if (ch->real_abils.str < 11)
+      str--;
+  
+    if (ch->real_abils.dex >= 24)
+	  dex += 2;
+    else if (ch->real_abils.dex > 18)
+	  dex++;
+    else if (ch->real_abils.str < 11)
+      dex--;
+  
+    if (ch->real_abils.con >= 24)
+	  con += 2;
+    else if (ch->real_abils.con > 18)
+	  con++;
+    else if (ch->real_abils.str < 11)
+      con--;
+  
+    if (ch->real_abils.intel >= 24)
+	  intl += 2;
+    else if (ch->real_abils.intel > 18)
+	  intl++;
+    else if (ch->real_abils.str < 11)
+      intl--;
+    
+	if (ch->real_abils.wis >= 24)
+	  wis += 2;
+    else if (ch->real_abils.wis > 18)
+	  wis++;
+    else if (ch->real_abils.str < 11)
+      wis--;
+  
+    if (ch->real_abils.cha >= 24)
+	  cha += 2;
+    else if (ch->real_abils.cha > 18)
+	  cha++;
+    else if (ch->real_abils.str < 11)
+      cha--;
+  
+   send_to_char(ch, "\r\n[ Real Attributes ]\r\n");   
+   send_to_char(ch, " \tcSTR: \tG%2d\tn | \tcDEX: \tG%2d\tn\r\n", ch->real_abils.str, ch->real_abils.dex);   
+   send_to_char(ch, " \tcINT: \tG%2d\tn | \tcWIS: \tG%2d\tn\r\n", ch->real_abils.intel, ch->real_abils.wis);   
+   send_to_char(ch, " \tcCON: \tG%2d\tn | \tcCHA: \tG%2d\tn\r\n", ch->real_abils.con , ch->real_abils.cha);   
+   send_to_char(ch, "\r\n[  Upgrade cost   ]\r\n");
+   send_to_char(ch, " \tcNEN: \tG1\tn /|\\ \tcSTA: \tG1\tn\r\n");
+   send_to_char(ch, " \tcSTR: \tG%d\tn \\|/ \tcDEX: \tG%d\tn\r\n", str, dex);   
+   send_to_char(ch, " \tcINT: \tG%d\tn /|\\ \tcWIS: \tG%d\tn\r\n", intl, wis);   
+   send_to_char(ch, " \tcCON: \tG%d\tn \\|/ \tcCHA: \tG%d\tn\r\n", con , cha);   
+   send_to_char(ch, "[ ::::::::::::::: ]\r\n");   
+   send_to_char(ch, " \tDUpgrade points: \tG%d\tn\r\n", GET_PRACTICES(ch));
 }
 
 SPECIAL(guild)
 {
-  int skill_num, percent;
+  int skill_num, percent, i, found = 0;
+  char buf[MAX_STRING_LENGTH];
 
-  if (IS_NPC(ch) || !CMD_IS("practice"))
+  if (IS_NPC(ch) || (!CMD_IS("practice") && !CMD_IS("train") && !CMD_IS("upgrade")))
     return (FALSE);
 
   skip_spaces(&argument);
+  
+  if (CMD_IS("train") || CMD_IS("upgrade")) {
+	
+    if (!*argument) {
+      list_trains(ch);
+      return (TRUE);
+	}
+	
+	if (GET_PRACTICES(ch) <= 0) {
+      send_to_char(ch, "You do not seem to be able to train now.\r\n");
+      return (TRUE);
+    }
+	
+	found = 2;	
+	
+	
+	
+	if (is_abbrev(argument, "nen")) {
+	  if (GET_MAX_HIT(ch) == 1000000000) {
+		send_to_char(ch, "Your nen is already at its maximum!\r\n");
+	    return (TRUE);
+	  }
+	  gain_exp(ch, (GET_MAX_HIT(ch) / 40));
+	  GET_PRACTICES(ch)--;	  
+	} else if (is_abbrev(argument, "stamina")) {	  
+	  GET_PRACTICES(ch)--;
+	  GET_MAX_MANA(ch) += 2;
+	  sprintf(buf, "stamina");
+	} else if (is_abbrev(argument, "strenght")) {      
+	  if (ch->real_abils.str < 25) {
+		if (ch->real_abils.str >= 24)
+	      found += 2;
+        else if (ch->real_abils.str > 18)
+	      found++;	    
+	    else if (ch->real_abils.str < 11)
+		  found--;		
+		GET_PRACTICES(ch) -= found;
+		if (GET_PRACTICES(ch) < 0) {
+		  GET_PRACTICES(ch) += found;
+		  send_to_char(ch, "You don't have enough upgrade points.\r\n");
+		  return (TRUE); 	
+		}
+		ch->real_abils.str += 1;
+	    sprintf(buf, "strenght");
+	  } else {
+		send_to_char(ch, "Strenght already at maximum!\r\n");
+		return (TRUE);
+	  }
+	} else if (is_abbrev(argument, "dexterity")) {
+	  if (ch->real_abils.dex < 25) {
+		if (ch->real_abils.dex >= 24)
+	      found += 2;
+        else if (ch->real_abils.dex > 18)
+	      found++;
+	    else if (ch->real_abils.dex < 11)
+		  found--;
+		GET_PRACTICES(ch) -= found;
+		if (GET_PRACTICES(ch) < 0) {
+		  GET_PRACTICES(ch) += found;
+		  send_to_char(ch, "You don't have enough upgrade points.\r\n");
+		  return (TRUE); 	
+		}
+		ch->real_abils.dex += 1;
+		sprintf(buf, "dexterity");
+	  } else {
+		send_to_char(ch, "Dexterity already at maximum!\r\n");
+		return (TRUE);
+	  }
+	} else if (is_abbrev(argument, "intelligence")) {
+	  if (ch->real_abils.intel < 25) {
+		if (ch->real_abils.intel >= 24)
+		  found += 2;
+		else if (ch->real_abils.intel > 18)
+		  found++;
+	    else if (ch->real_abils.intel < 11)
+		  found--;
+		GET_PRACTICES(ch) -= found;
+		if (GET_PRACTICES(ch) < 0) {
+		  GET_PRACTICES(ch) += found;
+		  send_to_char(ch, "You don't have enough upgrade points.\r\n");
+		  return (TRUE); 	
+		}
+		ch->real_abils.intel += 1;
+		sprintf(buf, "intelligence");
+	  } else {
+		send_to_char(ch, "Intelligence already at maximum!\r\n");
+		return (TRUE);
+	  }
+	} else if (is_abbrev(argument, "wisdom")) {
+	  if (ch->real_abils.wis < 25) {
+		if (ch->real_abils.wis >= 24)
+		  found += 2;
+		else if (ch->real_abils.wis > 18)
+		  found++;
+	    else if (ch->real_abils.wis < 11)
+		  found--;
+		GET_PRACTICES(ch) -= found;
+		if (GET_PRACTICES(ch) < 0) {
+		  GET_PRACTICES(ch) += found;
+		  send_to_char(ch, "You don't have enough upgrade points.\r\n");
+		  return (TRUE); 	
+		}
+		ch->real_abils.wis += 1;
+		sprintf(buf, "wisdom");
+	  } else {
+		send_to_char(ch, "Wisdom already at maximum!\r\n");
+		return (TRUE);
+	  }
+	} else if (is_abbrev(argument, "constituition")) {
+	  if (ch->real_abils.con < 25) {
+		if (ch->real_abils.con >= 24)
+		  found += 2;
+		else if (ch->real_abils.con > 18)
+		  found++;
+	    else if (ch->real_abils.con < 11)
+		  found--;
+		GET_PRACTICES(ch) -= found;
+		if (GET_PRACTICES(ch) < 0) {
+		  GET_PRACTICES(ch) += found;
+		  send_to_char(ch, "You don't have enough upgrade points.\r\n");
+		  return (TRUE); 	
+		}
+		ch->real_abils.con += 1;
+		sprintf(buf, "constituition");
+	  } else {
+		send_to_char(ch, "Constituition already at maximum!\r\n");
+		return (TRUE);
+	  }
+	} else if (is_abbrev(argument, "charisma")) {
+	  if (ch->real_abils.cha < 25) {
+		if (ch->real_abils.cha >= 24)
+	      found += 2;
+        else if (ch->real_abils.cha > 18)
+	      found++; 
+		else if (ch->real_abils.cha < 11)
+		  found--;
+		GET_PRACTICES(ch) -= found;
+		if (GET_PRACTICES(ch) < 0) {
+		  GET_PRACTICES(ch) += found;
+		  send_to_char(ch, "You don't have enough upgrade points.\r\n");
+		  return (TRUE); 	
+		}
+		ch->real_abils.cha += 1;
+		sprintf(buf, "charisma");
+	  } else {
+		send_to_char(ch, "Charisma already at maximum!\r\n");
+		return (TRUE);
+	  }
+	} else {
+      send_to_char(ch, "Train what?\r\n");
+	  return (TRUE);
+	}	
+	if (*buf && is_abbrev(argument, "stamina"))
+	  send_to_char(ch, "\tDYour %s was increased by \tG2\tD!\tn\r\n", buf);
+	else if (*buf && !is_abbrev(argument, "nen"))
+	  send_to_char(ch, "\tDYour %s was increased by \tG1\tD!\tn\r\n", buf);
+    affect_total(ch);
+	save_char(ch);
+    Crash_crashsave(ch);
+	return (TRUE);	
+	
+  } else {
 
   if (!*argument) {
     list_skills(ch);
@@ -160,29 +566,42 @@ SPECIAL(guild)
     return (TRUE);
   }
 
-  skill_num = find_skill_num(argument);
+  skill_num = find_skill_num(argument);  
 
-  if (skill_num < 1 ||
-      GET_LEVEL(ch) < spell_info[skill_num].min_level[(int) GET_CLASS(ch)]) {
-    send_to_char(ch, "You do not know of that %s.\r\n", SPLSKL(ch));
-    return (TRUE);
+  for (i = 0; i < NUM_CLASSES; i++) {	
+	if ((skill_num <= NUM_VALID_SKILLS) && GET_LEVEL(ch) >= spell_info[skill_num].min_level[i])
+      found++;
   }
+  
+  if (!found || skill_num <= 0) {
+    send_to_char(ch, "You do not know of that %s.\r\n", SPLSKL(ch));
+	if (GET_LEVEL(ch) == LVL_IMPL)
+	  send_to_char(ch, "Found: %s | skill_num: %d.\r\n", found ? "TRUE" : "FALSE", skill_num ? skill_num : 0);
+    return (TRUE);
+    }    
+  
   if (GET_SKILL(ch, skill_num) > 0) {
     send_to_char(ch, "You are already learned in that area.\r\n");
     return (TRUE);
   }
-  send_to_char(ch, "You practice for a while...\r\n");
-  GET_PRACTICES(ch)--;
-
-  percent = GET_SKILL(ch, skill_num);
-  percent += MIN(MAXGAIN(ch), MAX(MINGAIN(ch), int_app[GET_INT(ch)].learn));
-
-  SET_SKILL(ch, skill_num, MIN(LEARNED(ch), percent));
-
-  if (GET_SKILL(ch, skill_num) > 0)
-    send_to_char(ch, "You are now learned in that area.\r\n");
+  
+  if (LEARNED5(ch) == 0 && (GET_SKILL(ch, skill_num) == 31 || GET_SKILL(ch, skill_num) == 40)) {
+    send_to_char(ch, "You can't learn Specialist %s.\r\n", SPLSKL(ch));
+    return (TRUE);
+  }
+  
+  send_to_char(ch, "\r\n\tDYou learned \tG%s\tD!\tn\r\n", spell_info[skill_num].name);
+  GET_PRACTICES(ch)--;    
+  
+  //percent = ((GET_WIS(ch) * (prac_params[i][(int) GET_CLASS(ch)])) / 100);
+  percent = GET_WIS(ch);
+  if (LEARNED5(ch) == 1 && (skill_num == 31 || skill_num == 40))
+    SET_SKILL(ch, skill_num, 1);
+  else
+    SET_SKILL(ch, skill_num, MIN(LEARNEDSKL(ch), percent));
 
   return (TRUE);
+  }
 }
 
 SPECIAL(dump)
@@ -396,7 +815,7 @@ SPECIAL(magic_user)
 
   if (GET_LEVEL(ch) > 12 && rand_number(0, 12) == 0) {
     if (IS_EVIL(ch))
-      cast_spell(ch, vict, NULL, SPELL_ENERGY_DRAIN);
+      cast_spell(ch, vict, NULL, SPELL_DISPEL_GOOD);
     else if (IS_GOOD(ch))
       cast_spell(ch, vict, NULL, SPELL_DISPEL_EVIL);
   }

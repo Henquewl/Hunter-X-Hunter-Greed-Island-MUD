@@ -348,9 +348,11 @@ static void postmaster_receive_mail(struct char_data *ch, struct char_data *mail
     for(y = 0; y < TW_ARRAY_MAX; y++)
       obj->obj_flags.wear_flags[y] = 0;
     SET_BIT_AR(GET_OBJ_WEAR(obj), ITEM_WEAR_TAKE);
+	SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_NODONATE);
+	SET_BIT_AR(GET_OBJ_EXTRA(obj), ITEM_NOGAIN);	
     GET_OBJ_WEIGHT(obj) = 1;
     GET_OBJ_COST(obj) = 30;
-    GET_OBJ_RENT(obj) = 10;
+    GET_OBJ_RENT(obj) = 10;	
     obj->action_description = read_delete(GET_IDNUM(ch));
 
     if (obj->action_description == NULL)

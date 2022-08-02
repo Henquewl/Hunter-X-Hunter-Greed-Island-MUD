@@ -62,6 +62,7 @@ struct char_data *get_player_vis(struct char_data *ch, char *name, int *number, 
 struct char_data *get_char_vis(struct char_data *ch, char *name, int *number, int where);
 struct char_data *get_char_room_vis(struct char_data *ch, char *name, int *number);
 struct char_data *get_char_world_vis(struct char_data *ch, char *name, int *number);
+struct char_data *get_char_zone_vis(struct char_data *ch, char *name, int *number);
 
 struct obj_data *get_obj_in_list_num(int num, struct obj_data *list);
 struct obj_data *get_obj_num(obj_rnum nr);
@@ -93,7 +94,6 @@ int	generic_find(char *arg, bitvector_t bitvector, struct char_data *ch,
 #define FIND_OBJ_ROOM      (1 << 3)
 #define FIND_OBJ_WORLD     (1 << 4)
 #define FIND_OBJ_EQUIP     (1 << 5)
-
 
 /* prototypes from mobact.c */
 void forget(struct char_data *ch, struct char_data *victim);

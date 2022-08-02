@@ -7,11 +7,15 @@ highway in the sky where movement can be seen from the many creatures which
 inhabit the tree even from here.  A hole in the trunk opens up into the tree
 northward, a small home visible inside.    
 ~
-306 4 0 0 0 0
+306 4 0 0 0 12
 D0
 ~
-door~
-1 0 30604
+~
+0 0 30604
+D3
+~
+~
+0 0 40010
 D4
 ~
 ~
@@ -62,6 +66,22 @@ D5
 ~
 ~
 0 0 30600
+D6
+~
+~
+0 0 30613
+D7
+~
+~
+0 0 30607
+D8
+~
+~
+0 0 30609
+D9
+~
+~
+0 0 30611
 S
 #30602
 On the Trunk at Mid Branch System~
@@ -95,6 +115,22 @@ D5
 ~
 ~
 0 0 30601
+D6
+~
+~
+0 0 30637
+D7
+~
+~
+0 0 30631
+D8
+~
+~
+0 0 30633
+D9
+~
+~
+0 0 30635
 S
 #30603
 On the Trunk at the Upper Branch System~
@@ -124,22 +160,46 @@ D5
 ~
 ~
 0 0 30602
+D6
+~
+~
+0 0 30661
+D7
+~
+~
+0 0 30655
+D8
+~
+~
+0 0 30657
+D9
+~
+~
+0 0 30659
 S
 #30604
 Inside the Trunk~
    This inner trunk has been carved out and made into a cozy little home
 complete with a lounge chair and small bed made from twigs and leaves.  
-Another small chamber is connected to the north through a short archway.    
+Another small chamber is connected to down through a short archway.    
 ~
-306 0 0 0 0 0
+306 0 0 0 0 11
 D0
 ~
 ~
-0 0 30605
+0 0 -1
+D1
+~
+~
+0 0 -1
 D2
 ~
-door~
-1 0 30600
+~
+0 0 30600
+D5
+~
+~
+0 0 30605
 S
 #30605
 Inside the Trunk~
@@ -149,6 +209,14 @@ treant within its own home.
 ~
 306 0 0 0 0 0
 D2
+~
+~
+0 0 -1
+D3
+~
+~
+0 0 -1
+D4
 ~
 ~
 0 0 30604
@@ -191,6 +259,10 @@ D3
 ~
 ~
 0 0 30606
+D9
+~
+~
+0 0 30601
 S
 #30608
 Traveling the Inner Branches~
@@ -230,6 +302,10 @@ D3
 ~
 ~
 0 0 30610
+D6
+~
+~
+0 0 30601
 S
 #30610
 Traveling the Inner Branches~
@@ -269,6 +345,10 @@ D1
 ~
 ~
 0 0 30610
+D7
+~
+~
+0 0 30601
 S
 #30612
 Traveling the Inner Branches~
@@ -308,6 +388,10 @@ D2
 ~
 ~
 0 0 30612
+D8
+~
+~
+0 0 30601
 S
 #30614
 The Outer Branches~
@@ -597,6 +681,10 @@ D3
 ~
 ~
 0 0 30630
+D9
+~
+~
+0 0 30602
 S
 #30632
 Traveling the Inner Branches~
@@ -638,6 +726,10 @@ D3
 ~
 ~
 0 0 30634
+D6
+~
+~
+0 0 30602
 S
 #30634
 Traveling the Inner Branches~
@@ -679,6 +771,10 @@ D1
 ~
 ~
 0 0 30634
+D7
+~
+~
+0 0 30602
 S
 #30636
 Traveling the Inner Branches~
@@ -720,6 +816,10 @@ D2
 ~
 ~
 0 0 30636
+D8
+~
+~
+0 0 30602
 S
 #30638
 The Outer Branches~
@@ -996,6 +1096,10 @@ D3
 ~
 ~
 0 0 30654
+D9
+~
+~
+0 0 30603
 S
 #30656
 Traveling the Inner Branches~
@@ -1036,6 +1140,10 @@ D3
 ~
 ~
 0 0 30658
+D6
+~
+~
+0 0 30603
 S
 #30658
 Traveling the Inner Branches~
@@ -1076,6 +1184,10 @@ D1
 ~
 ~
 0 0 30658
+D7
+~
+~
+0 0 30603
 S
 #30660
 Traveling the Inner Branches~
@@ -1116,6 +1228,10 @@ D2
 ~
 ~
 0 0 30660
+D8
+~
+~
+0 0 30603
 S
 #30662
 The Outer Branches~

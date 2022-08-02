@@ -31,7 +31,7 @@ static int extractions_pending = 0;
 /* local file scope functions */
 static int apply_ac(struct char_data *ch, int eq_pos);
 static void update_object(struct obj_data *obj, int use);
-static void affect_modify_ar(struct char_data * ch, byte loc, sbyte mod, int bitv[], bool add);
+static void affect_modify_ar(struct char_data * ch, byte loc, int mod, int bitv[], bool add);
 
 char *fname(const char *namelist)
 {
@@ -105,8 +105,11 @@ int isname(const char *str, const char *namelist)
   return 0;
 }
 
-void aff_apply_modify(struct char_data *ch, byte loc, sbyte mod, char *msg)
+void aff_apply_modify(struct char_data *ch, byte loc, int mod, char *msg)
 {
+  if (IS_CLERIC(ch))
+	mod *= 2;
+  
   switch (loc) {
   case APPLY_NONE:
     break;
@@ -133,7 +136,9 @@ void aff_apply_modify(struct char_data *ch, byte loc, sbyte mod, char *msg)
   /* Do Not Use. */
   case APPLY_CLASS:
     break;
+	
   case APPLY_LEVEL:
+    GET_LEVEL(ch) += mod;
     break;
 
   case APPLY_AGE:
@@ -153,18 +158,18 @@ void aff_apply_modify(struct char_data *ch, byte loc, sbyte mod, char *msg)
     break;
 
   case APPLY_HIT:
-    GET_MAX_HIT(ch) += mod;
+//    if (GET_ADD_HIT(ch) >= GET_MAX_HIT(ch)) GET_ADD_HIT(ch) = 0;    
+	GET_ADD_HIT(ch) += (((float)mod * ch->points.max_hit) / (float)(1000));
     break;
 
   case APPLY_MOVE:
-    GET_MAX_MOVE(ch) += mod;
+    GET_EXP(ch) += mod;
     break;
 
   case APPLY_GOLD:
     break;
 
-  case APPLY_EXP:
-    GET_EXP(ch) += (mod * 2000);
+  case APPLY_EXP:    
     break;
 
   case APPLY_AC:
@@ -179,20 +184,16 @@ void aff_apply_modify(struct char_data *ch, byte loc, sbyte mod, char *msg)
     GET_DAMROLL(ch) += mod;
     break;
 
-  case APPLY_SAVING_PARA:
-    GET_SAVE(ch, SAVING_PARA) += mod;
+  case APPLY_SAVING_PARA:    
     break;
 
-  case APPLY_SAVING_ROD:
-    GET_SAVE(ch, SAVING_ROD) += mod;
+  case APPLY_SAVING_ROD:    
     break;
 
-  case APPLY_SAVING_PETRI:
-    GET_SAVE(ch, SAVING_PETRI) += mod;
+  case APPLY_SAVING_PETRI:    
     break;
 
-  case APPLY_SAVING_BREATH:
-    GET_SAVE(ch, SAVING_BREATH) += mod;
+  case APPLY_SAVING_BREATH:    
     break;
 
   case APPLY_SAVING_SPELL:
@@ -206,7 +207,7 @@ void aff_apply_modify(struct char_data *ch, byte loc, sbyte mod, char *msg)
   } /* switch */
 }
 
-static void affect_modify_ar(struct char_data * ch, byte loc, sbyte mod, int bitv[], bool add)
+static void affect_modify_ar(struct char_data * ch, byte loc, int mod, int bitv[], bool add)
 {
   int i , j;
 
@@ -245,13 +246,14 @@ void affect_total(struct char_data *ch)
     affect_modify_ar(ch, af->location, af->modifier, af->bitvector, FALSE);
 
   ch->aff_abils = ch->real_abils;
+  ch->points.add_hit = 0;
 
   for (i = 0; i < NUM_WEARS; i++) {
     if (GET_EQ(ch, i))
       for (j = 0; j < MAX_OBJ_AFFECT; j++)
 	affect_modify_ar(ch, GET_EQ(ch, i)->affected[j].location,
 		      GET_EQ(ch, i)->affected[j].modifier,
-		      GET_OBJ_AFFECT(GET_EQ(ch, i)), TRUE);
+		      GET_OBJ_AFFECT(GET_EQ(ch, i)), TRUE);	
   }
 
   for (af = ch->affected; af; af = af->next)
@@ -260,14 +262,15 @@ void affect_total(struct char_data *ch)
   /* Make certain values are between 0..25, not < 0 and not > 25! */
   i = (IS_NPC(ch) || GET_LEVEL(ch) >= LVL_GRGOD) ? 25 : 25;
 
+  GET_STR(ch) = MAX(0, MIN(GET_STR(ch), i));
   GET_DEX(ch) = MAX(0, MIN(GET_DEX(ch), i));
   GET_INT(ch) = MAX(0, MIN(GET_INT(ch), i));
   GET_WIS(ch) = MAX(0, MIN(GET_WIS(ch), i));
   GET_CON(ch) = MAX(0, MIN(GET_CON(ch), i));
-  GET_CHA(ch) = MAX(0, MIN(GET_CHA(ch), i));
-  GET_STR(ch) = MAX(0, GET_STR(ch));
+  GET_CHA(ch) = MAX(0, MIN(GET_CHA(ch), i));  
+//  GET_STR(ch) = MAX(0, GET_STR(ch));
 
-  if (IS_NPC(ch)) {
+/*  if (IS_NPC(ch) || GET_LEVEL(ch) >= LVL_GRGOD) {
     GET_STR(ch) = MIN(GET_STR(ch), i);
   } else {
     if (GET_STR(ch) > 18) {
@@ -275,7 +278,7 @@ void affect_total(struct char_data *ch)
       GET_ADD(ch) = MIN(i, 100);
       GET_STR(ch) = 18;
     }
-  }
+  } */
 }
 
 /* Insert an affect_type in a char_data structure. Automatically sets
@@ -347,10 +350,17 @@ void affect_join(struct char_data *ch, struct affected_type *af,
     next = hjp->next;
 
     if ((hjp->spell == af->spell) && (hjp->location == af->location)) {
-      if (add_dur)
-	af->duration += hjp->duration;
-      else if (avg_dur)
+      if (add_dur) {
+		if ((hjp->duration < 48) && ((af->duration + hjp->duration) > 47)) {
+		  af->duration = 24;
+		  hjp->duration = 24;
+	    } else if (hjp->duration > 47) {
+		  af->duration = 1;
+		}
+	    af->duration += hjp->duration;
+      } else if (avg_dur) {
         af->duration = (af->duration+hjp->duration)/2;
+	  }
       if (add_mod)
 	af->modifier += hjp->modifier;
       else if (avg_mod)
@@ -434,7 +444,7 @@ void obj_to_char(struct obj_data *object, struct char_data *ch)
     if (!IS_NPC(ch))
       SET_BIT_AR(PLR_FLAGS(ch), PLR_CRASH);
   } else
-    log("SYSERR: NULL obj (%p) or char (%p) passed to obj_to_char.", object, ch);
+    log("SYSERR: NULL obj (%p) or char (%s) passed to obj_to_char.", object, GET_NAME(ch));
 }
 
 /* take an object from a char */
@@ -495,7 +505,7 @@ int invalid_align(struct char_data *ch, struct obj_data *obj)
   if (OBJ_FLAGGED(obj, ITEM_ANTI_EVIL) && IS_EVIL(ch))
     return TRUE;
   if (OBJ_FLAGGED(obj, ITEM_ANTI_GOOD) && IS_GOOD(ch))
-    return TRUE;  
+    return TRUE;
   return FALSE;
 }
 
@@ -527,13 +537,12 @@ void equip_char(struct char_data *ch, struct obj_data *obj, int pos)
     /* Changed to drop in inventory instead of the ground. */
     obj_to_char(obj, ch);
     return;
-  }
+  }  
 
   GET_EQ(ch, pos) = obj;
   obj->worn_by = ch;
   obj->worn_on = pos;
   
-  if (pos != 17) {
     if (GET_OBJ_TYPE(obj) == ITEM_ARMOR)
       GET_AC(ch) -= apply_ac(ch, pos);
 
@@ -549,8 +558,7 @@ void equip_char(struct char_data *ch, struct obj_data *obj, int pos)
 		    obj->affected[j].modifier,
 		    GET_OBJ_AFFECT(obj), TRUE);
 
-    affect_total(ch);
-  }
+    affect_total(ch);  
 }
 
 struct obj_data *unequip_char(struct char_data *ch, int pos)
@@ -568,7 +576,7 @@ struct obj_data *unequip_char(struct char_data *ch, int pos)
   obj->worn_on = -1;
   
   
-  if (GET_OBJ_TYPE(obj) == ITEM_ARMOR && pos != 17)
+  if (GET_OBJ_TYPE(obj) == ITEM_ARMOR)
     GET_AC(ch) += apply_ac(ch, pos);
 
   if (IN_ROOM(ch) != NOWHERE) {
@@ -578,16 +586,13 @@ struct obj_data *unequip_char(struct char_data *ch, int pos)
   } else
     log("SYSERR: IN_ROOM(ch) = NOWHERE when unequipping char %s.", GET_NAME(ch));
 
-  GET_EQ(ch, pos) = NULL;
+  GET_EQ(ch, pos) = NULL;  
   
-  if (pos != 17) {
-    for (j = 0; j < MAX_OBJ_AFFECT; j++)
-      affect_modify_ar(ch, obj->affected[j].location,
-		    obj->affected[j].modifier,
-		    GET_OBJ_AFFECT(obj), FALSE);
+  for (j = 0; j < MAX_OBJ_AFFECT; j++)
+    affect_modify_ar(ch, obj->affected[j].location, obj->affected[j].modifier, GET_OBJ_AFFECT(obj), FALSE);
 
     affect_total(ch);
-  }
+ 
   return (obj);
 }
 
@@ -765,7 +770,7 @@ void obj_from_obj(struct obj_data *obj)
     /* Subtract weight from char that carries the object */
     GET_OBJ_WEIGHT(temp) -= GET_OBJ_WEIGHT(obj);
     if (temp->carried_by)
-      IS_CARRYING_W(temp->carried_by) -= GET_OBJ_WEIGHT(obj);
+      IS_CARRYING_W(temp->carried_by) -= GET_OBJ_WEIGHT(obj);	
   }
   obj->in_obj = NULL;
   obj->next_content = NULL;
@@ -850,7 +855,7 @@ static void update_object(struct obj_data *obj, int use)
 
 void update_char_objects(struct char_data *ch)
 {
-  int i;
+  int i;  
 
   if (GET_EQ(ch, WEAR_LIGHT) != NULL)
     if (GET_OBJ_TYPE(GET_EQ(ch, WEAR_LIGHT)) == ITEM_LIGHT)
@@ -867,9 +872,9 @@ void update_char_objects(struct char_data *ch)
       }
 	  
 /*  if (GET_EQ(ch, WEAR_HOLD) != NULL)
-    if ((GET_OBJ_TYPE(GET_EQ(ch, WEAR_HOLD)) == ITEM_SCROLL || GET_OBJ_TYPE(GET_EQ(ch, WEAR_HOLD)) == ITEM_TREASURE || GET_OBJ_TYPE(GET_EQ(ch, WEAR_HOLD)) == ITEM_OTHER) && GET_OBJ_VNUM(GET_EQ(ch, WEAR_HOLD) == 65535))
+    if ((GET_OBJ_TYPE(GET_EQ(ch, WEAR_HOLD)) == ITEM_SPELLCARD || GET_OBJ_TYPE(GET_EQ(ch, WEAR_HOLD)) == ITEM_RESTRICTED || GET_OBJ_TYPE(GET_EQ(ch, WEAR_HOLD)) == ITEM_CARD) && GET_OBJ_VNUM(GET_EQ(ch, WEAR_HOLD) == 65535))
       if (GET_OBJ_TIMER(GET_EQ(ch, WEAR_HOLD)) <= 0) {
-	    make_card(ch, GET_EQ(ch, WEAR_HOLD));
+	    make_card(ch, GET_EQ(ch, WEAR_HOLD), TRUE);
 	  }*/
 		  
   for (i = 0; i < NUM_WEARS; i++)
@@ -1108,6 +1113,39 @@ struct char_data *get_char_room_vis(struct char_data *ch, char *name, int *numbe
   return (NULL);
 }
 
+struct char_data *get_char_zone_vis(struct char_data *ch, char *name, int *number)
+{
+  struct char_data *i;
+  int num;
+
+  if (!number) {
+    number = &num;
+    num = get_number(&name);
+  }
+
+  if ((i = get_char_room_vis(ch, name, number)) != NULL)
+    return (i);
+
+  if (*number == 0)
+    return get_player_vis(ch, name, NULL, 0);
+
+  for (i = character_list; i && *number; i = i->next) {
+    if (IN_ROOM(ch) == IN_ROOM(i))
+      continue;
+    if (!isname(name, i->player.name))
+      continue;
+    if (!CAN_SEE(ch, i))
+      continue;
+    if (--(*number) != 0)
+      continue;
+    if (world[IN_ROOM(ch)].zone != world[IN_ROOM(i)].zone)
+	  continue;
+
+    return (i);
+  }
+  return (NULL);
+}
+
 struct char_data *get_char_world_vis(struct char_data *ch, char *name, int *number)
 {
   struct char_data *i;
@@ -1142,9 +1180,9 @@ struct char_data *get_char_world_vis(struct char_data *ch, char *name, int *numb
 struct char_data *get_char_vis(struct char_data *ch, char *name, int *number, int where)
 {
   if (where == FIND_CHAR_ROOM)
-    return get_char_room_vis(ch, name, number);
+    return get_char_room_vis(ch, name, number);  
   else if (where == FIND_CHAR_WORLD)
-    return get_char_world_vis(ch, name, number);
+    return get_char_world_vis(ch, name, number);  
   else
     return (NULL);
 }
@@ -1250,20 +1288,20 @@ const char *money_desc(int amount)
     int limit;
     const char *description;
   } money_table[] = {
-    {          1, "a gold coin"				},
-    {         10, "a tiny pile of Jenny"		},
-    {         20, "a handful of Jenny"		},
-    {         75, "a little pile of Jenny"		},
-    {        200, "a small pile of Jenny"		},
-    {       1000, "a pile of Jenny"		},
-    {       5000, "a big pile of Jenny"		},
-    {      10000, "a large heap of Jenny"		},
-    {      20000, "a huge mound of Jenny"		},
-    {      75000, "an enormous mound of Jenny"	},
-    {     150000, "a small mountain of Jenny"	},
-    {     250000, "a mountain of Jenny"		},
-    {     500000, "a huge mountain of Jenny"	},
-    {    1000000, "an enormous mountain of Jenny"	},
+    {          1, "a Jenny coin"				},
+    {         10, "a tiny pile of Jenny coins"		},
+    {         20, "a banknote and some coins of Jenny "		},
+    {         75, "some banknotes of Jenny"		},
+    {        200, "a thin wad of Jenny"		},
+    {       1000, "a wad of Jenny"		},
+    {       5000, "a big wad of Jenny"		},
+    {      10000, "a little heap wads of Jenny"		},
+    {      20000, "a huge mound wads of Jenny"		},
+    {      75000, "an enormous mound wads of Jenny"	},
+    {     150000, "a small mountain of Jenny wads"	},
+    {     250000, "a mountain of Jenny wads"		},
+    {     500000, "a huge mountain of Jenny wads"	},
+    {    1000000, "an enormous mountain of Jenny wads"	},
     {          0, NULL					},
   };
 
@@ -1294,29 +1332,28 @@ struct obj_data *create_money(int amount)
   CREATE(new_descr, struct extra_descr_data, 1);
 
   if (amount == 1) {
-    obj->name = strdup("coin gold");
+    obj->name = strdup("jenny coins gold money");
     obj->short_description = strdup("a gold coin");
-    obj->description = strdup("One miserable gold coin is lying here.");
-    new_descr->keyword = strdup("coin gold");
-    new_descr->description = strdup("It's just one miserable little gold coin.");
+    obj->description = strdup("One miserable Jenny coin is lying here.");
+    new_descr->keyword = strdup("jenny coin gold money");
+    new_descr->description = strdup("It's just one miserable little coin.");
   } else {
-    obj->name = strdup("coins gold");
+    obj->name = strdup("jenny coins gold money");
     obj->short_description = strdup(money_desc(amount));
     snprintf(buf, sizeof(buf), "%s is lying here.", money_desc(amount));
     obj->description = strdup(CAP(buf));
 
-    new_descr->keyword = strdup("coins gold");
+    new_descr->keyword = strdup("jenny coins gold money");
     if (amount < 10)
       snprintf(buf, sizeof(buf), "There are %d coins.", amount);
     else if (amount < 100)
-      snprintf(buf, sizeof(buf), "There are about %d coins.", 10 * (amount / 10));
+      snprintf(buf, sizeof(buf), "There are about %d Jenny in banknotes.", 10 * (amount / 10));
     else if (amount < 1000)
-      snprintf(buf, sizeof(buf), "It looks to be about %d coins.", 100 * (amount / 100));
+      snprintf(buf, sizeof(buf), "It looks to be about %d Jenny in a wad.", 100 * (amount / 100));
     else if (amount < 100000)
-      snprintf(buf, sizeof(buf), "You guess there are, maybe, %d coins.",
-	      1000 * ((amount / 1000) + rand_number(0, (amount / 1000))));
+      snprintf(buf, sizeof(buf), "You guess there are, maybe, %d in wads of money.", (1000 * (amount / 1000) + rand_number(0, (amount / 1000))));
     else
-      strcpy(buf, "There are a LOT of coins.");	/* strcpy: OK (is < 200) */
+      strcpy(buf, "There are a LOT wads of money.");	/* strcpy: OK (is < 200) */
     new_descr->description = strdup(buf);
   }
 

@@ -1,0 +1,217 @@
+#40000
+map island empty card~
+@y100 Map of the Island 'empty' G-400 card@n~
+A @y100 Map of the Island 'empty' G-400 card@g is lying here.@n~
+~
+24 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 400 0 0 62
+T 18606
+T 3215
+E
+map island empty card~
+A map of the island. No towns or markers are currently shown.
+~
+#40001
+map island detailed card~
+@y101 Map of the Island 'detailed' D-70 card@n~
+A @y101 Map of the Island 'detailed' D-70 card@g is lying here.@n~
+~
+24 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 7750 0 0 62
+T 3206
+T 3215
+E
+map island detailed card~
+A detailed map of the island, with all towns and markers already shown.
+~
+#40002
+jenny card~
+@y603 500J H-0 card@n~
+A @y603 500J H-0 card@g is lying here.@n~
+~
+24 d 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+0 500 40102 0 62
+E
+money jenny card~
+   This card contains a 500 Jenny bill.
+~
+#40003
+jenny money card~
+@y604 1000J G-0 card@n~
+A @y604 1000J H-0 card@g is lying here.@n~
+~
+24 d 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+0 1000 40103 0 62
+E
+money jenny card~
+   This card contains a 1000 Jenny bill.
+~
+#40004
+jenny money card~
+@y605 2500J F-0 card@n~
+A @y605 2500J F-0 card@g is lying here.@n~
+~
+24 d 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+0 2500 40104 0 62
+E
+money jenny card~
+   This card contains a 2500 Jenny bill.
+~
+#40005
+jenny money card~
+@y606 5000J E-0 card@n~
+A @y606 5000J E-0 card@g is lying here.@n~
+~
+24 d 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+0 5000 40105 0 62
+E
+money jenny card~
+   This card contains a 5000 Jenny bill.
+~
+#40006
+jenny money card~
+@y607 10000J D-0 card@n~
+A @y607 10000J D-0 card@g is lying here.@n~
+~
+24 d 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+0 10000 40106 0 62
+E
+money jenny card~
+   This card contains a 10.000 Jenny bill.
+The highest valued currency in Greed Island.
+~
+#40007
+jenny money card~
+@y608 25000J C-0 card@n~
+A @y608 25000J C-0 card@g is lying here.@n~
+~
+24 d 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+0 25000 40107 0 62
+E
+money jenny card~
+   This card contains a 25.000 Jenny in banknotes.
+~
+#40008
+jenny money card~
+@y609 50000J B-0 card@n~
+A @y609 50000J B-0 card@g is lying here.@n~
+~
+24 d 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 40108 0 62
+E
+money jenny card~
+   This card contains a 50.000 Jenny in banknotes.
+~
+#40009
+jenny money card~
+@y610 100000J A-0 card@n~
+A @y610 100000J A-0 card@g is lying here.@n~
+~
+24 d 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+0 100000 40109 0 62
+E
+money jenny card~
+   This card contains a 100.000 Jenny in banknotes.
+~
+#40010
+jenny money card~
+@y611 250000J S-0 card@n~
+A @y611 250000J S-0 card@g is lying here.@n~
+~
+24 d 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+0 250000 40110 0 62
+E
+money jenny card~
+   This card contains a 250.000 Jenny in banknotes.
+~
+#40011
+jenny money card~
+@y612 500000J SS-0 card@n~
+A @y612 500000J SS-0 card@g is lying here.@n~
+~
+24 d 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+0 500000 40111 0 62
+E
+money jenny card~
+   This card contains a 500.000 Jenny in banknotes.
+~
+#40050
+sign old wooden triple direction~
+an old wooden triple direction sign~
+An old wooden triple direction sign is here.~
+~
+12 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0
+1000 0 0 0 0
+E
+sign direction~
+Northeast -> Rabicuta
+     West -> Dorias and Soufrabi
+Southwest -> Starting Point and Antokiba
+~
+#40051
+sign old wooden triple direction~
+an old wooden triple direction sign~
+An old wooden triple direction sign is here.~
+~
+12 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0
+1000 0 0 0 0
+E
+sign direction~
+North -> Starting Point
+ West -> Antokiba - City of Prizes
+South -> Magic City of Masadora
+~
+#40096
+healthy villagers card~
+@y263 Healthy Villagers C-50 card@n~
+A @y263 Healthy Villagers C-50 card@g is lying here.@n~
+~
+24 adgr 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 20000 40196 0 62
+E
+healthy villagers card~
+These villagers are as healthy as can be!
+~
+#40097
+163 sick villagers card~
+@y163 Sick Villagers F-150 card@n~
+A @y163 Sick Villagers F-150 card@g is lying here.@n~
+~
+24 adr 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1700 40197 0 62
+E
+sick villagers card~
+These villagers are very sick.
+~
+#40099
+rock card~
+@y21449 Rock H-0 card@n~
+A @y21449 Rock H-0 card@g is lying here.@n~
+  A simple rock. Quite hard and can be any size.
+~
+24 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 1 0 0 2
+T 3206
+T 3215
+E
+rock card~
+A simple rock. Quite hard and can be any size.
+~
+$~

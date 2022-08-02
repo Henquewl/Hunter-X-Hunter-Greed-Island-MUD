@@ -1,37 +1,21 @@
 #2800
 Entrance to Hunter Exam:~
-
-@yWELCOME to Greed Island MUD @ROPEN BETA!@n
-
-Well it is a text-based game, uses the best graphic card in entire world... your imagination!
-If you NEVER played a MUD (multi-user-dungeon) before, let me show what you need to do.
-
-1. You see that thing at side of your keyboard? you will not use that here.
-2. Text game use commands to do things, like "look" or "score" or "kill"...
-3. Normally commands has some logic like "do what with who in what?", EX: get all in corpse
-4. It is a @GRPG@n and @GCARD GAME@n and @GSURVIVOR@n and @GMULTIPLAYER@n and @GONLINE@n... and @GHxH@n game!
-5. Be social, use commands to talk with people like "say" to local or "gossip" with everyone.
-6. When you get lost, use command help or help with a subject to learn more. EX: help newbie
-7. It is a soundless game but nothing prevents you hear some music!
-@nRecommended: @Chttps://www.youtube.com/watch?v=54M63VCsplc&list=PL_3rJhzHvq5GJ_FATfhk4_lUNIs9zBuxR@n
-
-@nTo learn how to play go ---> @Ynorth@n <--- to do the Hunter exam, or just @Yn@n.
-
-Or if you are a veteran in MUDs, just go down to skip this newbie tutorial.
+  You leave a strange elevator that brought you here.
+another competitor is here listening to loud japanese
+music, must be it: https://youtu.be/faqmNf_fZlE
+A bean-headed little man is here to assist newcomers and
+pins a round and white plaque with an ID number on you.
+It is not time to give up out of your dreams, the only
+exit from here is continue to <@Ynorth@n>.
 ~
 28 92 0 0 0 0
 D0
-This obviously is the grand entrace to Mudschool.
+This obviously is the grand entrace to Hunter exams.
 A sign over the entrace says:
 'Only for newbies'
 ~
 ~
 0 0 2801
-D5
-   A portal leads to the end of hunter exam.
-~
-~
-0 0 2814
 E
 credits info~
    Welcor
@@ -42,21 +26,20 @@ T 2806
 T 2800
 #2801
 Hunter Exam 1st Lesson: Finding your way around.~
-   In this context <xxx> means, type xxx and then ENTER.
- 
-   As you might already have noticed, you move around in the world by
-@ngoing <@Yeast@n>, <@Ywest@n>, <@Ynorth@n>, <@Ysouth@n>, <@Yup@n> or <@Ydown@n>. 
- 
-   All of these can, like most mud commands,  be abbreviated to one 
-@nletter : <@Ye@n>,<@Yw@n>,<@Yn@n>,<@Ys@n>,<@Yu@n> and <@Yd@n>.
-Throughout this tutorial, you'll be told which direction to continue.
- 
+   In this context <xxx> means, type xxx and then ENTER. 
+As you might already have noticed, you move around in
+the world by @ngoing <@Yeast@n>, <@Ywest@n>, <@Ynorth@n>,
+<@Ysouth@n>, <@Yup@n> or <@Ydown@n>. 
+All of these can, like most mud commands, be abbreviated
+to one @nletter : <@Ye@n>,<@Yw@n>,<@Yn@n>,<@Ys@n>,<@Yu@n>
+and <@Yd@n>.
+Throughout this tutorial, you'll be told which direction
+to continue. 
 If at any point this text should scroll off your screen, 
-@ntype <@Ylook@n> or <@Yl@n>, to redisplay it. Try this now.
- 
-@nMany questions can also be helped by the command <@Yhelp@n xxx>, where xxx
-is the command you are in doubt about.
- 
+@ntype <@Ylook@n> or <@Yl@n>, to redisplay it. Try now. 
+@nMany questions can also be helped by the command
+<@Yhelp@n xxx>, where xxx is the command you are in
+doubt about. 
 @nNow, go <@Yeast@n> (<@Ye@n> for short).
 ~
 28 92 0 0 0 0
@@ -73,10 +56,11 @@ S
 Hunter Exam 2nd Lesson: Finders Keepers~
    Under this text, you should see a line much like the following:
     
-@gA treasure chest is on the floor here.@n
+@g( 2) A treasure chest is on the floor here.@n
  
-The treasure chest is bulky, so you can not take that.
+The treasure chests are bulky, so you can not take that.
 @n- but you can <@Yopen chest@n>, <@Ylook in chest@n> and <@Yget all chest@n>.
+@nIn order to sack the second chest, type <@Yopen 2.chest@n> and <@Yget all 2.chest@n>.
  
 @nHaving done that, go <@Ynorth@n>
  
@@ -158,11 +142,12 @@ is a small monster, asleep and very easy to kill.
 This colored bar you see every time is your prompt. <@Yhelp prompt@n>
 
 In there are vital information about your character status.
-@nTranslating: <@BNen%@n> <@GMove%@n> / <@RHP@n/@RMAX@n>
+@nTranslating: <@BStamina%@n> / <@cNEN@n/@cMAX@n>
 
-@BNen@n is your energy, your "mana" points.
-@GMove@n is used when you walk through directions.
-@RHP@n is your actual hitpoints, @RMAX@n means maximum hitpoints.
+@WNen@n is your "spirit", all damage, overhuman capacities and
+leveling is based on it.
+@BStamina@n is your body resistance, almost everything consume stamina.
+Hint: keep both of them far from zero.
 
 For more details about your character status type <@Yscore@n>.
 
@@ -180,11 +165,14 @@ D2
 S
 #2806
 Hunter Exam 6th Lesson: The end of poor piglet.~
-@n   First type <@Yconsider piglet@n>, then <@Ykill piglet@n> to start fighting
+@n   First type <@Ylook piglet@n>, then <@Ykill piglet@n> to start fighting
 @nthe piglet. If it is not here, wait a couple of minutes, then <@Ylook@n> to
 see if it has come back.
 
-@nIn any time you can <@Ydiagnose@n> your target to know its health condition.
+@nIf you pay attention will see a (@Bequal@n) written before the piglet's name.
+It means the piglet has between 75% to 125% Nen than you. This is perfect.
+@nAvoid the (@Rstrong@n) ones, they will probably crush you like a bug.
+@nMost of the (@yweak@n) ones are rewardless, don't waste your time on them.
  
 After you kill the piglet, you might want to see if it was carrying
 @nanything. To do this type <@Yexamine corpse@n>. You'll find a couple of
@@ -217,7 +205,7 @@ the last typed command. Thus, to eat two pork chops :
 @ntype <@Yeat pork@n>
 @ntype <@Y!@n>
 
-@nLunch break over, time to go to class. See the teacher to the @Yeast@n.
+@nBreakfast is over, it's time for you to go to class. See the teacher to the @Yeast@n.
 ~
 28 92 0 0 0 0
 D1
@@ -237,10 +225,11 @@ The paths separate. A bunch of signs have been set up on the wall here.
 A teacher stands in front of them, and will teach you your classes' special
 abilities.
  
-@nThe signs have large Titles: @YENHANCER@n, @YEMISSOR@n, @YCONJURER@n, @YTRANSMUTER@n and @YMANIPULATOR@n.
- 
-@nTo read a sign type <@Ylook@n xxx> where xxx is one of the above.
-@nFor more information type <@Yhelp aura-type@n> and <@Yhelp stats@n>.
+@nThere is something written over the @Dblackboard@n.
+@nTo read it type <@Ylook blackboard@n>.
+
+@nTo know the skills of the next levels, type @Yhelp skills @n<@Ylevel@n>.
+@nFor more information about attributes type <@Yhelp stats@n>.
 
 @nWhen you are done here, go @Ynorth@n.
 ~
@@ -254,71 +243,45 @@ D3
 ~
 0 0 2807
 E
-manipulator~
-   The only hatsu you can learn now is gyo or chill touch.
-'chill touch' will weaken the target and cause some damage.
-'gyo' which will allow see things and creatures concealed with aura.
+board blackboard~
+  	WThere are 6 "classes" (aura types) on Greed Island.
+  Type 		Yhelp class for more details about every class.
 
-To get better at any one of these, type
+	c                                           ENHANCER                
+	C                                            /   \
+	y                                       EMISSOR 	mTRANSMUTER
+	C                                           |     | 
+	D                                   MANIPULATOR 	gCONJURER
+	C                                            \   /
+	r                                          SPECIALIST
+			 
+  	WThey are connected by each other, you can 	Ypractice	W a skill from
+other class but can't use 100% of it efficiency since it's not your main
+aura-type, The further away you are from your main aura-type, the harder
+becomes to use it, and impossible with perfection.
+  Only Manipulators and Conjurers can "cast" a Specialist hatsu, but they
+have only 1% for it since they are on side of Specialist class.
+  	WHunter skills can be learned by any aura-type with perfection (	c100%	W).	g
 
-	n<	Ypractice chill touch	n>
-or
-	n<	Ypractice gyo	n>
+	WExample 1: An ENHANCER can learn 100% of ENHANCER and HUNTER skills,
+80% of EMISSOR and TRANSMUTER since they are on side of ENHANCER, and 60%
+of MANIPULATOR and CONJURER, since they are far, and is impossible learn
+any SPECIALIST skills.
 
-to use the hatsus later, type
-	n<	Ycast 'chill touch'	n xxx> and 	n<	Ycast 'gyo'	n>
-where xxx is the name of your target.
-~
-E
-conjurer~
-   The only hatsu you can learn now is gyo or aura protection.
+Example 2: An CONJURER can learn 100% of CONJURER and HUNTER skills, 80%
+of TRANSMUTER and 1% of SPECIALIST they are on side of CONJURER, and 60%
+of MANIPULATOR and ENHANCER, since they are far, and 40% of EMISSOR skills,
+the farthest one.
 
-'aura protection' which will better your armor class.
-'gyo' which will allow see things and creatures concealed with aura.
+  SPECIALIST is the only ones who can use 100% of every aura-types but don't
+share of the same specific habilities of the other types, like enhancer
+regeneration or emissor armor piercing.
 
-To get better at any one of these, type
-
-	n<	Ypractice aura protection	n>
-or
-	n<	Ypractice gyo	n>
-
-to use the hatsus later, type
-	n<	Ycast 'aura protection'	n> and <	Ycast 'gyo'	n>
-~
-E
-emissor~
-   The only hatsu you can learn now is gyo or aura blast.
-'aura blast' will cause some damage to the target.
-'gyo' which will allow see things and creatures concealed with aura.
-
-To get better at any one of these, type
-
-	n<	Ypractice aura blast	n>
-or
-	n<	Ypractice gyo	n>
-
-to use the hatsus later, type
-	n<	Ycast 'aura blast'	n xxx> and <	Ycast 'gyo'	n>
-where xxx is the name of your target.
-~
-E
-transmuter~
-The only spell you can learn on this low level is 'nen stitches',
-which will heal a little damage done to you or your friend - if you have energy to cast it.
-
-	nTo get better at this, type <	Ypractice nen stitches	n>
-
-	nIf you just want to see what you can learn, type <	Ypractice	n>.
-
-	nLater, you can use the hatsu by typing <	Ycast 'nen stitches' target	n>.
-~
-E
-enhancer~
-   The only skill you can learn on this low level is a kick, 
-which will do a little damage to your enemy - if you hit.
-	nTo get better at this, type <	Ypractice kick	n>
-	nIf you just want to see what you can learn, type <	Ypractice	n>.
-	nLater, you can use the skill in combat by typing <	Ykick	n>.
+  	WEach level you receive 3 practice points to learn new skills/hatsus, type
+	Ypractice	W and check the available skills, try give priority to skills from
+your aura-type. 	Wespecially the combat skills. To train a skill type 	Ypractice
+	W<	Yskill name	W>. When level up you receive more practice points and new
+skills to practice. You can keep the points for the next level too.
 ~
 S
 #2809
@@ -360,7 +323,8 @@ For example:
 
 It's possible do an alias to do a shortcut command and add a non defined argument.
 
-@ntype <@Yalias op open door@n>
+@ntype <@Yalias op open door $1@n>
+Without the '$1' you can't define a direction, so it will open any door.
 
 @nNow you can open a door just with <@Yop@n> or a specified direction like <@Yop east@n>.
 
@@ -435,7 +399,7 @@ For more information about more ways of communication,
 D2
 ~
 ~
-0 0 2814
+0 0 2813
 D3
 A common door is here.
 ~
@@ -443,64 +407,17 @@ door~
 1 0 2811
 S
 #2813
-Hunter Exam 14th Lesson : You are ALMOST a professional Hunter~
-@n   Do you like magic tricks? I have a one for you... look your <@Yinventory@n>.
-
-There is a card inside your pocket! This game are full for cards down there.
-
-@nTo use a card you must <@Yhold@n xxx> and after <@Ygain@n>, it will transform into an object. 
-In this case, your card will give you 1000 gold coins, you can spend it in city shops.
-
-@n"@yYellow@n" cards is object(s) in a card form, most of these objects can be reverted
-@nagain into a card form just holding it again and typing once more <@Ygain@n>.
-
-You can sell cards to NPCs shopkeepers, but they do not accept non-card items for gold.
-@nFor more info search for <@Yhelp cards@n> later.
-
-An advantage in keeping them into a card format, this item will weight nothing and
-@nyou can store cards into your <@Ybook@n> (You will receive a binder book for cards soon)
-
-@nTo start the campaign, just go @Ydown@nstairs. *Promoted by Hunter Association*
-~
-28 92 0 0 0 0
-D3
-~
-~
-0 0 2814
-D5
-~
-~
-0 0 1401
-S
-T 2800
-#2814
 Hunter Exam 13th Lesson : Getting the game on your side.~
-
-   Some commands do automatic things for you. To configure a better character
-behavior, lets use some special commands (Optional commands of course):
-
-@ntype <@Yautogold@n> to loot gold when you kill monsters.
-@ntype <@Yautodoor@n> makes you character open doors without need to specify directions.
-@ntype <@Yautokey@n> for open locked doors if you have the key, without need use unlock.
-@ntype <@Yautoassist@n> to help your group of fighters if they enter in a combat.
-@ntype <@Yautosplit@n> for split the gold reward with your group after loot a corpse.
-
-@nYou can use the @Yflee@n command when get low health while fighting and escape from it,
-@nbut you can @Ytoggle wimpy@n <hitpoints> and when reach that hitpoints your character
-will flee from this combat automatically.
-
-Use some useful help files to learn more!
-
-Interesting basic subjects: newbie, background, aura-type, stats, combat, toggle.
-Advanced subjects (see it later): cards, book, gain, rarity.
-
-Or just type help and see what subjects has to you seek information about play it.
-
-Tip 1 from Game Master: Rooms named as "Temple" heals your char more quickly.
-Tip 2 from Game Master: Use Leave spell card before quit the game, will save your
-char items and record the cities you have already visited.
-
-Now go east for the final lesson.
+  Your player do some automatic things like catch
+money automatically from corpses or display the map.
+To check what is active type @Ytoggle@n.
+One important toggle that can save your life is the
+@Ytoggle wimp@n in order to flee when your nen is too
+low to keep in fight, to set it you must declare a
+nen portion to be the trigger.
+Example -> @Ytoggle wimp 50@n
+With that you will *try* flee when reach 50 nen or less.
+When done here, go east for the final lesson.
 ~
 28 92 0 0 0 0
 D0
@@ -510,13 +427,37 @@ D0
 D1
 ~
 ~
-0 0 2813
+0 0 2814
 D5
 ~
 ~
 0 0 -1
 S
 T 2814
+#2814
+Hunter Exam 14th Lesson : You are ALMOST a professional Hunter~
+@n   Do you like magic tricks? I have a one for you... look your <@Yinventory@n>.
+
+There is a card inside your pocket! Are two types of cards, item cards and spell cards.
+@BSpell cards@n only can be used by holding it and then use the command gain <target>.
+The card you received is a @yitem@n, to revert it just type @Ygain @n<@Yitem name or card@n>.
+In that case the card will tranform into money, to check your money type <@Ygold@n>.
+In more or less 60 seconds a card outside the binder slots will automatically revert
+into an item, spell cards just vanishes in that case. You will receive the binder and
+other instructions about this subject in next steps.
+@DCongratulations! You completed MUD tutorial and now is a professional @GHunter@D!!!@n
+@nTo start the campaign, just go @Ydown@nstairs.
+~
+28 92 0 0 0 0
+D3
+~
+~
+0 0 2813
+D5
+~
+~
+0 0 1401
+S
 #2815
 Welcors ~~~ ~~~ furnace~
    You seem to be standing in a cave of some sort.  A rather large cave.  
@@ -537,7 +478,7 @@ E
 flame wall burning fire~
    As you study the walls closer, you realise magic keeps the fire alive, and
 it really is HOT.  Reaching out to touch it proves a very bad idea, giving you
-several burn marks on your hand
+several burn marks on your hand.
 ~
 S
 $~

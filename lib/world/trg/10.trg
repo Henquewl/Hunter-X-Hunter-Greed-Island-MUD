@@ -31,7 +31,6 @@ end
 peek spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -83,7 +82,6 @@ end
 fluroscopy spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -133,7 +131,6 @@ end
 defensive wall spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -166,7 +163,6 @@ end
 reflection spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -199,7 +195,6 @@ end
 magnetic force spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -211,8 +206,6 @@ if %arg.is_pc% == 1
 wait 1 sec
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-
-
 set prevloc %self.room.vnum%
 %teleport% %actor% %arg.room.vnum%
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -233,7 +226,6 @@ end
 pick pocket spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -323,7 +315,6 @@ end
 thief spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -404,7 +395,6 @@ end
 trade spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -518,7 +508,6 @@ end
 return spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -529,8 +518,6 @@ if %arg% == antokiba && %actor.varexists(visited_antokiba)%
 wait 1 sec
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-
-
 set prevloc %self.room.vnum%
 %teleport% %actor% %actor.visited_antokiba%
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -544,8 +531,6 @@ elseif %arg% == masadora && %actor.varexists(visited_masadora)%
 wait 1 sec
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-
-
 set prevloc %self.room.vnum%
 %teleport% %actor% %actor.visited_masadora%
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -559,8 +544,6 @@ elseif %arg% == rabicuta && %actor.varexists(visited_rabicuta)%
 wait 1 sec
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-
-
 set prevloc %self.room.vnum%
 %teleport% %actor% %actor.visited_rabicuta%
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -581,7 +564,6 @@ end
 transform spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -656,7 +638,6 @@ end
 clone spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -731,7 +712,6 @@ end
 railguide spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -761,20 +741,17 @@ end
 departure effect~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
 end
 if %cmd.mudcommand% == gain
-eval depart 40000 + %random.8%
+set depart 40000
 %force% %actor% say Departure ON!
 %zoneecho% %depart% You see a bolt of energy flying through the skies.
 wait 1 sec
-
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-
 set prevloc %self.room.vnum%
 %teleport% %actor% %depart%
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -791,7 +768,6 @@ end
 leave spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -799,10 +775,8 @@ end
 if %cmd.mudcommand% == gain
 %force% %actor% say Leave ON!
 wait 1 sec
-
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-
 set prevloc %self.room.vnum%
 %teleport% %actor% 1406
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -819,7 +793,6 @@ end
 sightvision spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -889,7 +862,6 @@ end
 drift spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -911,8 +883,6 @@ eval visited_antokiba 12064
 remote visited_antokiba %actor.id%
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-
-
 set prevloc %self.room.vnum%
 %teleport% %actor% 12064
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -930,8 +900,6 @@ eval visited_masadora 3053
 remote visited_masadora %actor.id%
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-
-
 set prevloc %self.room.vnum%
 %teleport% %actor% 3053
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -949,8 +917,6 @@ eval visited_rabicuta 40031
 remote visited_rabicuta %actor.id%
 %send% %actor% A bolt of energy envelops you!
 %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-
-
 set prevloc %self.room.vnum%
 %teleport% %actor% 40031
 %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
@@ -1016,7 +982,6 @@ end
 levy spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -1124,7 +1089,6 @@ end
 castle wall spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -1157,7 +1121,6 @@ end
 fake spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -1182,7 +1145,6 @@ end
 rob spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -1248,84 +1210,82 @@ end
 penetrate spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
-%send% %actor% You need your book activated before gain a spell card.
-halt
+  %send% %actor% You need your book activated before gain a spell card.
+  halt
 end
 if %cmd.mudcommand% == gain
-if %arg.is_pc% == 1
-%force% %actor% say Penetrate ON! Target %arg.name%!
-wait 1 sec
-if %arg.varexists(castle_gate)%
-%send% %actor% %arg.name% was protected by a spell!
-%echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
-%send% %arg% A defensive spell ends.
-rdelete defensive_wall %arg.id%
-%purge% %self%
-halt
-end
-eval s %arg.inventory(3203).contents%
-while %s%
-set next %s.next_in_list%
-if %s.revert% > 0
-if %s.type% == SPELLCARD
-%load% obj %s.revert% %arg% inv
-%purge% %s%
-end
-if %s.type% == UNRESTRICTED
-%load% obj %s.revert% %arg% inv
-%purge% %s%
-end
-if %s.type% == RESTRICTED
-if !%arg.varexists(prison_spell)%
-%purge% %s%
-end
-end
-end
-set s %next%
-done
-%send% %actor% You reverted all cards from %arg.name%'s binder.
-%echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
-%send% %arg% %actor.name% reverted all cards inside your binder!
-%purge% %self%
-elseif !%arg%
-%force% %actor% say Penetrate ON!
-wait 1 sec
-eval i %actor.inventory(3203).contents%
-while %i%
-set next %i.next_in_list%
-if %i.revert% > 0
-if %i.type% == SPELLCARD
-%load% obj %i.revert% %actor% inv
-%purge% %i%
-end
-if %i.type% == UNRESTRICTED
-%load% obj %i.revert% %actor% inv
-%purge% %i%
-end
-if %i.type% == RESTRICTED
-%purge% %i%
-end
-end
-set i %next%
-done
-%send% %actor% You reverted all cards from your binder.
-%echoaround% %actor% %actor.name% cast a spell card on %actor.himher% self.
-%purge% %self%
+  if %arg.is_pc% == 1
+    %force% %actor% say Penetrate ON! Target %arg.name%!
+    wait 1 sec
+    if %arg.varexists(castle_gate)%
+      %send% %actor% %arg.name% was protected by a spell!
+      %echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
+      %send% %arg% A defensive spell ends.
+      rdelete defensive_wall %arg.id%
+      %purge% %self%
+      halt
+    end
+    eval s %arg.inventory(3203).contents%
+    while %s%
+      set next %s.next_in_list%
+      if %s.revert% > 0
+        if %s.type% == SPELLCARD
+          %load% obj %s.revert% %arg% inv
+          %purge% %s%
+        end
+        if %s.type% == UNRESTRICTED
+          %load% obj %s.revert% %arg% inv
+          %purge% %s%
+        end
+        if %s.type% == RESTRICTED
+          if !%arg.varexists(prison_spell)%
+            %purge% %s%
+          end
+        end
+      end
+      set s %next%
+    done
+    %send% %actor% You reverted all cards from %arg.name%'s binder.
+    %echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
+    %send% %arg% %actor.name% reverted all cards inside your binder!
+    %purge% %self%
+  elseif !%arg%
+    %force% %actor% say Penetrate ON!
+    wait 1 sec
+    eval i %actor.inventory(3203).contents%
+    while %i%
+      set next %i.next_in_list%
+      if %i.revert% > 0
+        if %i.type% == SPELLCARD
+          %load% obj %i.revert% %actor% inv
+          %purge% %i%
+        end
+        if %i.type% == UNRESTRICTED
+          %load% obj %i.revert% %actor% inv
+          %purge% %i%
+        end
+        if %i.type% == RESTRICTED
+          %purge% %i%
+        end
+      end
+      set i %next%
+    done
+    %send% %actor% You reverted all cards from your binder.
+    %echoaround% %actor% %actor.name% cast a spell card on %actor.himher% self.
+    %purge% %self%
+  else
+    %send% %actor% Cannot find the target of your spell!
+    halt
+  end
 else
-%send% %actor% Cannot find the target of your spell!
-halt
-end
-else
-return 0
+  return 0
 end
 ~
 #1025
 blackout curtain spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -1349,7 +1309,6 @@ end
 holy water spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -1377,7 +1336,6 @@ end
 trace spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -1428,7 +1386,6 @@ end
 stone throw spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -1518,7 +1475,6 @@ end
 shot spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -1597,7 +1553,6 @@ end
 guidepost spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -1639,7 +1594,6 @@ end
 analysis spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -1681,7 +1635,6 @@ end
 lottery spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -1774,7 +1727,6 @@ end
 adhesion spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -1825,31 +1777,30 @@ end
 purify spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
-%send% %actor% You need your book activated before gain a spell card.
-halt
+  %send% %actor% You need your book activated before gain a spell card.
+  halt
 end
 if %cmd.mudcommand% == gain
-eval f %actor.inventory%
-while %f%
-set next %f.next_in_list%
-if %f.name% == %arg.name%
-if %f.weight% <= 1
-break
-end
-end
-set f %next%
+  eval f %actor.inventory%
+  while %f%
+    set next %f.next_in_list%
+    if %f.name% == %arg.name%
+      if %f.weight% <= 1
+      break
+    end
+  end
+  set f %next%
 done
 if !%f%
-%send% %actor% You do not have such card.
-halt
+  %send% %actor% You do not have such card.
+  halt
 end
 %force% %actor% say Purify ON!
 wait 1 sec
 if !%f.revert%
-%send% %actor% Nothing happens and your spell card dissolves.
-%purge% %self%
+  %send% %actor% Nothing happens and your spell card dissolves.
+  %purge% %self%
 end
 %load% obj %f.revert% %actor% inv
 %send% %actor% You transforms back your %f.shortdesc% into %actor.inventory.shortdesc%.
@@ -1857,15 +1808,12 @@ end
 %purge% %f%
 %purge% %self%
 halt
-else
 return 0
-end
 ~
 #1035
 prison spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -1890,7 +1838,6 @@ end
 god eye spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -1913,7 +1860,6 @@ end
 recycle spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -1946,36 +1892,16 @@ return 0
 end
 ~
 #1038
-list spell~
-1 c 1
-ga~
-
-if !%actor.is_book%
-%send% %actor% You need your book activated before gain a spell card.
-halt
-end
-if %cmd.mudcommand% == gain
-if %arg.is_pc% == 1
-%send% %actor% Cannot find the target of your spell!
-halt
-elseif %arg.is_pc% == 0
-%send% %actor% Cannot find the target of your spell!
-halt
-elseif !%arg%
-%send% %actor% Cannot find the target of your spell!
-halt
-else
-eval locate %arg%
-remote locate %actor.id%
-attach 1088 %actor.id%
-%force% %actor% say List ON! %arg%!
-end
+Locate spell~
+0 d 1
+*~
+dg_cast 'locatecard' %speech.cdr.cdr%
+detach 1038 %self.id%
 ~
 #1039
 accompany spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -1996,7 +1922,6 @@ while %i%
 set next %i.next_in_room%
 if %i.master% == %actor%
 %send% %i% A bolt of energy envelops you!
-
 %teleport% %i% %target%
 %force% %i% look
 end
@@ -2006,8 +1931,6 @@ done
 %echoaround% %actor% A bolt of energy envelops %actor.name%'s group and sent them far away.
 %send% %target% A bolt of energy hits the ground near at you!
 %echoaround% %target% A bolt of energy hits the ground near at you!
-
-
 %teleport% %actor% %target%
 %force% %actor% look
 %purge% %self%
@@ -2019,7 +1942,6 @@ set target %actor.visited_masadora%
 wait 1 sec
 * Your master first
 %send% %actor.master% A bolt of energy envelops you!
-
 %teleport% %actor.master% %target%
 %force% %actor.master% look
 * Now your followers
@@ -2028,7 +1950,6 @@ while %i%
 set next %i.next_in_room%
 if %i.master% == %actor%
 %send% %i% A bolt of energy envelops you!
-
 %teleport% %i% %target%
 %force% %i% look
 end
@@ -2036,8 +1957,6 @@ set i %next%
 done
 * And now you
 %echoaround% %actor% A bolt of energy envelops %actor.name%'s group and sent them far away.
-
-
 %teleport% %actor% %target%
 %echoaround% %actor% A bolt of energy hits the ground near at you!
 %force% %actor% look
@@ -2050,7 +1969,6 @@ set target %actor.visited_antokiba%
 wait 1 sec
 * Your master first
 %send% %actor.master% A bolt of energy envelops you!
-
 %teleport% %actor.master% %target%
 %force% %actor.master% look
 * Now your followers
@@ -2059,7 +1977,6 @@ while %i%
 set next %i.next_in_room%
 if %i.master% == %actor%
 %send% %i% A bolt of energy envelops you!
-
 %teleport% %i% %target%
 %force% %i% look
 end
@@ -2067,8 +1984,6 @@ set i %next%
 done
 * And now you
 %echoaround% %actor% A bolt of energy envelops %actor.name%'s group and sent them far away.
-
-
 %teleport% %actor% %target%
 %echoaround% %actor% A bolt of energy hits the ground near at you!
 %force% %actor% look
@@ -2081,7 +1996,6 @@ set target %actor.visited_rabicuta%
 wait 1 sec
 * Your master first
 %send% %actor.master% A bolt of energy envelops you!
-
 %teleport% %actor.master% %target%
 %force% %actor.master% look
 * Now your followers
@@ -2090,7 +2004,6 @@ while %i%
 set next %i.next_in_room%
 if %i.master% == %actor%
 %send% %i% A bolt of energy envelops you!
-
 %teleport% %i% %target%
 %force% %i% look
 end
@@ -2098,8 +2011,6 @@ set i %next%
 done
 * And now you
 %echoaround% %actor% A bolt of energy envelops %actor.name%'s group and sent them far away.
-
-
 %teleport% %actor% %target%
 %echoaround% %actor% A bolt of energy hits the ground near at you!
 %force% %actor% look
@@ -2117,7 +2028,6 @@ end
 contact spell~
 1 c 1
 ga~
-
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
 halt
@@ -2169,16 +2079,23 @@ end
 otimer 2
 ~
 #1088
-locate object~
+locate card~
 0 d 0
 List ON!~
-set lvl %self.level%
+%send% %self% On screen...
 wait 1 sec
-nop %actor.level(30)%
-dg_cast 'locate obj' %self.locate%
-nop %actor.level(%lvl%)%
-rdelete locate %self.id%
-%purge% %self.eq(hold)%
-detach 1088 %self.id%
+if %self.varexists(locate)%
+  dg_cast 'locate card' %self.locate%
+  rdelete locate %self.id%
+* %purge% %self.eq(hold)%
+  detach 1088 %self.id%
+end
+~
+#1089
+locate test~
+0 d 100
+*~
+eval card dg_cast 'locate card' %speech.cdr.cdr%
+%card%
 ~
 $~

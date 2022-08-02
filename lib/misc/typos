@@ -186,3 +186,128 @@ Level     34
 Room      40000
 Flags     1 0 0 0
 End
+Text      quest 12 on the quest board in Antokiba should probbaly be once per month, not mouth, same for the explanations below it~
+Body      quest 12 on the quest board in Antokiba should probbaly be once per month, not mouth, same for the explanations below it
+~
+Name      Azorath~
+IdNum     5
+Dated     1493168003
+Level     2
+Room      12032
+Flags     1 0 0 0
+End
+Text      peddler~
+Body      The poor peddler in Antokiba says 'hey you, can you buy something? or help me some money?' should be Or lend me some money, Or give me some money, Or help me earn some money?
+~
+Name      Azorath~
+IdNum     5
+Dated     1493168400
+Level     2
+Room      12032
+Flags     1 0 0 0
+End
+Text      quest 04~
+Body      Hint: These apples don't fall from trees and you will find them listed where the quest has started.
+should be
+Hint: These apples don't fall from trees and you will find them listed where the quest was started.
+~
+Name      Azorath~
+IdNum     5
+Dated     1493170656
+Level     5
+Room      12032
+Flags     1 0 0 0
+End
+Text      nen master~
+Body      He says 'Keep going Azorath or I'll make you pay 1000 pushups!'
+it should probably be
+'Keep going Azorath, or I'll make you do 1000 pushups!
+~
+Name      Azorath~
+IdNum     5
+Dated     1493170877
+Level     5
+Room      12073
+Flags     1 0 0 0
+End
+Text      enhance up~
+Body      I used enhance up, and the message a strongly aura flows all over your body. came up.
+should be
+A strong aura flows all over your body
+~
+Name      Azorath~
+IdNum     5
+Dated     1493171327
+Level     5
+Room      12073
+Flags     1 0 0 0
+End
+Text      diner challenge~
+Body      the cat diner says 'did you nian accept the challange?'
+should be
+do you nian accept the challenge?
+~
+Name      Azorath~
+IdNum     5
+Dated     1493211237
+Level     5
+Room      12062
+Flags     1 0 0 0
+End
+Text      titus~
+Body      Titus says 'Some events are hidden, waiting your actions to trigger it.'
+should be
+'Some events are hidden, waiting for your actions to trigger it.'
+~
+Name      Azorath~
+IdNum     5
+Dated     1493212873
+Level     5
+Room      12006
+Flags     1 0 0 0
+End
+Text      quest board~
+Body      the quest board talks about the minimul level...
+should be minimal
+~
+Name      Azorath~
+IdNum     5
+Dated     1493213214
+Level     6
+Room      12032
+Flags     1 0 0 0
+End
+Text      exhaustion~
+Body      When you're around 20% stamina, the message comes up that you're running a lot of sweat
+it should be something similar to
+you're soaked in sweat
+~
+Name      Azorath~
+IdNum     5
+Dated     1494538397
+Level     9
+Room      4000
+Flags     0 0 0 0
+End
+Text      g.i. ring~
+Body      I attempted to take a g.i. ring from a corpse and got the message It's not belongs to you
+should be
+It doesn't belong to you
+~
+Name      Azorath~
+IdNum     5
+Dated     1494636659
+Level     23
+Room      12073
+Flags     0 0 0 0
+End
+Text      Manupulator is spelled Manipulator~
+Body      Manupulator is typed manipulator
+~
+Name      Elmemas~
+IdNum     231
+Dated     1575657794
+Level     7
+Room      40000
+Flags     1 0 0 0
+End

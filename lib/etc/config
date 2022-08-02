@@ -23,13 +23,13 @@ level_can_shout = 1
 holler_move_cost = 20
 
 * How many players can fit in a tunnel?
-tunnel_size = 2
+tunnel_size = 1
 
 * Maximum experience gainable per kill?
-max_exp_gain = 200000
+max_exp_gain = 1400000000
 
 * Maximum experience loseable per death?
-max_exp_loss = 500000
+max_exp_loss = 1400000000
 
 * Number of tics before NPC corpses decompose.
 max_npc_corpse_time = 2
@@ -38,13 +38,13 @@ max_npc_corpse_time = 2
 max_pc_corpse_time = 2
 
 * Number of tics before a PC is sent to the void.
-idle_void = 255
+idle_void = 12
 
 * Number of tics before a PC is autorented.
 idle_rent_time = 48
 
 * Level and above of players whom are immune to idle penalties.
-idle_max_level = 31
+idle_max_level = 1
 
 * Should the items in death traps be junked automatically?
 dts_are_dumps = 0
@@ -100,7 +100,7 @@ noeffect = Nothing seems to happen.
 free_rent = 0
 
 * Maximum number of items players are allowed to rent.
-max_obj_save = 200
+max_obj_save = 300
 
 * Should the game automatically save people?
 auto_save = 1
@@ -109,10 +109,10 @@ auto_save = 1
 autosave_time = 5
 
 * Lifetime of crashfiles and force-rent (idlesave) files in days.
-crash_file_timeout = 10
+crash_file_timeout = 9999
 
 * Lifetime of normal rent files in days.
-rent_file_timeout = 10
+rent_file_timeout = 9999
 
 
 
@@ -222,5 +222,5 @@ protocol_negotiation = 1
 special_in_comm = 1
 
 * If 0 then off, otherwise 1: Brief, 2: Normal, 3: Complete.
-debug_mode = 1
+debug_mode = 0
 

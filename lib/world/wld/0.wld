@@ -1,13 +1,17 @@
 #0
-The Void~
-   You don't think that you are not floating in nothing.  You can see
-a strange portal located above you.
+Reconnecting...~
+   You open your eyes and see an all white place. Suddenly a black
+dimensional gate appears in a step of you, leading it down.
 ~
 0 8 0 0 0 1
 D4
 ~
 ~
-0 0 100
+0 0 -1
+D5
+~
+~
+0 0 40000
 S
 T 1200
 #1

@@ -40,10 +40,13 @@ static void display_group_list(struct char_data * ch);
 
 ACMD(do_quit)
 {
+  struct obj_data *obj, *next_obj, *card, *next_card;
+  bool found = FALSE;
+  	
   if (IS_NPC(ch) || !ch->desc)
     return;
 
-  if (subcmd != SCMD_QUIT && GET_LEVEL(ch) < LVL_IMMORT)
+  if (!subcmd && GET_LEVEL(ch) < LVL_IMMORT)
     send_to_char(ch, "You have to type the entire word -- no less, to quit!\r\n");
   else if (GET_POS(ch) == POS_FIGHTING)
     send_to_char(ch, "No way!  You're fighting for your life!\r\n");
@@ -51,11 +54,42 @@ ACMD(do_quit)
     send_to_char(ch, "You die before your time...\r\n");
     die(ch, NULL);
   } else {
+	if (subcmd == SCMD_QUIT) {
+		for (obj = ch->carrying; obj; obj = next_obj) { // in inventory
+		  next_obj = obj->next_content;
+		  if (GET_OBJ_VNUM(obj) == 3203) { // is this book?
+			for (card = obj->contains; card; card = next_card) {
+			  next_card = card->next_content;
+			  if (GET_OBJ_TYPE(card) == ITEM_RESTRICTED) {
+				found = TRUE;
+				break;
+			  }
+			}		  
+		  }
+		  if (found || GET_OBJ_TYPE(obj) == ITEM_RESTRICTED) { // is this a restricted or spell card?
+			found = TRUE;
+			break;
+		  }
+		}
+	}
+	if (!found && GET_EQ(ch, WEAR_HOLD) && GET_OBJ_TYPE(GET_EQ(ch, WEAR_HOLD)) == ITEM_RESTRICTED) {
+	  found = TRUE;	  
+	}
+	if (found && subcmd == SCMD_QUIT) {
+	  send_to_char(ch, "\tRALERT! \tCYou cannot save your restricted cards quitting here \tB<\tYtype help quit\tB>\tC, otherwise \tRtype forcequit\tC.\tn\r\n");
+	  return;
+	}
     act("$n has left the game.", TRUE, ch, 0, 0, TO_ROOM);
     mudlog(NRM, MAX(LVL_IMMORT, GET_INVIS_LEV(ch)), TRUE, "%s has quit the game.", GET_NAME(ch));
 
     if (GET_QUEST_TIME(ch) != -1)
       quest_timeout(ch);
+  
+    if (PLR_FLAGGED(ch, PLR_BOOK)) {
+      act("Your \tcG.I. \tBBook\tn closes itself and return into your \tGG.I. \tDRing\tn.", FALSE, ch, 0, 0, TO_CHAR);
+	  act("The \tcG.I. \tBBook\tn of $n closes itself and vanishes.", TRUE, ch, 0, 0, TO_ROOM);
+      REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_BOOK);
+	}
 
     send_to_char(ch, "Goodbye, friend.. Come back soon!\r\n");
 
@@ -63,10 +97,36 @@ ACMD(do_quit)
      * in extract_char(), since there is no check if a player rents out and it
      * can leave them in an equally screwy situation. */
 
-    if (CONFIG_FREE_RENT)
+    if (CONFIG_FREE_RENT || GET_LEVEL(ch) > LVL_IMMORT)
       Crash_rentsave(ch, 0);
-
-    GET_LOADROOM(ch) = GET_ROOM_VNUM(IN_ROOM(ch));
+    else {	  
+	  if (GET_EQ(ch, WEAR_HOLD)) {
+		if (GET_OBJ_TYPE(GET_EQ(ch, WEAR_HOLD)) == ITEM_RESTRICTED || GET_OBJ_TYPE(GET_EQ(ch, WEAR_HOLD)) == ITEM_SPELLCARD)
+		  extract_obj(GET_EQ(ch, WEAR_HOLD));
+		else if (GET_OBJ_TYPE(GET_EQ(ch, WEAR_HOLD)) == ITEM_CARD)
+		  make_card(ch, GET_EQ(ch, WEAR_HOLD), FALSE);
+	  }
+	  for (obj = ch->carrying; obj; obj = next_obj) { // in inventory
+	    next_obj = obj->next_content;
+		if (GET_OBJ_VNUM(obj) == 3203) { // is this book?
+		  for (card = obj->contains; card; card = next_card) {
+			next_card = card->next_content;
+		    if (GET_OBJ_TYPE(card) == ITEM_RESTRICTED)
+			  extract_obj(card); // junk all good stuff
+		  }		  
+        }
+        if (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED || GET_OBJ_TYPE(obj) == ITEM_SPELLCARD || 
+			(GET_OBJ_TYPE(obj) == ITEM_CARD && SCRIPT(obj))) // is this a restricted or spell card?
+		  extract_obj(obj);
+		else if (GET_OBJ_TYPE(obj) == ITEM_CARD) // then is this a item turned into a card?
+		  make_card(ch, obj, FALSE); // reverse it forever        		  
+	  }	  
+      Crash_rentsave(ch, 0);	  
+	}	
+	if (GET_LEVEL(ch) < 2 || GET_LEVEL(ch) > LVL_GOD || GET_SKILL(ch, SPELL_WORD_OF_RECALL) == 100)
+	  GET_LOADROOM(ch) = GET_ROOM_VNUM(IN_ROOM(ch));
+    else
+	  GET_LOADROOM(ch) = 0;
 
     /* Stop snooping so you can't see passwords during deletion or change. */
     if (ch->desc->snoop_by) {
@@ -89,7 +149,7 @@ ACMD(do_save)
   Crash_crashsave(ch);
   if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_HOUSE_CRASH))
     House_crashsave(GET_ROOM_VNUM(IN_ROOM(ch)));
-  GET_LOADROOM(ch) = GET_ROOM_VNUM(2800);
+//  GET_LOADROOM(ch) = GET_ROOM_VNUM(2800);
 }
 
 /* Generic function for commands which are normally overridden by special
@@ -99,31 +159,188 @@ ACMD(do_not_here)
   send_to_char(ch, "Sorry, but you cannot do that here!\r\n");
 }
 
+ACMD(do_passive)
+{
+  switch (subcmd){
+	case SCMD_BAREHANDED_EXPERT:
+	  send_to_char(ch, "\tCBarehanded Expert \tcis a passive skill, type \tYhelp bare \tcfor more information.\tn\r\n");
+	break;
+    case SCMD_INSTANT_FORTIFY:
+	  send_to_char(ch, "\tCInstant Fortify \tcis a passive skill, type \tYhelp instant \tcfor more information.\tn\r\n");
+	break;
+	case SCMD_DODGE:
+	  send_to_char(ch, "\tCDodge \tcis a passive skill, type \tYhelp dodge \tcfor more information.\tn\r\n");
+	break;
+	case SCMD_PARRY:
+	  send_to_char(ch, "\tCParry \tcis a passive skill, type \tYhelp parry \tcfor more information.\tn\r\n");	
+	break;
+	default:
+	  send_to_char(ch, "\tcThis is a passive skill, type \tYhelp second \tcfor more information.\tn\r\n");
+	break;  
+  }
+}
+
+ACMD(do_recall)
+{
+  struct follow_type *k, *next;
+  int percent, prob;
+  bool found = FALSE;
+  room_rnum to_room;
+  
+  if (GET_LEVEL(ch) < 4) {
+    if (ch == NULL || IS_NPC(ch))
+      return;  
+
+	to_room = real_room(40070);
+    act("$n disappears.", TRUE, ch, 0, 0, TO_ROOM);
+    char_from_room(ch);
+    char_to_room(ch, to_room);
+    act("$n appears in the middle of the room.", TRUE, ch, 0, 0, TO_ROOM);
+    look_at_room(ch, 0);
+    entry_memory_mtrigger(ch);
+    greet_mtrigger(ch, -1);
+    greet_memory_mtrigger(ch);
+    send_to_char(ch, "Remember, you can't recall after level 3!\r\n");
+	return;
+  }   
+  
+  if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_RECALL)) {
+	send_to_char(ch, "Unpractised you are, a master you must seek, hum.\r\n");
+    return;
+  }  
+  
+  percent = rand_number(1, 101);	/* 101% is a complete failure */
+  prob = GET_SKILL(ch, SKILL_RECALL);  
+  
+  /* Check for nen followers */
+  for (k = ch->followers; k; k = next) {
+    next = k->next;
+	if (AFF_FLAGGED(k->follower, AFF_CHARM))
+	  found = TRUE;
+  }
+  
+  if (percent > prob) { /* Check skill percent */
+	send_to_char(ch, "\trYou failed to return the nen followers!\tn\r\n");
+	pracskill(ch, SKILL_RECALL, 20);
+	WAIT_STATE(ch, PULSE_VIOLENCE);
+  } else {
+	
+  if (found) {
+    for (k = ch->followers; k; k = next) {
+      next = k->next;
+	  if (AFF_FLAGGED(k->follower, AFF_CHARM)) {
+	    if (!IS_NPC(k->follower) || (IS_NPC(k->follower) && GET_MOB_VNUM(k->follower) > 100)) {
+		  REMOVE_BIT_AR(AFF_FLAGS(k->follower), AFF_CHARM);
+		  stop_follower(k->follower);		
+	    } else {
+		  if (GET_MOB_VNUM(k->follower) != 11) {
+		    GET_HIT(ch) = MIN(GET_HIT(ch) + (GET_HIT(k->follower) / 4), GET_TOTAL_HIT(ch));
+	        act("$N return to you, intensifying your aura.", TRUE, ch, 0, k->follower, TO_CHAR);
+	        act("$n returned to $N, intensifying $M aura!", TRUE, k->follower, 0, ch, TO_NOTVICT);
+		    pracskill(ch, SKILL_RECALL, 10);
+		  }		
+          extract_char(k->follower);	    
+	    }
+	  }
+    }
+	WAIT_STATE(ch, PULSE_VIOLENCE * 2);		
+  } else
+	send_to_char(ch, "Has no controlled followers to be returned.\r\n");
+  }  
+}
+ACMD(do_enhance)
+{
+  struct affected_type af;
+  int prevnen;
+  
+  prevnen = GET_TOTAL_HIT(ch);
+  
+  if (AFF_FLAGGED(ch, AFF_ENHANCE)) {	
+    affect_from_char(ch, SKILL_ENHANCE);
+	prevnen = (prevnen - GET_TOTAL_HIT(ch));	
+	if (prevnen >= (GET_HIT(ch) - 5))
+	  GET_HIT(ch) = 5;
+    else
+	  GET_HIT(ch) -= prevnen;
+  
+	if (IS_WARRIOR(ch))
+	  send_to_char(ch, "Your body starts to shrinking and returning to normal.\r\n");
+	else
+	  send_to_char(ch, "Your muscles starts to shrinking and returning to normal.\r\n");
+	WAIT_STATE(ch, PULSE_VIOLENCE);
+	return;
+  }
+
+  if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_ENHANCE)) {
+    send_to_char(ch, "Unpractised you are, a master you must seek, hum.\r\n");
+    return;
+  }
+
+  if (GET_POS(ch) < POS_RESTING) {
+	send_to_char(ch, "In your dreams, or what?\r\n");  
+    return;
+  }
+  
+  if (GET_MANA(ch) < 20) {
+	send_to_char(ch, "You are too tired to do this.\r\n");
+	return;
+  }  
+  
+  GET_MANA(ch) = (GET_MANA(ch) - 15);
+  
+  new_affect(&af);  
+  af.spell = SKILL_ENHANCE;
+  af.duration = -1;	
+  if (IS_SPECIALIST(ch))
+	af.modifier = GET_SKILL(ch, SKILL_ENHANCE) * 2;
+  else
+    af.modifier = GET_SKILL(ch, SKILL_ENHANCE) * 5;  
+  af.location = APPLY_HIT;
+  SET_BIT_AR(af.bitvector, AFF_ENHANCE);
+  affect_to_char(ch, &af);
+  new_affect(&af);  
+  af.spell = SKILL_ENHANCE;
+  af.duration = -1;
+  if (IS_SPECIALIST(ch))
+    af.modifier = GET_SKILL(ch, SKILL_ENHANCE) / 5;
+  else
+	af.modifier = GET_SKILL(ch, SKILL_ENHANCE) / 2;
+  af.location = APPLY_MANA;
+  SET_BIT_AR(af.bitvector, AFF_ENHANCE);
+  affect_to_char(ch, &af);
+  
+  GET_HIT(ch) += (GET_TOTAL_HIT(ch) - prevnen);
+
+  if (IS_WARRIOR(ch)) {
+	send_to_char(ch, "Your body increases in height and muscles!\r\n");
+	act("$n body increases in height and muscles!", TRUE, ch, 0, 0, TO_ROOM);
+  } else
+    send_to_char(ch, "You feel stronger!\r\n");
+
+  pracskill(ch, SKILL_ENHANCE, 20);  
+  WAIT_STATE(ch, PULSE_VIOLENCE * 2);
+}
+
 ACMD(do_sneak)
 {
   struct affected_type af;
-  byte percent;
-  int skill_num, skilladd;
+  byte percent;  
 
   if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_SNEAK)) {
-    send_to_char(ch, "You have no idea how to do that.\r\n");
+    send_to_char(ch, "Unpractised you are, a master you must seek, hum.\r\n");
     return;
   }
+  
+  if (GET_MANA(ch) <= 1) {
+	send_to_char(ch, "You are too tired to do this.\r\n");
+	return;
+  }
+  
   send_to_char(ch, "Okay, you'll try to move silently for a while.\r\n");
   
   GET_MANA(ch) = (GET_MANA(ch) - 1);
   
-  skill_num = find_skill_num("sneak");
-  
-  if ((GET_SKILL(ch, skill_num) < 95) && ((rand_number(1, 20) + wis_app[GET_WIS(ch)].bonus) >= 20)){ 
-    skilladd = GET_SKILL(ch, skill_num);
-    skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
-    SET_SKILL(ch, skill_num, MIN(95, skilladd));
-    if (GET_SKILL(ch, skill_num) >= 95)
-      send_to_char(ch, "You mastered this skill!\r\n");
-    else
-	  send_to_char(ch, "You get better with this skill...\r\n");
-  }
+  pracskill(ch, SKILL_SNEAK, 15);  
   
   if (AFF_FLAGGED(ch, AFF_SNEAK))
     affect_from_char(ch, SKILL_SNEAK);
@@ -142,20 +359,17 @@ ACMD(do_sneak)
 
 ACMD(do_hide)
 {
-  byte percent;
-  int skill_num, skilladd; 
+  byte percent;  
 
   if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_HIDE)) {
-    send_to_char(ch, "You have no idea how to do that.\r\n");
+    send_to_char(ch, "Unpractised you are, a master you must seek, hum.\r\n");
     return;
   }  
 
   if (AFF_FLAGGED(ch, AFF_HIDE))
     REMOVE_BIT_AR(AFF_FLAGS(ch), AFF_HIDE);
 
-  GET_MANA(ch) = (GET_MANA(ch) - 1);
-
-  skill_num = find_skill_num("hide");
+  GET_MANA(ch) = (GET_MANA(ch) - 1);  
 
   percent = rand_number(1, 101);	/* 101% is a complete failure */
 
@@ -166,15 +380,7 @@ ACMD(do_hide)
 	
   send_to_char(ch, "You hide yourself and supress aura.\r\n");  
 
-  if ((GET_SKILL(ch, skill_num) < 95) && ((rand_number(1, 20) + wis_app[GET_WIS(ch)].bonus) >= 20)){ 
-    skilladd = GET_SKILL(ch, skill_num);
-    skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
-    SET_SKILL(ch, skill_num, MIN(95, skilladd));
-	if (GET_SKILL(ch, skill_num) >= 95)
-      send_to_char(ch, "You mastered this skill!\r\n");
-    else
-	  send_to_char(ch, "You get better with this skill...\r\n");
-  }
+  pracskill(ch, SKILL_HIDE, 20);
   
   SET_BIT_AR(AFF_FLAGS(ch), AFF_HIDE);
   
@@ -185,10 +391,10 @@ ACMD(do_steal)
   struct char_data *vict;
   struct obj_data *obj;
   char vict_name[MAX_INPUT_LENGTH], obj_name[MAX_INPUT_LENGTH];
-  int percent, gold, skill_num, skilladd, eq_pos, pcsteal = 0, ohoh = 0;
+  int percent, gold, eq_pos, pcsteal = 0, ohoh = 0;
 
   if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_STEAL)) {
-    send_to_char(ch, "You have no idea how to do that.\r\n");
+    send_to_char(ch, "Unpractised you are, a master you must seek, hum.\r\n");
     return;
   }
   if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_PEACEFUL)) {
@@ -204,7 +410,25 @@ ACMD(do_steal)
   } else if (vict == ch) {
     send_to_char(ch, "Come on now, that's rather stupid!\r\n");
     return;
+  } else if (IS_NPC(vict) && MOB_FLAGGED(vict, MOB_AWARE) && AWAKE(vict)) {
+	act("You notice $N pickpocketing at you!", FALSE, vict, 0, ch, TO_CHAR);
+    act("$e notices you pickpocketing at $m!", FALSE, vict, 0, ch, TO_VICT);
+    act("$n notices $N pickpocketing at $m!", FALSE, vict, 0, ch, TO_NOTVICT);
+    hit(vict, ch, TYPE_UNDEFINED);
+    return;  
   }
+  if (!IS_NPC(vict)) {
+    if (IS_AFFECTED(vict, AFF_NOPK)) {
+	  send_to_char(ch, "The target player is protected by NO_PK flag.\r\n");
+	  return;
+    } else {
+	  if (IS_GOOD(ch))
+		GET_ALIGNMENT(ch) = 250;
+	  else
+	    GET_ALIGNMENT(ch) -= 100;
+	  send_to_char(ch, "\tGYou've lost karma!\tn\r\n");
+	}
+  }  
 
   /* 101% is a complete failure */
   percent = rand_number(1, 101) - dex_app_skill[GET_DEX(ch)].p_pocket;
@@ -249,11 +473,16 @@ ACMD(do_steal)
 	  act("You unequip $p and steal it.", FALSE, ch, obj, 0, TO_CHAR);
 	  act("$n steals $p from $N.", FALSE, ch, obj, vict, TO_NOTVICT);
 	  obj_to_char(unequip_char(vict, eq_pos), ch);
+	  if (!IS_NPC(ch) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) != 65535)
+	    make_card(ch, obj, TRUE);
 	}
       }
     } else {			/* obj found in inventory */
 
-      percent += GET_OBJ_WEIGHT(obj);	/* Make heavy harder */
+      if (IS_CARD(obj))
+		percent += (50 + (GET_LEVEL(vict) - GET_LEVEL(ch))); /* Make cards harder */
+	  else
+	    percent += GET_OBJ_WEIGHT(obj);	/* Make heavy harder */	  
 
       if (percent > GET_SKILL(ch, SKILL_STEAL)) {
 	ohoh = TRUE;
@@ -270,6 +499,8 @@ ACMD(do_steal)
 	  if (IS_CARRYING_W(ch) + GET_OBJ_WEIGHT(obj) < CAN_CARRY_W(ch)) {
 	    obj_from_char(obj);
 	    obj_to_char(obj, ch);
+		if (!IS_NPC(ch) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) != 65535)
+	      make_card(ch, obj, TRUE);
 	    send_to_char(ch, "Got it!\r\n");
 	  }
 	} else
@@ -301,22 +532,85 @@ ACMD(do_steal)
     }
   }
   
-  skill_num = find_skill_num("steal");
-  
-  if ((GET_SKILL(ch, skill_num) < 95) && ((rand_number(1, 20) + wis_app[GET_WIS(ch)].bonus) >= 10)){ 
-    skilladd = GET_SKILL(ch, skill_num);
-    skilladd += MIN(15, MAX(1, int_app[GET_INT(ch)].learn));
-    SET_SKILL(ch, skill_num, MIN(95, skilladd));
-    if (GET_SKILL(ch, skill_num) >= 95)
-      send_to_char(ch, "You mastered this skill!\r\n");
-    else
-	  send_to_char(ch, "You get better with this skill...\r\n");
-  }
+  pracskill(ch, SKILL_STEAL, 10);
   
   GET_MANA(ch) = (GET_MANA(ch) - 1);
 
   if (ohoh && IS_NPC(vict) && AWAKE(vict))
     hit(vict, ch, TYPE_UNDEFINED);
+}
+
+ACMD(do_power)
+{
+  char arg[MAX_INPUT_LENGTH];
+    
+  if (!IS_NPC(ch) && GET_SKILL(ch, SKILL_POWER) <= 0) {
+    send_to_char(ch, "Unpractised you are, a master you must seek, hum.\r\n");
+    return;
+  }
+  
+  one_argument(argument, arg);
+  
+  if (is_abbrev(arg, "up")) {
+
+//  while (is_abbrev(arg, "stop") || GET_HIT(ch) >= GET_TOTAL_HIT(ch)) {
+  if (GET_HIT(ch) >= GET_TOTAL_HIT(ch)) {
+    send_to_char(ch, "You already at maximum!\r\n");
+	return;
+  }
+  
+  if (GET_MANA(ch) <= 5) {
+    send_to_char(ch, "You are too exhausted.\r\n");
+	return;
+  }
+  
+  if (PLR_FLAGGED(ch, PLR_POWERUP)) {
+	send_to_char(ch, "You already powering up!\r\n");
+	return;        
+  } else {
+	if (PLR_FLAGGED(ch, PLR_POWERDOWN)) {
+	  REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_POWERDOWN);
+	  send_to_char(ch, "You stop to power down.\r\n");	  
+    }
+	send_to_char(ch, "You start to power up.\r\n");
+	WAIT_STATE(ch, PULSE_VIOLENCE);
+	if (IS_NPC(ch))
+	  SET_BIT_AR(MOB_FLAGS(ch), MOB_POWERUP);
+	else
+	  SET_BIT_AR(PLR_FLAGS(ch), PLR_POWERUP);	
+  }      
+
+  } else if (is_abbrev(arg, "down")) {
+	if (GET_HIT(ch) == 5) {
+	  send_to_char(ch, "You already at minimum!\r\n");
+	  return;
+    }
+	else if (PLR_FLAGGED(ch, PLR_POWERDOWN)) {
+	  send_to_char(ch, "You already powering down!\r\n");
+	  return;
+    } else {
+	  if (PLR_FLAGGED(ch, PLR_POWERUP)) {
+	    REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_POWERUP);
+	    send_to_char(ch, "You stop to power up.\r\n");	  
+      }
+	  send_to_char(ch, "You start to power down.\r\n");
+	  WAIT_STATE(ch, PULSE_VIOLENCE);
+	  SET_BIT_AR(PLR_FLAGS(ch), PLR_POWERDOWN);	  
+	  return;
+    }
+	
+  } else if (is_abbrev(arg, "stop") && (PLR_FLAGGED(ch, PLR_POWERUP) || PLR_FLAGGED(ch, PLR_POWERDOWN))) {
+	  if (PLR_FLAGGED(ch, PLR_POWERUP)) {
+		REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_POWERUP);
+		send_to_char(ch, "You stop to power up.\r\n");
+	  } else  {
+	    REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_POWERDOWN); 
+		send_to_char(ch, "You stop to power down.\r\n");
+	  }
+  } else {
+      send_to_char(ch, "\tcSyntax: power [\tCup\tc|\tCdown\tc|\tCstop\tc]\tn\r\n");
+	  return;
+  }  
 }
 
 ACMD(do_practice)
@@ -334,6 +628,21 @@ ACMD(do_practice)
     list_skills(ch);
 }
 
+ACMD(do_train)
+{
+  char arg[MAX_INPUT_LENGTH];
+
+  if (IS_NPC(ch))
+    return;
+
+  one_argument(argument, arg);
+
+  if (*arg)
+    send_to_char(ch, "You can only train with a nen master.\r\n");
+  else
+    list_trains(ch);
+}
+
 ACMD(do_visible)
 {
   if (GET_LEVEL(ch) >= LVL_IMMORT) {
@@ -343,7 +652,7 @@ ACMD(do_visible)
 
   if AFF_FLAGGED(ch, AFF_INVISIBLE) {
     appear(ch);
-    send_to_char(ch, "You break the hatsu of invisibility.\r\n");
+    send_to_char(ch, "You break the skill of invisibility.\r\n");
   } else
     send_to_char(ch, "You are already visible.\r\n");
 }
@@ -375,12 +684,11 @@ static void print_group(struct char_data *ch)
   send_to_char(ch, "Your group consists of:\r\n");
 
   while ((k = (struct char_data *) simple_list(ch->group->members)) != NULL)
-    send_to_char(ch, "%-*s: %s[%4d/%-4d]H [%4d/%-4d]M [%4d/%-4d]V%s\r\n",
+    send_to_char(ch, "%-*s: %s[%d/%d]N [%3d/%-3d]S%s\r\n",
 	    count_color_chars(GET_NAME(k))+22, GET_NAME(k), 
 	    GROUP_LEADER(GROUP(ch)) == k ? CBGRN(ch, C_NRM) : CCGRN(ch, C_NRM),
 	    GET_HIT(k), GET_MAX_HIT(k),
-	    GET_MANA(k), GET_MAX_MANA(k),
-	    GET_MOVE(k), GET_MAX_MOVE(k),
+	    GET_MANA(k), GET_MAX_MANA(k),	    
 	    CCNRM(ch, C_NRM));
 }
 
@@ -520,11 +828,10 @@ ACMD(do_report)
     return;
   }
 
-  send_to_group(NULL, group, "%s reports: %d/%dH, %d/%dM, %d/%dV\r\n",
+  send_to_group(NULL, group, "%s reports: %d/%dN, %d/%dS\r\n",
 	  GET_NAME(ch),
-	  GET_HIT(ch), GET_MAX_HIT(ch),
-	  GET_MANA(ch), GET_MAX_MANA(ch),
-	  GET_MOVE(ch), GET_MAX_MOVE(ch));
+	  GET_HIT(ch), GET_TOTAL_HIT(ch),
+	  GET_MANA(ch), GET_MAX_MANA(ch));	  
 }
 
 ACMD(do_split)
@@ -661,7 +968,7 @@ ACMD(do_display)
   skip_spaces(&argument);
 
   if (!*argument) {
-    send_to_char(ch, "Usage: prompt { { H | N | M } | all | none }\r\n");
+    send_to_char(ch, "\tcSyntax: \tCprompt \tc[\tYS\tc|\tYN\tc|\tYSN\tc|\tYall\tc|\tYnone\tc]\tn\r\n");
     return;
   }
 
@@ -673,8 +980,8 @@ ACMD(do_display)
 
   if (!str_cmp(argument, "on") || !str_cmp(argument, "all")) {
     SET_BIT_AR(PRF_FLAGS(ch), PRF_DISPHP);
-    SET_BIT_AR(PRF_FLAGS(ch), PRF_DISPMANA);
-    SET_BIT_AR(PRF_FLAGS(ch), PRF_DISPMOVE);
+	REMOVE_BIT_AR(PRF_FLAGS(ch), PRF_DISPMOVE);
+    SET_BIT_AR(PRF_FLAGS(ch), PRF_DISPMANA);    
   } else if (!str_cmp(argument, "off") || !str_cmp(argument, "none")) {
     REMOVE_BIT_AR(PRF_FLAGS(ch), PRF_DISPHP);
     REMOVE_BIT_AR(PRF_FLAGS(ch), PRF_DISPMANA);
@@ -686,18 +993,18 @@ ACMD(do_display)
 
     for (i = 0; i < strlen(argument); i++) {
       switch (LOWER(argument[i])) {
-      case 'h':
-        SET_BIT_AR(PRF_FLAGS(ch), PRF_DISPHP);
-	break;
-      case 'n':
+      case 's':
         SET_BIT_AR(PRF_FLAGS(ch), PRF_DISPMANA);
-	break;
-      case 'm':
-        SET_BIT_AR(PRF_FLAGS(ch), PRF_DISPMOVE);
-	break;
+		break;      
+	  case 'n':
+        SET_BIT_AR(PRF_FLAGS(ch), PRF_DISPHP);
+		break;      
       default:
-	send_to_char(ch, "Usage: prompt { { H | N | M } | all | none }\r\n");
-	return;
+	    SET_BIT_AR(PRF_FLAGS(ch), PRF_DISPHP);
+		REMOVE_BIT_AR(PRF_FLAGS(ch), PRF_DISPMOVE);
+		SET_BIT_AR(PRF_FLAGS(ch), PRF_DISPMANA);
+		send_to_char(ch, "\tcSyntax: \tCprompt \tc[\tYS\tc|\tYN\tc|\tYSN\tc|\tYall\tc|\tYnone\tc]\tn\r\n");
+		return;
       }
     }
   }

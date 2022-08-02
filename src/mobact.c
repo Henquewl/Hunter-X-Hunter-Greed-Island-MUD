@@ -55,7 +55,7 @@ void mobile_activity(void)
     /* If the mob has no specproc, do the default actions */
     if (FIGHTING(ch) || !AWAKE(ch))
       continue;
-
+  
     /* hunt a victim, if applicable */
     hunt_victim(ch);
 
@@ -98,11 +98,19 @@ void mobile_activity(void)
 
 	if (MOB_FLAGGED(ch, MOB_WIMPY) && AWAKE(vict))
 	  continue;
+  
+    if (GET_POS(vict) <= POS_STUNNED)
+	  continue;
 
 	if (MOB_FLAGGED(ch, MOB_AGGRESSIVE  ) ||
 	   (MOB_FLAGGED(ch, MOB_AGGR_EVIL   ) && IS_EVIL(vict)) ||
 	   (MOB_FLAGGED(ch, MOB_AGGR_NEUTRAL) && IS_NEUTRAL(vict)) ||
 	   (MOB_FLAGGED(ch, MOB_AGGR_GOOD   ) && IS_GOOD(vict))) {
+		   
+		  /* Prevent mob kills a player */ 		
+		  if ((GET_TOTAL_HIT(vict) < (GET_MAX_HIT(ch) - (GET_MAX_HIT(ch) / 4))) || (GET_TOTAL_HIT(vict) > (GET_MAX_HIT(ch) + (GET_MAX_HIT(ch) / 4))) ||
+		      GET_HIT(vict) <= 5 || GET_POS(vict) <= POS_STUNNED)
+			continue;
 
           /* Can a master successfully control the charmed monster? */
           if (aggressive_mob_on_a_leash(ch, ch->master, vict))
@@ -120,14 +128,21 @@ void mobile_activity(void)
       for (vict = world[IN_ROOM(ch)].people; vict && !found; vict = vict->next_in_room) {
 	if (IS_NPC(vict) || !CAN_SEE(ch, vict) || PRF_FLAGGED(vict, PRF_NOHASSLE))
 	  continue;
+  
+    if (GET_POS(vict) <= POS_STUNNED)
+	  continue;
 
 	for (names = MEMORY(ch); names && !found; names = names->next) {
 	  if (names->id != GET_IDNUM(vict))
             continue;
+		
+		  /* Prevent mob kills a player */ 
+		  if (GET_POS(vict) <= POS_STUNNED)
+			continue;
 
           /* Can a master successfully control the charmed monster? */
           if (aggressive_mob_on_a_leash(ch, ch->master, vict))
-            continue;
+            continue;		  
 
           found = TRUE;
           act("'Hey!  You're the fiend that attacked me!!!', exclaims $n.", FALSE, ch, 0, 0, TO_ROOM);
@@ -160,7 +175,8 @@ void mobile_activity(void)
           continue;
 	      if (IS_NPC(FIGHTING(vict)) || ch == FIGHTING(vict))
           continue;
-
+          if (GET_POS(vict) <= POS_STUNNED)
+	      continue;
 	      act("$n jumps to the aid of $N!", FALSE, ch, 0, vict, TO_ROOM);
 	      hit(ch, FIGHTING(vict), TYPE_UNDEFINED);
 	      found = TRUE;
@@ -179,7 +195,7 @@ void remember(struct char_data *ch, struct char_data *victim)
   memory_rec *tmp;
   bool present = FALSE;
 
-  if (!IS_NPC(ch) || IS_NPC(victim) || PRF_FLAGGED(victim, PRF_NOHASSLE))
+  if (!IS_NPC(ch) || IS_NPC(victim) || PRF_FLAGGED(victim, PRF_NOHASSLE) || (GET_POS(victim) <= POS_STUNNED))
     return;
 
   for (tmp = MEMORY(ch); tmp && !present; tmp = tmp->next)

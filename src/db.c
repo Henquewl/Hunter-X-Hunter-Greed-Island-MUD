@@ -27,6 +27,7 @@
 #include "dg_event.h"
 #include "act.h"
 #include "ban.h"
+#include "class.h"
 #include "spec_procs.h"
 #include "genzon.h"
 #include "genolc.h"
@@ -1502,7 +1503,7 @@ static void parse_simple_mob(FILE *mob_f, int i, int nr)
   GET_MOVE(mob_proto + i) = t[5];
 
   GET_MAX_MANA(mob_proto + i) = 100;
-  GET_MAX_MOVE(mob_proto + i) = 50;
+  GET_MAX_MOVE(mob_proto + i) = 100;
 
   mob_proto[i].mob_specials.damnodice = t[6];
   mob_proto[i].mob_specials.damsizedice = t[7];
@@ -2362,12 +2363,12 @@ void new_mobile_data(struct char_data *ch)
   ch->group    = NULL;
 }
 
-
 /* create a new mobile from a prototype */
 struct char_data *read_mobile(mob_vnum nr, int type) /* and mob_rnum */
 {
   mob_rnum i;
-  struct char_data *mob;
+  struct char_data *mob;  
+  trig_data *trig;
 
   if (type == VIRTUAL) {
     if ((i = real_mobile(nr)) == NOBODY) {
@@ -2386,20 +2387,49 @@ struct char_data *read_mobile(mob_vnum nr, int type) /* and mob_rnum */
   
   new_mobile_data(mob);  
   
-  if (!mob->points.max_hit) {
-    mob->points.max_hit = dice(mob->points.hit, mob->points.mana) +
-      mob->points.move;
-  } else
-    mob->points.max_hit = rand_number(mob->points.hit, mob->points.mana);
+  if (mob->player.level > 50)
+	mob->points.max_hit = 1000000000;    
+  else if (mob->player.level > 0 && mob->player.level < 5)
+    mob->points.max_hit = rand_number(mob->points.hit, mob->points.mana) + mob->points.move + level_exp(mob->player.level);
+  else if (mob->player.level < 1)
+	mob->points.max_hit = 5;  
+  else
+    mob->points.max_hit = rand_number(level_exp(mob->player.level), (level_exp((mob->player.level  + 1)))) + mob->points.move;
 
   mob->points.hit = mob->points.max_hit;
-  mob->points.mana = mob->points.max_mana;
-  mob->points.move = mob->points.max_move;
+  if (mob->points.hit < 5){
+	mob->points.max_hit = 5;
+	mob->points.hit = 5;
+  }
+  mob->points.mana = 100;
+  mob->points.move = 100;
 
   mob->player.time.birth = time(0);
   mob->player.time.played = 0;
   mob->player.time.logon = time(0);
+  
+  if (mob->char_specials.saved.apply_saving_throw[SAVING_PARA] > 15 || !mob->char_specials.saved.apply_saving_throw[SAVING_PARA])
+    mob->char_specials.saved.apply_saving_throw[SAVING_PARA] = rand_number(1, 15);
 
+  if (mob->char_specials.saved.apply_saving_throw[SAVING_ROD] > 15 || !mob->char_specials.saved.apply_saving_throw[SAVING_ROD])
+    mob->char_specials.saved.apply_saving_throw[SAVING_ROD] = rand_number(1, 15);
+
+  if (mob->char_specials.saved.apply_saving_throw[SAVING_PETRI] > 15)
+	mob->char_specials.saved.apply_saving_throw[SAVING_PETRI] = rand_number(1, 15);
+
+  if (mob->char_specials.saved.apply_saving_throw[SAVING_BREATH] > 15)
+	mob->char_specials.saved.apply_saving_throw[SAVING_BREATH] = rand_number(1, 15);
+
+  if (mob->player.level > 3 && !mob_index[mob->nr].func) {
+	trig = read_trigger(real_trigger(12001));
+	if (!SCRIPT(mob))
+      CREATE(SCRIPT(mob), struct script_data, 1);
+    add_trigger(SCRIPT(mob), trig, -1);
+  }
+  
+  if (mob->player.level > 19)
+	SET_BIT_AR(mob->char_specials.saved.affected_by, AFF_SANCTUARY);  
+  
   mob_index[i].number++;
 
   GET_ID(mob) = max_mob_id++;
@@ -2456,6 +2486,13 @@ struct obj_data *read_object(obj_vnum nr, int type) /* and obj_rnum */
   GET_ID(obj) = max_obj_id++;
   /* find_obj helper */
   add_to_lookup_table(GET_ID(obj), (void *)obj);
+  
+  if (!obj->obj_flags.durability) {
+    if (obj->obj_flags.type_flag == ITEM_WEAPON || obj->obj_flags.type_flag == ITEM_ARMOR || obj->obj_flags.type_flag == ITEM_WORN)  
+      obj->obj_flags.durability = 100;
+    else
+	  obj->obj_flags.durability = -1;
+  }
 
   copy_proto_script(&obj_proto[i], obj, OBJ_TRIGGER);
   assign_triggers(obj, OBJ_TRIGGER);
@@ -2761,15 +2798,16 @@ void reset_zone(zone_rnum zone)
       ZCMD.command = '*';
       break;
     }
-  }
+  }  
 
-  zone_table[zone].age = 0;
+  zone_table[zone].age = 0;  
 
   /* handle reset_wtrigger's */
   rvnum = zone_table[zone].bot;
-  while (rvnum <= zone_table[zone].top) {
-    rrnum = real_room(rvnum);
-    if (rrnum != NOWHERE) reset_wtrigger(&world[rrnum]);
+  while (rvnum <= zone_table[zone].top) {	
+    rrnum = real_room(rvnum);    
+    if (rrnum != NOWHERE)
+      reset_wtrigger(&world[rrnum]);
     rvnum++;
   }
 }
@@ -3180,6 +3218,8 @@ void free_char(struct char_data *ch)
       free(ch->player_specials->poofout);
     if (ch->player_specials->saved.completed_quests)
       free(ch->player_specials->saved.completed_quests);
+	if (ch->player_specials->saved.players_met)
+      free(ch->player_specials->saved.players_met);
     if (GET_HOST(ch))
       free(GET_HOST(ch));
     if (IS_NPC(ch))
@@ -3432,7 +3472,7 @@ void clear_object(struct obj_data *obj)
  * never again for that character). */
 void init_char(struct char_data *ch)
 {
-  int i;
+  int i; 
 
   /* create a player_special structure */
   if (ch->player_specials == NULL)
@@ -3440,8 +3480,7 @@ void init_char(struct char_data *ch)
 
   /* If this is our first player make him IMPL. */
   if (top_of_p_table == 0) {
-    GET_LEVEL(ch) = LVL_IMPL;
-    GET_EXP(ch) = 7000000;
+    GET_LEVEL(ch) = LVL_IMPL;    
 
     /* The implementor never goes through do_start(). */
     GET_MAX_HIT(ch) = 5000;
@@ -3452,7 +3491,7 @@ void init_char(struct char_data *ch)
     GET_MOVE(ch) = GET_MAX_MOVE(ch);
   }
 
-  set_title(ch, NULL);
+  set_title(ch, "");
   ch->player.short_descr = NULL;
   ch->player.long_descr = NULL;
   ch->player.description = NULL;
@@ -3460,7 +3499,8 @@ void init_char(struct char_data *ch)
   GET_NUM_QUESTS(ch) = 0;
   ch->player_specials->saved.completed_quests = NULL;
   GET_QUEST(ch) = NOTHING;
-
+  GET_PLAYERS_MET(ch) = 1;
+  ch->player_specials->saved.players_met[0] = 1;  
   ch->player.time.birth = time(0);
   ch->player.time.logon = time(0);
   ch->player.time.played = 0;

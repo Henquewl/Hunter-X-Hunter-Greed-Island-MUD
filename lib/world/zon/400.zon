@@ -1,0 +1,25 @@
+#400
+Henque~
+Greed Island Start~
+40000 40099 15 2 g 0 0 0 -1 -1
+O 0 3298 1 40000 	(a 	Bnotice 	gsign	n)
+O 0 40051 1 40079 	(an old wooden triple direction sign)
+O 0 40050 1 40019 	(an old wooden triple direction sign)
+M 0 40001 2 40033 	(a remote control rat)
+M 1 40000 2 40033 	(a living armor)
+M 0 40001 2 40037 	(a remote control rat)
+M 1 40000 2 40037 	(a living armor)
+R 0 40089 504 -1 	(a little spring)
+O 0 504 100 40089 	(a little spring)
+D 0 40038 9 2 	(A Road Through The Plains)
+R 0 40038 40199 -1 	(a simple rock)
+O 0 40199 100 40038 	(a simple rock)
+D 0 40041 7 2 	(The Great Field Of Starting Point)
+R 0 40041 40199 -1 	(a simple rock)
+O 0 40199 100 40041 	(a simple rock)
+R 0 40009 40199 -1 	(a simple rock)
+O 0 40199 100 40009 	(a simple rock)
+R 0 40004 40199 -1 	(a simple rock)
+O 0 40199 100 40004 	(a simple rock)
+S
+$

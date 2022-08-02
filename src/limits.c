@@ -18,10 +18,12 @@
 #include "handler.h"
 #include "interpreter.h"
 #include "dg_scripts.h"
+#include "act.h"
 #include "class.h"
 #include "fight.h"
 #include "screen.h"
 #include "mud_event.h"
+#include "constants.h" /* for nen and stamina plus recovery */
 
 /* local file scope function prototypes */
 static int graf(int grafage, int p0, int p1, int p2, int p3, int p4, int p5, int p6);
@@ -60,13 +62,16 @@ static int graf(int grafage, int p0, int p1, int p2, int p3, int p4, int p5, int
 /* manapoint gain pr. game hour */
 int mana_gain(struct char_data *ch)
 {
-  int gain;
+  int gain = 0;
 
   if (IS_NPC(ch)) {
     /* Neat and fast */
-    gain = GET_LEVEL(ch);
-  } else {
-    gain = graf(age(ch)->year, 8, 16, 24, 32, 24, 16, 10);
+	if (!FIGHTING(ch))
+      gain = 6;
+    else
+	  gain = 1;
+  } else if (!IS_NPC(ch) || GET_MOB_VNUM(ch) == 10) {
+//    gain = graf(age(ch)->year, 1, 2, 3, 4, 3, 2, 1);
 
     /* Class calculations */
 
@@ -75,66 +80,72 @@ int mana_gain(struct char_data *ch)
     /* Position calculations    */
     switch (GET_POS(ch)) {
     case POS_SLEEPING:
-      gain += (gain / 2);
+      gain = ((8 * con_app[GET_CON(ch)].hitp) / 100);
       break;
     case POS_RESTING:
-      gain += (gain / 4);	/* Divide by 2 */
+      gain = ((4 * con_app[GET_CON(ch)].hitp) / 100);
       break;
     case POS_SITTING:
-      gain *= 2;	/* Divide by 4 */
+      gain = ((2 * con_app[GET_CON(ch)].hitp) / 100);
       break;
+	case POS_FIGHTING:	  
+	case POS_STANDING:
+	  gain = ((1 * con_app[GET_CON(ch)].hitp) / 100);
+	  break;
     }
-
-    if (IS_MAGIC_USER(ch) || IS_CLERIC(ch) || IS_THIEF(ch)  || IS_MANIPULATOR(ch) || IS_SPECIALIST(ch))
-      gain *= 2;
-
-    if ((GET_COND(ch, HUNGER) == 0) || (GET_COND(ch, THIRST) == 0))
-      gain /= 4;
-  }
-
+  if (IS_WARRIOR(ch))
+	gain += 1;
+  
   if (AFF_FLAGGED(ch, AFF_POISON))
-    gain /= 4;
+    gain /= 2;
 
+  if (gain <= 0)
+	gain = 1;
+  
+  }  
   return (gain);
 }
-
 /* Hitpoint gain pr. game hour */
 int hit_gain(struct char_data *ch)
 {
-  int gain;
-
-  if (IS_NPC(ch)) {
-    /* Neat and fast */
-    gain = GET_LEVEL(ch);
-  } else {
-
-    gain = graf(age(ch)->year, 12, 20, 32, 48, 32, 16, 8);
-
-    /* Class/Level calculations */
-    /* Skill/Spell calculations */
-    /* Position calculations    */
-
+  int gain;  
+  
+  if (!IS_NPC(ch) || (IS_NPC(ch) && GET_MOB_VNUM(ch) == 10)) {
+	gain = GET_TOTAL_HIT(ch) / 20;
     switch (GET_POS(ch)) {
-    case POS_SLEEPING:
-      gain += gain;	/* Divide by 2 */
-      break;
-    case POS_RESTING:
-      gain += (gain / 2);	/* Divide by 4 */
-      break;
-    case POS_SITTING:
-      gain += (gain / 4);	/* Divide by 8 */
-      break;
+      case POS_SLEEPING:
+        gain = ((gain * con_app[GET_CON(ch)].hitp) / 100);
+        break;
+      case POS_RESTING:
+        gain = ((gain * con_app[GET_CON(ch)].hitp) / 150);
+        break;
+	  case POS_SITTING:
+	  case POS_FIGHTING:
+	  case POS_STANDING:
+	    if (IS_NPC(ch) && ch->master && (!IS_NPC(ch->master) && IS_WARRIOR(ch->master)))
+		  gain = ((gain * con_app[GET_CON(ch->master)].hitp) / 200);
+	    else if (!IS_NPC(ch) && IS_WARRIOR(ch))
+		  gain = 0;
+	    else
+		  return (0);
+	    break;
+	  default:
+	      return (0);
+	    break;
     }
-
-    if (IS_MAGIC_USER(ch) || IS_CLERIC(ch) || IS_THIEF(ch)  || IS_MANIPULATOR(ch) || IS_SPECIALIST(ch))
-      gain /= 2;	/* Ouch. */
-
-    if ((GET_COND(ch, HUNGER) == 0) || (GET_COND(ch, THIRST) == 0))
-      gain /= 4;
-  }
-
-  if (AFF_FLAGGED(ch, AFF_POISON))
-    gain /= 4;
+	
+	if (!IS_NPC(ch)) {
+	  if (IS_WARRIOR(ch) && !PLR_FLAGGED(ch, PLR_POWERDOWN) && GET_HIT(ch) > 5)
+		gain += ((gain * con_app[GET_CON(ch)].hitp) / 200);		
+	  if ((GET_COND(ch, THIRST) == 0) && GET_LEVEL(ch) > 1)
+        gain /= 2;  
+      if ((GET_COND(ch, HUNGER) == 0) && GET_LEVEL(ch) > 1)
+	    gain /= 2;	  
+    }
+	if (AFF_FLAGGED(ch, AFF_POISON))
+        gain /= 2;
+  } else
+	  return (0);    
 
   return (gain);
 }
@@ -144,34 +155,11 @@ int move_gain(struct char_data *ch)
 {
   int gain;
 
-  if (IS_NPC(ch)) {
-    /* Neat and fast */
-    gain = GET_LEVEL(ch);
-  } else {
-    gain = graf(age(ch)->year, 20, 24, 28, 24, 20, 16, 12);
-
-    /* Class/Level calculations */
-    /* Skill/Spell calculations */
-    /* Position calculations    */
-    switch (GET_POS(ch)) {
-    case POS_SLEEPING:
-      gain += (gain / 2);	/* Divide by 2 */
-      break;
-    case POS_RESTING:
-      gain += gain;	/* Divide by 4 */
-      break;
-    case POS_SITTING:
-      gain += (gain / 4);	/* Divide by 8 */
-      break;
-    }
-
-    if ((GET_COND(ch, HUNGER) == 0) || (GET_COND(ch, THIRST) == 0))
-      gain /= 4;
-  }
-
-  if (AFF_FLAGGED(ch, AFF_POISON))
-    gain /= 4;
-
+  if (GET_MAX_MOVE(ch) > GET_MOVE(ch))
+    gain = GET_MAX_MOVE(ch) - GET_MOVE(ch);
+  else
+	gain = 0;
+	
   return (gain);
 }
 
@@ -181,9 +169,7 @@ void set_title(struct char_data *ch, char *title)
     free(GET_TITLE(ch));
 
   if (title == NULL) {
-    GET_TITLE(ch) = strdup(GET_SEX(ch) == SEX_FEMALE ?
-      title_female(GET_CLASS(ch), GET_LEVEL(ch)) :
-      title_male(GET_CLASS(ch), GET_LEVEL(ch)));
+    GET_TITLE(ch) = title_hunter(GET_LEVEL(ch));
   } else {
     if (strlen(title) > MAX_TITLE_LENGTH)
       title[MAX_TITLE_LENGTH] = '\0';
@@ -223,22 +209,38 @@ void gain_exp(struct char_data *ch, int gain)
 {
   int is_altered = FALSE;
   int num_levels = 0;
-
-  if (!IS_NPC(ch) && ((GET_LEVEL(ch) < 1 || GET_LEVEL(ch) >= LVL_IMMORT)))
-    return;
-
+  
+  if (GET_MAX_HIT(ch) == 1000000000)
+	return;
+  
   if (IS_NPC(ch)) {
-    GET_EXP(ch) += gain;
+    GET_MAX_HIT(ch) += gain;
     return;
   }
+  
   if (gain > 0) {
-    if ((IS_HAPPYHOUR) && (IS_HAPPYEXP))
-      gain += (int)((float)gain * ((float)HAPPY_EXP / (float)(100)));
+	
+	if (gain < 10)
+      gain = 9;
+    else if (gain > (GET_TOTAL_HIT(ch) / 5))
+	  gain = (GET_TOTAL_HIT(ch) / 5);
+    else if (GET_EXP(ch) > 1)
+	  gain += ((gain - 1) * (GET_EXP(ch) / 100));
 
-    gain = MIN(CONFIG_MAX_EXP_GAIN, gain);	/* put a cap on the max gain per kill */
-    GET_EXP(ch) += gain;
+    if ((IS_HAPPYHOUR) && (IS_HAPPYEXP))
+      gain += (gain * ((float)HAPPY_EXP / (float)(100)));
+  
+    if ((gain + GET_MAX_HIT(ch)) > 1000000000) {
+	  GET_MAX_HIT(ch) = 1000000000;
+	  return;
+	}
+
+//    gain = MIN((GET_MAX_HIT(ch) / 4), gain);	/* put a cap on the max gain per kill */
+    GET_MAX_HIT(ch) += gain;
+	affect_total(ch);
+	send_to_char(ch, "\tDYour nen was increased by \tG%d\tD.\tn\r\n", gain);
     while (GET_LEVEL(ch) < LVL_IMMORT - CONFIG_NO_MORT_TO_IMMORT &&
-	GET_EXP(ch) >= level_exp(GET_CLASS(ch), GET_LEVEL(ch) + 1)) {
+	GET_MAX_HIT(ch) >= level_exp(GET_LEVEL(ch) + 1)) {
       GET_LEVEL(ch) += 1;
       num_levels++;
       advance_level(ch);
@@ -249,19 +251,19 @@ void gain_exp(struct char_data *ch, int gain)
       mudlog(BRF, MAX(LVL_IMMORT, GET_INVIS_LEV(ch)), TRUE, "%s advanced %d level%s to level %d.",
 		GET_NAME(ch), num_levels, num_levels == 1 ? "" : "s", GET_LEVEL(ch));
       if (num_levels == 1)
-        send_to_char(ch, "You rise a level!\r\n");
+        send_to_char(ch, "\tYYou rise a level!\tn\r\n");
       else
-	send_to_char(ch, "You rise %d levels!\r\n", num_levels);
+	send_to_char(ch, "\tYYou rise %d levels!\tn\r\n", num_levels);
 //      set_title(ch, NULL);
       if (GET_LEVEL(ch) >= LVL_IMMORT && !PLR_FLAGGED(ch, PLR_NOWIZLIST))
         run_autowiz();
     }
   } else if (gain < 0) {
-    gain = MAX(-CONFIG_MAX_EXP_LOSS, gain);	/* Cap max exp lost per death */
-    GET_EXP(ch) += gain;
-    if (GET_EXP(ch) < 0)
-      GET_EXP(ch) = 0;
-  }
+    GET_MAX_HIT(ch) += gain;
+	affect_total(ch);	
+	send_to_char(ch, "\tRYour nen was decreased by \tG%d\tR!\tn\r\n", gain);
+	
+  }  
   if (GET_LEVEL(ch) >= LVL_IMMORT && !PLR_FLAGGED(ch, PLR_NOWIZLIST))
     run_autowiz();
   }
@@ -272,15 +274,15 @@ void gain_exp_regardless(struct char_data *ch, int gain)
   int num_levels = 0;
 
   if ((IS_HAPPYHOUR) && (IS_HAPPYEXP))
-    gain += (int)((float)gain * ((float)HAPPY_EXP / (float)(100)));
+    gain += (gain * ((float)HAPPY_EXP / (float)(100)));
 
-  GET_EXP(ch) += gain;
-  if (GET_EXP(ch) < 0)
-    GET_EXP(ch) = 0;
+  GET_MAX_HIT(ch) += gain;
+  if (GET_MAX_HIT(ch) < 0)
+    GET_MAX_HIT(ch) = 0;
 
   if (!IS_NPC(ch)) {
     while (GET_LEVEL(ch) < LVL_IMPL &&
-	GET_EXP(ch) >= level_exp(GET_CLASS(ch), GET_LEVEL(ch) + 1)) {
+	GET_MAX_HIT(ch) >= level_exp(GET_LEVEL(ch) + 1)) {
       GET_LEVEL(ch) += 1;
       num_levels++;
       advance_level(ch);
@@ -291,12 +293,13 @@ void gain_exp_regardless(struct char_data *ch, int gain)
       mudlog(BRF, MAX(LVL_IMMORT, GET_INVIS_LEV(ch)), TRUE, "%s advanced %d level%s to level %d.",
 		GET_NAME(ch), num_levels, num_levels == 1 ? "" : "s", GET_LEVEL(ch));
       if (num_levels == 1)
-        send_to_char(ch, "You rise a level!\r\n");
+        send_to_char(ch, "\tYYou rise a level!\tn\r\n");
       else
-	send_to_char(ch, "You rise %d levels!\r\n", num_levels);
+	send_to_char(ch, "\tYYou rise %d levels!\tn\r\n", num_levels);
 //      set_title(ch, NULL);
     }
   }
+  affect_total(ch);
   if (GET_LEVEL(ch) >= LVL_IMMORT && !PLR_FLAGGED(ch, PLR_NOWIZLIST))
     run_autowiz();
 }
@@ -305,19 +308,22 @@ void gain_condition(struct char_data *ch, int condition, int value)
 {
   bool intoxicated;
 
-  if (IS_NPC(ch) || GET_COND(ch, condition) == -1)	/* No change */
+  if (IS_NPC(ch) || GET_COND(ch, condition) == -1 || GET_POS(ch) == POS_SLEEPING) /* No change */
     return;
-
+  
   intoxicated = (GET_COND(ch, DRUNK) > 0);
 
   GET_COND(ch, condition) += value;
 
   GET_COND(ch, condition) = MAX(0, GET_COND(ch, condition));
-  GET_COND(ch, condition) = MIN(24, GET_COND(ch, condition));
+  if (GET_COND(ch, condition) == GET_COND(ch, DRUNK))
+	GET_COND(ch, condition) = MIN(24, GET_COND(ch, condition));
+  else
+    GET_COND(ch, condition) = MIN(100, GET_COND(ch, condition));
 
   if (GET_COND(ch, condition) || PLR_FLAGGED(ch, PLR_WRITING))
     return;
-
+  
   switch (condition) {
   case HUNGER:
     send_to_char(ch, "You are hungry.\r\n");
@@ -332,7 +338,6 @@ void gain_condition(struct char_data *ch, int condition, int value)
   default:
     break;
   }
-
 }
 
 static void check_idling(struct char_data *ch)
@@ -350,6 +355,7 @@ static void check_idling(struct char_data *ch)
       Crash_crashsave(ch);
       char_from_room(ch);
       char_to_room(ch, 1);
+	  SET_BIT_AR(PRF_FLAGS(ch), PRF_AFK);	    
     } else if (ch->char_specials.timer > CONFIG_IDLE_RENT_TIME) {
       if (IN_ROOM(ch) != NOWHERE)
 	char_from_room(ch);
@@ -374,6 +380,305 @@ static void check_idling(struct char_data *ch)
   }
 }
 
+void recover_update(void)
+{
+  struct char_data *i, *next_char;
+  struct follow_type *k, *next;
+  int cost = 0;
+  int powerlevel;
+  bool found = FALSE;
+  
+  for (i = character_list; i; i = next_char) {
+    next_char = i->next;
+	
+	if (GET_ADD_HIT(i) < 0 && !IS_NPC(i)) /* restore bugged negative add nen */
+      GET_ADD_HIT(i) = 0;
+	if (GET_HIT(i) < 5 && !IS_NPC(i)) /* restore bugged nen */
+	  GET_HIT(i) = 5;
+	if (GET_MANA(i) < 0 && !IS_NPC(i)) /* restore bugged stamina */
+	  GET_MANA(i) = 0;
+	if (GET_POS(i) == POS_STUNNED) {	  
+	  GET_MANA(i) += 1;      
+	} else if (GET_POS(i) > POS_STUNNED) {
+      if (i->followers) { /* check for nen beasts and clone for costing */
+	  for (k = i->followers; k; k = next) {
+		next = k->next;
+		switch (GET_MOB_VNUM(k->follower)) {
+		  case 10:
+		    if ((GET_HIT(i) - 4) < (GET_TOTAL_HIT(i) / 50) || GET_MANA(i) < 2) {			
+			  act("$n disappears suddenly.", TRUE, k->follower, 0, 0, TO_ROOM);			
+			  extract_char(k->follower);			
+		    } else {
+			  found = TRUE;
+			  if (IS_CLERIC(i)) {
+		        GET_HIT(i) -= (GET_TOTAL_HIT(i) / 50);			
+		        cost += 2;
+			  } else {
+				GET_HIT(i) -= (GET_TOTAL_HIT(i) / 25);			
+		        cost += 4;
+		      }
+		    }
+			break;
+		  case 11:
+		    if ((GET_HIT(i) - 4) < (GET_TOTAL_HIT(i) / 100) || GET_MANA(i) < 1) {			
+			  act("$n falls and decomposes.", TRUE, k->follower, 0, 0, TO_ROOM);			
+			  extract_char(k->follower);			
+		    } else {
+			  found = TRUE;
+		      if (IS_MANIPULATOR(i))
+		        cost += 1;
+			  else
+			    cost += 2;		    
+		    }
+			break;
+		  case 35:
+		    if ((GET_HIT(i) - 4) < (GET_TOTAL_HIT(i) / 100) || GET_MANA(i) < 1) {			
+			  act("$n disappears suddenly.", TRUE, k->follower, 0, 0, TO_ROOM);			
+			  extract_char(k->follower);			
+		    } else {
+			  found = TRUE;
+		      if (IS_THIEF(i)) {
+		        GET_HIT(i) -= (GET_TOTAL_HIT(i) / 100);			
+		        cost += 1;
+			  } else {
+			  	GET_HIT(i) -= (GET_TOTAL_HIT(i) / 50);			
+		        cost += 2;
+		      }
+		    }
+			break;
+		  default:
+		    if (!AFF_FLAGGED(k->follower, AFF_CHARM))
+			  break;
+		    if ((GET_HIT(i) - 4) < (GET_TOTAL_HIT(i) / 100) || GET_MANA(i) < 1) {			
+			  act("$n regained control!", TRUE, k->follower, 0, 0, TO_ROOM);	
+			  stop_follower(k->follower);
+		    } else {
+			  found = TRUE;
+		      if (IS_MANIPULATOR(i) && IS_NPC(k->follower))
+		        cost += 1;
+			  else
+			    cost += 2; 
+			}
+			break;
+	    }
+	  }
+        if (found){	  
+	      GET_MANA(i) -= cost;	
+	      if (cost >= GET_MANA(i)) {
+		    if (!IS_NPC(i))
+			  GET_POS(i) = POS_STUNNED;
+            else
+			  GET_POS(i) = POS_DEAD;
+	      }
+        }
+	  }
+	  if (AFF_FLAGGED(i, AFF_ENHANCE)) {
+		if (GET_MANA(i) < 3 || GET_POS(i) == POS_STUNNED) {
+		  affect_from_char(i, SKILL_ENHANCE);
+		  send_to_char(i, "Your body can no longer sustain the enhanced form and returns to normal.\r\n");
+		  act("$n body can no longer sustain the enhanced form and returns to normal.", TRUE, i, 0, 0, TO_ROOM);
+	    } else
+		  GET_MANA(i) -= 1;
+	  }
+	  GET_HIT(i) = MIN(GET_HIT(i) + hit_gain(i), GET_TOTAL_HIT(i));
+      GET_MANA(i) = MIN(GET_MANA(i) + mana_gain(i), GET_MAX_MANA(i));
+      GET_MOVE(i) = MIN(GET_MOVE(i) + move_gain(i), GET_MAX_MOVE(i));	  
+	if (GET_POS(i) != POS_SLEEPING) {
+	  if (GET_MANA(i) <= 15 && GET_POS(i) != POS_RESTING) {
+		GET_HIT(i) -= GET_TOTAL_HIT(i) / 20;
+		if (GET_HIT(i) >= 5) {		
+		act("$n is dizzy.", TRUE, i, 0, 0, TO_ROOM);   
+	    send_to_char(i, "You feel dizzy.\r\n");
+		} else {			
+            if (!IS_NPC(i)) {
+			  update_pos(i);
+              act("$n lays unconscious.", TRUE, i, 0, 0, TO_ROOM);
+              send_to_char(i, "You lays unconscious.\r\n");	
+	          GET_HIT(i) = 5;
+	          GET_MANA(i) = 0;			  
+              continue;
+			} else {
+			  GET_POS(i) = POS_DEAD;
+			  update_pos(i);
+			  continue;
+			}
+		}
+	  } else if (GET_MANA(i) <= 25 && rand_number(0, 1) == 1) {
+	    act("$n are panting.", TRUE, i, 0, 0, TO_ROOM);   
+	    send_to_char(i, "You are panting, damn near out of breath.\r\n");
+	  } else if (GET_MANA(i) <= 35 && rand_number(0, 2) == 2) {
+	    act("$n is soaked in sweat..", TRUE, i, 0, 0, TO_ROOM);   
+	    send_to_char(i, "You're soaked in sweat.\r\n");
+	  } else if (GET_MANA(i) <= 50 && rand_number(0, 3) == 3) {
+	    act("A drop of sweat runs down of $n's face.", TRUE, i, 0, 0, TO_ROOM);   
+	    send_to_char(i, "A drop of sweat runs down from your face.\r\n");
+	  }
+	}
+      if (AFF_FLAGGED(i, AFF_POISON))
+	    if (damage(i, i, GET_HIT(i) / 100, SPELL_POISON) == -1)
+	      continue;	/* Oops, they died. -gg 6/24/98 */
+    } else if (GET_POS(i) == POS_INCAP) {
+      if (damage(i, i, 1, TYPE_SUFFERING) == -1)
+	continue;
+    } else if (GET_POS(i) == POS_MORTALLYW) {
+      if (damage(i, i, 2, TYPE_SUFFERING) == -1)
+	continue;    
+    }
+	if (!IS_NPC(i) && PLR_FLAGGED(i, PLR_JAJANKEN)) {
+	  if (GET_MANA(i) > 10 && GET_MAX_MOVE(i) < 370) {
+	    GET_MANA(i) -= 10;
+		GET_MAX_MOVE(i) += 100;		
+		if (GET_MAX_MOVE(i) > 370)
+	      send_to_char(i, "Your fist now has 4x times more aura!!!\r\n");
+	    else if (GET_MAX_MOVE(i) > 270)
+	      send_to_char(i, "Your fist now has 3x times more aura!!\r\n");
+	    else if (GET_MAX_MOVE(i) > 170)	
+	      send_to_char(i, "Your fist now has 2x times more aura!\r\n");
+		act("$n concentrates some amount of aura over the fist.", TRUE, i, 0, 0, TO_ROOM);
+		pracskill(i, SKILL_JAJANKEN, 15);
+	  } else
+		  do_jajanken(i, 0, 0, 0);
+	}
+	if (IS_NPC(i) && GET_MOB_VNUM(i) > 100 && GET_HIT(i) < GET_MAX_HIT(i)) {
+	  powerlevel = ((GET_MAX_HIT(i) * GET_LEVEL(i)) / 100);
+	  if (!FIGHTING(i))
+        do_power(i, "up", 0, 0);	
+	}
+    update_pos(i);
+  }
+}
+void power_update(void)
+{
+  struct char_data *i, *next_char; 
+  int percent, prob;
+  int power;
+  
+  for (i = character_list; i; i = next_char) {
+    next_char = i->next;
+    power = (GET_TOTAL_HIT(i) / 10);	
+
+  if (PLR_FLAGGED(i, PLR_POWERUP) || PLR_FLAGGED(i, PLR_POWERDOWN) || MOB_FLAGGED(i, MOB_POWERUP)) {
+	if (IS_NPC(i)) {
+	  percent = 1;
+	  prob = 101;
+    } else {
+      percent = rand_number(1, 101);
+      prob = GET_SKILL(i, SKILL_POWER);
+	  pracskill(i, SKILL_POWER, 20);
+    }
+	if ((PLR_FLAGGED(i, PLR_POWERUP) || MOB_FLAGGED(i, MOB_POWERUP)) && (GET_POS(i) < POS_FIGHTING)){
+	  if (IS_NPC(i))
+	    REMOVE_BIT_AR(MOB_FLAGS(i), MOB_POWERUP);
+	  else
+		REMOVE_BIT_AR(PLR_FLAGS(i), PLR_POWERUP);
+	  send_to_char(i, "You stop to power up.\r\n"); 
+	} else if (PLR_FLAGGED(i, PLR_POWERDOWN) && GET_POS(i) < POS_SITTING) {
+		REMOVE_BIT_AR(PLR_FLAGS(i), PLR_POWERDOWN);
+		send_to_char(i, "You stop to power down.\r\n"); 
+	}
+  }
+  
+  if (PLR_FLAGGED(i, PLR_POWERUP) || MOB_FLAGGED(i, MOB_POWERUP)) {  
+    if (percent > prob){
+	  send_to_char(i, "You lost your concentration!\r\n");	
+    } else {  
+    if ((GET_HIT(i) + power) >= GET_TOTAL_HIT(i)) {
+	  GET_HIT(i) = GET_TOTAL_HIT(i);
+      send_to_char(i, "You reached your maximum power!\r\n");
+	  act("$n reached the maximum power!", TRUE, i, 0, 0, TO_ROOM);
+	  if (IS_NPC(i))
+	    REMOVE_BIT_AR(MOB_FLAGS(i), MOB_POWERUP);
+	  else
+	    REMOVE_BIT_AR(PLR_FLAGS(i), PLR_POWERUP);
+    } else {  
+      GET_HIT(i) += power;  
+    send_to_char(i, "A strong aura flows all over your body.\r\n");
+	act("A strong aura flows all over $n body.", TRUE, i, 0, 0, TO_ROOM);
+    }  
+    if (!IS_NPC(i) || (IS_NPC(i) && GET_POS(i) == POS_FIGHTING))  
+      GET_MANA(i) = (GET_MANA(i) - 5);
+    }
+  }  
+   else if (PLR_FLAGGED(i, PLR_POWERDOWN)) {
+	if (percent > prob){
+	send_to_char(i, "You lost your concentration!\r\n");	
+    } else {
+	if (GET_HIT(i) > 5)
+	    GET_HIT(i) -= power;	  
+      if (GET_HIT(i) <= 5) {
+	    GET_HIT(i) = 5;
+		send_to_char(i, "You reached your minimum power.\r\n");
+		act("$n reached the minimum power.", TRUE, i, 0, 0, TO_ROOM);
+		REMOVE_BIT_AR(PLR_FLAGS(i), PLR_POWERDOWN);
+	  } else {
+      send_to_char(i, "An aura leaks calmly from your body.\r\n");
+	  act("An aura leaks calmly from $n body.", TRUE, i, 0, 0, TO_ROOM);
+	  }
+	  if (((rand_number(0, 100) + wis_app[GET_WIS(i)].bonus) >= 90) && GET_LEVEL(i) < 7) {
+	    gain_exp(i, (GET_TOTAL_HIT(i) / 100));
+      }
+    }	  
+   }	 	    
+  } // end of for	
+}
+
+void second_update(void)
+{
+  struct char_data *i, *next_char;
+  struct obj_data *j, *next_thing;
+  
+    /* characters */
+  for (i = character_list; i; i = next_char) {
+    next_char = i->next;
+    
+	if (i->char_specials.cooldown >= 0) {
+	  if (i->char_specials.cooldown <= 1)
+		REMOVE_BIT_AR(AFF_FLAGS(i), AFF_HEALED);  
+	  i->char_specials.cooldown -= 1;
+	}    
+  }
+
+  /* objects */
+  for (j = object_list; j; j = next_thing) {
+    next_thing = j->next;	/* Next in object list */
+	
+	if (j->carried_by && GET_MOB_SPEC(j->carried_by))
+	  continue;
+	
+	if (IS_CARD(j)) {
+	  int mcard = 0;
+	  if (GET_OBJ_TIMER(j) > 0)
+	    GET_OBJ_TIMER(j)--;
+	  if (GET_OBJ_TIMER(j) == 0) {		  
+		if (j->carried_by) {
+	      mcard += make_card(j->carried_by, j, TRUE);
+		  if (mcard == 0 || GET_OBJ_TYPE(j) == ITEM_SPELLCARD) {
+			send_to_char(j->carried_by, "NOOOOO! %s you were holding expires and vanishes in a puff of smoke.\r\n", j->short_description);
+			extract_obj(j);
+		  }
+	    } else if (j->worn_by) {
+		  mcard += make_card(j->worn_by, j, TRUE);
+		  if (mcard == 0 || GET_OBJ_TYPE(j) == ITEM_SPELLCARD) {
+			send_to_char(j->worn_by, "NOOOOO! Your %s expires and vanishes in a puff of smoke.\r\n", j->short_description);
+			extract_obj(j);
+		  }
+	    } else if (j->in_obj && GET_OBJ_VNUM(j->in_obj) != 3203) {
+			if (GET_OBJ_TYPE(j) == ITEM_SPELLCARD)
+			  extract_obj(j);
+		    else
+		      make_card_cnt(j);		  
+	    } else if (IN_ROOM(j) != NOWHERE) {
+			if (GET_OBJ_TYPE(j) == ITEM_SPELLCARD) {
+			  send_to_room(IN_ROOM(j), "NOOOOO! %s expires and vanishes in a puff of smoke on the ground.\r\n", j->short_description);
+			  extract_obj(j);
+			} else
+			  make_card_room(j);			
+		}
+	  }
+	}		
+  }
+}
+
 /* Update PCs, NPCs, and objects */
 void point_update(void)
 {
@@ -383,41 +688,31 @@ void point_update(void)
   /* characters */
   for (i = character_list; i; i = next_char) {
     next_char = i->next;
-
+	
+	if (!IS_NPC(i) && !PRF_FLAGGED(i, PRF_AFK)) {
     gain_condition(i, HUNGER, -1);
     gain_condition(i, DRUNK, -1);
     gain_condition(i, THIRST, -1);
+	}
 
-    if (GET_POS(i) >= POS_STUNNED) {
-      GET_HIT(i) = MIN(GET_HIT(i) + hit_gain(i), GET_MAX_HIT(i));
-      GET_MANA(i) = MIN(GET_MANA(i) + mana_gain(i), GET_MAX_MANA(i));
-      GET_MOVE(i) = MIN(GET_MOVE(i) + move_gain(i), GET_MAX_MOVE(i));
-      if (AFF_FLAGGED(i, AFF_POISON))
-	if (damage(i, i, 2, SPELL_POISON) == -1)
-	  continue;	/* Oops, they died. -gg 6/24/98 */
-      if (GET_POS(i) <= POS_STUNNED)
-	update_pos(i);
-    } else if (GET_POS(i) == POS_INCAP) {
-      if (damage(i, i, (GET_LEVEL(i) / 4), TYPE_SUFFERING) == -1)
-	continue;
-    } else if (GET_POS(i) == POS_MORTALLYW) {
-      if (damage(i, i, (GET_LEVEL(i) / 2), TYPE_SUFFERING) == -1)
-	continue;
-    }
     if (!IS_NPC(i)) {
       update_char_objects(i);
       (i->char_specials.timer)++;
       if (GET_LEVEL(i) < CONFIG_IDLE_MAX_LEVEL)
 	check_idling(i);
     }
+	update_pos(i);
   }
 
   /* objects */
   for (j = object_list; j; j = next_thing) {
     next_thing = j->next;	/* Next in object list */
-
+	
+	if (j->carried_by && GET_MOB_SPEC(j->carried_by))
+	  continue;
+	
     /* If this is a corpse */
-    if (IS_CORPSE(j)) {
+    if (IS_CORPSE(j) ) {
       /* timer count down */
       if (GET_OBJ_TIMER(j) > 0)
 	GET_OBJ_TIMER(j)--;

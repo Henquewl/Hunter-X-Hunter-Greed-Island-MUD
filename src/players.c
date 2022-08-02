@@ -22,6 +22,7 @@
 #include "config.h" /* for pclean_criteria[] */
 #include "dg_scripts.h" /* To enable saving of player variables to disk */
 #include "quest.h"
+#include "spells.h"
 
 #define LOAD_HIT	0
 #define LOAD_MANA	1
@@ -49,6 +50,8 @@ long top_idnum = 0;
 static void load_affects(FILE *fl, struct char_data *ch);
 static void load_skills(FILE *fl, struct char_data *ch);
 static void load_quests(FILE *fl, struct char_data *ch);
+static void load_metc(FILE *fl, struct char_data *ch);
+static void load_mets(FILE *fl, struct char_data *ch);
 static void load_HMVS(struct char_data *ch, const char *line, int mode);
 static void write_aliases_ascii(FILE *file, struct char_data *ch);
 static void read_aliases_ascii(FILE *file, struct char_data *ch, int count);
@@ -306,6 +309,8 @@ int load_char(const char *name, struct char_data *ch)
     GET_QUEST_COUNTER(ch) = PFDEF_QUESTCOUNT;
     GET_QUEST(ch) = PFDEF_CURRQUEST;
     GET_NUM_QUESTS(ch) = PFDEF_COMPQUESTS;
+	GET_CITY_MET(ch) = PFDEF_METCITY;
+	GET_PLAYERS_MET(ch) = PFDEF_METPLAYERS;
     GET_LAST_MOTD(ch) = PFDEF_LASTMOTD;
     GET_LAST_NEWS(ch) = PFDEF_LASTNEWS;
 
@@ -404,6 +409,8 @@ int load_char(const char *name, struct char_data *ch)
       case 'M':
 	     if (!strcmp(tag, "Mana"))	load_HMVS(ch, line, LOAD_MANA);
 	else if (!strcmp(tag, "Move"))	load_HMVS(ch, line, LOAD_MOVE);
+	else if (!strcmp(tag, "Metc"))	load_metc(fl, ch);
+	else if (!strcmp(tag, "Metp"))	load_mets(fl, ch);
 	break;
 
       case 'N':
@@ -511,6 +518,18 @@ void save_char(struct char_data * ch)
 
   if (IS_NPC(ch) || GET_PFILEPOS(ch) < 0)
     return;
+
+  if (!GET_PLAYERS_MET(ch)) {
+	GET_PLAYERS_MET(ch) += 1;
+	ch->player_specials->saved.players_met[0] = 1;	
+  }
+  
+  if (!GET_SKILL(ch, SKILL_POWER)) {
+	SET_SKILL(ch, SKILL_POWER, (GET_WIS(ch) + 1));
+	SET_BIT_AR(PRF_FLAGS(ch), PRF_AUTOGOLD);
+    SET_BIT_AR(PRF_FLAGS(ch), PRF_AUTODOOR);
+    SET_BIT_AR(PRF_FLAGS(ch), PRF_AUTOMAP);
+  }
 
   /* If ch->desc is not null, then update session data before saving. */
   if (ch->desc) {
@@ -671,6 +690,18 @@ void save_char(struct char_data * ch)
     fprintf(fl, "%d\n", NOTHING);
   }
   if (GET_QUEST(ch)        != PFDEF_CURRQUEST)  fprintf(fl, "Qcur: %d\n", GET_QUEST(ch));
+  if (GET_CITY_MET(ch)  != PFDEF_METCITY) {
+  fprintf(fl, "Metc:\n");    
+    for (i = 0; i < GET_CITY_MET(ch); i++)	  
+      fprintf(fl, "%d\n", ch->player_specials->saved.city_met[i]);	
+    fprintf(fl, "%d\n", NOTHING); 
+  }
+  if (GET_PLAYERS_MET(ch)  != PFDEF_METPLAYERS) {
+  fprintf(fl, "Metp:\n");    
+    for (i = 0; i < GET_PLAYERS_MET(ch); i++)	  
+      fprintf(fl, "%d\n", ch->player_specials->saved.players_met[i]);	
+    fprintf(fl, "%d\n", NOTHING); 
+  }    
 
  if (SCRIPT(ch)) {
    for (t = TRIGGERS(SCRIPT(ch)); t; t = t->next)
@@ -877,8 +908,8 @@ static void load_skills(FILE *fl, struct char_data *ch)
   do {
     get_line(fl, line);
     sscanf(line, "%d %d", &num, &num2);
-      if (num != 0)
-	GET_SKILL(ch, num) = num2;
+    if (num != 0)
+	  GET_SKILL(ch, num) = num2;	
   } while (num != 0);
 }
 
@@ -892,6 +923,38 @@ void load_quests(FILE *fl, struct char_data *ch)
     sscanf(line, "%d", &num);
     if (num != NOTHING)
       add_completed_quest(ch, num);
+  } while (num != NOTHING);
+}
+
+void load_metc(FILE *fl, struct char_data *ch)
+{
+  int u, num = NOTHING;
+  char line[MAX_INPUT_LENGTH + 1];
+
+  do {
+    get_line(fl, line);
+    sscanf(line, "%d", &num);
+    if (num != NOTHING) {
+	  for (u = 0; u < GET_CITY_MET(ch); u++);
+	GET_CITY_MET(ch)++;
+	ch->player_specials->saved.city_met[u] = num;	  
+	}
+  } while (num != NOTHING);
+}
+
+void load_mets(FILE *fl, struct char_data *ch)
+{
+  int u, num = NOTHING;
+  char line[MAX_INPUT_LENGTH + 1];
+
+  do {
+    get_line(fl, line);
+    sscanf(line, "%d", &num);
+    if (num != NOTHING) {
+	  for (u = 0; u < GET_PLAYERS_MET(ch); u++);
+	GET_PLAYERS_MET(ch)++;
+	ch->player_specials->saved.players_met[u] = num;	  
+	}
   } while (num != NOTHING);
 }
 
@@ -918,8 +981,8 @@ static void load_HMVS(struct char_data *ch, const char *line, int mode)
     break;
 
   case LOAD_STRENGTH:
-    ch->real_abils.str = num;
-    ch->real_abils.str_add = num2;
+    ch->real_abils.str = ((int)(num));
+    ch->real_abils.str_add = ((int)(num2));
     break;
   }
 }

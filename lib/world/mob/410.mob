@@ -1,0 +1,83 @@
+#41000
+boss dlanod pmart~
+the Boss of Dorias~
+A blond orange man is here, sitting on his boss chair.
+~
+   All the place smells terrible due the smoke of his
+cigar, he looks at you like as if he wanted to buy your soul.
+~
+18462 0 0 0 67664 0 0 0 351 E
+54 2 -22 10d10+540 9d9+9
+100000 291600
+8 8 1
+Str: 25
+Dex: 18
+Int: 18
+Wis: 18
+Con: 25
+Cha: 25
+SavingPara: 9
+SavingRod: 13
+SavingPetri: 6
+SavingBreath: 5
+SavingSpell: 13
+E
+#41001
+bouncer~
+Bouncer~
+A Bouncer is here, preventing some people to enter in the building.
+~
+   A seven feet tall man, with a tick black shirt and pairs of muscles
+is guarding the entrance of the Dorias' building, preventing some people
+to enter.
+~
+26 0 0 0 2048 0 0 0 0 E
+30 10 -8 0d0+0 5d5+5
+10000 90000
+8 8 1
+BareHandAttack: 13
+Str: 25
+Dex: 25
+Con: 25
+SavingPara: 1
+SavingPetri: 1
+SavingSpell: 7
+E
+T 41001
+T 41000
+#41002
+officer security~
+a security officer~
+A security officer is here, looking for troublemakers.
+~
+   These guys are scattered all over the place and anxious
+to kick some butt out of the building.
+~
+6152 0 0 0 0 0 0 0 0 E
+26 12 -5 0d0+0 4d4+4
+260 67600
+8 8 1
+BareHandAttack: 13
+Str: 17
+Dex: 17
+Int: 17
+Wis: 17
+Con: 17
+Cha: 17
+SavingSpell: 6
+E
+#41003
+king~
+the Casino King~
+The Casino King stands here.
+~
+The Casino King wears his hair in a massive pompadour style
+haircut and dresses in a plain dress-shirt, pants, and shoes.
+~
+262152 0 0 0 0 0 0 0 0 E
+0 20 10 1d1+0 1d1+0
+0 0
+8 8 1
+E
+T 41003
+$

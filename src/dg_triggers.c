@@ -89,7 +89,7 @@ int is_substring(char *sub, char *string)
 }
 
 /* Return 1 if str contains a word or phrase from wordlist. Phrases are in
- * double quotes ("). if wrdlist is NULL, then return 1, if str is NULL,
+ * int quotes ("). if wrdlist is NULL, then return 1, if str is NULL,
  * return 0. */
 int word_check(char *str, char *wordlist)
 {

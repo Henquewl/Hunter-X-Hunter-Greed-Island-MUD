@@ -144,14 +144,14 @@ static int is_open(struct char_data *keeper, int shop_nr, int msg)
   char buf[MAX_INPUT_LENGTH];
 
   *buf = '\0';
-  if (SHOP_OPEN1(shop_nr) > time_info.hours)
+/*  if (SHOP_OPEN1(shop_nr) > time_info.hours)
     strlcpy(buf, MSG_NOT_OPEN_YET, sizeof(buf));
   else if (SHOP_CLOSE1(shop_nr) < time_info.hours) {
     if (SHOP_OPEN2(shop_nr) > time_info.hours)
       strlcpy(buf, MSG_NOT_REOPEN_YET, sizeof(buf));
     else if (SHOP_CLOSE2(shop_nr) < time_info.hours)
       strlcpy(buf, MSG_CLOSED_FOR_DAY, sizeof(buf));
-  }
+  } */
   if (!*buf)
     return (TRUE);
   if (msg)
@@ -926,7 +926,7 @@ static void shopping_list(char *arg, struct char_data *ch, struct char_data *kee
     if (!*name || isname(name, last_obj->name))	/* show last obj */
       if (len < sizeof(buf))
         strncat(buf, list_object(last_obj, cnt, lindex, shop_nr, keeper, ch), sizeof(buf) - len - 1);	/* strncat: OK */
-    page_string(ch->desc, buf, TRUE);
+      page_string(ch->desc, buf, TRUE);
     if (has_quest)
       send_to_char(ch, "Items flagged \"qp\" require quest points to purchase.\r\n");
   }
@@ -991,7 +991,7 @@ SPECIAL(shop_keeper)
   } else if (CMD_IS("list")) {
     shopping_list(argument, ch, keeper, shop_nr);
     return (TRUE);
-  } else if (CMD_IS("identify")) {
+  } else if (CMD_IS("show")) {
     return (shopping_identify(argument, ch, keeper, shop_nr));
   }
   return (FALSE);
@@ -1594,9 +1594,9 @@ bool shopping_identify(char *arg, struct char_data *ch, struct char_data *keeper
           else
             send_to_char(ch, "Hours Remaining: %d\r\n", GET_OBJ_VAL(obj, 2));
           break;
-        case ITEM_SCROLL:
-		case ITEM_OTHER:
-		case ITEM_TREASURE:
+        case ITEM_CARD:
+		case ITEM_SPELLCARD:
+		case ITEM_RESTRICTED:
 		  if ((desc = find_exdesc("card", obj->ex_description)) != NULL)
 		    send_to_char(ch, "\r\nCard Description:\tW\r\n%s", desc);
 		  send_to_char(ch, "\tn\r\n");

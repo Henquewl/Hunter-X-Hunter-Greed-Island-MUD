@@ -128,7 +128,10 @@ void	set_title(struct char_data *ch, char *title);
 void	gain_exp(struct char_data *ch, int gain);
 void	gain_exp_regardless(struct char_data *ch, int gain);
 void	gain_condition(struct char_data *ch, int condition, int value);
+void    power_update(void);
+void    recover_update(void);
 void	point_update(void);
+void	second_update(void);
 void	update_pos(struct char_data *victim);
 void run_autowiz(void);
 int increase_gold(struct char_data *ch, int amt);
@@ -255,7 +258,7 @@ void char_from_furniture(struct char_data *ch);
          temp->next = (item)->next;	\
    }					\
 
-/* Connect 'link' to the end of a double-linked list
+/* Connect 'link' to the end of a int-linked list
  * The new item becomes the last in the linked list, and the last
  * pointer is updated.
  * @param link  Pointer to item to remove from the list.
@@ -276,7 +279,7 @@ do                                                              \
     (last)                      = (link);                       \
 } while(0)
 
-/* Remove 'link' from a double-linked list
+/* Remove 'link' from a int-linked list
  * @post  item is removed from the list, but remains in memory, and must
    be free'd after unlinking.
  * @param link  Pointer to item to remove from the list.
@@ -380,6 +383,9 @@ do                                                              \
 /** Zone maximum level restriction.
  * @param rnum The real zone number. */
 #define ZONE_MAXLVL(rnum)      (zone_table[(rnum)].max_level)
+/** Zone maximum level restriction.
+ * @param vnum The real zone number. */
+#define ZONE_NUMBER(rnum)      (zone_table[(rnum)].number)
 
 /** References the routine element for a spell. Currently unused. */
 #define SPELL_ROUTINES(spl)	(spell_info[spl].routines)
@@ -489,6 +495,8 @@ do                                                              \
 #define GET_HEIGHT(ch)	((ch)->player.height)
 /** Weight of ch. */
 #define GET_WEIGHT(ch)	((ch)->player.weight)
+/** Hit timer of ch. */
+#define GET_HTIMER(ch)	((ch)->player.htimer)
 /** Sex of ch. */
 #define GET_SEX(ch)	((ch)->player.sex)
 
@@ -515,6 +523,10 @@ do                                                              \
 #define GET_HIT(ch)	  ((ch)->points.hit)
 /** Maximum hit points of ch. */
 #define GET_MAX_HIT(ch)	  ((ch)->points.max_hit)
+/** Maximum add hit points of ch. */
+#define GET_ADD_HIT(ch)   ((ch)->points.add_hit)
+/** Maximum add hit points of ch. */
+#define GET_TOTAL_HIT(ch) (IS_NPC(ch) ? (ch)->points.max_hit : ((ch)->points.max_hit + (ch)->points.add_hit))
 /** Current move points (stamina) of ch. */
 #define GET_MOVE(ch)	  ((ch)->points.move)
 /** Maximum move points (stamina) of ch. */
@@ -611,6 +623,9 @@ do                                                              \
 /** The type of quest ch is currently participating in. */
 #define GET_QUEST_TYPE(ch)      (real_quest(GET_QUEST((ch))) != NOTHING ? aquest_table[real_quest(GET_QUEST((ch)))].type : AQ_UNDEFINED )
 
+#define GET_CITY_MET(ch)	    CHECK_PLAYER_SPECIAL((ch), ((ch)->player_specials->saved.num_city_met))
+#define GET_PLAYERS_MET(ch)     CHECK_PLAYER_SPECIAL((ch), ((ch)->player_specials->saved.num_players_met))
+
 /** The current skill level of ch for skill i. */
 #define GET_SKILL(ch, i)	CHECK_PLAYER_SPECIAL((ch), ((ch)->player_specials->saved.skills[i]))
 /** Copy the current skill level i of ch to pct. */
@@ -636,18 +651,19 @@ do                                                              \
 #define MEMORY(ch)		((ch)->mob_specials.memory)
 
 /** Return the equivalent strength of ch if ch has level 18 strength. */
-#define STRENGTH_APPLY_INDEX(ch) \
+#define STRENGTH_APPLY_INDEX(ch)	(GET_STR(ch))
+                                /* \
         ( ((GET_ADD(ch) ==0) || (GET_STR(ch) != 18)) ? GET_STR(ch) :\
           (GET_ADD(ch) <= 50) ? 26 :( \
           (GET_ADD(ch) <= 75) ? 27 :( \
           (GET_ADD(ch) <= 90) ? 28 :( \
           (GET_ADD(ch) <= 99) ? 29 :  30 ) ) )                   \
-        )
+        ) */
 
 /** Return how much weight ch can carry. */
 #define CAN_CARRY_W(ch) (str_app[STRENGTH_APPLY_INDEX(ch)].carry_w)
 /** Return how many items ch can carry. */
-#define CAN_CARRY_N(ch) (5 + (GET_DEX(ch) >> 1) + (GET_LEVEL(ch) >> 1))
+#define CAN_CARRY_N(ch) (6 + (GET_CON(ch) >> 1) + (GET_LEVEL(ch) >> 1))
 /** Return whether or not ch is awake. */
 #define AWAKE(ch) (GET_POS(ch) > POS_SLEEPING)
 /** Defines if ch can see in general in the dark. */
@@ -717,14 +733,21 @@ do                                                              \
 #define GET_OBJ_WEIGHT(obj)	((obj)->obj_flags.weight)
 /** Current timer of obj. */
 #define GET_OBJ_TIMER(obj)	((obj)->obj_flags.timer)
+/** Durability of obj */
+#define GET_OBJ_DURABILITY(obj)	((obj)->obj_flags.durability)
 /** Real number of obj instance. */
 #define GET_OBJ_RNUM(obj)	((obj)->item_number)
 /** Virtual number of obj, or NOTHING if not a real obj. */
 #define GET_OBJ_VNUM(obj)	(VALID_OBJ_RNUM(obj) ? \
 				obj_index[GET_OBJ_RNUM(obj)].vnum : NOTHING)
+
 /** Special function attached to obj, or NULL if nothing attached. */
 #define GET_OBJ_SPEC(obj)	(VALID_OBJ_RNUM(obj) ? \
 				obj_index[GET_OBJ_RNUM(obj)].func : NULL)
+				
+/** Defines if an object is a card. */				
+#define IS_CARD(obj)		(GET_OBJ_TYPE(obj) == ITEM_RESTRICTED || \
+	GET_OBJ_TYPE(obj) == ITEM_SPELLCARD || GET_OBJ_TYPE(obj) == ITEM_CARD)
 
 /** Defines if an obj is a corpse. */
 #define IS_CORPSE(obj)		(GET_OBJ_TYPE(obj) == ITEM_CONTAINER && \
@@ -849,6 +872,14 @@ do                                                              \
 /** Return the class abbreviation for ch. */
 #define CLASS_ABBR(ch) (IS_NPC(ch) ? "--" : class_abbrevs[(int)GET_CLASS(ch)])
 
+/** Return the class color for ch. */
+#define CLASS_COLOR(ch) (IS_NPC(ch) ? class_colors[6] : class_colors[(int)GET_CLASS(ch)])
+
+#define SKIN_COLOR(ch) (GET_SAVE(ch, SAVING_PARA))
+#define EYE_COLOR(ch) (GET_SAVE(ch, SAVING_ROD))
+#define HAIR_STYLE(ch) (GET_SAVE(ch, SAVING_PETRI))
+#define HAIR_COLOR(ch) (GET_SAVE(ch, SAVING_BREATH))
+
 /** 1 if ch is magic user class, 0 if not. */
 #define IS_MAGIC_USER(ch)	(!IS_NPC(ch) && \
         (GET_CLASS(ch) == CLASS_MAGIC_USER))
@@ -872,6 +903,14 @@ do                                                              \
 
 /** Defines if ch is outdoors or not. */
 #define OUTSIDE(ch) (!ROOM_FLAGGED(IN_ROOM(ch), ROOM_INDOORS))
+
+/** Manipulator vs Manipulator check **/
+#define HUNTER_X_HUNTER(sub, obj) (!IS_NPC(obj) && GET_HIT(obj) > 5 && \
+   (IS_MANIPULATOR(sub) || (!IS_MANIPULATOR(sub) && !IS_MANIPULATOR(obj))))
+
+/** The target is trackable **/
+#define CAN_TRACK(sub, obj) (CAN_SEE(sub, obj) && !AFF_FLAGGED(obj, AFF_HIDE) && \
+   (HUNTER_X_HUNTER(sub, obj) || (IS_NPC(obj) && !AFF_FLAGGED(obj, AFF_NOTRACK))))
 
 /* Group related defines */
 #define GROUP(ch)            (ch->group)

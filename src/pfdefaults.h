@@ -59,6 +59,8 @@
 #define PFDEF_QUESTCOUNT        0
 #define PFDEF_COMPQUESTS        0
 #define PFDEF_CURRQUEST         NOTHING
+#define PFDEF_METCITY	        0
+#define PFDEF_METPLAYERS        0
 #define PFDEF_LASTMOTD          0 
 #define PFDEF_LASTNEWS          0 
 

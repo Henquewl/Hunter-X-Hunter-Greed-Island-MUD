@@ -284,46 +284,40 @@ done
 player emotes~
 0 e 0
 gives out a polite, 'Yes.'~
-detach 1496 %self.id% 
-eval timer 5
-wait %timer% sec
-say In this game there are some magic spells that everyone can use as long as they wear the ring
+detach 1496 %self.id%
+eval timer 4
+wait 1 sec
+nod %actor.name%
+wait 2 sec
+say In this game there are some magic words that everyone can use as long as they wear the ring
 wait %timer% sec
 say It is "	YBook	n" and "	YGain	n", type one of these magic words while wearing your ring
 wait %timer% sec
-say To clear this game you must collect 100 different 	mrestricted cards	n
+say To clear the game you must collect 100 different 	mrestricted cards	n inside your binder.
 wait %timer% sec
-say You have to get an 	gitem, then change it into the 	ycard	n
+say There is 100 	mrestricted 	nslots only for each cards numbered between 0 and 99
 wait %timer% sec
-say For example, if you hold an 	gitem	n and type the magic word "	YGain	n", it will transform into a 	ycard	n
+say And more 45 un-restricted slots for 	yother 	ncards and 	Bspell 	ncards.
+wait %timer% sec 
+say If you 	Yget an item, this item will change it into the 	ycard	n.
 wait %timer% sec
-say If you want to use the 	ycard	n that you get as an item, you must hold it and "	YGain	n" once more...
+say To transform that card again you must use 	Ygain 	nto transform it back to an item.
 wait %timer% sec
-say then the 	ycard	n will transform into its original form
+say If you transform a card into an item, that item never can be transformed into a card again.
 wait %timer% sec
-say However, items have a limit number of existent copies
+say Restricted and spell cards has a limit of existent copies that can exist at the same time in the game
 wait %timer% sec
-say This limit is described on the card, after its rarity letter
+say It is called global transformation limit, in that case the item will not be transformed until that.
 wait %timer% sec
-say Another important thing, you have just a 	Rminute	n to keep a card held or left a card on the ground...
+say Another important thing, if you not store the card inside the binder...
 wait %timer% sec
-say after that time, the card will transform again to it original form and 	Rnever	n will transform again
+say this card will return to item form after 60 seconds and cannot be transformed again.
 wait %timer% sec
-say Finally and this is most important thing, you have to be careful
+say The only way to save your restricted cards inside the binder is leave the game with a 	Bleave spell card	n.
 wait %timer% sec
-grin %actor.name%
+say After use this spell card go north and talk with my twin sister Elena, she will help you.
 wait %timer% sec
-say 	RIn case where a player dies, the ring and book will be destroyed, and all cards inside it as well	n
-wait %timer% sec
-say The only way to leave the game is in front of my twin sister Elena, she will save your items and cards.
-wait %timer% sec
-say One way to find my sister Elena and quit is gain a 	Bspell card 	n"	BLeave	n"
-wait %timer% sec
-say So be careful, this concludes the explanation
-wait %timer% sec
-say This is basic information, for more specific information...
-wait %timer% sec
-say You will have to obtain it yourself while playing the game or using 	Ghelp	n files
+say This concludes the explanation. Another details of game you will learn by playing and using 	Yhelp	n files.
 wait %timer% sec
 unlock trapdoor
 open trapdoor
@@ -353,10 +347,9 @@ open gate
 ~
 #1421
 welcome to gi~
-0 g 100
-~
-%load% obj 3202 %actor% inv
-eval timer 5
+0 eg 100
+has entered the game.~
+eval timer 4
 wait %timer% sec
 tell %actor.name% Hi, my name is Tsezguerra and you have been selected.
 wait %timer% sec
@@ -369,7 +362,12 @@ wait %timer% sec
 emote inserts a memory card in Joystation console.
 wait %timer% sec
 tell %actor.name% Now the game is ready, need only a player.
-wait %timer% sec
+wait 2 sec
+if !%actor.has_item(3202)%
+  %load% obj 3202 %actor% inv
+  %send% %actor% %self.name% gives you the 	GG.I. 	DRing	n.
+end
+wait 2 sec
 tell %actor.name% 	RWear	r your 	Rring	r and 	Rtouch	r the 	RJoystation console	r to start the game.	n
 ~
 #1422
@@ -536,18 +534,13 @@ Joystation transfer~
 tou~
 if %cmd% == tou && %self.name% /= %arg.car%
 if %actor.eq(rfinger)% || %actor.eq(lfinger)%
-detach 3210 %actor.id%
 detach 3239 %actor.id%
-attach 3210 %actor.id%
 attach 3239 %actor.id%
 %send% %actor% You touch a %self.shortdesc% and something start to happens.
 %echoaround% %actor% %actor.name% touch a %self.shortdesc% and something start to happens.
 wait 3 sec
 %send% %actor% Your body dematerializes and enter into the %self.shortdesc%.
 %echoaround% %actor% %actor.name% dematerializes and enter into the %self.shortdesc%.
-if !%actor.has_item(3203)%
-%load% obj 3203 %actor% inv
-end
 %teleport% %actor% 1402
 %force% %actor% look
 halt
@@ -557,18 +550,13 @@ halt
 end
 elseif %cmd% == touc && %self.name% /= %arg.car%
 if %actor.eq(rfinger)% || %actor.eq(lfinger)%
-detach 3210 %actor.id%
 detach 3239 %actor.id%
-attach 3210 %actor.id%
 attach 3239 %actor.id%
 %send% %actor% You touch a %self.shortdesc% and something start to happens.
 %echoaround% %actor% %actor.name% touch a %self.shortdesc% and something start to happens.
 wait 3 sec
 %send% %actor% Your body dematerializes and enter into the %self.shortdesc%.
 %echoaround% %actor% %actor.name% dematerializes and enter into the %self.shortdesc%.
-if !%actor.has_item(3203)%
-%load% obj 3203 %actor% inv
-end
 %teleport% %actor% 1402
 %force% %actor% look
 halt
@@ -578,18 +566,13 @@ halt
 end
 elseif %cmd% == touch && %self.name% /= %arg.car%
 if %actor.eq(rfinger)% || %actor.eq(lfinger)%
-detach 3210 %actor.id%
 detach 3239 %actor.id%
-attach 3210 %actor.id%
 attach 3239 %actor.id%
 %send% %actor% You touch a %self.shortdesc% and something start to happens.
 %echoaround% %actor% %actor.name% touch a %self.shortdesc% and something start to happens.
 wait 3 sec
 %send% %actor% Your body dematerializes and enter into the %self.shortdesc%.
 %echoaround% %actor% %actor.name% dematerializes and enter into the %self.shortdesc%.
-if !%actor.has_item(3203)%
-%load% obj 3203 %actor% inv
-end
 %teleport% %actor% 1402
 %force% %actor% look
 halt
@@ -629,23 +612,9 @@ end
 #1429
 quit game~
 2 c 100
-ren~
-if %cmd.mudcommand% == rent
-if %actor.varexists(visited_antokiba)%
-%load% obj 1405 %actor% inv
-end
-if %actor.varexists(visited_masadora)%
-%load% obj 1406 %actor% inv
-end
-if %actor.varexists(visited_rabicuta)%
-%load% obj 1407 %actor% inv
-end
-set prevgold %actor.gold%
-nop %actor.gold(-%prevgold%)%
-nop %actor.gold(1000)%
+quit~
+if %cmd.mudcommand% == quit
 %force% %actor% rent
-nop %actor.gold(%prevgold%)%
-nop %actor.gold(-1000)%
 else
 return 0
 end
@@ -683,66 +652,61 @@ player config and automap~
 2 q 100
 ~
 if %direction% == down
-if !%actor.eq(*)%
-%load% obj 3202 %actor% rfinger
-%load% obj 3203 %actor% inv
-end
-if !%actor.varexists(coins_card_collected)%
-%load% obj 2809 %actor% inv
-end
-if !%actor.inventory(3203).contents%
-%teleport% %actor% 1400
-eval book_purge_leaves 1
-remote book_purge_leaves %actor.id%
-%load% obj 1001 %actor% inv
-%load% obj 1002 %actor% inv
-%load% obj 1003 %actor% inv
-%load% obj 1004 %actor% inv
-%load% obj 1005 %actor% inv
-%load% obj 1006 %actor% inv
-%load% obj 1007 %actor% inv
-%load% obj 1008 %actor% inv
-%load% obj 1009 %actor% inv
-%load% obj 1010 %actor% inv
-%load% obj 1011 %actor% inv
-%load% obj 1013 %actor% inv
-%load% obj 1014 %actor% inv
-%load% obj 1015 %actor% inv
-%load% obj 1016 %actor% inv
-%load% obj 1017 %actor% inv
-%load% obj 1018 %actor% inv
-%load% obj 1019 %actor% inv
-%load% obj 1020 %actor% inv
-%load% obj 1021 %actor% inv
-%load% obj 1024 %actor% inv
-%load% obj 1025 %actor% inv
-%load% obj 1026 %actor% inv
-%load% obj 1027 %actor% inv
-%load% obj 1030 %actor% inv
-%load% obj 1031 %actor% inv
-%load% obj 1032 %actor% inv
-%load% obj 1033 %actor% inv
-%load% obj 1034 %actor% inv
-%load% obj 1037 %actor% inv
-%load% obj 1039 %actor% inv
-%load% obj 1040 %actor% inv
-%load% obj 3119 %actor% inv
-%load% obj 3120 %actor% inv
-%load% obj 3130 %actor% inv
-%load% obj 40000 %actor% inv
-%load% obj 65303 %actor% inv
-%force% %actor% open binder
-%force% %actor% put all.card in binder
-%force% %actor% close binder
-%force% %actor% toggle automap
-redelete book_purge_leaves %actor.id%
-%force% %actor% cls
-wait 0.1 sec
-%force% %actor% down
-%force% %actor% inv
-else
-%load% obj 1014 %actor% inv
-end
+  if !%actor.eq(*)%
+    %load% obj 3202 %actor% rfinger
+    %load% obj 3203 %actor% inv
+  end
+  set slots %actor.inventory(3203)%
+  if !%actor.varexists(coins_card_collected)%
+    %load% obj 2809 %self% inv
+  end  
+  if !%slots.contents%
+    %teleport% %actor% 1400  
+    %load% obj 1001 %self% inv
+    %load% obj 1002 %self% inv
+    %load% obj 1003 %self% inv
+    %load% obj 1004 %self% inv
+    %load% obj 1005 %self% inv
+    %load% obj 1006 %self% inv
+    %load% obj 1007 %self% inv
+    %load% obj 1008 %self% inv
+    %load% obj 1009 %self% inv
+    %load% obj 1010 %self% inv
+    %load% obj 1011 %self% inv
+    %load% obj 1013 %self% inv
+    %load% obj 1014 %self% inv
+    %load% obj 1015 %self% inv
+    %load% obj 1016 %self% inv
+    %load% obj 1017 %self% inv
+    %load% obj 1018 %self% inv
+    %load% obj 1019 %self% inv
+    %load% obj 1020 %self% inv
+    %load% obj 1021 %self% inv
+    %load% obj 1024 %self% inv
+    %load% obj 1025 %self% inv
+    %load% obj 1026 %self% inv
+    %load% obj 1027 %self% inv
+    %load% obj 1030 %self% inv
+    %load% obj 1031 %self% inv
+    %load% obj 1032 %self% inv
+    %load% obj 1033 %self% inv
+    %load% obj 1034 %self% inv
+    %load% obj 1037 %self% inv
+    %load% obj 1039 %self% inv
+    %load% obj 1040 %self% inv
+    %load% obj 3020 %self% card
+    %load% obj 3030 %self% card
+    %load% obj 3119 %self% inv
+    %load% obj 3120 %self% inv
+    %load% obj 3130 %self% inv
+    %load% obj 40000 %self% inv
+    %force% %actor% put all.card in binder
+    wait 0.1 sec
+    %force% %actor% down
+    %force% %actor% inv
+  else
+    %load% obj 1014 %self% inv
+  end
 end
 ~
 #1434
@@ -779,10 +743,16 @@ eval visited_rabicuta 40031
 remote visited_rabicuta %actor.id%
 ~
 #1438
-test~
-1 n 100
-~
-* No Script
+elena mail~
+2 c 100
+mai~
+if %cmd.mudcommand% == mail
+%teleport% %actor% 1408
+%force% %actor% mail %arg%
+%teleport% %actor% 1407
+else
+return 0
+end
 ~
 #1439
 rent goes quit~
@@ -824,12 +794,73 @@ else
   return 0
 end
 ~
+#1445
+Skip tutorials set~
+0 e 0
+has entered the game.~
+wait 1 sec
+if !%actor.eq(*)%
+  %load% obj 3202 %actor% rfinger
+end
+if !%actor.inventory(3203)%
+  if %self.inventory%
+    %at% 1400 drop all
+  end
+  %load% obj 3203 %self% inv
+  %load% obj 1001 %self% inv
+  %load% obj 1002 %self% inv
+  %load% obj 1003 %self% inv
+  %load% obj 1004 %self% inv
+  %load% obj 1005 %self% inv
+  %load% obj 1006 %self% inv
+  %load% obj 1007 %self% inv
+  %load% obj 1008 %self% inv
+  %load% obj 1009 %self% inv
+  %load% obj 1010 %self% inv
+  %load% obj 1011 %self% inv
+  %load% obj 1013 %self% inv
+  %load% obj 1014 %self% inv
+  %load% obj 1015 %self% inv
+  %load% obj 1016 %self% inv
+  %load% obj 1017 %self% inv
+  %load% obj 1018 %self% inv
+  %load% obj 1019 %self% inv
+  %load% obj 1020 %self% inv
+  %load% obj 1021 %self% inv
+  %load% obj 1024 %self% inv
+  %load% obj 1025 %self% inv
+  %load% obj 1026 %self% inv
+  %load% obj 1027 %self% inv
+  %load% obj 1030 %self% inv
+  %load% obj 1031 %self% inv
+  %load% obj 1032 %self% inv
+  %load% obj 1033 %self% inv
+  %load% obj 1034 %self% inv
+  %load% obj 1037 %self% inv
+  %load% obj 1039 %self% inv
+  %load% obj 1040 %self% inv
+  %load% obj 3020 %self% card
+  %load% obj 3030 %self% card
+  %load% obj 3119 %self% inv
+  %load% obj 3120 %self% inv
+  %load% obj 3130 %self% inv
+  %load% obj 40000 %self% inv
+  %at% 1400 put all.card in binder
+  give binder %actor.name%
+end
+%force% %actor% down
+~
 #1450
-Room Global Random Example~
-2 ab 100
+load starter cards~
+2 b 100
 ~
 * Fires whether a player is in the room or not.
 %echo% The trigger fires now!
+if %self.inventory(3203)%
+%echo% Find it!
+end
+%load% obj 3020 %self% card
+%echo% Nome: %self.carried_by.name%
 ~
 #1451
 Room Random Example~
@@ -1309,37 +1340,72 @@ greet player close gate~
 0 g 100
 ~
 if %direction% == south && %actor.is_pc%
-detach 1496 %self.id%
-close trapdoor
-lock trapdoor
-close gate
-lock gate
-wait 1 sec
-%force% %actor% receive
-eval timer 5
-wait %timer% sec
-say Hello new player, let me check your data.
-wait %timer% sec
-say Player ID: %actor.id%
-wait 1 sec
-say Name: %actor.name%
-wait 1 sec
-say Sex: %actor.sex%
-wait 1 sec
-say Weight: %actor.weight%
-wait 1 sec
-say Strength:     %actor.str%
-say Dexterity:    %actor.dex%
-say Constitution: %actor.con%
-say Intelligence: %actor.int%
-say Wisdom:       %actor.wis%
-say Charisma:     %actor.cha%
-wait %timer% sec
-say Now, I'm going to explain the game.
-wait %timer% sec
-say %actor.name%-sama, do you want to listen?
-attach 1419 %self.id%
-attach 1496 %self.id%
+  detach 1496 %self.id%
+  if !%actor.inventory(3203)%
+    if %self.inventory%
+      %at% 1400 drop all
+    end
+    %load% obj 3203 %self% inv
+    %load% obj 1001 %self% inv
+    %load% obj 1002 %self% inv
+    %load% obj 1003 %self% inv
+    %load% obj 1004 %self% inv
+    %load% obj 1005 %self% inv
+    %load% obj 1006 %self% inv
+    %load% obj 1007 %self% inv
+    %load% obj 1008 %self% inv
+    %load% obj 1009 %self% inv
+    %load% obj 1010 %self% inv
+    %load% obj 1011 %self% inv
+    %load% obj 1013 %self% inv
+    %load% obj 1014 %self% inv
+    %load% obj 1015 %self% inv
+    %load% obj 1016 %self% inv
+    %load% obj 1017 %self% inv
+    %load% obj 1018 %self% inv
+    %load% obj 1019 %self% inv
+    %load% obj 1020 %self% inv
+    %load% obj 1021 %self% inv
+    %load% obj 1024 %self% inv
+    %load% obj 1025 %self% inv
+    %load% obj 1026 %self% inv
+    %load% obj 1027 %self% inv
+    %load% obj 1030 %self% inv
+    %load% obj 1031 %self% inv
+    %load% obj 1032 %self% inv
+    %load% obj 1033 %self% inv
+    %load% obj 1034 %self% inv
+    %load% obj 1037 %self% inv
+    %load% obj 1039 %self% inv
+    %load% obj 1040 %self% inv
+    %load% obj 3020 %self% card
+    %load% obj 3030 %self% card
+    %load% obj 3119 %self% inv
+    %load% obj 3120 %self% inv
+    %load% obj 3130 %self% inv
+    %load% obj 40000 %self% inv
+    %at% 1400 put all.card in binder
+    give all %actor.name%
+  end
+  close trapdoor
+  lock trapdoor
+  eval timer 4
+  wait %timer% sec
+  say Hello new player, let me check your data.
+  wait %timer% sec
+  say Player ID: %actor.id%
+  wait 1 sec
+  say Name: %actor.name%
+  wait 1 sec
+  say Sex: %actor.sex%
+  wait 1 sec
+  %force% %actor% receive
+  wait %timer% sec
+  say Now, I'm going to explain the game.
+  wait %timer% sec
+  say %actor.name%-sama, do you want to listen?
+  attach 1419 %self.id%
+  attach 1496 %self.id%
 end
 ~
 #1496
@@ -1348,45 +1414,39 @@ eeta explanation~
 *~
 if %speech% == yes
 detach 1419 %self.id%
-eval timer 5
-wait %timer% sec
-say In this game there are some magic spells that everyone can use as long as they wear the ring
+eval timer 4
+wait 1 sec
+nod %actor.name%
+wait 2 sec
+say In this game there are some magic words that everyone can use as long as they wear the ring
 wait %timer% sec
 say It is "	YBook	n" and "	YGain	n", type one of these magic words while wearing your ring
 wait %timer% sec
-say To clear this game you must collect 100 different 	mrestricted cards	n
+say To clear the game you must collect 100 different 	mrestricted cards	n inside your binder.
 wait %timer% sec
-say You have to get an 	gitem, then change it into the 	ycard	n
+say There is 100 	mrestricted 	nslots only for each cards numbered between 0 and 99
 wait %timer% sec
-say For example, if you hold an 	gitem	n and type the magic word "	YGain	n", it will transform into a 	ycard	n
+say And more 45 un-restricted slots for 	yother 	ncards and 	Bspell 	ncards.
+wait %timer% sec 
+say If you 	Yget an item, this item will change it into the 	ycard	n.
 wait %timer% sec
-say If you want to use the 	ycard	n that you get as an 	gitem, you must hold it and "	YGain	n" once more...
+say To transform that card again you must use 	Ygain 	nto transform it back to an item.
 wait %timer% sec
-say then the 	ycard	n will transform into its original form
+say If you transform a card into an item, that item never can be transformed into a card again.
 wait %timer% sec
-say However, items have a limit number of existent copies
+say Restricted and spell cards has a limit of existent copies that can exist at the same time in the game
 wait %timer% sec
-say This limit is described on the card, after its rarity letter
+say It is called global transformation limit, in that case the item will not be transformed until that.
 wait %timer% sec
-say Another important thing, you have just a 	Rminute	n to keep a card held or left a card on the ground...
+say Another important thing, if you not store the card inside the binder...
 wait %timer% sec
-say after that time, the card will transform again to it original form and 	Rnever	n will transform again
+say this card will return to item form after 60 seconds and cannot be transformed again.
 wait %timer% sec
-say Finally and this is most important thing, you have to be careful
+say The only way to save your restricted cards inside the binder is leave the game with a 	Bleave spell card	n.
 wait %timer% sec
-grin %actor.name%
+say After use this spell card go north and talk with my twin sister Elena, she will help you.
 wait %timer% sec
-say 	RIn case where a player dies, the ring and book will be destroyed, and all cards inside it as well	n
-wait %timer% sec
-say The only way to leave the game is in front of my twin sister Elena, she will save your items and cards.
-wait %timer% sec
-say One way to find my sister Elena and quit is gain a 	Bspell card 	n"	BLeave	n"
-wait %timer% sec
-say So be careful, this concludes the explanation
-wait %timer% sec
-say This is basic information, for more specific information...
-wait %timer% sec
-say You will have to obtain it yourself while playing the game or using 	Ghelp	n files
+say This concludes the explanation. Another details of game you will learn by playing and using 	Yhelp	n files.
 wait %timer% sec
 unlock trapdoor
 open trapdoor
@@ -1394,9 +1454,9 @@ wait %timer% sec
 say The game begins now, just go 	Gdown	n. Good luck
 detach 1496 %self.id%
 elseif %speech% == no
-wait 2 sec
+wait 1 sec
 say No problem, use 	Ghelp	n files if you forget about something
-wait 2 sec
+wait 1 sec
 unlock trapdoor
 open trapdoor
 wait 1 sec

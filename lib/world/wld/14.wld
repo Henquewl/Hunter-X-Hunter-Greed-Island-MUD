@@ -31,7 +31,7 @@ S
 T 3211
 T 2803
 #1402
-Now Loading~
+Loading...~
 You falling in a energy tunnel, traveling into a high speed
 connection. The feeling of peace and no weight makes you more
 relaxed and exciting for this new adventure. The only exit is
@@ -67,10 +67,10 @@ D5
 S
 #1404
 Transporter Room~
-You finally reach the bottom of whatever was happens before.
+  You finally reach the bottom of whatever was happens before.
 A great circular platform in the center of room is here, where
 new players arrives from. The only exit available here is going
-north, passing by big quad port gate what open and closes by itself.
+north, going through by big squared passageway.
 ~
 14 88 0 0 0 0
 D0
@@ -89,24 +89,23 @@ D4
 S
 #1405
 Preparation Room~
-You are in a great circular room very illuminated by some kind of
+  You are in a great circular room very illuminated by some kind of
 LED circuits all over the walls. A girl, floating with a ball-shaped
-pad is here, typing something to her computer and waiting for you.
-The only exit appears to be where you come from with a little stair to
-the closed quad port gate.
+pod is here, typing something to her computer and waiting for you.
+A stairway with few steps takes you to the center of the room at
+the same time a quad door closes behind you.
 ~
-14 248 0 0 0 0
+14 504 0 0 0 0
 D2
 It seems you cannot go back anymore.
 ~
-gate~
-2 1404 1404
+undefined~
+0 -1 -1
 D5
 ~
 trapdoor~
-4 1404 40000
+2 1404 40000
 S
-T 1433
 #1406
 Another Transporter Room~
    A great circular platform in the center of room is here, very similar with
@@ -145,11 +144,10 @@ passage~
 S
 T 1428
 T 1429
-T 1431
-T 40000
 T 1432
 T 1434
 T 1442
+T 1438
 #1408
 POSTMASTER ELENA~
 PLAYERS NOT ALLOWED HERE!

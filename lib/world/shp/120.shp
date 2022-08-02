@@ -1,0 +1,267 @@
+CircleMUD v3.0 Shop File~
+#12011~
+3020
+3023
+3021
+3022
+3024
+3025
+3042
+-1
+1.00
+0.50
+5
+9shield
+-1
+%s We are out of that item right now.~
+%s You don't have that.  Stop wasting my time!~
+%s This is a weapon and shield shop!  Go someplace else!~
+%s A fine weapon indeed, but more than I can afford.~
+%s NO CREDIT!~
+%s Here you go.  That will be %d coins.  Don't get hurt!~
+%s You'll get %d for that.~
+0
+6
+12011
+0
+12006
+-1
+0
+28
+0
+0
+#12012~
+12006
+12007
+3004
+-1
+1.00
+0.25
+-1
+%s I don't have anything like that.  Sorry.~
+%s I don't think you have that.~
+%s I don't stock that stuff.  Try another shop.~
+%s I can't afford to buy anything, I'm only a poor peddler.~
+%s No cash, no goods!~
+%s Here you go.  That'll be... %d coins.~
+%s Thank-you very much.  Here are your %d coins as payment.~
+1
+6
+12012
+0
+12032
+-1
+0
+28
+0
+0
+#12016~
+-1
+1.60
+0.30
+-1
+%s We don't sell that.~
+%s I don't think you have that.~
+%s I don't stock that stuff.  Try another shop.~
+%s I can't afford to buy anything, I'm only a poor peddler.~
+%s No cash, no goods!~
+%s Here you go.  That'll be... %d coins.~
+%s Thank-you very much.  Here are your %d coins as payment.~
+1
+6
+12016
+0
+12003
+12004
+12008
+12015
+12022
+12023
+-1
+9
+17
+18
+22
+#12034~
+3051
+3053
+3054
+12080
+3057
+12059
+3050
+-1
+1.50
+0.25
+25card
+14spell
+2scroll
+3wand
+10potion
+-1
+%s We don't carry that item.~
+%s You don't have that.~
+%s I can't buy that.  See another shop.~
+%s We are low on cash.  Come back later.~
+%s Sorry, but you can't afford that.~
+%s Here you go.  That will cost you %d.~
+%s I will give you %d coins for that.~
+2
+6
+12034
+0
+12042
+-1
+0
+28
+0
+0
+#12036~
+3001
+3009
+3010
+3011
+3119
+3103
+-1
+1.00
+0.00
+-1
+%s We don't have that nian item in stock right meow.~
+%s I don't think you have that niantem.~
+%s Hmmmm... if I was in a good mood, I'd consider it.  But I'm not.~
+%s A costumeowr take all my spare meowney... Sorry.~
+%s You just a nian noob player... Need some mewoney before cameow here.~
+%s That will be %d coins.  Enjoy!~
+%s You'll get %d coins for that.~
+2
+6
+12036
+0
+12062
+-1
+0
+28
+0
+0
+#12037~
+3030
+3031
+3090
+40100
+-1
+1.00
+0.25
+24card
+26card
+-1
+%s We don't have that item on stock.~
+%s I don't think you have that.~
+%s I buy ALMOST anything as long it be a card.~
+%s I can't afford it right now.  Come back tomorrow.~
+%s No cash, no goods!~
+%s Here you go.  That'll be... %d coins.~
+%s Thank-you very much.  Here are your %d coins as payment.~
+2
+6
+12037
+0
+12063
+-1
+0
+28
+0
+0
+#12038~
+3071
+3086
+3044
+3043
+3076
+3081
+12024
+-1
+1.00
+0.50
+9leather
+11leather
+9pelt
+11pelt
+-1
+%s Sorry, I don't stock that item.~
+%s You don't seem to have that.~
+%s I only buy leather stuff!~
+%s I can't afford that!~
+%s You are too poor!~
+%s That'll be %d coins, thanks.~
+%s I'll give you %d coins for that.~
+0
+6
+12038
+0
+12016
+-1
+0
+28
+0
+0
+#12040~
+3001
+3002
+3003
+3004
+-1
+1.00
+0.00
+-1
+%s Sorry, I don't stock that item.~
+%s You don't seem to have that.~
+%s I don't trade in such items.~
+%s I can't afford that!~
+%s You are too poor!~
+%s That'll be %d coins, thanks.~
+%s I'll give you %d coins for that.~
+0
+6
+12040
+0
+12072
+-1
+0
+28
+0
+0
+#12076~
+40002
+40003
+40004
+40005
+40006
+40007
+40008
+40009
+40010
+40011
+-1
+1.25
+1.00
+24jenny
+-1
+%s Sorry, I don't stock that item.~
+%s You don't seem to have that.~
+%s I don't trade in such items.~
+%s I can't afford that!~
+%s You are too poor!~
+%s That'll be %d jenny, thanks.~
+%s I'll give you %d jenny in exchange.~
+0
+6
+12076
+0
+12076
+-1
+0
+28
+0
+0
+$~
