@@ -5,6 +5,18 @@
 NEW COMMANDS AND NEW MUD BEHAVIOR:
 ---------------------------------
 
+> 2026 <
+
+MAY 20 **
+Back from a long Hiatus x Hiatus, server is alive again.
+- Fixed crash on login: buffer overflow in make_prompt (comm.c)
+  that caused the server to abort when entering the game;
+- Fixed Nen display showing ',000' instead of '5,000' in prompt:
+  undefined behavior in printfcomma with overlapping sprintf buffer,
+  now fixed to produce correct comma-formatted numbers;
+- Server now compiles and runs under WSL (Ubuntu 24.04 / glibc 2.39);
+- Added run.bat to start the server from Windows with one click.
+
 > 2021 <
 
 MAR 12 **
