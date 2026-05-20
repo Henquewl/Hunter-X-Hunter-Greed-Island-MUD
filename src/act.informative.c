@@ -2225,27 +2225,31 @@ ACMD(do_where)
 char *printfcomma(int n) {
     int n2 = 0;
     int scale = 1;
+    char tmp[32];
 	static char buf[MAX_STRING_LENGTH];
-	
-	*buf = '\0';
-	
+	size_t blen;
+
+	buf[0] = '\0';
+
     if (n < 0) {
-        sprintf(buf, "-");
-        n = -n;		
+        buf[0] = '-'; buf[1] = '\0';
+        n = -n;
     }
     while (n >= 1000) {
         n2 = n2 + scale * (n % 1000);
         n /= 1000;
         scale *= 1000;
     }
-    sprintf(buf, "%s%d", buf, n);
+    blen = strlen(buf);
+    snprintf(buf + blen, sizeof(buf) - blen, "%d", n);
     while (scale != 1) {
         scale /= 1000;
         n = n2 / scale;
         n2 = (n2 % scale);
 		if (n < 0)
 		  n = 0;
-        sprintf(buf, "%s,%03d", buf, n);		
+        snprintf(tmp, sizeof(tmp), ",%03d", n);
+        strncat(buf, tmp, sizeof(buf) - strlen(buf) - 1);
     }
 	return (buf);
 }

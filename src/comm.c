@@ -1141,6 +1141,7 @@ static char *make_prompt(struct descriptor_data *d)
   else if (STATE(d) == CON_PLAYING && !IS_NPC(d->character)) {
     int count;
     size_t len = 0;
+    char hit_buf[32], total_hit_buf[32];
 
     *prompt = '\0';
 
@@ -1172,20 +1173,20 @@ static char *make_prompt(struct descriptor_data *d)
       if (PRF_FLAGGED(d->character, PRF_DISPMANA) && len < sizeof(prompt)) {
 		if ((GET_MAX_MANA(d->character) < 100 || GET_MAX_MANA(d->character) > 100) && GET_MANA(d->character) != GET_MAX_MANA(d->character)) {
 		if (GET_MANA(d->character) <= 15)
-          count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%s%.1f%%%s> ", BRED, ((GET_MANA(d->character) * 100.0) / GET_MAX_MANA(d->character)), CNRM);
+          count = snprintf(prompt + len, sizeof(prompt) - len, "<%s%.1f%%%s> ", BRED, ((GET_MANA(d->character) * 100.0) / GET_MAX_MANA(d->character)), CNRM);
 	    else if (GET_MANA(d->character) <= 50)
-		  count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%s%.1f%%%s> ", BYEL, ((GET_MANA(d->character) * 100.0) / GET_MAX_MANA(d->character)), CNRM);
+		  count = snprintf(prompt + len, sizeof(prompt) - len, "<%s%.1f%%%s> ", BYEL, ((GET_MANA(d->character) * 100.0) / GET_MAX_MANA(d->character)), CNRM);
 		else
-		  count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%s%.1f%%%s> ", BBLU, ((GET_MANA(d->character) * 100.0) / GET_MAX_MANA(d->character)), CNRM);
-        len += count;
+		  count = snprintf(prompt + len, sizeof(prompt) - len, "<%s%.1f%%%s> ", BBLU, ((GET_MANA(d->character) * 100.0) / GET_MAX_MANA(d->character)), CNRM);
+        if (count >= 0) len += count;
 		} else {
 		  if (GET_MANA(d->character) <= 15)
-            count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%s%d%%%s> ", BRED, ((GET_MANA(d->character) * 100) / GET_MAX_MANA(d->character)), CNRM);
+            count = snprintf(prompt + len, sizeof(prompt) - len, "<%s%d%%%s> ", BRED, ((GET_MANA(d->character) * 100) / GET_MAX_MANA(d->character)), CNRM);
 	      else if (GET_MANA(d->character) <= 50)
-		    count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%s%d%%%s> ", BYEL, ((GET_MANA(d->character) * 100) / GET_MAX_MANA(d->character)), CNRM);
+		    count = snprintf(prompt + len, sizeof(prompt) - len, "<%s%d%%%s> ", BYEL, ((GET_MANA(d->character) * 100) / GET_MAX_MANA(d->character)), CNRM);
 		  else
-		    count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%s%d%%%s> ", BBLU, ((GET_MANA(d->character) * 100) / GET_MAX_MANA(d->character)), CNRM);
-          len += count;	
+		    count = snprintf(prompt + len, sizeof(prompt) - len, "<%s%d%%%s> ", BBLU, ((GET_MANA(d->character) * 100) / GET_MAX_MANA(d->character)), CNRM);
+          if (count >= 0) len += count;
 		}			
       }
 /*
@@ -1196,10 +1197,12 @@ static char *make_prompt(struct descriptor_data *d)
       }
 */	  
 	  if (PRF_FLAGGED(d->character, PRF_DISPHP) && len < sizeof(prompt)) {
-        count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "/ %s<%s%s%s%s/", GET_ALIGNMENT(d->character) >= 350 ? BBLU : (GET_ALIGNMENT(d->character) <= -350 ? BRED : CNRM), CLASS_COLOR(d->character), AFF_FLAGGED(d->character, AFF_ENHANCE) ? BYEL : CNUL, printfcomma(GET_HIT(d->character)), GET_ALIGNMENT(d->character) >= 350 ? BBLU : (GET_ALIGNMENT(d->character) <= -350 ? BRED : CNRM));
-		len += count;
-		count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "%s%s%s%snen%s>%s ", CLASS_COLOR(d->character), AFF_FLAGGED(d->character, AFF_ENHANCE) ? BYEL : CNUL, printfcomma(GET_TOTAL_HIT(d->character)), AFF_FLAGGED(d->character, AFF_BOOST) ? BRED : CNRM, GET_ALIGNMENT(d->character) >= 350 ? BBLU : (GET_ALIGNMENT(d->character) <= -350 ? BRED : CNRM), CNRM);
-        len += count;
+        snprintf(hit_buf, sizeof(hit_buf), "%s", printfcomma(GET_HIT(d->character)));
+        snprintf(total_hit_buf, sizeof(total_hit_buf), "%s", printfcomma(GET_TOTAL_HIT(d->character)));
+        count = snprintf(prompt + len, sizeof(prompt) - len, "/ %s<%s%s%s%s/", GET_ALIGNMENT(d->character) >= 350 ? BBLU : (GET_ALIGNMENT(d->character) <= -350 ? BRED : CNRM), CLASS_COLOR(d->character), AFF_FLAGGED(d->character, AFF_ENHANCE) ? BYEL : CNUL, hit_buf, GET_ALIGNMENT(d->character) >= 350 ? BBLU : (GET_ALIGNMENT(d->character) <= -350 ? BRED : CNRM));
+		if (count >= 0) len += count;
+		count = snprintf(prompt + len, sizeof(prompt) - len, "%s%s%s%snen%s>%s ", CLASS_COLOR(d->character), AFF_FLAGGED(d->character, AFF_ENHANCE) ? BYEL : CNUL, total_hit_buf, AFF_FLAGGED(d->character, AFF_BOOST) ? BRED : CNRM, GET_ALIGNMENT(d->character) >= 350 ? BBLU : (GET_ALIGNMENT(d->character) <= -350 ? BRED : CNRM), CNRM);
+        if (count >= 0) len += count;
       }
 	  if ((GET_POS(d->character) == POS_FIGHTING) && len < sizeof(prompt)) {
 		if (GET_SKILL(d->character, SKILL_ANALYSIS) == 100) {
@@ -1232,39 +1235,39 @@ static char *make_prompt(struct descriptor_data *d)
     }	
 	
 	if ((AFF_FLAGGED(d->character, AFF_DETECT_POISON) && AFF_FLAGGED(d->character, AFF_POISON)) && len < sizeof(prompt)) {
-      count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%sPOISON%s> ", BGRN, CNRM);
+      count = snprintf(prompt + len, sizeof(prompt) - len, "<%sPOISON%s> ", BGRN, CNRM);
       if (count >= 0)
         len += count;
     }
 	
 	if (PLR_FLAGGED(d->character, PLR_BOOK) && len < sizeof(prompt)) {
-      count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%sBOOK%s> ", BYEL, CNRM);
+      count = snprintf(prompt + len, sizeof(prompt) - len, "<%sBOOK%s> ", BYEL, CNRM);
       if (count >= 0)
         len += count;
     }
 
     if (PRF_FLAGGED(d->character, PRF_BUILDWALK) && len < sizeof(prompt)) {
-      count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "BUILDWALKING ");
+      count = snprintf(prompt + len, sizeof(prompt) - len, "BUILDWALKING ");
       if (count >= 0)
         len += count;
     }
 
     if (PRF_FLAGGED(d->character, PRF_AFK) && len < sizeof(prompt)) {
-      count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "<%sAFK%s> ", BYEL, CNRM);
+      count = snprintf(prompt + len, sizeof(prompt) - len, "<%sAFK%s> ", BYEL, CNRM);
       if (count >= 0)
         len += count;
     }
 
      if (GET_LAST_NEWS(d->character) < newsmod)
      {
-       count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "%s(news)%s ", KCYN, CNRM);
+       count = snprintf(prompt + len, sizeof(prompt) - len, "%s(news)%s ", KCYN, CNRM);
        if (count >= 0)
          len += count;
      }
 
      if (GET_LAST_MOTD(d->character) < motdmod)
      {
-       count = snprintf(prompt + len, sizeof(prompt) /*- len*/, "%s(motd)%s ", KCYN, CNRM);
+       count = snprintf(prompt + len, sizeof(prompt) - len, "%s(motd)%s ", KCYN, CNRM);
        if (count >= 0)
          len += count;
      }

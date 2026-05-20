@@ -1,3 +1,17 @@
+# Binários compilados
 bin/*
 src/*.o
 src/util/*.o
+
+# Arquivos de salvamento de players (não versionar, resetar a cada deploy)
+lib/plrfiles/**/*.plr
+lib/plrfiles/index
+lib/plrobjs/**/*.objs
+
+# Logs e estado de runtime
+lib/etc/last
+lib/etc/time
+lib/etc/plrmail
+
+# Pasta .claude (memória do Claude Code) — NÃO ignorar
+# !.claude/
