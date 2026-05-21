@@ -2,6 +2,7 @@
 PORT=${1:-4000}
 MUDDIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$MUDDIR"
+VERSION=$(cat "$MUDDIR/VERSION" 2>/dev/null | tr -d '[:space:]')
 
 if [ ! -x bin/circle ]; then
   echo "[GI MUD] Compiling server..."
@@ -13,7 +14,7 @@ if [ ! -x bin/circle ]; then
   cd ..
 fi
 
-echo "[GI MUD] Starting Greed Island 0.90 on port $PORT..."
+echo "[GI MUD] Starting Greed Island $VERSION on port $PORT..."
 echo "[GI MUD] Connect using: telnet localhost $PORT"
 echo "[GI MUD] Press Ctrl+C to stop."
 echo ""
