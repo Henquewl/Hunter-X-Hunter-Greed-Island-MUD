@@ -181,9 +181,9 @@ Room      40000
 Flags     1 0 0 0
 End
 Text      book command~
-Body      book aparece deibaixo do personagem
-book muda para fighting
-book aparece no prompt, criar flag BOOK
+Body      book appears below the character
+book changes to fighting state
+book appears in prompt, create BOOK flag
 ~
 Name      Henque~
 IdNum     1
