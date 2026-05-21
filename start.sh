@@ -13,7 +13,7 @@ if [ ! -x bin/circle ]; then
   cd ..
 fi
 
-echo "[GI MUD] Starting Greed Island 0.89 on port $PORT..."
+echo "[GI MUD] Starting Greed Island 0.90 on port $PORT..."
 echo "[GI MUD] Connect using: telnet localhost $PORT"
 echo "[GI MUD] Press Ctrl+C to stop."
 echo ""
