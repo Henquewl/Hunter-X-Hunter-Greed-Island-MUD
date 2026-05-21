@@ -9,7 +9,8 @@ https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [May 21 2026] - Henque
   Implement Corruption (1022) and Compromise (1023) spell cards with DG Script triggers
-  Complete the 100 restricted card set: added 55 missing cards (65318-65399 range) to 653.obj
+  Complete the 100 restricted card set: added 55 missing cards (653.obj)
+  Add 55 physical items for the new restricted cards (654.obj): weapons, armor, jewelry and misc
   Grammar and spelling fixes in tutorial zones 14 (Greed Island intro) and 28 (Hunter Exams)
 [Nov 24 2019] - Henque
   Hat icon described on the map
