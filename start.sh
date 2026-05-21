@@ -1,15 +1,20 @@
 #!/bin/bash
-# Inicia o Greed Island MUD
-# Uso: bash start.sh [porta]
-# Exemplo no WSL: bash start.sh 4000
-
 PORT=${1:-4000}
 MUDDIR="$(cd "$(dirname "$0")" && pwd)"
-
 cd "$MUDDIR"
-echo "[GI MUD] Iniciando Greed Island 0.89 na porta $PORT..."
-echo "[GI MUD] Pressione Ctrl+C para encerrar."
-echo "[GI MUD] Conecte via: telnet localhost $PORT"
-echo ""
 
-bin/circle "$PORT"
+if [ ! -x bin/circle ]; then
+  echo "[GI MUD] Compiling server..."
+  cd src && make circle CFLAGS=-w
+  if [ $? -ne 0 ]; then
+    echo "[GI MUD] Compilation failed."
+    exit 1
+  fi
+  cd ..
+fi
+
+echo "[GI MUD] Starting Greed Island 0.89 on port $PORT..."
+echo "[GI MUD] Connect using: telnet localhost $PORT"
+echo "[GI MUD] Press Ctrl+C to stop."
+echo ""
+exec bin/circle "$PORT"
