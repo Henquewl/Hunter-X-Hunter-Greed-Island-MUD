@@ -8,6 +8,8 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 > 2026 <
 
 MAY 21 **
+- Fixed a SYSERR at boot caused by item #65462 (the "club") having its current
+  charges exceeding its maximum charges.
 - Two new spell cards are now functional: Corruption, which steals a free card from
   a target and can be recovered with Purify; and Compromise, which exchanges one of
   your free cards for a restricted card from a target's binder;
