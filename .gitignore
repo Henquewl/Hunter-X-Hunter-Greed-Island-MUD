@@ -1,17 +1,17 @@
-# Binários compilados
+# Compiled binaries
 bin/*
 src/*.o
 src/util/*.o
 
-# Arquivos de salvamento de players (não versionar, resetar a cada deploy)
+# Player save files (do not version, reset on each deploy)
 lib/plrfiles/**/*.plr
 lib/plrfiles/index
 lib/plrobjs/**/*.objs
 
-# Logs e estado de runtime
+# Runtime logs and state
 lib/etc/last
 lib/etc/time
 lib/etc/plrmail
 
-# Pasta .claude (memória do Claude Code) — NÃO ignorar
+# .claude folder (Claude Code memory) -- do NOT ignore
 # !.claude/

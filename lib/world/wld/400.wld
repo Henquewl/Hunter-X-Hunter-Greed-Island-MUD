@@ -1,10 +1,9 @@
 #40000
 The Greed Island Starting Point~
-   You are near a tall stilt hut where new players arrives from.  A sort of
-spiral staircase under the hut is how people comes down to Greed Island, but it
-is impossible go up back while Eeta carefully keep it locked.  Except the ground
-and up, you can go to any direction in a vast green plains and mountais in the
-background, completing the landscape.
+   You are near a tall stilt hut where new players arrive from.  A spiral
+staircase under the hut is how people come down to Greed Island, but it
+is impossible to go back up while Eeta carefully keeps it locked.  In every
+direction you can see a vast green plain with mountains in the background.
 ~
 400 28 0 0 0 1
 D0
@@ -68,10 +67,10 @@ D8
 S
 #40002
 The Great Field Of Starting Point~
-You are in a vast plains, the wind whistles when blows over your ears.
-To far north you see some very high hills, and to east lots of bushes
-prevets to walk in. To southwest you can see a tall stilt hut, any
-other possible direction goes leads you to more plains.
+You are in a vast plain, the wind whistles as it blows over your ears.
+To the far north you see some very high hills, and to the east lots of bushes
+prevent passage. To the southwest you can see a tall stilt hut, and any
+other direction leads you to more plains.
 ~
 400 32772 0 0 0 2
 D0
@@ -127,10 +126,10 @@ D9
 S
 #40004
 The Great Field Of Starting Point~
-You are in a vast plains, the wind whistles when blows over your ears.
-To far north you see some very high hills, and to west or south lots of
-bushes prevets to walk in. A dirt road leads you to southwest, away from
-plains. Any other possible direction goes leads you to more plains.
+You are in a vast plain, the wind whistles as it blows over your ears.
+To the far north you see some very high hills, and to the west or south lots of
+bushes prevent passage. A dirt road leads you to the southwest, away from
+the plains. Any other direction leads you to more plains.
 ~
 400 32772 0 0 0 2
 D0
@@ -288,10 +287,10 @@ D9
 S
 #40009
 The Great Field Of Starting Point~
-You are in a vast plains, the wind whistles when blows over your ears.
-To north you see some very high hills that blocks the passage, and to
-east or south lots of bushes prevets to walk in. A dirt road leads you
-to northeast, away from plains. Any other possible direction goes leads
+You are in a vast plain, the wind whistles as it blows over your ears.
+To the north you see some very high hills that block the passage, and to
+the east or south lots of bushes prevent passage. A dirt road leads you
+to the northeast, away from the plains. Any other direction leads
 you to more plains.
 ~
 400 32772 0 0 0 2
@@ -310,12 +309,12 @@ D9
 S
 #40010
 A Road Through The Plains~
-You are on a dust covered southwest-northwest road through the eastern plains.
+You are on a dust-covered southwest-to-northwest road through the eastern plains.
 An occasional hunter or adventurer can be seen, heading to or from the forest.
-To the northeast you see in a top of hills a walled city, and to southwest the
-road heads to the plains of island starting point.
-To east you see a giant tree, has so many branches in its trunk that makes
-easy to climb it up.
+To the northeast you see a walled city atop the hills, and to the southwest the
+road heads back to the plains of the starting point.
+To the east stands a giant tree with so many branches along its trunk that it is
+easy to climb.
 ~
 400 32768 0 0 0 1
 D0
@@ -334,10 +333,10 @@ D9
 S
 #40011
 A T-Intersection In The Road~
-Ops... where did you go now? There is two different way to go ahead. To the
-northeast you see in a top of hills a walled city, and to southwest the road
-heads to the plains of island starting point. A path skirting the mountain
-heading to west.
+Oops... where did you go? There are two different ways ahead. To the
+northeast you see a walled city atop the hills, and to the southwest the road
+heads back to the plains of the starting point. A path skirts the mountain
+to the west.
 ~
 400 32768 0 0 0 1
 D0
@@ -458,10 +457,10 @@ D9
 S
 #40019
 Road x And x Trail~
-You are on a dust covered road through through the eastern plains.
+You are on a dust-covered road through the eastern plains.
 An occasional hunter or adventurer can be seen, heading to or from the forest.
-To the northeast you see a florest with a trail that leads to hills for a
-walled city, and to south the road heads to the plains of island starting point.
+To the northeast you see a forest with a trail that leads up the hills toward a
+walled city, and to the south the road heads back to the plains of the starting point.
 ~
 400 32768 0 0 0 1
 D0
@@ -533,11 +532,11 @@ D7
 S
 #40023
 At The Edge Of The Hills~
-WOW THIS IS HIGH! You are hiking, bypassing a edge of the mountain.
-The cliffside looks stable, no rolling boulders or broken edges but
-it is very narrow, sometimes have to be cautious and squeeze through
-the mountain walls. To the west a florest leads to the plains, and to
-east the narrow path for the city continues.
+WOW THIS IS HIGH! You are hiking along the edge of the mountain.
+The cliffside looks stable, with no rolling boulders or broken edges, but
+it is very narrow, and sometimes you have to be cautious and squeeze through
+the mountain walls. To the west a forest leads to the plains, and to
+the east the narrow path toward the city continues.
 ~
 400 256 0 0 0 4
 D1
@@ -551,11 +550,11 @@ D9
 S
 #40024
 At The Edge Of The Hills~
-WOW THIS IS HIGH! You are hiking, bypassing a edge of the mountain.
-The cliffside looks stable, no rolling boulders or broken edges but
-it is very narrow, sometimes have to be cautious and squeeze through
-the mountain walls. To the west a florest leads to the plains, and to
-east the narrow path for the city continues.
+WOW THIS IS HIGH! You are hiking along the edge of the mountain.
+The cliffside looks stable, with no rolling boulders or broken edges, but
+it is very narrow, and sometimes you have to be cautious and squeeze through
+the mountain walls. To the west a forest leads to the plains, and to
+the east the narrow path toward the city continues.
 ~
 400 256 0 0 0 4
 D1
@@ -569,11 +568,11 @@ D3
 S
 #40025
 At The Edge Of The Hills~
-WOW THIS IS HIGH! You are hiking, bypassing a edge of the mountain.
-The cliffside looks stable, no rolling boulders or broken edges but
-it is very narrow, sometimes have to be cautious and squeeze through
-the mountain walls. To the west a florest leads to the plains, and to
-east the narrow path for the city continues.
+WOW THIS IS HIGH! You are hiking along the edge of the mountain.
+The cliffside looks stable, with no rolling boulders or broken edges, but
+it is very narrow, and sometimes you have to be cautious and squeeze through
+the mountain walls. To the west a forest leads to the plains, and to
+the east the narrow path toward the city continues.
 ~
 400 256 0 0 0 4
 D1
@@ -587,11 +586,11 @@ D3
 S
 #40026
 At The Edge Of The Hills~
-WOW THIS IS HIGH! You are hiking, bypassing a edge of the mountain.
-The cliffside looks stable, no rolling boulders or broken edges but
-it is very narrow, sometimes have to be cautious and squeeze through
-the mountain walls. To the west a florest leads to the plains, and to
-northeast a curve shows better a walled city in the middle of woods.
+WOW THIS IS HIGH! You are hiking along the edge of the mountain.
+The cliffside looks stable, with no rolling boulders or broken edges, but
+it is very narrow, and sometimes you have to be cautious and squeeze through
+the mountain walls. To the west a forest leads to the plains, and to
+the northeast a curve reveals a walled city nestled in the woods.
 ~
 400 256 0 0 0 4
 D3
@@ -605,11 +604,11 @@ D7
 S
 #40027
 A Hill Down~
-WOW THIS IS HIGH! You are hiking, bypassing a edge of the mountain.
-The cliffside looks stable, no rolling boulders or broken edges but
-it is very narrow, sometimes have to be cautious and squeeze through
-the mountain walls. To the southwest a florest leads to the plains,
-and to east a steep descent leads you again to some more woods to
+WOW THIS IS HIGH! You are hiking along the edge of the mountain.
+The cliffside looks stable, with no rolling boulders or broken edges, but
+it is very narrow, and sometimes you have to be cautious and squeeze through
+the mountain walls. To the southwest a forest leads to the plains,
+and to the east a steep descent leads you down into the woods toward
 the entrance of a city.
 ~
 400 256 0 0 0 5
@@ -872,7 +871,7 @@ D6
 ~
 0 0 40043
 D9
-A stone door hides a passageway here, but where it is knob?
+A stone door hides a passageway here, but where is the knob?
 ~
 secret passage~
 3 -1 40041
@@ -939,7 +938,7 @@ D3
 ~
 0 0 40042
 D7
-A stone door hides a passageway here, but where it is knob?
+A stone door hides a passageway here, but where is the knob?
 ~
 secret passage~
 3 0 40038
@@ -1341,10 +1340,10 @@ D2
 S
 #40069
 Ruined Temple x Road x Newbie Zone~
-   The road keep going in north-south direction but
-this time you a ruined temple to west and a sort of
-silly dungeon inviting new players to go inside.
-It is better do something before get dark.
+   The road keeps going in a north-south direction, but
+this time there is a ruined temple to the west and a sort of
+dungeon inviting new players to go inside.
+It would be wise to explore before it gets dark.
 ~
 400 32768 0 0 0 1
 D0
@@ -1365,7 +1364,7 @@ D3
 0 0 40070
 E
 sign newbie~
-Dificult: H - G
+Difficulty: H - G
 Tip: Start killing the crawlers.
 Useful Skills here: Infravision and Detect concealed
 ~
@@ -1374,8 +1373,8 @@ S
 A Ruined Temple~
 Destroyed columns and debris are scattered all over the place, the vegetation
 has taken over just about everything except a ruined archangel statue.
-You feel the peaceful of this place and your body feels very relexed...
-The only exit is where you came from, the trail at east.
+You feel the peace of this place and your body feels very relaxed...
+The only exit is where you came from, the trail to the east.
 ~
 400 32796 0 0 0 0
 D1
@@ -1385,9 +1384,9 @@ D1
 E
 estatue archangel~
 This statue appears to have been vandalized...
-Has only one arm left and both wings has been broken.
-Although not recognized before, when looking at the
-statue's chest you realizes that it is female.
+It has only one arm left and both wings have been broken.
+Although not immediately apparent, when looking at the
+statue's chest you realize that it is female.
 ~
 S
 T 3020
@@ -1440,14 +1439,14 @@ S
 #40074
 Outside of the Newbie Zone~
   This place looks like an above-ground dungeon entrance.
-It seems was made for newcome players to learn more
-fighting skills. The only exits is into the dungeon at
-east or to the trail at west.
+It seems to have been made for newcomer players to learn more
+fighting skills. The only exits are into the dungeon to the
+east or to the trail to the west.
 ~
 400 4 0 0 0 1
 D1
-The entrance of dungeon is a silly big skull of a
-fantasy monster with giant canine teeth and a very
+The dungeon entrance is fashioned like a giant skull of a
+fantasy monster, with large canine teeth and a
 rustic yellow-colored flat stone floor.
 ~
 ~
@@ -1471,8 +1470,8 @@ D2
 ~
 0 0 40076
 D9
-   You can see a very closed trail, maybe someone
-passed through here.
+   You can barely make out a trail; it seems someone
+has passed through here.
 ~
 ~
 4 0 12074

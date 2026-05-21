@@ -8,26 +8,26 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Nov 24 2019] - Henque
-  chapeuzinho descrito no mapa
-  Tirar descrio da sala com automap + worldmap
-  rescrever sign 3298
+  Hat icon described on the map
+  Remove room description from automap + worldmap display
+  Rewrite sign 3298
 [Oct 04 2019] - Henque
-  fazer os mobs esquecerem os personagens que caem desmaiados
-  tentar no shopping_list colocar float cnt = 0, lindex = 0;
-  Arrumar newbiezone para mobs por sala
-  Aumentar capacidade do inventario dos mobs
+  Make mobs forget characters that fall unconscious
+  Try placing float cnt = 0, lindex = 0 in shopping_list
+  Fix newbiezone mob-per-room placement
+  Increase mob inventory capacity
 [Sep 29 2019] - Henque
-  Hunter skills ser automaticamente habilitada quando conquistada por nvel, sem precisar gastar ponto
-  tudo*
-  Mudar a palavra skill para skill em tudi
-  mudar cast e fazer cada spell ter seu proprio comando igual skills
-  ... e tambm aos restricted, spell continua s com hold
-  Extender gain de itens comuns ao inventario
+  Hunter skills should be automatically enabled when earned by level, without spending a point
+  everything*
+  Rename skill label in the UI
+  Change cast and give each spell its own command like skills
+  ... also for restricted items, spell continues only with hold
+  Extend common item gain to inventory
 [Sep 27 2019] - Henque
-  luz ter durao convertida em %
+  Convert light duration to percentage
 [Sep 26 2019] - Henque
   way
-  ---> Pra fazer: stack dos monstros na sala, mudar enhance para power e arrumar o cast enhance.
+  ---> TODO: stack monsters in room, rename enhance to power and fix cast enhance.
   
 [Jun 21 2013] - Vatiken
   Added 'toupper' as a dg_script command to capitalize the first letter
