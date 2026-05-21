@@ -287,4 +287,791 @@ A
 18 -3
 A
 19 -1
+#65418
+stalker invisible figurine~
+a figurine of an Invisible Stalker~
+A translucent figurine of a Nen-made creature stands here.~
+~
+8 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 25000 0 0 0
+E
+stalker figurine~
+   A translucent humanoid form, barely visible, that emanates a faint Nen aura.
+The Invisible Stalker is summoned through pure Nen and obeys its master.
+~
+#65419
+cane healing staff~
+a Cane of Healing~
+A gnarled wooden cane radiating a faint healing aura rests here.~
+~
+5 g 0 0 0 ano 0 0 0 0 0 0 0
+0 5 1 8
+3 13000 0 0 0
+A
+13 5
+E
+cane healing~
+   A smooth pale-wood cane whose tip glows faintly green. It channels healing
+Nen into whoever wields it, sealing wounds with each strike.
+~
+#65420
+marbles explosive bag~
+a bag of Explosive Marbles~
+A small pouch of colorful marbles clicks softly against itself here.~
+~
+12 0 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 4000 0 0 0
+E
+explosive marbles~
+   Round, colorful marbles packed in a small cloth pouch. Despite looking
+harmless, each one contains a tiny explosive charge.
+~
+#65421
+cutter blade curved~
+a Cutter~
+A wickedly curved blade with a gleaming edge lies here.~
+~
+5 g 0 0 0 ano 0 0 0 0 0 0 0
+0 3 2 8
+4 22000 0 0 0
+E
+cutter blade~
+   A short, deeply curved blade designed to slash cleanly through almost
+any material. Favored by hunters who prefer speed over power.
+~
+#65422
+dress memory white~
+the Dress of Memory~
+A beautiful white dress shimmering with stored images lies here.~
+~
+11 g 0 0 0 ad 0 0 0 0 0 0 0
+0 0 0 0
+2 17000 0 0 0
+A
+4 1
+A
+3 1
+E
+dress memory~
+   A flowing white gown displaying faint ghostly images when examined closely,
+memories of all who wore it before.
+~
+#65423
+paper doll small~
+a Paper Doll~
+A small paper doll with carefully drawn features lies here.~
+~
+12 0 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 4500 0 0 0
+E
+paper doll~
+   A meticulously crafted paper doll bearing a resemblance to its owner.
+In the right hands, it can be used to swap places with another person.
+~
+#65424
+book vip parties invitation~
+the Book of V.I.P. Parties~
+An elegantly bound golden book sits here.~
+~
+16 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 20000 0 0 0
+E
+book vip parties~
+   This gilded tome contains invitations to the most exclusive gatherings on
+Greed Island. Holding it grants an undeniable air of refinement.
+~
+#65427
+basket dino dinosaur~
+a Dino Basket~
+A large woven basket with dinosaur-shaped handles sits here.~
+~
+15 g 0 0 0 ao 0 0 0 0 0 0 0
+100 0 -1 0
+5 18000 0 0 0
+E
+dino basket~
+   A spacious woven basket with carved wooden handles shaped like small
+dinosaurs. Sturdy enough to carry large loads without complaint.
+~
+#65428
+rose lottery pink~
+a Lottery Rose~
+A single pink rose with a numbered tag tied to its stem lies here.~
+~
+12 0 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 700 0 0 0
+E
+lottery rose~
+   A perfectly preserved pink rose whose petals never fade. A numbered tag
+reads: "Winner: ?". Nobody knows what is actually won.
+~
+#65429
+collar silver loving slave~
+a Loving Slave collar~
+An ornate silver collar with a small heart pendant rests here.~
+~
+12 0 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 3500 0 0 0
+E
+loving slave collar~
+   A finely crafted silver collar engraved with flowing vines. The heart
+pendant spins freely and seems to pulse with warm affection.
+~
+#65430
+doll devil little~
+a Pretty Little Devil doll~
+A small devil figurine with a mischievous grin sits here.~
+~
+12 0 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 700 0 0 0
+E
+pretty little devil~
+   A charming ceramic figurine of a tiny devil, complete with miniature
+horns and a pitchfork. It seems to be smiling knowingly.
+~
+#65432
+sword diamond blade~
+a Diamond Sword~
+A sword whose blade is cut entirely from diamond gleams here.~
+~
+5 gi 0 0 0 ano 0 0 0 0 0 0 0
+0 3 2 8
+5 18000 0 0 0
+A
+18 1
+A
+19 1
+E
+diamond sword~
+   An extraordinary blade whose cutting edge is solid diamond, capable of
+slicing through almost any material with remarkable ease.
+~
+#65433
+jaw dragon fang~
+Dragon's Jaw~
+A fearsome weapon shaped like a dragon's lower jaw rests here.~
+~
+5 g 0 0 0 ano 0 0 0 0 0 0 0
+0 4 3 6
+6 18000 0 0 0
+E
+dragon jaw~
+   Crafted from the preserved jaw of a real dragon, its teeth sharpened to
+razor points. Each strike tears with savage force.
+~
+#65434
+watch time stopping pocket~
+a Time-Stopping Watch~
+An antique pocket watch with a counterclockwise second hand ticks here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 25000 0 0 0
+E
+time stopping watch~
+   A beautifully crafted silver pocket watch. The second hand moves
+counterclockwise and holding it makes the world feel slightly slower.
+~
+#65435
+mansion turtle miniature~
+a Turtle Mansion miniature~
+A tiny model of a turtle-shaped mansion rests here.~
+~
+12 0 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 3500 0 0 0
+E
+turtle mansion miniature~
+   A detailed miniature of a grand mansion built into the shell of a giant
+turtle. The windows are tiny but the craftsmanship is exquisite.
+~
+#65436
+mime mask master~
+a Master Mime mask~
+A white theatrical mask with exaggerated features sits here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 22000 0 0 0
+E
+master mime mask~
+   A pristine white mask worn by the legendary Master Mime. It is said
+that whoever wears it can perfectly mimic any movement or technique.
+~
+#65437
+recorder echo device crystal~
+an Echo Recorder~
+A small crystal device that hums softly sits here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 20000 0 0 0
+E
+echo recorder~
+   A palm-sized crystal device that records and replays sounds with perfect
+fidelity. Even a master's technique can be studied from its recording.
+~
+#65438
+aqua guard armor body~
+the Aqua Guard~
+A suit of shimmering aqua-colored body armor rests here.~
+~
+9 g 0 0 0 ad 0 0 0 0 0 0 0
+4 0 0 0
+8 17000 0 0 0
+E
+aqua guard~
+   Lightweight body armor crafted from compressed sea scales. Surprisingly
+hard, it provides excellent protection without slowing you down.
+~
+#65440
+tornado stand~
+the Tornado Stand~
+A top-shaped device with spinning blades floats slightly above the ground here.~
+~
+11 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 25000 0 0 0
+A
+19 2
+A
+18 1
+E
+tornado stand~
+   A spinning gyroscope weapon generating powerful wind currents as it
+rotates. Those who master it can create miniature tornadoes on command.
+~
+#65441
+magnetic rod~
+a Magnetic Rod~
+A metallic rod crackling with magnetic energy sits here.~
+~
+11 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 25000 0 0 0
+A
+18 2
+A
+19 2
+E
+magnetic rod~
+   A rod composed of densely packed magnets. It can attract or repel metallic
+objects with surprising force and disrupts enemy targeting.
+~
+#65442
+staff water divination~
+a Water Divination Staff~
+A staff topped with a swirling sphere of water stands here.~
+~
+11 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+3 17000 0 0 0
+A
+4 2
+E
+water divination staff~
+   A gnarled staff with a perpetually swirling globe of water at its tip.
+When pointed at a source, it reveals hidden truths about its nature.
+~
+#65443
+beads prayer paladin necklace~
+Paladin's Prayer Beads~
+A string of glowing prayer beads lies coiled here.~
+~
+11 gi 0 0 0 ac 0 0 0 0 0 0 0
+0 0 0 0
+2 25000 0 0 0
+A
+4 2
+A
+13 10
+A
+24 -2
+E
+paladin prayer beads~
+   Each bead of this necklace is carved from blessed stone and glows faintly.
+Wearing them fills the heart with resolve and strengthens Nen reserves.
+~
+#65444
+rebirth orb light~
+a Rebirth Orb~
+A crystalline orb filled with warm golden light floats here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 25000 0 0 0
+E
+rebirth orb~
+   A perfect crystal sphere containing swirling golden energy. It pulses
+with life force, feeling like a second chance waiting to happen.
+~
+#65445
+machine face lift~
+a Face Lift Machine~
+A compact medical device with multiple arm attachments rests here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+4 22000 0 0 0
+E
+face lift machine~
+   A portable version of a high-tech facial restructuring device. Somehow
+it can safely reshape a person's appearance in mere minutes.
+~
+#65447
+wind chime~
+a Wind Chime~
+A delicate set of wind chimes hangs in the air here, ringing softly.~
+~
+11 g 0 0 0 ak 0 0 0 0 0 0 0
+0 0 0 0
+1 17000 0 0 0
+A
+24 -2
+A
+23 -2
+E
+wind chime~
+   Beautiful chimes carved from jade and copper. Their constant soft ringing
+creates a protective sonic field that deflects hostile magic.
+~
+#65448
+breath fairy vial~
+a vial of Fairy's Breath~
+A tiny glass vial filled with sparkling golden mist rests here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 15000 0 0 0
+E
+fairy breath vial~
+   An impossibly small vial holding what appears to be a fairy's exhaled
+breath. Opening it releases a brief but powerful wave of healing energy.
+~
+#65449
+amplifier aura~
+an Aura Amplifier~
+A complex device humming with Nen energy rests here.~
+~
+11 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 25000 0 0 0
+A
+12 15
+E
+aura amplifier~
+   A compact device covered in Nen-sensitive crystals. When held, it
+significantly amplifies the user's Nen output and reserves.
+~
+#65450
+seed miracle golden~
+a Miracle Seed~
+A single golden seed that glows faintly rests here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 18000 0 0 0
+E
+miracle seed~
+   A single seed that radiates warmth and a faint golden glow. Those who
+know plants claim it can grow anything in even the harshest soil.
+~
+#65451
+guitar flame fire~
+a Flame Guitar~
+A guitar whose strings burn like fire rests here.~
+~
+12 0 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+3 700 0 0 0
+E
+flame guitar~
+   An electric guitar whose strings are perpetually on fire. Despite this,
+playing it produces music of haunting and captivating beauty.
+~
+#65452
+ship sand miniature~
+a Sand Ship~
+A beautifully detailed miniature sailing ship filled with sand rests here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 18000 0 0 0
+E
+sand ship~
+   A miniature ship that moves across sand as easily as water carries a
+boat. Full-size, it could carry several passengers across desert seas.
+~
+#65453
+crystal ball sphere~
+a Crystal Ball~
+A large crystal sphere showing hazy images sits here.~
+~
+8 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 13000 0 0 0
+A
+4 2
+A
+3 1
+E
+crystal ball~
+   A perfectly smooth sphere of flawless crystal. Gazing into it reveals
+distant places and hidden truths to those with sufficient wisdom.
+~
+#65454
+wings glowing feather~
+a pair of Glowing Wings~
+A pair of luminous feathered wings gently radiating light rests here.~
+~
+11 ag 0 0 0 ak 0 0 0 0 0 0 0
+0 0 0 0
+3 15000 0 0 0
+A
+14 3
+E
+glowing wings~
+   Magnificent feathered wings emitting warm golden light. Wearing them
+improves movement and grace considerably.
+~
+#65455
+clock sleep ticking~
+a Sleep Clock~
+An ornate clock whose ticking has a strangely drowsy quality lies here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 22000 0 0 0
+E
+sleep clock~
+   An antique clock that ticks with unusual slowness. Those nearby find
+their eyelids growing heavier with each passing second.
+~
+#65457
+snake worm whip~
+a Worm Snake~
+A long, flexible weapon resembling a giant snake lies coiled here.~
+~
+5 g 0 0 0 ano 0 0 0 0 0 0 0
+0 11 2 6
+4 20000 0 0 0
+E
+worm snake~
+   A long weapon made from the skin of a giant worm-snake, striking with
+viper speed and piercing through even heavy armor.
+~
+#65458
+billionaire portrait card~
+a Mr. Billionaire portrait~
+An ornate portrait of a wealthy-looking gentleman rests here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 20000 0 0 0
+E
+mr billionaire portrait~
+   A refined portrait of the legendary Mr. Billionaire, one of Greed
+Island's most eccentric personalities. Said to attract fortune.
+~
+#65459
+stash secret bag hidden~
+a Secret Stash~
+A cleverly disguised container that seems to appear from nowhere sits here.~
+~
+15 g 0 0 0 ao 0 0 0 0 0 0 0
+50 0 -1 0
+1 25000 0 0 0
+E
+secret stash~
+   A bag so well camouflaged it could hide in plain sight. Even a thorough
+search rarely gives up its secrets to the wrong person.
+~
+#65460
+cloak invisible~
+an Invisible Cloak~
+Something nearly invisible is here; you can only tell by a subtle shimmer.~
+~
+11 gf 0 0 0 ak 0 0 0 0 0 0 0
+0 0 0 0
+2 18000 0 0 0
+A
+2 2
+E
+invisible cloak~
+   A cloak woven from threads of refracted Nen, rendering the wearer nearly
+invisible in dim conditions. Moving makes it shimmer briefly.
+~
+#65463
+binding snake cord rope~
+a Binding Snake~
+A living-looking rope that moves slightly on its own coils here.~
+~
+11 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 25000 0 0 0
+A
+18 1
+A
+1 1
+E
+binding snake~
+   A long cord that seems alive, making subtle movements on its own. When
+thrown at a target, it winds itself tight without any command.
+~
+#65470
+diamond rainbow gem~
+a Rainbow Diamond~
+A large diamond refracting light into brilliant rainbows gleams here.~
+~
+8 ag 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 13000 0 0 0
+A
+6 2
+E
+rainbow diamond~
+   A flawless diamond cut in such a way that it scatters light into a full
+spectrum of colors. Extraordinary beauty that draws all eyes toward it.
+~
+#65472
+potion witch wisdom purple~
+a Witch's Wisdom Potion~
+A bubbling purple potion in a twisted glass vial sits here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 25000 0 0 0
+E
+witch wisdom potion~
+   A complex brew by one of the legendary witches of Greed Island. Drinking
+it grants temporary but extraordinary clarity of mind.
+~
+#65476
+stone transmutation~
+a Transmutation Stone~
+A smooth stone that shifts between different colors and textures sits here.~
+~
+8 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 25000 0 0 0
+A
+3 2
+E
+transmutation stone~
+   A mysterious stone that slowly changes its own composition. Alchemists
+prize it for its ability to alter the nature of other substances.
+~
+#65477
+stone philosopher red~
+the Philosopher's Stone~
+A reddish, irregularly shaped stone radiating wisdom sits here.~
+~
+8 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 15000 0 0 0
+A
+3 2
+A
+4 1
+E
+philosophers stone~
+   The legendary red stone sought by alchemists throughout history.
+Its true power within Greed Island remains a matter of great debate.
+~
+#65478
+elixir life vial golden~
+the Elixir of Life~
+A vial of luminous golden liquid pulsing with vitality sits here.~
+~
+12 ag 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 25000 0 0 0
+E
+elixir life~
+   The ultimate restorative, this golden liquid glows with pure life energy.
+Even a single drop could pull someone back from the edge of death.
+~
+#65479
+dragon eye gemstone red~
+a Dragon's Eye~
+A blood-red gemstone glowing from within sits here.~
+~
+8 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 15000 0 0 0
+A
+3 1
+A
+4 1
+E
+dragon eye gem~
+   A deep crimson gemstone said to be the crystallized eye of a great
+dragon. Gazing into it grants remarkable insight and foresight.
+~
+#65482
+comet stone star fragment~
+a Comet Stone~
+A meteor fragment that faintly glows blue rests here.~
+~
+8 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 15000 0 0 0
+A
+24 -2
+A
+20 -2
+E
+comet stone~
+   A fragment from a fallen comet, still warm from its journey through
+space. It provides a protective aura against magical attacks.
+~
+#65486
+axe heretic~
+the Heretic's Axe~
+A large battle-axe with blasphemous runes carved into its blade sits here.~
+~
+5 dg 0 0 0 ano 0 0 0 0 0 0 0
+0 3 2 10
+7 20000 0 0 0
+A
+19 2
+E
+heretic axe~
+   A fearsome battle-axe inscribed with runes that defy conventional power.
+Its edge never dulls and its runes absorb magical defenses.
+~
+#65488
+boots iron heavy~
+a pair of Iron Boots~
+A pair of heavy iron boots rests here.~
+~
+9 g 0 0 0 ag 0 0 0 0 0 0 0
+2 0 0 0
+5 20000 0 0 0
+E
+iron boots~
+   Boots forged from solid iron, reinforced with Nen to be lighter than
+they appear. They protect the feet from almost anything.
+~
+#65491
+rifle sniper gun~
+a Sniper Rifle~
+A long-range precision firearm with a polished scope rests here.~
+~
+5 g 0 0 0 ano 0 0 0 0 0 0 0
+0 12 2 10
+5 20000 0 0 0
+A
+18 2
+E
+sniper rifle~
+   A masterfully crafted long-range rifle. Its scope can pinpoint targets at
+extraordinary distances, making every shot devastatingly precise.
+~
+#65492
+flute confusion music silver~
+a Flute of Confusion~
+A slender silver flute with strangely arranged holes sits here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 17000 0 0 0
+E
+flute confusion~
+   A silver flute whose notes seem to rearrange themselves in the listener's
+mind. Playing it properly causes deep disorientation in enemies.
+~
+#65493
+smoke bomb haze dark~
+a Haze Smoke Bomb~
+A dark sphere that occasionally leaks wisps of colored smoke sits here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 22000 0 0 0
+E
+haze smoke bomb~
+   A dense sphere packed with an exotic chemical compound. When thrown, it
+creates a massive cloud of thick and deeply disorienting smoke.
+~
+#65495
+armor zeno body~
+the Armor of Zeno~
+A set of legendary full-body armor rests here.~
+~
+9 g 0 0 0 ad 0 0 0 0 0 0 0
+8 0 0 0
+20 25000 0 0 0
+A
+18 2
+A
+19 1
+E
+armor of zeno~
+   Full battle armor worn by one of the world's greatest assassins. Lightweight
+despite its thickness, it deflects blows with startling ease.
+~
+#65496
+disk thunderbolt chakram~
+a Thunderbolt Disk~
+A metal disc crackling with electrical energy sits here.~
+~
+5 g 0 0 0 ano 0 0 0 0 0 0 0
+0 3 2 6
+3 22000 0 0 0
+A
+19 1
+E
+thunderbolt disk~
+   A perfectly balanced metal disc that hums with stored electrical energy.
+Thrown with enough force, it releases a crackling lightning discharge.
+~
+#65497
+turban razor wind head~
+the Razor Wind Turban~
+A silk turban that flutters even without wind sits here.~
+~
+9 g 0 0 0 ae 0 0 0 0 0 0 0
+3 0 0 0
+2 22000 0 0 0
+E
+razor wind turban~
+   A flowing turban woven from wind-infused silk. Its trailing ends cut
+through the air like blades and it protects the head surprisingly well.
+~
+#65498
+gloves turtle claw hands~
+Turtle Claw Gloves~
+A pair of armored gloves with sharp claw-like extensions sits here.~
+~
+9 g 0 0 0 ah 0 0 0 0 0 0 0
+2 0 0 0
+3 20000 0 0 0
+A
+19 1
+E
+turtle claw gloves~
+   Heavy-duty gloves reinforced with turtle shell plating and fitted with
+retractable claw extensions. Both protective and offensive.
+~
+#65499
+license hunter three star~
+a Three-Star Hunter License~
+An extraordinary document bearing three gold stars sits here.~
+~
+16 ag 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 100000 0 0 0
+E
+three star hunter license~
+   The pinnacle of achievement among Hunters. Three gold stars embossed on
+the finest paper, signed by the Hunter Association Chairman.
+~
 $~
