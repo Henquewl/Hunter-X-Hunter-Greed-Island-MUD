@@ -40,7 +40,7 @@ echo [GI MUD] Connect using: telnet localhost 4000
 echo [GI MUD] Press Ctrl+C to stop the server.
 echo.
 
-wsl.exe -d Ubuntu-24.04 /bin/sh -lc "tr -d '\r' < '%WSL_SH%' | /bin/sh"
+wsl.exe /bin/sh -lc "tr -d '\r' < '%WSL_SH%' | /bin/sh"
 
 del "%TEMP_SH%" >nul 2>&1
 
