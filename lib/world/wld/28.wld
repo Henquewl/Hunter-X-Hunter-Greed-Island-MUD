@@ -1,8 +1,8 @@
 #2800
 Entrance to Hunter Exam:~
   You leave a strange elevator that brought you here.
-another competitor is here listening to loud japanese
-music, must be it: https://youtu.be/faqmNf_fZlE
+Another competitor is here listening to loud Japanese
+music, perhaps this: https://youtu.be/faqmNf_fZlE
 A bean-headed little man is here to assist newcomers and
 pins a round and white plaque with an ID number on you.
 It is not time to give up out of your dreams, the only
@@ -10,8 +10,8 @@ exit from here is continue to <@Ynorth@n>.
 ~
 28 92 0 0 0 0
 D0
-This obviously is the grand entrace to Hunter exams.
-A sign over the entrace says:
+This obviously is the grand entrance to the Hunter Exams.
+A sign over the entrance says:
 'Only for newbies'
 ~
 ~
@@ -30,7 +30,7 @@ Hunter Exam 1st Lesson: Finding your way around.~
 As you might already have noticed, you move around in
 the world by @ngoing <@Yeast@n>, <@Ywest@n>, <@Ynorth@n>,
 <@Ysouth@n>, <@Yup@n> or <@Ydown@n>. 
-All of these can, like most mud commands, be abbreviated
+All of these can, like most MUD commands, be abbreviated
 to one @nletter : <@Ye@n>,<@Yw@n>,<@Yn@n>,<@Ys@n>,<@Yu@n>
 and <@Yd@n>.
 Throughout this tutorial, you'll be told which direction
@@ -58,7 +58,7 @@ Hunter Exam 2nd Lesson: Finders Keepers~
     
 @g( 2) A treasure chest is on the floor here.@n
  
-The treasure chests are bulky, so you can not take that.
+The treasure chests are bulky, so you cannot take them.
 @n- but you can <@Yopen chest@n>, <@Ylook in chest@n> and <@Yget all chest@n>.
 @nIn order to sack the second chest, type <@Yopen 2.chest@n> and <@Yget all 2.chest@n>.
  
@@ -77,9 +77,9 @@ D3
 S
 #2803
 Hunter Exam 3rd Lesson: Money talks.~
-You know now, you're carrying a few coins from chest before. It is
+You now know you're carrying a few coins from the chest. It is
 time to spend some. In this room you're not alone anymore - a shopkeeper
-@nhas set up his booth, ready to trade with you. type <@Ygold@n>
+@nhas set up his booth, ready to trade with you. Type <@Ygold@n>
 
 @nTo see what he has for sale, type <@Ylist@n>
 
@@ -104,7 +104,7 @@ D2
 S
 #2804
 Hunter Exam 4th Lesson: How to not go through life naked!~
-If you check your equipment, you can see that your have some items.
+If you check your equipment, you can see that you have some items.
  
 @nTo start using your stuff, you need to <@Ywear@n> it. The command <@Ywear all@n> will
 make you attempt to wear all you're carrying.
@@ -170,7 +170,7 @@ Hunter Exam 6th Lesson: The end of poor piglet.~
 see if it has come back.
 
 @nIf you pay attention will see a (@Bequal@n) written before the piglet's name.
-It means the piglet has between 75% to 125% Nen than you. This is perfect.
+It means the piglet has between 75% and 125% of your Nen. This is perfect.
 @nAvoid the (@Rstrong@n) ones, they will probably crush you like a bug.
 @nMost of the (@yweak@n) ones are rewardless, don't waste your time on them.
  
@@ -221,7 +221,7 @@ S
 Hunter Exam 8th Lesson: Classes !? - Why?~
    Until now, the path has been the same for all classes. All have been
 through the same texts, had to deal with the same monster. Here however,
-The paths separate. A bunch of signs have been set up on the wall here.
+the paths separate. A bunch of signs have been set up on the wall here.
 A teacher stands in front of them, and will teach you your classes' special
 abilities.
  
@@ -331,7 +331,7 @@ Without the '$1' you can't define a direction, so it will open any door.
 @nTo check aliases done by you, just type <@Yalias@n>.
 @nTo delete an alias, just type <@Yalias@n xxx> where xxx is the shortcut name.
 
-@nNow move @Yeast@n for some basic manouvres.
+@nNow move @Yeast@n for some basic maneuvers.
 ~
 28 92 0 0 0 0
 D1
@@ -373,8 +373,8 @@ S
 Hunter Exam 12th Lesson : Socialising~
    The world might seem a little boring if you don't know how to communicate.
 
-@nFirst of all, you need know with who you are talking about, <@Ylook@n> if has
-@nplayers inside your same room to talk about or <@Ywho@n> is online right now.
+@nFirst of all, you need to know who is around. Type <@Ylook@n> to see
+@nplayers in your room, or <@Ywho@n> to see who is online right now.
 
 @nYou may <@Ysay@n> things, so others in the same room as you can hear you. Try
 @n<@Ysay Hello@n>
@@ -387,8 +387,8 @@ If you want to communicate only with people nearby where you are,
 
 @nTo everyone online in the game, <@Ygossip@n> something.
 
-@nLevel 15 characters can use the command <@Yanalyze@n> ro check player's
-profiles in room.  Also peek inventories when look to someone.
+@nLevel 15 characters can use the command <@Yanalyze@n> to check players'
+profiles in the room.  Also peek inventories when look to someone.
 
 For more information about more ways of communication,
 @ntype <@Yhelp socials@n> and <@Yhelp communication@n>
@@ -408,8 +408,8 @@ door~
 S
 #2813
 Hunter Exam 13th Lesson : Getting the game on your side.~
-  Your player do some automatic things like catch
-money automatically from corpses or display the map.
+  Your character does some automatic things, like picking up
+money from corpses or displaying the map.
 To check what is active type @Ytoggle@n.
 One important toggle that can save your life is the
 @Ytoggle wimp@n in order to flee when your nen is too
@@ -438,10 +438,10 @@ T 2814
 Hunter Exam 14th Lesson : You are ALMOST a professional Hunter~
 @n   Do you like magic tricks? I have a one for you... look your <@Yinventory@n>.
 
-There is a card inside your pocket! Are two types of cards, item cards and spell cards.
+There is a card inside your pocket! There are two types of cards: item cards and spell cards.
 @BSpell cards@n only can be used by holding it and then use the command gain <target>.
 The card you received is a @yitem@n, to revert it just type @Ygain @n<@Yitem name or card@n>.
-In that case the card will tranform into money, to check your money type <@Ygold@n>.
+In that case the card will transform into money. To check your money, type <@Ygold@n>.
 In more or less 60 seconds a card outside the binder slots will automatically revert
 into an item, spell cards just vanishes in that case. You will receive the binder and
 other instructions about this subject in next steps.
