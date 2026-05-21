@@ -17,7 +17,8 @@ PROFILE =
 
 BINDIR = ../bin
 
-CFLAGS = -g -O2 $(MYFLAGS) $(PROFILE)
+MUD_VERSION := $(shell cat ../VERSION | tr -d '[:space:]')
+CFLAGS = -g -O2 $(MYFLAGS) $(PROFILE) -DMUD_VERSION=\"$(MUD_VERSION)\"
 
 LIBS =  -lcrypt 
 
@@ -55,3 +56,5 @@ depend:
 	$(CC) -MM *.c > depend
 
 -include depend
+
+constants.o: ../VERSION
