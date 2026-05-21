@@ -11,11 +11,11 @@ S
 #1401
 Gaming Room~
 You are in a dark room, illuminated only by blue-screen televisions.
-This room has lots of Joystations what allow people go from real world
-to Greed Island game, they are all sitted on tables, some of are waiting
-for new players and others still used by some players, but you cannot
-enter in this new world. There is no exits available from here, the
-only exit is possibly start the game touching the Joystation.
+This room has lots of Joystations that allow people to go from the real world
+to the Greed Island game. They are all seated on tables; some of them are waiting
+for new players and others are still being used, but you cannot
+enter this new world. There are no exits available from here; the
+only exit is to start the game by touching a Joystation.
 ~
 14 216 0 0 0 0
 D5
@@ -32,10 +32,10 @@ T 3211
 T 2803
 #1402
 Loading...~
-You falling in a energy tunnel, traveling into a high speed
-connection. The feeling of peace and no weight makes you more
-relaxed and exciting for this new adventure. The only exit is
-falling down and wait to see what happens next.
+You are falling through an energy tunnel, traveling at high speed.
+The feeling of peace and weightlessness makes you feel more
+relaxed and excited for this new adventure. The only exit is
+to fall down and see what happens next.
 ~
 14 88 0 0 0 0
 D4
@@ -49,11 +49,11 @@ D5
 S
 #1403
 Now Playing~
-You hear nothing more and all became darkness, but you can
-feel your body again, and see it as well even without no
-lights. You still feeling falling down and now see a light
-blue spot growing, it seems you are almost ready. The only
-exit is falling down and wait to see what happens next again.
+You hear nothing more and all becomes darkness, but you can
+feel your body again, and see it even without any
+lights. You still feel as if you are falling, and now you see a light
+blue spot growing; it seems you are almost ready. The only
+exit is to fall down and see what happens next.
 ~
 14 88 0 0 0 0
 D4
@@ -67,14 +67,14 @@ D5
 S
 #1404
 Transporter Room~
-  You finally reach the bottom of whatever was happens before.
-A great circular platform in the center of room is here, where
-new players arrives from. The only exit available here is going
-north, going through by big squared passageway.
+  You finally reach the bottom of whatever was happening before.
+A great circular platform in the center of the room is here, where
+new players arrive from. The only exit available here is going
+north, through a large square passageway.
 ~
 14 88 0 0 0 0
 D0
-There is a tunnel where leads to another room, behind a quad port gate.
+There is a tunnel that leads to another room, behind a quad port gate.
 ~
 gate~
 2 0 1405
@@ -92,7 +92,7 @@ Preparation Room~
   You are in a great circular room very illuminated by some kind of
 LED circuits all over the walls. A girl, floating with a ball-shaped
 pod is here, typing something to her computer and waiting for you.
-A stairway with few steps takes you to the center of the room at
+A stairway with a few steps takes you to the center of the room at
 the same time a quad door closes behind you.
 ~
 14 504 0 0 0 0
@@ -108,12 +108,12 @@ trapdoor~
 S
 #1406
 Another Transporter Room~
-   A great circular platform in the center of room is here, very similar with
-having the starting point.  Go north to find Elena and leave the game.
+   A great circular platform in the center of the room is here, very similar to
+the starting platform.  Go north to find Elena and leave the game.
 ~
 14 88 0 0 0 0
 D0
-There is a tunnel where leads to another room, behind a quad port gate.
+There is a tunnel that leads to another room, behind a quad port gate.
 ~
 gate~
 0 1404 1407
