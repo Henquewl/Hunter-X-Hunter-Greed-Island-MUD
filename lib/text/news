@@ -7,6 +7,16 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 
 > 2026 <
 
+MAY 21 **
+- Implemented Corruption (card #1022): steals a random free card from target, replacing
+  it with a Fake card that can be restored via Purify; blocked by Holy Water and Defensive Wall;
+- Implemented Compromise (card #1023): swaps a random free card from caster's binder with
+  a random restricted card from target's binder; blocked by Prison Spell and Defensive Wall;
+- Completed restricted card set: added 55 missing cards to reach the full 100 card set
+  (cards #18-99 now fully populated in zone 653);
+- Fixed grammar and spelling errors in tutorial zones: Greed Island intro (zone 14) and
+  Hunter Exams area (zone 28).
+
 MAY 20 **
 Back from a long Hiatus x Hiatus, server is alive again.
 - Fixed crash on login: buffer overflow in make_prompt (comm.c)

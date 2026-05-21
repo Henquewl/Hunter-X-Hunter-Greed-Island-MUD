@@ -1206,6 +1206,218 @@ else
 return 0
 end
 ~
+#1022
+corruption spell~
+1 c 1
+ga~
+if !%actor.is_book%
+%send% %actor% You need your book activated before gain a spell card.
+halt
+end
+if %cmd.mudcommand% == gain
+if %arg.is_pc% == 1
+%force% %actor% say Corruption ON! Target %arg.name%!
+wait 1 sec
+if %arg.varexists(defensive_wall)%
+%send% %actor% %arg.name% was protected by a spell!
+%echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
+%send% %arg% A defensive spell ends.
+rdelete defensive_wall %arg.id%
+%purge% %self%
+halt
+end
+if %arg.varexists(holy_water)%
+%send% %actor% %arg.name% was protected by a spell!
+%echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
+eval holy_water %arg.holy_water% - 1
+remote holy_water %arg.id%
+if %arg.holy_water% < 1
+rdelete holy_water %arg.id%
+%send% %arg% A defensive spell ends.
+%purge% %arg.inventory(1076)%
+%purge% %self%
+halt
+else
+%send% %arg% A defensive spell weakens.
+%purge% %self%
+halt
+end
+end
+eval max 0
+eval u %arg.inventory(3203).contents%
+while %u%
+set next %u.next_in_list%
+if %u.type% != RESTRICTED
+eval max %max% + 1
+end
+set u %next%
+done
+eval i %arg.inventory(3203).contents%
+eval steal %%random.%max%%%
+eval counter 0
+while %i%
+set next %i.next_in_list%
+if %i.type% != RESTRICTED
+eval counter %counter% + 1
+if %steal% == %counter%
+break
+end
+end
+set i %next%
+done
+if !%i%
+%send% %actor% The %self.shortdesc% spell fails and dissolves.
+%echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
+%purge% %self%
+halt
+end
+eval orig_vnum %i.vnum%
+%purge% %i%
+%load% obj 1020 %arg% inv
+eval fake_card %arg.inventory%
+eval revert %orig_vnum%
+remote revert %fake_card.id%
+%send% %actor% You corrupted a free card in %arg.name%'s binder!
+%echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
+%send% %arg% %actor.name% corrupted one of your free cards! A Fake card is in your inventory -- use Purify to restore it.
+%purge% %self%
+else
+%send% %actor% This spell requires a player target.
+halt
+end
+else
+return 0
+end
+~
+#1023
+compromise spell~
+1 c 1
+ga~
+if !%actor.is_book%
+%send% %actor% You need your book activated before gain a spell card.
+halt
+end
+if %cmd.mudcommand% == gain
+if %arg.is_pc% == 1
+* Check actor has no loose cards in inventory
+eval c %actor.inventory%
+while %c%
+set next %c.next_in_list%
+if %c.type% == UNRESTRICTED
+%send% %actor% Compromise only works when all your free cards are in the binder.
+halt
+end
+if %c.type% == RESTRICTED
+%send% %actor% Compromise only works when all your cards are in the binder.
+halt
+end
+set c %next%
+done
+%force% %actor% say Compromise ON! Target %arg.name%!
+wait 1 sec
+if %arg.varexists(prison_spell)%
+%send% %actor% %arg.name% was protected by a spell!
+%echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
+%send% %arg% Prison spell protects you.
+%purge% %self%
+halt
+end
+if %arg.varexists(defensive_wall)%
+%send% %actor% %arg.name% was protected by a spell!
+%echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
+%send% %arg% A defensive spell ends.
+rdelete defensive_wall %arg.id%
+%purge% %self%
+halt
+end
+* Count actor free cards
+eval maxa 0
+eval a %actor.inventory(3203).contents%
+while %a%
+set next %a.next_in_list%
+if %a.type% != RESTRICTED
+eval maxa %maxa% + 1
+end
+set a %next%
+done
+* Count target restricted cards
+eval maxo 0
+eval t %arg.inventory(3203).contents%
+while %t%
+set next %t.next_in_list%
+if %t.type% == RESTRICTED
+eval maxo %maxo% + 1
+end
+set t %next%
+done
+if !%maxa%
+%send% %actor% You have no free cards in your binder to offer.
+%echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
+%purge% %self%
+halt
+end
+if !%maxo%
+%send% %actor% %arg.name% has no restricted cards to take.
+%echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
+%purge% %self%
+halt
+end
+* Select random free card from actor binder
+eval i %actor.inventory(3203).contents%
+eval picka %%random.%maxa%%%
+eval countera 0
+while %i%
+set next %i.next_in_list%
+if %i.type% != RESTRICTED
+eval countera %countera% + 1
+if %picka% == %countera%
+break
+end
+end
+set i %next%
+done
+* Select random restricted card from target binder
+eval u %arg.inventory(3203).contents%
+eval pickt %%random.%maxo%%%
+eval countert 0
+while %u%
+set next %u.next_in_list%
+if %u.type% == RESTRICTED
+eval countert %countert% + 1
+if %pickt% == %countert%
+break
+end
+end
+set u %next%
+done
+if !%i%
+%send% %actor% The %self.shortdesc% spell fails -- no free card found.
+%echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
+%purge% %self%
+halt
+end
+if !%u%
+%send% %actor% The %self.shortdesc% spell fails -- no restricted card found.
+%echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
+%purge% %self%
+halt
+end
+%load% obj %u.vnum% %actor% inv
+%load% obj %i.vnum% %arg% inv
+%send% %actor% Compromise! You gave %i.shortdesc% and took %u.shortdesc% from %arg.name%!
+%echoaround% %actor% %actor.name% forced a Compromise on %arg.name%.
+%send% %arg% %actor.name% forced a Compromise! You received %i.shortdesc% but lost %u.shortdesc%!
+%purge% %i%
+%purge% %u%
+%purge% %self%
+else
+%send% %actor% This spell requires a player target.
+halt
+end
+else
+return 0
+end
+~
 #1024
 penetrate spell~
 1 c 1

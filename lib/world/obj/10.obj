@@ -343,26 +343,37 @@ Msg: You stealed 	m17 Breath of Archangel SS-3 card	n from Henque!
 #1022
 1022 corruption card~
 @B1022 Corruption C-40 card@n~
-A @B1022 Corruption C-40 card@n is lying here.~
+A @B1022 Corruption C-40 card@g is lying here.@n~
 ~
-25 dqt 0 0 0 ao 0 0 0 0 0 0 0
+25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 0 40 0 62
+0 25000 40 0 62
+T 1022
 E
 1022 corruption card~
-Unfinished spellcard, just junk it.
+	D(	GLR	D)	n | 	D(	GAS	D)	n
+
+Corrupts a random free card in target's binder. The card is removed and
+replaced by a Fake in the target's inventory. The target can restore it
+using Purify, or lose it permanently.
+Protected by: Defensive Wall, Holy Water.
 ~
 #1023
 1023 compromise card~
 @B1023 Compromise B-25 card@n~
-A @B1023 Compromise B-25 card@n is lying here.~
+A @B1023 Compromise B-25 card@g is lying here.@n~
 ~
-25 dqt 0 0 0 ao 0 0 0 0 0 0 0
+25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 0 25 0 62
+0 40000 25 0 62
+T 1023
 E
 1023 compromise card~
-Unfinished spellcard, just junk it.
+	D(	GLR	D)	n | 	D(	GAS	D)	n
+
+Forces an unequal exchange: takes a random restricted card from
+target's binder and gives one of your random free cards in return.
+Protected by: Prison, Defensive Wall.
 ~
 #1024
 1024 dispel card~
