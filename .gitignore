@@ -1,5 +1,6 @@
 # Compiled binaries
 bin/*
+!bin/.gitkeep
 src/*.o
 src/util/*.o
 
