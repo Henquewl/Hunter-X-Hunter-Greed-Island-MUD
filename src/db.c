@@ -3218,8 +3218,7 @@ void free_char(struct char_data *ch)
       free(ch->player_specials->poofout);
     if (ch->player_specials->saved.completed_quests)
       free(ch->player_specials->saved.completed_quests);
-	if (ch->player_specials->saved.players_met)
-      free(ch->player_specials->saved.players_met);
+    /* players_met is a fixed array inside the struct — do NOT free it */
     if (GET_HOST(ch))
       free(GET_HOST(ch));
     if (IS_NPC(ch))
