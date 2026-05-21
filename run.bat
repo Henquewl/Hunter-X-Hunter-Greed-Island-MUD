@@ -17,7 +17,7 @@ for /f "delims=" %%I in ('wsl.exe wslpath -a "%TEMP_SH%"') do set "WSL_SH=%%I"
     echo.
     echo if [ ! -x ../bin/circle ]; then
     echo   echo '[GI MUD] Compiling server...'
-    echo   make ^> /dev/null 2^>^&1
+    echo   make circle CFLAGS=\"-w\"
     echo.
     echo   if [ $? -ne 0 ]; then
     echo     echo '[GI MUD] Compilation failed.'
