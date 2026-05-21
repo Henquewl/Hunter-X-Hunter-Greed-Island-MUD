@@ -229,335 +229,6 @@ E
 She cures one person of all wounds and ills, restoring them to perfect health.
 She will only appear once.
 ~
-#65325
-25 risky dice card~
-@m25 Risky Dice B-30 card@n~
-The @m25 Risky Dice B-30 card@g is lying here.@n~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 50000 30 0 62
-E
-25 risky dice card~
-   A twenty-sided die with one skull face and 19 star faces.  Great things
-happen when you roll a star, but rolling the skull will be bad enough to cancel
-out all the previous great events.
-~
-#65326
-26 night shift dwarves card~
-@m26 Night Shift Dwarves A-20 card@n~
-The @m26 Night Shift Dwarves A-20 card@g is lying here.@n~
-~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 102500 20 0 62
-E
-26 night shift dwarves card~
-They can do any work you can do, and they will work as long as you are asleep.
-They cannot do anything beyond your abilities.
-~
-#65331
-31 returned postcard dead card~
-@m31 Returned Postcard from the Dead S-13 card@n~
-The @m31 Returned Postcard from the Dead S-13 card@g is lying here.@n~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 270000 13 0 62
-E
-31 returned postcard dead card~
-   Address and mail this return postage-paid postcard to a deceased person, and
-you will get a reply the next day.
-~
-#65339
-39 fledgling politician card~
-@m39 Fledgling Politician B-30 card@n~
-The @m39 Fledgling Politician B-30 card@g is lying here.@n~
-~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 50000 13 0 62
-E
-84 paladin necklace card~
-   A player wearing this will reflect curses cast upon him, and be able to undo
-curses placed on cards he touches.
-~
-#65346
-46 gold dust girl card~
-@m46 Gold Dust Girl A-13 card@n~
-The @m46 Gold Dust Girl A-13 card@g is lying here.@n~
-~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 106000 13 0 62
-E
-84 paladin necklace card~
-   A player wearing this will reflect curses cast upon him, and be able to undo
-curses placed on cards he touches.
-~
-#65356
-memory studio perfect card~
-@m56 Perfect Memory Studio B-25 card~
-The @m56 Perfect Memory Studio B-25 card@g is lying here.~
-~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 50850 56 0 62
-E
-studio perfect memory card~
-Specify a time and date to get a picture of yourself in the past.
-You may also request a sequence of photographs.
-~
-#65361
-61 vending checkup card~
-@m61 Vending Check-Up A-20 card@n~
-The @m61 Vending Check-Up A-20 card@g is lying here.@n~
-~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 102500 20 0 62
-E
-61 vending checkup card~
-A full-body medical scan for just 500 g. However, the only results are
-"All Clear" or "Anomaly Detected," in which case it is recommended you see a doctor.
-~
-#65362
-club you rule card~
-@m62 Club "You Rule" B-20 card@n~
-The @m62 Club "You Rule" B-20 card@g is lying here.~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 50000 62 0 62
-E
-club you rule card~
-This card allows the caster to effectively
-control everyone within a club.
-~
-#65364
-64 witch love potion card~
-@m64 Witch's Love Potion B-30 card@n~
-The @m64 Witch's Love Potion B-30 card@g is lying here.@n~
-~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 50000 30 0 62
-#65365
-65 witch rejuvenation potion card~
-@m65 Witch's Rejuvenation Potion S-10 card@n~
-The @m65 Witch's Rejuvenation Potion S-10 card@g is lying here.@n~
-~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 279000 10 0 62
-#65366
-66 witch diet potion card~
-@m66 Witch's Diet Potion B-28 card@n~
-The @m66 Witch's Diet Potion B-28 card@g is lying here.@n~
-~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 36000 28 0 62
-#65367
-67 doyen growth pills card~
-@m67 Doyen's Growth Pills B-30 card@n~
-The @m67 Doyen's Growth Pills B-30 card@n@G is lying here.@n~
-~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 50000 30 0 62
-#65368
-68 doyen virility pills card~
-@m68 Doyen's Virility Pills A-20 card@n~
-The @m68 Doyen's Virility Pills A-20 card@n@G is lying here.@n~
-~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 102500 20 0 62
-#65369
-69 doyen hair restorer card~
-@m69 Doyen's Hair Restorer B-30 card@n~
-The @m69 Doyen's Hair Restorer B-30 card@n@G is lying here.@n~
-~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 50000 30 0 62
-#65371
-pheromones scientists mad card~
-@m71 Mad Scientist's Pheromones A-20 card@n~
-The @m71 Mad Scientist's Pheromones A-20 card@g is lying here.~
-~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 102500 71 0 62
-E
-pheromones scientists mad card~
-Spray on your body to attract the opposite sex.
-However, you cannot adjust the strength of its effect,
-so be careful as it may cause a proliferation of stalkers.
-~
-#65373
-73 night jade card~
-@m73 Night Jade A-15 card  @n~
-The @m73 Night Jade A-15 card@g is lying here.@n~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 105000 15 0 62
-E
-73 night jade card~
-   A jewel "blessed" by the Devil.  When danger is about to befall its owner, it
-will deflect it to someone else.
-~
-#65374
-74 sage aquamarine card~
-@m74 Sage's Aquamarine A-15 card@n~
-The @m74 Sage's Aquamarine A-15 card@g is lying here.@n~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 105000 15 0 62
-E
-74 sage aquamarine card~
-   Its owner will have many intelligent friends and keep those friendships for
-their entire lives.
-~
-#65375
-75 wild luck alexandrite card~
-@m75 Wild Luck Alexandrite A-20 card@n~
-The @m75 Wild Luck Alexandrite A-20 card@g is lying here.@n~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 102500 20 0 62
-E
-75 wild luck alexandrite card~
-   Its owner will get to have once-in-a-lifetime experiences, though you cannot
-choose whether they're for better or for worse...
-~
-#65380
-80 levitation stone card~
-@m80 Levitation Stone S-7 card@n~
-The @m80 Levitation Stone S-7 card@g is lying here.@n~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 120000 7 0 62
-E
-84 paladin necklace card~
-   A player wearing this will reflect curses cast upon him, and be able to undo
-curses placed on cards he touches.
-~
-#65381
-blue planet card~
-@m81 Blue Planet SS-5 card@n~
-The @m81 Blue Planet SS-5 card@g is lying here.~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 300000 5 0 62
-E
-blue planet card~
-A jewel shining in a true blue. The structural composition is
-not of anything found on the earth, so the name was given as
-"A Gift from the Universe".
-~
-#65383
-83 sword truth card~
-@m83 Sword of Truth B-22 card@n~
-The @m83 Sword of Truth B-22 card@g is lying here.@n~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 45000 22 0 62
-E
-83 sword truth card~
-   Splits in two anything and anyone deceitful.  In trials, it's a criminal's
-worst nightmare.  The 	msword will shatter when used to cut something true, but
-will regenerate after one day.
-~
-#65384
-84 paladin necklace card~
-@m84 Paladin's Necklace D-60 card@n~
-The @m84 Paladin's Necklace D-60 card@g is lying here.@n~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 9600 60 0 62
-E
-84 paladin necklace card~
-   A player wearing this will reflect curses cast upon him, and be able to undo
-curses placed on cards he touches.
-~
-#65385
-85 sacrifice armor card~
-@m85 Sacrifice Armor S-8 card@n~
-The @m85 Sacrifice Armor S-8 card@g is lying here.@n~
-~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 285000 8 0 62
-E
-84 paladin necklace card~
-   A player wearing this will reflect curses cast upon him, and be able to undo
-curses placed on cards he touches.
-~
-#65387
-87 shield faith card~
-@m87 Shield of Faith S-15 card@n~
-The @m87 Shield of Faith S-15 card@g is lying here.@n~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 264000 15 0 62
-E
-87 shield faith card~
-   The 	mspells "Railguide," "Return," "Drift," "and "Collision" will be rendered
-ineffective within the same room of player armed with this shield.
-~
-#65389
-89 gauntlet collector tax card~
-@m89 Tax Collector's Gauntlet A-20 card@n~
-The @m89 Tax Collector's Gauntlet A-20 card@g@G is lying here.@n~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 102500 20 0 62
-E
-89 gauntlet collector tax card~
-   Grants you the ability to cast "Levy."  However, it will destroy one random
-specified slot card from your binder every time.  (You cannot cast it if your
-specified slots are empty.  )
-
-Usage: levy
-~
-#65390
-90 memory helmet card~
-@m90 Memory Helmet A-20 card@n~
-The @m90 Memory Helmet A-20 card@g is lying here.@n~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 102500 20 0 62
-E
-90 memory helmet card~
-   You will never forget things you see or hear while wearing this helmet.  
-Unfortunately, it's extremely large and heavy.
-~
-#65394
-94 bandit blade card~
-@m94 Bandit's Blade S-10 card@n~
-The @m94 Bandit's Blade S-10 card@g is lying here.@n~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 279000 10 0 62
-E
-94 bandit blade card~
-   A successful attack with this weapon will cast "Rob", "Pick Pocket", or
-"Thief" on the target.  Not effective on someone using "Defensive Spells" or
-"Paladin's Necklace".
-~
 #65318
 18 invisible stalker card~
 @m18 Invisible Stalker S-7 card@n~
@@ -650,6 +321,33 @@ E
 Grants access to any exclusive gathering, private party, or
 restricted event in the world. No invitation required.
 ~
+#65325
+25 risky dice card~
+@m25 Risky Dice B-30 card@n~
+The @m25 Risky Dice B-30 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
+E
+25 risky dice card~
+   A twenty-sided die with one skull face and 19 star faces.  Great things
+happen when you roll a star, but rolling the skull will be bad enough to cancel
+out all the previous great events.
+~
+#65326
+26 night shift dwarves card~
+@m26 Night Shift Dwarves A-20 card@n~
+The @m26 Night Shift Dwarves A-20 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
+E
+26 night shift dwarves card~
+They can do any work you can do, and they will work as long as you are asleep.
+They cannot do anything beyond your abilities.
+~
 #65327
 27 dino basket card~
 @m27 Dino Basket A-18 card@n~
@@ -701,6 +399,19 @@ E
 30 pretty little devil card~
 A small, mischievous devil that targets anyone who means harm
 to its owner, causing accidents and misfortune to your enemies.
+~
+#65331
+31 returned postcard dead card~
+@m31 Returned Postcard from the Dead S-13 card@n~
+The @m31 Returned Postcard from the Dead S-13 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 270000 13 0 62
+E
+31 returned postcard dead card~
+   Address and mail this return postage-paid postcard to a deceased person, and
+you will get a reply the next day.
 ~
 #65332
 32 diamond sword card~
@@ -793,6 +504,19 @@ E
 Wearing this allows you to breathe underwater and withstand
 crushing depths. Also grants protection from water-based attacks.
 ~
+#65339
+39 fledgling politician card~
+@m39 Fledgling Politician B-30 card@n~
+The @m39 Fledgling Politician B-30 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 13 0 62
+E
+84 paladin necklace card~
+   A player wearing this will reflect curses cast upon him, and be able to undo
+curses placed on cards he touches.
+~
 #65340
 40 tornado stand card~
 @m40 Tornado Stand S-9 card@n~
@@ -870,6 +594,19 @@ E
 45 face lift machine card~
 A machine that permanently alters facial features to any desired
 appearance. The result is indistinguishable from a natural face.
+~
+#65346
+46 gold dust girl card~
+@m46 Gold Dust Girl A-13 card@n~
+The @m46 Gold Dust Girl A-13 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 106000 13 0 62
+E
+84 paladin necklace card~
+   A player wearing this will reflect curses cast upon him, and be able to undo
+curses placed on cards he touches.
 ~
 #65347
 47 wind chime card~
@@ -988,6 +725,19 @@ E
 Set this alarm clock for any time and everyone in the room
 will fall into a deep sleep when it rings, except the card's owner.
 ~
+#65356
+memory studio perfect card~
+@m56 Perfect Memory Studio B-25 card~
+The @m56 Perfect Memory Studio B-25 card@g is lying here.~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50850 56 0 62
+E
+studio perfect memory card~
+Specify a time and date to get a picture of yourself in the past.
+You may also request a sequence of photographs.
+~
 #65357
 57 worm snake card~
 @m57 Worm Snake A-20 card@n~
@@ -1040,6 +790,32 @@ E
 A cloak that renders the wearer and everything they carry
 completely invisible. Motion still creates a faint air disturbance.
 ~
+#65361
+61 vending checkup card~
+@m61 Vending Check-Up A-20 card@n~
+The @m61 Vending Check-Up A-20 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
+E
+61 vending checkup card~
+A full-body medical scan for just 500 g. However, the only results are
+"All Clear" or "Anomaly Detected," in which case it is recommended you see a doctor.
+~
+#65362
+club you rule card~
+@m62 Club "You Rule" B-20 card@n~
+The @m62 Club "You Rule" B-20 card@g is lying here.~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 62 0 62
+E
+club you rule card~
+This card allows the caster to effectively
+control everyone within a club.
+~
 #65363
 63 binding snake card~
 @m63 Binding Snake S-8 card@n~
@@ -1053,6 +829,54 @@ E
 A snake that coils around a target and binds them completely.
 The harder the target struggles, the tighter the coil becomes.
 ~
+#65364
+64 witch love potion card~
+@m64 Witch's Love Potion B-30 card@n~
+The @m64 Witch's Love Potion B-30 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
+#65365
+65 witch rejuvenation potion card~
+@m65 Witch's Rejuvenation Potion S-10 card@n~
+The @m65 Witch's Rejuvenation Potion S-10 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 279000 10 0 62
+#65366
+66 witch diet potion card~
+@m66 Witch's Diet Potion B-28 card@n~
+The @m66 Witch's Diet Potion B-28 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 36000 28 0 62
+#65367
+67 doyen growth pills card~
+@m67 Doyen's Growth Pills B-30 card@n~
+The @m67 Doyen's Growth Pills B-30 card@n@G is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
+#65368
+68 doyen virility pills card~
+@m68 Doyen's Virility Pills A-20 card@n~
+The @m68 Doyen's Virility Pills A-20 card@n@G is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
+#65369
+69 doyen hair restorer card~
+@m69 Doyen's Hair Restorer B-30 card@n~
+The @m69 Doyen's Hair Restorer B-30 card@n@G is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
 #65370
 70 rainbow diamond card~
 @m70 Rainbow Diamond A-13 card@n~
@@ -1066,6 +890,20 @@ E
 A gem that refracts light into all colors of the spectrum.
 Its owner is blessed with fortune and good luck in all endeavors.
 ~
+#65371
+pheromones scientists mad card~
+@m71 Mad Scientist's Pheromones A-20 card@n~
+The @m71 Mad Scientist's Pheromones A-20 card@g is lying here.~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 71 0 62
+E
+pheromones scientists mad card~
+Spray on your body to attract the opposite sex.
+However, you cannot adjust the strength of its effect,
+so be careful as it may cause a proliferation of stalkers.
+~
 #65372
 72 witch wisdom potion card~
 @m72 Witch's Wisdom Potion S-8 card@n~
@@ -1078,6 +916,45 @@ E
 72 witch wisdom potion card~
 Drinking this potion elevates intelligence to genius level
 for 24 hours. Side effects include mild overconfidence.
+~
+#65373
+73 night jade card~
+@m73 Night Jade A-15 card  @n~
+The @m73 Night Jade A-15 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 105000 15 0 62
+E
+73 night jade card~
+   A jewel "blessed" by the Devil.  When danger is about to befall its owner, it
+will deflect it to someone else.
+~
+#65374
+74 sage aquamarine card~
+@m74 Sage's Aquamarine A-15 card@n~
+The @m74 Sage's Aquamarine A-15 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 105000 15 0 62
+E
+74 sage aquamarine card~
+   Its owner will have many intelligent friends and keep those friendships for
+their entire lives.
+~
+#65375
+75 wild luck alexandrite card~
+@m75 Wild Luck Alexandrite A-20 card@n~
+The @m75 Wild Luck Alexandrite A-20 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
+E
+75 wild luck alexandrite card~
+   Its owner will get to have once-in-a-lifetime experiences, though you cannot
+choose whether they're for better or for worse...
 ~
 #65376
 76 transmutation stone card~
@@ -1131,6 +1008,33 @@ E
 A preserved dragon's eye, still alive with power. The holder
 can see through any illusion, invisibility, or disguise.
 ~
+#65380
+80 levitation stone card~
+@m80 Levitation Stone S-7 card@n~
+The @m80 Levitation Stone S-7 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 120000 7 0 62
+E
+84 paladin necklace card~
+   A player wearing this will reflect curses cast upon him, and be able to undo
+curses placed on cards he touches.
+~
+#65381
+blue planet card~
+@m81 Blue Planet SS-5 card@n~
+The @m81 Blue Planet SS-5 card@g is lying here.~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 300000 5 0 62
+E
+blue planet card~
+A jewel shining in a true blue. The structural composition is
+not of anything found on the earth, so the name was given as
+"A Gift from the Universe".
+~
 #65382
 82 comet stone card~
 @m82 Comet Stone A-15 card@n~
@@ -1143,6 +1047,46 @@ E
 82 comet stone card~
 A fragment of a meteorite with a faint blue glow. Grants the
 holder a perfect sense of direction; they always know where they are.
+~
+#65383
+83 sword truth card~
+@m83 Sword of Truth B-22 card@n~
+The @m83 Sword of Truth B-22 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 45000 22 0 62
+E
+83 sword truth card~
+   Splits in two anything and anyone deceitful.  In trials, it's a criminal's
+worst nightmare.  The 	msword will shatter when used to cut something true, but
+will regenerate after one day.
+~
+#65384
+84 paladin necklace card~
+@m84 Paladin's Necklace D-60 card@n~
+The @m84 Paladin's Necklace D-60 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 9600 60 0 62
+E
+84 paladin necklace card~
+   A player wearing this will reflect curses cast upon him, and be able to undo
+curses placed on cards he touches.
+~
+#65385
+85 sacrifice armor card~
+@m85 Sacrifice Armor S-8 card@n~
+The @m85 Sacrifice Armor S-8 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 285000 8 0 62
+E
+84 paladin necklace card~
+   A player wearing this will reflect curses cast upon him, and be able to undo
+curses placed on cards he touches.
 ~
 #65386
 86 heretic axe card~
@@ -1157,6 +1101,19 @@ E
 A battle axe forged from the ruins of a fallen sanctum. Deals
 significant bonus damage against holy or blessed targets.
 ~
+#65387
+87 shield faith card~
+@m87 Shield of Faith S-15 card@n~
+The @m87 Shield of Faith S-15 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 264000 15 0 62
+E
+87 shield faith card~
+   The 	mspells "Railguide," "Return," "Drift," "and "Collision" will be rendered
+ineffective within the same room of player armed with this shield.
+~
 #65388
 88 iron boots card~
 @m88 Iron Boots A-20 card@n~
@@ -1170,6 +1127,35 @@ E
 Enchanted boots that are impossibly heavy when worn by the wrong
 person, but featherlight for their rightful owner.
 The wearer can never be knocked off balance.
+~
+#65389
+89 gauntlet collector tax card~
+@m89 Tax Collector's Gauntlet A-20 card@n~
+The @m89 Tax Collector's Gauntlet A-20 card@g@G is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
+E
+89 gauntlet collector tax card~
+   Grants you the ability to cast "Levy."  However, it will destroy one random
+specified slot card from your binder every time.  (You cannot cast it if your
+specified slots are empty.  )
+
+Usage: levy
+~
+#65390
+90 memory helmet card~
+@m90 Memory Helmet A-20 card@n~
+The @m90 Memory Helmet A-20 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
+E
+90 memory helmet card~
+   You will never forget things you see or hear while wearing this helmet.  
+Unfortunately, it's extremely large and heavy.
 ~
 #65391
 91 sniper rifle card~
@@ -1210,6 +1196,20 @@ E
 93 haze smoke bomb card~
 When detonated, fills a large area with a thick disorienting haze.
 Visibility and navigation drop to near zero for thirty minutes.
+~
+#65394
+94 bandit blade card~
+@m94 Bandit's Blade S-10 card@n~
+The @m94 Bandit's Blade S-10 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 279000 10 0 62
+E
+94 bandit blade card~
+   A successful attack with this weapon will cast "Rob", "Pick Pocket", or
+"Thief" on the target.  Not effective on someone using "Defensive Spells" or
+"Paladin's Necklace".
 ~
 #65395
 95 armor zeno card~
@@ -1277,4 +1277,4 @@ The highest rank of Hunter License, awarded to only the most
 exceptional Hunters in history. Priceless and irreplaceable.
 Possessing this is proof of mastery beyond all measure.
 ~
-$~
+$
