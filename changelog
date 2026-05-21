@@ -8,6 +8,9 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [May 21 2026] - Henque
+  Fix SYSERR: invalid vnums for all items in 653.obj/654.obj on zone reset;
+  root cause: out-of-order vnums broke TbaMUD's binary search in real_object().
+  Sorted both files by vnum; fixed missing ~ terminator in item #65499.
   Fix SYSERR: item #65462 (a "club") had 1 charge exceeding its maximum of 0
 [May 21 2026] - Henque
   Fix NOTE-type items 65424/65499: E keyword conflicted with item keywords (SYSERR)
