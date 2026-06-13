@@ -735,16 +735,16 @@ witch rejuvenation potion~
 drinker to the prime of their youth with a single sip.
 ~
 #65466
-potion diet witch green~
-a Witch's Diet Potion~
-A bitter green potion sits here.~
+pills diet witch green~
+a Witch's Diet Pills~
+A bottle of bitter green diet pills sits here.~
 ~
 19 dg 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 36000 0 0 0
 T 65466
 E
-witch diet potion~
+witch diet pills~
    A bitter green draught that melts away excess weight overnight, leaving
 the body lean without effort or hunger.
 ~

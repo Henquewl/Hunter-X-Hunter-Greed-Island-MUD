@@ -81,17 +81,65 @@ Postcard, Loving Slave, Pretty Little Devil, Crystal Ball, etc.
 
 ---
 
-## BIG BACKLOG — full canon alignment of invented cards (deferred)
-Audited against the official fandom list (saved at `C:\Users\henqu\Downloads\Greed Island Card
-Lists _ Hunterpedia _ Fandom.html`). Many front-half cards are inventions to be replaced with
-canon (names + ranks + effects from the saved page), e.g.: #18 Imp's Wink, #19 Poltergeist
-Pillow, #20 Mood Clock, #21 X-Ray Goggles, #22 Toraemon, #23 Tome of a Thousand Tales, #24
-Hypothetical T.V., #27 Book of V.I.P Passes, #28 Capricious Remote, #29 Pre-Order Vouchers,
-#30 Favor Cushion, #32 Parrot Candy, #33 Hormone Cookies, #34 Universal Survey, #47 Sleeping
-Girl, #48 Aromatherapy Girl, #49 Miniature Mermaid, plus the #50-60 cluster and scattered
-back-half items. The back-half "Witch's/Doyen's/jewel/weapon" cluster is mostly canon-NAMED but
-may be off by ~1 in numbering — reconcile against the saved page. Do in batches; keep card
-vnums contiguous and trigger vnums ascending.
+## BIG BACKLOG — replace the invented cards with canon (definitive list)
+Authoritative audit vs the saved fandom page (`C:\Users\henqu\Downloads\Greed Island Card
+Lists _ Hunterpedia _ Fandom.html`). These ~44 slots hold inventions and must be replaced with
+the canon card (vnum = 65300+#, item = 65400+#): canon name + rank (RENT) + effect text from
+the saved page. **When replacing, also delete any invented effect/trigger/affect built for the
+old card** (e.g. #19 Cane tap-heal, #20 marbles, #48 inhale-fly, #51 guitar, #54 fly-affect,
+#55 sleep clock, #60 invis-affect, #72/#78 consume, #79 detect-affect, #92 flute, #93 haze).
+
+| # | current (invention) | canon → | rank |
+|---|---|---|---|
+| 18 | Invisible Stalker | Imp's Wink | A-18 |
+| 19 | Cane of Healing | Poltergeist Pillow | A-13 |
+| 20 | Explosive Marbles | Mood Clock | B-30 |
+| 21 | Cutter | X-Ray Goggles | B-27 |
+| 22 | Dress of Memory | Toraemon | A-22 |
+| 23 | Paper Doll | Tome of a Thousand Tales | B-30 |
+| 24 | Book of V.I.P. Parties | Hypothetical T.V. | A-20 |
+| 27 | Dino Basket | Book of V.I.P Passes | B-25 |
+| 28 | Lottery Rose | Capricious Remote | B-27 |
+| 29 | Loving Slave | Pre-Order Vouchers | A-20 |
+| 30 | Pretty Little Devil | Favor Cushion | B-21 |
+| 32 | Diamond Sword | Parrot Candy | B-30 |
+| 33 | Dragon's Jaw | Hormone Cookies | S-13 |
+| 34 | Time-Stopping Watch | Universal Survey | B-30 |
+| 47 | Wind Chime | Sleeping Girl | A-11 |
+| 48 | Fairy's Breath | Aromatherapy Girl | A-15 |
+| 49 | Aura Amplifier | Miniature Mermaid | A-23 |
+| 50 | Miracle Seed | Miniature Dino | A-11 |
+| 51 | Flame Guitar | Miniature Dragon | S-10 |
+| 52 | Sand Ship | Pearl Locusts | B-30 |
+| 53 | Crystal Ball | King White Stag Beetle | A-30 |
+| 54 | Glowing Wings | Millennium Butterfly | A-25 |
+| 55 | Sleep Clock | Revenge Shop | A-20 |
+| 57 | Worm Snake | Hideout Realtor | A-11 |
+| 58 | Mr. Billionaire | Secrets Video Rental | A-13 |
+| 59 | Secret Stash | Instant Foreign Language School | A-20 |
+| 60 | Invisible Cloak | Long Lost Delivery | B-30 |
+| 63 | Binding Snake | Virtual Restaurant | B-30 |
+| 70 | Rainbow Diamond | Mad Scientist's Steroids | A-16 |
+| 72 | Witch's Wisdom Potion | Mad Scientist's Plastic Surgery | A-15 |
+| 76 | Transmutation Stone | Roaming Ruby | B-30 |
+| 77 | Philosopher's Stone | Beauty Magnet Emerald | S-10 |
+| 78 | Elixir of Life | Lonely Sapphire | B-30 |
+| 79 | Dragon's Eye | Rainbow Diamond | A-20 |
+| 82 | Comet Stone | Staff of Judgment | A-15 |
+| 86 | Heretic's Axe | Quiver of Frustration | A-11 |
+| 88 | Iron Boots | Eternal Hammer | A-15 |
+| 91 | Sniper Rifle | Plastic King | A-20 |
+| 92 | Flute of Confusion | Swap Ticket | S-7 |
+| 93 | Haze Smoke Bomb | Book of Life | B-28 |
+| 95 | Armor of Zeno | Secret Cape | A-20 |
+| 96 | Thunderbolt Disk | Clairvoyant Snake | A-12 |
+| 97 | Razor Wind Turban | 3-D Camera | A-20 |
+| 98 | Turtle Claw Gloves | Silver Dog | S-8 |
+| 99 | Three-Star Hunter License | Panda Maid | S-6 |
+
+Already-canon (no change): #0-17, 25, 26, 31, 35-46, 56, 61, 62, 64-69, 71, 73, 75, 80, 81,
+83, 84, 85, 87, 89, 90, 94. Safe data fixes done Jun 13: #66 renamed to "Witch's Diet Pills",
+#9 rank S-20→S-10, #74 rank A-15→A-11.
 
 ## Reference — functional cards that predated this work
 Breath of Archangel (65317→65417, trg 3265 spawns healing mob), Risky Dice (65425), Vending

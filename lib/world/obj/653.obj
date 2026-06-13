@@ -116,12 +116,12 @@ You can keep any combination of fish in this pond, even saltwater and freshwater
 ~
 #65309
 9 tree plenty card~
-@m9 Tree of Plenty S-20 card@n~
-The @mTree of Plenty S-20 card@G is lying here.@n~
+@m9 Tree of Plenty S-10 card@n~
+The @mTree of Plenty S-10 card@G is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 249000 20 0 62
+0 249000 10 0 62
 E
 9 Tree Plenty card~
 A tree that bears all sorts of fruit.
@@ -872,15 +872,15 @@ A shimmering draught that washes the years from the body,
 restoring the drinker to the prime of their youth with a single sip.
 ~
 #65366
-66 witch diet potion card~
-@m66 Witch's Diet Potion B-28 card@n~
-The @m66 Witch's Diet Potion B-28 card@g is lying here.@n~
+66 witch diet pills card~
+@m66 Witch's Diet Pills B-28 card@n~
+The @m66 Witch's Diet Pills B-28 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 36000 28 0 62
 E
-66 witch diet potion card~
+66 witch diet pills card~
 A bitter green draught that melts away excess weight overnight,
 leaving the body lean without effort or hunger.
 ~
@@ -978,12 +978,12 @@ will deflect it to someone else.
 ~
 #65374
 74 sage aquamarine card~
-@m74 Sage's Aquamarine A-15 card@n~
-The @m74 Sage's Aquamarine A-15 card@g is lying here.@n~
+@m74 Sage's Aquamarine A-11 card@n~
+The @m74 Sage's Aquamarine A-11 card@g is lying here.@n~
 ~
 26 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 105000 15 0 62
+0 105000 11 0 62
 E
 74 sage aquamarine card~
    Its owner will have many intelligent friends and keep those friendships for
