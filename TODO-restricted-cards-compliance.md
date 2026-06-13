@@ -93,15 +93,26 @@ implemented with existing mechanics:
 ### Remaining EFFECT work (cards are canon, but their effect isn't mechanically modeled yet)
 Most canon cards are life-sim/social/flavor with no existing mechanic, so they sit as canon
 collectibles (acceptable). Candidates that COULD be done later with existing patterns:
-- **Combat weapons** — DONE Jun 13: **#88 Eternal Hammer** (weapon; wear attaches fight trigger
-  65388 which, each round at ~50%, dg_casts a random attack spell — auraball/lightningbolt/
-  shockinggrasp — on the victim; skips a victim wearing Paladin's Necklace 65484), and **#82
-  Staff of Judgment** (held; `judge <name>` command trigger 65382 compares alignment and casts
-  `littleflower`/harm on whoever has more bad deeds — target OR the wielder). *Needs a live
-  test (trigger logic only validates at runtime).*
-  STILL DEFERRED — need NEW spells that don't exist in the MUD: #86 Quiver of Frustration
-  (casts "Leave"/"Leaves") and #96 Clairvoyant Snake (feed a card → "Clairvoyance"). Add those
-  spells first, then wire trigger→spell.
+- **Staff of Judgment (#82)** — DONE: held; `judge <name>` (command trigger 65382) compares
+  alignment and deals a generic "calamity" via `%damage%` (≈1/3 max-hp) to whoever has more
+  bad deeds — the target OR the wielder. (Generic calamity, not a spell-card reference.)
+  *Needs a live test — trigger logic only validates at runtime.*
+
+- **Spell-card-driven weapons — DEFERRED (need a C primitive).** IMPORTANT: in restricted-card
+  text, "spell" = a Greed Island **spell card** (`ITEM_SPELLCARD`, the 1000–1040 set in
+  `lib/world/obj/10.obj`: Leave=1014, Clairvoyance=1015, Blackout Curtain=1025, Magnetic
+  Force=1005, Collision=1017, Rob=1021, Levy=1018, …), NOT a player magic spell. Spell-card
+  effects live in C (the big `switch` in `do_gain`, `act.item.c`) plus some DG triggers, so
+  another item cannot invoke "spell-card X on target Y" from a trigger today. To do these
+  faithfully, add a small C primitive (e.g. apply_spellcard_effect(ch, victim, card_vnum)) and
+  call it from the weapon's trigger (trigger-evokes-code):
+  - **#88 Eternal Hammer** — on hit, inflict a random ATTACK spell-card effect on the victim
+    (immune if victim wears Paladin's Necklace 65484). Currently just a plain wieldable weapon.
+    (My earlier player-spell version was wrong and was reverted.)
+  - **#86 Quiver of Frustration** — cast "Leave" (card 1014), 10 arrows/charges.
+  - **#96 Clairvoyant Snake** — feed a Rank-C+ card → produce a "Clairvoyance" card (1015).
+  - Also relevant: **#95 Secret Cape** currently approximates "Blackout Curtain" (1025) with
+    AFF_INVISIBLE; revisit if the real Blackout Curtain effect differs.
 - **NPC/pet cards** (need new mobs): #47 Sleeping Girl, #48 Aromatherapy Girl, #49 Miniature
   Mermaid, #50 Miniature Dino, #51 Miniature Dragon, #99 Panda Maid, etc.
 - **Consumable flavor with a stat angle** could be added if desired (e.g. #33 Hormone Cookies).

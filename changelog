@@ -8,6 +8,20 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 13 2026] - Henque
+  Fixed typos/grammar in the Newbie Zone quests (lib/world/qst/186.qst), worst of which was
+  the Paladin's Necklace quest #18605 ("beutiful"->"beautiful", "fouled"->"foul", "for the
+  love for"->"of", "for who bring the beast hide"->"to whoever brought back the beast's hide",
+  etc.); also #18601 "Retrive"->"Retrieve", #18603/#18604 grammar ("has a"->"lies/lurks",
+  subject-verb, "Try go prepared or will be raze"->"Go prepared, or you will be razed").
+  Combat-weapon correction: in restricted-card text "spell" means a Greed Island SPELL CARD
+  (ITEM_SPELLCARD), not a player magic spell. Reverted the Eternal Hammer's player-spell
+  on-hit effect (removed triggers 65388/65488/65489); it is now a plain wieldable weapon and
+  its canon "random attack spell card" affliction is deferred (needs a C primitive to invoke a
+  spell-card effect from a weapon trigger). Staff of Judgment's "judge" now deals a generic
+  calamity via %damage% (~1/3 max hp) instead of a player spell. See
+  TODO-restricted-cards-compliance.md for the deferred spell-card weapons (Hammer, Quiver=Leave
+  card 1014, Clairvoyant Snake=Clairvoyance card 1015).
+[Jun 13 2026] - Henque
   Implemented two canon combat weapons with the existing wear->FIGHT-trigger + dg_cast pattern.
   Eternal Hammer (#88, item 65488) is now a weapon: wearing it attaches fight trigger 65388,
   which each combat round (~50%) casts a random attack spell (auraball/lightningbolt/shocking-

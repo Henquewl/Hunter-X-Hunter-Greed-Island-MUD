@@ -247,16 +247,4 @@ if %card% && %card.vnum(40097)%
   %purge% %card%
 end
 ~
-#65488
-eternal hammer attach~
-1 j 100
-~
-attach 65388 %actor.id%
-~
-#65489
-eternal hammer detach~
-1 l 100
-~
-detach 65388 %actor.id%
-~
 $~

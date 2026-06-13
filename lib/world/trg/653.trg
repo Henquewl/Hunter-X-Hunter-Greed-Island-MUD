@@ -388,10 +388,12 @@ end
 %echoaround% %actor% %actor.name% raises %self.shortdesc% and calls out %target.name% in judgment!
 if %actor.align% <= %target.align%
 %send% %actor% The calamity turns upon YOU -- your own deeds weigh heavier!
-dg_cast 'littleflower' %actor%
+eval dmg %actor.maxhitp% / 3
+%damage% %actor% %dmg%
 else
 %send% %actor% Calamity strikes %target.name%!
-dg_cast 'littleflower' %target%
+eval dmg %target.maxhitp% / 3
+%damage% %target% %dmg%
 end
 ~
 #65383
@@ -407,24 +409,6 @@ set rand %random.10%
 if %rand% == 10
 dg_cast 'dispel evil' %actor%
 end
-end
-~
-#65388
-eternal hammer affliction~
-0 k 100
-~
-if %actor.eq(neck)%
-if %actor.eq(neck).vnum(65484)%
-halt
-end
-end
-set r %random.6%
-if %r% == 1
-dg_cast 'auraball' %actor%
-elseif %r% == 2
-dg_cast 'lightningbolt' %actor%
-elseif %r% == 3
-dg_cast 'shockinggrasp' %actor%
 end
 ~
 $~
