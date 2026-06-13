@@ -121,13 +121,24 @@ collectibles (acceptable). Candidates that COULD be done later with existing pat
     weapon: 1d4 damage, weight 10, −2 hitroll, −1 DEX. DECIDED (user): on a hit it should
     CONSUME a random ATTACK spell card from the wielder's binder (3203) and inflict that card's
     effect on the victim (caster = wielder, target = victim; immune if victim wears Paladin's
-    Necklace 65484). REMAINING WORK (C, risky): (1) define the "attack spell card" set — there
-    is no flag, so a vnum list is needed (candidates from obj/10.obj: Magnetic Force 1005,
-    Collision 1017, Drift 1016, Stone Throw 1028, Shot 1029 — confirm set); (2) refactor the
-    spell-card effect switch in do_gain() (act.item.c) into a callable
-    apply_spellcard(ch, vict, card) so combat can invoke it; (3) hook a successful hit in
-    fight.c when the wielded weapon is 65488, find+consume an attack card from the binder, and
-    call it. Do as a careful standalone pass (touches combat + the card system).
+    Necklace 65484).
+    DEFINITIVE attack-spell-card set (canon class "AS" from the fandom list): **1006
+    Pickpocket, 1007 Thief, 1008 Trade, 1021 Mug, 1022 Corruption, 1023 Compromise, 1027
+    Trace, 1028 Rock Toss, 1029 Bullet, 1033 Cling** (all in obj/10.obj).
+    MECHANISM FINDING: AS card effects are NOT in do_gain's C switch (that only handles some
+    RS/LR cards: 1001/1002/1005/1009/1030-1032/1037-1039). Each AS card's effect is a
+    **command-trigger DG script** (`1 c 1`, keyword `ga`) in 10.trg, cast by holding the card
+    + book and typing `gain <player>`; they **target players** via get_player_vis and
+    manipulate the victim's binder (steal/destroy/track cards). So the Hammer affliction is
+    inherently a **PvP** mechanic (AS effects are meaningless vs NPCs — no binder).
+    APPROACH OPTIONS for the on-hit cast (pick one):
+    (a) C hook in fight.c on a hit with weapon 65488: pick a random AS card from the wielder's
+        binder (3203), and if the victim is a PC, simulate the cast (move card to hold, ensure
+        PLR_BOOK, command_interpreter(wielder, "gain <victim>")) so the card's existing `ga`
+        trigger fires; the cast consumes the card. Reuses existing effects; PvP-only.
+    (b) Reimplement the AS effects directly in C in the combat hook (duplicates ~10 binder
+        ops). More work, but not dependent on the command path.
+    Needs a design decision before building (touches combat + card/binder + DG).
   - Also relevant: **#95 Secret Cape** approximates "Blackout Curtain" (1025) with
     AFF_INVISIBLE; revisit if the real Blackout Curtain effect differs.
 - **NPC/pet cards** (need new mobs): #47 Sleeping Girl, #48 Aromatherapy Girl, #49 Miniature
