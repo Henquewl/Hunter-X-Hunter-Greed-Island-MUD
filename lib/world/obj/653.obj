@@ -25,15 +25,15 @@ The 	mentrance to the giant forest called the "Mountain God's Garden" where many
 They are all tame and friendly.
 ~
 #65302
-2 patch shore card~
-@m2 Patch of Shore SS-3 card@n~
-The @m2 Patch of Shore SS-3 card@g is lying here.@n~
+2 plot beach card~
+@m2 Plot of Beach SS-3 card@n~
+The @m2 Plot of Beach SS-3 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 937500 3 0 62
 E
-2 patch shore card~
+2 plot beach card~
 The 	mentrance to a cave called "Poseidon's Cavern."
 The 	mcave changes its path at each visit, confusing intruders.
 ~
@@ -223,15 +223,15 @@ The 	mFairy King offers you gentle, apt advice on what you lack or what you shou
 The 	mannoying thing is he appears when he wants to.
 ~
 #65317
-17 breath archangel card~
-@m17 Breath of Archangel SS-3 card@n~
-The @m17 Breath of Archangel SS-3 card@g is lying here.@n~
+17 angels breath card~
+@m17 Angel's Breath SS-3 card@n~
+The @m17 Angel's Breath SS-3 card@g is lying here.@n~
 ~
 26 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 937500 3 0 62
 E
-17 breath archangel card~
+17 angels breath card~
 She cures one person of all wounds and ills, restoring them to perfect health.
 She will only appear once.
 ~
@@ -407,15 +407,15 @@ A small, mischievous devil that targets anyone who means harm
 to its owner, causing accidents and misfortune to your enemies.
 ~
 #65331
-31 returned postcard dead card~
-@m31 Returned Postcard from the Dead S-13 card@n~
-The @m31 Returned Postcard from the Dead S-13 card@g is lying here.@n~
+31 double postcard dead card~
+@m31 Double Postcard to the Dead S-13 card@n~
+The @m31 Double Postcard to the Dead S-13 card@g is lying here.@n~
 ~
 26 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 270000 13 0 62
 E
-31 returned postcard dead card~
+31 double postcard dead card~
    Address and mail this return postage-paid postcard to a deceased person, and
 you will get a reply the next day.
 ~
@@ -459,156 +459,157 @@ Winding this pocket watch to its limit stops all time except
 for the holder. The effect lasts exactly one minute.
 ~
 #65335
-35 fledgling athlete card~
-@m35 Fledgling Athlete B-30 card@n~
-The @m35 Fledgling Athlete B-30 card@g is lying here.@n~
+35 chameleon cat card~
+@m35 Chameleon Cat S-6 card@n~
+The @m35 Chameleon Cat S-6 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 6 0 62
+E
+35 chameleon cat card~
+An endangered species. Once tamed, it can transform into any animal.
+However, its mass remains constant, so it will be a tiny elephant or a
+large hamster, for example.
+~
+#65336
+36 recycling room card~
+@m36 Recycling Room S-10 card@n~
+The @m36 Recycling Room S-10 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 10 0 62
+E
+36 recycling room card~
+Put something broken in this room and it will be repaired as good as new
+24 hours later. The door must not be opened until the time is up.
+~
+#65337
+37 fledgling athlete card~
+@m37 Fledgling Athlete B-30 card@n~
+The @m37 Fledgling Athlete B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
-35 fledgling athlete card~
+37 fledgling athlete card~
 Warm this magic egg in your hand for three hours a day for one to ten
 years, and you will become a top athlete when it hatches. The stronger your
 desire during incubation, the sooner it will hatch.
 ~
-#65336
-36 fledgling artist card~
-@m36 Fledgling Artist B-30 card@n~
-The @m36 Fledgling Artist B-30 card@g is lying here.@n~
+#65338
+38 fledgling artist card~
+@m38 Fledgling Artist B-30 card@n~
+The @m38 Fledgling Artist B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
-36 fledgling artist card~
+38 fledgling artist card~
 Warm this magic egg in your hand for three hours a day for one to ten
 years, and you will become a top artist when it hatches. The stronger your
 desire during incubation, the sooner it will hatch.
 ~
-#65337
-37 fledgling politician card~
-@m37 Fledgling Politician B-30 card@n~
-The @m37 Fledgling Politician B-30 card@g is lying here.@n~
+#65339
+39 fledgling politician card~
+@m39 Fledgling Politician B-30 card@n~
+The @m39 Fledgling Politician B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
-37 fledgling politician card~
+39 fledgling politician card~
 Warm this magic egg in your hand for three hours a day for one to ten
 years, and you will become a top politician when it hatches. The stronger your
 desire during incubation, the sooner it will hatch.
 ~
-#65338
-38 fledgling musician card~
-@m38 Fledgling Musician B-30 card@n~
-The @m38 Fledgling Musician B-30 card@g is lying here.@n~
+#65340
+40 fledgling musician card~
+@m40 Fledgling Musician B-30 card@n~
+The @m40 Fledgling Musician B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
-38 fledgling musician card~
+40 fledgling musician card~
 Warm this magic egg in your hand for three hours a day for one to ten
 years, and you will become a top musician when it hatches. The stronger your
 desire during incubation, the sooner it will hatch.
 ~
-#65339
-39 fledgling pilot card~
-@m39 Fledgling Pilot B-30 card@n~
-The @m39 Fledgling Pilot B-30 card@g is lying here.@n~
+#65341
+41 fledgling pilot card~
+@m41 Fledgling Pilot B-30 card@n~
+The @m41 Fledgling Pilot B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
-39 fledgling pilot card~
+41 fledgling pilot card~
 Warm this magic egg in your hand for three hours a day for one to ten
 years, and you will become a top pilot when it hatches. The stronger your
 desire during incubation, the sooner it will hatch.
 ~
-#65340
-40 fledgling novelist card~
-@m40 Fledgling Novelist B-30 card@n~
-The @m40 Fledgling Novelist B-30 card@g is lying here.@n~
+#65342
+42 fledgling novelist card~
+@m42 Fledgling Novelist B-30 card@n~
+The @m42 Fledgling Novelist B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
-40 fledgling novelist card~
+42 fledgling novelist card~
 Warm this magic egg in your hand for three hours a day for one to ten
 years, and you will become a top novelist when it hatches. The stronger your
 desire during incubation, the sooner it will hatch.
 ~
-#65341
-41 fledgling gambler card~
-@m41 Fledgling Gambler B-30 card@n~
-The @m41 Fledgling Gambler B-30 card@g is lying here.@n~
+#65343
+43 fledgling gambler card~
+@m43 Fledgling Gambler B-30 card@n~
+The @m43 Fledgling Gambler B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
-41 fledgling gambler card~
+43 fledgling gambler card~
 Warm this magic egg in your hand for three hours a day for one to ten
 years, and you will become a top gambler when it hatches. The stronger your
 desire during incubation, the sooner it will hatch.
 ~
-#65342
-42 fledgling actor card~
-@m42 Fledgling Actor B-30 card@n~
-The @m42 Fledgling Actor B-30 card@g is lying here.@n~
+#65344
+44 fledgling actor card~
+@m44 Fledgling Actor B-30 card@n~
+The @m44 Fledgling Actor B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
-42 fledgling actor card~
+44 fledgling actor card~
 Warm this magic egg in your hand for three hours a day for one to ten
 years, and you will become a top actor when it hatches. The stronger your
 desire during incubation, the sooner it will hatch.
 ~
-#65343
-43 fledgling ceo card~
-@m43 Fledgling CEO B-30 card@n~
-The @m43 Fledgling CEO B-30 card@g is lying here.@n~
-~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 50000 30 0 62
-E
-43 fledgling ceo card~
-Warm this magic egg in your hand for three hours a day for one to ten
-years, and you will become a successful CEO when it hatches. The stronger your
-desire during incubation, the sooner it will hatch.
-~
-#65344
-44 rebirth card~
-@m44 Rebirth S-10 card@n~
-The @m44 Rebirth S-10 card@g is lying here.@n~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 279000 10 0 62
-E
-44 rebirth card~
-If the holder would be killed, this card activates automatically
-and restores them to full health. The card is destroyed in the process.
-~
 #65345
-45 face lift machine card~
-@m45 Face Lift Machine B-30 card@n~
-The @m45 Face Lift Machine B-30 card@g is lying here.@n~
+45 fledgling ceo card~
+@m45 Fledgling CEO B-30 card@n~
+The @m45 Fledgling CEO B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
-45 face lift machine card~
-A machine that permanently alters facial features to any desired
-appearance. The result is indistinguishable from a natural face.
+45 fledgling ceo card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top CEO when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
 ~
 #65346
 46 gold dust girl card~

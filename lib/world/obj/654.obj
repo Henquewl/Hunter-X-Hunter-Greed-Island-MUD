@@ -308,6 +308,32 @@ time stopping watch~
 counterclockwise and holding it makes the world feel slightly slower.
 ~
 #65435
+cat chameleon~
+a Chameleon Cat~
+A small cat with shifting, color-changing fur sits here.~
+~
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+E
+chameleon cat~
+   An endangered cat that, once tamed, can transform into any animal -- though
+its mass stays the same, making for tiny elephants or oversized hamsters.
+~
+#65436
+room recycling box~
+a Recycling Room~
+A small folded room-in-a-box sits here.~
+~
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+E
+recycling room~
+   Place something broken inside and seal the door; 24 hours later it will be
+repaired as good as new. The door must not be opened until the time is up.
+~
+#65437
 egg fledgling athlete magic~
 a Fledgling Athlete egg~
 A warm, faintly pulsing magic egg rests here.~
@@ -321,7 +347,7 @@ egg fledgling athlete~
    A warm magic egg that pulses faintly when held in the hand. Incubate
 it patiently and one day it will hatch, making you a top athlete.
 ~
-#65436
+#65438
 egg fledgling artist magic~
 a Fledgling Artist egg~
 A warm, faintly pulsing magic egg rests here.~
@@ -335,7 +361,7 @@ egg fledgling artist~
    A warm magic egg that pulses faintly when held in the hand. Incubate
 it patiently and one day it will hatch, making you a top artist.
 ~
-#65437
+#65439
 egg fledgling politician magic~
 a Fledgling Politician egg~
 A warm, faintly pulsing magic egg rests here.~
@@ -349,7 +375,7 @@ egg fledgling politician~
    A warm magic egg that pulses faintly when held in the hand. Incubate
 it patiently and one day it will hatch, making you a top politician.
 ~
-#65438
+#65440
 egg fledgling musician magic~
 a Fledgling Musician egg~
 A warm, faintly pulsing magic egg rests here.~
@@ -363,7 +389,7 @@ egg fledgling musician~
    A warm magic egg that pulses faintly when held in the hand. Incubate
 it patiently and one day it will hatch, making you a top musician.
 ~
-#65439
+#65441
 egg fledgling pilot magic~
 a Fledgling Pilot egg~
 A warm, faintly pulsing magic egg rests here.~
@@ -377,7 +403,7 @@ egg fledgling pilot~
    A warm magic egg that pulses faintly when held in the hand. Incubate
 it patiently and one day it will hatch, making you a top pilot.
 ~
-#65440
+#65442
 egg fledgling novelist magic~
 a Fledgling Novelist egg~
 A warm, faintly pulsing magic egg rests here.~
@@ -391,7 +417,7 @@ egg fledgling novelist~
    A warm magic egg that pulses faintly when held in the hand. Incubate
 it patiently and one day it will hatch, making you a top novelist.
 ~
-#65441
+#65443
 egg fledgling gambler magic~
 a Fledgling Gambler egg~
 A warm, faintly pulsing magic egg rests here.~
@@ -405,7 +431,7 @@ egg fledgling gambler~
    A warm magic egg that pulses faintly when held in the hand. Incubate
 it patiently and one day it will hatch, making you a top gambler.
 ~
-#65442
+#65444
 egg fledgling actor magic~
 a Fledgling Actor egg~
 A warm, faintly pulsing magic egg rests here.~
@@ -419,7 +445,7 @@ egg fledgling actor~
    A warm magic egg that pulses faintly when held in the hand. Incubate
 it patiently and one day it will hatch, making you a top actor.
 ~
-#65443
+#65445
 egg fledgling ceo magic~
 a Fledgling CEO egg~
 A warm, faintly pulsing magic egg rests here.~
@@ -431,33 +457,7 @@ T 65434
 E
 egg fledgling ceo~
    A warm magic egg that pulses faintly when held in the hand. Incubate
-it patiently and one day it will hatch, making you a successful CEO.
-~
-#65444
-rebirth orb light~
-a Rebirth Orb~
-A crystalline orb filled with warm golden light floats here.~
-~
-12 g 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-1 25000 0 0 0
-E
-rebirth orb~
-   A perfect crystal sphere containing swirling golden energy. It pulses
-with life force, feeling like a second chance waiting to happen.
-~
-#65445
-machine face lift~
-a Face Lift Machine~
-A compact medical device with multiple arm attachments rests here.~
-~
-12 g 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-4 22000 0 0 0
-E
-face lift machine~
-   A portable version of a high-tech facial restructuring device. Somehow
-it can safely reshape a person's appearance in mere minutes.
+it patiently and one day it will hatch, making you a top CEO.
 ~
 #65446
 girl gold dust golden~

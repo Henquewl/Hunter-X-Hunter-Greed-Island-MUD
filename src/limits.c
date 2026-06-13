@@ -706,15 +706,15 @@ struct fledgling_egg_data {
 };
 
 static const struct fledgling_egg_data fledgling_eggs[] = {
-  { 65435, {EGG_STR, EGG_CON, -1}, 2 }, /* Athlete    */
-  { 65436, {EGG_DEX, EGG_WIS, -1}, 2 }, /* Artist     */
-  { 65437, {EGG_CHA, EGG_INT, -1}, 2 }, /* Politician */
-  { 65438, {EGG_DEX, EGG_CHA, -1}, 2 }, /* Musician   */
-  { 65439, {EGG_DEX, EGG_CON, -1}, 2 }, /* Pilot      */
-  { 65440, {EGG_INT, EGG_WIS, -1}, 2 }, /* Novelist   */
-  { 65441, {EGG_WIS, EGG_INT, -1}, 2 }, /* Gambler    */
-  { 65442, {EGG_CHA, EGG_DEX, -1}, 2 }, /* Actor      */
-  { 65443, {EGG_INT, EGG_CHA, -1}, 2 }, /* CEO        */
+  { 65437, {EGG_STR, EGG_CON, -1}, 2 }, /* #37 Athlete    */
+  { 65438, {EGG_DEX, EGG_WIS, -1}, 2 }, /* #38 Artist     */
+  { 65439, {EGG_CHA, EGG_INT, -1}, 2 }, /* #39 Politician */
+  { 65440, {EGG_DEX, EGG_CHA, -1}, 2 }, /* #40 Musician   */
+  { 65441, {EGG_DEX, EGG_CON, -1}, 2 }, /* #41 Pilot      */
+  { 65442, {EGG_INT, EGG_WIS, -1}, 2 }, /* #42 Novelist   */
+  { 65443, {EGG_WIS, EGG_INT, -1}, 2 }, /* #43 Gambler    */
+  { 65444, {EGG_CHA, EGG_DEX, -1}, 2 }, /* #44 Actor      */
+  { 65445, {EGG_INT, EGG_CHA, -1}, 2 }, /* #45 CEO        */
   { NOTHING, {0, 0, 0}, 0 }
 };
 

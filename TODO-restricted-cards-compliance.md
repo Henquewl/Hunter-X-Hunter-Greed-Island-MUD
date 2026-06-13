@@ -37,18 +37,20 @@ safe no-op (no SYSERR).
 - Mad Scientist's Pheromones (65471): `spray` → CHA +3 / 60t.
 - Gold Dust Girl (65446): card-item spawns existing mob 65446 on gain (trigger 65350).
 
-**Rebirth (65344 / item 65444)** — C engine hook in `src/fight.c die()`: a player who would
-die while holding the Rebirth card/item is restored to full HP and the card shatters
-(consumed). *Needs a live in-combat test to confirm behaviour.*
+**Fledgling "magic egg" series (canon #37-45: cards 65337-65345 / items 65437-65445)** —
+Athlete, Artist, Politician, Musician, Pilot, Novelist, Gambler, Actor, CEO. Card → egg item;
+HOLD in hand 3 continuous game hours → hatches → +1 permanent random attribute from a
+profession pool. C in `limits.c` (`egg_incubation_update`/`hatch_fledgling_egg`, table-driven).
+**Architectural note:** preferred future form is a trigger that evokes a C primitive rather than
+the standalone point_update() scan (see memory `trigger-evokes-code-pattern`). *Needs a live
+hold-to-hatch test.*
 
-**Fledgling "magic egg" series (cards 65335-65343 / items 65435-65443)** — Athlete, Artist,
-Politician, Musician, Pilot, Novelist, Gambler, Actor, CEO. Card → egg item; HOLD in hand 3
-continuous game hours → hatches → +1 permanent random attribute from a profession pool. C in
-`limits.c` (`egg_incubation_update`/`hatch_fledgling_egg`, table-driven — add a row + item to
-extend) + REMOVE-reset trigger 65434. **Replaced** the prior occupants of those slots: Turtle
-Mansion, Master Mime, Echo Recorder, Aqua Guard (SCUBA), Tornado Stand, Magnetic Rod, Water
-Divination Staff, Paladin's Prayer Beads (these HxH items are gone). *Needs a live hold-to-
-hatch test.*
+**#35 Chameleon Cat (S-6) / #36 Recycling Room (S-10)** — added as canon plain collectibles
+(cards 65335/65336, items 65435/65436). Their canon effects (transform-into-animal; repair-in-
+24h) are NOT implemented yet — TODO.
+
+**Rebirth — REMOVED** (non-canon invention); fight.c die() hook deleted. Face Lift Machine also
+removed. Their slots #44/#45 are now Fledgling Actor/CEO.
 
 ---
 
@@ -78,6 +80,18 @@ Face-Lift Machine, Miracle Seed, Sand Ship, Turtle Mansion, Mr. Billionaire, Ret
 Postcard, Loving Slave, Pretty Little Devil, Crystal Ball, etc.
 
 ---
+
+## BIG BACKLOG — full canon alignment of invented cards (deferred)
+Audited against the official fandom list (saved at `C:\Users\henqu\Downloads\Greed Island Card
+Lists _ Hunterpedia _ Fandom.html`). Many front-half cards are inventions to be replaced with
+canon (names + ranks + effects from the saved page), e.g.: #18 Imp's Wink, #19 Poltergeist
+Pillow, #20 Mood Clock, #21 X-Ray Goggles, #22 Toraemon, #23 Tome of a Thousand Tales, #24
+Hypothetical T.V., #27 Book of V.I.P Passes, #28 Capricious Remote, #29 Pre-Order Vouchers,
+#30 Favor Cushion, #32 Parrot Candy, #33 Hormone Cookies, #34 Universal Survey, #47 Sleeping
+Girl, #48 Aromatherapy Girl, #49 Miniature Mermaid, plus the #50-60 cluster and scattered
+back-half items. The back-half "Witch's/Doyen's/jewel/weapon" cluster is mostly canon-NAMED but
+may be off by ~1 in numbering — reconcile against the saved page. Do in batches; keep card
+vnums contiguous and trigger vnums ascending.
 
 ## Reference — functional cards that predated this work
 Breath of Archangel (65317→65417, trg 3265 spawns healing mob), Risky Dice (65425), Vending

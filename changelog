@@ -8,6 +8,17 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 13 2026] - Henque
+  Canon-compliance pass against the official Greed Island card list. Renumbered the Fledgling
+  egg series to the correct canon slots #37-45 (cards 65337-65345 / items 65437-65445; egg
+  C-table in limits.c shifted to match), filling the freed #35/#36 with the canon Chameleon
+  Cat (S-6) and Recycling Room (S-10) as plain collectibles. Renamed three near-miss cards to
+  canon: #2 Plot of Beach (was Patch of Shore), #17 Angel's Breath (was Breath of Archangel),
+  #31 Double Postcard to the Dead (was Returned Postcard from the Dead). Removed the non-canon
+  Rebirth card and its fight.c die() auto-revive hook, plus Face Lift Machine (their slots
+  #44/#45 are now Fledgling Actor/CEO). Repointed zone 31's Mayor gift back to the Politician
+  card (now 65339). The larger rewrite of the remaining invented cards (#18-34, #47-60, back-
+  half +/-1 renumber) is still pending, to be done from the saved fandom list.
+[Jun 13 2026] - Henque
   Add the Fledgling "magic egg" card series (canon GI #35-43) in cards 65335-65343 /
   items 65435-65443: Athlete, Artist, Politician, Musician, Pilot, Novelist, Gambler,
   Actor, CEO. Each card transforms into an egg item you HOLD in hand; new C in limits.c
