@@ -37,4 +37,19 @@ SavingPetri: 13
 SavingBreath: 3
 E
 T 65446
+#65496
+clairvoyant snake serpent~
+a clairvoyant snake~
+A clairvoyant snake coils here, watching you with knowing eyes.@n
+~
+A slender serpent with shimmering scales and oddly intelligent eyes, said
+to divine hidden truths when fed, spitting up a Clairvoyance card.
+~
+0 0 0 0 0 0 0 0 0 E
+1 20 10 1d1+0 1d1+0
+0 0
+8 8 0
+E
+T 65497
+T 65498
 $

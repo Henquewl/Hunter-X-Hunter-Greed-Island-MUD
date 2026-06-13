@@ -247,4 +247,63 @@ if %card% && %card.vnum(40097)%
   %purge% %card%
 end
 ~
+#65486
+quiver of frustration loose~
+1 c 2
+loose~
+if %self.val0% <= 0
+%send% %actor% The quiver of frustration is empty; no arrows remain.
+halt
+end
+eval arrows %self.val0% - 1
+osetval 0 %arrows%
+%send% %actor% You loose an arrow; a Leave card forms in your grip. (%arrows% arrows left)
+%echoaround% %actor% %actor.name% looses an arrow from a quiver of frustration.
+%load% obj 1014 %actor% inv
+~
+#65496
+clairvoyant snake summon~
+1 abn 100
+~
+if %self.carried_by% || %self.worn_by%
+%load% mob 65496
+%echo% A clairvoyant snake uncoils from the card and slithers to your side.
+%purge% %self%
+end
+~
+#65497
+clairvoyant snake follow~
+0 n 100
+~
+set p %self.room.people%
+while %p%
+if %p.is_pc%
+mfollow %p%
+halt
+end
+set p %p.next_in_room%
+done
+~
+#65498
+clairvoyant snake feed~
+0 c 100
+feed~
+if !(%self.name% /= %arg%)
+return 0
+halt
+end
+if %self.lastfed% == %time.day%
+%send% %actor% %self.name% is sated; it can only be fed once a day.
+halt
+end
+set lastfed %time.day%
+remote lastfed %self.id%
+if %actor.cardcount(1015)% >= 70
+%send% %actor% %self.name% writhes, but no card appears -- the world already holds every Clairvoyance.
+halt
+end
+%send% %actor% You feed %self.name%, which shudders and spits up a Clairvoyance card!
+%echoaround% %actor% %actor.name% feeds a clairvoyant snake, which spits up a card.
+%load% obj 1015 %actor% inv
+~
 $~

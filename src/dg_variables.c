@@ -635,6 +635,14 @@ void find_replacement(void *go, struct script_data *sc, trig_data *trig,
             }
             snprintf(str, slen, "%d", GET_CHA(c));
           }
+          else if (!str_cmp(field, "cardcount")) {
+            /* global count of existing copies of object vnum <subfield> */
+            obj_rnum crn;
+            if (subfield && *subfield && (crn = real_object(atoi(subfield))) != NOTHING)
+              snprintf(str, slen, "%d", obj_index[crn].number);
+            else
+              snprintf(str, slen, "0");
+          }
           else if (!str_cmp(field, "class")) {
             if (subfield && *subfield) {
               int cl = get_class_by_name(subfield);

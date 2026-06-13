@@ -1025,8 +1025,9 @@ a Quiver of Frustration~
 a Quiver of Frustration lies here.~
 ~
 12 0 0 0 0 a 0 0 0 0 0 0 0
-0 0 0 0
+10 0 0 0
 1 50000 0 0 0
+T 65486
 E
 quiver of frustration~
 You can cast as many "Leaves" as you have arrows. It comes with 10
@@ -1159,17 +1160,17 @@ You will be under the effect of " Blackout Curtain " while wearing
 this cape.
 ~
 #65496
-clairvoyant snake~
+clairvoyant snake card~
 a Clairvoyant Snake~
-a Clairvoyant Snake lies here.~
+a Clairvoyant Snake card lies here.~
 ~
 12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
+T 65496
 E
 clairvoyant snake~
-Feed it a card Rank C or above, and it will spit up a " Clairvoyance
-."
+Feed it a card rank C or above, and it will spit up a "Clairvoyance."
 ~
 #65497
 3 d camera~

@@ -8,6 +8,17 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 13 2026] - Henque
+  Implemented two spell-card-driven restricted cards. Quiver of Frustration (#86, item 65486):
+  holds 10 arrows; the "loose" command (trigger 65486) spends one arrow and produces a Leave
+  spell card (1014), independent of any Leave cards already in the binder. Clairvoyant Snake
+  (#96, item 65496): summons a 1-hp follower snake (new mob 65496; spawn trigger 65496, follow
+  trigger 65497 via mfollow); "feed <snake>" (trigger 65498) once per game day spits up a
+  Clairvoyance spell card (1015) unless its global limit (70) is reached. Added a small
+  read-only DG field %actor.cardcount(vnum)% in dg_variables.c (returns obj_index[].number) so
+  triggers can check a card's global count -- this is the spell-card global-limit gate. Eternal
+  Hammer (#88) remains a plain weapon pending a design decision (whether it consumes an attack
+  spell card from the binder); it will need a C primitive to apply a spell-card effect on hit.
+[Jun 13 2026] - Henque
   Fixed typos/grammar in the Newbie Zone quests (lib/world/qst/186.qst), worst of which was
   the Paladin's Necklace quest #18605 ("beutiful"->"beautiful", "fouled"->"foul", "for the
   love for"->"of", "for who bring the beast hide"->"to whoever brought back the beast's hide",

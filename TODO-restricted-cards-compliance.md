@@ -106,12 +106,21 @@ collectibles (acceptable). Candidates that COULD be done later with existing pat
   another item cannot invoke "spell-card X on target Y" from a trigger today. To do these
   faithfully, add a small C primitive (e.g. apply_spellcard_effect(ch, victim, card_vnum)) and
   call it from the weapon's trigger (trigger-evokes-code):
-  - **#88 Eternal Hammer** — on hit, inflict a random ATTACK spell-card effect on the victim
-    (immune if victim wears Paladin's Necklace 65484). Currently just a plain wieldable weapon.
-    (My earlier player-spell version was wrong and was reverted.)
-  - **#86 Quiver of Frustration** — cast "Leave" (card 1014), 10 arrows/charges.
-  - **#96 Clairvoyant Snake** — feed a Rank-C+ card → produce a "Clairvoyance" card (1015).
-  - Also relevant: **#95 Secret Cape** currently approximates "Blackout Curtain" (1025) with
+  - **#86 Quiver of Frustration — DONE** (pure DG): item 65486 holds 10 arrows (val0);
+    `loose` (trigger 65486) spends one arrow and loads a Leave card (1014) — works regardless
+    of binder Leaves. Empty when arrows run out.
+  - **#96 Clairvoyant Snake — DONE**: card-item 65496 summons a follower snake **mob 65496**
+    (1 hp; spawn trigger 65496 + follow trigger 65497 using `mfollow`). `feed <snake>` (trigger
+    65498) once per game day (remote `lastfed` vs `%time.day%`) spits up a Clairvoyance card
+    (1015), unless the global limit is reached — checked with a NEW read-only DG field
+    `%actor.cardcount(<vnum>)%` (returns `obj_index[].number`) added in dg_variables.c
+    (trigger-evokes-code). *Needs live test (runtime-only logic).*
+  - **#88 Eternal Hammer — PENDING USER DECISION** (whether it should consume an attack spell
+    card from the wielder's binder or not). Plan: on hit, inflict a random attack spell-card
+    effect on the victim (immune if victim wears Paladin's Necklace 65484). This needs a C
+    primitive to apply/consume a spell-card effect from a weapon trigger. Currently a plain
+    wieldable weapon.
+  - Also relevant: **#95 Secret Cape** approximates "Blackout Curtain" (1025) with
     AFF_INVISIBLE; revisit if the real Blackout Curtain effect differs.
 - **NPC/pet cards** (need new mobs): #47 Sleeping Girl, #48 Aromatherapy Girl, #49 Miniature
   Mermaid, #50 Miniature Dino, #51 Miniature Dragon, #99 Panda Maid, etc.
