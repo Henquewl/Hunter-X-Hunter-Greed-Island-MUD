@@ -946,9 +946,10 @@ staff of judgment~
 a Staff of Judgment~
 a Staff of Judgment lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 0 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 50000 0 0 0
+3 50000 0 0 0
+T 65382
 E
 staff of judgment~
 Raise this staff in the air while calling out the name of someone you
@@ -1055,9 +1056,11 @@ eternal hammer~
 an Eternal Hammer~
 an Eternal Hammer lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
-0 0 0 0
-1 50000 0 0 0
+5 0 0 0 0 ano 0 0 0 0 0 0 0
+0 4 4 3
+8 50000 0 0 0
+T 65488
+T 65489
 E
 eternal hammer~
 Anyone hit with this hammer will be afflicted with one random attack

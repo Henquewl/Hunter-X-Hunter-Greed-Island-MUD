@@ -8,6 +8,16 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 13 2026] - Henque
+  Implemented two canon combat weapons with the existing wear->FIGHT-trigger + dg_cast pattern.
+  Eternal Hammer (#88, item 65488) is now a weapon: wearing it attaches fight trigger 65388,
+  which each combat round (~50%) casts a random attack spell (auraball/lightningbolt/shocking-
+  grasp) on the opponent -- caster is the wielder, target is the victim, no card needed; a
+  victim wearing Paladin's Necklace (65484) is immune (wear/remove triggers 65488/65489).
+  Staff of Judgment (#82, item 65482) is now usable: "judge <name>" (command trigger 65382)
+  compares alignment and lands a harm spell ('littleflower') on whoever has committed more bad
+  deeds -- the named target or the wielder. Quiver of Frustration (#86) and Clairvoyant Snake
+  (#96) stay deferred: they need new spells ("Leave", "Clairvoyance") that don't exist yet.
+[Jun 13 2026] - Henque
   Replaced the remaining 45 invented restricted cards with their canon Greed Island
   counterparts (name + rank + effect text from the official fandom list) so the full 100-card
   set is now canon, no inventions: e.g. Invisible Stalker->Imp's Wink (#18), Cane of Healing->

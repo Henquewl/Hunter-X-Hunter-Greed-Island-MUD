@@ -93,10 +93,15 @@ implemented with existing mechanics:
 ### Remaining EFFECT work (cards are canon, but their effect isn't mechanically modeled yet)
 Most canon cards are life-sim/social/flavor with no existing mechanic, so they sit as canon
 collectibles (acceptable). Candidates that COULD be done later with existing patterns:
-- **Combat weapons** (need the wear→FIGHT-trigger + `dg_cast` pattern, like Sword of Truth):
-  #88 Eternal Hammer (on-hit random attack spell), #82 Staff of Judgment (align-based smite),
-  #86 Quiver of Frustration (casts "Leave" — needs that spell), #96 Clairvoyant Snake (feed a
-  card → "Clairvoyance" spell).
+- **Combat weapons** — DONE Jun 13: **#88 Eternal Hammer** (weapon; wear attaches fight trigger
+  65388 which, each round at ~50%, dg_casts a random attack spell — auraball/lightningbolt/
+  shockinggrasp — on the victim; skips a victim wearing Paladin's Necklace 65484), and **#82
+  Staff of Judgment** (held; `judge <name>` command trigger 65382 compares alignment and casts
+  `littleflower`/harm on whoever has more bad deeds — target OR the wielder). *Needs a live
+  test (trigger logic only validates at runtime).*
+  STILL DEFERRED — need NEW spells that don't exist in the MUD: #86 Quiver of Frustration
+  (casts "Leave"/"Leaves") and #96 Clairvoyant Snake (feed a card → "Clairvoyance"). Add those
+  spells first, then wire trigger→spell.
 - **NPC/pet cards** (need new mobs): #47 Sleeping Girl, #48 Aromatherapy Girl, #49 Miniature
   Mermaid, #50 Miniature Dino, #51 Miniature Dragon, #99 Panda Maid, etc.
 - **Consumable flavor with a stat angle** could be added if desired (e.g. #33 Hormone Cookies).

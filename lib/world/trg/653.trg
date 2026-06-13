@@ -364,6 +364,36 @@ dg_cast 'enhance' %self%
 dg_cast 'focus' %self%
 detach 65368 %self.id%
 ~
+#65382
+staff of judgment judge~
+1 c 3
+judge~
+if !%arg%
+%send% %actor% Raise the staff and call out whose name?
+halt
+end
+set p %actor.room.people%
+set target 0
+while %p%
+if %p% != %actor% && %p.name% /= %arg%
+set target %p%
+end
+set p %p.next_in_room%
+done
+if !%target%
+%send% %actor% You do not see them here.
+halt
+end
+%send% %actor% You raise %self.shortdesc% and call out %target.name% in judgment!
+%echoaround% %actor% %actor.name% raises %self.shortdesc% and calls out %target.name% in judgment!
+if %actor.align% <= %target.align%
+%send% %actor% The calamity turns upon YOU -- your own deeds weigh heavier!
+dg_cast 'littleflower' %actor%
+else
+%send% %actor% Calamity strikes %target.name%!
+dg_cast 'littleflower' %target%
+end
+~
 #65383
 sword of truth bind~
 0 k 100
@@ -377,6 +407,24 @@ set rand %random.10%
 if %rand% == 10
 dg_cast 'dispel evil' %actor%
 end
+end
+~
+#65388
+eternal hammer affliction~
+0 k 100
+~
+if %actor.eq(neck)%
+if %actor.eq(neck).vnum(65484)%
+halt
+end
+end
+set r %random.6%
+if %r% == 1
+dg_cast 'auraball' %actor%
+elseif %r% == 2
+dg_cast 'lightningbolt' %actor%
+elseif %r% == 3
+dg_cast 'shockinggrasp' %actor%
 end
 ~
 $~
