@@ -136,6 +136,12 @@ The @mGolden Guidebook A-20 card@G is lying here.@n~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 102500 20 0 62
+E
+10 golden guidebook card~
+A heavy tome bound in gold leaf. Its pages chart the secrets of
+Greed Island, guiding the holder toward the people, places and
+cards worth seeking.
+~
 #65311
 11 golden scales card~
 @m11 Golden Scales B-30 card@n~
@@ -143,7 +149,7 @@ The @mGolden Scales B-30 card@G is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 50000 0 0 62
+0 50000 30 0 62
 E
 11 golden scales card~
 When faced with a two-option choice, these scales
@@ -511,11 +517,12 @@ The @m39 Fledgling Politician B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 50000 13 0 62
+0 50000 30 0 62
 E
-84 paladin necklace card~
-   A player wearing this will reflect curses cast upon him, and be able to undo
-curses placed on cards he touches.
+39 fledgling politician card~
+A budding politician bound to your service. Through tireless
+campaigning and backroom dealing, he sways crowds and bends public
+opinion toward whatever cause you name.
 ~
 #65340
 40 tornado stand card~
@@ -604,9 +611,9 @@ The @m46 Gold Dust Girl A-13 card@g is lying here.@n~
 0 0 0 0
 0 106000 13 0 62
 E
-84 paladin necklace card~
-   A player wearing this will reflect curses cast upon him, and be able to undo
-curses placed on cards he touches.
+46 gold dust girl card~
+A girl who weeps fine gold dust. Each day she sheds a small measure
+of pure gold that can be gathered and spent.
 ~
 #65347
 47 wind chime card~
@@ -732,7 +739,7 @@ The @m56 Perfect Memory Studio B-25 card@g is lying here.~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 50850 56 0 62
+0 50850 25 0 62
 E
 studio perfect memory card~
 Specify a time and date to get a picture of yourself in the past.
@@ -810,7 +817,7 @@ The @m62 Club "You Rule" B-20 card@g is lying here.~
 ~
 26 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 50000 62 0 62
+0 50000 20 0 62
 E
 club you rule card~
 This card allows the caster to effectively
@@ -837,6 +844,11 @@ The @m64 Witch's Love Potion B-30 card@g is lying here.@n~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
+E
+64 witch love potion card~
+A rose-tinted brew. The first person the drinker lays eyes on
+afterward seems irresistibly charming to them for a single day.
+~
 #65365
 65 witch rejuvenation potion card~
 @m65 Witch's Rejuvenation Potion S-10 card@n~
@@ -845,6 +857,11 @@ The @m65 Witch's Rejuvenation Potion S-10 card@g is lying here.@n~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 279000 10 0 62
+E
+65 witch rejuvenation potion card~
+A shimmering draught that washes the years from the body,
+restoring the drinker to the prime of their youth with a single sip.
+~
 #65366
 66 witch diet potion card~
 @m66 Witch's Diet Potion B-28 card@n~
@@ -853,6 +870,11 @@ The @m66 Witch's Diet Potion B-28 card@g is lying here.@n~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 36000 28 0 62
+E
+66 witch diet potion card~
+A bitter green draught that melts away excess weight overnight,
+leaving the body lean without effort or hunger.
+~
 #65367
 67 doyen growth pills card~
 @m67 Doyen's Growth Pills B-30 card@n~
@@ -861,6 +883,11 @@ The @m67 Doyen's Growth Pills B-30 card@n@G is lying here.@n~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
+E
+67 doyen growth pills card~
+Pills compounded by the Doyen. Taken nightly, they coax the body
+to grow taller over the course of a month.
+~
 #65368
 68 doyen virility pills card~
 @m68 Doyen's Virility Pills A-20 card@n~
@@ -869,6 +896,11 @@ The @m68 Doyen's Virility Pills A-20 card@n@G is lying here.@n~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 102500 20 0 62
+E
+68 doyen virility pills card~
+Pills compounded by the Doyen that restore strength and stamina.
+Eating one floods the body with renewed vigor.
+~
 #65369
 69 doyen hair restorer card~
 @m69 Doyen's Hair Restorer B-30 card@n~
@@ -877,6 +909,11 @@ The @m69 Doyen's Hair Restorer B-30 card@n@G is lying here.@n~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
+E
+69 doyen hair restorer card~
+A tonic compounded by the Doyen. Massaged into the scalp nightly,
+it regrows a thick, healthy head of hair within weeks.
+~
 #65370
 70 rainbow diamond card~
 @m70 Rainbow Diamond A-13 card@n~
@@ -897,7 +934,7 @@ The @m71 Mad Scientist's Pheromones A-20 card@g is lying here.~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 102500 71 0 62
+0 102500 20 0 62
 E
 pheromones scientists mad card~
 Spray on your body to attract the opposite sex.
@@ -1017,9 +1054,10 @@ The @m80 Levitation Stone S-7 card@g is lying here.@n~
 0 0 0 0
 0 120000 7 0 62
 E
-84 paladin necklace card~
-   A player wearing this will reflect curses cast upon him, and be able to undo
-curses placed on cards he touches.
+80 levitation stone card~
+A weightless stone that defies gravity. Carrying it lightens the
+body, letting the bearer drift and hover, untroubled by the pull
+of the earth.
 ~
 #65381
 blue planet card~
@@ -1084,9 +1122,10 @@ The @m85 Sacrifice Armor S-8 card@g is lying here.@n~
 0 0 0 0
 0 285000 8 0 62
 E
-84 paladin necklace card~
-   A player wearing this will reflect curses cast upon him, and be able to undo
-curses placed on cards he touches.
+85 sacrifice armor card~
+Heavy armor inscribed with runes of sacrifice. It turns the
+wearer's own resolve into a ward, absorbing a blow that would
+otherwise fell them -- at the cost of the armor itself.
 ~
 #65386
 86 heretic axe card~

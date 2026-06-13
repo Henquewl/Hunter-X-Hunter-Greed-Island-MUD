@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A text-based multiplayer RPG (MUD) set in the **Hunter x Hunter** universe, themed around the **Greed Island** arc. It is a heavily-modified fork of **TbaMUD 3.67** (a CircleMUD derivative). The codebase is C (~80 `.c` files in `src/`), targeting Linux/WSL. The current project version is in `VERSION` (`0.90`).
+A text-based multiplayer RPG (MUD) set in the **Hunter x Hunter** universe, themed around the **Greed Island** arc. It is a heavily-modified fork of **TbaMUD 3.67** (a CircleMUD derivative). The codebase is C (~80 `.c` files in `src/`), targeting Linux/WSL. The current project version is in `VERSION`.
 
 > A previous plan to rewrite the engine in C# was **cancelled**. All work happens in this C codebase — make targeted fixes and additions here, do not propose a migration.
 

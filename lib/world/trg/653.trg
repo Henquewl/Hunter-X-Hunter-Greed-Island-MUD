@@ -335,6 +335,16 @@ else
 return 0
 end
 ~
+#65350
+gold dust girl summon~
+1 abn 100
+~
+if %self.carried_by% || %self.worn_by%
+%load% mob 65446
+%echo% A girl trailing fine golden dust appears in a soft shimmer.
+end
+%purge% %self%
+~
 #65361
 Scanner gain~
 1 c 4

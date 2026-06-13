@@ -7,6 +7,41 @@ https://github.com/tbamud/tbamud
 Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
+[Jun 13 2026] - Henque
+  Implement card effects (TODO-restricted-cards-compliance.md B1/B2, data-only batch).
+  Passive worn affects via the obj affect-bitvector: Aqua Guard 65438 (SCUBA), Glowing
+  Wings 65454 (FLY), Invisible Cloak 65460 (INVIS), Dragon's Eye 65479 (DET-INVIS+
+  SENSE-LIFE); Levitation Stone 65480 already had FLY (audit error corrected). New DG
+  triggers in 654.trg (with T-lines in 654.obj): Cane of Healing "tap" heal; Fairy's
+  Breath "inhale" fly; Explosive Marbles/Flame Guitar/Sleep Clock/Flute/Haze Bomb AoE
+  command effects (damage/sleep/curse/blind); Witch's Wisdom Potion and Elixir of Life
+  retyped to FOOD with consume effects. New B2 consumable items + triggers: Witch's
+  Love/Rejuvenation/Diet potions (65464-66), Doyen's Growth Pills/Hair Restorer
+  (65467/65469), Mad Scientist's Pheromones 65471 ("spray"); Gold Dust Girl card 65446
+  now spawns its existing mob on gain (trigger 65350, moved into 653.trg to keep trigger
+  vnums ascending for real_trigger's binary search). Rebirth (card 65344/item 65444):
+  added a C hook in fight.c die() so a player holding it is restored to full HP and the
+  card shatters instead of dying (needs a live combat test). Terrain cards and remaining
+  C-heavy effects stay deferred in the TODO. (Kept under VERSION 0.91.)
+[Jun 13 2026] - Henque
+  Restricted-card data-bug pass in lib/world/obj/653.obj. Fixed 5 copy-limit (RENT)
+  values that disagreed with the card's "-N" label: Golden Scales 65311 (->30),
+  Fledgling Politician 65339 (->30), Perfect Memory Studio 65356 (->25), Club "You Rule"
+  65362 (->20) and Mad Scientist's Pheromones 65371 (->20); the last three had the card's
+  index number leaked into the RENT field. Replaced the mis-pasted "84 paladin necklace"
+  description on 4 cards (Fledgling Politician 65339, Gold Dust Girl 65346, Levitation
+  Stone 65380, Sacrifice Armor 65385) with correct text. Authored descriptions for 7 cards
+  that had none (Golden Guidebook 65310, Witch's Love/Rejuvenation/Diet potions 65364-66,
+  Doyen's Growth/Virility/Hair items 65367-69). Audited all card->item compliance and
+  recorded the effect/trigger gaps in TODO-restricted-cards-compliance.md for a future
+  plan (Bandit's Blade 65494 negative applies confirmed intentional, left as-is).
+[Jun 13 2026] - Henque
+  Add the 5 missing "item-like" restricted-card physical items in lib/world/obj/654.obj:
+  Golden Guidebook (65410), Golden Scales (65411), Golden Dictionary (65412) and
+  Luck Bankbook (65413) as readable OTHER items, plus Sacrifice Armor (65485) as wearable
+  ARMOR. Cards 65310-65313 and 65385 previously had no physical form at card_vnum+100, so
+  "gain"/"change" silently no-op'd; now they transform into a real held object. The other 21
+  cards without items (terrain patches, potions, blessings, etc.) remain card-only by design.
 [Jun 12 2026] - Henque
   Fix power up persisting while unconscious: floor the stamina (mana) drain at 0
   in power_update() and call update_pos() right after, so an exhausted character

@@ -20,6 +20,58 @@ stones~
 Each stone has a symbol, mars and venus respectively.
 Despite their small size, they are very heavy.
 ~
+#65410
+guidebook golden book~
+the @mGolden Guidebook@n~
+A golden guidebook lies here, its gilded pages shimmering faintly.~
+~
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+2 102500 0 0 0
+E
+guidebook golden book~
+   A heavy tome bound in gold leaf. Its pages chart the secrets of Greed
+Island, guiding the holder toward the people, places and cards worth seeking.
+~
+#65411
+scales golden balance~
+the @mGolden Scales@n~
+A set of delicate golden scales rests here, perfectly balanced.~
+~
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+E
+scales golden balance~
+   When faced with a two-option choice, these scales tip toward whichever
+path is better for your future.
+~
+#65412
+dictionary golden book~
+the @mGolden Dictionary@n~
+A golden dictionary lies open here, a single word glowing softly.~
+~
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+2 279000 0 0 0
+E
+dictionary golden book~
+   Each day a single word glows gold within its pages. Learn those words,
+for they will come in handy the very next day.
+~
+#65413
+bankbook luck book~
+the @mLuck Bankbook@n~
+A small golden bankbook lies here, its ledger faintly glowing.~
+~
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+2 102500 0 0 0
+E
+bankbook luck book~
+   Refrain from spending the little strokes of good luck in your daily life,
+and this ledger will accumulate them, converting them into cash.
+~
 #65417
 breath archangel~
 the @CArchangel@n~
@@ -50,6 +102,7 @@ A gnarled wooden cane radiating a faint healing aura rests here.~
 5 g 0 0 0 ano 0 0 0 0 0 0 0
 0 5 1 8
 3 13000 0 0 0
+T 65419
 A
 13 5
 E
@@ -65,6 +118,7 @@ A small pouch of colorful marbles clicks softly against itself here.~
 12 0 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 1 4000 0 0 0
+T 65420
 E
 explosive marbles~
    Round, colorful marbles packed in a small cloth pouch. Despite looking
@@ -297,7 +351,7 @@ aqua guard armor body~
 the Aqua Guard~
 A suit of shimmering aqua-colored body armor rests here.~
 ~
-9 g 0 0 0 ad 0 0 0 0 0 0 0
+9 g 0 0 0 ad 0 0 0 s 0 0 0
 4 0 0 0
 8 17000 0 0 0
 E
@@ -399,6 +453,20 @@ face lift machine~
    A portable version of a high-tech facial restructuring device. Somehow
 it can safely reshape a person's appearance in mere minutes.
 ~
+#65446
+girl gold dust golden~
+a Gold Dust Girl~
+A girl trailing fine golden dust stands here.~
+~
+13 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 106000 0 0 0
+T 65350
+E
+gold dust girl~
+   A girl who weeps fine gold dust. Each day she sheds a small measure of
+pure gold that can be gathered and spent.
+~
 #65447
 wind chime~
 a Wind Chime~
@@ -424,6 +492,7 @@ A tiny glass vial filled with sparkling golden mist rests here.~
 12 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 15000 0 0 0
+T 65448
 E
 fairy breath vial~
    An impossibly small vial holding what appears to be a fairy's exhaled
@@ -465,6 +534,7 @@ A guitar whose strings burn like fire rests here.~
 12 0 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 3 700 0 0 0
+T 65451
 E
 flame guitar~
    An electric guitar whose strings are perpetually on fire. Despite this,
@@ -505,7 +575,7 @@ wings glowing feather~
 a pair of Glowing Wings~
 A pair of luminous feathered wings gently radiating light rests here.~
 ~
-11 ag 0 0 0 ak 0 0 0 0 0 0 0
+11 ag 0 0 0 ak 0 0 0 r 0 0 0
 0 0 0 0
 3 15000 0 0 0
 A
@@ -523,6 +593,7 @@ An ornate clock whose ticking has a strangely drowsy quality lies here.~
 12 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 1 22000 0 0 0
+T 65455
 E
 sleep clock~
    An antique clock that ticks with unusual slowness. Those nearby find
@@ -572,7 +643,7 @@ cloak invisible~
 an Invisible Cloak~
 Something nearly invisible is here; you can only tell by a subtle shimmer.~
 ~
-11 gf 0 0 0 ak 0 0 0 0 0 0 0
+11 gf 0 0 0 ak 0 0 0 c 0 0 0
 0 0 0 0
 2 18000 0 0 0
 A
@@ -629,6 +700,62 @@ binding snake~
    A long cord that seems alive, making subtle movements on its own. When
 thrown at a target, it winds itself tight without any command.
 ~
+#65464
+potion love witch pink~
+a Witch's Love Potion~
+A rose-tinted potion in a heart-shaped vial sits here.~
+~
+19 dg 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+T 65464
+E
+witch love potion~
+   A rose-tinted brew. The first person the drinker lays eyes on afterward
+seems irresistibly charming to them for a single day.
+~
+#65465
+potion rejuvenation witch shimmering~
+a Witch's Rejuvenation Potion~
+A shimmering potion that glows with youth sits here.~
+~
+19 dg 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 279000 0 0 0
+T 65465
+E
+witch rejuvenation potion~
+   A shimmering draught that washes the years from the body, restoring the
+drinker to the prime of their youth with a single sip.
+~
+#65466
+potion diet witch green~
+a Witch's Diet Potion~
+A bitter green potion sits here.~
+~
+19 dg 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 36000 0 0 0
+T 65466
+E
+witch diet potion~
+   A bitter green draught that melts away excess weight overnight, leaving
+the body lean without effort or hunger.
+~
+#65467
+pills growth doyen vial~
+a vial of Growth Pills~
+A vial of Doyen's growth pills sits here.~
+~
+19 dg 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+T 65467
+E
+growth pills~
+   Pills compounded by the Doyen. Taken nightly, they coax the body to
+grow taller over the course of a month.
+~
 #65468
 vial pills virility~
 a vial full of pills~
@@ -648,6 +775,20 @@ E
 vial~
   Has a label with says: 'Pills of virility'
 ~
+#65469
+tonic hair restorer doyen bottle~
+a bottle of Hair Restorer~
+A bottle of Doyen's hair restorer tonic sits here.~
+~
+19 dg 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+T 65469
+E
+hair restorer~
+   A tonic compounded by the Doyen. Massaged into the scalp nightly, it
+regrows a thick, healthy head of hair within weeks.
+~
 #65470
 diamond rainbow gem~
 a Rainbow Diamond~
@@ -663,14 +804,29 @@ rainbow diamond~
    A flawless diamond cut in such a way that it scatters light into a full
 spectrum of colors. Extraordinary beauty that draws all eyes toward it.
 ~
+#65471
+pheromones spray bottle scientist~
+a bottle of Pheromones~
+A small spray bottle of pheromones sits here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 102500 0 0 0
+T 65471
+E
+pheromones~
+   Spray these on your body to attract the opposite sex. The strength
+cannot be adjusted, so beware a proliferation of stalkers.
+~
 #65472
 potion witch wisdom purple~
 a Witch's Wisdom Potion~
 A bubbling purple potion in a twisted glass vial sits here.~
 ~
-12 g 0 0 0 ao 0 0 0 0 0 0 0
+19 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 25000 0 0 0
+T 65472
 E
 witch wisdom potion~
    A complex brew by one of the legendary witches of Greed Island. Drinking
@@ -755,9 +911,10 @@ elixir life vial golden~
 the Elixir of Life~
 A vial of luminous golden liquid pulsing with vitality sits here.~
 ~
-12 ag 0 0 0 ao 0 0 0 0 0 0 0
+19 ag 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 25000 0 0 0
+T 65478
 E
 elixir life~
    The ultimate restorative, this golden liquid glows with pure life energy.
@@ -768,7 +925,7 @@ dragon eye gemstone red~
 a Dragon's Eye~
 A blood-red gemstone glowing from within sits here.~
 ~
-8 g 0 0 0 ao 0 0 0 0 0 0 0
+8 g 0 0 0 ao 0 0 0 eg 0 0 0
 0 0 0 0
 1 15000 0 0 0
 A
@@ -874,6 +1031,21 @@ A
 12 2
 A
 24 -1
+#65485
+armor sacrifice body~
+the @mSacrifice Armor@n~
+A suit of dark armor rests here, etched with self-sacrificing runes.~
+~
+9 g 0 0 0 ad 0 0 0 0 0 0 0
+10 0 0 0
+10 285000 0 0 0
+A
+24 -2
+E
+armor sacrifice body~
+   Heavy plate inscribed with runes of sacrifice. It turns the wearer's own
+resolve into a ward, reflecting curses and ill fortune back upon their source.
+~
 #65486
 axe heretic~
 the Heretic's Axe~
@@ -971,6 +1143,7 @@ A slender silver flute with strangely arranged holes sits here.~
 12 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 1 17000 0 0 0
+T 65492
 E
 flute confusion~
    A silver flute whose notes seem to rearrange themselves in the listener's
@@ -984,6 +1157,7 @@ A dark sphere that occasionally leaks wisps of colored smoke sits here.~
 12 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 1 22000 0 0 0
+T 65493
 E
 haze smoke bomb~
    A dense sphere packed with an exotic chemical compound. When thrown, it

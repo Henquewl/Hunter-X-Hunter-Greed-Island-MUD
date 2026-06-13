@@ -7,6 +7,25 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 
 > 2026 <
 
+JUN 13 **
+- Many cards now actually DO what they promise! Wear the Glowing Wings or hold the
+  Levitation Stone to fly, the Invisible Cloak to vanish, the Dragon's Eye to see the
+  unseen, or the Aqua Guard to breathe underwater. Tap the Cane of Healing to mend your
+  wounds; inhale the Fairy's Breath to take flight; throw Explosive Marbles or a Haze
+  Smoke Bomb, play the Flame Guitar or Flute of Confusion, or ring the Sleep Clock to hit
+  everyone around you. Drink the Witch's potions (Wisdom, Love, Rejuvenation, Diet),
+  swallow the Doyen's Growth Pills, use the Hair Restorer, or spray the Mad Scientist's
+  Pheromones. The Gold Dust Girl card now summons her, and the Elixir of Life fully heals.
+- The Rebirth card now lives up to its name: if you would die while carrying it, it
+  shatters and brings you back to full health instead.
+- Five collectible cards now turn into real items when you gain them: the Golden
+  Guidebook, Golden Scales, Golden Dictionary, Luck Bankbook and the Sacrifice
+  Armor. Before, these cards had no item to become and "gain" did nothing for them.
+- Card clean-up: several restricted cards had the wrong copy-limit number or were
+  showing a copied-by-mistake "paladin necklace" description; these now read correctly.
+  A handful of cards that were missing their flavor text (the Witch's potions, the
+  Doyen's remedies and the Golden Guidebook) now have proper descriptions.
+
 JUN 12 **
 - Powering up no longer continues while you are unconscious: your stamina now
   stops at zero instead of going negative, and you drop stunned the moment it

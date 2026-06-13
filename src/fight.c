@@ -363,6 +363,33 @@ void raw_kill(struct char_data * ch, struct char_data * killer)
 
 void die(struct char_data * ch, struct char_data * killer)
 {
+  /* Rebirth card (card #65344 / item #65444): if a player would die while
+   * holding it, the card shatters and restores them to full health instead. */
+  if (!IS_NPC(ch)) {
+    struct obj_data *reb = NULL, *o;
+    int j;
+    for (o = ch->carrying; o && !reb; o = o->next_content)
+      if (GET_OBJ_VNUM(o) == 65344 || GET_OBJ_VNUM(o) == 65444)
+        reb = o;
+    for (j = 0; j < NUM_WEARS && !reb; j++)
+      if (GET_EQ(ch, j) &&
+          (GET_OBJ_VNUM(GET_EQ(ch, j)) == 65344 || GET_OBJ_VNUM(GET_EQ(ch, j)) == 65444))
+        reb = GET_EQ(ch, j);
+    if (reb) {
+      act("$p flares with brilliant light and shatters as you are pulled back from death!",
+          FALSE, ch, reb, 0, TO_CHAR);
+      act("$n collapses, then is wreathed in light and restored to life as $p shatters!",
+          FALSE, ch, reb, 0, TO_ROOM);
+      extract_obj(reb);
+      if (FIGHTING(ch))
+        stop_fighting(ch);
+      GET_HIT(ch) = GET_MAX_HIT(ch);
+      GET_MOVE(ch) = GET_MAX_MOVE(ch);
+      update_pos(ch);
+      return;
+    }
+  }
+
   gain_exp(ch, -(GET_MAX_HIT(ch) / 10));
   if (!IS_NPC(ch)) {
     REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_KILLER);
