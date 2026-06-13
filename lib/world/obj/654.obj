@@ -946,15 +946,15 @@ staff of judgment~
 a Staff of Judgment~
 a Staff of Judgment lies here.~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
+3 0 0 0 0 ao 0 0 0 0 0 0 0
+30 99 99 61
 3 50000 0 0 0
-T 65382
 E
 staff of judgment~
-Raise this staff in the air while calling out the name of someone you
-want to punish, and calamity will befall the one of you who has
-committed more bad deeds, the target or yourself.
+Raise this staff toward someone and speak judgment: a Nen calamity scaled by
+the gap between your alignment and theirs strikes whoever has the darker deeds
+-- the target if they are more evil than you, or yourself if they are more
+righteous. (use staff <target>)
 ~
 #65483
 sword truth~
@@ -1058,14 +1058,18 @@ an Eternal Hammer~
 an Eternal Hammer lies here.~
 ~
 5 0 0 0 0 ano 0 0 0 0 0 0 0
-0 4 4 3
-8 50000 0 0 0
+0 1 4 3
+10 50000 0 0 0
+A
+18 -2
+A
+2 -1
 E
 eternal hammer~
 Anyone hit with this hammer will be afflicted with one random attack
-spell, and cannot defend him or herself with a defensive spell.
-However, it will not work on someone using "Fortress" or Paladin's
-Necklace.
+spell, and cannot defend him or herself with a defensive spell. However,
+it will not work on someone using "Fortress" or Paladin's Necklace. The
+hammer is brutally heavy and clumsy to swing.
 ~
 #65489
 gauntlet collector tax~

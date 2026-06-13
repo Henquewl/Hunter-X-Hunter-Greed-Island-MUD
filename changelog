@@ -8,6 +8,16 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 13 2026] - Henque
+  Staff of Judgment (#82) reworked into a real wand. Added a new manual spell SPELL_JUDGMENT
+  (61) in spells.h/spells.c/spell_parser.c: it deals Nen (mana) damage equal to the absolute
+  alignment gap between caster and target to whichever of them is worse-aligned -- the target
+  if it is more evil than the wielder, or the wielder if the target is more righteous (rebound,
+  even against a non-evil target). Targets players or non-protected NPCs. Item 65482 is now an
+  ITEM_WAND with 99 charges casting it ("use staff <target>"); removed the old judge command
+  trigger 65382. Eternal Hammer (#88) given its intended stats: heavy (weight 10), 1d4 damage,
+  -2 hitroll, -1 DEX; its on-hit "consume a binder attack spell card and inflict it" mechanic
+  is still pending (needs a do_gain spell-card refactor + a fight.c hook; see TODO).
+[Jun 13 2026] - Henque
   Implemented two spell-card-driven restricted cards. Quiver of Frustration (#86, item 65486):
   holds 10 arrows; the "loose" command (trigger 65486) spends one arrow and produces a Leave
   spell card (1014), independent of any Leave cards already in the binder. Clairvoyant Snake

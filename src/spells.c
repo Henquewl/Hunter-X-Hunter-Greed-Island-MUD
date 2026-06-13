@@ -651,7 +651,49 @@ ASPELL(spell_repair)
         act("$p was fully repaired!", FALSE, ch, obj, 0, TO_CHAR);	  
 	  }
 	  break;
-  }    
+  }
+}
+
+/* Staff of Judgment: a Nen calamity scaled by the alignment gap. The worse-
+ * aligned of caster and victim loses Nen (mana) equal to the alignment
+ * difference. A target more EVIL than the wielder suffers; pointed at someone
+ * MORE righteous than the wielder, the judgment rebounds onto the wielder (even
+ * if that target is not evil). Works on players and NPCs. */
+ASPELL(spell_judgment)
+{
+  struct char_data *loser;
+  int dmg;
+
+  if (victim == NULL || ch == NULL)
+    return;
+
+  if (GET_ALIGNMENT(victim) > GET_ALIGNMENT(ch)) {
+    loser = ch;
+    dmg = GET_ALIGNMENT(victim) - GET_ALIGNMENT(ch);
+    act("You raise $p toward $N, but your own deeds weigh heavier -- the judgment rebounds upon you!",
+        FALSE, ch, obj, victim, TO_CHAR);
+    act("$n raises $p toward $N, but the judgment rebounds upon $m!",
+        FALSE, ch, obj, victim, TO_ROOM);
+  } else if (GET_ALIGNMENT(victim) < 0) {
+    loser = victim;
+    dmg = GET_ALIGNMENT(ch) - GET_ALIGNMENT(victim);
+    act("You raise $p and judgment descends upon $N!", FALSE, ch, obj, victim, TO_CHAR);
+    act("$n raises $p and judgment crashes down upon you!", FALSE, ch, obj, victim, TO_VICT);
+    act("$n raises $p and judgment descends upon $N!", FALSE, ch, obj, victim, TO_NOTVICT);
+  } else {
+    act("You raise $p toward $N, but the staff finds nothing to judge.",
+        FALSE, ch, obj, victim, TO_CHAR);
+    return;
+  }
+
+  GET_MANA(loser) -= dmg;
+  if (GET_MANA(loser) < 0)
+    GET_MANA(loser) = 0;
+
+  if (loser == victim)
+    send_to_char(ch, "The judgment burns away %s Nen!\r\n", HSHR(victim));
+  else
+    send_to_char(ch, "The judgment burns away your Nen!\r\n");
 }
 
 /*ASPELL(spell_detect_poison)

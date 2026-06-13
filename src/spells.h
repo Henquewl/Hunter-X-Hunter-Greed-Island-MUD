@@ -99,8 +99,9 @@
 #define SPELL_REPAIR                 58
 #define SPELL_LOCATE_CARD            59
 #define SPELL_LUCK		             60
+#define SPELL_JUDGMENT               61
 /** Total Number of defined spells */
-#define NUM_SPELLS                   60
+#define NUM_SPELLS                   61
 
 /* Insert new spells here, up to MAX_SPELLS */
 #define MAX_SPELLS		    130
@@ -246,6 +247,7 @@ ASPELL(spell_recall);
 ASPELL(spell_teleport);
 ASPELL(spell_summon);
 ASPELL(spell_locate_card);
+ASPELL(spell_judgment);
 ASPELL(spell_locate_object);
 ASPELL(spell_charm);
 ASPELL(spell_information);

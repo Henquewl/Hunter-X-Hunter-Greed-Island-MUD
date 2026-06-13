@@ -93,10 +93,12 @@ implemented with existing mechanics:
 ### Remaining EFFECT work (cards are canon, but their effect isn't mechanically modeled yet)
 Most canon cards are life-sim/social/flavor with no existing mechanic, so they sit as canon
 collectibles (acceptable). Candidates that COULD be done later with existing patterns:
-- **Staff of Judgment (#82)** — DONE: held; `judge <name>` (command trigger 65382) compares
-  alignment and deals a generic "calamity" via `%damage%` (≈1/3 max-hp) to whoever has more
-  bad deeds — the target OR the wielder. (Generic calamity, not a spell-card reference.)
-  *Needs a live test — trigger logic only validates at runtime.*
+- **Staff of Judgment (#82)** — DONE (custom spell + wand): item 65482 is now an ITEM_WAND
+  (99 charges) that casts the new spell **SPELL_JUDGMENT (61)** (`spell_judgment` in spells.c,
+  registered in spell_parser.c). Effect: a Nen (mana) calamity equal to the |alignment gap|,
+  striking the worse-aligned party — the target if it is more EVIL than the wielder, or the
+  wielder if the target is more righteous (rebound). Works on players and non-protected NPCs.
+  `use staff <target>`. *Needs a live test.*
 
 - **Spell-card-driven weapons — DEFERRED (need a C primitive).** IMPORTANT: in restricted-card
   text, "spell" = a Greed Island **spell card** (`ITEM_SPELLCARD`, the 1000–1040 set in
@@ -115,11 +117,17 @@ collectibles (acceptable). Candidates that COULD be done later with existing pat
     (1015), unless the global limit is reached — checked with a NEW read-only DG field
     `%actor.cardcount(<vnum>)%` (returns `obj_index[].number`) added in dg_variables.c
     (trigger-evokes-code). *Needs live test (runtime-only logic).*
-  - **#88 Eternal Hammer — PENDING USER DECISION** (whether it should consume an attack spell
-    card from the wielder's binder or not). Plan: on hit, inflict a random attack spell-card
-    effect on the victim (immune if victim wears Paladin's Necklace 65484). This needs a C
-    primitive to apply/consume a spell-card effect from a weapon trigger. Currently a plain
-    wieldable weapon.
+  - **#88 Eternal Hammer — STATS DONE, on-hit mechanic PENDING.** Item 65488 is now a heavy
+    weapon: 1d4 damage, weight 10, −2 hitroll, −1 DEX. DECIDED (user): on a hit it should
+    CONSUME a random ATTACK spell card from the wielder's binder (3203) and inflict that card's
+    effect on the victim (caster = wielder, target = victim; immune if victim wears Paladin's
+    Necklace 65484). REMAINING WORK (C, risky): (1) define the "attack spell card" set — there
+    is no flag, so a vnum list is needed (candidates from obj/10.obj: Magnetic Force 1005,
+    Collision 1017, Drift 1016, Stone Throw 1028, Shot 1029 — confirm set); (2) refactor the
+    spell-card effect switch in do_gain() (act.item.c) into a callable
+    apply_spellcard(ch, vict, card) so combat can invoke it; (3) hook a successful hit in
+    fight.c when the wielded weapon is 65488, find+consume an attack card from the binder, and
+    call it. Do as a careful standalone pass (touches combat + the card system).
   - Also relevant: **#95 Secret Cape** approximates "Blackout Curtain" (1025) with
     AFF_INVISIBLE; revisit if the real Blackout Curtain effect differs.
 - **NPC/pet cards** (need new mobs): #47 Sleeping Girl, #48 Aromatherapy Girl, #49 Miniature

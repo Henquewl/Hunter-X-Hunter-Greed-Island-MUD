@@ -299,6 +299,7 @@ int call_magic(struct char_data *caster, struct char_data *cvict,
     case SPELL_REPAIR:		MANUAL_SPELL(spell_repair); break;
 	case SPELL_IDENTIFY:	MANUAL_SPELL(spell_identify); break;
 	case SPELL_LOCATE_CARD:   MANUAL_SPELL(spell_locate_card); break;
+    case SPELL_JUDGMENT:        MANUAL_SPELL(spell_judgment); break;
     case SPELL_LOCATE_OBJECT:   MANUAL_SPELL(spell_locate_object); break;
     case SPELL_SUMMON:		MANUAL_SPELL(spell_summon); break;
     case SPELL_WORD_OF_RECALL:  MANUAL_SPELL(spell_recall); break;
@@ -900,6 +901,10 @@ void mag_assign_spells(void)
 
   spello(SPELL_DISPEL_EVIL, "dispelevil", 5, 25, 3, POS_FIGHTING,
 	TAR_CHAR_ROOM | TAR_FIGHT_VICT, TRUE, MAG_DAMAGE,
+	NULL);
+
+  spello(SPELL_JUDGMENT, "judgment", 30, 15, 1, POS_FIGHTING,
+	TAR_CHAR_ROOM | TAR_FIGHT_VICT, TRUE, MAG_MANUAL,
 	NULL);
 
   spello(SPELL_DISPEL_GOOD, "dispelgood", 5, 25, 3, POS_FIGHTING,

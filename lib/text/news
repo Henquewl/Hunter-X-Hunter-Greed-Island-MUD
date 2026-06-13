@@ -15,8 +15,9 @@ JUN 13 **
   Cape to vanish, drink the Witch's potions (Love, Rejuvenation, Diet) or the Doyen's
   remedies, choke down the Mad Scientist's Steroids for a burst of strength, spray the Mad
   Scientist's Pheromones, and the Gold Dust Girl card summons her.
-- Hold the Staff of Judgment and "judge <name>" -- calamity falls on whichever of you has
-  the darker deeds, so judge carefully.
+- The Staff of Judgment is now a wand: "use staff <target>" (a player or NPC) and a Nen
+  calamity scaled by the gap in your alignments strikes whoever has the darker deeds -- the
+  target if it is more evil than you, or YOU if it is more righteous. Aim it carefully.
 - The Quiver of Frustration comes with 10 arrows: "loose" one to draw a Leave spell card,
   again and again until the arrows run out.
 - The Clairvoyant Snake card now summons a little snake that follows you around. "feed" it
