@@ -1019,6 +1019,75 @@ static int compute_thaco(struct char_data *ch, struct char_data *victim)
   return calc_thaco;
 }
 
+/* Eternal Hammer (item 65488): on a successful PvP hit, draw a random ATTACK
+ * spell card (canon class "AS") from the wielder's binder (3203) and cast it at
+ * the victim by reusing the normal spell-card cast path -- hold the card, ensure
+ * the book is active, and run "gain <victim>".  The card's own command trigger
+ * applies the effect and consumes the card.  AS effects act on a player's
+ * binder, so this only does anything against PCs; a victim wearing the Paladin's
+ * Necklace (65484) is immune, and the wielder needs a free hold-hand. */
+static void eternal_hammer_proc(struct char_data *ch, struct char_data *victim)
+{
+  static const obj_vnum as_cards[] =
+    {1006, 1007, 1008, 1021, 1022, 1023, 1027, 1028, 1029, 1033};
+  struct obj_data *binder = NULL, *o, *card = NULL;
+  int i, n = 0, pick, c = 0;
+  char buf[MAX_INPUT_LENGTH];
+  bool had_book, is_as;
+
+  if (IS_NPC(ch) || victim == NULL || IS_NPC(victim) || ch == victim)
+    return;                            /* AS spell-card effects are PvP only */
+  if (GET_POS(victim) <= POS_DEAD)
+    return;
+  if (!GET_EQ(ch, WEAR_WIELD) || GET_OBJ_VNUM(GET_EQ(ch, WEAR_WIELD)) != 65488)
+    return;                            /* must be wielding the Eternal Hammer */
+  if (GET_EQ(ch, WEAR_HOLD))
+    return;                            /* need a free hand to draw the card */
+  if ((GET_EQ(victim, WEAR_NECK_1) && GET_OBJ_VNUM(GET_EQ(victim, WEAR_NECK_1)) == 65484) ||
+      (GET_EQ(victim, WEAR_NECK_2) && GET_OBJ_VNUM(GET_EQ(victim, WEAR_NECK_2)) == 65484))
+    return;                            /* Paladin's Necklace makes the victim immune */
+
+  for (o = ch->carrying; o; o = o->next_content)
+    if (GET_OBJ_VNUM(o) == 3203) { binder = o; break; }
+  if (!binder)
+    return;
+
+  for (o = binder->contains; o; o = o->next_content) {
+    is_as = FALSE;
+    for (i = 0; i < 10; i++)
+      if (GET_OBJ_VNUM(o) == as_cards[i]) { is_as = TRUE; break; }
+    if (is_as)
+      n++;
+  }
+  if (n == 0)
+    return;
+
+  pick = rand_number(1, n);
+  for (o = binder->contains; o; o = o->next_content) {
+    is_as = FALSE;
+    for (i = 0; i < 10; i++)
+      if (GET_OBJ_VNUM(o) == as_cards[i]) { is_as = TRUE; break; }
+    if (is_as && ++c == pick) { card = o; break; }
+  }
+  if (!card)
+    return;
+
+  /* draw the card into hand and cast it at the victim via the normal path */
+  obj_from_obj(card);
+  obj_to_char(card, ch);
+  equip_char(ch, card, WEAR_HOLD);
+
+  had_book = PLR_FLAGGED(ch, PLR_BOOK);
+  if (!had_book)
+    SET_BIT_AR(PLR_FLAGS(ch), PLR_BOOK);
+
+  snprintf(buf, sizeof(buf), "gain %s", GET_NAME(victim));
+  command_interpreter(ch, buf);
+
+  if (!had_book)
+    REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_BOOK);
+}
+
 void hit(struct char_data *ch, struct char_data *victim, int type)
 {
   struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
@@ -1228,7 +1297,9 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
 	  damage(ch, victim, dam, w_type);
 	  damage(ch, victim, dam, w_type);
 	} else */
-    damage(ch, victim, dam, w_type);    
+    damage(ch, victim, dam, w_type);
+    if (FIGHTING(ch) == victim)      /* victim survived this hit */
+      eternal_hammer_proc(ch, victim);
   }
    if (!IS_NPC(ch)) {
 	if (!GET_SKILL(ch, SKILL_BAREHANDED_EXPERT) || (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON))

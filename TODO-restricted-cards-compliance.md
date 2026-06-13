@@ -131,14 +131,16 @@ collectibles (acceptable). Candidates that COULD be done later with existing pat
     + book and typing `gain <player>`; they **target players** via get_player_vis and
     manipulate the victim's binder (steal/destroy/track cards). So the Hammer affliction is
     inherently a **PvP** mechanic (AS effects are meaningless vs NPCs — no binder).
-    APPROACH OPTIONS for the on-hit cast (pick one):
-    (a) C hook in fight.c on a hit with weapon 65488: pick a random AS card from the wielder's
-        binder (3203), and if the victim is a PC, simulate the cast (move card to hold, ensure
-        PLR_BOOK, command_interpreter(wielder, "gain <victim>")) so the card's existing `ga`
-        trigger fires; the cast consumes the card. Reuses existing effects; PvP-only.
-    (b) Reimplement the AS effects directly in C in the combat hook (duplicates ~10 binder
-        ops). More work, but not dependent on the command path.
-    Needs a design decision before building (touches combat + card/binder + DG).
+    DONE (approach a). `eternal_hammer_proc()` in fight.c, called from hit() after a successful
+    hit (guarded by FIGHTING(ch)==victim). On a PvP hit while wielding 65488 with a free
+    hold-hand and an AS card in the binder, it draws a random AS card, equips it, ensures
+    PLR_BOOK, and runs `command_interpreter(ch, "gain <victim>")` so the card's own `ga`
+    command trigger fires, applies the effect, and consumes the card. PvP-only (AS effects need
+    a PC binder); victim wearing Paladin's Necklace 65484 is immune; the held card lingers ~1s
+    (the trigger's wait) which naturally rate-limits to ~1 proc/sec. **NEEDS A PvP LIVE TEST**
+    (combat + command-interpreter re-entrancy + the async trigger can't be boot-verified).
+    Known limitations: the wielder must have a free WEAR_HOLD; if a cast somehow fails the drawn
+    card stays in hand instead of returning to the binder.
   - Also relevant: **#95 Secret Cape** approximates "Blackout Curtain" (1025) with
     AFF_INVISIBLE; revisit if the real Blackout Curtain effect differs.
 - **NPC/pet cards** (need new mobs): #47 Sleeping Girl, #48 Aromatherapy Girl, #49 Miniature
