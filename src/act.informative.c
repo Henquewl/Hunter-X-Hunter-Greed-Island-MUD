@@ -399,14 +399,27 @@ static void diag_char_to_char(struct char_data *i, struct char_data *ch)
     send_to_char(ch, "%c%s%s%s %s\r\n", UPPER(*pers), pers + 1, *GET_TITLE(i) ? " " : "", GET_TITLE(i), diagnosis[ar_index].text);
 }
 
+/* Relative Nen power of `target` vs `self`: 0 = weak, 1 = equal, 2 = strong.
+   Symmetric +/-25% band. Caller handles the "faint" case separately. */
+int nen_power_rating(struct char_data *self, struct char_data *target)
+{
+  int percent;
+
+  if (GET_HIT(self) <= 0)              /* guard against divide by zero */
+    return 1;                          /* equal */
+  percent = (100 * GET_HIT(target)) / GET_HIT(self);
+  if (percent >= 125) return 2;        /* strong */
+  if (percent <= 75)  return 0;        /* weak  */
+  return 1;                            /* equal */
+}
+
 void powerlevel(struct char_data *i, struct char_data *ch)
-{  
+{
   char *align, buf[MAX_INPUT_LENGTH];
-  int chance, prob, percent;  
-  
-  chance = rand_number(1, 100);
+  int prob, percent;
+
   prob = GET_SKILL(ch, SKILL_ANALYSIS);
-  
+
   if (prob)
 	pracskill(ch, SKILL_ANALYSIS, 10);
   
@@ -429,16 +442,16 @@ void powerlevel(struct char_data *i, struct char_data *ch)
 	
   if (AFF_FLAGGED(ch, AFF_DETECT_POISON) && AFF_FLAGGED(i, AFF_POISON))
     snprintf(buf, sizeof(buf), "%s(%s%s%s)%s", AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", BGRN, printfcomma(GET_HIT(i)), AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", AFF_FLAGGED(i, AFF_INVISIBLE) ? "\tD" : "\ty");
-  else if ((100 * GET_HIT(i)) / GET_HIT(ch) >= 150)
+  else if ((100 * GET_HIT(i)) / GET_HIT(ch) >= 125)
 	snprintf(buf, sizeof(buf), "%s(%s%s%s)%s", AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", BRED, printfcomma(GET_HIT(i)), AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", AFF_FLAGGED(i, AFF_INVISIBLE) ? "\tD" : "\ty");
-  else if ((100 * GET_HIT(i)) / GET_HIT(ch) <= 50)
+  else if ((100 * GET_HIT(i)) / GET_HIT(ch) <= 75)
 	snprintf(buf, sizeof(buf), "%s(%s%s%s)%s", AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", KYEL, printfcomma(GET_HIT(i)), AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", AFF_FLAGGED(i, AFF_INVISIBLE) ? "\tD" : "\ty");	
   else
 	snprintf(buf, sizeof(buf), "%s(%s%s%s)%s", AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", BBLU, printfcomma(GET_HIT(i)), AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", AFF_FLAGGED(i, AFF_INVISIBLE) ? "\tD" : "\ty");
   
   if ((IS_NPC(i) && !MOB_FLAGGED(i, MOB_NOKILL) && GET_MOB_SPEC(i) != shop_keeper) || (!IS_NPC(i) && GET_LEVEL(i) > 1)) {
-    if (chance > prob)
-      send_to_char(ch, "%s ", percent >= 150 ? "\tn(\tRstrong\tn)\ty" : (percent >= 50 ? "\tn(\tBequal\tn)\ty" : (percent >= 0 ? "\tn(\tyweak\tn)\ty" : "\tn(\trfaint\tn)\ty")));
+    if (prob < 100)
+      send_to_char(ch, "%s ", percent < 0 ? "\tn(\trfaint\tn)\ty" : (nen_power_rating(ch, i) == 2 ? "\tn(\tRstrong\tn)\ty" : (nen_power_rating(ch, i) == 0 ? "\tn(\tyweak\tn)\ty" : "\tn(\tBequal\tn)\ty")));
     else
 	  send_to_char(ch, "%s ", buf);
   } else if (!IS_NPC(i) && GET_LEVEL(i) <= 1)

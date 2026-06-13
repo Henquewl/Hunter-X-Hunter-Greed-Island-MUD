@@ -580,8 +580,10 @@ void power_update(void)
   
   if (PLR_FLAGGED(i, PLR_POWERUP) || MOB_FLAGGED(i, MOB_POWERUP)) {  
     if (percent > prob){
-	  send_to_char(i, "You lost your concentration!\r\n");	
-    } else {  
+	  send_to_char(i, "You lost your concentration!\r\n");
+	  /* A failed power up still burns a little stamina (1% of max, min 1). */
+	  GET_MANA(i) = MAX(0, GET_MANA(i) - MAX(1, GET_MAX_MANA(i) / 100));
+    } else {
     if ((GET_HIT(i) + power) >= GET_TOTAL_HIT(i)) {
 	  GET_HIT(i) = GET_TOTAL_HIT(i);
       send_to_char(i, "You reached your maximum power!\r\n");
@@ -595,16 +597,17 @@ void power_update(void)
     send_to_char(i, "A strong aura flows all over your body.\r\n");
 	act("A strong aura flows all over $n body.", TRUE, i, 0, 0, TO_ROOM);
     }  
-    if (!IS_NPC(i) || (IS_NPC(i) && GET_POS(i) == POS_FIGHTING))  
-      GET_MANA(i) = (GET_MANA(i) - 5);
+    if (!IS_NPC(i) || (IS_NPC(i) && GET_POS(i) == POS_FIGHTING))
+      GET_MANA(i) = MAX(0, GET_MANA(i) - 5);
     }
-  }  
+  }
    else if (PLR_FLAGGED(i, PLR_POWERDOWN)) {
+	/* Power down never costs stamina, regardless of the outcome. */
 	if (percent > prob){
-	send_to_char(i, "You lost your concentration!\r\n");	
+	send_to_char(i, "You lost your concentration!\r\n");
     } else {
 	if (GET_HIT(i) > 5)
-	    GET_HIT(i) -= power;	  
+	    GET_HIT(i) -= power;
       if (GET_HIT(i) <= 5) {
 	    GET_HIT(i) = 5;
 		send_to_char(i, "You reached your minimum power.\r\n");
@@ -617,9 +620,12 @@ void power_update(void)
 	  if (((rand_number(0, 100) + wis_app[GET_WIS(i)].bonus) >= 90) && GET_LEVEL(i) < 7) {
 	    gain_exp(i, (GET_TOTAL_HIT(i) / 100));
       }
-    }	  
-   }	 	    
-  } // end of for	
+    }
+   }
+  /* Re-evaluate position after draining stamina so an exhausted character
+     drops unconscious immediately and stops powering up this same pass. */
+  update_pos(i);
+  } // end of for
 }
 
 void second_update(void)

@@ -199,6 +199,18 @@ E
 sick villagers card~
 These villagers are very sick.
 ~
+#40098
+galgaida fish card~
+@y1217 Galgaida F-185 card@n~
+A @y1217 Galgaida F-185 card@g is lying here.@n~
+~
+24 adr 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 2060 40198 0 62
+E
+galgaida fish card~
+A fresh giant fish, looks delicious.
+~
 #40099
 rock card~
 @y21449 Rock H-0 card@n~

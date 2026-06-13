@@ -508,7 +508,7 @@ if %actor.pos% == SITTING && %actor.is_pc%
     shake %actor.name%
     wait 2 sec
     say Congratulations! Here, takes this card as prize.
-    %load% obj 1217 %self% card
+    %load% obj 40098 %self% card
     give card %actor.name%
     detach 12037 %self.id%
   else

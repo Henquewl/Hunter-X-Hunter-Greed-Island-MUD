@@ -7,6 +7,24 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 
 > 2026 <
 
+JUN 12 **
+- Powering up no longer continues while you are unconscious: your stamina now
+  stops at zero instead of going negative, and you drop stunned the moment it
+  runs out.
+- The weak/equal/strong reading on an opponent is now consistent whether you
+  look at them in the room or once the fight begins (it used to disagree). With
+  Analysis maxed you now read exact numbers both on look and in combat.
+- The eating challenge at the cat diner's restaurant in Antokiba now actually
+  hands over the Galgaida card when you clear it.
+- Losing concentration during a power up now drains a bit of stamina (it used
+  to fail for free).
+- New players now start with the Corruption and Compromise spell cards as well,
+  completing the starter spell card set.
+- Picking up an ordinary item no longer turns it into a card automatically. Only
+  restricted-card items still register by themselves. To turn an ordinary item
+  into a card, use the new "change" command (example: change sword). Use "gain"
+  to turn a card back into an item, as before.
+
 MAY 21 **
 - Fixed a SYSERR at boot caused by item #65462 (the "club") having its current
   charges exceeding its maximum charges.

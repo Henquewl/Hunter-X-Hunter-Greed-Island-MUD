@@ -291,7 +291,7 @@ nod %actor.name%
 wait 2 sec
 say In this game there are some magic words that everyone can use as long as they wear the ring
 wait %timer% sec
-say It is "	YBook	n" and "	YGain	n", type one of these magic words while wearing your ring
+say It is "	YBook	n" and "	YGain	n" and "	YChange	n", type one of these magic words while wearing your ring
 wait %timer% sec
 say To clear the game you must collect 100 different 	mrestricted cards	n inside your binder.
 wait %timer% sec
@@ -299,7 +299,9 @@ say There is 100 	mrestricted 	nslots only for each cards numbered between 0 and
 wait %timer% sec
 say And more 45 un-restricted slots for 	yother 	ncards and 	Bspell 	ncards.
 wait %timer% sec 
-say If you 	Yget an item, this item will change it into the 	ycard	n.
+say If you 	Yget an item that is a 	mrestricted card	n, it turns into the 	ycard	n automatically.
+wait %timer% sec
+say But 	ycommon items	n do NOT - to turn an item into a card you must use "	YChange	n" (example: change sword).
 wait %timer% sec
 say To transform that card again you must use 	Ygain 	nto transform it back to an item.
 wait %timer% sec
@@ -682,6 +684,8 @@ if %direction% == down
     %load% obj 1019 %self% inv
     %load% obj 1020 %self% inv
     %load% obj 1021 %self% inv
+    %load% obj 1022 %self% inv
+    %load% obj 1023 %self% inv
     %load% obj 1024 %self% inv
     %load% obj 1025 %self% inv
     %load% obj 1026 %self% inv
@@ -827,6 +831,8 @@ if !%actor.inventory(3203)%
   %load% obj 1019 %self% inv
   %load% obj 1020 %self% inv
   %load% obj 1021 %self% inv
+  %load% obj 1022 %self% inv
+  %load% obj 1023 %self% inv
   %load% obj 1024 %self% inv
   %load% obj 1025 %self% inv
   %load% obj 1026 %self% inv
@@ -1366,6 +1372,8 @@ if %direction% == south && %actor.is_pc%
     %load% obj 1019 %self% inv
     %load% obj 1020 %self% inv
     %load% obj 1021 %self% inv
+    %load% obj 1022 %self% inv
+    %load% obj 1023 %self% inv
     %load% obj 1024 %self% inv
     %load% obj 1025 %self% inv
     %load% obj 1026 %self% inv
@@ -1420,7 +1428,7 @@ nod %actor.name%
 wait 2 sec
 say In this game there are some magic words that everyone can use as long as they wear the ring
 wait %timer% sec
-say It is "	YBook	n" and "	YGain	n", type one of these magic words while wearing your ring
+say It is "	YBook	n" and "	YGain	n" and "	YChange	n", type one of these magic words while wearing your ring
 wait %timer% sec
 say To clear the game you must collect 100 different 	mrestricted cards	n inside your binder.
 wait %timer% sec
@@ -1428,7 +1436,9 @@ say There is 100 	mrestricted 	nslots only for each cards numbered between 0 and
 wait %timer% sec
 say And more 45 un-restricted slots for 	yother 	ncards and 	Bspell 	ncards.
 wait %timer% sec 
-say If you 	Yget an item, this item will change it into the 	ycard	n.
+say If you 	Yget an item that is a 	mrestricted card	n, it turns into the 	ycard	n automatically.
+wait %timer% sec
+say But 	ycommon items	n do NOT - to turn an item into a card you must use "	YChange	n" (example: change sword).
 wait %timer% sec
 say To transform that card again you must use 	Ygain 	nto transform it back to an item.
 wait %timer% sec

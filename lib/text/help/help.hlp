@@ -904,7 +904,7 @@ AUTOQUESTS QUESTS QUESTMASTERS QUEST-MOBS QUESTMOBS
 
    An autoquest is a quest that can be automatically started and completed 
 without the intervention of an immortal.  Simply visit a questmaster and join 
-an available quest, and get rewarded on it’s completion. Keep an eye out for
+an available quest, and get rewarded on itï¿½s completion. Keep an eye out for
 autoquests scattered throughout the World.
 
 See Also: QUEST-FLAG, QUESTPOINTS
@@ -914,7 +914,7 @@ AUTOQUESTS QUESTS QUESTMASTERS QUESTPOINTS QUEST-POINTS QUEST-MOBS QUESTMOBS
    An autoquest is a quest that can be automatically started and completed by 
 players on the MUD without the intervention of an immortal.  Players simply 
 visit a questmaster where they join an available quest, and get rewarded on 
-it’s completion.
+itï¿½s completion.
 
 See Also: QEDIT, QUEST-FLAG
 #31
@@ -1480,6 +1480,10 @@ For example: @y99999 Example2 H-0 card@n
 "Yellow" color means it is a un-restricted card, has no imposed slots for these cards in your book.
 "0" means it has a unlimited number of existent copies of this object in world.
 
+Ordinary items become cards only when you use the @YCHANGE@n command (example: change
+sword) - picking them up no longer converts them. @mRestricted@n items still register
+into your binder automatically. Use @YGAIN@n to turn a card back into its item form.
+
 Spell cards use gain as well, but instead of turning on an item it cast a spell on a target.
 
 For example: @B9999 Example3 B-30 card@n
@@ -1490,19 +1494,19 @@ Try "look" to your spell card to know what does before use it.
 
 In spell cards descriptions has some type classes that are described by these:
 
-Short Range       (@GSR@n) ¦ Usually applies to the user's room.
-Long Range        (@GLR@n) ¦ Effect applies to short or long distances.
-Regular Spell     (@GRS@n) ¦ A spell that has a instant-constant effect.
-Attack Spell      (@GAS@n) ¦ A spell that effects another player.
-Defensive Spell   (@GDS@n) ¦ A spell that is applied to the user.
-Anti-Attack Spell (@GAA@n) ¦ A spell to prevent the use of Attack skills.
-Continuous Spell   (@GC@n) ¦ A spell that works actively (until destroyed).
-Versus Spell      (@GVS@n) ¦ A spell that counters another.
-Special Spell      (@GS@n) ¦ A spell card can affect multiple targets in the room.
+Short Range       (@GSR@n) ï¿½ Usually applies to the user's room.
+Long Range        (@GLR@n) ï¿½ Effect applies to short or long distances.
+Regular Spell     (@GRS@n) ï¿½ A spell that has a instant-constant effect.
+Attack Spell      (@GAS@n) ï¿½ A spell that effects another player.
+Defensive Spell   (@GDS@n) ï¿½ A spell that is applied to the user.
+Anti-Attack Spell (@GAA@n) ï¿½ A spell to prevent the use of Attack skills.
+Continuous Spell   (@GC@n) ï¿½ A spell that works actively (until destroyed).
+Versus Spell      (@GVS@n) ï¿½ A spell that counters another.
+Special Spell      (@GS@n) ï¿½ A spell card can affect multiple targets in the room.
 
 Who got all 100 different @mrestricted cards@n in the binders will beat the game.
 
-See Also: RARITY, GAIN, BOOK, NEWBIE
+See Also: RARITY, GAIN, CHANGE, BOOK, NEWBIE
 #0
 CARTOGRAPHY
 
@@ -1700,12 +1704,19 @@ That is what you will find here at Greed Island.
 #0
 CHANGE
 
-This skills allows the manipulator to change place with a nen beast or
-clone, even if both is not in the same room.
-If used while in combat, the nen beast or clone changed will assume
-your place of the combat, like a reversed rescue skill.
+@cUsage: @Ychange @c<@Yitem@c>@Y      @n(turn an item into a card)@Y
+       change all.@c<@Yitem@c>@n
 
-See Also: RECALL, RESCUE, NEN-BEAST, CLONE, DIMENSIONAL-HOLE
+   This command is used to transform an ITEM into a card. The item must be
+@Gheld@n or carried in your inventory. Ordinary items become cards ONLY when
+you @Ychange@n them - picking them up no longer converts them automatically.
+Items that are @mrestricted cards@n, however, still register into your binder
+automatically the moment you acquire them.
+
+   To turn a card back into its item form, use @YGAIN@n instead. Spell cards are
+not changed; they are cast with @YGAIN@n while your book is active.
+
+See Also: GAIN, CARDS, BOOK, NEWBIE
 #0
 CHANGELOG
 
@@ -3738,7 +3749,10 @@ or gone forever. This "auto gain" can happens between 1 or 2 minutes, for that
 reason if you want keep your cards safe, keep it into your binders to avoid people
 steal your cards with their skilled hands.
 
-See Also: CARDS, BOOK, NEWBIE
+@cNote:@n picking up an ordinary item no longer turns it into a card by itself - use
+the @YCHANGE@n command for that. Only @mrestricted card@n items still convert on pickup.
+
+See Also: CARDS, CHANGE, BOOK, NEWBIE
 #0
 GAMBLING SLOTMACHINES GAMBLE GAMES 
 
@@ -7858,7 +7872,7 @@ prefer to add the quest in the zone where quest completion takes place.
 Quests use vnums in exactly the same way as mobiles, object and rooms.  Each 
 zone will normally have 100 vnums available (#00 to #99, where # is the zone 
 number).  Usually, when creating the first quest in a zone, #00 is used, 
-then #01, etc…
+then #01, etcï¿½
 
 When you qedit <vnum> to create a new quest (or edit an existing one), you will 
 see the menu in @RHELP QEDIT-MENU@n
@@ -7869,12 +7883,12 @@ QEDIT-ACCEPT
 
     This is the text that is sent to the player when they start the quest.  It 
 should describe in detail exactly what is required to complete the quest.  The 
-text is simply output on the player’s screen, so be creative here.  An example 
+text is simply output on the playerï¿½s screen, so be creative here.  An example 
 of an accept message text could be something like:
 
 The questmaster rummages in a large pile of papers.
-The questmaster says ‘Ah, here it is’
-The questmaster says ‘Bob, the local butcher has offered this quest’
+The questmaster says ï¿½Ah, here it isï¿½
+The questmaster says ï¿½Bob, the local butcher has offered this questï¿½
 The questmaster shows you a hastily scrawled note, that reads:
 
 I am willing to offer any plucky adventurer 10 quest points if they bring me a 
@@ -7884,7 +7898,7 @@ order to fill.  I need these within 24 hours
 
 Thanks, Bob the Butcher, Midgaard
 The questmaster sighs.
-The questmaster says ‘A tricky quest, but it’ll cost you 5qp to back out now’
+The questmaster says ï¿½A tricky quest, but itï¿½ll cost you 5qp to back out nowï¿½
 #31
 QEDIT-COMPLETED QEDIT-ABANDONED
 
@@ -7898,7 +7912,7 @@ all timed quests.
 QEDIT-COMPLETION
 
    Just like the accept message, this is simply text that is output on the 
-player’s screen when they successfully complete the quest.  Prizes (quest 
+playerï¿½s screen when they successfully complete the quest.  Prizes (quest 
 points, Jenny, experience points or an object) are automatically 
 announced after this text is shown, so this text does not need to have that 
 information in it.
@@ -7924,7 +7938,7 @@ Quest flags: @cNOBITS@n
 Enter quest flags, 0 to quit :
 
    Currently, only one flag is available, the REPEATABLE flag.  When you have 
-finished turning this on or off, select ‘0’ (zero) to return to the main menu.
+finished turning this on or off, select ï¿½0ï¿½ (zero) to return to the main menu.
 #31
 QEDIT-LEVELS
 
@@ -7978,12 +7992,12 @@ QEDIT-NEXT
 
    This is the quest vnum of next quest in a chain.  When a player completes 
 the current quest, the next quest will automatically be joined.  This allows 
-for long quests with a number of ‘steps’.
+for long quests with a number of ï¿½stepsï¿½.
 #31
 QEDIT-PREREQUISITE
 
    This is the object vnum for a prerequisite object. The prerequisite object 
-should be in the player’s inventory in order for them to be able to join the 
+should be in the playerï¿½s inventory in order for them to be able to join the 
 quest.  It is not taken from the player when the quest starts.
 #31
 QEDIT-PREVIOUS
@@ -7994,15 +8008,15 @@ completed by the player in order to join this quest.
 QEDIT-QUANTITY
 
    This is the number of times the player needs to repeat the quest.  For 
-example, it could be the number of items the player needs to find in a ‘object’
-quest of the number of mobs the player should kill in a ‘kill mob’ quest.  This
-should be used with caution, however. In an object quest ‘picking up’ the same
+example, it could be the number of items the player needs to find in a ï¿½objectï¿½
+quest of the number of mobs the player should kill in a ï¿½kill mobï¿½ quest.  This
+should be used with caution, however. In an object quest ï¿½picking upï¿½ the same
 object 20 times will also complete the quest.
 #31
 QEDIT-QUIT QEDIT-MESSAGE
 
    The quit message is sent to the player when they type quest leave.  Players 
-can lose quest points for abandoning a quest (see “Abandoned” on the next 
+can lose quest points for abandoning a quest (see ï¿½Abandonedï¿½ on the next 
 page), so if they lose quest points, this text really should inform them of 
 that.
 #31
@@ -8031,14 +8045,14 @@ Room, Clear Room             - Room VNUM
 #31
 QEDIT-TIME
 
-   This is the number of ‘ticks’ or game hours that the player has to complete 
+   This is the number of ï¿½ticksï¿½ or game hours that the player has to complete 
 the quest.  If this is set, then the builder should really try to do the quest 
-themselves, and time how long it takes (typing ‘time’ before and after the 
-attempt), and then giving at least one extra ‘tick’ for players to complete it.
+themselves, and time how long it takes (typing ï¿½timeï¿½ before and after the 
+attempt), and then giving at least one extra ï¿½tickï¿½ for players to complete it.
 #31
 QEDIT-TYPE
 
-   There are a few different quest types.  When you select option ‘7’ from the 
+   There are a few different quest types.  When you select option ï¿½7ï¿½ from the 
 main menu, you will be shown a list to choose from:
 
 0) Object         - Player needs to find a particular object.
@@ -8113,7 +8127,7 @@ Usage: quest [list | join <#> | progress | leave | history]
 
 quest          - Show usage information for the quest command.
 quest list     - Used at the questmaster to see which quests are available.
-quest join #   - Used to the questmaster to join the quest listed as number ‘nn’ on quest list.
+quest join #   - Used to the questmaster to join the quest listed as number ï¿½nnï¿½ on quest list.
 quest progress - Shows the player which quest they are doing, and their quest progress.
 quest leave    - Allows the player to abandon the current quest, taking the quest point penalty.
 quest history  - Shows all previously completed non-repeatable quests.
@@ -10157,7 +10171,7 @@ and simply bearing artistic merit. Second, by ensuring that they are absolutely
 necessary to achieve the goals of the game! If your game is made for experience
 and equipment gathering, and failure to read descriptions directly impedes this
 goal, then players will learn to read everything. If your game is made for 
-exploring or role-play, most of your players probably already read them Â- 
+exploring or role-play, most of your players probably already read them ï¿½- 
 because knowing their environment is a basic requirement of play. In any case, 
 builders exist to ensure that the goals of play are supported by game 
 descriptions.
@@ -10169,7 +10183,7 @@ meaning behind descriptions, areas to find, special items, unique nooks and
 crannies to spend time socializing, and hints that point to these things 
 elsewhere outside of your own zone is an excellent idea. In fact, if you 
 don't wish to be building descriptions no one will read, you should employ 
-special secrets Â- most especially on games where knowing one's environment 
+special secrets ï¿½- most especially on games where knowing one's environment 
 does deeply affect a character's development. No matter what kind of zone you
 are building, keep it interesting throughout!
 
@@ -10192,7 +10206,7 @@ road.
    shouldn't be the sole builder of your zone. Instead, seek the assistance of 
    someone who adds creative merit to your descriptions. You can do practically
    everything from plot to secrets to minutiae, even write the zone in full and
-   just ask someone you know who writes well to Â'say it better' and rewrite 
+   just ask someone you know who writes well to ï¿½'say it better' and rewrite 
    what you intended to have there all along. Novels have editors, and so 
    should any zone.
 

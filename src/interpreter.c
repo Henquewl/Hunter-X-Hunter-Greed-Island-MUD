@@ -130,6 +130,7 @@ cpp_extern const struct command_info cmd_info[] = {
 //  { "cast"     , "c"       , POS_SITTING , do_cast     , 1, 0 },
   { "calculate", "calc"    , POS_DEAD    , do_calculate, LVL_GOD, 0 },
   { "cedit"    , "cedit"   , POS_DEAD    , do_oasis_cedit, LVL_IMPL, 0 },
+  { "change"   , "change"  , POS_RESTING , do_change   , 0, 0 },
   { "changelog", "cha"     , POS_DEAD    , do_changelog, LVL_IMPL, 0 },
   { "cards"    , "ca"      , POS_RESTING , do_cards    , 1, SCMD_CARDS },
   { "check"    , "ch"      , POS_STANDING, do_not_here , 1, 0 },

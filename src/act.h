@@ -62,6 +62,8 @@ void free_history(struct char_data *ch, int type);
 void free_recent_players(void);
 /** Show target powerlevel to char */
 void powerlevel(struct char_data *i, struct char_data *ch);
+/** Relative Nen power of target vs self: 0 = weak, 1 = equal, 2 = strong */
+int nen_power_rating(struct char_data *self, struct char_data *target);
 int cmet_check(zone_rnum zrnum, struct char_data *ch);
 int pmet_check(struct char_data *ch, struct char_data *tch);
 /** do_look, do_inventory utility functions */
@@ -152,6 +154,7 @@ ACMD(do_pour);
 /* functions without subcommands */
 ACMD(do_drink);
 ACMD(do_gain);
+ACMD(do_change);
 ACMD(do_get);
 ACMD(do_give);
 ACMD(do_grab);

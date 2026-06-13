@@ -25,7 +25,7 @@
  * works correctly with C compilers (at least in my Experience)
  * Jeremy Osborne 1/28/2008 */
 #ifndef MUD_VERSION
-#define MUD_VERSION "0.90"
+#define MUD_VERSION "0.91"
 #endif
 cpp_extern const char *tbamud_version = "Greed Island " MUD_VERSION;
 

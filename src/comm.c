@@ -1215,13 +1215,18 @@ static char *make_prompt(struct descriptor_data *d)
 /*		if (GET_LEVEL(d->character) >= 9) {
 		  count = snprintf(prompt + len, sizeof(prompt) - len, "vs. <%s%d%%%s> <%s%d%s> ", BBLU, ((GET_MANA(FIGHTING(d->character)) * 100) / GET_MAX_MANA(FIGHTING(d->character))), CNRM, CLASS_COLOR(FIGHTING(d->character)), GET_HIT(FIGHTING(d->character)), CNRM);
 */		} else {
-		  if ((100 * GET_HIT(FIGHTING(d->character))) / GET_HIT(d->character) >= 125)
+		  switch (nen_power_rating(d->character, FIGHTING(d->character))) {
+		  case 2:
 		    count = snprintf(prompt + len, sizeof(prompt) - len, "vs. <%sstrong%s> ", BRED, CNRM);
-	      else if ((100 * GET_HIT(FIGHTING(d->character))) / GET_HIT(d->character) <= 75)
+		    break;
+		  case 0:
 		    count = snprintf(prompt + len, sizeof(prompt) - len, "vs. <%sweak%s> ", KYEL, CNRM);
-	      else
-	        count = snprintf(prompt + len, sizeof(prompt) - len, "vs. <%sequal%s> ", BBLU, CNRM);	
-		}		  
+		    break;
+		  default:
+		    count = snprintf(prompt + len, sizeof(prompt) - len, "vs. <%sequal%s> ", BBLU, CNRM);
+		    break;
+		  }
+		}
         if (count >= 0)
           len += count;
 	  }

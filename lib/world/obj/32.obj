@@ -192,12 +192,13 @@ your binder, almost all spell cards is in there.
 Cards left out of the binder will expire after 1
 minute (auto-gain), remember that!
 Useful help files: type 	Yhelp 	B<	Ysubject	B>
-(	Ynewbie	B, 	Ybackground	B, 	Ycards	B, 	Ygain	B, 	Ybook	B, 	Ytoggle	B, 	Yinfo	B)
+(	Ynewbie	B, 	Ybackground	B, 	Ycards	B, 	Ygain	B, 	Ychange	B, 	Ybook	B, 	Ytoggle	B, 	Yinfo	B)
 The following commands explains how use book and cards.
 	W> 	Btype <	Ybook	B> and then <	Ylook in book	B>
 	W> 	Btype <	Yget leave book	B> and <	Yget dagger book	B>
 	W> 	Btype <	Ygain dagger	B> and then <	Ywield dagger	B>
 	W> 	Btype <	Ylook leave	B> and <	Yput leave book	B>	n
+	W> 	Bget an item in the world and type <	Ychange itemname	B> to turn it into a card	n
 TIP: You will find newbie zone to southwest.
 Going further also has a city and a nen master.
 TIP2: Use recall command if you get lost.

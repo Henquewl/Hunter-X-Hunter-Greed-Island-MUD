@@ -33,10 +33,12 @@ around and feel sorry for yourself, until someone comes by. Then, you can only
 hope that it's a benevolent person, rather than a greedy thief or a warrior
 lusting for blood.
 
-@RHow use cards - Book and Gain:@y
+@RHow use cards - Book, Gain and Change:@y
 
-To gain an item or a card you must hold/grab it, but you can't take it directly
-from you book/binder slots, in that case you must get cardname in book.
+To turn an ordinary item into a card use @Wchange@n (example: change sword); ordinary
+items no longer become cards just by picking them up. Use @Wgain@n to turn a card back
+into its item, or to cast a spell card. The item or card must be held/grabbed, but you
+can't take it directly from you book/binder slots, in that case you must get cardname in book.
 To check what cards you have in your card binders you must call your "book" and
 then look in book, with these you can store or use your cards and keep your
 hands free to stock more items, avoid steal skills and carry weight items.

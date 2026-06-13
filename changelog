@@ -7,6 +7,34 @@ https://github.com/tbamud/tbamud
 Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
+[Jun 12 2026] - Henque
+  Fix power up persisting while unconscious: floor the stamina (mana) drain at 0
+  in power_update() and call update_pos() right after, so an exhausted character
+  drops stunned and stops powering up in the same pass (no more negative stamina).
+  Fix weak/equal/strong rating differing between looking in the room and starting
+  a fight: extracted nen_power_rating() helper using a single +/-25% Nen ratio band
+  (strong >=125%, equal 76-124%, weak <=75%); now used by both powerlevel() and the
+  combat prompt. The "faint" tier stays exclusive to the look path.
+  Also aligned powerlevel()'s exact-number color thresholds to the same 125/75 band
+  and made the exact-number reveal deterministic (analysis == 100), matching the
+  combat prompt instead of the previous random skill roll on look.
+  Fix Antokiba restaurant (cat diner, mob 12036): completing the eating challenge
+  delivered nothing because trigger 12037 loaded obj #1217 (a plain food item with
+  no "card" keyword) so "give card" matched nothing. Recreated the deleted free card
+  #40098 ("1217 Galgaida F-185 card", transforms into physical #40198) and pointed
+  the trigger at it.
+  A failed power up now costs stamina too (1% of max stamina, minimum 1, floored at
+  0) instead of being free, so botched concentration attempts are no longer cost-less.
+  Add the Corruption (1022) and Compromise (1023) spell cards to the new-player
+  starter kit in all three kit blocks of trg/14.trg; they had been left out while
+  non-functional and now work, so new players receive the complete spell card set.
+  Restrict auto item->card transformation to restricted-card items only: ordinary
+  items no longer turn into cards on pickup/NPC-give/steal (gated by vnum > 65300
+  in perform_get_from_room/container, perform_give and do_steal). Added a new
+  command "change" (do_change) so players manually turn an ordinary item into a
+  card (ex: change sword); "gain" is unchanged. Updated Eta's tutorial (trg 14),
+  the notice sign (#3298), help (GAIN/CHANGE/CARDS) and the info screen. Documented
+  the full card system in CLAUDE.md. Bump VERSION to 0.91.
 [May 21 2026] - Henque
   Fix SYSERR: invalid vnums for all items in 653.obj/654.obj on zone reset;
   root cause: out-of-order vnums broke TbaMUD's binary search in real_object().

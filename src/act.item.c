@@ -370,8 +370,8 @@ static void perform_get_from_container(struct char_data *ch, struct obj_data *ob
       get_check_money(ch, obj);
 	  if (GET_OBJ_VNUM(cont) == 3203)
 		GET_OBJ_TIMER(obj) = 62;	  
-	  else if (obj && !IS_NPC(ch) && !IS_CARD(obj))
-	    make_card(ch, obj, TRUE);      
+	  else if (obj && !IS_NPC(ch) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) > 65300 && GET_OBJ_VNUM(obj) != 65535)
+	    make_card(ch, obj, TRUE);
     }
   }
 }
@@ -434,7 +434,7 @@ static int perform_get_from_room(struct char_data *ch, struct obj_data *obj)
     act("You get $p.", FALSE, ch, obj, 0, TO_CHAR);
     act("$n gets $p.", TRUE, ch, obj, 0, TO_ROOM);
     get_check_money(ch, obj);
-	if (obj && !IS_NPC(ch) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) != 65535)
+	if (obj && !IS_NPC(ch) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) > 65300 && GET_OBJ_VNUM(obj) != 65535)
 	    make_card(ch, obj, TRUE);
     return (1);
   }
@@ -1466,6 +1466,64 @@ ACMD(do_gain)
   }*/
 }
 
+/* Manually transform a held/named ITEM into a card. Common items no longer
+   convert automatically on pickup (only restricted-card items do), so this is
+   how a player banks an ordinary item as a card. Card->item stays on 'gain'. */
+ACMD(do_change)
+{
+  char arg[MAX_INPUT_LENGTH];
+  struct obj_data *obj, *next_obj, *held;
+  int dotmode, msg;
+
+  one_argument(argument, arg);
+
+  if (!(held = GET_EQ(ch, WEAR_HOLD)) && !*arg) {
+	send_to_char(ch, "You must hold or specify the item you want to change into a card.\r\n\tcSyntax: change \tYitem\tc OR change all.\tYitem\tn\r\n");
+	return;
+  }
+
+  if (!*arg) {
+	if (IS_CARD(held)) {
+	  send_to_char(ch, "%s is already a card. Use 'gain' to turn it back into an item.\r\n", held->short_description);
+	  return;
+	}
+	do_say(ch, "CHANGE!", cmd, 0);
+	msg = make_card(ch, held, TRUE);
+	if (!msg)
+	  send_to_char(ch, "Nothing happens with %s.\r\n", held->short_description);
+  } else {
+	dotmode = find_all_dots(arg);
+	if (dotmode == FIND_ALL)
+	  send_to_char(ch, "\tcSyntax: change all.\tYitem\tn\r\n");
+	else if (dotmode == FIND_ALLDOT) {
+	  if (!(obj = get_obj_in_list_vis(ch, arg, NULL, ch->carrying))) {
+		send_to_char(ch, "You don't seem to have any %ss.\r\n", arg);
+		return;
+	  }
+	  do_say(ch, "CHANGE!", cmd, 0);
+	  while (obj) {
+		next_obj = get_obj_in_list_vis(ch, arg, NULL, obj->next_content);
+		if (!IS_CARD(obj) && GET_OBJ_VNUM(obj) != 3203)
+		  make_card(ch, obj, TRUE);
+		obj = next_obj;
+	  }
+	} else {
+	  if (!(obj = get_obj_in_list_vis(ch, arg, NULL, ch->carrying)))
+		send_to_char(ch, "You don't seem to have %s %s.\r\n", AN(arg), arg);
+	  else if (GET_OBJ_VNUM(obj) == 3203)
+		send_to_char(ch, "You don't seem to have %s %s.\r\n", AN(arg), arg);
+	  else if (IS_CARD(obj))
+		send_to_char(ch, "%s is already a card. Use 'gain' to turn it back into an item.\r\n", obj->short_description);
+	  else {
+		do_say(ch, "CHANGE!", cmd, 0);
+		msg = make_card(ch, obj, TRUE);
+		if (!msg)
+		  send_to_char(ch, "Nothing happens with %s.\r\n", obj->short_description);
+	  }
+	}
+  }
+}
+
 int make_card(struct char_data *ch, struct obj_data *obj, bool show)
 {  
   struct obj_data *card, *rst;
@@ -1869,7 +1927,7 @@ static void perform_give(struct char_data *ch, struct char_data *vict, struct ob
 
   autoquest_trigger_check( ch, vict, obj, AQ_OBJ_RETURN);
   
-  if (IS_NPC(ch) && !IS_NPC(vict) && !IS_CARD(obj))
+  if (IS_NPC(ch) && !IS_NPC(vict) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) > 65300 && GET_OBJ_VNUM(obj) != 65535)
 	make_card(vict, obj, TRUE);
 }
 
