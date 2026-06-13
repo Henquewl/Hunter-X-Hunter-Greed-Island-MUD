@@ -1297,9 +1297,9 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
 	  damage(ch, victim, dam, w_type);
 	  damage(ch, victim, dam, w_type);
 	} else */
-    damage(ch, victim, dam, w_type);
-    if (FIGHTING(ch) == victim)      /* victim survived this hit */
-      eternal_hammer_proc(ch, victim);
+    if (damage(ch, victim, dam, w_type) == -1)
+      return;                        /* victim died and was extracted -- avoid use-after-free below */
+    eternal_hammer_proc(ch, victim); /* victim survived the blow */
   }
    if (!IS_NPC(ch)) {
 	if (!GET_SKILL(ch, SKILL_BAREHANDED_EXPERT) || (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON))

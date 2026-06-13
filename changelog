@@ -8,6 +8,13 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 13 2026] - Henque
+  Fix a use-after-free in fight.c hit(): the final damage() extracts (frees) the victim when
+  the blow is fatal and returns -1, but the code afterwards still referenced the victim
+  (IS_NPC(victim), hitprcnt_mtrigger(victim)). hit() now returns immediately when that damage()
+  returns -1. Also softened the Eternal Hammer description to match its real behaviour --
+  defensive spell cards (Defensive Wall, Holy Water, ...) can still ward off its on-hit attack
+  spell; only the Paladin's Necklace grants full immunity.
+[Jun 13 2026] - Henque
   Eternal Hammer (#88) on-hit effect implemented (PvP). New eternal_hammer_proc() in fight.c,
   called from hit() after a successful hit: when a player wielding the hammer (65488) lands a
   blow on another player and has a free hold-hand plus an attack spell card (canon class "AS":
