@@ -8,6 +8,21 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 13 2026] - Henque
+  Add the Fledgling "magic egg" card series (canon GI #35-43) in cards 65335-65343 /
+  items 65435-65443: Athlete, Artist, Politician, Musician, Pilot, Novelist, Gambler,
+  Actor, CEO. Each card transforms into an egg item you HOLD in hand; new C in limits.c
+  point_update() (egg_incubation_update/hatch_fledgling_egg) counts game hours held in the
+  WEAR_HOLD slot, and after 3 game hours the egg hatches and permanently raises (+1, capped
+  at 25 via real_abils + affect_total + save_char) a random attribute from a profession-
+  themed pool (Athlete STR/CON, Artist DEX/WIS, Politician CHA/INT, Musician DEX/CHA, Pilot
+  DEX/CON, Novelist INT/WIS, Gambler WIS/INT, Actor CHA/DEX, CEO INT/CHA). Incubation must
+  be continuous: not holding the egg resets the counter (C reset each tick + new REMOVE
+  trigger 65434 osetval-resets on remove). This REPLACES the previous occupants of those
+  slots (Turtle Mansion, Master Mime, Echo Recorder, Aqua Guard, Tornado Stand, Magnetic
+  Rod, Water Divination Staff, Paladin's Prayer Beads; Fledgling Politician re-themed),
+  and repoints zone 31's Mayor gift from 65339 to the Politician card 65337. New triggers
+  kept vnum-ascending in 654.trg for real_trigger's binary search.
+[Jun 13 2026] - Henque
   Implement card effects (TODO-restricted-cards-compliance.md B1/B2, data-only batch).
   Passive worn affects via the obj affect-bitvector: Aqua Guard 65438 (SCUBA), Glowing
   Wings 65454 (FLY), Invisible Cloak 65460 (INVIS), Dragon's Eye 65479 (DET-INVIS+

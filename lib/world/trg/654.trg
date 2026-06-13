@@ -147,6 +147,13 @@ Restricted 26 gain~
 ~
 %load% obj 65326 %self% inv
 ~
+#65434
+fledgling egg reset on remove~
+1 l 100
+~
+osetval 0 0
+%send% %actor% The egg cools in your grip; its incubation must begin again.
+~
 #65446
 gold dust girl quest~
 0 g 100

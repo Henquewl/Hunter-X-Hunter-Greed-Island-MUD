@@ -685,6 +685,101 @@ void second_update(void)
   }
 }
 
+/* --- Fledgling "magic egg" cards: incubate while held in hand to gain a permanent
+ * attribute. Each egg item (vnum) maps to a small pool of attributes; once it has been
+ * held in the WEAR_HOLD slot for EGG_HATCH_HOURS game hours (counted in GET_OBJ_VAL 0),
+ * it hatches, granting +1 to a random attribute from its pool and is consumed. Removing
+ * the egg (any state other than actively held) resets the counter. To add a new egg,
+ * append a row to fledgling_eggs[] and create the item. */
+#define EGG_STR 0
+#define EGG_INT 1
+#define EGG_WIS 2
+#define EGG_DEX 3
+#define EGG_CON 4
+#define EGG_CHA 5
+#define EGG_HATCH_HOURS 3
+
+struct fledgling_egg_data {
+  obj_vnum vnum;
+  int pool[3];
+  int pool_size;
+};
+
+static const struct fledgling_egg_data fledgling_eggs[] = {
+  { 65435, {EGG_STR, EGG_CON, -1}, 2 }, /* Athlete    */
+  { 65436, {EGG_DEX, EGG_WIS, -1}, 2 }, /* Artist     */
+  { 65437, {EGG_CHA, EGG_INT, -1}, 2 }, /* Politician */
+  { 65438, {EGG_DEX, EGG_CHA, -1}, 2 }, /* Musician   */
+  { 65439, {EGG_DEX, EGG_CON, -1}, 2 }, /* Pilot      */
+  { 65440, {EGG_INT, EGG_WIS, -1}, 2 }, /* Novelist   */
+  { 65441, {EGG_WIS, EGG_INT, -1}, 2 }, /* Gambler    */
+  { 65442, {EGG_CHA, EGG_DEX, -1}, 2 }, /* Actor      */
+  { 65443, {EGG_INT, EGG_CHA, -1}, 2 }, /* CEO        */
+  { NOTHING, {0, 0, 0}, 0 }
+};
+
+static const struct fledgling_egg_data *find_fledgling_egg(obj_vnum vnum)
+{
+  int i;
+  for (i = 0; fledgling_eggs[i].vnum != NOTHING; i++)
+    if (fledgling_eggs[i].vnum == vnum)
+      return &fledgling_eggs[i];
+  return NULL;
+}
+
+static void hatch_fledgling_egg(struct char_data *ch, struct obj_data *egg,
+                                const struct fledgling_egg_data *e)
+{
+  int stat = e->pool[rand_number(0, e->pool_size - 1)];
+  sbyte *p = NULL;
+  const char *what = "";
+
+  switch (stat) {
+    case EGG_STR: p = &ch->real_abils.str;   what = "stronger (+1 STR)";          break;
+    case EGG_INT: p = &ch->real_abils.intel; what = "more intelligent (+1 INT)";  break;
+    case EGG_WIS: p = &ch->real_abils.wis;   what = "wiser (+1 WIS)";             break;
+    case EGG_DEX: p = &ch->real_abils.dex;   what = "more agile (+1 DEX)";        break;
+    case EGG_CON: p = &ch->real_abils.con;   what = "more robust (+1 CON)";       break;
+    case EGG_CHA: p = &ch->real_abils.cha;   what = "more charismatic (+1 CHA)";  break;
+  }
+
+  act("$p trembles, cracks, and hatches in a brilliant burst of light!",
+      FALSE, ch, egg, 0, TO_CHAR);
+  act("$n's $p cracks and hatches in a brilliant burst of light!",
+      FALSE, ch, egg, 0, TO_ROOM);
+
+  if (p && *p < 25) {
+    (*p)++;
+    affect_total(ch);
+    save_char(ch);
+    send_to_char(ch, "Years of devotion bear fruit -- you are permanently %s!\r\n", what);
+  } else {
+    send_to_char(ch, "The gift would exceed your natural limits; nothing changes.\r\n");
+  }
+  extract_obj(egg);
+}
+
+/* Called once per game hour from point_update(). */
+static void egg_incubation_update(void)
+{
+  struct obj_data *j, *next_thing;
+  const struct fledgling_egg_data *e;
+
+  for (j = object_list; j; j = next_thing) {
+    next_thing = j->next;
+    if (!(e = find_fledgling_egg(GET_OBJ_VNUM(j))))
+      continue;
+
+    if (j->worn_by && j->worn_on == WEAR_HOLD && !IS_NPC(j->worn_by)) {
+      GET_OBJ_VAL(j, 0)++;
+      if (GET_OBJ_VAL(j, 0) >= EGG_HATCH_HOURS)
+        hatch_fledgling_egg(j->worn_by, j, e);  /* extracts j */
+    } else if (GET_OBJ_VAL(j, 0) != 0) {
+      GET_OBJ_VAL(j, 0) = 0;   /* not actively held -> incubation resets */
+    }
+  }
+}
+
 /* Update PCs, NPCs, and objects */
 void point_update(void)
 {
@@ -757,6 +852,9 @@ void point_update(void)
         timer_otrigger(j);
     }
   }
+
+  /* Fledgling magic-egg incubation (advances once per game hour). */
+  egg_incubation_update();
 
   /* Take 1 from the happy-hour tick counter, and end happy-hour if zero */
        if (HAPPY_TIME > 1)  HAPPY_TIME--;

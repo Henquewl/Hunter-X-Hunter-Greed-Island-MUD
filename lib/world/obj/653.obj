@@ -459,122 +459,130 @@ Winding this pocket watch to its limit stops all time except
 for the holder. The effect lasts exactly one minute.
 ~
 #65335
-35 turtle mansion card~
-@m35 Turtle Mansion D-65 card@n~
-The @m35 Turtle Mansion D-65 card@g is lying here.@n~
+35 fledgling athlete card~
+@m35 Fledgling Athlete B-30 card@n~
+The @m35 Fledgling Athlete B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 7700 65 0 62
+0 50000 30 0 62
 E
-35 turtle mansion card~
-A fully furnished mansion carried on the back of a giant turtle.
-The turtle is docile and wanders leisurely wherever it pleases.
+35 fledgling athlete card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top athlete when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
 ~
 #65336
-36 master mime card~
-@m36 Master Mime B-30 card@n~
-The @m36 Master Mime B-30 card@g is lying here.@n~
+36 fledgling artist card~
+@m36 Fledgling Artist B-30 card@n~
+The @m36 Fledgling Artist B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
-36 master mime card~
-A mime who can perfectly copy the voice, appearance, and
-mannerisms of any person they have observed for at least an hour.
+36 fledgling artist card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top artist when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
 ~
 #65337
-37 echo recorder card~
-@m37 Echo Recorder A-20 card@n~
-The @m37 Echo Recorder A-20 card@g is lying here.@n~
-~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 102500 20 0 62
-E
-37 echo recorder card~
-A magical device that records any sound within earshot.
-Playback is crystal clear and can be amplified to fill a stadium.
-~
-#65338
-38 aqua guard card~
-@m38 Aqua Guard A-17 card@n~
-The @m38 Aqua Guard A-17 card@g is lying here.@n~
-~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 104000 17 0 62
-E
-38 aqua guard card~
-Wearing this allows you to breathe underwater and withstand
-crushing depths. Also grants protection from water-based attacks.
-~
-#65339
-39 fledgling politician card~
-@m39 Fledgling Politician B-30 card@n~
-The @m39 Fledgling Politician B-30 card@g is lying here.@n~
+37 fledgling politician card~
+@m37 Fledgling Politician B-30 card@n~
+The @m37 Fledgling Politician B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
-39 fledgling politician card~
-A budding politician bound to your service. Through tireless
-campaigning and backroom dealing, he sways crowds and bends public
-opinion toward whatever cause you name.
+37 fledgling politician card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top politician when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
 ~
-#65340
-40 tornado stand card~
-@m40 Tornado Stand S-9 card@n~
-The @m40 Tornado Stand S-9 card@g is lying here.@n~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 279000 9 0 62
-E
-40 tornado stand card~
-A portable platform that, when activated, generates a fierce tornado
-around its position, hurling away anyone who approaches.
-~
-#65341
-41 magnetic rod card~
-@m41 Magnetic Rod S-10 card@n~
-The @m41 Magnetic Rod S-10 card@g is lying here.@n~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 279000 10 0 62
-E
-41 magnetic rod card~
-A rod with a magnetic force strong enough to halt vehicles or lift
-large metal structures. Polarity can be reversed at will.
-~
-#65342
-42 water divination staff card~
-@m42 Water Divination Staff A-17 card@n~
-The @m42 Water Divination Staff A-17 card@g is lying here.@n~
+#65338
+38 fledgling musician card~
+@m38 Fledgling Musician B-30 card@n~
+The @m38 Fledgling Musician B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 104000 17 0 62
+0 50000 30 0 62
 E
-42 water divination staff card~
-A staff that points towards the nearest underground water source.
-Can also detect bodies of water up to 50 km away.
+38 fledgling musician card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top musician when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
+~
+#65339
+39 fledgling pilot card~
+@m39 Fledgling Pilot B-30 card@n~
+The @m39 Fledgling Pilot B-30 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
+E
+39 fledgling pilot card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top pilot when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
+~
+#65340
+40 fledgling novelist card~
+@m40 Fledgling Novelist B-30 card@n~
+The @m40 Fledgling Novelist B-30 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
+E
+40 fledgling novelist card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top novelist when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
+~
+#65341
+41 fledgling gambler card~
+@m41 Fledgling Gambler B-30 card@n~
+The @m41 Fledgling Gambler B-30 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
+E
+41 fledgling gambler card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top gambler when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
+~
+#65342
+42 fledgling actor card~
+@m42 Fledgling Actor B-30 card@n~
+The @m42 Fledgling Actor B-30 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
+E
+42 fledgling actor card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top actor when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
 ~
 #65343
-43 paladin prayer beads card~
-@m43 Paladin's Prayer Beads S-7 card@n~
-The @m43 Paladin's Prayer Beads S-7 card@g is lying here.@n~
+43 fledgling ceo card~
+@m43 Fledgling CEO B-30 card@n~
+The @m43 Fledgling CEO B-30 card@g is lying here.@n~
 ~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 285000 7 0 62
+0 50000 30 0 62
 E
-43 paladin prayer beads card~
-Sacred beads that, when worn, grant immunity to curses and dark
-enchantments. Each bead negates one curse before crumbling to dust.
+43 fledgling ceo card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a successful CEO when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
 ~
 #65344
 44 rebirth card~

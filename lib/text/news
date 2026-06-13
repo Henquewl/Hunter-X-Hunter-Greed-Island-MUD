@@ -9,8 +9,8 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 
 JUN 13 **
 - Many cards now actually DO what they promise! Wear the Glowing Wings or hold the
-  Levitation Stone to fly, the Invisible Cloak to vanish, the Dragon's Eye to see the
-  unseen, or the Aqua Guard to breathe underwater. Tap the Cane of Healing to mend your
+  Levitation Stone to fly, the Invisible Cloak to vanish, or the Dragon's Eye to see the
+  unseen. Tap the Cane of Healing to mend your
   wounds; inhale the Fairy's Breath to take flight; throw Explosive Marbles or a Haze
   Smoke Bomb, play the Flame Guitar or Flute of Confusion, or ring the Sleep Clock to hit
   everyone around you. Drink the Witch's potions (Wisdom, Love, Rejuvenation, Diet),
@@ -18,6 +18,11 @@ JUN 13 **
   Pheromones. The Gold Dust Girl card now summons her, and the Elixir of Life fully heals.
 - The Rebirth card now lives up to its name: if you would die while carrying it, it
   shatters and brings you back to full health instead.
+- The Fledgling cards (#35-43: Athlete, Artist, Politician, Musician, Pilot, Novelist,
+  Gambler, Actor, CEO) are now magic eggs. HOLD one in your hand and keep holding it: after
+  about three game hours of unbroken incubation it hatches and permanently raises one of a
+  few attributes fitting that profession (e.g. an Athlete egg gives +1 STR or CON). Stop
+  holding it before it hatches and the incubation resets.
 - Five collectible cards now turn into real items when you gain them: the Golden
   Guidebook, Golden Scales, Golden Dictionary, Luck Bankbook and the Sacrifice
   Armor. Before, these cards had no item to become and "gain" did nothing for them.

@@ -308,124 +308,130 @@ time stopping watch~
 counterclockwise and holding it makes the world feel slightly slower.
 ~
 #65435
-mansion turtle miniature~
-a Turtle Mansion miniature~
-A tiny model of a turtle-shaped mansion rests here.~
+egg fledgling athlete magic~
+a Fledgling Athlete egg~
+A warm, faintly pulsing magic egg rests here.~
 ~
 12 0 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 3500 0 0 0
+2 50000 0 0 0
+T 65434
 E
-turtle mansion miniature~
-   A detailed miniature of a grand mansion built into the shell of a giant
-turtle. The windows are tiny but the craftsmanship is exquisite.
+egg fledgling athlete~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a top athlete.
 ~
 #65436
-mime mask master~
-a Master Mime mask~
-A white theatrical mask with exaggerated features sits here.~
+egg fledgling artist magic~
+a Fledgling Artist egg~
+A warm, faintly pulsing magic egg rests here.~
 ~
-12 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 22000 0 0 0
+2 50000 0 0 0
+T 65434
 E
-master mime mask~
-   A pristine white mask worn by the legendary Master Mime. It is said
-that whoever wears it can perfectly mimic any movement or technique.
+egg fledgling artist~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a top artist.
 ~
 #65437
-recorder echo device crystal~
-an Echo Recorder~
-A small crystal device that hums softly sits here.~
+egg fledgling politician magic~
+a Fledgling Politician egg~
+A warm, faintly pulsing magic egg rests here.~
 ~
-12 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 20000 0 0 0
+2 50000 0 0 0
+T 65434
 E
-echo recorder~
-   A palm-sized crystal device that records and replays sounds with perfect
-fidelity. Even a master's technique can be studied from its recording.
+egg fledgling politician~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a top politician.
 ~
 #65438
-aqua guard armor body~
-the Aqua Guard~
-A suit of shimmering aqua-colored body armor rests here.~
+egg fledgling musician magic~
+a Fledgling Musician egg~
+A warm, faintly pulsing magic egg rests here.~
 ~
-9 g 0 0 0 ad 0 0 0 s 0 0 0
-4 0 0 0
-8 17000 0 0 0
+12 0 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+T 65434
 E
-aqua guard~
-   Lightweight body armor crafted from compressed sea scales. Surprisingly
-hard, it provides excellent protection without slowing you down.
+egg fledgling musician~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a top musician.
+~
+#65439
+egg fledgling pilot magic~
+a Fledgling Pilot egg~
+A warm, faintly pulsing magic egg rests here.~
+~
+12 0 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+T 65434
+E
+egg fledgling pilot~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a top pilot.
 ~
 #65440
-tornado stand~
-the Tornado Stand~
-A top-shaped device with spinning blades floats slightly above the ground here.~
+egg fledgling novelist magic~
+a Fledgling Novelist egg~
+A warm, faintly pulsing magic egg rests here.~
 ~
-11 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-2 25000 0 0 0
-A
-19 2
-A
-18 1
+2 50000 0 0 0
+T 65434
 E
-tornado stand~
-   A spinning gyroscope weapon generating powerful wind currents as it
-rotates. Those who master it can create miniature tornadoes on command.
+egg fledgling novelist~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a top novelist.
 ~
 #65441
-magnetic rod~
-a Magnetic Rod~
-A metallic rod crackling with magnetic energy sits here.~
+egg fledgling gambler magic~
+a Fledgling Gambler egg~
+A warm, faintly pulsing magic egg rests here.~
 ~
-11 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-2 25000 0 0 0
-A
-18 2
-A
-19 2
+2 50000 0 0 0
+T 65434
 E
-magnetic rod~
-   A rod composed of densely packed magnets. It can attract or repel metallic
-objects with surprising force and disrupts enemy targeting.
+egg fledgling gambler~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a top gambler.
 ~
 #65442
-staff water divination~
-a Water Divination Staff~
-A staff topped with a swirling sphere of water stands here.~
+egg fledgling actor magic~
+a Fledgling Actor egg~
+A warm, faintly pulsing magic egg rests here.~
 ~
-11 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-3 17000 0 0 0
-A
-4 2
+2 50000 0 0 0
+T 65434
 E
-water divination staff~
-   A gnarled staff with a perpetually swirling globe of water at its tip.
-When pointed at a source, it reveals hidden truths about its nature.
+egg fledgling actor~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a top actor.
 ~
 #65443
-beads prayer paladin necklace~
-Paladin's Prayer Beads~
-A string of glowing prayer beads lies coiled here.~
+egg fledgling ceo magic~
+a Fledgling CEO egg~
+A warm, faintly pulsing magic egg rests here.~
 ~
-11 gi 0 0 0 ac 0 0 0 0 0 0 0
+12 0 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-2 25000 0 0 0
-A
-4 2
-A
-13 10
-A
-24 -2
+2 50000 0 0 0
+T 65434
 E
-paladin prayer beads~
-   Each bead of this necklace is carved from blessed stone and glows faintly.
-Wearing them fills the heart with resolve and strengthens Nen reserves.
+egg fledgling ceo~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a successful CEO.
 ~
 #65444
 rebirth orb light~

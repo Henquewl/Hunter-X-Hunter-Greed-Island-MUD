@@ -41,13 +41,22 @@ safe no-op (no SYSERR).
 die while holding the Rebirth card/item is restored to full HP and the card shatters
 (consumed). *Needs a live in-combat test to confirm behaviour.*
 
+**Fledgling "magic egg" series (cards 65335-65343 / items 65435-65443)** — Athlete, Artist,
+Politician, Musician, Pilot, Novelist, Gambler, Actor, CEO. Card → egg item; HOLD in hand 3
+continuous game hours → hatches → +1 permanent random attribute from a profession pool. C in
+`limits.c` (`egg_incubation_update`/`hatch_fledgling_egg`, table-driven — add a row + item to
+extend) + REMOVE-reset trigger 65434. **Replaced** the prior occupants of those slots: Turtle
+Mansion, Master Mime, Echo Recorder, Aqua Guard (SCUBA), Tornado Stand, Magnetic Rod, Water
+Divination Staff, Paladin's Prayer Beads (these HxH items are gone). *Needs a live hold-to-
+hatch test.*
+
 ---
 
 ## DEFERRED — still open (need new mobs, new rooms, or more C)
 
 **Needs new NPC mobs** (card has no item; spawn a creature on gain — Archangel/65350 pattern):
-Night Shift Dwarves (65326), Fledgling Politician (65339), Fickle Genie (65315),
-Fairy King's Advice (65316). (Gold Dust Girl already done — its mob existed.)
+Night Shift Dwarves (65326), Fickle Genie (65315), Fairy King's Advice (65316).
+(Gold Dust Girl already done — its mob existed. Fledgling Politician is now an egg card.)
 
 **Needs new rooms / a world-build** — terrain/location cards (card-only today):
 Ruler's Blessing castle (65300), Patch of Forest (65301), Patch of Shore / Poseidon's Cavern
