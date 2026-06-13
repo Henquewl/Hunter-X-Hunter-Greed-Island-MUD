@@ -236,96 +236,101 @@ She cures one person of all wounds and ills, restoring them to perfect health.
 She will only appear once.
 ~
 #65318
-18 invisible stalker card~
-@m18 Invisible Stalker S-7 card@n~
-The @m18 Invisible Stalker S-7 card@g is lying here.@n~
+18 imp s wink card~
+@m18 Imp's Wink A-18 card@n~
+The @m18 Imp's Wink A-18 card@g is lying here.@n~
 ~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 285000 7 0 62
+0 50000 18 0 62
 E
-18 invisible stalker card~
-This person will follow your target without being detected and
-report their movements to you at all times.
+18 imp s wink card~
+You will experience the most amazing ecstasy when she winks at you.
+She can appear multiple times. Be warned, it can get addictive.
 ~
 #65319
-19 cane healing card~
-@m19 Cane of Healing A-13 card@n~
-The @m19 Cane of Healing A-13 card@g is lying here.@n~
+19 poltergeist pillow card~
+@m19 Poltergeist Pillow A-13 card@n~
+The @m19 Poltergeist Pillow A-13 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 106000 13 0 62
+0 50000 13 0 62
 E
-19 cane healing card~
-A cane that, when tapped on a wound, accelerates healing
-to the point of mending injuries within minutes.
+19 poltergeist pillow card~
+Sleep on this pillow, and your astral form will be able to wander at
+will, but you will turn into a real ghost if you do not return to your
+body within 24 hours.
 ~
 #65320
-20 explosive marbles card~
-@m20 Explosive Marbles C-50 card@n~
-The @m20 Explosive Marbles C-50 card@g is lying here.@n~
+20 mood clock card~
+@m20 Mood Clock B-30 card@n~
+The @m20 Mood Clock B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 20000 50 0 62
+0 50000 30 0 62
 E
-20 explosive marbles card~
-Marbles that detonate on impact. Each set contains ten marbles,
-each with the destructive power of a hand grenade.
+20 mood clock card~
+This clock sets your current state of mind. Turn it to noon, and you
+will maintain perfect serenity. Thus you can adjust your emotions
+according to the situation.
 ~
 #65321
-21 cutter card~
-@m21 Cutter B-25 card@n~
-The @m21 Cutter B-25 card@g is lying here.@n~
+21 x ray goggles card~
+@m21 X-Ray Goggles B-27 card@n~
+The @m21 X-Ray Goggles B-27 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 40000 25 0 62
+0 50000 27 0 62
 E
-21 cutter card~
-A compact blade that can cut through any material without
-exception, regardless of hardness or thickness.
+21 x ray goggles card~
+You can see through things. An adjustment dial allows you to set the
+x-ray depth. The only thing it cannot see through is a pack of spell
+cards from Masadora.
 ~
 #65322
-22 dress memory card~
-@m22 Dress of Memory A-17 card@n~
-The @m22 Dress of Memory A-17 card@g is lying here.@n~
+22 toraemon card~
+@m22 Toraemon A-22 card@n~
+The @m22 Toraemon A-22 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 104000 17 0 62
+0 50000 22 0 62
 E
-22 dress memory card~
-While wearing this dress, every experience is perfectly recorded.
-The memories stored within can be reviewed at will later.
+22 toraemon card~
+A beast on the verge of extinction has a habit of stuffing things in
+its 4-D pocket. You never know what kind of treasures it could have
+picked up.
 ~
 #65323
-23 paper doll card~
-@m23 Paper Doll C-45 card@n~
-The @m23 Paper Doll C-45 card@g is lying here.@n~
+23 tome of a thousand tales card~
+@m23 Tome of a Thousand Tales B-30 card@n~
+The @m23 Tome of a Thousand Tales B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 22000 45 0 62
+0 50000 30 0 62
 E
-23 paper doll card~
-A paper doll that transforms into a physical double of its owner,
-mimicking their exact appearance. The double cannot speak or
-perform complex actions on its own.
+23 tome of a thousand tales card~
+A book that shows you a different story each time you open it. Use the
+special included bookmark if you want to stay on the same story when
+you put it down.
 ~
 #65324
-24 book vip parties card~
-@m24 Book of V.I.P. Parties A-20 card@n~
-The @m24 Book of V.I.P. Parties A-20 card@g is lying here.@n~
+24 hypothetical t v card~
+@m24 Hypothetical T.V. A-20 card@n~
+The @m24 Hypothetical T.V. A-20 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 102500 20 0 62
+0 50000 20 0 62
 E
-24 book vip parties card~
-Grants access to any exclusive gathering, private party, or
-restricted event in the world. No invitation required.
+24 hypothetical t v card~
+Input a hypothetical situation with the included remote, and this TV
+will show you a 30-hour documentary of the possibilities. You are also
+able to record.
 ~
 #65325
 25 risky dice card~
@@ -355,56 +360,57 @@ They can do any work you can do, and they will work as long as you are asleep.
 They cannot do anything beyond your abilities.
 ~
 #65327
-27 dino basket card~
-@m27 Dino Basket A-18 card@n~
-The @m27 Dino Basket A-18 card@g is lying here.@n~
+27 book of v i p passes card~
+@m27 Book of V.I.P Passes B-25 card@n~
+The @m27 Book of V.I.P Passes B-25 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 103750 18 0 62
+0 50000 25 0 62
 E
-27 dino basket card~
-A wicker basket containing a friendly miniature dinosaur.
-It grows to full size when released and follows your commands.
+27 book of v i p passes card~
+You can go anywhere with these passes. Book of 1000.
 ~
 #65328
-28 lottery rose card~
-@m28 Lottery Rose D-70 card@n~
-The @m28 Lottery Rose D-70 card@g is lying here.@n~
+28 capricious remote card~
+@m28 Capricious Remote B-27 card@n~
+The @m28 Capricious Remote B-27 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 7150 70 0 62
+0 50000 27 0 62
 E
-28 lottery rose card~
-A rose that blooms once a day. Each petal that falls grants a
-small stroke of luck -- or misfortune, depending on its color.
+28 capricious remote card~
+A remote control to manipulate ten emotions someone feels toward
+someone else, on an intensity scale of 1-10. (You cannot control how
+people feel toward you.)
 ~
 #65329
-29 loving slave card~
-@m29 Loving Slave D-65 card@n~
-The @m29 Loving Slave D-65 card@g is lying here.@n~
+29 pre order vouchers card~
+@m29 Pre-Order Vouchers A-20 card@n~
+The @m29 Pre-Order Vouchers A-20 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 7700 65 0 62
+0 50000 20 0 62
 E
-29 loving slave card~
-A person bound by magical contract to serve the card holder
-with absolute devotion, carrying out any task asked of them.
+29 pre order vouchers card~
+Write the name of any commercially available product on a voucher, and
+you'll be guaranteed to get it regardless of its scarcity (You still
+have to pay). A book of 1000.
 ~
 #65330
-30 pretty little devil card~
-@m30 Pretty Little Devil D-70 card@n~
-The @m30 Pretty Little Devil D-70 card@g is lying here.@n~
+30 favor cushion card~
+@m30 Favor Cushion B-21 card@n~
+The @m30 Favor Cushion B-21 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 7150 70 0 62
+0 50000 21 0 62
 E
-30 pretty little devil card~
-A small, mischievous devil that targets anyone who means harm
-to its owner, causing accidents and misfortune to your enemies.
+30 favor cushion card~
+Seat someone on this cushion, and he will do one thing for you, so
+long as it is within his capabilities.
 ~
 #65331
 31 double postcard dead card~
@@ -420,43 +426,44 @@ E
 you will get a reply the next day.
 ~
 #65332
-32 diamond sword card~
-@m32 Diamond Sword A-18 card@n~
-The @m32 Diamond Sword A-18 card@g is lying here.@n~
+32 parrot candy card~
+@m32 Parrot Candy B-30 card@n~
+The @m32 Parrot Candy B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 103750 18 0 62
+0 50000 30 0 62
 E
-32 diamond sword card~
-A sword with a blade of compressed diamond. The edge never dulls
-and can cleave through steel with ease.
+32 parrot candy card~
+Sucking on this candy enables you to produce any voice. The effect
+lasts until you next ingest something. A set of 10 packs, 50 candies
+per pack.
 ~
 #65333
-33 dragon jaw card~
-@m33 Dragon's Jaw A-18 card@n~
-The @m33 Dragon's Jaw A-18 card@g is lying here.@n~
+33 hormone cookies card~
+@m33 Hormone Cookies S-13 card@n~
+The @m33 Hormone Cookies S-13 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 103750 18 0 62
+0 50000 13 0 62
 E
-33 dragon jaw card~
-A weapon shaped like the severed jaw of a dragon. Its teeth
-are razor-sharp and can pierce nearly any armor.
+33 hormone cookies card~
+After eating this candy, your sex will temporarily change for 24
+hours. A set of 10 boxes; 20 cookies per box.
 ~
 #65334
-34 time stopping watch card~
-@m34 Time-Stopping Watch S-8 card@n~
-The @m34 Time-Stopping Watch S-8 card@g is lying here.@n~
+34 universal survey card~
+@m34 Universal Survey B-30 card@n~
+The @m34 Universal Survey B-30 card@g is lying here.@n~
 ~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 285000 8 0 62
+0 50000 30 0 62
 E
-34 time stopping watch card~
-Winding this pocket watch to its limit stops all time except
-for the holder. The effect lasts exactly one minute.
+34 universal survey card~
+Write various questions about yourself and give them to someone, and
+he will answer all questions honestly. Reusable.
 ~
 #65335
 35 chameleon cat card~
@@ -625,121 +632,123 @@ A girl who weeps fine gold dust. Each day she sheds a small measure
 of pure gold that can be gathered and spent.
 ~
 #65347
-47 wind chime card~
-@m47 Wind Chime A-17 card@n~
-The @m47 Wind Chime A-17 card@g is lying here.@n~
+47 sleeping girl card~
+@m47 Sleeping Girl A-11 card@n~
+The @m47 Sleeping Girl A-11 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 104000 17 0 62
+0 50000 11 0 62
 E
-47 wind chime card~
-When hung outdoors, this chime controls wind direction and intensity
-within one kilometer. Ringing it sharply summons a powerful gale.
+47 sleeping girl card~
+A girl who sleeps in your stead. You can be active for 24 hours
+without sleeping while she sleeps for you.
 ~
 #65348
-48 fairy breath card~
-@m48 Fairy's Breath A-15 card@n~
-The @m48 Fairy's Breath A-15 card@g is lying here.@n~
+48 aromatherapy girl card~
+@m48 Aromatherapy Girl A-15 card@n~
+The @m48 Aromatherapy Girl A-15 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 105000 15 0 62
+0 50000 15 0 62
 E
-48 fairy breath card~
-A vial containing the breath of a fairy. Inhaling it grants
-the ability to fly for up to eight hours.
+48 aromatherapy girl card~
+A girl who emits the most comfortable aroma for you. While she's by
+your side, you will be free of stress.
 ~
 #65349
-49 aura amplifier card~
-@m49 Aura Amplifier S-6 card@n~
-The @m49 Aura Amplifier S-6 card@g is lying here.@n~
+49 miniature mermaid card~
+@m49 Miniature Mermaid A-23 card@n~
+The @m49 Miniature Mermaid A-23 card@g is lying here.@n~
 ~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 291000 6 0 62
+0 50000 23 0 62
 E
-49 aura amplifier card~
-A device that resonates with the user's Nen, temporarily doubling
-their aura output. Overuse causes extreme exhaustion.
+49 miniature mermaid card~
+A mermaid small enough to fit in your hand. A comfortable living
+environment puts her in a good mood, and she will sing with her
+beautiful voice.
 ~
 #65350
-50 miracle seed card~
-@m50 Miracle Seed A-18 card@n~
-The @m50 Miracle Seed A-18 card@g is lying here.@n~
+50 miniature dino card~
+@m50 Miniature Dino A-11 card@n~
+The @m50 Miniature Dino A-11 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 103750 18 0 62
+0 50000 11 0 62
 E
-50 miracle seed card~
-Plant it in any soil and it will grow into exactly the plant you
-most need at that moment, fully matured by the next morning.
+50 miniature dino card~
+A dinosaur small enough to fit in your hand. This creature produces a
+different species of tiny dinosaur with each new generation.
 ~
 #65351
-51 flame guitar card~
-@m51 Flame Guitar D-70 card@n~
-The @m51 Flame Guitar D-70 card@g is lying here.@n~
+51 miniature dragon card~
+@m51 Miniature Dragon S-10 card@n~
+The @m51 Miniature Dragon S-10 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 7150 70 0 62
+0 50000 10 0 62
 E
-51 flame guitar card~
-A guitar that produces sheets of fire with every strum.
-Volume and duration of flame scale with the intensity of play.
+51 miniature dragon card~
+A dragon small enough to fit in your hand. It will obey your commands
+and eventually learn to talk if raised with love.
 ~
 #65352
-52 sand ship card~
-@m52 Sand Ship A-18 card@n~
-The @m52 Sand Ship A-18 card@g is lying here.@n~
+52 pearl locusts card~
+@m52 Pearl Locusts B-30 card@n~
+The @m52 Pearl Locusts B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 103750 18 0 62
+0 50000 30 0 62
 E
-52 sand ship card~
-A full-sized sailing vessel that glides over desert sand as
-smoothly as water. Capable of crossing any terrain.
+52 pearl locusts card~
+Each of these locusts has a pearl in its abdomen. An outbreak occurs
+once every dozen years or so.
 ~
 #65353
-53 crystal ball card~
-@m53 Crystal Ball A-13 card@n~
-The @m53 Crystal Ball A-13 card@g is lying here.@n~
+53 king white stag beetle card~
+@m53 King White Stag Beetle A-30 card@n~
+The @m53 King White Stag Beetle A-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 106000 13 0 62
+0 50000 30 0 62
 E
-53 crystal ball card~
-Gaze into this ball and name any person or place. A clear image
-of them, exactly as they are right now, will appear.
+53 king white stag beetle card~
+It uses special pheromones to lure other insects to build a huge
+colony. It leaves the colony once a day for an evening stroll.
 ~
 #65354
-54 glowing wings card~
-@m54 Glowing Wings A-15 card@n~
-The @m54 Glowing Wings A-15 card@g is lying here.@n~
+54 millennium butterfly card~
+@m54 Millennium Butterfly A-25 card@n~
+The @m54 Millennium Butterfly A-25 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 105000 15 0 62
+0 50000 25 0 62
 E
-54 glowing wings card~
-Wings that glow softly and grant flight for up to twelve hours
-per day. The light can be dimmed or brightened at will.
+54 millennium butterfly card~
+A legendary insect named after the fact that the family of anyone who
+captures it will prosper for generations.
 ~
 #65355
-55 sleep clock card~
-@m55 Sleep Clock B-25 card@n~
-The @m55 Sleep Clock B-25 card@g is lying here.@n~
+55 revenge shop card~
+@m55 Revenge Shop A-20 card@n~
+The @m55 Revenge Shop A-20 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 40000 25 0 62
+0 50000 20 0 62
 E
-55 sleep clock card~
-Set this alarm clock for any time and everyone in the room
-will fall into a deep sleep when it rings, except the card's owner.
+55 revenge shop card~
+Report your grudges to the manager, and he will retaliate for you in
+proportion to your grievance. Pay extra to request a more severe
+retaliation.
 ~
 #65356
 memory studio perfect card~
@@ -755,56 +764,58 @@ Specify a time and date to get a picture of yourself in the past.
 You may also request a sequence of photographs.
 ~
 #65357
-57 worm snake card~
-@m57 Worm Snake A-20 card@n~
-The @m57 Worm Snake A-20 card@g is lying here.@n~
+57 hideout realtor card~
+@m57 Hideout Realtor A-11 card@n~
+The @m57 Hideout Realtor A-11 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 102500 20 0 62
+0 50000 11 0 62
 E
-57 worm snake card~
-A hybrid creature that burrows through any solid material as if
-through loose soil. Useful for tunneling, retrieval, or infiltration.
+57 hideout realtor card~
+The agent will build a secret room just for you at your chosen place.
+However, you must not tell anyone about it or bring anybody to it.
 ~
 #65358
-58 mr billionaire card~
-@m58 Mr. Billionaire A-20 card@n~
-The @m58 Mr. Billionaire A-20 card@g is lying here.@n~
+58 secrets video rental card~
+@m58 Secrets Video Rental A-13 card@n~
+The @m58 Secrets Video Rental A-13 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 102500 20 0 62
+0 50000 13 0 62
 E
-58 mr billionaire card~
-A mysterious businessman who follows the owner and negotiates
-every deal in their favor, consistently generating profit.
+58 secrets video rental card~
+Rent videos of other peoples secrets. You must not show the video or
+discuss its contents with anyone.
 ~
 #65359
-59 secret stash card~
-@m59 Secret Stash S-7 card@n~
-The @m59 Secret Stash S-7 card@g is lying here.@n~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 285000 7 0 62
-E
-59 secret stash card~
-A dimensional pocket that stores up to one cubic meter of items.
-Only the owner can open it; it is invisible to all others.
-~
-#65360
-60 invisible cloak card~
-@m60 Invisible Cloak A-18 card@n~
-The @m60 Invisible Cloak A-18 card@g is lying here.@n~
+59 instant foreign language school card~
+@m59 Instant Foreign Language School A-20 card@n~
+The @m59 Instant Foreign Language School A-20 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 103750 18 0 62
+0 50000 20 0 62
 E
-60 invisible cloak card~
-A cloak that renders the wearer and everything they carry
-completely invisible. Motion still creates a faint air disturbance.
+59 instant foreign language school card~
+Spend time studying a language at this school, and you will accrue
+time on a timer (included). While the timer is activated and counting
+down, you will be fluent.
+~
+#65360
+60 long lost delivery card~
+@m60 Long Lost Delivery B-30 card@n~
+The @m60 Long Lost Delivery B-30 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
+E
+60 long lost delivery card~
+Call the number and describe the item you lost, which will be
+delivered to you the next day. It must be lost for longer than a
+month.
 ~
 #65361
 61 vending checkup card~
@@ -833,17 +844,17 @@ This card allows the caster to effectively
 control everyone within a club.
 ~
 #65363
-63 binding snake card~
-@m63 Binding Snake S-8 card@n~
-The @m63 Binding Snake S-8 card@g is lying here.@n~
+63 virtual restaurant card~
+@m63 Virtual Restaurant B-30 card@n~
+The @m63 Virtual Restaurant B-30 card@g is lying here.@n~
 ~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 285000 8 0 62
+0 50000 30 0 62
 E
-63 binding snake card~
-A snake that coils around a target and binds them completely.
-The harder the target struggles, the tighter the coil becomes.
+63 virtual restaurant card~
+You can order any food you want. You will feel full, but it is only an
+illusion. You will be given a multivitamin as you leave.
 ~
 #65364
 64 witch love potion card~
@@ -924,17 +935,18 @@ A tonic compounded by the Doyen. Massaged into the scalp nightly,
 it regrows a thick, healthy head of hair within weeks.
 ~
 #65370
-70 rainbow diamond card~
-@m70 Rainbow Diamond A-13 card@n~
-The @m70 Rainbow Diamond A-13 card@g is lying here.@n~
+70 mad scientist s steroids card~
+@m70 Mad Scientist's Steroids A-16 card@n~
+The @m70 Mad Scientist's Steroids A-16 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 106000 13 0 62
+0 50000 16 0 62
 E
-70 rainbow diamond card~
-A gem that refracts light into all colors of the spectrum.
-Its owner is blessed with fortune and good luck in all endeavors.
+70 mad scientist s steroids card~
+Get all the muscles you want without exercise. You must drink a liter
+a day for a week, and it tastes horrible. A seven-box set, with ten
+one-L bottles per box.
 ~
 #65371
 pheromones scientists mad card~
@@ -951,17 +963,18 @@ However, you cannot adjust the strength of its effect,
 so be careful as it may cause a proliferation of stalkers.
 ~
 #65372
-72 witch wisdom potion card~
-@m72 Witch's Wisdom Potion S-8 card@n~
-The @m72 Witch's Wisdom Potion S-8 card@g is lying here.@n~
+72 mad scientist s plastic surgery card~
+@m72 Mad Scientist's Plastic Surgery A-15 card@n~
+The @m72 Mad Scientist's Plastic Surgery A-15 card@g is lying here.@n~
 ~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 285000 8 0 62
+0 50000 15 0 62
 E
-72 witch wisdom potion card~
-Drinking this potion elevates intelligence to genius level
-for 24 hours. Side effects include mild overconfidence.
+72 mad scientist s plastic surgery card~
+Scan a picture of the face you want, and you will have an exact
+likeness. Each surgery carries a 5% chance of failure, and a 1% chance
+the machine itself will break.
 ~
 #65373
 73 night jade card~
@@ -1003,56 +1016,57 @@ E
 choose whether they're for better or for worse...
 ~
 #65376
-76 transmutation stone card~
-@m76 Transmutation Stone S-8 card@n~
-The @m76 Transmutation Stone S-8 card@g is lying here.@n~
+76 roaming ruby card~
+@m76 Roaming Ruby B-30 card@n~
+The @m76 Roaming Ruby B-30 card@g is lying here.@n~
 ~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 285000 8 0 62
+0 50000 30 0 62
 E
-76 transmutation stone card~
-Touch this stone to any object and speak the name of a different
-material. The object will transform completely into that material.
+76 roaming ruby card~
+The owner of this ruby will gain immense wealth, but will never be
+able to remain in the same place for more than a week.
 ~
 #65377
-77 philosopher stone card~
-@m77 Philosopher's Stone A-15 card@n~
-The @m77 Philosopher's Stone A-15 card@g is lying here.@n~
+77 beauty magnet emerald card~
+@m77 Beauty Magnet Emerald S-10 card@n~
+The @m77 Beauty Magnet Emerald S-10 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 105000 15 0 62
+0 50000 10 0 62
 E
-77 philosopher stone card~
-The legendary alchemist's stone. Converts any base metal into pure
-gold on contact. Can also extend the owner's lifespan by ten years.
+77 beauty magnet emerald card~
+Specialists offering beauty services flock to its owner, who will
+shine with unrecognized beauty.
 ~
 #65378
-78 elixir life card~
-@m78 Elixir of Life S-6 card@n~
-The @m78 Elixir of Life S-6 card@g is lying here.@n~
-~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-0 291000 6 0 62
-E
-78 elixir life card~
-A single vial of this golden liquid adds fifty years to the
-drinker's lifespan without any aging of the body.
-~
-#65379
-79 dragon eye card~
-@m79 Dragon's Eye A-15 card@n~
-The @m79 Dragon's Eye A-15 card@g is lying here.@n~
+78 lonely sapphire card~
+@m78 Lonely Sapphire B-30 card@n~
+The @m78 Lonely Sapphire B-30 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 105000 15 0 62
+0 50000 30 0 62
 E
-79 dragon eye card~
-A preserved dragon's eye, still alive with power. The holder
-can see through any illusion, invisibility, or disguise.
+78 lonely sapphire card~
+The owner of this sapphire will acquire vast wealth, but in exchange,
+will spend a lifetime alone, forsaken by friends, family, and
+significant others.
+~
+#65379
+79 rainbow diamond card~
+@m79 Rainbow Diamond A-20 card@n~
+The @m79 Rainbow Diamond A-20 card@g is lying here.@n~
+~
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 20 0 62
+E
+79 rainbow diamond card~
+A diamond that shines in a rainbow of colors. Propose with this
+diamond, and she is guaranteed to say "yes."
 ~
 #65380
 80 levitation stone card~
@@ -1083,17 +1097,18 @@ not of anything found on the earth, so the name was given as
 "A Gift from the Universe".
 ~
 #65382
-82 comet stone card~
-@m82 Comet Stone A-15 card@n~
-The @m82 Comet Stone A-15 card@g is lying here.@n~
+82 staff of judgment card~
+@m82 Staff of Judgment A-15 card@n~
+The @m82 Staff of Judgment A-15 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 105000 15 0 62
+0 50000 15 0 62
 E
-82 comet stone card~
-A fragment of a meteorite with a faint blue glow. Grants the
-holder a perfect sense of direction; they always know where they are.
+82 staff of judgment card~
+Raise this staff in the air while calling out the name of someone you
+want to punish, and calamity will befall the one of you who has
+committed more bad deeds, the target or yourself.
 ~
 #65383
 83 sword truth card~
@@ -1137,17 +1152,17 @@ wearer's own resolve into a ward, absorbing a blow that would
 otherwise fell them -- at the cost of the armor itself.
 ~
 #65386
-86 heretic axe card~
-@m86 Heretic's Axe A-20 card@n~
-The @m86 Heretic's Axe A-20 card@g is lying here.@n~
+86 quiver of frustration card~
+@m86 Quiver of Frustration A-11 card@n~
+The @m86 Quiver of Frustration A-11 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 102500 20 0 62
+0 50000 11 0 62
 E
-86 heretic axe card~
-A battle axe forged from the ruins of a fallen sanctum. Deals
-significant bonus damage against holy or blessed targets.
+86 quiver of frustration card~
+You can cast as many "Leaves" as you have arrows. It comes with 10
+arrows, and one will be used each time you cast "Leave."
 ~
 #65387
 87 shield faith card~
@@ -1163,18 +1178,19 @@ E
 ineffective within the same room of player armed with this shield.
 ~
 #65388
-88 iron boots card~
-@m88 Iron Boots A-20 card@n~
-The @m88 Iron Boots A-20 card@g is lying here.@n~
+88 eternal hammer card~
+@m88 Eternal Hammer A-15 card@n~
+The @m88 Eternal Hammer A-15 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 102500 20 0 62
+0 50000 15 0 62
 E
-88 iron boots card~
-Enchanted boots that are impossibly heavy when worn by the wrong
-person, but featherlight for their rightful owner.
-The wearer can never be knocked off balance.
+88 eternal hammer card~
+Anyone hit with this hammer will be afflicted with one random attack
+spell, and cannot defend him or herself with a defensive spell.
+However, it will not work on someone using "Fortress" or Paladin's
+Necklace.
 ~
 #65389
 89 gauntlet collector tax card~
@@ -1206,44 +1222,44 @@ E
 Unfortunately, it's extremely large and heavy.
 ~
 #65391
-91 sniper rifle card~
-@m91 Sniper Rifle A-20 card@n~
-The @m91 Sniper Rifle A-20 card@g is lying here.@n~
+91 plastic king card~
+@m91 Plastic King A-20 card@n~
+The @m91 Plastic King A-20 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 102500 20 0 62
+0 50000 20 0 62
 E
-91 sniper rifle card~
-A rifle capable of hitting any target within line of sight,
-no matter the distance. The scope adjusts automatically for
-wind and elevation.
+91 plastic king card~
+Recombine the parts of this 1:1 scale model kit to build any kind of
+vehicle. Fully functional, fuel not included.
 ~
 #65392
-92 flute confusion card~
-@m92 Flute of Confusion A-17 card@n~
-The @m92 Flute of Confusion A-17 card@g is lying here.@n~
+92 swap ticket card~
+@m92 Swap Ticket S-7 card@n~
+The @m92 Swap Ticket S-7 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 104000 17 0 62
+0 50000 7 0 62
 E
-92 flute confusion card~
-A flute whose melody causes extreme confusion in all who hear it,
-except the player. Victims wander aimlessly for up to an hour.
+92 swap ticket card~
+Rip the ticket and give it to someone you want to switch with, and you
+can live his life for 24 hours. Book of 1000.
 ~
 #65393
-93 haze smoke bomb card~
-@m93 Haze Smoke Bomb B-30 card@n~
-The @m93 Haze Smoke Bomb B-30 card@g is lying here.@n~
+93 book of life card~
+@m93 Book of Life B-28 card@n~
+The @m93 Book of Life B-28 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 50000 30 0 62
+0 50000 28 0 62
 E
-93 haze smoke bomb card~
-When detonated, fills a large area with a thick disorienting haze.
-Visibility and navigation drop to near zero for thirty minutes.
+93 book of life card~
+An encyclopedia of everyone who's been in your life since your birth,
+with records of conversations and memorable incidents. It may end up
+being tens of thousands of pages long.
 ~
 #65394
 94 bandit blade card~
@@ -1260,69 +1276,69 @@ E
 "Paladin's Necklace".
 ~
 #65395
-95 armor zeno card~
-@m95 Armor of Zeno S-6 card@n~
-The @m95 Armor of Zeno S-6 card@g is lying here.@n~
+95 secret cape card~
+@m95 Secret Cape A-20 card@n~
+The @m95 Secret Cape A-20 card@g is lying here.@n~
 ~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 291000 6 0 62
+0 50000 20 0 62
 E
-95 armor zeno card~
-Legendary full-body armor said to have been worn by Zeno Zoldyck.
-Impervious to all but the most powerful Nen-enhanced strikes.
+95 secret cape card~
+You will be under the effect of " Blackout Curtain " while wearing
+this cape.
 ~
 #65396
-96 thunderbolt disk card~
-@m96 Thunderbolt Disk B-22 card@n~
-The @m96 Thunderbolt Disk B-22 card@g is lying here.@n~
+96 clairvoyant snake card~
+@m96 Clairvoyant Snake A-12 card@n~
+The @m96 Clairvoyant Snake A-12 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 51315 22 0 62
+0 50000 12 0 62
 E
-96 thunderbolt disk card~
-A spinning disk that, when thrown, discharges a bolt of lightning
-powerful enough to fell a large tree on impact.
+96 clairvoyant snake card~
+Feed it a card Rank C or above, and it will spit up a " Clairvoyance
+."
 ~
 #65397
-97 razor wind turban card~
-@m97 Razor Wind Turban B-22 card@n~
-The @m97 Razor Wind Turban B-22 card@g is lying here.@n~
+97 3 d camera card~
+@m97 3-D Camera A-20 card@n~
+The @m97 3-D Camera A-20 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 51315 22 0 62
+0 50000 20 0 62
 E
-97 razor wind turban card~
-A turban that, when worn, generates invisible razor-sharp blades
-of wind around the wearer, cutting anyone who draws too close.
+97 3 d camera card~
+Pictures taken with this will be developed as 3-D objects, with all
+textures reproduced. Make enlargements as needed.
 ~
 #65398
-98 turtle claw gloves card~
-@m98 Turtle Claw Gloves A-20 card@n~
-The @m98 Turtle Claw Gloves A-20 card@g is lying here.@n~
+98 silver dog card~
+@m98 Silver Dog S-8 card@n~
+The @m98 Silver Dog S-8 card@g is lying here.@n~
 ~
 26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 102500 20 0 62
+0 50000 8 0 62
 E
-98 turtle claw gloves card~
-Gloves tipped with the claws of a giant sea turtle. Incredibly
-hard and sharp; capable of gripping and scaling sheer surfaces.
+98 silver dog card~
+An endangered species with silver fur. Mix 5g of gold into its food
+daily, and it will excrete one kg of solid silver feces.
 ~
 #65399
-99 three star hunter license card~
-@m99 Three-Star Hunter License SS-1 card@n~
-The @m99 Three-Star Hunter License SS-1 card@g is lying here.@n~
+99 panda maid card~
+@m99 Panda Maid S-6 card@n~
+The @m99 Panda Maid S-6 card@g is lying here.@n~
 ~
-26 d 0 0 0 ao 0 0 0 0 0 0 0
+26 dt 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 2000000 1 0 62
+0 50000 6 0 62
 E
-99 three star hunter license card~
-The highest rank of Hunter License, awarded to only the most
-exceptional Hunters in history. Priceless and irreplaceable.
-Possessing this is proof of mastery beyond all measure.
+99 panda maid card~
+An endangered species. Very neat and loves to cook, each has a hobby
+such as sewing or gardening. They are excellent at taking care of
+human children.
 ~
 $

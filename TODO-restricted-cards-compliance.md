@@ -81,13 +81,27 @@ Postcard, Loving Slave, Pretty Little Devil, Crystal Ball, etc.
 
 ---
 
-## BIG BACKLOG — replace the invented cards with canon (definitive list)
-Authoritative audit vs the saved fandom page (`C:\Users\henqu\Downloads\Greed Island Card
-Lists _ Hunterpedia _ Fandom.html`). These ~44 slots hold inventions and must be replaced with
-the canon card (vnum = 65300+#, item = 65400+#): canon name + rank (RENT) + effect text from
-the saved page. **When replacing, also delete any invented effect/trigger/affect built for the
-old card** (e.g. #19 Cane tap-heal, #20 marbles, #48 inhale-fly, #51 guitar, #54 fly-affect,
-#55 sleep clock, #60 invis-affect, #72/#78 consume, #79 detect-affect, #92 flute, #93 haze).
+## DONE — all 100 cards now canon (Jun 13 2026)
+The 45 invented slots were replaced with their canon card (name + rank + effect text from the
+saved fandom page); cards are type-26 restricted, items are takeable collectibles. The old
+invented triggers/affects were removed (triggers 65419/65420/65448/65451/65455/65472/65478/
+65492/65493 dropped from 654.trg; fly/invis/detect affects cleared). Two canon effects were
+implemented with existing mechanics:
+- **#95 Secret Cape** — "Blackout Curtain" concealment → passive AFF_INVISIBLE (obj affect `c`).
+- **#70 Mad Scientist's Steroids** — FOOD; consume trigger 65470 grants a temporary +2 STR.
+
+### Remaining EFFECT work (cards are canon, but their effect isn't mechanically modeled yet)
+Most canon cards are life-sim/social/flavor with no existing mechanic, so they sit as canon
+collectibles (acceptable). Candidates that COULD be done later with existing patterns:
+- **Combat weapons** (need the wear→FIGHT-trigger + `dg_cast` pattern, like Sword of Truth):
+  #88 Eternal Hammer (on-hit random attack spell), #82 Staff of Judgment (align-based smite),
+  #86 Quiver of Frustration (casts "Leave" — needs that spell), #96 Clairvoyant Snake (feed a
+  card → "Clairvoyance" spell).
+- **NPC/pet cards** (need new mobs): #47 Sleeping Girl, #48 Aromatherapy Girl, #49 Miniature
+  Mermaid, #50 Miniature Dino, #51 Miniature Dragon, #99 Panda Maid, etc.
+- **Consumable flavor with a stat angle** could be added if desired (e.g. #33 Hormone Cookies).
+
+Below is the historical invention→canon mapping that this batch applied:
 
 | # | current (invention) | canon → | rank |
 |---|---|---|---|

@@ -8,6 +8,18 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 13 2026] - Henque
+  Replaced the remaining 45 invented restricted cards with their canon Greed Island
+  counterparts (name + rank + effect text from the official fandom list) so the full 100-card
+  set is now canon, no inventions: e.g. Invisible Stalker->Imp's Wink (#18), Cane of Healing->
+  Poltergeist Pillow (#19), Time-Stopping Watch->Universal Survey (#34), Aura Amplifier->
+  Miniature Mermaid (#49), Three-Star Hunter License->Panda Maid (#99), etc. Removed the
+  invented effects/triggers those slots carried (dropped 9 orphaned triggers from 654.trg and
+  the fly/invis/detect equip-affects). Implemented two canon effects with existing mechanics:
+  #95 Secret Cape grants concealment (AFF_INVISIBLE while worn) and #70 Mad Scientist's
+  Steroids (FOOD) gives a temporary +2 STR on consume (trigger 65470). Combat-weapon and
+  NPC/pet canon effects are logged in TODO-restricted-cards-compliance.md for later. (Fixed a
+  trailing-$-terminator drop when replacing the last record in 653.obj/654.obj.)
+[Jun 13 2026] - Henque
   Did a definitive canon audit of all 100 restricted cards against the official fandom list
   and applied the safe corrections: renamed #66 "Witch's Diet Potion" -> "Witch's Diet Pills"
   (card 65366 + item 65466); fixed copy-limit ranks on two otherwise-correct cards, #9 Tree of

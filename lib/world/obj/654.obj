@@ -82,103 +82,101 @@ Erm...~
 1 0 0 0 0
 T 3265
 #65418
-stalker invisible figurine~
-a figurine of an Invisible Stalker~
-A translucent figurine of a Nen-made creature stands here.~
+imp s wink~
+an Imp's Wink~
+an Imp's Wink lies here.~
 ~
-8 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-1 25000 0 0 0
+1 50000 0 0 0
 E
-stalker figurine~
-   A translucent humanoid form, barely visible, that emanates a faint Nen aura.
-The Invisible Stalker is summoned through pure Nen and obeys its master.
+imp s wink~
+You will experience the most amazing ecstasy when she winks at you.
+She can appear multiple times. Be warned, it can get addictive.
 ~
 #65419
-cane healing staff~
-a Cane of Healing~
-A gnarled wooden cane radiating a faint healing aura rests here.~
+poltergeist pillow~
+a Poltergeist Pillow~
+a Poltergeist Pillow lies here.~
 ~
-5 g 0 0 0 ano 0 0 0 0 0 0 0
-0 5 1 8
-3 13000 0 0 0
-T 65419
-A
-13 5
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
 E
-cane healing~
-   A smooth pale-wood cane whose tip glows faintly green. It channels healing
-Nen into whoever wields it, sealing wounds with each strike.
+poltergeist pillow~
+Sleep on this pillow, and your astral form will be able to wander at
+will, but you will turn into a real ghost if you do not return to your
+body within 24 hours.
 ~
 #65420
-marbles explosive bag~
-a bag of Explosive Marbles~
-A small pouch of colorful marbles clicks softly against itself here.~
+mood clock~
+a Mood Clock~
+a Mood Clock lies here.~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-1 4000 0 0 0
-T 65420
+1 50000 0 0 0
 E
-explosive marbles~
-   Round, colorful marbles packed in a small cloth pouch. Despite looking
-harmless, each one contains a tiny explosive charge.
+mood clock~
+This clock sets your current state of mind. Turn it to noon, and you
+will maintain perfect serenity. Thus you can adjust your emotions
+according to the situation.
 ~
 #65421
-cutter blade curved~
-a Cutter~
-A wickedly curved blade with a gleaming edge lies here.~
+x ray goggles~
+a X-Ray Goggles~
+a X-Ray Goggles lies here.~
 ~
-5 g 0 0 0 ano 0 0 0 0 0 0 0
-0 3 2 8
-4 22000 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
 E
-cutter blade~
-   A short, deeply curved blade designed to slash cleanly through almost
-any material. Favored by hunters who prefer speed over power.
+x ray goggles~
+You can see through things. An adjustment dial allows you to set the
+x-ray depth. The only thing it cannot see through is a pack of spell
+cards from Masadora.
 ~
 #65422
-dress memory white~
-the Dress of Memory~
-A beautiful white dress shimmering with stored images lies here.~
+toraemon~
+a Toraemon~
+a Toraemon lies here.~
 ~
-11 g 0 0 0 ad 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-2 17000 0 0 0
-A
-4 1
-A
-3 1
+1 50000 0 0 0
 E
-dress memory~
-   A flowing white gown displaying faint ghostly images when examined closely,
-memories of all who wore it before.
+toraemon~
+A beast on the verge of extinction has a habit of stuffing things in
+its 4-D pocket. You never know what kind of treasures it could have
+picked up.
 ~
 #65423
-paper doll small~
-a Paper Doll~
-A small paper doll with carefully drawn features lies here.~
+tome of a thousand tales~
+a Tome of a Thousand Tales~
+a Tome of a Thousand Tales lies here.~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-0 4500 0 0 0
+1 50000 0 0 0
 E
-paper doll~
-   A meticulously crafted paper doll bearing a resemblance to its owner.
-In the right hands, it can be used to swap places with another person.
+tome of a thousand tales~
+A book that shows you a different story each time you open it. Use the
+special included bookmark if you want to stay on the same story when
+you put it down.
 ~
 #65424
-book vip parties invitation~
-the Book of V.I.P. Parties~
-An elegantly bound golden book sits here.~
+hypothetical t v~
+a Hypothetical T.V.~
+a Hypothetical T.V. lies here.~
 ~
-16 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-1 20000 0 0 0
+1 50000 0 0 0
 E
-inscription~
-   This gilded tome contains invitations to the most exclusive gatherings on
-Greed Island. Holding it grants an undeniable air of refinement.
+hypothetical t v~
+Input a hypothetical situation with the included remote, and this TV
+will show you a 30-hour documentary of the possibilities. You are also
+able to record.
 ~
 #65425
 dice black icosahedron risky die~
@@ -195,56 +193,57 @@ dice black icosahedron risky die~
 What can happen if I drop that skull?...
 ~
 #65427
-basket dino dinosaur~
-a Dino Basket~
-A large woven basket with dinosaur-shaped handles sits here.~
+book of v i p passes~
+a Book of V.I.P Passes~
+a Book of V.I.P Passes lies here.~
 ~
-15 g 0 0 0 ao 0 0 0 0 0 0 0
-100 0 -1 0
-5 18000 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
 E
-dino basket~
-   A spacious woven basket with carved wooden handles shaped like small
-dinosaurs. Sturdy enough to carry large loads without complaint.
+book of v i p passes~
+You can go anywhere with these passes. Book of 1000.
 ~
 #65428
-rose lottery pink~
-a Lottery Rose~
-A single pink rose with a numbered tag tied to its stem lies here.~
+capricious remote~
+a Capricious Remote~
+a Capricious Remote lies here.~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-0 700 0 0 0
+1 50000 0 0 0
 E
-lottery rose~
-   A perfectly preserved pink rose whose petals never fade. A numbered tag
-reads: "Winner: ?". Nobody knows what is actually won.
+capricious remote~
+A remote control to manipulate ten emotions someone feels toward
+someone else, on an intensity scale of 1-10. (You cannot control how
+people feel toward you.)
 ~
 #65429
-collar silver loving slave~
-a Loving Slave collar~
-An ornate silver collar with a small heart pendant rests here.~
+pre order vouchers~
+a Pre-Order Vouchers~
+a Pre-Order Vouchers lies here.~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-1 3500 0 0 0
+1 50000 0 0 0
 E
-loving slave collar~
-   A finely crafted silver collar engraved with flowing vines. The heart
-pendant spins freely and seems to pulse with warm affection.
+pre order vouchers~
+Write the name of any commercially available product on a voucher, and
+you'll be guaranteed to get it regardless of its scarcity (You still
+have to pay). A book of 1000.
 ~
 #65430
-doll devil little~
-a Pretty Little Devil doll~
-A small devil figurine with a mischievous grin sits here.~
+favor cushion~
+a Favor Cushion~
+a Favor Cushion lies here.~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-1 700 0 0 0
+1 50000 0 0 0
 E
-pretty little devil~
-   A charming ceramic figurine of a tiny devil, complete with miniature
-horns and a pitchfork. It seems to be smiling knowingly.
+favor cushion~
+Seat someone on this cushion, and he will do one thing for you, so
+long as it is within his capabilities.
 ~
 #65431
 postcard old~
@@ -265,47 +264,44 @@ more often... has dust everywhere!
 0 0 0 0
 2 0 0 0 0
 #65432
-sword diamond blade~
-a Diamond Sword~
-A sword whose blade is cut entirely from diamond gleams here.~
+parrot candy~
+a Parrot Candy~
+a Parrot Candy lies here.~
 ~
-5 gi 0 0 0 ano 0 0 0 0 0 0 0
-0 3 2 8
-5 18000 0 0 0
-A
-18 1
-A
-19 1
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
 E
-diamond sword~
-   An extraordinary blade whose cutting edge is solid diamond, capable of
-slicing through almost any material with remarkable ease.
+parrot candy~
+Sucking on this candy enables you to produce any voice. The effect
+lasts until you next ingest something. A set of 10 packs, 50 candies
+per pack.
 ~
 #65433
-jaw dragon fang~
-Dragon's Jaw~
-A fearsome weapon shaped like a dragon's lower jaw rests here.~
+hormone cookies~
+a Hormone Cookies~
+a Hormone Cookies lies here.~
 ~
-5 g 0 0 0 ano 0 0 0 0 0 0 0
-0 4 3 6
-6 18000 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
 E
-dragon jaw~
-   Crafted from the preserved jaw of a real dragon, its teeth sharpened to
-razor points. Each strike tears with savage force.
+hormone cookies~
+After eating this candy, your sex will temporarily change for 24
+hours. A set of 10 boxes; 20 cookies per box.
 ~
 #65434
-watch time stopping pocket~
-a Time-Stopping Watch~
-An antique pocket watch with a counterclockwise second hand ticks here.~
+universal survey~
+an Universal Survey~
+an Universal Survey lies here.~
 ~
-12 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-1 25000 0 0 0
+1 50000 0 0 0
 E
-time stopping watch~
-   A beautifully crafted silver pocket watch. The second hand moves
-counterclockwise and holding it makes the world feel slightly slower.
+universal survey~
+Write various questions about yourself and give them to someone, and
+he will answer all questions honestly. Reusable.
 ~
 #65435
 cat chameleon~
@@ -474,190 +470,177 @@ gold dust girl~
 pure gold that can be gathered and spent.
 ~
 #65447
-wind chime~
-a Wind Chime~
-A delicate set of wind chimes hangs in the air here, ringing softly.~
+sleeping girl~
+a Sleeping Girl~
+a Sleeping Girl lies here.~
 ~
-11 g 0 0 0 ak 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-1 17000 0 0 0
-A
-24 -2
-A
-23 -2
+1 50000 0 0 0
 E
-wind chime~
-   Beautiful chimes carved from jade and copper. Their constant soft ringing
-creates a protective sonic field that deflects hostile magic.
+sleeping girl~
+A girl who sleeps in your stead. You can be active for 24 hours
+without sleeping while she sleeps for you.
 ~
 #65448
-breath fairy vial~
-a vial of Fairy's Breath~
-A tiny glass vial filled with sparkling golden mist rests here.~
+aromatherapy girl~
+an Aromatherapy Girl~
+an Aromatherapy Girl lies here.~
 ~
-12 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-0 15000 0 0 0
-T 65448
+1 50000 0 0 0
 E
-fairy breath vial~
-   An impossibly small vial holding what appears to be a fairy's exhaled
-breath. Opening it releases a brief but powerful wave of healing energy.
+aromatherapy girl~
+A girl who emits the most comfortable aroma for you. While she's by
+your side, you will be free of stress.
 ~
 #65449
-amplifier aura~
-an Aura Amplifier~
-A complex device humming with Nen energy rests here.~
+miniature mermaid~
+a Miniature Mermaid~
+a Miniature Mermaid lies here.~
 ~
-11 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-2 25000 0 0 0
-A
-12 15
+1 50000 0 0 0
 E
-aura amplifier~
-   A compact device covered in Nen-sensitive crystals. When held, it
-significantly amplifies the user's Nen output and reserves.
+miniature mermaid~
+A mermaid small enough to fit in your hand. A comfortable living
+environment puts her in a good mood, and she will sing with her
+beautiful voice.
 ~
 #65450
-seed miracle golden~
-a Miracle Seed~
-A single golden seed that glows faintly rests here.~
+miniature dino~
+a Miniature Dino~
+a Miniature Dino lies here.~
 ~
-12 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-0 18000 0 0 0
+1 50000 0 0 0
 E
-miracle seed~
-   A single seed that radiates warmth and a faint golden glow. Those who
-know plants claim it can grow anything in even the harshest soil.
+miniature dino~
+A dinosaur small enough to fit in your hand. This creature produces a
+different species of tiny dinosaur with each new generation.
 ~
 #65451
-guitar flame fire~
-a Flame Guitar~
-A guitar whose strings burn like fire rests here.~
+miniature dragon~
+a Miniature Dragon~
+a Miniature Dragon lies here.~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-3 700 0 0 0
-T 65451
+1 50000 0 0 0
 E
-flame guitar~
-   An electric guitar whose strings are perpetually on fire. Despite this,
-playing it produces music of haunting and captivating beauty.
+miniature dragon~
+A dragon small enough to fit in your hand. It will obey your commands
+and eventually learn to talk if raised with love.
 ~
 #65452
-ship sand miniature~
-a Sand Ship~
-A beautifully detailed miniature sailing ship filled with sand rests here.~
+pearl locusts~
+a Pearl Locusts~
+a Pearl Locusts lies here.~
 ~
-12 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-2 18000 0 0 0
+1 50000 0 0 0
 E
-sand ship~
-   A miniature ship that moves across sand as easily as water carries a
-boat. Full-size, it could carry several passengers across desert seas.
+pearl locusts~
+Each of these locusts has a pearl in its abdomen. An outbreak occurs
+once every dozen years or so.
 ~
 #65453
-crystal ball sphere~
-a Crystal Ball~
-A large crystal sphere showing hazy images sits here.~
+king white stag beetle~
+a King White Stag Beetle~
+a King White Stag Beetle lies here.~
 ~
-8 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-2 13000 0 0 0
-A
-4 2
-A
-3 1
+1 50000 0 0 0
 E
-crystal ball~
-   A perfectly smooth sphere of flawless crystal. Gazing into it reveals
-distant places and hidden truths to those with sufficient wisdom.
+king white stag beetle~
+It uses special pheromones to lure other insects to build a huge
+colony. It leaves the colony once a day for an evening stroll.
 ~
 #65454
-wings glowing feather~
-a pair of Glowing Wings~
-A pair of luminous feathered wings gently radiating light rests here.~
+millennium butterfly~
+a Millennium Butterfly~
+a Millennium Butterfly lies here.~
 ~
-11 ag 0 0 0 ak 0 0 0 r 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-3 15000 0 0 0
-A
-14 3
+1 50000 0 0 0
 E
-glowing wings~
-   Magnificent feathered wings emitting warm golden light. Wearing them
-improves movement and grace considerably.
+millennium butterfly~
+A legendary insect named after the fact that the family of anyone who
+captures it will prosper for generations.
 ~
 #65455
-clock sleep ticking~
-a Sleep Clock~
-An ornate clock whose ticking has a strangely drowsy quality lies here.~
+revenge shop~
+a Revenge Shop~
+a Revenge Shop lies here.~
 ~
-12 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-1 22000 0 0 0
-T 65455
+1 50000 0 0 0
 E
-sleep clock~
-   An antique clock that ticks with unusual slowness. Those nearby find
-their eyelids growing heavier with each passing second.
+revenge shop~
+Report your grudges to the manager, and he will retaliate for you in
+proportion to your grievance. Pay extra to request a more severe
+retaliation.
 ~
 #65457
-snake worm whip~
-a Worm Snake~
-A long, flexible weapon resembling a giant snake lies coiled here.~
+hideout realtor~
+a Hideout Realtor~
+a Hideout Realtor lies here.~
 ~
-5 g 0 0 0 ano 0 0 0 0 0 0 0
-0 11 2 6
-4 20000 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
 E
-worm snake~
-   A long weapon made from the skin of a giant worm-snake, striking with
-viper speed and piercing through even heavy armor.
+hideout realtor~
+The agent will build a secret room just for you at your chosen place.
+However, you must not tell anyone about it or bring anybody to it.
 ~
 #65458
-billionaire portrait card~
-a Mr. Billionaire portrait~
-An ornate portrait of a wealthy-looking gentleman rests here.~
+secrets video rental~
+a Secrets Video Rental~
+a Secrets Video Rental lies here.~
 ~
-12 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-1 20000 0 0 0
+1 50000 0 0 0
 E
-mr billionaire portrait~
-   A refined portrait of the legendary Mr. Billionaire, one of Greed
-Island's most eccentric personalities. Said to attract fortune.
+secrets video rental~
+Rent videos of other peoples secrets. You must not show the video or
+discuss its contents with anyone.
 ~
 #65459
-stash secret bag hidden~
-a Secret Stash~
-A cleverly disguised container that seems to appear from nowhere sits here.~
+instant foreign language school~
+an Instant Foreign Language School~
+an Instant Foreign Language School lies here.~
 ~
-15 g 0 0 0 ao 0 0 0 0 0 0 0
-50 0 -1 0
-1 25000 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
 E
-secret stash~
-   A bag so well camouflaged it could hide in plain sight. Even a thorough
-search rarely gives up its secrets to the wrong person.
+instant foreign language school~
+Spend time studying a language at this school, and you will accrue
+time on a timer (included). While the timer is activated and counting
+down, you will be fluent.
 ~
 #65460
-cloak invisible~
-an Invisible Cloak~
-Something nearly invisible is here; you can only tell by a subtle shimmer.~
+long lost delivery~
+a Long Lost Delivery~
+a Long Lost Delivery lies here.~
 ~
-11 gf 0 0 0 ak 0 0 0 c 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-2 18000 0 0 0
-A
-2 2
+1 50000 0 0 0
 E
-invisible cloak~
-   A cloak woven from threads of refracted Nen, rendering the wearer nearly
-invisible in dim conditions. Moving makes it shimmer briefly.
+long lost delivery~
+Call the number and describe the item you lost, which will be
+delivered to you the next day. It must be lost for longer than a
+month.
 ~
 #65461
 scanner~
@@ -690,21 +673,17 @@ This weird club looks like a scepter with a
 "disco globe" spinning at the tip... too much tacky.
 ~
 #65463
-binding snake cord rope~
-a Binding Snake~
-A living-looking rope that moves slightly on its own coils here.~
+virtual restaurant~
+a Virtual Restaurant~
+a Virtual Restaurant lies here.~
 ~
-11 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-2 25000 0 0 0
-A
-18 1
-A
-1 1
+1 50000 0 0 0
 E
-binding snake~
-   A long cord that seems alive, making subtle movements on its own. When
-thrown at a target, it winds itself tight without any command.
+virtual restaurant~
+You can order any food you want. You will feel full, but it is only an
+illusion. You will be given a multivitamin as you leave.
 ~
 #65464
 potion love witch pink~
@@ -796,19 +775,19 @@ hair restorer~
 regrows a thick, healthy head of hair within weeks.
 ~
 #65470
-diamond rainbow gem~
-a Rainbow Diamond~
-A large diamond refracting light into brilliant rainbows gleams here.~
+mad scientist s steroids bottle~
+a Mad Scientist's Steroids~
+A box of Mad Scientist's Steroids sits here.~
 ~
-8 ag 0 0 0 ao 0 0 0 0 0 0 0
+19 dg 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-1 13000 0 0 0
-A
-6 2
+2 50000 0 0 0
+T 65470
 E
-rainbow diamond~
-   A flawless diamond cut in such a way that it scatters light into a full
-spectrum of colors. Extraordinary beauty that draws all eyes toward it.
+mad scientist s steroids~
+Get all the muscles you want without exercise. You must drink a liter
+a day for a week, and it tastes horrible. A seven-box set, with ten
+one-L bottles per box.
 ~
 #65471
 pheromones spray bottle scientist~
@@ -825,18 +804,18 @@ pheromones~
 cannot be adjusted, so beware a proliferation of stalkers.
 ~
 #65472
-potion witch wisdom purple~
-a Witch's Wisdom Potion~
-A bubbling purple potion in a twisted glass vial sits here.~
+mad scientist s plastic surgery~
+a Mad Scientist's Plastic Surgery~
+a Mad Scientist's Plastic Surgery lies here.~
 ~
-19 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-0 25000 0 0 0
-T 65472
+1 50000 0 0 0
 E
-witch wisdom potion~
-   A complex brew by one of the legendary witches of Greed Island. Drinking
-it grants temporary but extraordinary clarity of mind.
+mad scientist s plastic surgery~
+Scan a picture of the face you want, and you will have an exact
+likeness. Each surgery carries a 5% chance of failure, and a 1% chance
+the machine itself will break.
 ~
 #65473
 jade night~
@@ -881,67 +860,57 @@ alexandrite ring~
 A
 4 2
 #65476
-stone transmutation~
-a Transmutation Stone~
-A smooth stone that shifts between different colors and textures sits here.~
+roaming ruby~
+a Roaming Ruby~
+a Roaming Ruby lies here.~
 ~
-8 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-1 25000 0 0 0
-A
-3 2
+1 50000 0 0 0
 E
-transmutation stone~
-   A mysterious stone that slowly changes its own composition. Alchemists
-prize it for its ability to alter the nature of other substances.
+roaming ruby~
+The owner of this ruby will gain immense wealth, but will never be
+able to remain in the same place for more than a week.
 ~
 #65477
-stone philosopher red~
-the Philosopher's Stone~
-A reddish, irregularly shaped stone radiating wisdom sits here.~
+beauty magnet emerald~
+a Beauty Magnet Emerald~
+a Beauty Magnet Emerald lies here.~
 ~
-8 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-1 15000 0 0 0
-A
-3 2
-A
-4 1
+1 50000 0 0 0
 E
-philosophers stone~
-   The legendary red stone sought by alchemists throughout history.
-Its true power within Greed Island remains a matter of great debate.
+beauty magnet emerald~
+Specialists offering beauty services flock to its owner, who will
+shine with unrecognized beauty.
 ~
 #65478
-elixir life vial golden~
-the Elixir of Life~
-A vial of luminous golden liquid pulsing with vitality sits here.~
+lonely sapphire~
+a Lonely Sapphire~
+a Lonely Sapphire lies here.~
 ~
-19 ag 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-0 25000 0 0 0
-T 65478
+1 50000 0 0 0
 E
-elixir life~
-   The ultimate restorative, this golden liquid glows with pure life energy.
-Even a single drop could pull someone back from the edge of death.
+lonely sapphire~
+The owner of this sapphire will acquire vast wealth, but in exchange,
+will spend a lifetime alone, forsaken by friends, family, and
+significant others.
 ~
 #65479
-dragon eye gemstone red~
-a Dragon's Eye~
-A blood-red gemstone glowing from within sits here.~
+rainbow diamond~
+a Rainbow Diamond~
+a Rainbow Diamond lies here.~
 ~
-8 g 0 0 0 ao 0 0 0 eg 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-1 15000 0 0 0
-A
-3 1
-A
-4 1
+1 50000 0 0 0
 E
-dragon eye gem~
-   A deep crimson gemstone said to be the crystallized eye of a great
-dragon. Gazing into it grants remarkable insight and foresight.
+rainbow diamond~
+A diamond that shines in a rainbow of colors. Propose with this
+diamond, and she is guaranteed to say "yes."
 ~
 #65480
 levitation stone~
@@ -973,21 +942,18 @@ A
 A
 24 3
 #65482
-comet stone star fragment~
-a Comet Stone~
-A meteor fragment that faintly glows blue rests here.~
+staff of judgment~
+a Staff of Judgment~
+a Staff of Judgment lies here.~
 ~
-8 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-2 15000 0 0 0
-A
-24 -2
-A
-20 -2
+1 50000 0 0 0
 E
-comet stone~
-   A fragment from a fallen comet, still warm from its journey through
-space. It provides a protective aura against magical attacks.
+staff of judgment~
+Raise this staff in the air while calling out the name of someone you
+want to punish, and calamity will befall the one of you who has
+committed more bad deeds, the target or yourself.
 ~
 #65483
 sword truth~
@@ -1053,19 +1019,17 @@ armor sacrifice body~
 resolve into a ward, reflecting curses and ill fortune back upon their source.
 ~
 #65486
-axe heretic~
-the Heretic's Axe~
-A large battle-axe with blasphemous runes carved into its blade sits here.~
+quiver of frustration~
+a Quiver of Frustration~
+a Quiver of Frustration lies here.~
 ~
-5 dg 0 0 0 ano 0 0 0 0 0 0 0
-0 3 2 10
-7 20000 0 0 0
-A
-19 2
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
 E
-heretic axe~
-   A fearsome battle-axe inscribed with runes that defy conventional power.
-Its edge never dulls and its runes absorb magical defenses.
+quiver of frustration~
+You can cast as many "Leaves" as you have arrows. It comes with 10
+arrows, and one will be used each time you cast "Leave."
 ~
 #65487
 shield faith round large~
@@ -1087,17 +1051,19 @@ A
 A
 14 50
 #65488
-boots iron heavy~
-a pair of Iron Boots~
-A pair of heavy iron boots rests here.~
+eternal hammer~
+an Eternal Hammer~
+an Eternal Hammer lies here.~
 ~
-9 g 0 0 0 ag 0 0 0 0 0 0 0
-2 0 0 0
-5 20000 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
 E
-iron boots~
-   Boots forged from solid iron, reinforced with Nen to be lighter than
-they appear. They protect the feet from almost anything.
+eternal hammer~
+Anyone hit with this hammer will be afflicted with one random attack
+spell, and cannot defend him or herself with a defensive spell.
+However, it will not work on someone using "Fortress" or Paladin's
+Necklace.
 ~
 #65489
 gauntlet collector tax~
@@ -1127,47 +1093,44 @@ memory helmet~
 A
 14 20
 #65491
-rifle sniper gun~
-a Sniper Rifle~
-A long-range precision firearm with a polished scope rests here.~
+plastic king~
+a Plastic King~
+a Plastic King lies here.~
 ~
-5 g 0 0 0 ano 0 0 0 0 0 0 0
-0 12 2 10
-5 20000 0 0 0
-A
-18 2
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
 E
-sniper rifle~
-   A masterfully crafted long-range rifle. Its scope can pinpoint targets at
-extraordinary distances, making every shot devastatingly precise.
+plastic king~
+Recombine the parts of this 1:1 scale model kit to build any kind of
+vehicle. Fully functional, fuel not included.
 ~
 #65492
-flute confusion music silver~
-a Flute of Confusion~
-A slender silver flute with strangely arranged holes sits here.~
+swap ticket~
+a Swap Ticket~
+a Swap Ticket lies here.~
 ~
-12 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-1 17000 0 0 0
-T 65492
+1 50000 0 0 0
 E
-flute confusion~
-   A silver flute whose notes seem to rearrange themselves in the listener's
-mind. Playing it properly causes deep disorientation in enemies.
+swap ticket~
+Rip the ticket and give it to someone you want to switch with, and you
+can live his life for 24 hours. Book of 1000.
 ~
 #65493
-smoke bomb haze dark~
-a Haze Smoke Bomb~
-A dark sphere that occasionally leaks wisps of colored smoke sits here.~
+book of life~
+a Book of Life~
+a Book of Life lies here.~
 ~
-12 g 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-1 22000 0 0 0
-T 65493
+1 50000 0 0 0
 E
-haze smoke bomb~
-   A dense sphere packed with an exotic chemical compound. When thrown, it
-creates a massive cloud of thick and deeply disorienting smoke.
+book of life~
+An encyclopedia of everyone who's been in your life since your birth,
+with records of conversations and memorable incidents. It may end up
+being tens of thousands of pages long.
 ~
 #65494
 bandit blade~
@@ -1182,76 +1145,69 @@ A
 A
 19 -1
 #65495
-armor zeno body~
-the Armor of Zeno~
-A set of legendary full-body armor rests here.~
+secret cape cloak~
+a Secret Cape~
+a Secret Cape lies crumpled here.~
 ~
-9 g 0 0 0 ad 0 0 0 0 0 0 0
-8 0 0 0
-20 25000 0 0 0
-A
-18 2
-A
-19 1
+9 0 0 0 0 ak 0 0 0 c 0 0 0
+2 0 0 0
+3 50000 0 0 0
 E
-armor of zeno~
-   Full battle armor worn by one of the world's greatest assassins. Lightweight
-despite its thickness, it deflects blows with startling ease.
+secret cape~
+You will be under the effect of " Blackout Curtain " while wearing
+this cape.
 ~
 #65496
-disk thunderbolt chakram~
-a Thunderbolt Disk~
-A metal disc crackling with electrical energy sits here.~
+clairvoyant snake~
+a Clairvoyant Snake~
+a Clairvoyant Snake lies here.~
 ~
-5 g 0 0 0 ano 0 0 0 0 0 0 0
-0 3 2 6
-3 22000 0 0 0
-A
-19 1
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
 E
-thunderbolt disk~
-   A perfectly balanced metal disc that hums with stored electrical energy.
-Thrown with enough force, it releases a crackling lightning discharge.
+clairvoyant snake~
+Feed it a card Rank C or above, and it will spit up a " Clairvoyance
+."
 ~
 #65497
-turban razor wind head~
-the Razor Wind Turban~
-A silk turban that flutters even without wind sits here.~
+3 d camera~
+a 3-D Camera~
+a 3-D Camera lies here.~
 ~
-9 g 0 0 0 ae 0 0 0 0 0 0 0
-3 0 0 0
-2 22000 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
 E
-razor wind turban~
-   A flowing turban woven from wind-infused silk. Its trailing ends cut
-through the air like blades and it protects the head surprisingly well.
+3 d camera~
+Pictures taken with this will be developed as 3-D objects, with all
+textures reproduced. Make enlargements as needed.
 ~
 #65498
-gloves turtle claw hands~
-Turtle Claw Gloves~
-A pair of armored gloves with sharp claw-like extensions sits here.~
+silver dog~
+a Silver Dog~
+a Silver Dog lies here.~
 ~
-9 g 0 0 0 ah 0 0 0 0 0 0 0
-2 0 0 0
-3 20000 0 0 0
-A
-19 1
+12 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
 E
-turtle claw gloves~
-   Heavy-duty gloves reinforced with turtle shell plating and fitted with
-retractable claw extensions. Both protective and offensive.
+silver dog~
+An endangered species with silver fur. Mix 5g of gold into its food
+daily, and it will excrete one kg of solid silver feces.
 ~
 #65499
-license hunter three star~
-a Three-Star Hunter License~
-An extraordinary document bearing three gold stars sits here.~
+panda maid~
+a Panda Maid~
+a Panda Maid lies here.~
 ~
-16 ag 0 0 0 ao 0 0 0 0 0 0 0
+12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-0 100000 0 0 0
+1 50000 0 0 0
 E
-seal~
-   The pinnacle of achievement among Hunters. Three gold stars embossed on
-the finest paper, signed by the Hunter Association Chairman.
+panda maid~
+An endangered species. Very neat and loves to cook, each has a hobby
+such as sewing or gardening. They are excellent at taking care of
+human children.
 ~
 $
