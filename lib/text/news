@@ -8,6 +8,8 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 > 2026 <
 
 JUN 17 **
+- Spell cards can now be used directly from inventory while your book is active.
+  Syntax: gain <card name> [optional target]. No more need to hold the card first.
 - Combat damage system refactored.
 - Nen and Stamina recovery are now synchronized: sleeping, both resources take
   roughly the same time to fully recover. Recovery speed scales only with CON
