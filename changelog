@@ -8,6 +8,12 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 17 2026] - Henque
+  Quest 12002 text: fixed typo "craftman" -> "craftsman" (3 occurrences in title/desc).
+  Item 12030: renamed "a flask" -> "a flask of illness" to match quest 12007 text.
+  lib/text/news: removed internal vnums and non-gameplay entries (boot SYSERRs, text
+  fixes, duplicate entries); kept only player-facing gameplay changes.
+
+[Jun 17 2026] - Henque
   Fix Antokiba delivery quests 12001/12002: target vnums were 322/342 (zone-3 items not
   spawned in zone 120); corrected to 3022 (long sword) and 3042 (shield), matching what
   zone 120 actually spawns.
