@@ -1356,7 +1356,7 @@ void power_up(void)
 void pracskill(struct char_data *ch, int skill_num, int chance)
 {
   struct obj_data *booster;
-  int i, skilladd, dice, found;
+  int i, skilladd, dice, found = 0;
   
   if (!ch || IS_NPC(ch) || GET_SKILL(ch, skill_num) >= 100)
 	return;

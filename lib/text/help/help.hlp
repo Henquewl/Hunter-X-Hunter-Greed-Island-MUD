@@ -8518,11 +8518,29 @@ The following terrains may be selected (only one):
 #31
 REGENERATION
 
-   Enhancers recover a small portion of Nen
-even when not resting or sleeping, also 2
-stamina instead of 1, even in battle.
-   You can't regenerate while suppressing
-your Nen (5 nen) or while unconscious.
+   Regeneration is the Enhancer passive ability.
+It grants two advantages over other classes:
+
+   NEN RECOVERY WHILE STANDING: Enhancers slowly
+recover Nen even while active (standing, sitting,
+or fighting). The rate scales with CON: roughly
+1% of your total Nen per tick at CON 10, up to
+~2.5% per tick at CON 25. Other classes recover
+zero Nen unless resting or sleeping.
+
+   STAMINA RECOVERY BONUS: Enhancers recover
+Stamina ~20% faster than other classes at the
+same CON (sleeping, resting, standing, or in
+combat).
+
+   For all classes, CON is the primary factor
+in recovery speed: CON 25 recovers roughly
+twice as fast as CON 10. Nen and Stamina take
+approximately the same time to fully recover
+while sleeping.
+
+   You can't regenerate while suppressing your
+Nen (below 5 nen) or while unconscious.
 
 See Also: ZETSU, POWER
 #0

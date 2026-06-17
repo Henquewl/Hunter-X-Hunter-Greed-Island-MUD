@@ -8,6 +8,35 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 17 2026] - Henque
+  Enhancer Stamina advantage now exactly 20%: instead of a multiplicative bonus inside
+  mana_gain(), Enhancer receives an extra mana_gain() tick every 4 recover ticks via a
+  static counter in recover_update(). Result: CON 10 = 96s vs Hunter 120s; CON 25 = 48s
+  vs Hunter 60s. The class bonus (gain/3) was removed from mana_gain().
+
+[Jun 17 2026] - Henque
+  Nen regeneration reworked: divisor changed from /20 to /13 so Nen and Stamina
+  recovery times are now synchronized for all classes while sleeping (~78s at CON 10).
+  CON 25 recovers in roughly half the time of CON 10. Enhancer class bonus removed
+  from hit_gain (Nen is now purely CON-based). Enhancer passive (regeneration) now
+  grants ~1-2.5% Nen recovery per tick while standing (scaled by CON), and ~20%
+  faster Stamina regeneration vs other classes at the same CON (mana_gain changed
+  from flat +1 to gain/5 multiplicative).
+
+[Jun 17 2026] - Henque
+  Waterwalk reworked as passive skill: instead of a timed buff, the check now fires
+  automatically when entering SECT_WATER_NOSWIM rooms. Success allows passage; failure
+  blocks it. pracskill fires on every attempt (hit or miss). Entering shallow water
+  (SECT_WATER_SWIM) also triggers the practice roll. Boats and flying still bypass the
+  check. The `waterwalk` cast command was removed.
+  Skills are now fully blocked (including pracskill) in ROOM_NOMAGIC rooms: the check
+  was previously gated on violent flag, allowing non-violent skill grinding in protected
+  areas like the Antokiba temple. Jajanken also now checks ROOM_NOMAGIC/ROOM_PEACEFUL.
+  Fixed pracskill(): uninitialized `found` variable replaced with `found = 0`.
+  `practice` and `skills` commands now work while sleeping (POS_SLEEPING) so players
+  can view their skill list while resting; actual practicing through NPCs still requires
+  standing up to speak with the master.
+
+[Jun 17 2026] - Henque
   Quest 12002 text: fixed typo "craftman" -> "craftsman" (3 occurrences in title/desc).
   Item 12030: renamed "a flask" -> "a flask of illness" to match quest 12007 text.
   lib/text/news: removed internal vnums and non-gameplay entries (boot SYSERRs, text
