@@ -1702,22 +1702,6 @@ CHALLENGE
 That is what you will find here at Greed Island.
 
 #0
-CHANGE
-
-@cUsage: @Ychange @c<@Yitem@c>@Y      @n(turn an item into a card)@Y
-       change all.@c<@Yitem@c>@n
-
-   This command is used to transform an ITEM into a card. The item must be
-@Gheld@n or carried in your inventory. Ordinary items become cards ONLY when
-you @Ychange@n them - picking them up no longer converts them automatically.
-Items that are @mrestricted cards@n, however, still register into your binder
-automatically the moment you acquire them.
-
-   To turn a card back into its item form, use @YGAIN@n instead. Spell cards are
-not changed; they are cast with @YGAIN@n while your book is active.
-
-See Also: GAIN, CARDS, BOOK, NEWBIE
-#0
 CHANGELOG
 
 Usage: changelog <text>
@@ -3723,36 +3707,37 @@ so helping him may score you a free massage.
 #0
 GAIN
 
-@cUsage: @Ygain          @n(only to convert a held card or item)@Y
-       gain @c<@Yequip@c>@Y  @n(only to convert an equipped item)@Y
-@        gain @c<@Ytarget@c>@Y @n(only some spell cards require target)
-		 
-   This command is used to transform a item into a card or vice-versa. The item or
-card must be @Gheld@n or @Gequipped@n before use this command. If not specified the
-target of a spell card it will be used upon yourself. It is not possible use a
-spell card without activate your book, but gain an item into a card does not
-require that.
-   Only cards fits into your book, also only cards can be sold in stores.
+@cUsage: @Ygain                      @n(convert the held card or item)
+       gain @c<@Yitem@c>@n               (convert a card or item in your inventory)
+       gain @c<@Yspell card@c> @c[@Ytarget@c]@n  (cast a spell card; target is optional)
 
-The follow items types cannot be gained into a card:
-- Light (torches, laterns etc)
+   This command transforms items into cards and cards back into items. Use it
+on any item or card you are holding or carrying in your inventory.
+
+   @YSpell cards@n are cast with @YGAIN@n while your @Cbook@n is active. You do not need
+to hold the spell card - it can be anywhere in your inventory. If a target is
+needed, include their name after the card name (@Wgain accompany gon@n). If no
+target is given the card is used on yourself.
+
+   Only cards fit into your book, and only cards can be sold in stores.
+
+The following item types cannot be converted into cards:
+- Lights (torches, lanterns etc.)
 - Wands
-- Staffs
-- Containers (bags, canteens ect)
+- Staves
+- Containers (bags, canteens etc.)
 - Keys
-- Trashes (booster packs, shattered sword etc)
+- Trash items (booster packs, shattered sword etc.)
 
-@RATTENTION!@n Holding a card or leaving it on the ground can turn it into an item
-again, like a "auto gain", and this item will never can be turned into a card
-anymore. Depending on card effect or item, this can turn into a most useless item
-or gone forever. This "auto gain" can happens between 1 or 2 minutes, for that
-reason if you want keep your cards safe, keep it into your binders to avoid people
-steal your cards with their skilled hands.
+@RATTENTION!@n Leaving a card in your hand or on the ground will eventually revert
+it back into its item form, and that item can never become a card again. Cards
+revert in roughly 1-2 minutes. Keep your cards inside your binder to keep them
+safe.
 
-@cNote:@n picking up an ordinary item no longer turns it into a card by itself - use
-the @YCHANGE@n command for that. Only @mrestricted card@n items still convert on pickup.
+@cNote:@n picking up an ordinary item does not turn it into a card automatically.
+Use @YGAIN@n on it. Only @mrestricted card@n items still convert on pickup.
 
-See Also: CARDS, CHANGE, BOOK, NEWBIE
+See Also: CARDS, BOOK, NEWBIE
 #0
 GAMBLING SLOTMACHINES GAMBLE GAMES 
 
