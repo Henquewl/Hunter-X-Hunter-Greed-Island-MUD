@@ -777,6 +777,11 @@ ACMD(do_jajanken)
   if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_JAJANKEN)) {
     send_to_char(ch, "Unpractised you are, a master you must seek, hum.\r\n");
     return;
+  }
+
+  if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_NOMAGIC) || ROOM_FLAGGED(IN_ROOM(ch), ROOM_PEACEFUL)) {
+    send_to_char(ch, "Your Nen is sealed in this place!\r\n");
+    return;
   }  
   
   if (PLR_FLAGGED(ch, PLR_JAJANKEN) || (!PLR_FLAGGED(ch, PLR_JAJANKEN) && GET_MAX_MOVE(ch) > 170)) {

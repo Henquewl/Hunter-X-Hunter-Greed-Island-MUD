@@ -44,7 +44,7 @@ static int has_boat(struct char_data *ch)
   if (GET_LEVEL(ch) > LVL_IMMORT)
     return (1);
 
-  if (AFF_FLAGGED(ch, AFF_WATERWALK) || AFF_FLAGGED(ch, AFF_FLYING))
+  if (AFF_FLAGGED(ch, AFF_FLYING))
     return (1);
 
   /* non-wearable boats in inventory will do it */
@@ -174,15 +174,25 @@ int do_simple_move(struct char_data *ch, int dir, int need_specials_check)
     return (0);
   }
 
-  /* Water, No Swimming Rooms: Does the deep water prevent movement? */
-  if ((SECT(was_in) == SECT_WATER_NOSWIM) ||
-      (SECT(going_to) == SECT_WATER_NOSWIM))
-  {
-    if (!has_boat(ch))
-    {
-      send_to_char(ch, "You need a boat to go there.\r\n");
-      return (0);
+  /* Passive Waterwalk / boat check for deep water */
+  if (SECT(going_to) == SECT_WATER_NOSWIM) {
+    int ww_skill = GET_SKILL(ch, SPELL_WATERWALK);
+    if (!has_boat(ch)) {
+      if (ww_skill > 0) {
+        pracskill(ch, SPELL_WATERWALK, 18);
+        if (rand_number(1, 101) > ww_skill) {
+          send_to_char(ch, "You try to walk on the water but lose your footing!\r\n");
+          return (0);
+        }
+      } else {
+        send_to_char(ch, "You need a boat to go there.\r\n");
+        return (0);
+      }
     }
+  }
+  /* Passive practice trigger for shallow water */
+  if (SECT(going_to) == SECT_WATER_SWIM && GET_SKILL(ch, SPELL_WATERWALK) > 0) {
+    pracskill(ch, SPELL_WATERWALK, 18);
   }
 
   /* Flying Required: Does lack of flying prevent movement? */
