@@ -758,72 +758,17 @@ times their level.
 S
 #3033
 @WSpell @BCard @WShop@n~
-   This place is two times more larger than outside, you see some sections that
-leads to various spell cards types.  To the west, there are defensive spell
-section and beyond.  Regular spell section to north and attack spell section at
-east.
+   A well-lit shop filled with magical artifacts and spell booster packs.  The smell
+of arcane energy lingers in the air.  Main street lies to the south.
 ~
 30 12 0 0 0 0
-D0
-~
-~
-0 0 3037
-D1
-~
-~
-0 0 3035
 D2
 You see the main street.
 ~
 ~
 0 -1 3012
-D3
-~
-~
-0 0 3036
 S
 T 3034
-#3035
-@BAttack Spell Section@n~
-This unfinished room was created by Henque.
-~
-30 28 0 0 0 0
-D0
-~
-~
-0 0 -1
-D3
-~
-~
-0 0 3033
-S
-T 3032
-#3036
-@BDefensive Spell Section And Beyond@n~
-This unfinished room was created by Henque.
-~
-30 28 0 0 0 0
-D0
-~
-~
-0 0 -1
-D1
-~
-~
-0 0 3033
-S
-T 3030
-#3037
-@BRegular Spell Section@n~
-This unfinished room was created by Henque.
-~
-30 28 0 0 0 0
-D2
-~
-~
-0 0 3033
-S
-T 3031
 #3040
 @MInside @GThe @mWest @YGate @gOf @wMasadora@n~
    You are by two small towers that have been built into the city wall and

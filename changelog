@@ -7,6 +7,17 @@ https://github.com/tbamud/tbamud
 Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
+[Jun 17 2026] - Henque
+  Antokiba shops now sell the actual items instead of their card forms: Froboz's
+  workshop sells Golden Pantaloons (12009) and Telescopic Spyglass (3090); the Cat
+  Diner sells a lunch box (3019); the Jenny Money Exchange sells jenny bills and wads
+  (40102-40111) instead of jenny cards.
+  Masadora spell shop rework: removed the wizard and smartass seller NPCs and their
+  three hidden section rooms (attack/defensive/regular spell sections). A single "spell
+  card seller" now stands in the main shop (room 3033), selling spell boosters and
+  utility items (potions, wands, scrolls). Room triggers and spell stock loaders for
+  the removed vendors have been cleaned up.
+
 [Jun 16 2026] - Henque
   Fix division-by-zero in powerlevel() (act.informative.c): inline HIT ratio was not guarded
   against GET_HIT(ch) <= 0, which could produce undefined behavior in the analysis==100 colour

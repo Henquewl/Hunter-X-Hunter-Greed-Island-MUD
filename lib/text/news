@@ -7,6 +7,14 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 
 > 2026 <
 
+JUN 17 **
+- Shops in Antokiba now sell items directly instead of card forms: Froboz's workshop
+  sells Golden Pantaloons and a Telescopic Spyglass; the Cat Diner sells a lunch box;
+  the Jenny Money Exchange sells jenny bills/wads instead of jenny cards.
+- Masadora spell shop consolidated: one "spell card seller" in the main shop sells
+  spell booster packs and utility items. The wizard and smartass seller are gone,
+  along with the back-room spell sections.
+
 JUN 16 **
 - Quest list at a questmaster no longer shows the internal vnum to players.
 - Antokiba delivery quests for long swords and shields are now properly completable.

@@ -351,11 +351,11 @@ SavingSpell: 8
 E
 T 3035
 #3036
-attendant~
-an attendant~
-An attendant behind the counter is here.
+spell card seller~
+a spell card seller~
+A spell card seller stands behind the counter here.
 ~
-She is pretty, be a nice boy.
+She carefully arranges spell booster packs on the counter.
 ~
 262154 0 0 0 0 0 0 0 0 E
 33 9 -9 6d6+330 5d5+5
