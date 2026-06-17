@@ -8,6 +8,11 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 17 2026] - Henque
+  Weapon damage formula changed from `dice * 100 / (101 - level)` to `dice * level`.
+  At level 1 a 1d8 weapon adds 1-8 damage (unchanged); at level 30 it adds 30-240.
+  Same formula applied to NPC natural weapons. Unarmed players are unaffected.
+
+[Jun 17 2026] - Henque
   Enhancer Stamina advantage now exactly 20%: instead of a multiplicative bonus inside
   mana_gain(), Enhancer receives an extra mana_gain() tick every 4 recover ticks via a
   static counter in recover_update(). Result: CON 10 = 96s vs Hunter 120s; CON 25 = 48s
