@@ -8,6 +8,15 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 17 2026] - Henque
+  Fix Antokiba delivery quests 12001/12002: target vnums were 322/342 (zone-3 items not
+  spawned in zone 120); corrected to 3022 (long sword) and 3042 (shield), matching what
+  zone 120 actually spawns.
+  Repeatable quests now record first completion: quest list shows "Done: Yes" after
+  completing a repeatable quest for the first time; quest history also lists it once.
+  Re-entry into repeatable quests is unaffected. (quest.c: generic_complete_quest,
+  quest_join)
+
+[Jun 17 2026] - Henque
   Antokiba shops now sell the actual items instead of their card forms: Froboz's
   workshop sells Golden Pantaloons (12009) and Telescopic Spyglass (3090); the Cat
   Diner sells a lunch box (3019); the Jenny Money Exchange sells jenny bills and wads

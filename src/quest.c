@@ -344,7 +344,7 @@ void generic_complete_quest(struct char_data *ch)
         }
       }
     }
-    if (!IS_SET(QST_FLAGS(rnum), AQ_REPEATABLE))
+    if (!is_complete(ch, vnum))
       add_completed_quest(ch, vnum);
     clear_quest(ch);
     if ((real_quest(QST_NEXT(rnum)) != NOTHING) &&
@@ -518,7 +518,7 @@ void quest_join(struct char_data *ch, struct char_data *qm, char argument[MAX_IN
   else if (GET_LEVEL(ch) > QST_MAXLEVEL(rnum))
     snprintf(buf, sizeof(buf),
              "%s You are too experienced for that quest!", GET_NAME(ch));
-  else if (is_complete(ch, vnum))
+  else if (is_complete(ch, vnum) && !IS_SET(QST_FLAGS(rnum), AQ_REPEATABLE))
     snprintf(buf, sizeof(buf),
              "%s You have already completed that quest!", GET_NAME(ch));
   else if ((QST_PREV(rnum) != NOTHING) && !is_complete(ch, QST_PREV(rnum)))

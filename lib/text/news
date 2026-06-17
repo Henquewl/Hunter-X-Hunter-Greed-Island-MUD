@@ -8,6 +8,10 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 > 2026 <
 
 JUN 17 **
+- Quests repetíveis agora mostram "Done: Yes" no quest list após serem completadas
+  pela primeira vez, e aparecem uma única vez no quest history.
+- Fix nas quests de entrega 12001 (long swords) e 12002 (shields): vnums corrigidos
+  para 3022 e 3042, que são os itens que realmente surgem na zona 120.
 - Shops in Antokiba now sell items directly instead of card forms: Froboz's workshop
   sells Golden Pantaloons and a Telescopic Spyglass; the Cat Diner sells a lunch box;
   the Jenny Money Exchange sells jenny bills/wads instead of jenny cards.
