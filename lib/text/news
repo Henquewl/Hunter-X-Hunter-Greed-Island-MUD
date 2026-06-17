@@ -8,6 +8,7 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 > 2026 <
 
 JUN 17 **
+- Combat damage system refactored.
 - Nen and Stamina recovery are now synchronized: sleeping, both resources take
   roughly the same time to fully recover. Recovery speed scales only with CON
   (no class advantage on Nen). CON 25 recovers roughly twice as fast as CON 10.
