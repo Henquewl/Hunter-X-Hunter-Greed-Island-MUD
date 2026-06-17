@@ -632,16 +632,29 @@ void quest_show(struct char_data *ch, mob_vnum qm)
 {
   qst_rnum rnum;
   int counter = 0;
+  int imm = (GET_LEVEL(ch) >= LVL_IMMORT);
 
-  send_to_char(ch,
-  "The following quests are available:\r\n"
-  "Index Description                                          ( Vnum) Done?\r\n"
-  "----- ---------------------------------------------------- ------- -----\r\n");
+  if (imm)
+    send_to_char(ch,
+    "The following quests are available:\r\n"
+    "Index Description                                          ( Vnum) Done?\r\n"
+    "----- ---------------------------------------------------- ------- -----\r\n");
+  else
+    send_to_char(ch,
+    "The following quests are available:\r\n"
+    "Index Description                                                   Done?\r\n"
+    "----- ------------------------------------------------------------ -----\r\n");
   for (rnum = 0; rnum < total_quests; rnum++)
-    if (qm == QST_MASTER(rnum))
-      send_to_char(ch, "\tg%4d\tn) \tc%-52.52s\tn \ty(%5d)\tn \ty(%s)\tn\r\n",
-        ++counter, QST_DESC(rnum), QST_NUM(rnum),
-        (is_complete(ch, QST_NUM(rnum)) ? "Yes" : "No "));
+    if (qm == QST_MASTER(rnum)) {
+      if (imm)
+        send_to_char(ch, "\tg%4d\tn) \tc%-52.52s\tn \ty(%5d)\tn \ty(%s)\tn\r\n",
+          ++counter, QST_DESC(rnum), QST_NUM(rnum),
+          (is_complete(ch, QST_NUM(rnum)) ? "Yes" : "No "));
+      else
+        send_to_char(ch, "\tg%4d\tn) \tc%-60.60s\tn \ty(%s)\tn\r\n",
+          ++counter, QST_DESC(rnum),
+          (is_complete(ch, QST_NUM(rnum)) ? "Yes" : "No "));
+    }
   if (!counter)
     send_to_char(ch, "There are no quests available here at the moment.\r\n");
 }

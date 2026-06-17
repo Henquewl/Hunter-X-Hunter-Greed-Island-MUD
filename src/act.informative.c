@@ -423,10 +423,10 @@ void powerlevel(struct char_data *i, struct char_data *ch)
   if (prob)
 	pracskill(ch, SKILL_ANALYSIS, 10);
   
-  if (GET_TOTAL_HIT(i) > 0)
+  if (GET_TOTAL_HIT(i) > 0 && GET_HIT(ch) > 0)
     percent = ((100 * GET_HIT(i)) / GET_HIT(ch));
   else
-	percent = -1;  
+	percent = -1;
 
   if (AFF_FLAGGED(ch, AFF_DETECT_ALIGN)) {
     if (IS_EVIL(i))
@@ -435,17 +435,17 @@ void powerlevel(struct char_data *i, struct char_data *ch)
 	  align = "\tB";
     else
 	  align = "\tn";
-  }  
-  
+  }
+
   if (IS_AFFECTED(i, AFF_NOPK))
 	send_to_char(ch, "\ty(\tMNO_PK\ty) ");
-	
+
   if (AFF_FLAGGED(ch, AFF_DETECT_POISON) && AFF_FLAGGED(i, AFF_POISON))
     snprintf(buf, sizeof(buf), "%s(%s%s%s)%s", AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", BGRN, printfcomma(GET_HIT(i)), AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", AFF_FLAGGED(i, AFF_INVISIBLE) ? "\tD" : "\ty");
-  else if ((100 * GET_HIT(i)) / GET_HIT(ch) >= 125)
+  else if (GET_HIT(ch) > 0 && (100 * GET_HIT(i)) / GET_HIT(ch) >= 125)
 	snprintf(buf, sizeof(buf), "%s(%s%s%s)%s", AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", BRED, printfcomma(GET_HIT(i)), AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", AFF_FLAGGED(i, AFF_INVISIBLE) ? "\tD" : "\ty");
-  else if ((100 * GET_HIT(i)) / GET_HIT(ch) <= 75)
-	snprintf(buf, sizeof(buf), "%s(%s%s%s)%s", AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", KYEL, printfcomma(GET_HIT(i)), AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", AFF_FLAGGED(i, AFF_INVISIBLE) ? "\tD" : "\ty");	
+  else if (GET_HIT(ch) > 0 && (100 * GET_HIT(i)) / GET_HIT(ch) <= 75)
+	snprintf(buf, sizeof(buf), "%s(%s%s%s)%s", AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", KYEL, printfcomma(GET_HIT(i)), AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", AFF_FLAGGED(i, AFF_INVISIBLE) ? "\tD" : "\ty");
   else
 	snprintf(buf, sizeof(buf), "%s(%s%s%s)%s", AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", BBLU, printfcomma(GET_HIT(i)), AFF_FLAGGED(ch, AFF_DETECT_ALIGN) ? align : "\tn", AFF_FLAGGED(i, AFF_INVISIBLE) ? "\tD" : "\ty");
   

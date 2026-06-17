@@ -7,6 +7,11 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 
 > 2026 <
 
+JUN 16 **
+- Quest list at a questmaster no longer shows the internal vnum to players.
+- Antokiba delivery quests for long swords and shields are now properly completable.
+- "Save the lion from gladiators" quest can no longer be repeated once completed.
+
 JUN 13 **
 - The whole 100-card restricted set now matches the official Greed Island card list --
   the placeholder/invented cards have been replaced with their real counterparts, so what

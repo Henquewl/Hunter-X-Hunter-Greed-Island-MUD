@@ -1,31 +1,31 @@
 #12001
 Give 5 long swords to Titus' shopkeeper~
 Give 5 long swords to Titus' shopkeeper (medium) (R)~
-Give 5 long swords to Titus' shopkeeper (card form).
-Some people in town bought some long swords and didn't pay the installments!
-Bring 5 long sword cards to Titus' Shopkeeper.
+Give 5 long swords to Titus' shopkeeper.
+People bought long swords and skipped the bill!
+Bring 5 long swords back to Titus' shopkeeper. Keyword: sword.
 ~
 You have completed the quest.
 ~
 You have abandoned the quest.
 ~
-5 12012 a 3122 -1 -1 -1
+5 12012 a 322 -1 -1 -1
 0 0 0 104 -1 12011 5
 4000 150 3146
 S
 #12002
 Give 5 shields to leather craftman~
 Give 5 shields to leather craftman (easy) (R)~
-Give 5 shields to leather craftman (card form).
-The leathers guy bought a shipment of shields but they delivered to Titus
-by mistake and the worse part... Titus start to sell it to the entire town!
-Reduce the loss and bring 5 shield cards back to the original owner.
+Give 5 shields to leather craftman.
+A shield shipment meant for the leather craftsman ended up at Titus' store
+and Titus has been selling them all week! Return 5 shields to the rightful
+owner. Keyword: shield.
 ~
 You have completed the quest.
 ~
 You have abandoned the quest.
 ~
-5 12012 a 3142 -1 -1 -1
+5 12012 a 342 -1 -1 -1
 0 0 0 34 -1 12038 5
 2000 100 3195
 S
@@ -47,9 +47,9 @@ You have abandoned the quest.
 S
 #12004
 Save the lion from gladiators~
-Save the lion from gladiators (hard) (R)~
+Save the lion from gladiators (hard)~
 Kill the gladiators before they kill the lion.
-FAPPING - Feline Association for Preservation and Protecting ask for help.
+FAP - Feline Association for Preservation and Protecting ask for help.
 A lion in coliseum of Antokiba is suffering harassment and he deserve
 respect as any other people... lol what?!
 ~
@@ -57,7 +57,7 @@ You have completed the quest.
 ~
 You have abandoned the quest.
 ~
-4 12012 a 12008 -1 -1 -1
+4 12012 0 12008 -1 -1 -1
 0 0 5 34 12 -1 1
 8000 500 3250
 S

@@ -7,6 +7,17 @@ https://github.com/tbamud/tbamud
 Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
+[Jun 16 2026] - Henque
+  Fix division-by-zero in powerlevel() (act.informative.c): inline HIT ratio was not guarded
+  against GET_HIT(ch) <= 0, which could produce undefined behavior in the analysis==100 colour
+  path. Added the same guard already present in nen_power_rating(). Both colour paths (text
+  labels and coloured numbers) now use the same safe 75/125% thresholds consistently.
+  Hide vnum column in quest_show() from mortal players; immortals still see it.
+  Fix Antokiba delivery quests 12001 (long swords) and 12002 (shields): target vnums pointed
+  to non-existent objects (3122/3142 — zone-31 mob/room vnums); corrected to vnum 322 (long
+  sword, zone 3) and 342 (shield, zone 3). Quest descriptions updated to reflect item form.
+  Make quest 12004 "Save the lion from gladiators" non-repeatable (removed AQ_REPEATABLE flag).
+  Rename FAPPING → FAP in quest 12004 description.
 [Jun 13 2026] - Henque
   Fix a use-after-free in fight.c hit(): the final damage() extracts (frees) the victim when
   the blow is fatal and returns -1, but the code afterwards still referenced the victim
