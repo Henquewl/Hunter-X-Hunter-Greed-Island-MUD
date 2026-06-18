@@ -8,8 +8,11 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 > 2026 <
 
 JUN 18 **
-- Poison now reduces HP and Stamina regeneration to 1/4 (was 1/2). Stacked with
-  hunger and thirst, HP regen can drop as low as 1/16 per tick.
+- Flurry of Blows and Jajanken now require you to be unarmed.
+- Barehanded Expert now deals bonus damage when the skill activates.
+- Jajanken damage multiplier restored.
+- Jajanken charging now shows your aura level privately.
+- Poison now reduces HP and Stamina regeneration more severely.
 - Repeatable quests can now only be completed once per game day (30 min real time).
   The questmaster will ask you to return tomorrow if you already completed it today.
 

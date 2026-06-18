@@ -202,7 +202,7 @@ cpp_extern const struct command_info cmd_info[] = {
   { "fill"     , "fil"     , POS_STANDING, do_pour     , 0, SCMD_FILL },
   { "file"     , "file"    , POS_SLEEPING, do_file     , LVL_GOD, 0 },
   { "flee"     , "fl"      , POS_FIGHTING, do_flee     , 1, 0 },
-  { "flurry"   , "flu"     , POS_FIGHTING, do_backstab , 1, 0 },  
+  { "flurry"   , "flu"     , POS_FIGHTING, do_flurryofblows , 1, 0 },
   { "focus"    , "foc"     , POS_SITTING , do_cast     , 1, SPELL_BLESS },
   { "food"     , "foo"     , POS_SITTING , do_cast     , 1, SPELL_CREATE_FOOD },
   { "follow"   , "fol"     , POS_RESTING , do_follow   , 0, 0 },

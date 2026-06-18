@@ -196,7 +196,7 @@ ACMD(do_snapneck)
   }
 }
 
-ACMD(do_backstab)
+ACMD(do_flurryofblows)
 {
   char buf[MAX_INPUT_LENGTH];
   struct char_data *vict;
@@ -205,6 +205,14 @@ ACMD(do_backstab)
   if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_BACKSTAB)) {
     send_to_char(ch, "Unpractised you are, a master you must seek, hum.\r\n");
     return;
+  }
+
+  {
+    struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
+    if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON) {
+      send_to_char(ch, "You need to be unarmed to perform a Flurry of Blows!\r\n");
+      return;
+    }
   }
 
   one_argument(argument, buf);
@@ -794,9 +802,17 @@ ACMD(do_jajanken)
 	else if (GET_MAX_MOVE(ch) > 170)	
 	  GET_MAX_MOVE(ch) -= 100;
     WAIT_STATE(ch, PULSE_VIOLENCE * 2);
-	return;	
+	return;
   }
-  
+
+  {
+    struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
+    if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON) {
+      send_to_char(ch, "You need to be unarmed to use Jajanken!\r\n");
+      return;
+    }
+  }
+
   if (GET_POS(ch) == POS_FIGHTING) {
 	send_to_char(ch, "You can't do this in middle of a fight!\r\n");
 	return;

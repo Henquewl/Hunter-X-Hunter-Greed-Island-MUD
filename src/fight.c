@@ -783,6 +783,7 @@ int damage(struct char_data *ch, struct char_data *victim, int dam, int attackty
 
   if (PLR_FLAGGED(ch, PLR_JAJANKEN)) {
     do_gen_comm(ch, "Rock!", 0, SCMD_SHOUT);
+    dam = (dam * GET_MAX_MOVE(ch)) / (200 - GET_SKILL(ch, SKILL_JAJANKEN));
 	REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_JAJANKEN);
 	if (GET_MAX_MOVE(ch) > 370)
 	  GET_MAX_MOVE(ch) -= 300;
@@ -1304,6 +1305,10 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
       prob = GET_SKILL(ch, SKILL_BAREHANDED_EXPERT);
       if (percent > prob)
 	    GET_MANA(ch) -= 1;
+      else {
+        int bonus_dam = dice(1, GET_LEVEL(ch)) * GET_LEVEL(ch);
+        damage(ch, victim, bonus_dam, SKILL_BAREHANDED_EXPERT);
+      }
 	}
    }  
    if (GET_MANA(ch) <= 0 && IS_NPC(victim)) {
