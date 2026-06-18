@@ -8,6 +8,13 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 18 2026] - Henque
+  Shield of Faith (item #65487) now protects its wearer (and followers) from
+  location-based spell cards: Return, Railguide, Drift, Collision.
+  Added WEAR/REMOVE object triggers (#65499/#65500) in 654.trg that set/clear
+  a shield_faith variable on the player. Added shield guards in 10.trg triggers
+  #1009, #1012, #1016, #1017 to check and block if the variable is present.
+
+[Jun 18 2026] - Henque
   Spell and restricted cards now send an MXP <IMAGE> tag to clients that support
   it when the player looks at the card. Image base URLs are defined in
   act.informative.c (SPELL_CARD_IMAGE_BASE_URL / RESTRICTED_CARD_IMAGE_BASE_URL).

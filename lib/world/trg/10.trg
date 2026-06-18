@@ -513,6 +513,12 @@ if !%actor.is_book%
 halt
 end
 if %cmd.mudcommand% == gain
+if %actor.varexists(shield_faith)% || %actor.master.varexists(shield_faith)%
+  %send% %actor% Your Shield of Faith repels the card's magic!
+  wait 1 sec
+  %purge% %self%
+  halt
+end
 if %arg% == antokiba && %actor.varexists(visited_antokiba)%
 %force% %actor% say Return ON! Antokiba!
 wait 1 sec
@@ -717,6 +723,13 @@ if !%actor.is_book%
 halt
 end
 if %cmd.mudcommand% == gain
+if %arg.is_pc% == 1 && (%arg.varexists(shield_faith)% || %arg.master.varexists(shield_faith)%)
+  %send% %actor% %arg.name%'s Shield of Faith repels the card's magic!
+  %send% %arg% Your Shield of Faith deflects an attempt to Railguide to you!
+  wait 1 sec
+  %purge% %self%
+  halt
+end
 if %arg.is_pc% == 1
 %force% %actor% say Railguide ON! Target %arg.name%!
 wait 1 sec
@@ -867,6 +880,12 @@ if !%actor.is_book%
 halt
 end
 if %cmd.mudcommand% == gain
+if %actor.varexists(shield_faith)% || %actor.master.varexists(shield_faith)%
+  %send% %actor% Your Shield of Faith repels the card's magic!
+  wait 1 sec
+  %purge% %self%
+  halt
+end
 %force% %actor% say Drift ON!
 wait 1 sec
 if  %actor.varexists(visited_antokiba)% && %actor.varexists(visited_masadora)% && %actor.varexists(visited_rabicuta)%
@@ -947,6 +966,12 @@ if !%actor.is_book%
   halt
 end
 if %cmd.mudcommand% == gain
+  if %actor.varexists(shield_faith)% || %actor.master.varexists(shield_faith)%
+    %send% %actor% Your Shield of Faith repels the card's magic!
+    wait 1 sec
+    %purge% %self%
+    halt
+  end
   %force% %actor% say Collision ON!
   while (%counter% < 100)
     makeuid mob 2+%counter%

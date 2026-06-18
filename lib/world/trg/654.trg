@@ -306,4 +306,19 @@ end
 %echoaround% %actor% %actor.name% feeds a clairvoyant snake, which spits up a card.
 %load% obj 1015 %actor% inv
 ~
+#65499
+shield faith wear~
+1 j 100
+~
+eval shield_faith 1
+remote shield_faith %actor.id%
+%send% %actor% The Shield of Faith pulses with protective light.
+~
+#65500
+shield faith remove~
+1 l 100
+~
+rdelete shield_faith %actor.id%
+%send% %actor% The Shield of Faith dims as you lower it.
+~
 $~
