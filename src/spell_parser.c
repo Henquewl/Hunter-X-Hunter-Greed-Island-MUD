@@ -584,9 +584,13 @@ ACMD(do_cast)
     return;
   }  
 
-  if ((ROOM_FLAGGED(IN_ROOM(ch), ROOM_PEACEFUL) || ROOM_FLAGGED(IN_ROOM(ch), ROOM_NOMAGIC)) && SINFO.violent) {
-	send_to_char(ch, "This room just has such a peaceful, easy feeling...\r\n");
-	return;
+  if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_NOMAGIC)) {
+    send_to_char(ch, "Your Nen is sealed in this place!\r\n");
+    return;
+  }
+  if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_PEACEFUL) && SINFO.violent) {
+    send_to_char(ch, "This room just has such a peaceful, easy feeling...\r\n");
+    return;
   }
 
   if (spellnum == SPELL_TELEPORT && is_abbrev(t, "mark")) {
@@ -704,7 +708,7 @@ ACMD(do_cast)
 	    GET_MANA(ch) = MAX(0, MIN(GET_MAX_MANA(ch), GET_MANA(ch) - mana));
     }
   }  
-  pracskill(ch, spellnum, 18); 
+  pracskill(ch, spellnum, spellnum == SPELL_CURE_LIGHT ? 15 : 18);
 }
 
 void spell_level(int spell, int chclass, int level)

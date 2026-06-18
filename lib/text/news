@@ -8,16 +8,35 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 > 2026 <
 
 JUN 17 **
-- Shops in Antokiba now sell items directly instead of card forms: Froboz's workshop
-  sells Golden Pantaloons and a Telescopic Spyglass; the Cat Diner sells a lunch box;
-  the Jenny Money Exchange sells jenny bills/wads instead of jenny cards.
-- Masadora spell shop consolidated: one "spell card seller" in the main shop sells
-  spell booster packs and utility items. The wizard and smartass seller are gone,
-  along with the back-room spell sections.
+- Spell cards can now be used directly from inventory while your book is active.
+  Syntax: gain <card name> [optional target]. No more need to hold the card first.
+- Combat damage system refactored.
+- Nen and Stamina recovery are now synchronized: sleeping, both resources take
+  roughly the same time to fully recover. Recovery speed scales only with CON
+  (no class advantage on Nen). CON 25 recovers roughly twice as fast as CON 10.
+- Enhancer passive (Regeneration): grants a small Nen recovery even while
+  standing (~1% per tick at CON 10, ~2.5% at CON 25), and exactly 20% faster
+  Stamina regeneration vs other classes at the same CON (CON 10: 96s vs 120s;
+  CON 25: 48s vs 60s).
+- WATERWALK is now a passive skill. You no longer cast it as a spell — instead,
+  when you try to walk into deep water without a boat, your waterwalk skill fires
+  automatically. Success lets you cross; failure stops you. The skill improves
+  with every attempt, whether you make it or not.
+- Skills are now fully blocked in protected rooms (NOMAGIC flag, e.g. the
+  Antokiba temple). You can no longer grind skill improvements there.
+- The `practice` and `skills` commands work while sleeping, so you can check
+  your skill list without waking up.
+- Completing a repeatable quest now marks it as Done in the quest list, so you
+  know you have done it before. It also appears once in your quest history.
+- The long sword and shield delivery quests at the Antokiba peddler are now
+  completable.
+- Shops in Antokiba now sell items directly: Froboz's workshop sells the Golden
+  Pantaloons and a Telescopic Spyglass; the Cat Diner sells a lunch box; the
+  Jenny Money Exchange sells jenny bills and wads.
+- The Masadora spell shop is now a single counter with one seller offering spell
+  booster packs and utility items.
 
 JUN 16 **
-- Quest list at a questmaster no longer shows the internal vnum to players.
-- Antokiba delivery quests for long swords and shields are now properly completable.
 - "Save the lion from gladiators" quest can no longer be repeated once completed.
 
 JUN 13 **
@@ -71,14 +90,11 @@ JUN 12 **
   to turn a card back into an item, as before.
 
 MAY 21 **
-- Fixed a SYSERR at boot caused by item #65462 (the "club") having its current
-  charges exceeding its maximum charges.
 - Two new spell cards are now functional: Corruption, which steals a free card from
   a target and can be recovered with Purify; and Compromise, which exchanges one of
-  your free cards for a restricted card from a target's binder;
-- The restricted card set is now complete with all one hundred cards available,
-  each one transforming into its corresponding physical item when gained;
-- Fixed several grammar and spelling mistakes in the tutorial areas.
+  your free cards for a restricted card from a target's binder.
+- The restricted card set is now complete: all one hundred cards are available, each
+  transforming into its corresponding physical item when gained.
 
 MAY 20 **
 Back from a long Hiatus x Hiatus, server is alive again.

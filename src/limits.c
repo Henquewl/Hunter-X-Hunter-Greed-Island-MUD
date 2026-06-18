@@ -80,7 +80,7 @@ int mana_gain(struct char_data *ch)
     /* Position calculations    */
     switch (GET_POS(ch)) {
     case POS_SLEEPING:
-      gain = ((8 * con_app[GET_CON(ch)].hitp) / 100);
+      gain = ((5 * con_app[GET_CON(ch)].hitp) / 100);
       break;
     case POS_RESTING:
       gain = ((4 * con_app[GET_CON(ch)].hitp) / 100);
@@ -93,9 +93,6 @@ int mana_gain(struct char_data *ch)
 	  gain = ((1 * con_app[GET_CON(ch)].hitp) / 100);
 	  break;
     }
-  if (IS_WARRIOR(ch))
-	gain += 1;
-  
   if (AFF_FLAGGED(ch, AFF_POISON))
     gain /= 2;
 
@@ -125,7 +122,7 @@ int hit_gain(struct char_data *ch)
 	    if (IS_NPC(ch) && ch->master && (!IS_NPC(ch->master) && IS_WARRIOR(ch->master)))
 		  gain = ((gain * con_app[GET_CON(ch->master)].hitp) / 200);
 	    else if (!IS_NPC(ch) && IS_WARRIOR(ch))
-		  gain = 0;
+		  gain = GET_TOTAL_HIT(ch) * con_app[GET_CON(ch)].hitp / 8000;
 	    else
 		  return (0);
 	    break;
@@ -133,10 +130,8 @@ int hit_gain(struct char_data *ch)
 	      return (0);
 	    break;
     }
-	
+
 	if (!IS_NPC(ch)) {
-	  if (IS_WARRIOR(ch) && !PLR_FLAGGED(ch, PLR_POWERDOWN) && GET_HIT(ch) > 5)
-		gain += ((gain * con_app[GET_CON(ch)].hitp) / 200);		
 	  if ((GET_COND(ch, THIRST) == 0) && GET_LEVEL(ch) > 1)
         gain /= 2;  
       if ((GET_COND(ch, HUNGER) == 0) && GET_LEVEL(ch) > 1)
@@ -387,7 +382,9 @@ void recover_update(void)
   int cost = 0;
   int powerlevel;
   bool found = FALSE;
-  
+  static int regen_tick = 0;
+  regen_tick++;
+
   for (i = character_list; i; i = next_char) {
     next_char = i->next;
 	
@@ -482,7 +479,9 @@ void recover_update(void)
 	  }
 	  GET_HIT(i) = MIN(GET_HIT(i) + hit_gain(i), GET_TOTAL_HIT(i));
       GET_MANA(i) = MIN(GET_MANA(i) + mana_gain(i), GET_MAX_MANA(i));
-      GET_MOVE(i) = MIN(GET_MOVE(i) + move_gain(i), GET_MAX_MOVE(i));	  
+      if (!IS_NPC(i) && IS_WARRIOR(i) && regen_tick % 4 == 0)
+        GET_MANA(i) = MIN(GET_MANA(i) + mana_gain(i), GET_MAX_MANA(i));
+      GET_MOVE(i) = MIN(GET_MOVE(i) + move_gain(i), GET_MAX_MOVE(i));
 	if (GET_POS(i) != POS_SLEEPING) {
 	  if (GET_MANA(i) <= 15 && GET_POS(i) != POS_RESTING) {
 		GET_HIT(i) -= GET_TOTAL_HIT(i) / 20;

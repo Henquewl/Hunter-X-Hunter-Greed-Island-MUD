@@ -1245,11 +1245,11 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
     /* Maybe holding arrow? */
     if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON) {
       /* Add weapon-based damage if a weapon is being wielded */
-      dam += ((dice(GET_OBJ_VAL(wielded, 1), GET_OBJ_VAL(wielded, 2)) * 100) / (101 - GET_LEVEL(ch)));
+      dam += dice(GET_OBJ_VAL(wielded, 1), GET_OBJ_VAL(wielded, 2)) * GET_LEVEL(ch);
     } else {
       /* If no weapon, add bare hand damage instead */
-        if (IS_NPC(ch)) /* damage += damage * (weapon dice + level) / 100 = x% extra damage */
-          dam += ((dice(ch->mob_specials.damnodice, ch->mob_specials.damsizedice) * 100) / (101 - GET_LEVEL(ch)));
+        if (IS_NPC(ch))
+          dam += dice(ch->mob_specials.damnodice, ch->mob_specials.damsizedice) * GET_LEVEL(ch);
 //        else
 //          dam += ((rand_number(1, 2) * 100) / (101 - GET_LEVEL(ch)));	/* Max 2 bare hand damage for players */
     }
@@ -1356,7 +1356,7 @@ void power_up(void)
 void pracskill(struct char_data *ch, int skill_num, int chance)
 {
   struct obj_data *booster;
-  int i, skilladd, dice, found;
+  int i, skilladd, dice, found = 0;
   
   if (!ch || IS_NPC(ch) || GET_SKILL(ch, skill_num) >= 100)
 	return;
