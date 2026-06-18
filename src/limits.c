@@ -773,16 +773,17 @@ static void egg_incubation_update(void)
       continue;
 
     {
-      struct char_data *holder = j->worn_by ? j->worn_by : j->carried_by;
-      if (holder && !IS_NPC(holder)) {
+      /* Only count game hours while held in the WEAR_HOLD slot specifically.
+         Any other location (inventory, floor, container) resets the timer. */
+      if (j->worn_by && !IS_NPC(j->worn_by) &&
+          GET_EQ(j->worn_by, WEAR_HOLD) == j) {
         GET_OBJ_VAL(j, 0)++;
-        send_to_char(holder, "The egg pulses warmly. (%d/%d)\r\n",
+        send_to_char(j->worn_by, "The egg pulses warmly. (%d/%d)\r\n",
                      GET_OBJ_VAL(j, 0), EGG_HATCH_HOURS);
         if (GET_OBJ_VAL(j, 0) >= EGG_HATCH_HOURS)
-          hatch_fledgling_egg(holder, j, e);
-      } else if (!j->worn_by && !j->carried_by && !j->in_obj
-                 && GET_OBJ_VAL(j, 0) != 0) {
-        GET_OBJ_VAL(j, 0) = 0;   /* egg on floor -> reset */
+          hatch_fledgling_egg(j->worn_by, j, e);
+      } else if (GET_OBJ_VAL(j, 0) != 0) {
+        GET_OBJ_VAL(j, 0) = 0;   /* not held -> reset timer */
       }
     }
   }
