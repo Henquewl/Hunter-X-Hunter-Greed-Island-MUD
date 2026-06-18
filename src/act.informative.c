@@ -3102,7 +3102,7 @@ ACMD(do_whois)
     send_to_char(ch, "%s feels protected.\r\n", HSSH(victim));
 	}
 	
-  if (affected_by_spell(victim, SPELL_CHAIN_PROTECTION)) {
+  if (affected_by_spell(victim, SPELL_CHAIN_ARMOR)) {
     send_to_char(ch, "%s feels protected by chains.\r\n", HSSH(victim));
 	}
 

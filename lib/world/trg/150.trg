@@ -65,10 +65,10 @@ if %actor.level% < 101
     break
     case 16
       if %actor.align% > 0
-        dg_cast 'dispelgood' %actor%
+        dg_cast 'smitegood' %actor%
         nop %actor.mana(-6)%
       else
-        dg_cast 'dispelevil' %actor%
+        dg_cast 'smiteevil' %actor%
         nop %actor.mana(-6)%
       end
     break
