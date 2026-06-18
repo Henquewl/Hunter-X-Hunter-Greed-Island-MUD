@@ -54,20 +54,20 @@ removed. Their slots #44/#45 are now Fledgling Actor/CEO.
 
 ---
 
-## MARCO v1.00 — critérios de lançamento
+## Milestone v1.00 — release criteria
 
-A versão 1.00 exige que **todas as 99 cartas restritas** (exceto #0 Ruler's Blessing, que é a
-recompensa de completar o jogo) estejam **coletáveis no mundo** — seja por mob drop, sala, trigger
-ou qualquer outro mecanismo de obtenção dedicado. Além disso, o mundo deve estar **reformulado
-para refletir a Greed Island canônica**: zonas, cidades e NPCs coerentes com o arco do mangá
-(Antokiba, Masadora, Rabicuta, o castelo de Limeiro, etc.), substituindo o conteúdo genérico de
-TbaMUD herdado do CircleMUD.
+Version 1.00 requires that **all 99 restricted cards** (except #0 Ruler's Blessing, which is
+the end-game completion reward) be **obtainable in the world** — through a dedicated mob drop,
+room placement, trigger, or any other intentional source. In addition, the game world must be
+**reworked to reflect canonical Greed Island**: zones, cities, and NPCs consistent with the
+manga arc (Antokiba, Masadora, Rabicuta, Limeiro castle, etc.), replacing the generic TbaMUD
+content inherited from CircleMUD.
 
-Pré-requisitos específicos antes de declarar v1.00:
-1. Todas as 99 cartas (65301–65399) com pelo menos uma fonte de obtenção no mundo
-2. Mundo reformulado — zonas principais da Greed Island com nome, tema e NPCs canônicos
-3. Ruler's Blessing (#0) obtível apenas como reward de completar o set de 99 cartas
-4. Todos os itens marcados com *Needs a live test* acima testados e confirmados em jogo
+Specific prerequisites before declaring v1.00:
+1. All 99 cards (65301–65399) have at least one dedicated in-world source of acquisition
+2. World rework — main Greed Island zones with canonical names, themes, and NPCs
+3. Ruler's Blessing (#0) obtainable only as a reward for completing the full 99-card set
+4. All items marked *Needs a live test* above verified in live gameplay
 
 ---
 
@@ -204,7 +204,7 @@ Already-canon (no change): #0-17, 25, 26, 31, 35-46, 56, 61, 62, 64-69, 71, 73, 
 83, 84, 85, 87, 89, 90, 94. Safe data fixes done Jun 13: #66 renamed to "Witch's Diet Pills",
 #9 rank S-20→S-10, #74 rank A-15→A-11.
 
-## NOVOS TODOs — mecânicas futuras (Jun 2026)
+## New TODOs — future mechanics (Jun 2026)
 
 **PvP Alignment Penalty System**: PvP actions (attacking, stealing, using AS cards) should
 reduce the aggressor's alignment. Players with very evil alignment should face progressive
