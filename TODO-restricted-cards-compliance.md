@@ -67,12 +67,7 @@ Mystery Pond (65308), Tree of Plenty (65309). Decision was to defer; they need d
 rooms/zones (653/654.wld are empty placeholders).
 
 **Needs more C / complex design:**
-- Time-Stopping Watch (65334) — stop-time; not readily modelable.
-- Shield of Faith (65387) — nullify Railguide/Return/Drift/Collision in the room.
-- Tax Collector's Gauntlet (65389) — `levy` command that destroys a random binder card.
-- Connection Severing Scissors (65314), Fickle Genie 3-wishes (65315),
-  Perfect Memory Studio (65356) — bespoke/flavor mechanics.
-- Bandit's Blade (65394) — cast Rob/Pickpocket/Thief on hit (negative hit/dam **intentional**).
+- Fickle Genie 3-wishes (65315) — bespoke wish mechanic, no design yet.
 
 **Flavor-only collectibles** (effect not meaningfully modelable; acceptable as-is): Pregnancy
 Stones, Dress of Memory, Paper Doll, Book of VIP Parties, Master Mime, Echo Recorder,
@@ -89,6 +84,12 @@ invented triggers/affects were removed (triggers 65419/65420/65448/65451/65455/6
 implemented with existing mechanics:
 - **#95 Secret Cape** — "Blackout Curtain" concealment → passive AFF_INVISIBLE (obj affect `c`).
 - **#70 Mad Scientist's Steroids** — FOOD; consume trigger 65470 grants a temporary +2 STR.
+- **#14 Connection Severing Scissors** — ITEM_WAND (item 65414, 99 charges, SPELL_TELEPORT).
+- **#34 Universal Survey** — ITEM_NOTE (item 65434); writable roleplay survey booklet.
+- **#36 Recycling Room** — `gain` on card 65336 repairs all worn/carried equipment instantly via `repair_all_player_items()` in act.item.c; card is consumed.
+- **#56 Perfect Memory Studio** — ITEM_NOTE (item 65456); player's name injected into photo description at creation time via make_card() hook in act.item.c.
+- **#87 Shield of Faith** — WEAR/REMOVE triggers (#65499/#65500 in 654.trg) set/clear a `shield_faith` remote variable; guard added to Return (#1009), Railguide (#1012), Drift (#1016), Collision (#1017) triggers in 10.trg. Protects wearer and followers. *Needs a live test.*
+- **#89 Tax Collector's Gauntlet** — `levy` command trigger (#65501 in 654.trg): consumes one random restricted card from wielder's own binder as tribute, then steals a card from every non-allied PC in the room bypassing defensive spells. `same_group` DG field added to dg_variables.c. *Needs a live test.*
 
 ### Remaining EFFECT work (cards are canon, but their effect isn't mechanically modeled yet)
 Most canon cards are life-sim/social/flavor with no existing mechanic, so they sit as canon
@@ -117,30 +118,15 @@ collectibles (acceptable). Candidates that COULD be done later with existing pat
     (1015), unless the global limit is reached — checked with a NEW read-only DG field
     `%actor.cardcount(<vnum>)%` (returns `obj_index[].number`) added in dg_variables.c
     (trigger-evokes-code). *Needs live test (runtime-only logic).*
-  - **#88 Eternal Hammer — STATS DONE, on-hit mechanic PENDING.** Item 65488 is now a heavy
-    weapon: 1d4 damage, weight 10, −2 hitroll, −1 DEX. DECIDED (user): on a hit it should
-    CONSUME a random ATTACK spell card from the wielder's binder (3203) and inflict that card's
-    effect on the victim (caster = wielder, target = victim; immune if victim wears Paladin's
-    Necklace 65484).
-    DEFINITIVE attack-spell-card set (canon class "AS" from the fandom list): **1006
-    Pickpocket, 1007 Thief, 1008 Trade, 1021 Mug, 1022 Corruption, 1023 Compromise, 1027
-    Trace, 1028 Rock Toss, 1029 Bullet, 1033 Cling** (all in obj/10.obj).
-    MECHANISM FINDING: AS card effects are NOT in do_gain's C switch (that only handles some
-    RS/LR cards: 1001/1002/1005/1009/1030-1032/1037-1039). Each AS card's effect is a
-    **command-trigger DG script** (`1 c 1`, keyword `ga`) in 10.trg, cast by holding the card
-    + book and typing `gain <player>`; they **target players** via get_player_vis and
-    manipulate the victim's binder (steal/destroy/track cards). So the Hammer affliction is
-    inherently a **PvP** mechanic (AS effects are meaningless vs NPCs — no binder).
-    DONE (approach a). `eternal_hammer_proc()` in fight.c, called from hit() after a successful
-    hit (guarded by FIGHTING(ch)==victim). On a PvP hit while wielding 65488 with a free
-    hold-hand and an AS card in the binder, it draws a random AS card, equips it, ensures
-    PLR_BOOK, and runs `command_interpreter(ch, "gain <victim>")` so the card's own `ga`
-    command trigger fires, applies the effect, and consumes the card. PvP-only (AS effects need
-    a PC binder); victim wearing Paladin's Necklace 65484 is immune; the held card lingers ~1s
-    (the trigger's wait) which naturally rate-limits to ~1 proc/sec. **NEEDS A PvP LIVE TEST**
-    (combat + command-interpreter re-entrancy + the async trigger can't be boot-verified).
-    Known limitations: the wielder must have a free WEAR_HOLD; if a cast somehow fails the drawn
-    card stays in hand instead of returning to the binder.
+  - **#88 Eternal Hammer — DONE** (Jun 18 2026). `eternal_hammer_proc()` in fight.c: on a
+    successful PvP hit while wielding 65488 with a free hold-hand and an AS card in the binder,
+    draws a random AS card, equips it, ensures PLR_BOOK, calls `gain <victim>` so the card's
+    own DG trigger fires and consumes it. AS card pool: 1006/1007/1008/1021/1022/1023/1027/
+    1028/1029/1033. Paladin's Necklace (65484) makes victim immune. **NEEDS A PvP LIVE TEST.**
+  - **#94 Bandit's Blade — DONE** (Jun 18 2026). `bandit_blade_proc()` in fight.c: 20% chance
+    on each successful PvP hit to spawn a random AS card from thin air (no binder consumed)
+    and cast it at the victim via `gain <victim>`. Stats: 1d4 pierce, weight 5, −2 hitroll,
+    −1 DEX. Paladin's Necklace (65484) grants immunity. **NEEDS A PvP LIVE TEST.**
   - Also relevant: **#95 Secret Cape** approximates "Blackout Curtain" (1025) with
     AFF_INVISIBLE; revisit if the real Blackout Curtain effect differs.
 - **NPC/pet cards** (need new mobs): #47 Sleeping Girl, #48 Aromatherapy Girl, #49 Miniature
