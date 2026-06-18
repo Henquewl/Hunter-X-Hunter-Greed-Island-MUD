@@ -8,6 +8,17 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 18 2026] - Henque
+  Spell and restricted cards now send an MXP <IMAGE> tag to clients that support
+  it when the player looks at the card. Image base URLs are defined in
+  act.informative.c (SPELL_CARD_IMAGE_BASE_URL / RESTRICTED_CARD_IMAGE_BASE_URL).
+  Corrected 11 spell card names to canonical English (Hunterpedia/Viz):
+  Fluroscopy→Fluoroscopy, Reflection→Reflect, Pick Pocket→Pickpocket,
+  Transform→Mimic, Castle Gate→Drawbridge, Rob→Mug, Stone Throw→Rock Toss,
+  Shot→Bullet, Adhesion→Cling, Prison→Fortress, God Eye→Eye of God.
+  Also fixed in-desc references: "Transform" in Dispel desc → "Mimic",
+  "Fluroscopy" in Blackout Curtain desc → "Fluoroscopy".
+
+[Jun 18 2026] - Henque
   Flurry of Blows and Jajanken now require the player to be unarmed.
   Barehanded Expert now deals bonus damage (1d[level] * level) when the skill
   activates on an unarmed strike, in addition to its existing mana-save effect.

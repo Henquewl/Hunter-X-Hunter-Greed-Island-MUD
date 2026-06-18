@@ -28,15 +28,15 @@ E
    View contents of target player's un-restricted cards.
 ~
 #1002
-1002 fluroscopy card~
-@B1002 Fluroscopy F-150 card@n~
-A @B1002 Fluroscopy F-150 card@g is lying here.@n~
+1002 fluoroscopy card~
+@B1002 Fluoroscopy F-150 card@n~
+A @B1002 Fluoroscopy F-150 card@g is lying here.@n~
 ~
 25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 1600 150 0 62
 E
-1002 fluroscopy card~
+1002 fluoroscopy card~
 	D(	GLR	D)	n | 	D(	GRS	D)	n
 
 View contents of target player's restricted cards.
@@ -57,16 +57,16 @@ E
 Protects you from an attack spell once while stay in room.
 ~
 #1004
-1004 reflection card~
-@B1004 Reflection E-120 card@n~
-A @B1004 Reflection E-120 card@g is lying here.@n~
+1004 reflect card~
+@B1004 Reflect E-120 card@n~
+A @B1004 Reflect E-120 card@g is lying here.@n~
 ~
 25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 4000 120 0 62
 T 1004
 E
-1004 reflection card~
+1004 reflect card~
 	D(	GSR	D)	n | 	D(	GDS	D)	n | 	D(	GAA	D)	n
 
 Reflects an attack spell from a player.
@@ -87,16 +87,16 @@ Fly to the place of another player you specify.
 (That you've previously met in the game.)
 ~
 #1006
-1006 pick pocket card~
-@B1006 Pick Pocket F-170 card@n~
-A @B1006 Pick Pocket F-170 card@g is lying here.@n~
+1006 pickpocket card~
+@B1006 Pickpocket F-170 card@n~
+A @B1006 Pickpocket F-170 card@g is lying here.@n~
 ~
 25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 1500 170 0 62
 T 1006
 E
-1006 pick pocket card~
+1006 pickpocket card~
 	D(	GSR	D)	n | 	D(	GAS	D)	n
 
 Steals a random un-restricted card from target player.
@@ -147,16 +147,16 @@ E
 Allows caster to fly back to a previously visited city.
 ~
 #1010
-1010 transform card~
-@B1010 Transform A-20 card@n~
-The @B1010 Transform A-20 card@g is lying here.@n~
+1010 mimic card~
+@B1010 Mimic A-20 card@n~
+The @B1010 Mimic A-20 card@g is lying here.@n~
 ~
 25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 100000 20 0 62
 T 1010
 E
-1010 transform card~
+1010 mimic card~
 	D(	GSR	D)	n | 	D(	GRS	D)	n
 
 Transform a card into a copy of a target card that the caster already owns.
@@ -285,16 +285,16 @@ E
 Take one random card from each player in the same room.
 ~
 #1019
-1019 castle gate card~
-@B1019 Castle Gate F-200 card@n~
-A @B1019 Castle Gate F-200 card@g is lying here.@n~
+1019 drawbridge card~
+@B1019 Drawbridge F-200 card@n~
+A @B1019 Drawbridge F-200 card@g is lying here.@n~
 ~
 25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 1250 200 0 62
 T 1019
 E
-1019 castle gate card~
+1019 drawbridge card~
 	D(	GSR	D)	n | 	D(	GDS	D)	n | VS 
 
 Protects you from a regular spell once while stay in room.
@@ -318,16 +318,16 @@ count towards a complete card set or the card copy limit, nor can it
 be converted into an object.
 ~
 #1021
-1021 rob card~
-@B1021 Rob B-30 card@n~
-A @B1021 Rob B-30 card@g is lying here.@n~
+1021 mug card~
+@B1021 Mug B-30 card@n~
+A @B1021 Mug B-30 card@g is lying here.@n~
 ~
 25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 33000 30 0 62
 T 1021
 E
-1021 rob card~
+1021 mug card~
 	D(	GSR	D)	n | 	D(	GAS	D)	n
 
 Take one card at will from target player.
@@ -405,7 +405,7 @@ E
 1025 blackout curtain card~
 	D(	GSR	D)	n | 	D(	GDS	D)	n | C
 
-   Use to protect oneself against the effects of "Steal" and "Fluroscopy".
+   Use to protect oneself against the effects of "Steal" and "Fluoroscopy".
 ~
 #1026
 1026 holy water card~
@@ -440,31 +440,31 @@ Current location of one target player will be available at all times.
 (Effect lasts until you or the target player leaves the game.)
 ~
 #1028
-1028 stone throw card~
-@B1028 Stone Throw E-100 card@n~
-A @B1028 Stone Throw E-100 card@g is lying here.@n~
+1028 rock toss card~
+@B1028 Rock Toss E-100 card@n~
+A @B1028 Rock Toss E-100 card@g is lying here.@n~
 ~
 25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 5000 100 0 62
 T 1028
 E
-1028 stone throw card~
+1028 rock toss card~
 	D(	GSR	D)	n | 	D(	GAS	D)	n
 
 Destroy one random card in target player's free slots.
 ~
 #1029
-1029 shot card~
-@B1029 Shot B-25 card@n~
-A @B1029 Shot B-25 card@g is lying here.@n~
+1029 bullet card~
+@B1029 Bullet B-25 card@n~
+A @B1029 Bullet B-25 card@g is lying here.@n~
 ~
 25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 40000 25 0 62
 T 1029
 E
-1029 shot card~
+1029 bullet card~
 	D(	GSR	D)	n | 	D(	GAS	D)	n
 
 Destroy one random card in target player's imposed slots.
@@ -513,16 +513,16 @@ E
 Transform into a random item card.
 ~
 #1033
-1033 adhesion card~
-@B1033 Adhesion C-50 card@n~
-A @B1033 Adhesion C-50 card@g is lying here.@n~
+1033 cling card~
+@B1033 Cling C-50 card@n~
+A @B1033 Cling C-50 card@g is lying here.@n~
 ~
 25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 20000 50 0 62
 T 1033
 E
-1033 adhesion card~
+1033 cling card~
 	D(	GSR	D)	n | 	D(	GAS	D)	n
 
 Complete data of one player's restricted slots will be available at all times.
@@ -544,32 +544,32 @@ E
 Dispel effect of transformation spell and return card to original form.
 ~
 #1035
-1035 prison card~
-@B1035 Prison S-10 card@n~
-The @B1035 Prison S-10 card@g is lying here.@n~
+1035 fortress card~
+@B1035 Fortress S-10 card@n~
+The @B1035 Fortress S-10 card@g is lying here.@n~
 ~
 25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 200000 10 0 62
 T 1035
 E
-1035 prison card~
+1035 fortress card~
 	D(	GSR	D)	n | 	D(	GDS	D)	n | 	D(	GC	D)	n | 	D(	GAA	D)	n
 
    Restricted cards are protected against stealing and destruction spells as
 long as they remain in the slots (free slot pages cannot be chosen).
 ~
 #1036
-1036 god eye card~
-@B1036 God Eye S-10 card@n~
-The @B1036 God Eye S-10 card@g is lying here.@n~
+1036 eye of god card~
+@B1036 Eye of God S-10 card@n~
+The @B1036 Eye of God S-10 card@g is lying here.@n~
 ~
 25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 200000 10 0 62
 T 1036
 E
-1036 god eye card~
+1036 eye of god card~
 	D(	GLR	D)	n | C
 
    Caster obtains the effects of "List" and "Analysis" permanently on all cards
@@ -652,22 +652,22 @@ Protects you from an attack ell once while stay in room.
 ~
 #1054
 undefined~
-@B1004 Reflection E-120 card@n~
-A @B1004 Reflection E-120 card@g is lying here.@n~
+@B1004 Reflect E-120 card@n~
+A @B1004 Reflect E-120 card@g is lying here.@n~
 ~
 25 acd 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 1 0 0 0 0
 E
-1004 reflection card~
+1004 reflect card~
 	D(	GSR	D)	n | 	D(	GDS	D)	n
 
 Reflects an attack ell from a player (previously met).
 ~
 #1069
 undefined~
-@B1019 Castle Gate F-200 card@n~
-A @B1019 Castle Gate F-200 card@g is lying here.@n~
+@B1019 Drawbridge F-200 card@n~
+A @B1019 Drawbridge F-200 card@g is lying here.@n~
 ~
 25 acd 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
