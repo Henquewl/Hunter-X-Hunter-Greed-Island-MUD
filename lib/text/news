@@ -8,6 +8,12 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 > 2026 <
 
 JUN 18 **
+- 11 spell card names corrected to canonical English: Fluoroscopy, Reflect,
+  Pickpocket, Mimic, Drawbridge, Mug, Rock Toss, Bullet, Cling, Fortress,
+  Eye of God.
+- MXP clients now see the card image when looking at a spell or restricted card.
+
+JUN 18 **
 - Flurry of Blows and Jajanken now require you to be unarmed.
 - Barehanded Expert now deals bonus damage when the skill activates.
 - Jajanken damage multiplier restored.

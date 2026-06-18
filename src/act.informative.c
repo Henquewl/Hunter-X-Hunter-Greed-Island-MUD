@@ -57,6 +57,35 @@ static void player_greet(struct char_data *ch, struct char_data *tch);
 #define SHOW_OBJ_SHORT    1
 #define SHOW_OBJ_ACTION   2
 
+/* Base URLs for Greed Island card images sent to MXP-capable clients. */
+#define SPELL_CARD_IMAGE_BASE_URL      "https://PREENCHER/"
+#define RESTRICTED_CARD_IMAGE_BASE_URL "https://PREENCHER/"
+
+static void send_card_image(struct char_data *ch, struct obj_data *obj)
+{
+  char img_tag[256];
+  int num;
+
+  if (!ch->desc || !ch->desc->pProtocol || !ch->desc->pProtocol->bMXP)
+    return;
+
+  if (GET_OBJ_TYPE(obj) == ITEM_SPELLCARD) {
+    num = GET_OBJ_VNUM(obj) - 1000;
+    snprintf(img_tag, sizeof(img_tag),
+      "<IMAGE FName=\"spell_%03d.png\" URL=\"%s\">",
+      num, SPELL_CARD_IMAGE_BASE_URL);
+  } else if (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED) {
+    num = GET_OBJ_VNUM(obj) - 65300;
+    snprintf(img_tag, sizeof(img_tag),
+      "<IMAGE FName=\"card_%03d.png\" URL=\"%s\">",
+      num, RESTRICTED_CARD_IMAGE_BASE_URL);
+  } else {
+    return;
+  }
+
+  MXPSendTag(ch->desc, img_tag);
+}
+
 static void show_obj_to_char(struct obj_data *obj, struct char_data *ch, int mode)
 {
   int i = 1, found = 0;
@@ -198,10 +227,12 @@ static void show_obj_to_char(struct obj_data *obj, struct char_data *ch, int mod
     case ITEM_SPELLCARD:
 	  send_to_char(ch, "Unrestricted/Free slot spell card\r\n");
 	  send_to_char(ch, "You found a card without description, please report to the GMs!");
+	  send_card_image(ch, obj);
 	  break;
-	case ITEM_RESTRICTED:      
+	case ITEM_RESTRICTED:
 	  send_to_char(ch, "Specified/Restricted slot card\r\n");
       send_to_char(ch, "You found a card without description, please report to the GMs!");
+	  send_card_image(ch, obj);
 	  break;
 	  
 	case ITEM_CARD:
