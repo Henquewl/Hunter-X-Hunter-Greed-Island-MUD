@@ -8,6 +8,14 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 18 2026] - Henque
+  Tax Collector's Gauntlet (#89, item 65489): added 'levy' command trigger
+  (#65501 in 654.trg). Levy consumes one random restricted card from the
+  wielder's own binder as tribute, then forcibly steals a random card from
+  every non-allied PC in the room. Bypasses all defensive spell protections.
+  Respects the good_luck variable (steals first restricted card per victim).
+  Added same_group DG variable in dg_variables.c for ally detection.
+
+[Jun 18 2026] - Henque
   Shield of Faith (item #65487) now protects its wearer (and followers) from
   location-based spell cards: Return, Railguide, Drift, Collision.
   Added WEAR/REMOVE object triggers (#65499/#65500) in 654.trg that set/clear

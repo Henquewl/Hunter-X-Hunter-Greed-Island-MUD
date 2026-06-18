@@ -1054,6 +1054,17 @@ void find_replacement(void *go, struct script_data *sc, trig_data *trig,
             }
             *str = '\0'; /* so the parser know we recognize 'skillset' as a field */
           }
+          else if (!str_cmp(field, "same_group")) {
+            /* Returns 1 if 'c' and the character with numeric ID <subfield> share the same group */
+            if (subfield && *subfield && is_number(subfield)) {
+              struct char_data *other = find_char(atol(subfield));
+              if (other && GROUP(c) != NULL && GROUP(c) == GROUP(other))
+                strcpy(str, "1");
+              else
+                strcpy(str, "0");
+            } else
+              strcpy(str, "0");
+          }
           else if (!str_cmp(field, "str")) {
             if (subfield && *subfield) {
               int addition = atoi(subfield);
