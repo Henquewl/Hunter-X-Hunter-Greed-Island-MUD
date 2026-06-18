@@ -8,6 +8,12 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 18 2026] - Henque
+  Fickle Genie (65315): gain auto-stores card in binder (opens book if needed); if already in
+  binder, shows flavor message only. Timer expiry outside binder: genie-flavored puff-of-smoke
+  message + card deleted (no revert to item). No physical item 65415 needed.
+  "Fickle card" pattern noted in TODO for other unimplementable cards.
+
+[Jun 18 2026] - Henque
   Fledgling Egg: timer only advances while the egg is in WEAR_HOLD slot.
   Any other location (inventory, floor, container) resets the counter to 0.
 

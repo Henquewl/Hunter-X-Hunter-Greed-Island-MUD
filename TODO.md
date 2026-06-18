@@ -74,7 +74,7 @@ Specific prerequisites before declaring v1.00:
 ## DEFERRED — still open (need new mobs, new rooms, or more C)
 
 **Needs new NPC mobs** (card has no item; spawn a creature on gain — Archangel/65350 pattern):
-Night Shift Dwarves (65326), Fickle Genie (65315), Fairy King's Advice (65316).
+Night Shift Dwarves (65326), Fairy King's Advice (65316).
 (Gold Dust Girl already done — its mob existed. Fledgling Politician is now an egg card.)
 
 **Needs new rooms / a world-build** — terrain/location cards (card-only today):
@@ -83,8 +83,18 @@ Ruler's Blessing castle (65300), Patch of Forest (65301), Patch of Shore / Posei
 Mystery Pond (65308), Tree of Plenty (65309). Decision was to defer; they need destination
 rooms/zones (653/654.wld are empty placeholders).
 
+**"Fickle card" pattern** — cards with impossible or unimplementable mechanics use a special
+C-side intercept: `gain` shows a flavor message and auto-stores in binder; timer expiry outside
+the binder deletes the card with a thematic "puff of smoke" message instead of reverting to item.
+Currently applied to: **Fickle Genie (65315)**. Future candidates to review:
+- Any card whose canon effect cannot be modeled with existing engine primitives and whose
+  "collectible" value alone justifies keeping it without a functional mechanic.
+To add another: intercept vnum in `fickle_genie_gain` (`src/act.item.c`) with an `else if`, and
+add a per-vnum branch in `second_update` (`src/limits.c`) before the existing reversion logic.
+
 **Needs more C / complex design:**
-- Fickle Genie 3-wishes (65315) — bespoke wish mechanic, no design yet.
+- (Fickle Genie moved to "fickle card" pattern above — wish mechanic remains unimplemented but
+  card is fully playable as a collectible.)
 
 **Flavor-only collectibles** (effect not meaningfully modelable; acceptable as-is): Pregnancy
 Stones, Dress of Memory, Paper Doll, Book of VIP Parties, Master Mime, Echo Recorder,
