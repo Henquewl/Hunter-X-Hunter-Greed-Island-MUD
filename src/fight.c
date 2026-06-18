@@ -728,8 +728,8 @@ int damage(struct char_data *ch, struct char_data *victim, int dam, int attackty
   char local_buf[256];
   struct char_data *tmp_char;
   struct obj_data *corpse_obj;
-//  struct obj_data *weap = GET_EQ(ch, WEAR_WIELD);
-//  struct obj_data *equip = GET_EQ(victim, pos);   
+  struct obj_data *weap = GET_EQ(ch, WEAR_WIELD);
+  struct obj_data *equip = GET_EQ(victim, pos);
 
   if (GET_POS(victim) <= POS_DEAD) {
     /* This is "normal"-ish now with delayed extraction. -gg 3/15/2001 */
@@ -798,12 +798,12 @@ int damage(struct char_data *ch, struct char_data *victim, int dam, int attackty
   if (AFF_FLAGGED(victim, AFF_SANCTUARY) && dam >= 2)
     dam /= 2;  
 
-  /* When PC hit: 20% chance to damage the weapon or 10% if it enchanted */  
-/*  if (!IS_NPC(ch) && weap) {
-	if (dam > 0 && (GET_OBJ_TYPE(weap) == ITEM_WEAPON && 
+  /* When PC hit: 20% chance to damage the weapon or 10% if it enchanted */
+  if (!IS_NPC(ch) && weap) {
+	if (dam > 0 && (GET_OBJ_TYPE(weap) == ITEM_WEAPON &&
 		GET_OBJ_DURABILITY(weap) > 0) && rand_number(1, 5) == 5) {
 	  if (OBJ_FLAGGED(weap, ITEM_ENFOLDED) && rand_number(0, 1) == 1)
-	    GET_OBJ_DURABILITY(weap)--;	    
+	    GET_OBJ_DURABILITY(weap)--;
 	  else if (!OBJ_FLAGGED(weap, ITEM_ENFOLDED))
 	    GET_OBJ_DURABILITY(weap)--;
       if (GET_OBJ_DURABILITY(weap) <= 0) {
@@ -811,16 +811,16 @@ int damage(struct char_data *ch, struct char_data *victim, int dam, int attackty
         send_to_char(ch, "\tR%s was \x1B[5mDESTROYED!\tn\r\n", weap->short_description);
 	    extract_obj(weap);
 	    affect_total(ch);
-	  }	
+	  }
     }
   }
+  /* 10% chance to damage 1 random equip, even if the attack was missed */
   if (!IS_NPC(victim) && equip) {
-*/  /* 10% chance to damage 1 random equip, even if the attack was missed */
-/*    if (GET_OBJ_DURABILITY(equip) > 0 && rand_number(1, 10) == 10) {
-	  if (!OBJ_FLAGGED(equip, ITEM_ENFOLDED) && OBJ_FLAGGED(weap, ITEM_ENFOLDED))
+    if (GET_OBJ_DURABILITY(equip) > 0 && rand_number(1, 10) == 10) {
+	  if (weap != NULL && !OBJ_FLAGGED(equip, ITEM_ENFOLDED) && OBJ_FLAGGED(weap, ITEM_ENFOLDED))
 	    GET_OBJ_DURABILITY(equip) -= 3;
-	  else if ((!OBJ_FLAGGED(equip, ITEM_ENFOLDED) && !OBJ_FLAGGED(weap, ITEM_ENFOLDED)) || 
-	  	  (OBJ_FLAGGED(equip, ITEM_ENFOLDED) && OBJ_FLAGGED(weap, ITEM_ENFOLDED)))
+	  else if (weap != NULL && ((!OBJ_FLAGGED(equip, ITEM_ENFOLDED) && !OBJ_FLAGGED(weap, ITEM_ENFOLDED)) ||
+	  	  (OBJ_FLAGGED(equip, ITEM_ENFOLDED) && OBJ_FLAGGED(weap, ITEM_ENFOLDED))))
 	    GET_OBJ_DURABILITY(equip) -= 2;
       else
 	    GET_OBJ_DURABILITY(equip)--;
@@ -829,10 +829,10 @@ int damage(struct char_data *ch, struct char_data *victim, int dam, int attackty
         send_to_char(victim, "\tR%s was \x1B[5mDESTROYED!\tn\r\n", equip->short_description);
 	    extract_obj(equip);
 	    affect_total(victim);
-	  }	  
-    }  
+	  }
+    }
   }
-*/if (dam > 0) {
+  if (dam > 0) {
     if (!IS_NPC(victim) && GET_SKILL(victim, SKILL_INSTANT_FORTIFY) > 0) {	  
 	    percent = rand_number(1, 200);
         prob = GET_SKILL(victim, SKILL_INSTANT_FORTIFY);
