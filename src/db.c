@@ -3218,6 +3218,8 @@ void free_char(struct char_data *ch)
       free(ch->player_specials->poofout);
     if (ch->player_specials->saved.completed_quests)
       free(ch->player_specials->saved.completed_quests);
+    if (ch->player_specials->saved.daily_quests)
+      free(ch->player_specials->saved.daily_quests);
     /* players_met is a fixed array inside the struct — do NOT free it */
     if (GET_HOST(ch))
       free(GET_HOST(ch));
@@ -3497,6 +3499,9 @@ void init_char(struct char_data *ch)
 
   GET_NUM_QUESTS(ch) = 0;
   ch->player_specials->saved.completed_quests = NULL;
+  GET_NUM_DAILY_QUESTS(ch) = 0;
+  ch->player_specials->saved.daily_quests = NULL;
+  GET_QUEST_DAILY_STAMP(ch) = 0;
   GET_QUEST(ch) = NOTHING;
   GET_PLAYERS_MET(ch) = 1;
   ch->player_specials->saved.players_met[0] = 1;  

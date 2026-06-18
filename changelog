@@ -7,6 +7,11 @@ https://github.com/tbamud/tbamud
 Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
+[Jun 18 2026] - Henque
+  Repeatable quests now have a daily limit: each can be completed only once per
+  game day (30 real minutes). The questmaster tells the player to return tomorrow
+  if they try to repeat a quest in the same day.
+
 [Jun 17 2026] - Henque
   Spell cards can now be used directly from inventory while the book is active.
   Syntax: gain <card name> [target]. Holding the card first is no longer required.

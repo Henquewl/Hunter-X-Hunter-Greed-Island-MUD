@@ -61,7 +61,9 @@
 #define PFDEF_CURRQUEST         NOTHING
 #define PFDEF_METCITY	        0
 #define PFDEF_METPLAYERS        0
-#define PFDEF_LASTMOTD          0 
-#define PFDEF_LASTNEWS          0 
+#define PFDEF_LASTMOTD          0
+#define PFDEF_LASTNEWS          0
+#define PFDEF_QUESTDAILYSTAMP   0
+#define PFDEF_DAILYQUESTS       0
 
 #endif /* _PFDEFAULTS_H_ */
