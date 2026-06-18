@@ -2577,9 +2577,9 @@ will show as a black aura, good in a yellow aura.
 
 See also: DETECT CONCEALED
 #0
-DETECT-CONCEALED DETECTCONCEALED DETECT-INVISIBLE DETECT-AURA GYO
+DETECT-INVISIBLE DETECTINVISIBLE DETECT-CONCEALED DETECTCONCEALED DETECT-AURA GYO
 
-@cUsage       : @Cdetectconcealed
+@cUsage       : @Cdetectinvisible
 Accumulative: Yes (Duration)
 Duration    : 12 hours + level/4
 
