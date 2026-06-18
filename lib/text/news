@@ -8,6 +8,11 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 > 2026 <
 
 JUN 18 **
+- Tax Collector's Gauntlet (#89): new 'levy' command. Consumes one restricted
+  card from your binder as tribute, then forcibly steals a card from every
+  non-allied PC in the room. Bypasses defensive spells.
+
+JUN 18 **
 - Shield of Faith (#87) now protects its wearer and followers from Return,
   Railguide, Drift, and Collision spell cards. Equipping the shield grants
   protection; removing it lifts it.

@@ -321,4 +321,129 @@ shield faith remove~
 rdelete shield_faith %actor.id%
 %send% %actor% The Shield of Faith dims as you lower it.
 ~
+#65501
+tax gauntlet levy~
+1 c 1
+levy~
+* Only fire when wearer actually typed 'levy'
+if %cmd.mudcommand% != levy
+  return 0
+  halt
+end
+* Gauntlet must be worn/held by actor
+if !%self.worn_by% || %self.worn_by% != %actor%
+  if !%self.carried_by% || %self.carried_by% != %actor%
+    return 0
+    halt
+  end
+end
+* Binder check
+eval binder %actor.inventory(3203)%
+if !%binder%
+  %send% %actor% You need a binder to use the gauntlet.
+  halt
+end
+* Count restricted cards in actor's binder
+eval n 0
+eval o %binder.contents%
+while %o%
+  eval nexto %o.next_in_list%
+  if %o.type% == RESTRICTED
+    eval n %n% + 1
+  end
+  eval o %nexto%
+done
+if %n% == 0
+  %send% %actor% The gauntlet is ineffective -- no restricted card remains as tribute.
+  halt
+end
+* Pick random restricted card to consume as tribute
+eval pick %random.%n%%
+eval c 0
+eval tribute 0
+eval o %binder.contents%
+while %o%
+  eval nexto %o.next_in_list%
+  if %o.type% == RESTRICTED
+    eval c %c% + 1
+    if %c% == %pick%
+      eval tribute %o%
+    end
+  end
+  eval o %nexto%
+done
+if !%tribute%
+  %send% %actor% The gauntlet flickers but nothing happens.
+  halt
+end
+%send% %actor% You sacrifice %tribute.shortdesc% to the gauntlet!
+%echoaround% %actor% %actor.name%'s gauntlet flares and consumes a card!
+%purge% %tribute%
+%force% %actor% say Levy ON!
+* Now apply forced Levy to all non-allied PCs in room (bypass defenses)
+eval i %actor.room.people%
+while %i%
+  eval nexti %i.next_in_room%
+  if %i.is_pc% == 1 && %i% != %actor%
+    eval other_id %i.id%
+    eval allied %actor.same_group(%other_id%)%
+    if !%allied%
+      eval bv %i.inventory(3203)%
+      if %bv%
+        eval max 0
+        eval u %bv.contents%
+        while %u%
+          eval nextu %u.next_in_list%
+          eval max %max% + 1
+          eval u %nextu%
+        done
+        if %max% == 0
+          %send% %actor% %i.name% has no cards to steal.
+        elseif %actor.varexists(good_luck)%
+          * good_luck: steal first restricted card
+          eval u %bv.contents%
+          eval stolen 0
+          while %u% && !%stolen%
+            eval nextu %u.next_in_list%
+            if %u.type% == RESTRICTED
+              %load% obj %u.vnum% %actor% inv
+              %send% %actor% You forcibly levied %u.shortdesc% from %i.name%!
+              %send% %i% %actor.name% forcibly levied a card from you!
+              %echoaround% %actor% %actor.name% casts a forced Levy on %i.name%.
+              %purge% %u%
+              eval stolen 1
+            end
+            if !%stolen%
+              eval u %nextu%
+            end
+          done
+        else
+          * normal: steal random card
+          eval steal %random.%max%%
+          eval counter 0
+          eval y %bv.contents%
+          while %y%
+            eval nexty %y.next_in_list%
+            eval counter %counter% + 1
+            if %steal% == %counter%
+              %load% obj %y.vnum% %actor% inv
+              %send% %actor% You forcibly levied %y.shortdesc% from %i.name%!
+              %send% %i% %actor.name% forcibly levied a card from you!
+              %echoaround% %actor% %actor.name% casts a forced Levy on %i.name%.
+              %purge% %y%
+              eval y 0
+            else
+              eval y %nexty%
+            end
+          done
+        end
+      else
+        %send% %actor% %i.name% has no binder.
+      end
+    end
+  end
+  eval i %nexti%
+done
+rdelete good_luck %actor.id%
+~
 $~
