@@ -772,12 +772,18 @@ static void egg_incubation_update(void)
     if (!(e = find_fledgling_egg(GET_OBJ_VNUM(j))))
       continue;
 
-    if (j->worn_by && j->worn_on == WEAR_HOLD && !IS_NPC(j->worn_by)) {
-      GET_OBJ_VAL(j, 0)++;
-      if (GET_OBJ_VAL(j, 0) >= EGG_HATCH_HOURS)
-        hatch_fledgling_egg(j->worn_by, j, e);  /* extracts j */
-    } else if (GET_OBJ_VAL(j, 0) != 0) {
-      GET_OBJ_VAL(j, 0) = 0;   /* not actively held -> incubation resets */
+    {
+      struct char_data *holder = j->worn_by ? j->worn_by : j->carried_by;
+      if (holder && !IS_NPC(holder)) {
+        GET_OBJ_VAL(j, 0)++;
+        send_to_char(holder, "The egg pulses warmly. (%d/%d)\r\n",
+                     GET_OBJ_VAL(j, 0), EGG_HATCH_HOURS);
+        if (GET_OBJ_VAL(j, 0) >= EGG_HATCH_HOURS)
+          hatch_fledgling_egg(holder, j, e);
+      } else if (!j->worn_by && !j->carried_by && !j->in_obj
+                 && GET_OBJ_VAL(j, 0) != 0) {
+        GET_OBJ_VAL(j, 0) = 0;   /* egg on floor -> reset */
+      }
     }
   }
 }
