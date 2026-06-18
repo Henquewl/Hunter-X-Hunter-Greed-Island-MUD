@@ -8,8 +8,6 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 > 2026 <
 
 JUN 18 **
-- Jajanken charge sequence now says "First comes rock...", then "rock...",
-  "paper...", "scissors..." on each tick. On attack, the character shouts "Rock!".
 - Poison now reduces HP and Stamina regeneration to 1/4 (was 1/2). Stacked with
   hunger and thirst, HP regen can drop as low as 1/16 per tick.
 - Repeatable quests can now only be completed once per game day (30 min real time).
