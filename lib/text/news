@@ -7,6 +7,10 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 
 > 2026 <
 
+JUN 18 **
+- Repeatable quests can now only be completed once per game day (30 min real time).
+  The questmaster will ask you to return tomorrow if you already completed it today.
+
 JUN 17 **
 - Spell cards can now be used directly from inventory while your book is active.
   Syntax: gain <card name> [optional target]. No more need to hold the card first.

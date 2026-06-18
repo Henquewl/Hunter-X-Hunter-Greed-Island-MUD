@@ -625,6 +625,9 @@ do                                                              \
 
 #define GET_CITY_MET(ch)	    CHECK_PLAYER_SPECIAL((ch), ((ch)->player_specials->saved.num_city_met))
 #define GET_PLAYERS_MET(ch)     CHECK_PLAYER_SPECIAL((ch), ((ch)->player_specials->saved.num_players_met))
+#define GET_QUEST_DAILY_STAMP(ch) CHECK_PLAYER_SPECIAL((ch), ((ch)->player_specials->saved.quest_daily_stamp))
+#define GET_NUM_DAILY_QUESTS(ch)  CHECK_PLAYER_SPECIAL((ch), ((ch)->player_specials->saved.num_daily_quests))
+#define CURRENT_GAME_DAY()        ((long)(time(NULL) / SECS_PER_MUD_DAY))
 
 /** The current skill level of ch for skill i. */
 #define GET_SKILL(ch, i)	CHECK_PLAYER_SPECIAL((ch), ((ch)->player_specials->saved.skills[i]))

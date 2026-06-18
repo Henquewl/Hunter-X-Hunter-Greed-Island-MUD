@@ -96,6 +96,8 @@ int is_complete(struct char_data *ch, qst_vnum vnum);
 qst_vnum find_quest_by_qmnum(struct char_data *ch, mob_rnum qm, int num);
 void add_completed_quest(struct char_data *ch, qst_vnum vnum);
 void remove_completed_quest(struct char_data *ch, qst_vnum vnum);
+int  is_daily_complete(struct char_data *ch, qst_vnum vnum);
+void add_daily_quest(struct char_data *ch, qst_vnum vnum);
 void quest_timeout(struct char_data *ch);
 void check_timed_quests(void);
 SPECIAL(questmaster);

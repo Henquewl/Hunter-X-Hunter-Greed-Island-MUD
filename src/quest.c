@@ -346,6 +346,8 @@ void generic_complete_quest(struct char_data *ch)
     }
     if (!is_complete(ch, vnum))
       add_completed_quest(ch, vnum);
+    if (IS_SET(QST_FLAGS(rnum), AQ_REPEATABLE))
+      add_daily_quest(ch, vnum);
     clear_quest(ch);
     if ((real_quest(QST_NEXT(rnum)) != NOTHING) &&
         (QST_NEXT(rnum) != vnum) &&
@@ -494,6 +496,40 @@ void quest_hist(struct char_data *ch)
     send_to_char(ch, "You haven't completed any quests yet.\r\n");
 }
 
+int is_daily_complete(struct char_data *ch, qst_vnum vnum)
+{
+  int i;
+  if (GET_QUEST_DAILY_STAMP(ch) != CURRENT_GAME_DAY())
+    return FALSE;
+  for (i = 0; i < GET_NUM_DAILY_QUESTS(ch); i++)
+    if (ch->player_specials->saved.daily_quests[i] == vnum)
+      return TRUE;
+  return FALSE;
+}
+
+void add_daily_quest(struct char_data *ch, qst_vnum vnum)
+{
+  qst_vnum *temp;
+  int i;
+  long today = CURRENT_GAME_DAY();
+
+  if (GET_QUEST_DAILY_STAMP(ch) != today) {
+    if (ch->player_specials->saved.daily_quests)
+      free(ch->player_specials->saved.daily_quests);
+    ch->player_specials->saved.daily_quests = NULL;
+    GET_NUM_DAILY_QUESTS(ch) = 0;
+    GET_QUEST_DAILY_STAMP(ch) = today;
+  }
+  CREATE(temp, qst_vnum, GET_NUM_DAILY_QUESTS(ch) + 1);
+  for (i = 0; i < GET_NUM_DAILY_QUESTS(ch); i++)
+    temp[i] = ch->player_specials->saved.daily_quests[i];
+  temp[GET_NUM_DAILY_QUESTS(ch)] = vnum;
+  GET_NUM_DAILY_QUESTS(ch)++;
+  if (ch->player_specials->saved.daily_quests)
+    free(ch->player_specials->saved.daily_quests);
+  ch->player_specials->saved.daily_quests = temp;
+}
+
 void quest_join(struct char_data *ch, struct char_data *qm, char argument[MAX_INPUT_LENGTH])
 {
   qst_vnum vnum;
@@ -521,6 +557,11 @@ void quest_join(struct char_data *ch, struct char_data *qm, char argument[MAX_IN
   else if (is_complete(ch, vnum) && !IS_SET(QST_FLAGS(rnum), AQ_REPEATABLE))
     snprintf(buf, sizeof(buf),
              "%s You have already completed that quest!", GET_NAME(ch));
+  else if (IS_SET(QST_FLAGS(rnum), AQ_REPEATABLE) && is_daily_complete(ch, vnum))
+    snprintf(buf, sizeof(buf),
+             "%s You have already completed that quest today, %s. "
+             "Come back tomorrow and I will have more work for you.",
+             GET_NAME(ch), GET_NAME(ch));
   else if ((QST_PREV(rnum) != NOTHING) && !is_complete(ch, QST_PREV(rnum)))
     snprintf(buf, sizeof(buf),
              "%s That quest is not available to you yet!", GET_NAME(ch));

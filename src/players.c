@@ -50,6 +50,7 @@ long top_idnum = 0;
 static void load_affects(FILE *fl, struct char_data *ch);
 static void load_skills(FILE *fl, struct char_data *ch);
 static void load_quests(FILE *fl, struct char_data *ch);
+static void load_daily_quests(FILE *fl, struct char_data *ch);
 static void load_metc(FILE *fl, struct char_data *ch);
 static void load_mets(FILE *fl, struct char_data *ch);
 static void load_HMVS(struct char_data *ch, const char *line, int mode);
@@ -309,6 +310,9 @@ int load_char(const char *name, struct char_data *ch)
     GET_QUEST_COUNTER(ch) = PFDEF_QUESTCOUNT;
     GET_QUEST(ch) = PFDEF_CURRQUEST;
     GET_NUM_QUESTS(ch) = PFDEF_COMPQUESTS;
+    GET_QUEST_DAILY_STAMP(ch) = PFDEF_QUESTDAILYSTAMP;
+    GET_NUM_DAILY_QUESTS(ch)  = PFDEF_DAILYQUESTS;
+    ch->player_specials->saved.daily_quests = NULL;
 	GET_CITY_MET(ch) = PFDEF_METCITY;
 	GET_PLAYERS_MET(ch) = PFDEF_METPLAYERS;
     GET_LAST_MOTD(ch) = PFDEF_LASTMOTD;
@@ -444,6 +448,8 @@ int load_char(const char *name, struct char_data *ch)
        else if (!strcmp(tag, "Qcur")) GET_QUEST(ch) = atoi(line);
        else if (!strcmp(tag, "Qcnt")) GET_QUEST_COUNTER(ch) = atoi(line);
        else if (!strcmp(tag, "Qest")) load_quests(fl, ch);
+       else if (!strcmp(tag, "Qdst")) GET_QUEST_DAILY_STAMP(ch) = atol(line);
+       else if (!strcmp(tag, "Qdly")) load_daily_quests(fl, ch);
         break;
 
       case 'R':
@@ -690,6 +696,14 @@ void save_char(struct char_data * ch)
     fprintf(fl, "%d\n", NOTHING);
   }
   if (GET_QUEST(ch)        != PFDEF_CURRQUEST)  fprintf(fl, "Qcur: %d\n", GET_QUEST(ch));
+  if (GET_QUEST_DAILY_STAMP(ch) != PFDEF_QUESTDAILYSTAMP)
+    fprintf(fl, "Qdst: %ld\n", GET_QUEST_DAILY_STAMP(ch));
+  if (GET_NUM_DAILY_QUESTS(ch) != PFDEF_DAILYQUESTS) {
+    fprintf(fl, "Qdly:\n");
+    for (i = 0; i < GET_NUM_DAILY_QUESTS(ch); i++)
+      fprintf(fl, "%d\n", ch->player_specials->saved.daily_quests[i]);
+    fprintf(fl, "%d\n", NOTHING);
+  }
   if (GET_CITY_MET(ch)  != PFDEF_METCITY) {
   fprintf(fl, "Metc:\n");    
     for (i = 0; i < GET_CITY_MET(ch); i++)	  
@@ -923,6 +937,19 @@ void load_quests(FILE *fl, struct char_data *ch)
     sscanf(line, "%d", &num);
     if (num != NOTHING)
       add_completed_quest(ch, num);
+  } while (num != NOTHING);
+}
+
+static void load_daily_quests(FILE *fl, struct char_data *ch)
+{
+  int num = NOTHING;
+  char line[MAX_INPUT_LENGTH + 1];
+
+  do {
+    get_line(fl, line);
+    sscanf(line, "%d", &num);
+    if (num != NOTHING)
+      add_daily_quest(ch, (qst_vnum)num);
   } while (num != NOTHING);
 }
 

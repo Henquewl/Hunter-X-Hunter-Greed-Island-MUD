@@ -1011,6 +1011,9 @@ struct player_special_data_saved
   int    current_quest;         /**< vnum of current quest         */
   int    quest_time;            /**< time left on current quest    */
   int    quest_counter;         /**< Count of targets left to get  */
+  long     quest_daily_stamp;   /**< game-day slot when daily list was last active */
+  qst_vnum *daily_quests;       /**< vnums of repeatable quests done today         */
+  int      num_daily_quests;    /**< count of entries in daily_quests              */
   int city_met[8]; /**< Cities met  */
   int	 num_city_met;
   int players_met[301]; /**< Players met  */
