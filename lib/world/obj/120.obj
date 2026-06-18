@@ -335,9 +335,9 @@ elixir label~
 A label with "Elixir" badly written.
 ~
 #12030
-flask potion blaze orange~
-a flask~
-There is a flask, containing a blaze orange potion, resting here.~
+flask illness potion blaze orange~
+a flask of illness~
+There is a flask of illness, containing a blaze orange potion, resting here.~
 ~
 10 0 0 0 0 a 0 0 0 0 0 0 0
 9 4 17 33

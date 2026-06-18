@@ -998,6 +998,17 @@ ACMD(do_gain)
 	return;
   }
 
+  /* Allow casting spell cards directly from inventory when the book is active */
+  if (*arg && PLR_FLAGGED(ch, PLR_BOOK) &&
+      !(held && GET_OBJ_TYPE(held) == ITEM_SPELLCARD)) {
+    struct obj_data *inv_card = get_obj_in_list_vis(ch, arg, NULL, ch->carrying);
+    if (inv_card && GET_OBJ_TYPE(inv_card) == ITEM_SPELLCARD) {
+      held = inv_card;
+      skip_spaces(&argument);
+      snprintf(arg, sizeof(arg), "%s", argument);
+    }
+  }
+
   if (held && GET_OBJ_TYPE(held) == ITEM_SPELLCARD) {
 	if (!PLR_FLAGGED(ch, PLR_BOOK)) {
 	  send_to_char(ch, "\tcYou need call your \tCbook\tc first.\tn\r\n");
@@ -1437,7 +1448,7 @@ ACMD(do_gain)
 		if (GET_OBJ_VNUM(obj) == 3203)
 		  send_to_char(ch, "You don't seem to have %s %s.\r\n", AN(arg), arg);
 	    else if (GET_OBJ_TYPE(obj) == ITEM_SPELLCARD)
-		  send_to_char(ch, "You must hold the %s in order to gain it.\r\n", obj->short_description);
+		  send_to_char(ch, "\tcYou need to activate your \tCbook\tc to use spell cards.\tn\r\n");
 	    else {
 		  do_say(ch, "GAIN!", cmd, 0);
 		  msg = 0;
