@@ -57,32 +57,195 @@ static void player_greet(struct char_data *ch, struct char_data *tch);
 #define SHOW_OBJ_SHORT    1
 #define SHOW_OBJ_ACTION   2
 
-/* Base URLs for Greed Island card images sent to MXP-capable clients. */
-#define SPELL_CARD_IMAGE_BASE_URL      "https://PREENCHER/"
-#define RESTRICTED_CARD_IMAGE_BASE_URL "https://PREENCHER/"
+/* Per-card image URLs from static.wikia.nocookie.net (HxH fandom wiki).
+   NULL means no image available for that card. */
+static const char *restricted_card_image_urls[100] = {
+  /* 000 Ruler's Blessing    */ "https://static.wikia.nocookie.net/hunterxhunter/images/a/aa/Ruler%27s_Blessing_%28G.I_card%29.png",
+  /* 001 Patch of Forest     */ "https://static.wikia.nocookie.net/hunterxhunter/images/1/19/Patch_of_Forest_%28G.I_card%29.png",
+  /* 002 Plot of Beach       */ NULL,
+  /* 003 Pitcher Eternal Wtr */ NULL,
+  /* 004 Skin Care Hot Spgs  */ NULL,
+  /* 005 Spirited Away Hollw */ NULL,
+  /* 006 Liquor Spring       */ NULL,
+  /* 007 Pregnancy Stones    */ NULL,
+  /* 008 Mystery Pond        */ NULL,
+  /* 009 Tree of Plenty      */ NULL,
+  /* 010 Golden Guidebook    */ "https://static.wikia.nocookie.net/hunterxhunter/images/5/51/Golden_Guidebook_GI_Card_10.png",
+  /* 011 Golden Scales       */ "https://static.wikia.nocookie.net/hunterxhunter/images/6/6d/Golden_Scales_%28G.I_card%29_%3Dscan%3D.png",
+  /* 012 Golden Dictionary   */ "https://static.wikia.nocookie.net/hunterxhunter/images/6/60/Golden_Dictionary_%28G.I_card%29_%3Dscan%3D.png",
+  /* 013 Luck Bankbook       */ "https://static.wikia.nocookie.net/hunterxhunter/images/a/ad/Luck_Bankbook_GI_Card_13.png",
+  /* 014 Conn. Sev. Scissors */ NULL,
+  /* 015 Fickle Genie        */ NULL,
+  /* 016 Fairy King's Advice */ "https://static.wikia.nocookie.net/hunterxhunter/images/9/95/Fairy_King%27s_Advice_%28G.I_card%29_%3Dscan%3D.png",
+  /* 017 Angel's Breath      */ "https://static.wikia.nocookie.net/hunterxhunter/images/9/92/Angel%27s_Breath_-_GI_Card_17.png",
+  /* 018 Imp's Wink          */ NULL,
+  /* 019 Poltergeist Pillow  */ NULL,
+  /* 020 Mood Clock          */ NULL,
+  /* 021 X-Ray Goggles       */ "https://static.wikia.nocookie.net/hunterxhunter/images/a/a5/X-Ray_Goggles_%28G.I_card%29_%3Dscan%3D.png",
+  /* 022 Toraemon            */ NULL,
+  /* 023 Tome/Thousand Tales */ NULL,
+  /* 024 Hypothetical T.V.   */ NULL,
+  /* 025 Risky Dice          */ "https://static.wikia.nocookie.net/hunterxhunter/images/9/9e/Risky_Dice_%28G.I_card%29.png",
+  /* 026 Night Shift Dwarves */ NULL,
+  /* 027 Book of VIP Passes  */ "https://static.wikia.nocookie.net/hunterxhunter/images/3/3f/Book_of_V.I.P_Passes_%28G.I_card%29.png",
+  /* 028 Capricious Remote   */ NULL,
+  /* 029 Pre-Order Vouchers  */ NULL,
+  /* 030 Favor Cushion       */ "https://static.wikia.nocookie.net/hunterxhunter/images/c/c3/Favor_Cushion_%28G.I_card%29_%3Dscan%3D.png",
+  /* 031 Double Postcard     */ NULL,
+  /* 032 Parrot Candy        */ NULL,
+  /* 033 Hormone Cookies     */ NULL,
+  /* 034 Universal Survey    */ NULL,
+  /* 035 Chameleon Cat       */ NULL,
+  /* 036 Recycling Room      */ NULL,
+  /* 037 Fledgling Athlete   */ "https://static.wikia.nocookie.net/hunterxhunter/images/e/e3/Fledgling_Athlete_%28G.I_card%29.png",
+  /* 038 Fledgling Artist    */ "https://static.wikia.nocookie.net/hunterxhunter/images/b/bb/Fledgling_Artist_GI_Card_38.png",
+  /* 039 Fledgling Politician*/ NULL,
+  /* 040 Fledgling Musician  */ "https://static.wikia.nocookie.net/hunterxhunter/images/7/7a/Fledgling_Musician_GI_Card_40.png",
+  /* 041 Fledgling Pilot     */ "https://static.wikia.nocookie.net/hunterxhunter/images/a/af/Fledgling_Pilot_%28G.I_card%29_41.png",
+  /* 042 Fledgling Novelist  */ NULL,
+  /* 043 Fledgling Gambler   */ NULL,
+  /* 044 Fledgling Actor     */ NULL,
+  /* 045 Fledgling CEO       */ "https://static.wikia.nocookie.net/hunterxhunter/images/a/a2/Fledgling_CEO_%28G.I_card%29.png",
+  /* 046 Gold Dust Girl      */ "https://static.wikia.nocookie.net/hunterxhunter/images/e/e2/Gold_Dust_Girl_%28G.I_card%29.png",
+  /* 047 Sleeping Girl       */ "https://static.wikia.nocookie.net/hunterxhunter/images/6/67/Sleeping_Girl_%28G.I_card%29_%3Dscan%3D.png",
+  /* 048 Aromatherapy Girl   */ NULL,
+  /* 049 Miniature Mermaid   */ "https://static.wikia.nocookie.net/hunterxhunter/images/8/8e/Miniature_Mermaid_%28G.I_card%29_%3Dscan%3D.png",
+  /* 050 Miniature Dino      */ "https://static.wikia.nocookie.net/hunterxhunter/images/7/76/Miniature_Dino_%28G.I_card%29_50.png",
+  /* 051 Miniature Dragon    */ "https://static.wikia.nocookie.net/hunterxhunter/images/7/7f/Miniature_Dragon_%28G.I_card%29_%3Dscan%3D.png",
+  /* 052 Pearl Locusts       */ NULL,
+  /* 053 King White Stag Btl */ NULL,
+  /* 054 Millennium Butterfly*/ NULL,
+  /* 055 Revenge Shop        */ NULL,
+  /* 056 Perfect Memory Stud */ NULL,
+  /* 057 Hideout Realtor     */ NULL,
+  /* 058 Secrets Video Rent  */ NULL,
+  /* 059 Inst. Foreign Lang  */ NULL,
+  /* 060 Long Lost Delivery  */ NULL,
+  /* 061 Vending Check-Up    */ NULL,
+  /* 062 Club You Rule       */ NULL,
+  /* 063 Virtual Restaurant  */ NULL,
+  /* 064 Witch's Love Potion */ "https://static.wikia.nocookie.net/hunterxhunter/images/9/9c/Witch%27s_Love_Potion_%28G.I_card%29.png",
+  /* 065 Witch's Rejuv Potion*/ "https://static.wikia.nocookie.net/hunterxhunter/images/0/03/Witch%27s_Rejuvenation_Potion_%28G.I_card%29_%3Dscan%3D.png",
+  /* 066 Witch's Diet Pills  */ "https://static.wikia.nocookie.net/hunterxhunter/images/6/6d/Witch%27s_Diet_Pills_%28G.I_card%29_66.png",
+  /* 067 Doyen's Growth Pills*/ "https://static.wikia.nocookie.net/hunterxhunter/images/2/2c/Doyen%27s_Growth_Pills_%28G.I_card%29_%3Dscan%3D.png",
+  /* 068 Doyen's Virility Pil*/ "https://static.wikia.nocookie.net/hunterxhunter/images/0/00/Doyen%27s_Virility_Pills_%28G.I_card%29_%3Dscan%3D.png",
+  /* 069 Doyen's Hair Restor */ "https://static.wikia.nocookie.net/hunterxhunter/images/7/76/Doyen%27s_Hair_Restorer_%28G.I_card%29_69.png",
+  /* 070 Mad Sci Steroids    */ "https://static.wikia.nocookie.net/hunterxhunter/images/0/00/Mad_Scientist%27s_Steroids_%28G.I_card%29_70.png",
+  /* 071 Mad Sci Pheromones  */ "https://static.wikia.nocookie.net/hunterxhunter/images/1/13/Mad_Scientist%27s_Pheromones_%28G.I_card%29_71.png",
+  /* 072 Mad Sci Plastic Surg*/ "https://static.wikia.nocookie.net/hunterxhunter/images/4/4e/Mad_Scientist%27s_Plastic_Surgery_%28G.I_card%29_%3Dscan%3D.png",
+  /* 073 Night Jade          */ "https://static.wikia.nocookie.net/hunterxhunter/images/1/1e/Night_Jade_%28G.I_card%29.png",
+  /* 074 Sage's Aquamarine   */ NULL,
+  /* 075 Wild Luck Alexandrit*/ NULL,
+  /* 076 Roaming Ruby        */ NULL,
+  /* 077 Beauty Magnet Emrld */ NULL,
+  /* 078 Lonely Sapphire     */ NULL,
+  /* 079 Rainbow Diamond     */ "https://static.wikia.nocookie.net/hunterxhunter/images/5/50/Rainbow_Diamond_%28G.I_card%29.png",
+  /* 080 Levitation Stone    */ "https://static.wikia.nocookie.net/hunterxhunter/images/e/ef/Levitation_Stone_%28G.I_card%29_%3Dscan%3D.png",
+  /* 081 Blue Planet         */ "https://static.wikia.nocookie.net/hunterxhunter/images/6/6b/Blue_Planet_%28G.I_card%29.png",
+  /* 082 Staff of Judgment   */ NULL,
+  /* 083 Sword of Truth      */ "https://static.wikia.nocookie.net/hunterxhunter/images/2/2b/Sword_of_Truth_%28G.I_card%29.png",
+  /* 084 Paladin's Necklace  */ "https://static.wikia.nocookie.net/hunterxhunter/images/d/d3/Paladin%27s_Necklace_%28G.I_card%29.png",
+  /* 085 Sacrifice Armor     */ "https://static.wikia.nocookie.net/hunterxhunter/images/9/9d/Sacrifice_Armor_%28G.I_card%29_%3Dscan%3D.png",
+  /* 086 Quiver of Frustration*/"https://static.wikia.nocookie.net/hunterxhunter/images/b/bd/Quiver_of_Frustration_%28G.I_card%29_86.png",
+  /* 087 Shield of Faith     */ NULL,
+  /* 088 Eternal Hammer      */ NULL,
+  /* 089 Tax Collector Gauntl*/ "https://static.wikia.nocookie.net/hunterxhunter/images/9/9a/Tax_Collector%27s_Gauntlet_%28G.I_card%29.png",
+  /* 090 Memory Helmet       */ "https://static.wikia.nocookie.net/hunterxhunter/images/3/3d/Memory_Helmet_%28G.I_card%29.png",
+  /* 091 Plastic King        */ "https://static.wikia.nocookie.net/hunterxhunter/images/c/c3/Plastic_King_%28G.I_card%29_%3Dscan%3D.png",
+  /* 092 Swap Ticket         */ NULL,
+  /* 093 Book of Life        */ "https://static.wikia.nocookie.net/hunterxhunter/images/b/b7/Book_of_Life_%28G.I_card%29_%3Dscan%3D.png",
+  /* 094 Bandit's Blade      */ NULL,
+  /* 095 Secret Cape         */ NULL,
+  /* 096 Clairvoyant Snake   */ NULL,
+  /* 097 3-D Camera          */ NULL,
+  /* 098 Silver Dog          */ NULL,
+  /* 099 Panda Maid          */ "https://static.wikia.nocookie.net/hunterxhunter/images/9/90/Panda_Maid_%28G.I_card%29.png",
+};
+
+/* Spell card image URLs. Index = vnum - 1000 (covers 1000-1040). */
+static const char *spell_card_image_urls[41] = {
+  /* 1000 Eliminate (-003)   */ "https://static.wikia.nocookie.net/hunterxhunter/images/b/b0/Elliminate_%28G.I_card%29.png",
+  /* 1001 Peek               */ NULL,
+  /* 1002 Fluoroscopy        */ NULL,
+  /* 1003 Defensive Wall     */ NULL,
+  /* 1004 Reflect            */ NULL,
+  /* 1005 Magnetic Force     */ NULL,
+  /* 1006 Pickpocket         */ NULL,
+  /* 1007 Thief              */ NULL,
+  /* 1008 Trade              */ NULL,
+  /* 1009 Return             */ "https://static.wikia.nocookie.net/hunterxhunter/images/7/7d/Return_%28G.I_card%29.png",
+  /* 1010 Mimic              */ NULL,
+  /* 1011 Clone              */ "https://static.wikia.nocookie.net/hunterxhunter/images/1/1f/Clone_%28G.I_card%29.png",
+  /* 1012 Relegate           */ NULL,
+  /* 1013 Origin             */ NULL,
+  /* 1014 Leave              */ "https://static.wikia.nocookie.net/hunterxhunter/images/7/7e/Leave_%28G.I_card%29.png",
+  /* 1015 Clairvoyance       */ NULL,
+  /* 1016 Drift              */ "https://static.wikia.nocookie.net/hunterxhunter/images/b/be/Drift_%28G.I_card%29.png",
+  /* 1017 Collision          */ NULL,
+  /* 1018 Levy               */ "https://static.wikia.nocookie.net/hunterxhunter/images/1/1f/Levy_%28G.I_card%29.png",
+  /* 1019 Drawbridge         */ NULL,
+  /* 1020 Fake               */ "https://static.wikia.nocookie.net/hunterxhunter/images/3/3c/Fake_%28G.I_card%29.png",
+  /* 1021 Mug                */ NULL,
+  /* 1022 Corruption         */ NULL,
+  /* 1023 Compromise         */ NULL,
+  /* 1024 Dispel             */ NULL,
+  /* 1025 Blackout Curtain   */ "https://static.wikia.nocookie.net/hunterxhunter/images/e/ea/Blackout_Curtain_%28G.I_card%29.png",
+  /* 1026 Holy Water         */ NULL,
+  /* 1027 Trace              */ "https://static.wikia.nocookie.net/hunterxhunter/images/c/cd/Trace_%28G.I_card%29.png",
+  /* 1028 Rock Toss          */ NULL,
+  /* 1029 Bullet             */ NULL,
+  /* 1030 Guidepost          */ NULL,
+  /* 1031 Analysis           */ NULL,
+  /* 1032 Lottery            */ "https://static.wikia.nocookie.net/hunterxhunter/images/d/d7/Lottery_%28G.I_card%29.png",
+  /* 1033 Cling              */ NULL,
+  /* 1034 Purify             */ NULL,
+  /* 1035 Fortress           */ NULL,
+  /* 1036 Eye of God         */ NULL,
+  /* 1037 Recycle            */ NULL,
+  /* 1038 List               */ NULL,
+  /* 1039 Accompany          */ "https://static.wikia.nocookie.net/hunterxhunter/images/d/d7/Accompany_%28G.I_card%29.png",
+  /* 1040 Contact            */ "https://static.wikia.nocookie.net/hunterxhunter/images/a/ad/Contact_%28G.I_card%29.png",
+};
 
 static void send_card_image(struct char_data *ch, struct obj_data *obj)
 {
-  char img_tag[256];
+  char img_tag[512];
+  const char *url = NULL;
+  const char *fname;
   int num;
+  char url_dir[400];
+  int dir_len;
 
   if (!ch->desc || !ch->desc->pProtocol || !ch->desc->pProtocol->bMXP)
     return;
 
   if (GET_OBJ_TYPE(obj) == ITEM_SPELLCARD) {
     num = GET_OBJ_VNUM(obj) - 1000;
-    snprintf(img_tag, sizeof(img_tag),
-      "<IMAGE FName=\"spell_%03d.png\" URL=\"%s\">",
-      num, SPELL_CARD_IMAGE_BASE_URL);
+    if (num >= 0 && num < 41)
+      url = spell_card_image_urls[num];
   } else if (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED) {
     num = GET_OBJ_VNUM(obj) - 65300;
-    snprintf(img_tag, sizeof(img_tag),
-      "<IMAGE FName=\"card_%03d.png\" URL=\"%s\">",
-      num, RESTRICTED_CARD_IMAGE_BASE_URL);
-  } else {
-    return;
+    if (num >= 0 && num < 100)
+      url = restricted_card_image_urls[num];
   }
 
+  if (!url)
+    return;
+
+  /* Split full URL into directory (URL attr) + filename (FName attr).
+     MUSHclient downloads from URL+FName, so dir must end with '/'. */
+  fname = strrchr(url, '/');
+  if (!fname)
+    return;
+  fname++; /* skip the '/' */
+  dir_len = (int)(fname - url);
+  if (dir_len >= (int)sizeof(url_dir))
+    return;
+  strncpy(url_dir, url, dir_len);
+  url_dir[dir_len] = '\0';
+
+  snprintf(img_tag, sizeof(img_tag),
+    "<IMAGE FName=\"%s\" URL=\"%s\">", fname, url_dir);
   MXPSendTag(ch->desc, img_tag);
 }
 
@@ -1050,6 +1213,7 @@ static void look_at_target(struct char_data *ch, char *arg)
     if (!found)
       show_obj_to_char(found_obj, ch, SHOW_OBJ_ACTION);
     else {
+      send_card_image(ch, found_obj);
       show_obj_modifiers(found_obj, ch);
       send_to_char(ch, "\r\n");
     }

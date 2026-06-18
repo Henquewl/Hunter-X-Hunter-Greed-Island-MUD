@@ -8,6 +8,11 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 18 2026] - Henque
+  MXP card images: fixed image not showing when looking at cards with descriptions
+  (look_at_target's extra-desc path never called send_card_image). Replaced
+  placeholder base-URL approach with per-card URL lookup tables sourced from the
+  HxH fandom wiki CDN. 48/100 restricted cards and 10/41 spell cards now have
+  wiki images; NULL entries show no image silently.
   Fickle Genie (65315): gain auto-stores card in binder (opens book if needed); if already in
   binder, shows flavor message only. Timer expiry outside binder: genie-flavored puff-of-smoke
   message + card deleted (no revert to item). No physical item 65415 needed.
