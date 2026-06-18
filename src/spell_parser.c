@@ -61,7 +61,7 @@ static struct syllable syls[] = {
   {"cure", "iyashimasu"},
   {"curse", "noroi"},
   {"darkness", "yami"},
-  {"detectconcealed", "gyo"},
+  {"detectinvisible", "gyo"},
   {"detect", "kenshutsu"},
   {"drain", "dorein"},
   {"dowzing", "daujingu"},
@@ -891,7 +891,7 @@ void mag_assign_spells(void)
 	TAR_CHAR_ROOM, FALSE, MAG_AFFECTS,
 	"You feel less aware.");
 
-  spello(SPELL_DETECT_INVIS, "detectconcealed", 6, 10, 2, POS_STANDING,
+  spello(SPELL_DETECT_INVIS, "detectinvisible", 6, 10, 2, POS_STANDING,
 	TAR_CHAR_ROOM, FALSE, MAG_AFFECTS,
 	"Your eyes stop tingling.");
 

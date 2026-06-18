@@ -159,7 +159,7 @@ cpp_extern const struct command_info cmd_info[] = {
   { "curse"    , "curs"    , POS_SITTING , do_cast     , 1, SPELL_CURSE },
 
   { "date"     , "da"      , POS_DEAD    , do_date     , LVL_IMMORT, SCMD_DATE },
-  { "detectconcealed", "det" , POS_SITTING , do_cast     , 1, SPELL_DETECT_INVIS },
+  { "detectinvisible", "det" , POS_SITTING , do_cast     , 1, SPELL_DETECT_INVIS },
   { "detectalignment", "detecta" , POS_SITTING , do_cast     , 1, SPELL_DETECT_ALIGN },
   { "detectenfolded", "detecte" , POS_SITTING , do_cast     , 1, SPELL_DETECT_MAGIC },
   { "detectpoison", "detectp" , POS_SITTING , do_cast     , 1, SPELL_DETECT_POISON },
