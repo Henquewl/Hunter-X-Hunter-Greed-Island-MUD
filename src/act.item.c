@@ -1535,8 +1535,27 @@ ACMD(do_change)
   }
 }
 
+static void repair_item_recursive(struct obj_data *o)
+{
+  for (; o; o = o->next_content) {
+    if (GET_OBJ_DURABILITY(o) > 0 && GET_OBJ_DURABILITY(o) < 100)
+      GET_OBJ_DURABILITY(o) = 100;
+    if (o->contains)
+      repair_item_recursive(o->contains);
+  }
+}
+
+static void repair_all_player_items(struct char_data *ch)
+{
+  int i;
+  for (i = 0; i < NUM_WEARS; i++)
+    if (GET_EQ(ch, i) && GET_OBJ_DURABILITY(GET_EQ(ch, i)) > 0)
+      GET_OBJ_DURABILITY(GET_EQ(ch, i)) = 100;
+  repair_item_recursive(ch->carrying);
+}
+
 int make_card(struct char_data *ch, struct obj_data *obj, bool show)
-{  
+{
   struct obj_data *card, *rst;
   
   int number, limit = 0;
@@ -1580,6 +1599,17 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
 	  extract_obj(rst);	
   }	
   
+  /* Special case: Recycling Room (#36) repairs all player items */
+  if (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED && GET_OBJ_VNUM(obj) == 65336) {
+    repair_all_player_items(ch);
+    send_to_char(ch, "The Recycling Room card dissolves in a soft glow...\r\n"
+                     "All your equipment and items are fully restored!\r\n");
+    act("$n's $p glows and dissolves, filling the room with a warm light.",
+        FALSE, ch, obj, 0, TO_ROOM);
+    extract_obj(obj);
+    return 1;
+  }
+
   if (limit == 0 && ((number > 65300 && number != 65535) || (number == 65535 && OBJ_FLAGGED(obj, ITEM_QUEST)))) {
 	if (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED) {
 	  if (!(card = read_object((number + 100), VIRTUAL))) {
