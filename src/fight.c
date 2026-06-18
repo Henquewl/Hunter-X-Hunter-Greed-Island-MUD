@@ -1083,6 +1083,59 @@ static void eternal_hammer_proc(struct char_data *ch, struct char_data *victim)
     REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_BOOK);
 }
 
+/* Bandit's Blade #94 (vnum 65494) proc: 20% chance on a successful hit to
+ * spawn a random AS spell card from thin air and cast it at the victim via the
+ * normal spell-card cast path.  No binder required -- the card is created by
+ * read_object() directly.  Victim wearing Paladin's Necklace (65484) is immune.
+ * A safety purge after command_interpreter ensures no card leaks if the trigger
+ * fails to consume it. */
+static void bandit_blade_proc(struct char_data *ch, struct char_data *victim)
+{
+  static const obj_vnum as_cards[] =
+    {1006, 1007, 1008, 1021, 1022, 1023, 1027, 1028, 1029, 1033};
+  struct obj_data *card;
+  bool had_book;
+  char buf[MAX_INPUT_LENGTH];
+
+  if (rand_number(1, 100) > 20)
+    return;                             /* 20% chance only */
+  if (IS_NPC(ch) || victim == NULL || IS_NPC(victim) || ch == victim)
+    return;
+  if (GET_POS(victim) <= POS_DEAD)
+    return;
+  if (!GET_EQ(ch, WEAR_WIELD) || GET_OBJ_VNUM(GET_EQ(ch, WEAR_WIELD)) != 65494)
+    return;
+  if (GET_EQ(ch, WEAR_HOLD))
+    return;                             /* need a free hand to hold the card */
+  if ((GET_EQ(victim, WEAR_NECK_1) && GET_OBJ_VNUM(GET_EQ(victim, WEAR_NECK_1)) == 65484) ||
+      (GET_EQ(victim, WEAR_NECK_2) && GET_OBJ_VNUM(GET_EQ(victim, WEAR_NECK_2)) == 65484))
+    return;                             /* Paladin's Necklace immunity */
+
+  /* Load a random AS card from thin air (no binder required) */
+  card = read_object(as_cards[rand_number(0, 9)], VIRTUAL);
+  if (!card)
+    return;
+
+  obj_to_char(card, ch);
+  equip_char(ch, card, WEAR_HOLD);
+
+  had_book = PLR_FLAGGED(ch, PLR_BOOK);
+  if (!had_book)
+    SET_BIT_AR(PLR_FLAGS(ch), PLR_BOOK);
+
+  snprintf(buf, sizeof(buf), "gain %s", GET_NAME(victim));
+  command_interpreter(ch, buf);
+
+  if (!had_book)
+    REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_BOOK);
+
+  /* Safety: if trigger didn't consume the card, purge it */
+  if (GET_EQ(ch, WEAR_HOLD) == card) {
+    unequip_char(ch, WEAR_HOLD);
+    extract_obj(card);
+  }
+}
+
 void hit(struct char_data *ch, struct char_data *victim, int type)
 {
   struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
@@ -1295,6 +1348,7 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
     if (damage(ch, victim, dam, w_type) == -1)
       return;                        /* victim died and was extracted -- avoid use-after-free below */
     eternal_hammer_proc(ch, victim); /* victim survived the blow */
+    bandit_blade_proc(ch, victim);
   }
    if (!IS_NPC(ch)) {
 	if (!GET_SKILL(ch, SKILL_BAREHANDED_EXPERT) || (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON))

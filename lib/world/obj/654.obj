@@ -1166,12 +1166,12 @@ a bandit's blade~
 A bandit's blade is here, waiting for the next victim.~
 ~
 5 dfh 0 0 0 ano 0 0 0 0 0 0 0
-0 5 3 11
-3 0 0 0 0
+0 1 4 11
+5 0 0 0 0
 A
-18 -3
+18 -2
 A
-19 -1
+2 -1
 #65495
 secret cape cloak~
 a Secret Cape~
