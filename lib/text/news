@@ -8,6 +8,11 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 > 2026 <
 
 JUN 18 **
+- Shield of Faith (#87) now protects its wearer and followers from Return,
+  Railguide, Drift, and Collision spell cards. Equipping the shield grants
+  protection; removing it lifts it.
+
+JUN 18 **
 - 11 spell card names corrected to canonical English: Fluoroscopy, Reflect,
   Pickpocket, Mimic, Drawbridge, Mug, Rock Toss, Bullet, Cling, Fortress,
   Eye of God.
