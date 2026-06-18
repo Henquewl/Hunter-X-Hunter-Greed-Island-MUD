@@ -201,6 +201,19 @@ Already-canon (no change): #0-17, 25, 26, 31, 35-46, 56, 61, 62, 64-69, 71, 73, 
 83, 84, 85, 87, 89, 90, 94. Safe data fixes done Jun 13: #66 renamed to "Witch's Diet Pills",
 #9 rank S-20→S-10, #74 rank A-15→A-11.
 
+## NOVOS TODOs — mecânicas futuras (Jun 2026)
+
+**PvP Alignment Penalty System**: PvP actions (attacking, stealing, using AS cards) should
+reduce the aggressor's alignment. Players with very evil alignment should face progressive
+restrictions (e.g., barred from certain zones, hostile NPCs, stat penalties). Implement in
+`fight.c` / `act.offensive.c` with an alignment penalty table per action type.
+
+**NPCs defeated → cards**: when a mob is killed, there is a chance to transform its corpse
+(or drop directly) into a Greed Island card related to that mob type. Requires a mob_vnum →
+card_vnum mapping table (in `limits.c` or a new hook in `fight.c` die() handler).
+
+---
+
 ## Reference — functional cards that predated this work
 Breath of Archangel (65317→65417, trg 3265 spawns healing mob), Risky Dice (65425), Vending
 Check-Up (65461 scanner), Sword of Truth (65483), Paladin's Necklace (65484), Doyen's Virility
