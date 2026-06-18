@@ -52,7 +52,7 @@ static struct syllable syls[] = {
   {"blindness", "shitsumei"},
   {"burninghands", "moeru te"},
   {"card", "kado"},
-  {"circleofen", "en"},
+  {"senselife", "en"},
   {"chain", "kusari"},
   {"chilltouch", "chirutatchi"},
   {"create", "sakusei suru"},
@@ -827,11 +827,11 @@ void mag_assign_spells(void)
 	TAR_CHAR_ROOM | TAR_FIGHT_VICT, TRUE, MAG_DAMAGE | MAG_AFFECTS,
 	NULL);
 
-  spello(SPELL_CHAIN_PROTECTION, "chainprotected", 10, 15, 3, POS_FIGHTING,
+  spello(SPELL_CHAIN_ARMOR, "chainarmor", 10, 15, 3, POS_FIGHTING,
 	TAR_CHAR_ROOM, FALSE, MAG_AFFECTS,
 	"The chains around you get loose and degrades.");
 	
-  spello(SPELL_CHARM, "charmperson", 20, 50, 2, POS_FIGHTING,
+  spello(SPELL_CHARM, "manipulate", 20, 50, 2, POS_FIGHTING,
 	TAR_CHAR_ROOM | TAR_NOT_SELF, TRUE, MAG_MANUAL,
 	"You feel more self-confident.");
 
@@ -903,7 +903,7 @@ void mag_assign_spells(void)
 	TAR_CHAR_ROOM, FALSE, MAG_AFFECTS,
 	"The detect poison wears off.");
 
-  spello(SPELL_DISPEL_EVIL, "dispelevil", 5, 25, 3, POS_FIGHTING,
+  spello(SPELL_DISPEL_EVIL, "smiteevil", 5, 25, 3, POS_FIGHTING,
 	TAR_CHAR_ROOM | TAR_FIGHT_VICT, TRUE, MAG_DAMAGE,
 	NULL);
 
@@ -911,7 +911,7 @@ void mag_assign_spells(void)
 	TAR_CHAR_ROOM | TAR_FIGHT_VICT, TRUE, MAG_MANUAL,
 	NULL);
 
-  spello(SPELL_DISPEL_GOOD, "dispelgood", 5, 25, 3, POS_FIGHTING,
+  spello(SPELL_DISPEL_GOOD, "smitegood", 5, 25, 3, POS_FIGHTING,
 	TAR_CHAR_ROOM | TAR_FIGHT_VICT, TRUE, MAG_DAMAGE,
 	NULL);
 
@@ -1001,7 +1001,7 @@ void mag_assign_spells(void)
 	TAR_CHAR_ROOM, FALSE, MAG_AFFECTS,
 	"The white aura around your body fades.");
 
-  spello(SPELL_SENSE_LIFE, "circleofen", 15, 10, 2, POS_STANDING,
+  spello(SPELL_SENSE_LIFE, "senselife", 15, 10, 2, POS_STANDING,
 	TAR_CHAR_ROOM, FALSE, MAG_AFFECTS,
 	"You feel less aware of your surroundings.");
 
@@ -1041,7 +1041,7 @@ void mag_assign_spells(void)
         TAR_CHAR_ROOM | TAR_OBJ_INV | TAR_OBJ_ROOM, FALSE, MAG_MANUAL,
         NULL);
 		
-  spello(SPELL_TIGHTEN_CHAINS, "dowzingchain", 2, 25, 5, POS_FIGHTING,
+  spello(SPELL_DOWSING_CHAIN, "dowsingchain", 2, 25, 5, POS_FIGHTING,
 	TAR_CHAR_ROOM | TAR_FIGHT_VICT, TRUE, MAG_DAMAGE,
 	NULL); 
 

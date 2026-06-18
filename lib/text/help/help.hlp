@@ -1786,9 +1786,9 @@ Example: @RTSTAT 27@n
 
 See also: VARIABLES, GLOBALS
 #31
-CHARM-PERSON CHARMPERSON
+CHARM-PERSON CHARMPERSON MANIPULATE
 
-@cUsage       : @Ccharmperson @c<@Ytarget@c>@n
+@cUsage       : @Cmanipulate @c<@Ytarget@c>@n
 Accumulative: No
 Duration    : (432/Intelligence points of person) hours
 
@@ -1846,9 +1846,9 @@ CHMOD
 0 stands for "no permission."
 So 7 is the combination of permissions 4+2+1 (read, write, and execute), 5 is 4+0+1 (read, no write, and execute), and 4 is 4+0+0 (read, no write, and no execute).
 #31
-CIRCLE-OF-EN CIRCLEOFEN CIRCLE-EN LIFE-SENSE DETECT-LIFE
+SENSE-LIFE SENSELIFE CIRCLE-OF-EN CIRCLEOFEN CIRCLE-EN LIFE-SENSE DETECT-LIFE
 
-@cUsage       : @Ccircleofen
+@cUsage       : @Csenselife
 Accumulative: Yes (Duration)
 Duration    : Level hours.
 
@@ -2750,9 +2750,9 @@ when done type /fi to format with indent.
 See also: TEXT-EDITOR
 
 #31
-DISPEL-EVIL DISPELEVIL
+SMITE-EVIL SMITEEVIL DISPEL-EVIL DISPELEVIL
 
-@cUsage       : @Cdispelevil @c<@Ytarget@c>@n
+@cUsage       : @Csmiteevil @c<@Ytarget@c>@n
 Accumulative: -
 Duration    : Instantaneous
 Save        : Special
@@ -2765,9 +2765,9 @@ If the victim is higher level than caster, the skill will inflict
 
 See also: DISPEL-GOOD
 #0
-DISPEL-GOOD DISPELGOOD
+SMITE-GOOD SMITEGOOD DISPEL-GOOD DISPELGOOD
 
-@cUsage       : @Cdispelgood @c<@Ytarget@c>@n
+@cUsage       : @Csmitegood @c<@Ytarget@c>@n
 Accumulative: -
 Duration    : Instantaneous
 Save        : Special
@@ -2825,9 +2825,9 @@ doubles.
 
 See Also: AFF
 #0
-DOWZING-CHAIN
+DOWSING-CHAIN DOWZINGCHAIN
 
-Usage ->       dowzing <target>
+Usage ->       dowsingchain <target>
 
 You use your conjured chains to choke the target.
 Also, the target will suffer plus -4 stamina.

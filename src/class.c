@@ -2043,7 +2043,7 @@ void init_spell_levels(void)
   
 
   /* CONJURER */
-  spell_level(SPELL_TIGHTEN_CHAINS, CLASS_CLERIC, 1);
+  spell_level(SPELL_DOWSING_CHAIN, CLASS_CLERIC, 1);
   spell_level(SPELL_CREATE_FOOD, CLASS_CLERIC, 2);
   spell_level(SPELL_CREATE_WATER, CLASS_CLERIC, 3);  
   spell_level(SPELL_IDENTIFY, CLASS_CLERIC, 4);

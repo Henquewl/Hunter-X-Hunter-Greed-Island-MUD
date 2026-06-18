@@ -294,7 +294,7 @@ int mag_damage(int level, struct char_data *ch, struct char_data *victim,
       dam = GET_HIT(ch) / rand_number(15, 20);
     break;
 	
-  case SPELL_TIGHTEN_CHAINS:
+  case SPELL_DOWSING_CHAIN:
     if (IS_CLERIC(ch))
       dam = GET_HIT(ch) / rand_number(9, 11);
     else
@@ -386,7 +386,7 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
     to_vict = "You feel an aura protecting you.";
     break;
 	
-  case SPELL_CHAIN_PROTECTION:
+  case SPELL_CHAIN_ARMOR:
     af[0].location = APPLY_AC;
     af[0].modifier = -20 - (GET_LEVEL(ch));
     af[0].duration = 18 + (GET_LEVEL(ch));
@@ -684,7 +684,7 @@ static void perform_mag_groups(int level, struct char_data *ch,
     mag_points(level, ch, tch, SPELL_HEAL, savetype);
     break;
   case SPELL_GROUP_ARMOR:
-    mag_affects(level, ch, tch, SPELL_CHAIN_PROTECTION, savetype);
+    mag_affects(level, ch, tch, SPELL_CHAIN_ARMOR, savetype);
     break;
   case SPELL_GROUP_RECALL:
     spell_teleport(level, ch, tch, NULL);

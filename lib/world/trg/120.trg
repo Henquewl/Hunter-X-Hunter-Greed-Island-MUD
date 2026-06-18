@@ -61,10 +61,10 @@ switch %skill%
   break
   case 16
     if %actor.align% > 0
-      dg_cast 'dispelgood' %actor%
+      dg_cast 'smitegood' %actor%
       nop %self.mana(-6)%
     else
-      dg_cast 'dispelevil' %actor%
+      dg_cast 'smiteevil' %actor%
       nop %self.mana(-6)%
     end
   break

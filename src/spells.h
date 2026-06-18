@@ -93,8 +93,8 @@
 #define SPELL_IDENTIFY               52 /* Reserved Skill[] DO NOT CHANGE */
 #define SPELL_FLY                    53 /* Reserved Skill[] DO NOT CHANGE */
 #define SPELL_DARKNESS               54
-#define SPELL_CHAIN_PROTECTION       55
-#define SPELL_TIGHTEN_CHAINS         56
+#define SPELL_CHAIN_ARMOR            55
+#define SPELL_DOWSING_CHAIN          56
 #define SPELL_NEN_BEAST              57
 #define SPELL_REPAIR                 58
 #define SPELL_LOCATE_CARD            59
