@@ -192,8 +192,8 @@ The @m14 Connection Severing Scissors B-22 card@g is lying here.@n~
 0 51315 22 0 62
 E
 14 Connection Severing Scissors card~
-Cut a picture of someone you don't want to see with these scissors, and you will never see them again.
-Caution: It will take effect on everyone in the picture (except yourself).
+   Magical scissors that sever unwanted connections. In practice, they manifest
+as a wand of teleportation with 99 charges -- the enchantment gave up on severing bonds and settled for sending people away instead. Use: zap [target].
 ~
 #65315
 15 Fickle Genie card~
@@ -462,8 +462,9 @@ The @m34 Universal Survey B-30 card@g is lying here.@n~
 0 50000 30 0 62
 E
 34 universal survey card~
-Write various questions about yourself and give them to someone, and
-he will answer all questions honestly. Reusable.
+   Summons a blank survey booklet. Write your questions inside and give it to
+anyone -- they are compelled to answer honestly. Purely for roleplay; the
+target is not magically bound.
 ~
 #65335
 35 chameleon cat card~
@@ -760,9 +761,9 @@ The @m56 Perfect Memory Studio B-25 card@g is lying here.~
 0 0 0 0
 0 50850 25 0 62
 E
-studio perfect memory card~
-Specify a time and date to get a picture of yourself in the past.
-You may also request a sequence of photographs.
+memory studio perfect card~
+   Summons a photograph of yourself at a younger age, with your name written
+on the back. Purely decorative -- a memento for roleplay.
 ~
 #65357
 57 hideout realtor card~

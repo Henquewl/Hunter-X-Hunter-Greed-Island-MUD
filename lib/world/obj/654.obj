@@ -72,6 +72,20 @@ bankbook luck book~
    Refrain from spending the little strokes of good luck in your daily life,
 and this ledger will accumulate them, converting them into cash.
 ~
+#65414
+connection severing scissors~
+a pair of Connection Severing Scissors~
+A bizarre golden pair of scissors hovers here.~
+~
+3 0 0 0 0 ao 0 0 0 0 0 0 0
+99 99 2 0
+1 0 0 0 0
+E
+connection severing scissors~
+   A joke item. Its original purpose -- cutting people out of your life -- is
+philosophically impossible in a text-based world. Someone repurposed the magic
+into a wand of teleportation instead. 99 charges. Use: zap [target].
+~
 #65417
 breath archangel~
 the @CArchangel@n~
@@ -295,13 +309,14 @@ universal survey~
 an Universal Survey~
 an Universal Survey lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+16 0 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
 universal survey~
-Write various questions about yourself and give them to someone, and
-he will answer all questions honestly. Reusable.
+   Summons a blank survey booklet. Write your questions inside and give it to
+anyone -- they are compelled to answer honestly. Purely for roleplay; the
+target is not magically bound.
 ~
 #65435
 cat chameleon~
@@ -578,6 +593,19 @@ revenge shop~
 Report your grudges to the manager, and he will retaliate for you in
 proportion to your grievance. Pay extra to request a more severe
 retaliation.
+~
+#65456
+photograph memory~
+a faded photograph~
+A faded photograph lies here.~
+~
+16 0 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 0 0 0 0
+E
+photograph memory~
+   A photograph of someone in their youth, taken at an unspecified moment in
+the past. The face is a little blurry.
 ~
 #65457
 hideout realtor~

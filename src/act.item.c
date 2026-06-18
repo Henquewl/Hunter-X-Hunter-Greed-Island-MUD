@@ -1616,8 +1616,20 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
 		if (GET_OBJ_TIMER(obj) > 0)
 	      send_to_char(ch, "YAMEROOO! %s is too much valuable to waste like that, \tYput in \tnyour \tYbinder\tn quickly!!!\r\n", obj->short_description);
 		return (0);
-	  } else
+	  } else {
 		SET_BIT_AR(GET_OBJ_EXTRA(card), ITEM_NOGAIN);
+      /* Perfect Memory Studio: stamp player name onto the photograph */
+      if (GET_OBJ_VNUM(obj) == 65356 && card != NULL) {
+        char pbuf[MAX_STRING_LENGTH];
+        snprintf(pbuf, sizeof(pbuf), "a photograph of %s", GET_NAME(ch));
+        free(card->short_description);
+        card->short_description = strdup(pbuf);
+        snprintf(pbuf, sizeof(pbuf),
+                 "A photograph of %s in their younger days rests here.", GET_NAME(ch));
+        free(card->description);
+        card->description = strdup(pbuf);
+      }
+    }
     } else {
 	  if (number == 65535)
 		card = read_object((GET_OBJ_RENT(obj) - 100), VIRTUAL); 
