@@ -527,12 +527,16 @@ void recover_update(void)
 	  if (GET_MANA(i) > 10 && GET_MAX_MOVE(i) < 370) {
 	    GET_MANA(i) -= 10;
 		GET_MAX_MOVE(i) += 100;		
-		if (GET_MAX_MOVE(i) > 370)
-	      do_say(i, "scissors...", 0, 0);
-	    else if (GET_MAX_MOVE(i) > 270)
+		if (GET_MAX_MOVE(i) > 370) {
+	      do_say(i, "scissor...", 0, 0);
+	      send_to_char(i, "Your fist now has 4x times more aura!!!\r\n");
+	    } else if (GET_MAX_MOVE(i) > 270) {
 	      do_say(i, "paper...", 0, 0);
-	    else if (GET_MAX_MOVE(i) > 170)
+	      send_to_char(i, "Your fist now has 3x times more aura!!\r\n");
+	    } else if (GET_MAX_MOVE(i) > 170) {
 	      do_say(i, "rock...", 0, 0);
+	      send_to_char(i, "Your fist now has 2x times more aura!\r\n");
+	    }
 		pracskill(i, SKILL_JAJANKEN, 15);
 	  } else
 		  do_jajanken(i, 0, 0, 0);

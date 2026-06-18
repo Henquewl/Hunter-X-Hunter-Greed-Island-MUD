@@ -8,6 +8,15 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 18 2026] - Henque
+  Flurry of Blows and Jajanken now require the player to be unarmed.
+  Barehanded Expert now deals bonus damage (1d[level] * level) when the skill
+  activates on an unarmed strike, in addition to its existing mana-save effect.
+  Jajanken damage multiplier restored (removed by accident in previous commit).
+  Jajanken charge messages now also send a private notification to the player
+  showing current aura level (2x/3x/4x). "scissors..." corrected to "scissor...".
+  Internal function do_backstab renamed to do_flurryofblows.
+
+[Jun 18 2026] - Henque
   Jajanken charge messages revamped: initial cast now says "First comes rock...",
   followed by "rock...", "paper...", "scissors..." on each subsequent charge tick.
   On attack, the character shouts "Rock!" instead of the old Japanese phrases.

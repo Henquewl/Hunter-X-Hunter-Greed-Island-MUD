@@ -206,7 +206,7 @@ ACMD(do_hit);
 /* Functions without subcommands */
 ACMD(do_assist);
 ACMD(do_bash);
-ACMD(do_backstab);
+ACMD(do_flurryofblows);
 ACMD(do_flee);
 ACMD(do_remote_punch);
 ACMD(do_kick);
