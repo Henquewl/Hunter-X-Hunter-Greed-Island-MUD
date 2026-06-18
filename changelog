@@ -8,6 +8,14 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 18 2026] - Henque
+  Jajanken charge messages revamped: initial cast now says "First comes rock...",
+  followed by "rock...", "paper...", "scissors..." on each subsequent charge tick.
+  On attack, the character shouts "Rock!" instead of the old Japanese phrases.
+  Poison regen penalty increased from /2 to /4 for both HP and Stamina.
+  Help entries for POISON, EATING/HUNGER/THIRST and REGENERATION updated to
+  document all regen penalties and their stacking behavior.
+
+[Jun 18 2026] - Henque
   Repeatable quests now have a daily limit: each can be completed only once per
   game day (30 real minutes). The questmaster tells the player to return tomorrow
   if they try to repeat a quest in the same day.

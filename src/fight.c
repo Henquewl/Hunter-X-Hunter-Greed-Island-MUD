@@ -781,14 +781,8 @@ int damage(struct char_data *ch, struct char_data *victim, int dam, int attackty
   if (AFF_FLAGGED(ch, AFF_INVISIBLE) || AFF_FLAGGED(ch, AFF_HIDE))
     appear(ch);
 
-  if (PLR_FLAGGED(ch, PLR_JAJANKEN)) {	
-	if (attacktype == SPELL_FIREBALL || attacktype == SPELL_MAGIC_MISSILE)
-	  do_say(ch, "JAN KEN PAA!!!", 0, 0);
-    else if (attacktype < NUM_SPELLS  && (attacktype != SPELL_FIREBALL || attacktype != SPELL_MAGIC_MISSILE))
-	  do_say(ch, "JAN KEN CHI!!!", 0, 0);	
-    else
-	  do_say(ch, "JAN KEN GUU!!!", 0, 0);
-    dam = (dam * GET_MAX_MOVE(ch)) / (200 - GET_SKILL(ch, SKILL_JAJANKEN));
+  if (PLR_FLAGGED(ch, PLR_JAJANKEN)) {
+    do_gen_comm(ch, "Rock!", 0, SCMD_SHOUT);
 	REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_JAJANKEN);
 	if (GET_MAX_MOVE(ch) > 370)
 	  GET_MAX_MOVE(ch) -= 300;
