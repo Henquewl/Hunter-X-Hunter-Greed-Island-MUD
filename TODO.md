@@ -54,6 +54,23 @@ removed. Their slots #44/#45 are now Fledgling Actor/CEO.
 
 ---
 
+## MARCO v1.00 — critérios de lançamento
+
+A versão 1.00 exige que **todas as 99 cartas restritas** (exceto #0 Ruler's Blessing, que é a
+recompensa de completar o jogo) estejam **coletáveis no mundo** — seja por mob drop, sala, trigger
+ou qualquer outro mecanismo de obtenção dedicado. Além disso, o mundo deve estar **reformulado
+para refletir a Greed Island canônica**: zonas, cidades e NPCs coerentes com o arco do mangá
+(Antokiba, Masadora, Rabicuta, o castelo de Limeiro, etc.), substituindo o conteúdo genérico de
+TbaMUD herdado do CircleMUD.
+
+Pré-requisitos específicos antes de declarar v1.00:
+1. Todas as 99 cartas (65301–65399) com pelo menos uma fonte de obtenção no mundo
+2. Mundo reformulado — zonas principais da Greed Island com nome, tema e NPCs canônicos
+3. Ruler's Blessing (#0) obtível apenas como reward de completar o set de 99 cartas
+4. Todos os itens marcados com *Needs a live test* acima testados e confirmados em jogo
+
+---
+
 ## DEFERRED — still open (need new mobs, new rooms, or more C)
 
 **Needs new NPC mobs** (card has no item; spawn a creature on gain — Archangel/65350 pattern):
