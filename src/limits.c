@@ -1,4 +1,4 @@
-/**************************************************************************
+﻿/**************************************************************************
 *  File: limits.c                                          Part of tbaMUD *
 *  Usage: Limits & gain funcs for HMV, exp, hunger/thirst, idle time.     *
 *                                                                         *
@@ -658,8 +658,18 @@ void second_update(void)
 	  if (GET_OBJ_TIMER(j) > 0)
 	    GET_OBJ_TIMER(j)--;
 	  if (GET_OBJ_TIMER(j) == 0) {		  
+	    if (GET_OBJ_VNUM(j) == 65315) {
+		  if (j->carried_by)
+		    send_to_char(j->carried_by, "The Fickle Genie glances at you with contempt, then vanishes in a puff of colored smoke.\r\n");
+		  else if (j->worn_by)
+		    send_to_char(j->worn_by, "The Fickle Genie glances at you with contempt, then vanishes in a puff of colored smoke.\r\n");
+		  else if (IN_ROOM(j) != NOWHERE)
+		    send_to_room(IN_ROOM(j), "A tiny genie pops out of a card, shrugs at everyone, and vanishes in a puff of colored smoke.\r\n");
+		  extract_obj(j);
+		  continue;
+		}
 		if (j->carried_by) {
-	      mcard += make_card(j->carried_by, j, TRUE);
+		  mcard += make_card(j->carried_by, j, TRUE);
 		  if (mcard == 0 || GET_OBJ_TYPE(j) == ITEM_SPELLCARD) {
 			send_to_char(j->carried_by, "NOOOOO! %s you were holding expires and vanishes in a puff of smoke.\r\n", j->short_description);
 			extract_obj(j);

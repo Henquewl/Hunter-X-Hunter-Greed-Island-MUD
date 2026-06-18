@@ -981,7 +981,39 @@ static void fly_to_room (struct char_data *ch, room_vnum room)
 	return;
 }
 
-ACMD(do_gain) 
+static void fickle_genie_gain(struct char_data *ch, struct obj_data *card)
+{
+  struct obj_data *binder = NULL, *o;
+
+  send_to_char(ch, "You attempt to make a wish... \"What a waste of time!\" the genie scoffs.\r\n");
+  act("$n rubs a card and gets lectured by a tiny, annoyed genie.", TRUE, ch, 0, 0, TO_ROOM);
+
+  for (o = ch->carrying; o; o = o->next_content)
+    if (GET_OBJ_VNUM(o) == 3203) { binder = o; break; }
+
+  if (binder)
+    for (o = binder->contains; o; o = o->next_content)
+      if (GET_OBJ_VNUM(o) == 65315) return;
+
+  if (!PLR_FLAGGED(ch, PLR_BOOK)) {
+    act("Your G.I. Book opens on its own ...", FALSE, ch, 0, 0, TO_CHAR);
+    act("$n's G.I. Book opens on its own ...", TRUE, ch, 0, 0, TO_ROOM);
+    SET_BIT_AR(PLR_FLAGS(ch), PLR_BOOK);
+  }
+  if (!binder) {
+    binder = read_object(3203, VIRTUAL);
+    obj_to_char(binder, ch);
+  }
+
+  if (card->worn_by)
+    unequip_char(ch, WEAR_HOLD);
+  obj_from_char(card);
+  GET_OBJ_TIMER(card) = 62;
+  obj_to_obj(card, binder);
+  send_to_char(ch, "The Fickle Genie card slips into your binder on its own.\r\n");
+}
+
+ACMD(do_gain)
 {
   char arg[MAX_INPUT_LENGTH], buf[MAX_INPUT_LENGTH], *desc;  
   struct char_data *tmp_char, *target = NULL;
@@ -1411,8 +1443,11 @@ ACMD(do_gain)
             break;
 		  }
         default:
-          make_card(ch, held, TRUE);
-          break;		
+          if (GET_OBJ_VNUM(held) == 65315)
+            fickle_genie_gain(ch, held);
+          else
+            make_card(ch, held, TRUE);
+          break;
       }
     } else {
         send_to_char(ch, "You must hold or specify the items before gain it.\r\n\tcSyntax: gain \tYitem\tc OR gain all.\tYitem\tn\r\n");
@@ -1452,9 +1487,13 @@ ACMD(do_gain)
 	    else {
 		  do_say(ch, "GAIN!", cmd, 0);
 		  msg = 0;
-		  msg += make_card(ch, obj, TRUE);
-		  if (!msg)
-	        send_to_char(ch, "Nothing happens with %s.\r\n", obj->short_description);
+		  if (GET_OBJ_VNUM(obj) == 65315)
+		    fickle_genie_gain(ch, obj);
+		  else {
+		    msg += make_card(ch, obj, TRUE);
+		    if (!msg)
+		      send_to_char(ch, "Nothing happens with %s.\r\n", obj->short_description);
+		  }
 		}
 	  }
     }

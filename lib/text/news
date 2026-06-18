@@ -8,6 +8,12 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 > 2026 <
 
 JUN 18 **
+- Fickle Genie (#15): typing 'gain' while holding the card now auto-stores it in
+  your binder (opening the book automatically if needed). If already in binder,
+  shows a flavor message. Leaving the card outside the binder for 60 seconds
+  causes it to disappear permanently in a puff of colored smoke.
+
+JUN 18 **
 - Bandit's Blade (#94): 20% chance on each hit to spawn a random AS spell card
   from thin air and cast it at the target. No binder needed. Updated stats:
   1d4 pierce, HITROLL -2, DEX -1. Paladin's Necklace grants immunity.
