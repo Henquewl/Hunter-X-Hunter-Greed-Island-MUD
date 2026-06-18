@@ -8,6 +8,10 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 18 2026] - Henque
+  Fledgling Egg: timer only advances while the egg is in WEAR_HOLD slot.
+  Any other location (inventory, floor, container) resets the counter to 0.
+
+[Jun 18 2026] - Henque
   Bump version to 0.92. Add future TODO entries to
   TODO-restricted-cards-compliance.md: PvP alignment penalty system and
   NPCs-defeated-to-cards mechanic.
