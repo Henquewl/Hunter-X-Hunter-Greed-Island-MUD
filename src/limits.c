@@ -94,7 +94,7 @@ int mana_gain(struct char_data *ch)
 	  break;
     }
   if (AFF_FLAGGED(ch, AFF_POISON))
-    gain /= 2;
+    gain /= 4;
 
   if (gain <= 0)
 	gain = 1;
@@ -138,7 +138,7 @@ int hit_gain(struct char_data *ch)
 	    gain /= 2;	  
     }
 	if (AFF_FLAGGED(ch, AFF_POISON))
-        gain /= 2;
+        gain /= 4;
   } else
 	  return (0);    
 
@@ -528,12 +528,11 @@ void recover_update(void)
 	    GET_MANA(i) -= 10;
 		GET_MAX_MOVE(i) += 100;		
 		if (GET_MAX_MOVE(i) > 370)
-	      send_to_char(i, "Your fist now has 4x times more aura!!!\r\n");
+	      do_say(i, "scissors...", 0, 0);
 	    else if (GET_MAX_MOVE(i) > 270)
-	      send_to_char(i, "Your fist now has 3x times more aura!!\r\n");
-	    else if (GET_MAX_MOVE(i) > 170)	
-	      send_to_char(i, "Your fist now has 2x times more aura!\r\n");
-		act("$n concentrates some amount of aura over the fist.", TRUE, i, 0, 0, TO_ROOM);
+	      do_say(i, "paper...", 0, 0);
+	    else if (GET_MAX_MOVE(i) > 170)
+	      do_say(i, "rock...", 0, 0);
 		pracskill(i, SKILL_JAJANKEN, 15);
 	  } else
 		  do_jajanken(i, 0, 0, 0);

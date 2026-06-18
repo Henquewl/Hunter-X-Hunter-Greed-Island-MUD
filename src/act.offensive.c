@@ -806,7 +806,7 @@ ACMD(do_jajanken)
 	send_to_char(ch, "You are too tired to do this.\r\n");
 	return;
   }
-  do_say(ch, "Saisho wa guu...", 0, 0);
+  do_say(ch, "First comes rock...", 0, 0);
   GET_MANA(ch) = (GET_MANA(ch) - 10);
   send_to_char(ch, "You concentrates an amount of aura over your fist.\r\n");
   SET_BIT_AR(PLR_FLAGS(ch), PLR_JAJANKEN);

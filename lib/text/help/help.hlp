@@ -2908,13 +2908,23 @@ If you're hungry or thirsty, these commands are for you!
   > taste bread
   > drink from cup
   > sip fountain
-  
-If you taste or sip, you don't consume large portions and won't be hurt badly 
+
+If you taste or sip, you don't consume large portions and won't be hurt badly
 by poison. But, you also will not quench your thirst or satisfy your hunger.
 
-Thirst and Hunger are modified by objects in units of hours. So an object with 
-24 drink units will quench thirst for 24 hours. Same for food. Immortals never 
+Thirst and Hunger are modified by objects in units of hours. So an object with
+24 drink units will quench thirst for 24 hours. Same for food. Immortals never
 become hungry, thirsty or full.
+
+@RWARNING: Hunger and thirst directly reduce HP (Nen) regeneration:@n
+  - Hungry: HP regen halved
+  - Thirsty: HP regen halved
+  - Both: HP regen reduced to 1/4
+  - Both + Poisoned: HP regen reduced to 1/16
+
+Stamina and movement are not affected by hunger or thirst.
+
+See also: POISON
 #0
 ECHO GECHO QECHO
 
@@ -7303,11 +7313,22 @@ Duration    : Level hours, or permanent on food and drinks.
 Casting poison on food or drink (containers) will poison it.  Eating
 poisoned food/drinks will poison the person eating or drinking.
 
-A person who is poisoned will suffer damage every hour, lose strength, and
-gain fewer points than usual.
+A poisoned character suffers the following penalties every recovery tick
+(every 6 seconds):
 
+  - Takes damage equal to 1% of current HP
+  - HP (Nen) regeneration reduced to 1/4 of normal
+  - Stamina regeneration reduced to 1/4 of normal
 
-See also: CURE-POISON, DETECT-POISON
+These penalties STACK with hunger and thirst:
+  - Hungry alone: HP regen halved (x1/2)
+  - Thirsty alone: HP regen halved (x1/2)
+  - Hungry + Thirsty: HP regen reduced to 1/4
+  - Poisoned + Hungry + Thirsty: HP regen reduced to 1/16
+
+Cure poison immediately to stop the damage and restore normal recovery.
+
+See also: CURE-POISON, DETECT-POISON, EATING
 #0
 POLICIES INFO NEWS POLICY VERSION UPDATES RULES
 
@@ -8527,7 +8548,17 @@ while sleeping.
    You can't regenerate while suppressing your
 Nen (below 5 nen) or while unconscious.
 
-See Also: ZETSU, POWER
+@RPENALTIES THAT REDUCE RECOVERY:@n
+  Hunger:             HP regen x1/2
+  Thirst:             HP regen x1/2
+  Hunger + Thirst:    HP regen x1/4
+  Poison:             HP regen x1/4, Stamina regen x1/4
+                      + 1% current HP damage per tick
+  All three:          HP regen x1/16
+
+Movement always restores fully each tick regardless of conditions.
+
+See Also: ZETSU, POWER, EATING, POISON
 #0
 RELEASES
  
