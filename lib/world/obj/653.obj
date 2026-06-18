@@ -1273,9 +1273,11 @@ The @m94 Bandit's Blade S-10 card@g is lying here.@n~
 0 279000 10 0 62
 E
 94 bandit blade card~
-   A successful attack with this weapon will cast "Rob", "Pick Pocket", or
-"Thief" on the target.  Not effective on someone using "Defensive Spells" or
-"Paladin's Necklace".
+   A cursed pirate's blade that draws on ambient Nen to occasionally steal
+from its victim. On every successful hit there is a 20% chance the blade
+spontaneously casts a random attack spell card (drawn from thin air -- no
+binder required) against the target. The Paladin's Necklace makes the victim
+immune. Heavy and unbalanced: carries a -2 hit penalty and saps dexterity.
 ~
 #65395
 95 secret cape card~

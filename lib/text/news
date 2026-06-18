@@ -8,6 +8,11 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 > 2026 <
 
 JUN 18 **
+- Bandit's Blade (#94): 20% chance on each hit to spawn a random AS spell card
+  from thin air and cast it at the target. No binder needed. Updated stats:
+  1d4 pierce, HITROLL -2, DEX -1. Paladin's Necklace grants immunity.
+
+JUN 18 **
 - Tax Collector's Gauntlet (#89): new 'levy' command. Consumes one restricted
   card from your binder as tribute, then forcibly steals a card from every
   non-allied PC in the room. Bypasses defensive spells.

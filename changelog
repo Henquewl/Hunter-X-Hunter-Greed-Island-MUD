@@ -8,6 +8,13 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 18 2026] - Henque
+  Bandit's Blade (#94, item 65494): updated stats to 1d4/pierce, weight 5,
+  APPLY_HITROLL -2, APPLY_DEX -1. Added bandit_blade_proc() in fight.c: 20%
+  chance on each successful hit to spawn a random AS spell card from thin air
+  and cast it at the victim (no binder needed). Paladin's Necklace makes victim
+  immune. Updated card 65394 description to reflect new mechanic.
+
+[Jun 18 2026] - Henque
   Tax Collector's Gauntlet (#89, item 65489): added 'levy' command trigger
   (#65501 in 654.trg). Levy consumes one random restricted card from the
   wielder's own binder as tribute, then forcibly steals a random card from
