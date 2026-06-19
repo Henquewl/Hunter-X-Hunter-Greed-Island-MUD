@@ -382,7 +382,7 @@ void raw_kill(struct char_data * ch, struct char_data * killer)
   
   update_pos(ch);
   if (IS_NPC(ch) && GET_MOB_VNUM(ch) > 100) {
-    if (!MOB_FLAGGED(ch, MOB_NOKILL)) {
+    if (!MOB_FLAGGED(ch, MOB_NOKILL) && !MOB_FLAGGED(ch, MOB_NO_GAIN)) {
       struct obj_data *mob_card;
       scatter_mob_items(ch);
       mob_card = make_mob_card(ch);

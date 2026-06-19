@@ -246,8 +246,9 @@
 #define MOB_NOKILL         18   /**< Mob can't be attacked */
 #define MOB_NOTDEADYET     19   /**< (R) Mob being extracted */
 #define MOB_POWERUP        20   /**< Player powering up */
+#define MOB_NO_GAIN        21   /**< Mob produces corpse, not a card */
 
-#define NUM_MOB_FLAGS      20
+#define NUM_MOB_FLAGS      22
 
 /* Preference flags: used by char_data.player_specials.pref */
 #define PRF_BRIEF         0   /**< Room descs won't normally be shown */
