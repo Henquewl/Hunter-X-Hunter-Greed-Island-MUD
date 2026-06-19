@@ -8,6 +8,15 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 18 2026] - Henque
+  MXP card images: show image before description when looking at a card (image
+  first, then flavor text, then modifiers). Fixed look_at_target to defer
+  sending extra-desc text until after send_card_image.
+  MXP card images: filled in URLs for 49/57 previously-missing restricted cards
+  and 15/29 previously-missing spell cards via HxH fandom wiki API; 10 cards
+  confirmed not on the wiki (remain NULL). Now 94/100 restricted and 27/41
+  spell cards have images.
+
+[Jun 18 2026] - Henque
   MXP card images: resize via CDN scale-to-width-down/150 suffix for trading-card
   display size (~150x210px). W="150" attribute added for clients that support it.
 
