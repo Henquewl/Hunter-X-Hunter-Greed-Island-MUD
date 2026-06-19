@@ -371,6 +371,10 @@ void raw_kill(struct char_data * ch, struct char_data * killer)
 		extract_obj(obj);	  
 	}
 	Crash_rentsave(ch, 0);
+	if (IS_GOOD(ch))
+	  GET_ALIGNMENT(killer) = MAX(-1000, GET_ALIGNMENT(killer) - 1000);
+	else if (IS_NEUTRAL(ch))
+	  GET_ALIGNMENT(killer) = MAX(-1000, GET_ALIGNMENT(killer) - 500);
 	change_alignment(killer, ch);
 	check_killer(killer, ch);
 	new_affect(&af);
