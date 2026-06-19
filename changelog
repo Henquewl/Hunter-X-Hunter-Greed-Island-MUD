@@ -8,6 +8,10 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 19 2026] - Henque
+  Mob card manual gain: if a player uses 'gain' on a mob card, it now triggers
+  a fickle effect — the card shimmers and vanishes (creature escapes), no corpse
+  is created. Implemented via GET_OBJ_VAL(obj,0)==1 check in make_card() Path B.
+[Jun 19 2026] - Henque
   Mob death overhaul (fight.c): eligible mobs (vnum > 100, not MOB_NOKILL)
   no longer create a corpse on death. Instead, their inventory, equipment,
   and gold are scattered directly on the floor, and a mob card (ITEM_CARD)
