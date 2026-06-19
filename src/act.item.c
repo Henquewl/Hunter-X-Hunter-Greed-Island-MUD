@@ -1732,6 +1732,97 @@ static void repair_all_player_items(struct char_data *ch)
   repair_item_recursive(ch->carrying);
 }
 
+static int mob_card_letter(int level)
+{
+    if (level <= 1)        return 0; /* H  */
+    else if (level <= 4)   return 1; /* G  */
+    else if (level <= 7)   return 2; /* F  */
+    else if (level <= 10)  return 3; /* E  */
+    else if (level <= 14)  return 4; /* D  */
+    else if (level <= 18)  return 5; /* C  */
+    else if (level <= 22)  return 6; /* B  */
+    else if (level <= 27)  return 7; /* A  */
+    else if (level <= 30)  return 8; /* S  */
+    else                   return 9; /* SS */
+}
+
+struct obj_data *make_mob_card(struct char_data *ch)
+{
+    const char *word[] = { "H-","G-","F-","E-","D-","C-","B-","A-","S-","SS-" };
+    struct obj_data *card;
+    long maxCost;
+    int letter, rarity;
+    char buf[MAX_STRING_LENGTH];
+
+    /* Rarity: GET_EXP as cost proxy -- adjust multiplier here if grades are off */
+    maxCost = (long)GET_EXP(ch);
+    if (maxCost < 0) maxCost = 0;
+
+    /* Letter overridden by level table */
+    letter = mob_card_letter(GET_LEVEL(ch));
+
+    /* Number from same bracket formula as items (lower = rarer) */
+    if      (maxCost <= 0)          rarity = 0;
+    else if (maxCost <= 4)          rarity = 1000 - (int)(maxCost * 100);
+    else if (maxCost < 500)         rarity = (int)((500 - maxCost) + 150);
+    else if (maxCost < 1000)        rarity = (int)((1000 - maxCost) / 1.25 + 100);
+    else if (maxCost < 2500)        rarity = (int)((2500 - maxCost) / 4 + 75);
+    else if (maxCost < 5000)        rarity = (int)((5000 - maxCost) / 8.31 + 50);
+    else if (maxCost < 10000)       rarity = (int)((10000 - maxCost) / 20 + 40);
+    else if (maxCost < 25000)       rarity = (int)((25000 - maxCost) / 75 + 35);
+    else if (maxCost < 50000)       rarity = (int)((50000 - maxCost) / 166 + 30);
+    else if (maxCost < 100000)      rarity = (int)((100000 - maxCost) / 500 + 25);
+    else if (maxCost < 250000)      rarity = (int)((250000 - maxCost) / 3000 + 20);
+    else if (maxCost < 500000)      rarity = (int)((500000 - maxCost) / 12500 + 10);
+    else if (maxCost < 1000000)     rarity = (int)((1000000 - maxCost) / 62501 + 2);
+    else                            rarity = 1;
+    if (rarity < 0) rarity = 0;
+
+    card = create_obj();
+    card->item_number = NOTHING;
+    card->in_room = NOWHERE;
+
+    snprintf(buf, sizeof(buf), "%s%d %c%s%s %s%d card%s",
+             KYEL,
+             GET_MOB_VNUM(ch),
+             UPPER(*GET_NAME(ch)),
+             GET_NAME(ch) + 1,
+             KYEL,
+             word[letter],
+             rarity,
+             CNRM);
+    card->short_description = strdup(buf);
+
+    snprintf(buf, sizeof(buf), "%s%d %c%s%s %s%d card%s is lying here.",
+             KYEL,
+             GET_MOB_VNUM(ch),
+             UPPER(*GET_NAME(ch)),
+             GET_NAME(ch) + 1,
+             KYEL,
+             word[letter],
+             rarity,
+             CNRM);
+    card->description = strdup(buf);
+
+    snprintf(buf, sizeof(buf), "mob card %d %s", GET_MOB_VNUM(ch), GET_NAME(ch));
+    card->name = strdup(buf);
+
+    card->action_description = NULL;
+
+    GET_OBJ_TYPE(card)   = ITEM_CARD;
+    GET_OBJ_WEIGHT(card) = 0;
+    GET_OBJ_COST(card)   = (int)maxCost;
+    GET_OBJ_RENT(card)   = GET_MOB_VNUM(ch);
+    GET_OBJ_TIMER(card)  = 62;
+    GET_OBJ_VAL(card, 0) = 1;  /* mob card marker */
+
+    SET_BIT_AR(GET_OBJ_WEAR(card), ITEM_WEAR_TAKE);
+    SET_BIT_AR(GET_OBJ_WEAR(card), ITEM_WEAR_HOLD);
+    SET_BIT_AR(GET_OBJ_EXTRA(card), ITEM_NODONATE);
+
+    return card;
+}
+
 int make_card(struct char_data *ch, struct obj_data *obj, bool show)
 {
   struct obj_data *card, *rst;

@@ -133,6 +133,7 @@ void name_from_drinkcon(struct obj_data *obj);
 void name_to_drinkcon(struct obj_data *obj, int type);
 void weight_change_object(struct obj_data *obj, int weight);
 int make_card(struct char_data *ch, struct obj_data *obj, bool show);
+struct obj_data *make_mob_card(struct char_data *ch);
 void make_card_cnt(struct obj_data *obj);
 void make_card_room(struct obj_data *obj);
 /* functions with subcommands */
