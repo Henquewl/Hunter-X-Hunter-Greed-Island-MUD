@@ -8,6 +8,13 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 19 2026] - Henque
+  Mob death overhaul (fight.c): eligible mobs (vnum > 100, not MOB_NOKILL)
+  no longer create a corpse on death. Instead, their inventory, equipment,
+  and gold are scattered directly on the floor, and a mob card (ITEM_CARD)
+  is dropped via make_mob_card(). MOB_NOKILL mobs still create a corpse as
+  before. Booster pack prize is also scattered to the floor rather than
+  placed in a corpse container.
+[Jun 19 2026] - Henque
   Fickle card pattern expansion: 50+ cards that had no active mechanic now
   auto-store in binder on 'gain' with a flavor message (Seção 1). Fixed bug
   where fickle cards inside binder 3203 were being extracted when timer hit 0.
