@@ -8,6 +8,9 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 19 2026] - Henque
+  Update version to 0.92 in motd and login screen (greetings).
+
+[Jun 19 2026] - Henque
   Fix MXP display break in news/motd for web clients (mudportal.com):
   Year dividers "> YYYY <" in lib/text/news were parsed as open MXP tags by
   web clients, causing the entire year's content block to disappear (the "<"

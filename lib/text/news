@@ -8,6 +8,7 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 == 2026 ==
 
 JUN 19 **
+- Version bumped to 0.92 in motd and login screen.
 - Fixed display freeze in web clients (mudportal.com): year dividers in this
   file used "> YYYY <" which web MXP clients parsed as an open tag, hiding all
   content until the next ">". Changed to "== YYYY ==" throughout. Same fix
