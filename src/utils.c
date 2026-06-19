@@ -1528,8 +1528,32 @@ int get_class_by_name(char *classname)
 char * convert_from_tabs(char * string)
 {
   static char buf[MAX_STRING_LENGTH * 8];
-  
+
   strcpy(buf, string);
   parse_tab(buf);
   return(buf);
+}
+
+static const int fickle_vnums[] = {
+  /* Group A — location cards without a reachable destination */
+  65301, 65302, 65305,
+  /* Group B — NPC/creature cards (spawning a mob would leave a corpse) */
+  65307, 65316, 65326, 65335,
+  65347, 65348, 65349, 65350, 65351, 65352, 65353, 65354,
+  65398, 65399,
+  /* Group C — pure collectibles (ITEM_OTHER, no trigger, no active mechanic) */
+  65310, 65311, 65312, 65313, 65318, 65319, 65320,
+  65321, 65322, 65323, 65324, 65327, 65328, 65329,
+  65330, 65331, 65332, 65333, 65355, 65357, 65358,
+  65359, 65360, 65363, 65372, 65376, 65377, 65378,
+  65379, 65391, 65392, 65393, 65397,
+  0 /* sentinel */
+};
+
+int is_fickle_card(int vnum)
+{
+  const int *p;
+  for (p = fickle_vnums; *p; p++)
+    if (*p == vnum) return TRUE;
+  return FALSE;
 }

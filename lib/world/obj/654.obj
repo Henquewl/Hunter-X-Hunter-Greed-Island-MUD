@@ -6,6 +6,24 @@ The Pitcher Eternal Water is left here... flooding the ground.~
 17 gi 0 0 0 ao 0 0 0 0 0 0 0
 -1 2 15 0
 2 0 0 0 0
+#65404
+spring hot steaming~
+a steaming hot spring~
+A steaming hot spring bubbles up from the earth here.~
+~
+17 0 0 0 0 0 0 0 0 0 0 0 0
+100 100 0 0
+50 0 0 0 0
+T 65510
+#65406
+spring liquor bubbling~
+a bubbling liquor spring~
+A bubbling spring of liquor erupts from the earth here.~
+~
+17 0 0 0 0 0 0 0 0 0 0 0 0
+20 20 1 0
+50 0 0 0 0
+T 65511
 #65407
 stones two~
 a pair of stones~
@@ -20,6 +38,24 @@ stones~
 Each stone has a symbol, mars and venus respectively.
 Despite their small size, they are very heavy.
 ~
+#65408
+pond mystery shimmering~
+a shimmering mystery pond~
+A shimmering mystery pond has materialised here.~
+~
+14 0 0 0 0 0 0 0 0 0 0 0 0
+200 0 -1 0
+100 0 0 0 0
+T 65512
+#65409
+tree fruit plenty magnificent~
+a magnificent tree heavy with fruit~
+A magnificent tree, heavy with fruit, stands here.~
+~
+14 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 -1 0
+200 0 0 0 0
+T 65513
 #65410
 guidebook golden book~
 the @mGolden Guidebook@n~
@@ -274,7 +310,7 @@ more often... has dust everywhere!
 
                                      Uncle Ben
 ~
-16 g 0 0 0 ao 0 0 0 0 0 0 0
+12 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 2 0 0 0 0
 #65432

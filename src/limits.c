@@ -658,13 +658,25 @@ void second_update(void)
 	  if (GET_OBJ_TIMER(j) > 0)
 	    GET_OBJ_TIMER(j)--;
 	  if (GET_OBJ_TIMER(j) == 0) {		  
-	    if (GET_OBJ_VNUM(j) == 65315) {
-		  if (j->carried_by)
-		    send_to_char(j->carried_by, "The Fickle Genie glances at you with contempt, then vanishes in a puff of colored smoke.\r\n");
-		  else if (j->worn_by)
-		    send_to_char(j->worn_by, "The Fickle Genie glances at you with contempt, then vanishes in a puff of colored smoke.\r\n");
-		  else if (IN_ROOM(j) != NOWHERE)
-		    send_to_room(IN_ROOM(j), "A tiny genie pops out of a card, shrugs at everyone, and vanishes in a puff of colored smoke.\r\n");
+	    if (is_fickle_card(GET_OBJ_VNUM(j))) {
+		  /* Cards safely stored in the binder are exempt from expiry */
+		  if (j->in_obj && GET_OBJ_VNUM(j->in_obj) == 3203)
+		    continue;
+		  if (GET_OBJ_VNUM(j) == 65315) {
+		    if (j->carried_by)
+		      send_to_char(j->carried_by, "The Fickle Genie glances at you with contempt, then vanishes in a puff of colored smoke.\r\n");
+		    else if (j->worn_by)
+		      send_to_char(j->worn_by, "The Fickle Genie glances at you with contempt, then vanishes in a puff of colored smoke.\r\n");
+		    else if (IN_ROOM(j) != NOWHERE)
+		      send_to_room(IN_ROOM(j), "A tiny genie pops out of a card, shrugs at everyone, and vanishes in a puff of colored smoke.\r\n");
+		  } else {
+		    if (j->carried_by)
+		      send_to_char(j->carried_by, "A card you were carrying dissolves into shimmering sparks and vanishes.\r\n");
+		    else if (j->worn_by)
+		      send_to_char(j->worn_by, "A card you were holding dissolves into shimmering sparks and vanishes.\r\n");
+		    else if (IN_ROOM(j) != NOWHERE)
+		      send_to_room(IN_ROOM(j), "A Greed Island card on the ground dissolves into shimmering sparks and disappears.\r\n");
+		  }
 		  extract_obj(j);
 		  continue;
 		}

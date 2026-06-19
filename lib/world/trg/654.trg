@@ -446,4 +446,218 @@ while %i%
 done
 rdelete good_luck %actor.id%
 ~
+#65510
+hot spring heal loop~
+1 n 100
+~
+* Fires once on load; heals all PCs in room every 60 sec for 30 min (1800 sec).
+if %self.spring_active%
+  halt
+end
+remote spring_active %self.id%
+set elapsed 0
+:loop
+wait 60 sec
+if !%self.room%
+  halt
+end
+set p %self.room.people%
+while %p%
+  if %p.is_pc% && %p.hp% < %p.maxhp%
+    %damage% %p% -10
+  end
+  set p %p.next_in_room%
+done
+set elapsed %elapsed% + 60
+if %elapsed% >= 1800
+  %echo% The hot spring cools and gradually sinks back into the earth.
+  %purge% %self%
+  halt
+end
+goto loop
+~
+#65511
+liquor spring destruct~
+1 n 100
+~
+* Fires once on load; removes the spring after 30 min (1800 sec).
+if %self.spring_active%
+  halt
+end
+remote spring_active %self.id%
+wait 1800 sec
+if !%self.room%
+  halt
+end
+%echo% The liquor spring runs dry and disappears into the earth.
+%purge% %self%
+~
+#65512
+mystery pond fish spawn~
+1 n 100
+~
+* Fires once on load; spawns fish immediately, then replenishes every 1800 sec.
+if %self.pond_active%
+  halt
+end
+remote pond_active %self.id%
+gosub spawn
+:loop
+wait 1800 sec
+if !%self.room%
+  halt
+end
+gosub spawn
+goto loop
+:spawn
+* Count each fish type and spawn up to 2 of each
+set c1217 0
+set c3702 0
+set c10006 0
+set c10102 0
+set c27200 0
+set c27516 0
+set c31511 0
+set c31581 0
+set c31582 0
+set item %self.contents%
+while %item%
+  set nx %item.next_in_list%
+  if %item.vnum% == 1217
+    set c1217 %c1217% + 1
+  elseif %item.vnum% == 3702
+    set c3702 %c3702% + 1
+  elseif %item.vnum% == 10006
+    set c10006 %c10006% + 1
+  elseif %item.vnum% == 10102
+    set c10102 %c10102% + 1
+  elseif %item.vnum% == 27200
+    set c27200 %c27200% + 1
+  elseif %item.vnum% == 27516
+    set c27516 %c27516% + 1
+  elseif %item.vnum% == 31511
+    set c31511 %c31511% + 1
+  elseif %item.vnum% == 31581
+    set c31581 %c31581% + 1
+  elseif %item.vnum% == 31582
+    set c31582 %c31582% + 1
+  end
+  set item %nx%
+done
+if %c1217% < 2
+  %load% obj 1217 %self% obj
+end
+if %c3702% < 2
+  %load% obj 3702 %self% obj
+end
+if %c10006% < 2
+  %load% obj 10006 %self% obj
+end
+if %c10102% < 2
+  %load% obj 10102 %self% obj
+end
+if %c27200% < 2
+  %load% obj 27200 %self% obj
+end
+if %c27516% < 2
+  %load% obj 27516 %self% obj
+end
+if %c31511% < 2
+  %load% obj 31511 %self% obj
+end
+if %c31581% < 2
+  %load% obj 31581 %self% obj
+end
+if %c31582% < 2
+  %load% obj 31582 %self% obj
+end
+return
+~
+#65513
+tree of plenty fruit spawn~
+1 n 100
+~
+* Fires once on load; spawns one of each fruit, then replenishes missing ones every 1800 sec.
+if %self.tree_active%
+  halt
+end
+remote tree_active %self.id%
+gosub spawn
+:loop
+wait 1800 sec
+if !%self.room%
+  halt
+end
+gosub spawn
+goto loop
+:spawn
+* Spawn one of each fruit type if not already present
+set c111 0
+set c1400 0
+set c635 0
+set c31727 0
+set c1927 0
+set c7508 0
+set c11828 0
+set c4524 0
+set c25600 0
+set c25610 0
+set item %self.contents%
+while %item%
+  set nx %item.next_in_list%
+  if %item.vnum% == 111
+    set c111 %c111% + 1
+  elseif %item.vnum% == 1400
+    set c1400 %c1400% + 1
+  elseif %item.vnum% == 635
+    set c635 %c635% + 1
+  elseif %item.vnum% == 31727
+    set c31727 %c31727% + 1
+  elseif %item.vnum% == 1927
+    set c1927 %c1927% + 1
+  elseif %item.vnum% == 7508
+    set c7508 %c7508% + 1
+  elseif %item.vnum% == 11828
+    set c11828 %c11828% + 1
+  elseif %item.vnum% == 4524
+    set c4524 %c4524% + 1
+  elseif %item.vnum% == 25600
+    set c25600 %c25600% + 1
+  elseif %item.vnum% == 25610
+    set c25610 %c25610% + 1
+  end
+  set item %nx%
+done
+if !%c111%
+  %load% obj 111 %self% obj
+end
+if !%c1400%
+  %load% obj 1400 %self% obj
+end
+if !%c635%
+  %load% obj 635 %self% obj
+end
+if !%c31727%
+  %load% obj 31727 %self% obj
+end
+if !%c1927%
+  %load% obj 1927 %self% obj
+end
+if !%c7508%
+  %load% obj 7508 %self% obj
+end
+if !%c11828%
+  %load% obj 11828 %self% obj
+end
+if !%c4524%
+  %load% obj 4524 %self% obj
+end
+if !%c25600%
+  %load% obj 25600 %self% obj
+end
+if !%c25610%
+  %load% obj 25610 %self% obj
+end
+return
+~
 $~
