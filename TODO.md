@@ -46,8 +46,8 @@ the standalone point_update() scan (see memory `trigger-evokes-code-pattern`). *
 hold-to-hatch test.*
 
 **#35 Chameleon Cat (S-6) / #36 Recycling Room (S-10)** — added as canon plain collectibles
-(cards 65335/65336, items 65435/65436). Their canon effects (transform-into-animal; repair-in-
-24h) are NOT implemented yet — TODO.
+(cards 65335/65336, items 65435/65436). Recycling Room effect DONE (see below). Chameleon Cat
+transform-into-animal stays fickle indefinitely — no mechanic planned.
 
 **Rebirth — REMOVED** (non-canon invention); fight.c die() hook deleted. Face Lift Machine also
 removed. Their slots #44/#45 are now Fledgling Actor/CEO.
@@ -77,10 +77,10 @@ Specific prerequisites before declaring v1.00:
 Night Shift Dwarves (65326), Fairy King's Advice (65316).
 (Gold Dust Girl already done — its mob existed. Fledgling Politician is now an egg card.)
 
-**Needs new rooms / a world-build** — terrain/location cards:
-Ruler's Blessing castle (65300), Patch of Forest (65301), Patch of Shore / Poseidon's Cavern
-(65302), Spirited Away Hollow (65305). These three (#1, #2, #5) are **fickle** (auto-binder on
-`gain`; portal system deferred). Ruler's Blessing (#0) is the end-game reward and exempt.
+**Location cards — staying fickle indefinitely:**
+Patch of Forest (65301), Patch of Shore / Poseidon's Cavern (65302), Spirited Away Hollow
+(65305) (#1, #2, #5) remain in the fickle pattern (auto-binder on `gain`; no portal system
+planned). Ruler's Blessing (65300, #0) is the end-game reward and exempt from this.
 Cards #4/65304, #6/65306, #8/65308, #9/65309 now have **active mechanics** — see DONE below.
 
 **"Fickle card" pattern** — DONE (Jun 19 2026). 50+ cards now use this pattern. `gain` shows
@@ -162,8 +162,9 @@ collectibles (acceptable). Candidates that COULD be done later with existing pat
     −1 DEX. Paladin's Necklace (65484) grants immunity. **NEEDS A PvP LIVE TEST.**
   - Also relevant: **#95 Secret Cape** approximates "Blackout Curtain" (1025) with
     AFF_INVISIBLE; revisit if the real Blackout Curtain effect differs.
-- **NPC/pet cards** (need new mobs): #47 Sleeping Girl, #48 Aromatherapy Girl, #49 Miniature
-  Mermaid, #50 Miniature Dino, #51 Miniature Dragon, #99 Panda Maid, etc.
+- **NPC/pet cards** — staying fickle indefinitely: #47 Sleeping Girl, #48 Aromatherapy Girl,
+  #49 Miniature Mermaid, #50 Miniature Dino, #51 Miniature Dragon, #99 Panda Maid. No mob
+  creation planned; cards auto-store in binder on `gain` via fickle pattern.
 - **Consumable flavor with a stat angle** could be added if desired (e.g. #33 Hormone Cookies).
 
 Below is the historical invention→canon mapping that this batch applied:
@@ -227,9 +228,11 @@ reduce the aggressor's alignment. Players with very evil alignment should face p
 restrictions (e.g., barred from certain zones, hostile NPCs, stat penalties). Implement in
 `fight.c` / `act.offensive.c` with an alignment penalty table per action type.
 
-**NPCs defeated → cards**: when a mob is killed, there is a chance to transform its corpse
-(or drop directly) into a Greed Island card related to that mob type. Requires a mob_vnum →
-card_vnum mapping table (in `limits.c` or a new hook in `fight.c` die() handler).
+**NPCs defeated → cards**: DONE (Jun 19 2026). All non-special mobs (IS_NPC, vnum > 100,
+!MOB_NOKILL, !MOB_NO_GAIN) drop a dynamic ITEM_CARD on death; items/gold scatter on ground.
+Card rarity: letter from level table (1=H … 31+=SS), number from GET_EXP bracket formula.
+Manual `gain` = fickle (creature escapes). Timer expiry outside binder = empty corpse spawns.
+MOB_NO_GAIN flag (bit 21) lets specific mobs opt out and produce a normal corpse instead.
 
 ---
 
