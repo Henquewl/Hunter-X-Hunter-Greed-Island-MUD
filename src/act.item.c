@@ -1823,6 +1823,54 @@ struct obj_data *make_mob_card(struct char_data *ch)
     return card;
 }
 
+void mob_card_decay_to_corpse(struct obj_data *card)
+{
+    struct obj_data *corpse;
+    mob_rnum rnum;
+    char buf[MAX_STRING_LENGTH];
+
+    if (card->in_room == NOWHERE) {
+        extract_obj(card);
+        return;
+    }
+
+    rnum = real_mobile((mob_vnum)GET_OBJ_RENT(card));
+    if (rnum == NOTHING) {
+        act("$p crumbles to dust.", TRUE, NULL, card, 0, TO_ROOM);
+        extract_obj(card);
+        return;
+    }
+
+    corpse = create_obj();
+    corpse->item_number = NOTHING;
+    corpse->in_room     = NOWHERE;
+
+    snprintf(buf, sizeof(buf), "corpse %s", mob_proto[rnum].player.name);
+    corpse->name = strdup(buf);
+
+    snprintf(buf, sizeof(buf), "the corpse of %s", mob_proto[rnum].player.short_descr);
+    corpse->short_description = strdup(buf);
+
+    snprintf(buf, sizeof(buf), "The corpse of %s lies here.", mob_proto[rnum].player.short_descr);
+    corpse->description = strdup(buf);
+
+    corpse->action_description = NULL;
+
+    GET_OBJ_TYPE(corpse)   = ITEM_CONTAINER;
+    GET_OBJ_VAL(corpse, 0) = 0;  /* no weight cap */
+    GET_OBJ_VAL(corpse, 3) = 1;  /* corpse flag */
+    GET_OBJ_WEIGHT(corpse) = 0;
+    GET_OBJ_TIMER(corpse)  = CONFIG_MAX_NPC_CORPSE_TIME;
+    SET_BIT_AR(GET_OBJ_EXTRA(corpse), ITEM_NODONATE);
+    /* NOT setting ITEM_WEAR_TAKE — corpse cannot be picked up */
+
+    act("$p's image fades. An empty corpse collapses to the ground.",
+        TRUE, NULL, card, 0, TO_ROOM);
+
+    obj_to_room(corpse, card->in_room);
+    extract_obj(card);
+}
+
 int make_card(struct char_data *ch, struct obj_data *obj, bool show)
 {
   struct obj_data *card, *rst;
