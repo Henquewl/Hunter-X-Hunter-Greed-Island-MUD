@@ -7,6 +7,14 @@ https://github.com/tbamud/tbamud
 Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
+[Jun 19 2026] - Henque
+  Fix MXP display break in news/motd for web clients (mudportal.com):
+  Year dividers "> YYYY <" in lib/text/news were parsed as open MXP tags by
+  web clients, causing the entire year's content block to disappear (the "<"
+  opened a tag that didn't close for 100+ lines). Changed all year markers to
+  "== YYYY ==" and replaced "<card name>" / "<target>" command-syntax examples
+  with bracketed form. Also fixed same issue in lib/text/motd ("<toggle ...>").
+
 [Jun 18 2026] - Henque
   MXP card images: complete all 100 restricted and all 41 spell card image URLs.
   Filled the remaining 6 restricted (002, 031, 053, 059, 060, 062) and 14 spell
