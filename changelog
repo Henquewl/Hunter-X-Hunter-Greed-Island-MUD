@@ -8,6 +8,10 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 18 2026] - Henque
+  MXP card images: resize via CDN scale-to-width-down/150 suffix for trading-card
+  display size (~150x210px). W="150" attribute added for clients that support it.
+
+[Jun 18 2026] - Henque
   MXP card images: fixed image not showing when looking at cards with descriptions
   (look_at_target's extra-desc path never called send_card_image). Replaced
   placeholder base-URL approach with per-card URL lookup tables sourced from the
