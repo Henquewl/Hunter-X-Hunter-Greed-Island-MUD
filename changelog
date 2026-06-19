@@ -8,6 +8,12 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 19 2026] - Henque
+  Mob card timer expiry (limits.c + act.item.c): when a mob card (ITEM_CARD with
+  GET_OBJ_VAL==1) expires on the ground, mob_card_decay_to_corpse() now spawns
+  an empty NPC corpse in the room and extracts the card, instead of reverting via
+  make_card(). Loop safety: next_thing saved before the branch; continue used after
+  extract so j is never accessed after free.
+[Jun 19 2026] - Henque
   Mob card manual gain: if a player uses 'gain' on a mob card, it now triggers
   a fickle effect — the card shimmers and vanishes (creature escapes), no corpse
   is created. Implemented via GET_OBJ_VAL(obj,0)==1 check in make_card() Path B.

@@ -29,6 +29,8 @@
 static int graf(int grafage, int p0, int p1, int p2, int p3, int p4, int p5, int p6);
 static void check_idling(struct char_data *ch);
 
+extern void mob_card_decay_to_corpse(struct obj_data *card);
+
 
 /* When age < 15 return the value p0
    When age is 15..29 calculate the line between p1 & p2
@@ -657,7 +659,12 @@ void second_update(void)
 	  int mcard = 0;
 	  if (GET_OBJ_TIMER(j) > 0)
 	    GET_OBJ_TIMER(j)--;
-	  if (GET_OBJ_TIMER(j) == 0) {		  
+	  if (GET_OBJ_TIMER(j) == 0) {
+	    /* mob cards: timer expiry creates empty corpse */
+	    if (IS_CARD(j) && GET_OBJ_VAL(j, 0) == 1) {
+	      mob_card_decay_to_corpse(j);  /* extracts j internally */
+	      continue;  /* j has been extracted — do not access it again */
+	    }
 	    if (is_fickle_card(GET_OBJ_VNUM(j))) {
 		  /* Cards safely stored in the binder are exempt from expiry */
 		  if (j->in_obj && GET_OBJ_VNUM(j->in_obj) == 3203)
