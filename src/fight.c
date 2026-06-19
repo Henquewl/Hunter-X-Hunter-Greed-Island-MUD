@@ -58,6 +58,7 @@ static struct char_data *next_combat_list = NULL;
 /* local file scope utility functions */
 static void perform_group_gain(struct char_data *ch, int base, struct char_data *victim);
 static void dam_message(int dam, struct char_data *ch, struct char_data *victim, int w_type);
+static void scatter_mob_items(struct char_data *ch);
 static void make_corpse(struct char_data *ch);
 static void change_alignment(struct char_data *ch, struct char_data *victim);
 static void group_gain(struct char_data *ch, struct char_data *victim);
@@ -193,6 +194,45 @@ void stop_fighting(struct char_data *ch)
   GET_POS(ch) = POS_STANDING;
   update_pos(ch);  
   
+}
+
+static void scatter_mob_items(struct char_data *ch)
+{
+  struct obj_data *obj, *next_obj, *money, *booster;
+  int i;
+
+  /* scatter gold as money object (mirrors make_corpse, but to room) */
+  if (GET_GOLD(ch) > 0) {
+    money = create_money(GET_GOLD(ch));
+    obj_to_room(money, IN_ROOM(ch));
+    GET_GOLD(ch) = 0;
+  }
+
+  /* scatter equipment */
+  for (i = 0; i < NUM_WEARS; i++) {
+    if (GET_EQ(ch, i)) {
+      remove_otrigger(GET_EQ(ch, i), ch);
+      obj_to_room(unequip_char(ch, i), IN_ROOM(ch));
+    }
+  }
+
+  /* scatter inventory */
+  for (obj = ch->carrying; obj; obj = next_obj) {
+    next_obj = obj->next_content;
+    obj_from_char(obj);
+    obj_to_room(obj, IN_ROOM(ch));
+  }
+
+  /* booster pack prize (mirrors make_corpse logic) */
+  if ((rand_number(1, 100) + (GET_LEVEL(ch) / 10) + HAPPY_QP) >= 100) {
+    booster = read_object(3250, VIRTUAL);
+    obj_to_room(booster, IN_ROOM(ch));
+    act("$n's spirit leaves behind $p!!!", TRUE, ch, booster, 0, TO_ROOM);
+  }
+
+  ch->carrying = NULL;
+  IS_CARRYING_N(ch) = 0;
+  IS_CARRYING_W(ch) = 0;
 }
 
 static void make_corpse(struct char_data *ch)
@@ -351,9 +391,18 @@ void raw_kill(struct char_data * ch, struct char_data * killer)
   }
   
   update_pos(ch);
-  if (IS_NPC(ch) && GET_MOB_VNUM(ch) > 100)
-    make_corpse(ch);
-  extract_char(ch);	
+  if (IS_NPC(ch) && GET_MOB_VNUM(ch) > 100) {
+    if (!MOB_FLAGGED(ch, MOB_NOKILL)) {
+      struct obj_data *mob_card;
+      scatter_mob_items(ch);
+      mob_card = make_mob_card(ch);
+      if (mob_card)
+        obj_to_room(mob_card, IN_ROOM(ch));
+    } else {
+      make_corpse(ch);
+    }
+  }
+  extract_char(ch);
 
   if (killer) {
     autoquest_trigger_check(killer, NULL, NULL, AQ_MOB_SAVE);
