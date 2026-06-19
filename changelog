@@ -8,6 +8,13 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 19 2026] - Henque
+  Added MOB_NO_GAIN flag (bit 21) to structs.h and action_bits[] in constants.c.
+  Mobs with this flag produce a normal corpse on death instead of a card. The
+  existing MOB_NOKILL flag already blocked attacks; MOB_NO_GAIN allows the mob
+  to die but bypass the card conversion. fight.c raw_kill() checks both flags.
+  Also fixed limits.c: mob cards stored in binder 3203 are now exempt from
+  timer-decay corpse creation (matches the binder-exemption rule for all cards).
+[Jun 19 2026] - Henque
   Mob card timer expiry (limits.c + act.item.c): when a mob card (ITEM_CARD with
   GET_OBJ_VAL==1) expires on the ground, mob_card_decay_to_corpse() now spawns
   an empty NPC corpse in the room and extracts the card, instead of reverting via

@@ -219,6 +219,8 @@ const char *action_bits[] = {
   "NO_BLIND",
   "NO_KILL",
   "DEAD",    /* You should never see this. */
+  "POWERUP",
+  "NO_GAIN",
   "\n"
 };
 
