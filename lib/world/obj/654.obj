@@ -328,17 +328,17 @@ lasts until you next ingest something. A set of 10 packs, 50 candies
 per pack.
 ~
 #65433
-hormone cookies~
-a Hormone Cookies~
-a Hormone Cookies lies here.~
+box hormone cookies~
+a box of Hormone Cookies~
+A colorful box labeled "Hormone Cookies" sits here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
-0 0 0 0
-1 50000 0 0 0
+15 0 0 0 0 a 0 0 0 0 0 0 0
+20 0 -1 0
+2 50000 0 0 0
 E
-hormone cookies~
-After eating this candy, your sex will temporarily change for 24
-hours. A set of 10 boxes; 20 cookies per box.
+box hormone cookies~
+A tin box containing 20 Hormone Cookies. Each cookie temporarily
+changes the eater's sex for one full day (24 Greed Island hours).
 ~
 #65434
 universal survey~
@@ -1273,5 +1273,19 @@ panda maid~
 An endangered species. Very neat and loves to cook, each has a hobby
 such as sewing or gardening. They are excellent at taking care of
 human children.
+~
+#65534
+hormone cookie~
+a Hormone Cookie~
+A small cookie with a strange pink hue rests here.~
+~
+19 0 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+0 10000 0 0 0
+T 65514
+E
+hormone cookie~
+A bite-sized cookie with an unusual shimmer. Popular in certain Greed
+Island apothecaries. Side effects: temporary.
 ~
 $

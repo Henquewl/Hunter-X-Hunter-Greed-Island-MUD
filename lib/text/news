@@ -8,6 +8,11 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 == 2026 ==
 
 JUN 19 **
+- Card #33 Hormone Cookies is now active: gain the card to receive a box of
+  20 Hormone Cookies. Eating one changes your sex for 24 Greed Island hours.
+  Eating a second while already transformed has no additional effect.
+
+JUN 19 **
 - 50+ Greed Island cards that had no active mechanic now respond to 'gain' with
   a themed message and auto-store in your binder. They will dissolve if left
   outside the binder too long, so keep them safe.

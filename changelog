@@ -8,6 +8,16 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 19 2026] - Henque
+  Hormone Cookies (#33, vnum 65333) now has a full mechanic: gain on the card
+  produces a box (ITEM_CONTAINER, vnum 65433) pre-loaded with 20 individual
+  cookies (vnum 65534, ITEM_FOOD). Eating a cookie changes the player character
+  sex for 24 MUD hours (30 real minutes); re-eating while the effect is active
+  consumes the cookie normally but applies no additional effect. NPCs are immune
+  even if forced to eat. Implementation: %char.sex(N)% write support added to
+  dg_variables.c; consume trigger 65514 + reversion timer trigger 65515 in
+  654.trg; special case in make_card() to pre-stock the box. Card removed from
+  fickle_vnums[] in utils.c.
+[Jun 19 2026] - Henque
   Added MOB_NO_GAIN flag (bit 21) to structs.h and action_bits[] in constants.c.
   Mobs with this flag produce a normal corpse on death instead of a card. The
   existing MOB_NOKILL flag already blocked attacks; MOB_NO_GAIN allows the mob

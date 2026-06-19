@@ -1946,6 +1946,16 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
         free(card->description);
         card->description = strdup(pbuf);
       }
+      /* Hormone Cookies (#33): pre-load 20 cookies into the box */
+      if (GET_OBJ_VNUM(obj) == 65333) {
+        int ci;
+        struct obj_data *cookie;
+        for (ci = 0; ci < 20; ci++) {
+          cookie = read_object(65534, VIRTUAL);
+          if (cookie)
+            obj_to_obj(cookie, card);
+        }
+      }
     }
     } else {
 	  if (number == 65535)
