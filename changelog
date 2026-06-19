@@ -12,8 +12,7 @@ Changes prior to Github transition:
   no longer create a corpse on death. Instead, their inventory, equipment,
   and gold are scattered directly on the floor, and a mob card (ITEM_CARD)
   is dropped via make_mob_card(). MOB_NOKILL mobs still create a corpse as
-  before. Booster pack prize is also scattered to the floor rather than
-  placed in a corpse container.
+  before.
 [Jun 19 2026] - Henque
   Fickle card pattern expansion: 50+ cards that had no active mechanic now
   auto-store in binder on 'gain' with a flavor message (Seção 1). Fixed bug
