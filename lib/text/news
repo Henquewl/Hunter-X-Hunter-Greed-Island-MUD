@@ -5,7 +5,13 @@
 NEW COMMANDS AND NEW MUD BEHAVIOR:
 ---------------------------------
 
-> 2026 <
+== 2026 ==
+
+JUN 19 **
+- Fixed display freeze in web clients (mudportal.com): year dividers in this
+  file used "> YYYY <" which web MXP clients parsed as an open tag, hiding all
+  content until the next ">". Changed to "== YYYY ==" throughout. Same fix
+  applied to motd.
 
 JUN 18 **
 - Fickle Genie (#15): typing 'gain' while holding the card now auto-stores it in
@@ -45,7 +51,7 @@ JUN 18 **
 
 JUN 17 **
 - Spell cards can now be used directly from inventory while your book is active.
-  Syntax: gain <card name> [optional target]. No more need to hold the card first.
+  Syntax: gain [card name] [optional target]. No more need to hold the card first.
 - Combat damage system refactored.
 - Nen and Stamina recovery are now synchronized: sleeping, both resources take
   roughly the same time to fully recover. Recovery speed scales only with CON
@@ -83,7 +89,7 @@ JUN 13 **
   Cape to vanish, drink the Witch's potions (Love, Rejuvenation, Diet) or the Doyen's
   remedies, choke down the Mad Scientist's Steroids for a burst of strength, spray the Mad
   Scientist's Pheromones, and the Gold Dust Girl card summons her.
-- The Staff of Judgment is now a wand: "use staff <target>" (a player or NPC) and a Nen
+- The Staff of Judgment is now a wand: "use staff [target]" (a player or NPC) and a Nen
   calamity scaled by the gap in your alignments strikes whoever has the darker deeds -- the
   target if it is more evil than you, or YOU if it is more righteous. Aim it carefully.
 - The Eternal Hammer now lives up to its legend in PvP: land a blow on another player while
@@ -142,7 +148,7 @@ Back from a long Hiatus x Hiatus, server is alive again.
 - Server now compiles and runs under WSL (Ubuntu 24.04 / glibc 2.39);
 - Added run.bat to start the server from Windows with one click.
 
-> 2021 <
+== 2021 ==
 
 MAR 12 **
 - Fixed the bug that deletes a card from inventory when open
@@ -164,7 +170,7 @@ Back from another Hiatus x Hiatus, graduated this time.
 - Enhance skill nen boosted and changed strenght addition
 to stamina pool.
 
-> 2020 <
+== 2020 ==
 
 MAY 11 **
 Sorry for Hiatus x Hiatus, was busy with my graduation.
@@ -209,7 +215,7 @@ very strong enemies;
 - Elena accept send mudmail again;
 - Some minor corrections.
 
-> 2019 <
+== 2019 ==
 
 DEC 19 **
 Group skills no longer requires group, affect you and the
@@ -505,14 +511,14 @@ OCT 07 **  Major bug fixes.
 		   Barehaded skill now belongs to Enhancer class instead Hunter class.
 		   Lower percent cap to learn from other classes.			
 
-> 2018 <
+== 2018 ==
 
 FEV 09 **  Nen loss when faint reduced to half.
            Dying will not make you lose items, but Nen loss amount persist.
 		   @RForcequit@W now just erase your book and spell/restricted cards
 		   from inventory, rather than all stuff.
 
-> 2017 <
+== 2017 ==
 
 MAY 23 **  New command: train (similar as practice)
            Practice points (PPs) now can be earned after combat, 1 to 5%
