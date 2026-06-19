@@ -8,13 +8,15 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 18 2026] - Henque
+  MXP card images: complete all 100 restricted and all 41 spell card image URLs.
+  Filled the remaining 6 restricted (002, 031, 053, 059, 060, 062) and 14 spell
+  card NULLs (1001, 1002, 1010, 1012, 1013, 1015, 1019, 1021, 1024, 1028, 1029,
+  1033, 1035, 1036) using wiki canonical filenames where in-game names differ.
   MXP card images: show image before description when looking at a card (image
   first, then flavor text, then modifiers). Fixed look_at_target to defer
   sending extra-desc text until after send_card_image.
-  MXP card images: filled in URLs for 49/57 previously-missing restricted cards
-  and 15/29 previously-missing spell cards via HxH fandom wiki API; 10 cards
-  confirmed not on the wiki (remain NULL). Now 94/100 restricted and 27/41
-  spell cards have images.
+  MXP card images: filled in URLs for 94/100 restricted and 27/41 spell cards
+  via HxH fandom wiki API.
 
 [Jun 18 2026] - Henque
   MXP card images: resize via CDN scale-to-width-down/150 suffix for trading-card
