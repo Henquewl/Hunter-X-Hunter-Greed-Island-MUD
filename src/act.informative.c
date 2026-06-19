@@ -210,6 +210,7 @@ static const char *spell_card_image_urls[41] = {
 static void send_card_image(struct char_data *ch, struct obj_data *obj)
 {
   char img_tag[512];
+  char scaled_url[600];
   const char *url = NULL;
   const char *fname;
   int num;
@@ -232,20 +233,24 @@ static void send_card_image(struct char_data *ch, struct obj_data *obj)
   if (!url)
     return;
 
-  /* Split full URL into directory (URL attr) + filename (FName attr).
-     MUSHclient downloads from URL+FName, so dir must end with '/'. */
-  fname = strrchr(url, '/');
+  /* Append CDN scale suffix so the image arrives at card size (~150px wide). */
+  snprintf(scaled_url, sizeof(scaled_url),
+    "%s/revision/latest/scale-to-width-down/150", url);
+
+  /* Split into directory (URL attr) + last component (FName attr).
+     Clients that use URL+FName will download the scaled image. */
+  fname = strrchr(scaled_url, '/');
   if (!fname)
     return;
   fname++; /* skip the '/' */
-  dir_len = (int)(fname - url);
+  dir_len = (int)(fname - scaled_url);
   if (dir_len >= (int)sizeof(url_dir))
     return;
-  strncpy(url_dir, url, dir_len);
+  strncpy(url_dir, scaled_url, dir_len);
   url_dir[dir_len] = '\0';
 
   snprintf(img_tag, sizeof(img_tag),
-    "<IMAGE FName=\"%s\" URL=\"%s\">", fname, url_dir);
+    "<IMAGE FName=\"%s\" URL=\"%s\" W=\"150\">", fname, url_dir);
   MXPSendTag(ch->desc, img_tag);
 }
 
