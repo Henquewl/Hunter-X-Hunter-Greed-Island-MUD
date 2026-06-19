@@ -35,8 +35,10 @@ There is no unit-test framework. `test_quit.py` is an ad-hoc connection script, 
 ## Pre-commit checklist (project convention)
 
 Before every commit in this repo:
-1. **Compile** (`cd src && make circle CFLAGS=-w`) and confirm it succeeds — there is no CI.
+1. **Compile** (`cd src && make circle CFLAGS=-w`) and confirm it succeeds — there is no CI. From PowerShell/Windows use: `wsl -e bash -c "cd '/mnt/c/Users/henrique.lobo/Downloads/Hunter-X-Hunter-Greed-Island-MUD/src' && make circle CFLAGS=-w 2>&1"`. Skip this step only when no `.c`/`.h` files were changed.
 2. Update **`changelog`** and **`lib/text/news`** describing what changed (the changelog uses `[Mon DD YYYY] - Henque` entries at the top of the recent section).
+   - **`lib/text/news`** — only if the change affects gameplay (new commands, mechanics, balance, in-game bug fixes). Administrative changes (version bumps, client fixes, text corrections) go in `changelog` only, never in `news`.
+   - **`lib/text/news` tone** — describe *what* changed or that something was rebalanced; no exact numbers (damage values, percentages, timers, stamina costs, etc.). Exact numbers belong in `changelog`.
 3. Then commit.
 
 ## Architecture
@@ -81,6 +83,8 @@ These are the bespoke mechanics — when touching gameplay, expect logic spread 
 
 - Adding/editing rooms, mobs, items, shops, or scripts: prefer editing the `lib/world/*` text files (or use the in-game OLC editors), keep entries vnum-sorted, and ensure each record is properly `~`-terminated — a missing `~` or a stray `E`/`A`-keyword line is a common source of boot `SYSERR`s.
 - Never hand-edit player files in `lib/plrfiles`/`lib/plrobjs`; they are binary/ascii saves managed by the engine and are gitignored.
+- **MXP safety in `lib/text/`**: web MXP clients (e.g. mudportal.com) interpret `<` as the start of a tag. In files served through the pager (`news`, `motd`, `greetings`, `info`, etc.), avoid bare `<` and `>`. Use `==`, `[]`, or `""` instead. The prompt's `<100%>` is safe because it's sent on a locked MXP line; paged text files are not.
+- **Copyover vs reboot**: a copyover re-execs the binary and re-reads all `lib/` files from disk — sufficient for changes to `lib/text/`, `lib/world/`, `lib/misc/`. A full shutdown/reboot is only needed after recompiling `src/`.
 
 ## The Greed Island card system (detailed)
 
