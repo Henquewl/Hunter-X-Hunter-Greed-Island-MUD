@@ -660,10 +660,12 @@ void second_update(void)
 	  if (GET_OBJ_TIMER(j) > 0)
 	    GET_OBJ_TIMER(j)--;
 	  if (GET_OBJ_TIMER(j) == 0) {
-	    /* mob cards: timer expiry creates empty corpse */
+	    /* mob cards: timer expiry creates empty corpse (binder is safe haven) */
 	    if (IS_CARD(j) && GET_OBJ_VAL(j, 0) == 1) {
+	      if (j->in_obj && GET_OBJ_VNUM(j->in_obj) == 3203)
+	        continue;  /* stored in binder -- exempt */
 	      mob_card_decay_to_corpse(j);  /* extracts j internally */
-	      continue;  /* j has been extracted — do not access it again */
+	      continue;  /* j extracted -- do not access again */
 	    }
 	    if (is_fickle_card(GET_OBJ_VNUM(j))) {
 		  /* Cards safely stored in the binder are exempt from expiry */
