@@ -235,7 +235,7 @@ static void send_card_image(struct char_data *ch, struct obj_data *obj)
 
   /* Append CDN scale suffix so the image arrives at card size (~150px wide). */
   snprintf(scaled_url, sizeof(scaled_url),
-    "%s/revision/latest/scale-to-width-down/150", url);
+    "%s/revision/latest/scale-to-width-down/250", url);
 
   /* Split into directory (URL attr) + last component (FName attr).
      Clients that use URL+FName will download the scaled image. */
@@ -250,7 +250,7 @@ static void send_card_image(struct char_data *ch, struct obj_data *obj)
   url_dir[dir_len] = '\0';
 
   snprintf(img_tag, sizeof(img_tag),
-    "<IMAGE FName=\"%s\" URL=\"%s\" W=\"150\">", fname, url_dir);
+    "<IMAGE FName=\"%s\" URL=\"%s\" W=\"250\">", fname, url_dir);
   MXPSendTag(ch->desc, img_tag);
 }
 
