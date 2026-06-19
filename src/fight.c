@@ -198,7 +198,7 @@ void stop_fighting(struct char_data *ch)
 
 static void scatter_mob_items(struct char_data *ch)
 {
-  struct obj_data *obj, *next_obj, *money, *booster;
+  struct obj_data *obj, *next_obj, *money;
   int i;
 
   /* scatter gold as money object (mirrors make_corpse, but to room) */
@@ -223,16 +223,6 @@ static void scatter_mob_items(struct char_data *ch)
     obj_to_room(obj, IN_ROOM(ch));
   }
 
-  /* booster pack prize (mirrors make_corpse logic) */
-  if ((rand_number(1, 100) + (GET_LEVEL(ch) / 10) + HAPPY_QP) >= 100) {
-    booster = read_object(3250, VIRTUAL);
-    obj_to_room(booster, IN_ROOM(ch));
-    act("$n's spirit leaves behind $p!!!", TRUE, ch, booster, 0, TO_ROOM);
-  }
-
-  ch->carrying = NULL;
-  IS_CARRYING_N(ch) = 0;
-  IS_CARRYING_W(ch) = 0;
 }
 
 static void make_corpse(struct char_data *ch)
