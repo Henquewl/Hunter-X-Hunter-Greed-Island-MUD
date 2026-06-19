@@ -660,4 +660,66 @@ if !%c25610%
 end
 return
 ~
+#65514
+hormone cookie consume~
+1 s 0
+~
+* NPCs are immune even if forced to eat
+if %actor.is_npc%
+  halt
+end
+* Re-eat during active effect: cookie is consumed but no effect applies
+if %actor.hormone_active%
+  %send% %actor% The cookie dissolves on your tongue, but your body is already shifting -- there is nothing more to do.
+  halt
+end
+* Only Male/Female are affected; Neutral characters eat it with no result
+if %actor.sex% == Male
+  eval orig_sex 1
+  nop %actor.sex(2)%
+  %send% %actor% You bite into the cookie. A strange warmth spreads through you as your body softly reshapes itself...
+  %echoaround% %actor% %actor.name% eats a small cookie -- and their features begin to shift in unexpected ways.
+else if %actor.sex% == Female
+  eval orig_sex 2
+  nop %actor.sex(1)%
+  %send% %actor% You bite into the cookie. A strange warmth spreads through you as your body firmly reshapes itself...
+  %echoaround% %actor% %actor.name% eats a small cookie -- and their features begin to shift in unexpected ways.
+else
+  halt
+end
+* Mark effect as active and store original sex on the player
+eval hormone_active 1
+remote hormone_active %actor.id%
+eval hormone_orig_sex %orig_sex%
+remote hormone_orig_sex %actor.id%
+* Attach reversion timer (24 MUD hours = 1800 real seconds)
+attach 65515 %actor.id%
+~
+
+#65515
+hormone reversion timer~
+0 b 100
+~
+* Wait 24 MUD hours (1800 real seconds)
+wait 1800 sec
+* Safety: if variable is gone (e.g. partial reboot), clean up and exit
+if !%self.hormone_active%
+  detach 65515 %self.id%
+  halt
+end
+* Revert to stored original sex
+if %self.hormone_orig_sex% == 1
+  nop %self.sex(1)%
+  %send% %self% The cookie effects fade. Your body quietly returns to its natural male form.
+  %echoaround% %self% %self.name%'s features gradually settle back to their original form.
+else
+  nop %self.sex(2)%
+  %send% %self% The cookie effects fade. Your body quietly returns to its natural female form.
+  %echoaround% %self% %self.name%'s features gradually settle back to their original form.
+end
+rdelete hormone_active %self.id%
+rdelete hormone_orig_sex %self.id%
+detach 65515 %self.id%
+~
+
 $~
