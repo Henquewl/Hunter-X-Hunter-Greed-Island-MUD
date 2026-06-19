@@ -11,7 +11,7 @@ spring hot steaming~
 a steaming hot spring~
 A steaming hot spring bubbles up from the earth here.~
 ~
-17 0 0 0 0 0 0 0 0 0 0 0 0
+17 g 0 0 0 0 0 0 0 0 0 0 0
 100 100 0 0
 50 0 0 0 0
 T 65510
@@ -20,7 +20,7 @@ spring liquor bubbling~
 a bubbling liquor spring~
 A bubbling spring of liquor erupts from the earth here.~
 ~
-17 0 0 0 0 0 0 0 0 0 0 0 0
+17 g 0 0 0 0 0 0 0 0 0 0 0
 20 20 1 0
 50 0 0 0 0
 T 65511
@@ -43,7 +43,7 @@ pond mystery shimmering~
 a shimmering mystery pond~
 A shimmering mystery pond has materialised here.~
 ~
-14 0 0 0 0 0 0 0 0 0 0 0 0
+14 g 0 0 0 0 0 0 0 0 0 0 0
 200 0 -1 0
 100 0 0 0 0
 T 65512
@@ -52,7 +52,7 @@ tree fruit plenty magnificent~
 a magnificent tree heavy with fruit~
 A magnificent tree, heavy with fruit, stands here.~
 ~
-14 0 0 0 0 0 0 0 0 0 0 0 0
+14 g 0 0 0 0 0 0 0 0 0 0 0
 0 0 -1 0
 200 0 0 0 0
 T 65513
@@ -61,7 +61,7 @@ guidebook golden book~
 the @mGolden Guidebook@n~
 A golden guidebook lies here, its gilded pages shimmering faintly.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 2 102500 0 0 0
 E
@@ -74,7 +74,7 @@ scales golden balance~
 the @mGolden Scales@n~
 A set of delicate golden scales rests here, perfectly balanced.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 2 50000 0 0 0
 E
@@ -87,7 +87,7 @@ dictionary golden book~
 the @mGolden Dictionary@n~
 A golden dictionary lies open here, a single word glowing softly.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 2 279000 0 0 0
 E
@@ -100,7 +100,7 @@ bankbook luck book~
 the @mLuck Bankbook@n~
 A small golden bankbook lies here, its ledger faintly glowing.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 2 102500 0 0 0
 E
@@ -113,7 +113,7 @@ connection severing scissors~
 a pair of Connection Severing Scissors~
 A bizarre golden pair of scissors hovers here.~
 ~
-3 0 0 0 0 ao 0 0 0 0 0 0 0
+3 g 0 0 0 ao 0 0 0 0 0 0 0
 99 99 2 0
 1 0 0 0 0
 E
@@ -127,7 +127,7 @@ breath archangel~
 the @CArchangel@n~
 Erm...~
 ~
-13 cdehqr 0 0 0 a 0 0 0 0 0 0 0
+13 cdeghqr 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 0 0 0 0
 T 3265
@@ -136,7 +136,7 @@ imp s wink~
 an Imp's Wink~
 an Imp's Wink lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -149,7 +149,7 @@ poltergeist pillow~
 a Poltergeist Pillow~
 a Poltergeist Pillow lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -163,7 +163,7 @@ mood clock~
 a Mood Clock~
 a Mood Clock lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -177,7 +177,7 @@ x ray goggles~
 a X-Ray Goggles~
 a X-Ray Goggles lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -191,7 +191,7 @@ toraemon~
 a Toraemon~
 a Toraemon lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -205,7 +205,7 @@ tome of a thousand tales~
 a Tome of a Thousand Tales~
 a Tome of a Thousand Tales lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -219,7 +219,7 @@ hypothetical t v~
 a Hypothetical T.V.~
 a Hypothetical T.V. lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -233,7 +233,7 @@ dice black icosahedron risky die~
 @wa b@Dl@wa@Dc@rk @wd@Di@wc@De@n~
 An icosahedron black dice was thrown here.~
 ~
-13 0 0 0 0 ao 0 0 0 0 0 0 0
+13 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 2 0 0 0 0
 T 65425
@@ -247,7 +247,7 @@ book of v i p passes~
 a Book of V.I.P Passes~
 a Book of V.I.P Passes lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -259,7 +259,7 @@ capricious remote~
 a Capricious Remote~
 a Capricious Remote lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -273,7 +273,7 @@ pre order vouchers~
 a Pre-Order Vouchers~
 a Pre-Order Vouchers lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -287,7 +287,7 @@ favor cushion~
 a Favor Cushion~
 a Favor Cushion lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -318,7 +318,7 @@ parrot candy~
 a Parrot Candy~
 a Parrot Candy lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -332,7 +332,7 @@ box hormone cookies~
 a box of Hormone Cookies~
 A colorful box labeled "Hormone Cookies" sits here.~
 ~
-15 0 0 0 0 a 0 0 0 0 0 0 0
+15 g 0 0 0 a 0 0 0 0 0 0 0
 20 0 -1 0
 2 50000 0 0 0
 E
@@ -345,7 +345,7 @@ universal survey~
 an Universal Survey~
 an Universal Survey lies here.~
 ~
-16 0 0 0 0 ao 0 0 0 0 0 0 0
+16 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -359,7 +359,7 @@ cat chameleon~
 a Chameleon Cat~
 A small cat with shifting, color-changing fur sits here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 2 50000 0 0 0
 E
@@ -372,7 +372,7 @@ room recycling box~
 a Recycling Room~
 A small folded room-in-a-box sits here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 2 50000 0 0 0
 E
@@ -385,7 +385,7 @@ egg fledgling athlete magic~
 a Fledgling Athlete egg~
 A warm, faintly pulsing magic egg rests here.~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
+12 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 2 50000 0 0 0
 E
@@ -398,7 +398,7 @@ egg fledgling artist magic~
 a Fledgling Artist egg~
 A warm, faintly pulsing magic egg rests here.~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
+12 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 2 50000 0 0 0
 E
@@ -411,7 +411,7 @@ egg fledgling politician magic~
 a Fledgling Politician egg~
 A warm, faintly pulsing magic egg rests here.~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
+12 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 2 50000 0 0 0
 E
@@ -424,7 +424,7 @@ egg fledgling musician magic~
 a Fledgling Musician egg~
 A warm, faintly pulsing magic egg rests here.~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
+12 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 2 50000 0 0 0
 E
@@ -437,7 +437,7 @@ egg fledgling pilot magic~
 a Fledgling Pilot egg~
 A warm, faintly pulsing magic egg rests here.~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
+12 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 2 50000 0 0 0
 E
@@ -450,7 +450,7 @@ egg fledgling novelist magic~
 a Fledgling Novelist egg~
 A warm, faintly pulsing magic egg rests here.~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
+12 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 2 50000 0 0 0
 E
@@ -463,7 +463,7 @@ egg fledgling gambler magic~
 a Fledgling Gambler egg~
 A warm, faintly pulsing magic egg rests here.~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
+12 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 2 50000 0 0 0
 E
@@ -476,7 +476,7 @@ egg fledgling actor magic~
 a Fledgling Actor egg~
 A warm, faintly pulsing magic egg rests here.~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
+12 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 2 50000 0 0 0
 E
@@ -489,7 +489,7 @@ egg fledgling ceo magic~
 a Fledgling CEO egg~
 A warm, faintly pulsing magic egg rests here.~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
+12 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 2 50000 0 0 0
 E
@@ -502,7 +502,7 @@ girl gold dust golden~
 a Gold Dust Girl~
 A girl trailing fine golden dust stands here.~
 ~
-13 0 0 0 0 a 0 0 0 0 0 0 0
+13 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 106000 0 0 0
 T 65350
@@ -516,7 +516,7 @@ sleeping girl~
 a Sleeping Girl~
 a Sleeping Girl lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -529,7 +529,7 @@ aromatherapy girl~
 an Aromatherapy Girl~
 an Aromatherapy Girl lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -542,7 +542,7 @@ miniature mermaid~
 a Miniature Mermaid~
 a Miniature Mermaid lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -556,7 +556,7 @@ miniature dino~
 a Miniature Dino~
 a Miniature Dino lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -569,7 +569,7 @@ miniature dragon~
 a Miniature Dragon~
 a Miniature Dragon lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -582,7 +582,7 @@ pearl locusts~
 a Pearl Locusts~
 a Pearl Locusts lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -595,7 +595,7 @@ king white stag beetle~
 a King White Stag Beetle~
 a King White Stag Beetle lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -608,7 +608,7 @@ millennium butterfly~
 a Millennium Butterfly~
 a Millennium Butterfly lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -621,7 +621,7 @@ revenge shop~
 a Revenge Shop~
 a Revenge Shop lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -635,7 +635,7 @@ photograph memory~
 a faded photograph~
 A faded photograph lies here.~
 ~
-16 0 0 0 0 ao 0 0 0 0 0 0 0
+16 g 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 1 0 0 0 0
 E
@@ -648,7 +648,7 @@ hideout realtor~
 a Hideout Realtor~
 a Hideout Realtor lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -661,7 +661,7 @@ secrets video rental~
 a Secrets Video Rental~
 a Secrets Video Rental lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -674,7 +674,7 @@ instant foreign language school~
 an Instant Foreign Language School~
 an Instant Foreign Language School lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -688,7 +688,7 @@ long lost delivery~
 a Long Lost Delivery~
 a Long Lost Delivery lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -732,7 +732,7 @@ virtual restaurant~
 a Virtual Restaurant~
 a Virtual Restaurant lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -863,7 +863,7 @@ mad scientist s plastic surgery~
 a Mad Scientist's Plastic Surgery~
 a Mad Scientist's Plastic Surgery lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -919,7 +919,7 @@ roaming ruby~
 a Roaming Ruby~
 a Roaming Ruby lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -932,7 +932,7 @@ beauty magnet emerald~
 a Beauty Magnet Emerald~
 a Beauty Magnet Emerald lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -945,7 +945,7 @@ lonely sapphire~
 a Lonely Sapphire~
 a Lonely Sapphire lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -959,7 +959,7 @@ rainbow diamond~
 a Rainbow Diamond~
 a Rainbow Diamond lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -1001,7 +1001,7 @@ staff of judgment~
 a Staff of Judgment~
 a Staff of Judgment lies here.~
 ~
-3 0 0 0 0 ao 0 0 0 0 0 0 0
+3 g 0 0 0 ao 0 0 0 0 0 0 0
 30 99 99 61
 3 50000 0 0 0
 E
@@ -1064,7 +1064,7 @@ armor sacrifice body~
 the @mSacrifice Armor@n~
 A suit of dark armor rests here, etched with self-sacrificing runes.~
 ~
-9 g 0 0 0 ad 0 0 0 0 0 0 0
+9 gk 0 0 0 ad 0 0 0 0 0 0 0
 10 0 0 0
 10 285000 0 0 0
 A
@@ -1079,7 +1079,7 @@ quiver of frustration~
 a Quiver of Frustration~
 a Quiver of Frustration lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 10 0 0 0
 1 50000 0 0 0
 T 65486
@@ -1093,7 +1093,7 @@ shield faith round large~
 the Shield of Faith~
 A large round shield has been left here.~
 ~
-9 0 0 0 0 ajo 0 0 0 0 0 0 0
+9 gk 0 0 0 ajo 0 0 0 0 0 0 0
 5 0 0 0
 15 0 0 0 0
 E
@@ -1114,7 +1114,7 @@ eternal hammer~
 an Eternal Hammer~
 an Eternal Hammer lies here.~
 ~
-5 0 0 0 0 ano 0 0 0 0 0 0 0
+5 g 0 0 0 ano 0 0 0 0 0 0 0
 0 1 4 3
 10 50000 0 0 0
 A
@@ -1161,7 +1161,7 @@ plastic king~
 a Plastic King~
 a Plastic King lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -1174,7 +1174,7 @@ swap ticket~
 a Swap Ticket~
 a Swap Ticket lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -1187,7 +1187,7 @@ book of life~
 a Book of Life~
 a Book of Life lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -1201,7 +1201,7 @@ bandit blade~
 a bandit's blade~
 A bandit's blade is here, waiting for the next victim.~
 ~
-5 dfh 0 0 0 ano 0 0 0 0 0 0 0
+5 dfgh 0 0 0 ano 0 0 0 0 0 0 0
 0 1 4 11
 5 0 0 0 0
 A
@@ -1213,7 +1213,7 @@ secret cape cloak~
 a Secret Cape~
 a Secret Cape lies crumpled here.~
 ~
-9 0 0 0 0 ak 0 0 0 c 0 0 0
+9 gk 0 0 0 ak 0 0 0 c 0 0 0
 2 0 0 0
 3 50000 0 0 0
 E
@@ -1226,7 +1226,7 @@ clairvoyant snake card~
 a Clairvoyant Snake~
 a Clairvoyant Snake card lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 T 65496
@@ -1239,7 +1239,7 @@ Feed it a card rank C or above, and it will spit up a "Clairvoyance."
 a 3-D Camera~
 a 3-D Camera lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -1252,7 +1252,7 @@ silver dog~
 a Silver Dog~
 a Silver Dog lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E
@@ -1265,7 +1265,7 @@ panda maid~
 a Panda Maid~
 a Panda Maid lies here.~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+12 g 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
 1 50000 0 0 0
 E

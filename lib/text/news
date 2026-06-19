@@ -8,6 +8,16 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 == 2026 ==
 
 JUN 19 **
+- Killing a good-aligned player now carries a heavy alignment penalty for the
+  killer, pushing them toward the evil end of the scale. Killing a neutral
+  player carries a moderate penalty. Evil characters who kill their own kind
+  are judged by the usual rules (and may even become less evil for it).
+  Very evil characters will find themselves barred from equipping certain
+  holy and faith-aligned items.
+- Shield of Faith, Sacrifice Armor, and Secret Cape can no longer be used by
+  evil-aligned characters.
+
+JUN 19 **
 - Card #33 Hormone Cookies is now active: gain the card to receive a box of
   20 Hormone Cookies. Eating one changes your sex for 24 Greed Island hours.
   Eating a second while already transformed has no additional effect.

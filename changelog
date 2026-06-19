@@ -8,6 +8,16 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 19 2026] - Henque
+  PvP Alignment Penalty System: killing a good-aligned player now applies an
+  immediate -1000 alignment penalty to the killer (in addition to the existing
+  change_alignment() convergence). Killing a neutral player applies -500.
+  Killing an evil player uses standard change_alignment() only (killer may
+  become more good). Implemented in raw_kill() PvP block in fight.c.
+  ANTI_EVIL flag (k) added to Shield of Faith (65487), Sacrifice Armor (65485),
+  and Secret Cape (65495) — now restricted to non-evil characters alongside the
+  existing ANTI_EVIL items (Paladin's Necklace, Sword of Truth, Aquamarine Stone).
+  MAGIC flag (g) added to all 71 restricted card items in 654.obj that lacked it.
+[Jun 19 2026] - Henque
   Hormone Cookies (#33, vnum 65333) now has a full mechanic: gain on the card
   produces a box (ITEM_CONTAINER, vnum 65433) pre-loaded with 20 individual
   cookies (vnum 65534, ITEM_FOOD). Eating a cookie changes the player character
