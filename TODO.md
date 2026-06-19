@@ -77,29 +77,22 @@ Specific prerequisites before declaring v1.00:
 Night Shift Dwarves (65326), Fairy King's Advice (65316).
 (Gold Dust Girl already done — its mob existed. Fledgling Politician is now an egg card.)
 
-**Needs new rooms / a world-build** — terrain/location cards (card-only today):
+**Needs new rooms / a world-build** — terrain/location cards:
 Ruler's Blessing castle (65300), Patch of Forest (65301), Patch of Shore / Poseidon's Cavern
-(65302), Skin Care Hot Springs (65304), Spirited Away Hollow (65305), Liquor Spring (65306),
-Mystery Pond (65308), Tree of Plenty (65309). Decision was to defer; they need destination
-rooms/zones (653/654.wld are empty placeholders).
+(65302), Spirited Away Hollow (65305). These three (#1, #2, #5) are **fickle** (auto-binder on
+`gain`; portal system deferred). Ruler's Blessing (#0) is the end-game reward and exempt.
+Cards #4/65304, #6/65306, #8/65308, #9/65309 now have **active mechanics** — see DONE below.
 
-**"Fickle card" pattern** — cards with impossible or unimplementable mechanics use a special
-C-side intercept: `gain` shows a flavor message and auto-stores in binder; timer expiry outside
-the binder deletes the card with a thematic "puff of smoke" message instead of reverting to item.
-Currently applied to: **Fickle Genie (65315)**. Future candidates to review:
-- Any card whose canon effect cannot be modeled with existing engine primitives and whose
-  "collectible" value alone justifies keeping it without a functional mechanic.
-To add another: intercept vnum in `fickle_genie_gain` (`src/act.item.c`) with an `else if`, and
-add a per-vnum branch in `second_update` (`src/limits.c`) before the existing reversion logic.
+**"Fickle card" pattern** — DONE (Jun 19 2026). 50+ cards now use this pattern. `gain` shows
+a themed message and auto-stores the card in the binder; timer expiry outside the binder deletes
+it with a "shimmering sparks" message (not reverting to item). Binder-exemption bug also fixed.
+To add another fickle card in future: add its vnum to `fickle_vnums[]` in `src/utils.c`.
+Currently covers: 65301, 65302, 65305 (location); 65307, 65316, 65326, 65335, 65347–65354,
+65398, 65399 (NPC/creature); 65310–65313, 65318–65324, 65327–65333, 65355, 65357–65360, 65363,
+65372, 65376–65379, 65391–65393, 65397 (collectibles). Fickle Genie (65315) also included.
 
-**Needs more C / complex design:**
-- (Fickle Genie moved to "fickle card" pattern above — wish mechanic remains unimplemented but
-  card is fully playable as a collectible.)
-
-**Flavor-only collectibles** (effect not meaningfully modelable; acceptable as-is): Pregnancy
-Stones, Dress of Memory, Paper Doll, Book of VIP Parties, Master Mime, Echo Recorder,
-Face-Lift Machine, Miracle Seed, Sand Ship, Turtle Mansion, Mr. Billionaire, Returned
-Postcard, Loving Slave, Pretty Little Devil, Crystal Ball, etc.
+**Flavor-only collectibles** that were listed here are now in the fickle card pattern above.
+Cards not in fickle_vnums have real mechanics (wand, food, trigger, etc.).
 
 ---
 
@@ -117,6 +110,19 @@ implemented with existing mechanics:
 - **#56 Perfect Memory Studio** — ITEM_NOTE (item 65456); player's name injected into photo description at creation time via make_card() hook in act.item.c.
 - **#87 Shield of Faith** — WEAR/REMOVE triggers (#65499/#65500 in 654.trg) set/clear a `shield_faith` remote variable; guard added to Return (#1009), Railguide (#1012), Drift (#1016), Collision (#1017) triggers in 10.trg. Protects wearer and followers. *Needs a live test.*
 - **#89 Tax Collector's Gauntlet** — `levy` command trigger (#65501 in 654.trg): consumes one random restricted card from wielder's own binder as tribute, then steals a card from every non-allied PC in the room bypassing defensive spells. `same_group` DG field added to dg_variables.c. *Needs a live test.*
+
+### Done (Jun 19 2026) — fickle pattern + location card active mechanics
+- **Fickle card expansion**: 50+ cards now auto-store in binder on `gain`; timer expiry outside
+  binder deletes card (not revert). Fixed binder-exemption bug. Fixed item 65431 type (16→12).
+- **#4 Skin Care Hot Springs (65304)**: `gain` → item 65404 + DG trigger 65510 (heals PCs every
+  60 sec for 30 min, then purges). Blocked in ROOM_PEACEFUL / water sectors. Card consumed.
+- **#6 Liquor Spring (65306)**: `gain` → item 65406 + trigger 65511 (auto-destructs after 30
+  min). Liquid type randomised at C creation from 7 alcoholic LIQ_* types. Card consumed.
+- **#8 Mystery Pond (65308)**: `gain` → item 65408 (no-TAKE ITEM_CONTAINER) pre-stocked in C
+  with 2× each of 9 fish vnums + trigger 65512 replenishes missing fish every 30 min. Card consumed.
+- **#9 Tree of Plenty (65309)**: `gain` → item 65409 (no-TAKE ITEM_CONTAINER, cap=0) pre-stocked
+  in C with 1× each of 10 fruit vnums + trigger 65513 replenishes missing fruit every 30 min.
+  Players can GET but not PUT. Card consumed. *DG triggers need live testing.*
 
 ### Remaining EFFECT work (cards are canon, but their effect isn't mechanically modeled yet)
 Most canon cards are life-sim/social/flavor with no existing mechanic, so they sit as canon
