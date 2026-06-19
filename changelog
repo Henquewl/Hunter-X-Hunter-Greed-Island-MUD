@@ -8,6 +8,26 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 19 2026] - Henque
+  Fickle card pattern expansion: 50+ cards that had no active mechanic now
+  auto-store in binder on 'gain' with a flavor message (Seção 1). Fixed bug
+  where fickle cards inside binder 3203 were being extracted when timer hit 0.
+  Corrected item 65431 (Returned Postcard) type from ITEM_LIQUID_CONTAINER to
+  ITEM_OTHER.
+  Location cards with active mechanics (Seção 2):
+  - Card #4 (Skin Care Hot Springs / 65304): creates a steaming hot spring in
+    the current room (item 65404) that heals all PCs every 60 sec for 30 min
+    then disappears. Blocked in ROOM_PEACEFUL and water sectors.
+  - Card #6 (Liquor Spring / 65306): creates a bubbling liquor spring (item
+    65406) with a randomly chosen alcoholic beverage; lasts 30 min.
+  - Card #8 (Mystery Pond / 65308): creates a container pond (item 65408)
+    pre-stocked with 2 of each of 9 fish types; fish respawn every 30 min.
+  - Card #9 (Tree of Plenty / 65309): creates a container tree (item 65409)
+    pre-stocked with one of each of 10 fruit types; fruit respawns every 30
+    min; players can take fruit but not put items into the tree.
+  Cards #1, #2, #5 (Patch of Forest, Patch of Shore, Spirited Away) remain
+  fickle (portal system deferred to future implementation).
+
+[Jun 19 2026] - Henque
   Update version to 0.92 in motd and login screen (greetings).
 
 [Jun 19 2026] - Henque

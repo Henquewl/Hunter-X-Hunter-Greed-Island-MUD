@@ -981,19 +981,140 @@ static void fly_to_room (struct char_data *ch, room_vnum room)
 	return;
 }
 
-static void fickle_genie_gain(struct char_data *ch, struct obj_data *card)
+static int room_allows_card_effect(struct char_data *ch)
+{
+  if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_PEACEFUL)) {
+    send_to_char(ch, "This location is too serene to disturb with a card effect.\r\n");
+    return FALSE;
+  }
+  int sect = SECT(IN_ROOM(ch));
+  if (sect == SECT_WATER_SWIM || sect == SECT_WATER_NOSWIM || sect == SECT_UNDERWATER) {
+    send_to_char(ch, "You cannot create a spring here — you are already in water.\r\n");
+    return FALSE;
+  }
+  return TRUE;
+}
+
+static void consume_location_card(struct char_data *ch, struct obj_data *card)
+{
+  if (card->worn_by)
+    unequip_char(ch, WEAR_HOLD);
+  if (card->carried_by)
+    obj_from_char(card);
+  extract_obj(card);
+}
+
+static void hot_springs_gain(struct char_data *ch, struct obj_data *card)
+{
+  struct obj_data *spring;
+
+  if (!room_allows_card_effect(ch)) return;
+  if (real_object(65404) == NOTHING) {
+    send_to_char(ch, "Nothing happens with %s.\r\n", card->short_description);
+    return;
+  }
+  spring = read_object(65404, VIRTUAL);
+  obj_to_room(spring, IN_ROOM(ch));
+  send_to_char(ch, "The card shimmers and a steaming hot spring bubbles up from the earth!\r\n");
+  act("$n plays a card and a steaming hot spring erupts from the ground!", TRUE, ch, 0, 0, TO_ROOM);
+  consume_location_card(ch, card);
+}
+
+static void liquor_spring_gain(struct char_data *ch, struct obj_data *card)
+{
+  static const int alc_types[] = {1, 2, 3, 4, 5, 7, 8};
+  struct obj_data *spring;
+
+  if (!room_allows_card_effect(ch)) return;
+  if (real_object(65406) == NOTHING) {
+    send_to_char(ch, "Nothing happens with %s.\r\n", card->short_description);
+    return;
+  }
+  spring = read_object(65406, VIRTUAL);
+  GET_OBJ_VAL(spring, 2) = alc_types[rand_number(0, 6)];
+  GET_OBJ_VAL(spring, 0) = 20;
+  GET_OBJ_VAL(spring, 1) = 20;
+  obj_to_room(spring, IN_ROOM(ch));
+  send_to_char(ch, "The card dissolves into a fragrant mist and a bubbling liquor spring appears!\r\n");
+  act("$n plays a card and a bubbling spring of liquor erupts from the ground!", TRUE, ch, 0, 0, TO_ROOM);
+  consume_location_card(ch, card);
+}
+
+static void mystery_pond_gain(struct char_data *ch, struct obj_data *card)
+{
+  static const int fish_vnums[] = {1217, 3702, 10006, 10102, 27200, 27516, 31511, 31581, 31582, 0};
+  struct obj_data *pond, *fish;
+  int i;
+
+  if (!room_allows_card_effect(ch)) return;
+  if (real_object(65408) == NOTHING) {
+    send_to_char(ch, "Nothing happens with %s.\r\n", card->short_description);
+    return;
+  }
+  pond = read_object(65408, VIRTUAL);
+  for (i = 0; fish_vnums[i]; i++) {
+    if (real_object(fish_vnums[i]) == NOTHING) continue;
+    fish = read_object(fish_vnums[i], VIRTUAL);
+    obj_to_obj(fish, pond);
+    fish = read_object(fish_vnums[i], VIRTUAL);
+    obj_to_obj(fish, pond);
+  }
+  obj_to_room(pond, IN_ROOM(ch));
+  send_to_char(ch, "The card dissolves and a shimmering mystery pond materialises before you!\r\n");
+  act("$n plays a card and a shimmering pond materialises from thin air!", TRUE, ch, 0, 0, TO_ROOM);
+  consume_location_card(ch, card);
+}
+
+static void tree_of_plenty_gain(struct char_data *ch, struct obj_data *card)
+{
+  static const int fruit_vnums[] = {111, 1400, 635, 31727, 1927, 7508, 11828, 4524, 25600, 25610, 0};
+  struct obj_data *tree, *fruit;
+  int i;
+
+  if (!room_allows_card_effect(ch)) return;
+  if (real_object(65409) == NOTHING) {
+    send_to_char(ch, "Nothing happens with %s.\r\n", card->short_description);
+    return;
+  }
+  tree = read_object(65409, VIRTUAL);
+  for (i = 0; fruit_vnums[i]; i++) {
+    if (real_object(fruit_vnums[i]) == NOTHING) continue;
+    fruit = read_object(fruit_vnums[i], VIRTUAL);
+    obj_to_obj(fruit, tree);
+  }
+  obj_to_room(tree, IN_ROOM(ch));
+  send_to_char(ch, "The card glows gold and a magnificent tree heavy with fruit bursts from the ground!\r\n");
+  act("$n plays a card and a magnificent fruit tree erupts from the earth!", TRUE, ch, 0, 0, TO_ROOM);
+  consume_location_card(ch, card);
+}
+
+static void fickle_card_gain(struct char_data *ch, struct obj_data *card)
 {
   struct obj_data *binder = NULL, *o;
+  int vnum = GET_OBJ_VNUM(card);
 
-  send_to_char(ch, "You attempt to make a wish... \"What a waste of time!\" the genie scoffs.\r\n");
-  act("$n rubs a card and gets lectured by a tiny, annoyed genie.", TRUE, ch, 0, 0, TO_ROOM);
+  if (vnum == 65315) {
+    send_to_char(ch, "You attempt to make a wish... \"What a waste of time!\" the genie scoffs.\r\n");
+    act("$n rubs a card and gets lectured by a tiny, annoyed genie.", TRUE, ch, 0, 0, TO_ROOM);
+  } else if (vnum == 65301 || vnum == 65302 || vnum == 65305) {
+    send_to_char(ch, "You gaze at the card... the location shimmers in your mind but remains beyond reach. The card slips into your binder.\r\n");
+    act("$n stares at a card longingly, then watches it drift into $s binder.", TRUE, ch, 0, 0, TO_ROOM);
+  } else if (vnum == 65307 || vnum == 65316 || vnum == 65326 || vnum == 65335 ||
+             (vnum >= 65347 && vnum <= 65354) ||
+             vnum == 65398 || vnum == 65399) {
+    send_to_char(ch, "The creature on the card regards you warily, then retreats safely into your binder.\r\n");
+    act("$n tries to coax something from a card, but it slips into $s binder instead.", TRUE, ch, 0, 0, TO_ROOM);
+  } else {
+    send_to_char(ch, "This rare collectible seems to know its place — it slips quietly into your binder.\r\n");
+    act("$n examines a card briefly before it slides into $s binder on its own.", TRUE, ch, 0, 0, TO_ROOM);
+  }
 
   for (o = ch->carrying; o; o = o->next_content)
     if (GET_OBJ_VNUM(o) == 3203) { binder = o; break; }
 
   if (binder)
     for (o = binder->contains; o; o = o->next_content)
-      if (GET_OBJ_VNUM(o) == 65315) return;
+      if (GET_OBJ_VNUM(o) == vnum) return;
 
   if (!PLR_FLAGGED(ch, PLR_BOOK)) {
     act("Your G.I. Book opens on its own ...", FALSE, ch, 0, 0, TO_CHAR);
@@ -1010,7 +1131,9 @@ static void fickle_genie_gain(struct char_data *ch, struct obj_data *card)
   obj_from_char(card);
   GET_OBJ_TIMER(card) = 62;
   obj_to_obj(card, binder);
-  send_to_char(ch, "The Fickle Genie card slips into your binder on its own.\r\n");
+
+  if (vnum == 65315)
+    send_to_char(ch, "The Fickle Genie card slips into your binder on its own.\r\n");
 }
 
 ACMD(do_gain)
@@ -1443,8 +1566,16 @@ ACMD(do_gain)
             break;
 		  }
         default:
-          if (GET_OBJ_VNUM(held) == 65315)
-            fickle_genie_gain(ch, held);
+          if (is_fickle_card(GET_OBJ_VNUM(held)))
+            fickle_card_gain(ch, held);
+          else if (GET_OBJ_VNUM(held) == 65304)
+            hot_springs_gain(ch, held);
+          else if (GET_OBJ_VNUM(held) == 65306)
+            liquor_spring_gain(ch, held);
+          else if (GET_OBJ_VNUM(held) == 65308)
+            mystery_pond_gain(ch, held);
+          else if (GET_OBJ_VNUM(held) == 65309)
+            tree_of_plenty_gain(ch, held);
           else
             make_card(ch, held, TRUE);
           break;
@@ -1487,8 +1618,16 @@ ACMD(do_gain)
 	    else {
 		  do_say(ch, "GAIN!", cmd, 0);
 		  msg = 0;
-		  if (GET_OBJ_VNUM(obj) == 65315)
-		    fickle_genie_gain(ch, obj);
+		  if (is_fickle_card(GET_OBJ_VNUM(obj)))
+		    fickle_card_gain(ch, obj);
+		  else if (GET_OBJ_VNUM(obj) == 65304)
+		    hot_springs_gain(ch, obj);
+		  else if (GET_OBJ_VNUM(obj) == 65306)
+		    liquor_spring_gain(ch, obj);
+		  else if (GET_OBJ_VNUM(obj) == 65308)
+		    mystery_pond_gain(ch, obj);
+		  else if (GET_OBJ_VNUM(obj) == 65309)
+		    tree_of_plenty_gain(ch, obj);
 		  else {
 		    msg += make_card(ch, obj, TRUE);
 		    if (!msg)

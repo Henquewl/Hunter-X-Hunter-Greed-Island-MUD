@@ -8,6 +8,21 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 == 2026 ==
 
 JUN 19 **
+- 50+ Greed Island cards that had no active mechanic now respond to 'gain' with
+  a themed message and auto-store in your binder. They will dissolve if left
+  outside the binder too long, so keep them safe.
+- Location cards with new active effects (consume card on use):
+  [#4] Skin Care Hot Springs: creates a steaming spring in your current room
+    that periodically heals everyone nearby. Lasts one full in-game day. Cannot
+    be used in peaceful locations or water.
+  [#6] Liquor Spring: creates a spring flowing with a random alcoholic beverage.
+    Lasts one in-game day. Same restrictions as Hot Springs.
+  [#8] Mystery Pond: summons a mysterious pond stocked with rare fish you can
+    catch. Fish replenish over time.
+  [#9] Tree of Plenty: conjures a fruit tree loaded with a variety of fruit.
+    Fruit grows back after being picked.
+
+JUN 19 **
 - Fixed display freeze in web clients (mudportal.com): year dividers in this
   file used "> YYYY <" which web MXP clients parsed as an open tag, hiding all
   content until the next ">". Changed to "== YYYY ==" throughout. Same fix
