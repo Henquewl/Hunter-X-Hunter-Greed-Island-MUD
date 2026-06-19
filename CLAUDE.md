@@ -86,6 +86,29 @@ These are the bespoke mechanics — when touching gameplay, expect logic spread 
 - **MXP safety in `lib/text/`**: web MXP clients (e.g. mudportal.com) interpret `<` as the start of a tag. In files served through the pager (`news`, `motd`, `greetings`, `info`, etc.), avoid bare `<` and `>`. Use `==`, `[]`, or `""` instead. The prompt's `<100%>` is safe because it's sent on a locked MXP line; paged text files are not.
 - **Copyover vs reboot**: a copyover re-execs the binary and re-reads all `lib/` files from disk — sufficient for changes to `lib/text/`, `lib/world/`, `lib/misc/`. A full shutdown/reboot is only needed after recompiling `src/`.
 
+### Editing `.obj` files from the CLI
+
+The `Read` tool **fails** on `.obj` files that contain ANSI color codes (`@m`, `@g`, `@n`, etc.) — it misidentifies them as binary. Workflow:
+- **Read content**: use `Grep` (works correctly).
+- **Write/replace**: use WSL Python in **binary mode** to avoid encoding issues with ANSI bytes. Open with `open(path, 'rb')` / `open(path, 'wb')`. Never open in text mode (`'latin-1'` or `'utf-8'`) for writing, because the `open(..., 'w')` call truncates the file before Python raises a `UnicodeEncodeError`, leaving the file empty. Use `git checkout <file>` to recover.
+- Keep all new string literals pure ASCII — em dashes (`—`), curly quotes, etc. will fail the latin-1 write path.
+
+### Item type numbers (first field in the `.obj` property line)
+
+| # | Constant | Notes |
+|---|---|---|
+| 3 | `ITEM_WAND` | charges in val1/val2 |
+| 11 | `ITEM_WORN` | cosmetic slot item |
+| 12 | `ITEM_OTHER` | generic, no special behavior |
+| 15 | `ITEM_CONTAINER` | val0=capacity, val1=flags, val2=key vnum (-1 = none) |
+| 16 | `ITEM_NOTE` | writable scroll |
+| 19 | `ITEM_FOOD` | val0=nutrition (0=candy/no effect on hunger); fires `OTRIG_CONSUME` trigger |
+| 24 | `ITEM_CARD` | free/unrestricted card |
+| 25 | `ITEM_SPELLCARD` | cast on `gain`, consumed |
+| 26 | `ITEM_RESTRICTED` | numbered 000–099 collectible cards |
+
+Wear-flag `a` in the sixth field = `ITEM_WEAR_TAKE` (can be picked up). Extra flags `ao` = NODROP + ANTI_OTHER.
+
 ## The Greed Island card system (detailed)
 
 The card mechanic is the heart of the game and its logic is spread across a few hooks. Reference map:
@@ -99,6 +122,8 @@ The card mechanic is the heart of the game and its logic is spread across a few 
 
 **The conversion engine**: `make_card(ch, obj, show)` in `act.item.c` is a single **bidirectional** function — it decides direction from the object's type/vnum (item→card creates/loads a card; card→item reads the stored target). `show` only controls the room message. Returns 1 on success, 0 if nothing happened. `ITEM_NOGAIN` (extra flag) marks "already converted, cannot convert again" and is never cleared.
 
+Special cases are inserted at `act.item.c` ~line 1919 (after the Recycling Room block and the Perfect Memory Studio block, both inside the `ITEM_RESTRICTED` branch). The newly-created item is in the local variable `card`. Use `obj_to_obj(child, card)` to pre-load objects into a container before it reaches the player (see Hormone Cookies #33, vnum 65333 → loads 20 cookies vnum 65534 into box 65433).
+
 **Player commands**
 - `gain` (`do_gain`): bidirectional convenience verb — card→item, item→card, and **casting spell cards** (needs the book/`PLR_BOOK` active via the `book` command).
 - `change` (`do_change`): **item→card only**, for ordinary items. This is the manual path for common loot.
@@ -109,3 +134,70 @@ The card mechanic is the heart of the game and its logic is spread across a few 
 **Timed auto-reversion**: `second_update` (`limits.c`) decrements each loose card's `GET_OBJ_TIMER` (set to 62 on creation / on binder put-get); at 0 a card outside binder 3203 reverts to its item (and is flagged `ITEM_NOGAIN`). Cards inside the binder are exempt — that's the incentive to store them.
 
 **Player-facing text to keep in sync** when card behavior changes: NPC **Eta** (mob 1401) triggers `1419`/`1496` in `lib/world/trg/14.trg`; the notice sign obj **3298** in `lib/world/obj/32.obj`; help entries `GAIN`, `CHANGE`, `CARDS`, `BOOK` in `lib/text/help/help.hlp`; and `lib/text/info`.
+
+## DG Script reference
+
+### Timing
+
+`affect_update()` fires **once per MUD hour** (every 75 real seconds). That is 1 "tick."
+
+| Unit | Real time |
+|---|---|
+| 1 tick (1 MUD hour) | 75 seconds |
+| 24 ticks (24 MUD hours) | 30 minutes |
+| 240 ticks | ~5 hours |
+
+- **`dg_affect %actor% STAT mod duration`** — duration is in **ticks** (e.g. `dg_affect %actor% STR 2 240` = +2 STR for ~5 hours).
+- **`wait N sec`** — duration is in **real seconds** (e.g. `wait 1800 sec` = 24 MUD hours).
+
+### Trigger type codes (first line after the name~)
+
+`<entity-type> <event-flags> <chance>`
+
+| entity-type | 0 = mob | 1 = obj | 2 = room |
+|---|---|---|---|
+| event-flag `s` | — | OTRIG_CONSUME (eat/drink) | — |
+| event-flag `n` | — | OTRIG_LOAD | — |
+| event-flag `b` | MOB_TRIGGER_BRIBE | background (mob, runs on attach) | — |
+| event-flag `j` | — | OTRIG_WEAR | — |
+| event-flag `l` | — | OTRIG_REMOVE | — |
+
+- `1 s 0` — object consume trigger, always fires.
+- `0 b 100` — mob background trigger, 100% chance; standard for timers attached to a player with `attach`.
+- `1 n 100` — object load trigger; used for setup loops (like Hot Spring, Tree of Plenty).
+
+### `halt` vs `return 0` in consume triggers
+
+- **`halt`** — stops the trigger; `consume_otrigger` returns 1 → the item **is consumed** normally. Use when the effect simply doesn't apply but the item should still be eaten.
+- **`return 0`** — `consume_otrigger` returns 0 → the item is **not consumed** and nothing happens. Use only when the action should be fully blocked.
+
+### Timed player effect pattern (remote variable + attach)
+
+Standard pattern for a temporary effect on a player that must auto-revert:
+
+```
+* --- consume trigger (1 s 0) on the item ---
+eval myeffect_active 1
+remote myeffect_active %actor.id%       * flag readable as %actor.myeffect_active%
+attach <TIMER_TRIG_VNUM> %actor.id%     * binds a mob trigger to the player
+
+* --- timer trigger (0 b 100) attached to the player ---
+wait <N> sec
+* apply revert here
+rdelete myeffect_active %self.id%       * clear the flag
+detach <TIMER_TRIG_VNUM> %self.id%
+```
+
+- **Check if effect is active**: `if %actor.myeffect_active%` (empty string = falsy when var absent).
+- **Remote variables are volatile**: lost on full server reboot (not on copyover). The underlying C change (e.g. `GET_SEX`) is saved to the player file, but the timer is not. Document this as a known limitation.
+- **`%actor.is_npc%`** — reliable guard to skip NPCs in any trigger.
+
+### Writable DG fields (subfield syntax)
+
+Some `%char.field%` support a write path via parenthesised subfield: `nop %actor.field(value)%`.
+
+| Field | Write subfield | Notes |
+|---|---|---|
+| `sex` | `0`/`1`/`2` (SEX_NEUTRAL/MALE/FEMALE) | Patched in `dg_variables.c` ~line 1038 |
+| `saving_spell` | integer delta | Adds delta to current value |
+| `skillset` | `<skillname> <value>` | Sets skill % |
