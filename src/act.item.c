@@ -1915,6 +1915,16 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
   } else if ((number == 65535 && !OBJ_FLAGGED(obj, ITEM_QUEST)) || (number != 65535 && GET_OBJ_TYPE(obj) == ITEM_CARD)) {
 	if (GET_OBJ_RENT(obj) == 0)
 	  return (0);
+    /* mob card: manual gain is fickle — creature escapes, no corpse */
+    if (GET_OBJ_VAL(obj, 0) == 1) {
+      act("$p shimmers brilliantly and vanishes — the creature slips away.",
+          FALSE, ch, obj, 0, TO_CHAR);
+      act("$n's $p shimmers and vanishes in a burst of sparks.",
+          TRUE,  ch, obj, 0, TO_ROOM);
+      obj_from_char(obj);
+      extract_obj(obj);
+      return 1;
+    }
     card = read_object(GET_OBJ_RENT(obj), VIRTUAL);
 	if (!(CAN_WEAR(card, ITEM_WEAR_TAKE)))
 	  obj_to_room(card, IN_ROOM(ch));
