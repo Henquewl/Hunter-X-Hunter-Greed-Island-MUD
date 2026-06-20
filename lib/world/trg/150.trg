@@ -17,8 +17,8 @@ end
 Magic User - 15032~
 0 k 10
 ~
-set skill %random.%actor.level%%
-if %actor.level% < 101
+set skill %random.%self.level%%
+if %self.level% < 101
   switch %skill%
     case 1
       case 2

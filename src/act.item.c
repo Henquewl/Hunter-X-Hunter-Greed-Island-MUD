@@ -1137,6 +1137,38 @@ static void fickle_card_gain(struct char_data *ch, struct obj_data *card)
     send_to_char(ch, "The Fickle Genie card slips into your binder on its own.\r\n");
 }
 
+/* Invoke a spell-card effect by vnum without consuming a physical card.
+ * ch = caster/wielder, victim = target (may be NULL for self-affecting effects).
+ * Called from DG triggers via dg_spellcard command. */
+void perform_spellcard(struct char_data *ch, struct char_data *victim, int vnum)
+{
+  room_rnum rroom;
+
+  if (!ch) return;
+
+  switch (vnum) {
+    case 1005: /* Magnetic Force — teleport caster to victim */
+      if (!victim) return;
+      fly_to_char(ch, victim);
+      break;
+    case 1012: /* Relegate — teleport victim to a random room */
+      if (!victim) return;
+      if (IN_ROOM(ch) != IN_ROOM(victim)) return;
+      if (ZONE_FLAGGED(GET_ROOM_ZONE(IN_ROOM(ch)), ZONE_NOASTRAL)) return;
+      if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_PEACEFUL)) return;
+      do {
+        rroom = rand_number(0, top_of_world);
+      } while (ROOM_FLAGGED(rroom, ROOM_PRIVATE) || ROOM_FLAGGED(rroom, ROOM_DEATH) ||
+               ROOM_FLAGGED(rroom, ROOM_GODROOM) || ZONE_FLAGGED(GET_ROOM_ZONE(rroom), ZONE_CLOSED) ||
+               ZONE_FLAGGED(GET_ROOM_ZONE(rroom), ZONE_NOASTRAL));
+      fly_to_room(victim, GET_ROOM_VNUM(rroom));
+      break;
+    default:
+      log("SYSERR: perform_spellcard called with unimplemented vnum %d.", vnum);
+      break;
+  }
+}
+
 ACMD(do_gain)
 {
   char arg[MAX_INPUT_LENGTH], buf[MAX_INPUT_LENGTH], *desc;  

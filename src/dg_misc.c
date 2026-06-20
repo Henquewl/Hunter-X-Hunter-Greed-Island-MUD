@@ -26,6 +26,9 @@
 /* copied from spell_parser.c: */
 #define SINFO spell_info[spellnum]
 
+/* Forward declaration from act.item.c */
+void perform_spellcard(struct char_data *ch, struct char_data *victim, int vnum);
+
 
 /* Cast a spell; can be called by mobiles, objects and rooms, and no level
  * check is required. Note that mobs should generally use the normal 'cast'
@@ -311,5 +314,49 @@ void script_damage(struct char_data *vict, int dam)
           GET_NAME(vict), world[vict->in_room].name);
     die(vict, NULL);
   }
+}
+
+/* Invoke a Greed Island spell-card effect by vnum from a mob trigger.
+ * Usage in DG Script: dg_spellcard <vnum> <target>
+ * Supported vnums: 1005 (Magnetic Force), 1012 (Relegate).
+ * The caster must be a mob; obj/wld triggers are not supported. */
+void do_dg_spellcard(void *go, struct script_data *sc, trig_data *trig, int type, char *cmd)
+{
+  struct char_data *caster = NULL;
+  struct char_data *target = NULL;
+  char junk[MAX_INPUT_LENGTH];
+  char vnum_str[MAX_INPUT_LENGTH];
+  char target_name[MAX_INPUT_LENGTH];
+  int vnum;
+
+  if (type != MOB_TRIGGER) {
+    script_log("Trigger: %s, VNum %d. dg_spellcard: only supported in mob triggers.",
+      GET_TRIG_NAME(trig), GET_TRIG_VNUM(trig));
+    return;
+  }
+  caster = (struct char_data *)go;
+
+  /* parse: "dg_spellcard <vnum> <target>" */
+  half_chop(cmd, junk, cmd);
+  half_chop(cmd, vnum_str, target_name);
+  skip_spaces(&target_name);
+
+  if (!*vnum_str) {
+    script_log("Trigger: %s, VNum %d. dg_spellcard: missing spell-card vnum.",
+      GET_TRIG_NAME(trig), GET_TRIG_VNUM(trig));
+    return;
+  }
+
+  vnum = atoi(vnum_str);
+  if (vnum < 1000 || vnum > 1040) {
+    script_log("Trigger: %s, VNum %d. dg_spellcard: invalid vnum %d (must be 1000-1040).",
+      GET_TRIG_NAME(trig), GET_TRIG_VNUM(trig), vnum);
+    return;
+  }
+
+  if (*target_name)
+    target = get_char_vis(caster, target_name, NULL, FIND_CHAR_ROOM);
+
+  perform_spellcard(caster, target, vnum);
 }
 

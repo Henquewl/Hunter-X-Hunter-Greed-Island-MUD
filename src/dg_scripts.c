@@ -2623,6 +2623,9 @@ int script_driver(void *go_adress, trig_data *trig, int type, int mode)
       else if (!strn_cmp(cmd, "dg_affect ", 10))
         do_dg_affect(go, sc, trig, type, cmd);
 
+      else if (!strn_cmp(cmd, "dg_spellcard ", 13))
+        do_dg_spellcard(go, sc, trig, type, cmd);
+
       else if (!strn_cmp(cmd, "global ", 7))
         process_global(sc, trig, cmd, sc->context);
 
