@@ -1100,6 +1100,7 @@ static void fickle_card_gain(struct char_data *ch, struct obj_data *card)
     send_to_char(ch, "You gaze at the card... the location shimmers in your mind but remains beyond reach. The card slips into your binder.\r\n");
     act("$n stares at a card longingly, then watches it drift into $s binder.", TRUE, ch, 0, 0, TO_ROOM);
   } else if (vnum == 65307 || vnum == 65316 || vnum == 65326 || vnum == 65335 ||
+             vnum == 65346 ||
              (vnum >= 65347 && vnum <= 65354) ||
              vnum == 65398 || vnum == 65399) {
     send_to_char(ch, "The creature on the card regards you warily, then retreats safely into your binder.\r\n");
