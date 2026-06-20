@@ -7,6 +7,9 @@ https://github.com/tbamud/tbamud
 Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
+[Jun 20 2026] - Henque
+  Server: greedisland.service systemd unit added; MUD now auto-starts on reboot.
+  deploy.sh: added systemd restart path as fallback when autorun is not running.
 [Jun 19 2026] - Henque
   PvP Alignment Penalty System: killing a good-aligned player now applies an
   immediate -1000 alignment penalty to the killer (in addition to the existing
