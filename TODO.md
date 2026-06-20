@@ -76,6 +76,9 @@ Specific prerequisites before declaring v1.00:
 **Needs new NPC mobs** (card has no item; spawn a creature on gain — Archangel/65350 pattern):
 Night Shift Dwarves (65326), Fairy King's Advice (65316).
 (Gold Dust Girl already done — its mob existed. Fledgling Politician is now an egg card.)
+All three (#16, #26, #46) are now fickle — `gain` auto-stores in binder with a creature message.
+If a proper mob spawn is desired in future, remove the vnum from fickle_vnums[] and implement
+a dedicated handler in do_gain (same pattern as hot_springs_gain / liquor_spring_gain).
 
 **Location cards — staying fickle indefinitely:**
 Patch of Forest (65301), Patch of Shore / Poseidon's Cavern (65302), Spirited Away Hollow
@@ -87,9 +90,11 @@ Cards #4/65304, #6/65306, #8/65308, #9/65309 now have **active mechanics** — s
 a themed message and auto-stores the card in the binder; timer expiry outside the binder deletes
 it with a "shimmering sparks" message (not reverting to item). Binder-exemption bug also fixed.
 To add another fickle card in future: add its vnum to `fickle_vnums[]` in `src/utils.c`.
-Currently covers: 65301, 65302, 65305 (location); 65307, 65316, 65326, 65335, 65347–65354,
-65398, 65399 (NPC/creature); 65310–65313, 65318–65324, 65327–65333, 65355, 65357–65360, 65363,
-65372, 65376–65379, 65391–65393, 65397 (collectibles). Fickle Genie (65315) also included.
+Currently covers: 65301, 65302, 65305 (location); 65307, 65315, 65316, 65326, 65335, 65346,
+65347–65354, 65398, 65399 (NPC/creature); 65310–65313, 65318–65324, 65327–65333, 65355,
+65357–65360, 65363, 65372, 65376–65379, 65391–65393, 65397 (collectibles).
+All 99 restricted cards (65301–65399) now have gain coverage: fickle, active mechanic, or
+collectible item transform. Only #0 Ruler's Blessing (65300) is intentionally unobtainable.
 
 **Flavor-only collectibles** that were listed here are now in the fickle card pattern above.
 Cards not in fickle_vnums have real mechanics (wand, food, trigger, etc.).
@@ -222,11 +227,6 @@ Already-canon (no change): #0-17, 25, 26, 31, 35-46, 56, 61, 62, 64-69, 71, 73, 
 #9 rank S-20→S-10, #74 rank A-15→A-11.
 
 ## New TODOs — future mechanics (Jun 2026)
-
-**PvP Alignment Penalty System**: PvP actions (attacking, stealing, using AS cards) should
-reduce the aggressor's alignment. Players with very evil alignment should face progressive
-restrictions (e.g., barred from certain zones, hostile NPCs, stat penalties). Implement in
-`fight.c` / `act.offensive.c` with an alignment penalty table per action type.
 
 **NPCs defeated → cards**: DONE (Jun 19 2026). All non-special mobs (IS_NPC, vnum > 100,
 !MOB_NOKILL, !MOB_NO_GAIN) drop a dynamic ITEM_CARD on death; items/gold scatter on ground.

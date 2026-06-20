@@ -7,6 +7,13 @@ https://github.com/tbamud/tbamud
 Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
+[Jun 20 2026] - Henque
+  Fickle card audit: added cards #15 Fickle Genie (65315), #46 Gold Dust Girl
+  (65346) to fickle_vnums[]. #16 Fairy King's Advice and #26 Night Shift Dwarves
+  were already fickle. Fixed Gold Dust Girl's gain message to use the creature
+  variant. Fickle Genie gain was broken (no physical item 65415 exists); now
+  works correctly via fickle path.
+
 [Jun 19 2026] - Henque
   PvP Alignment Penalty System: killing a good-aligned player now applies an
   immediate -1000 alignment penalty to the killer (in addition to the existing
