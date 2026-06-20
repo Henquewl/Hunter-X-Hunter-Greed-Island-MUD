@@ -139,14 +139,14 @@ collectibles (acceptable). Candidates that COULD be done later with existing pat
   wielder if the target is more righteous (rebound). Works on players and non-protected NPCs.
   `use staff <target>`. *Needs a live test.*
 
-- **Spell-card-driven weapons — DEFERRED (need a C primitive).** IMPORTANT: in restricted-card
-  text, "spell" = a Greed Island **spell card** (`ITEM_SPELLCARD`, the 1000–1040 set in
-  `lib/world/obj/10.obj`: Leave=1014, Clairvoyance=1015, Blackout Curtain=1025, Magnetic
-  Force=1005, Collision=1017, Rob=1021, Levy=1018, …), NOT a player magic spell. Spell-card
-  effects live in C (the big `switch` in `do_gain`, `act.item.c`) plus some DG triggers, so
-  another item cannot invoke "spell-card X on target Y" from a trigger today. To do these
-  faithfully, add a small C primitive (e.g. apply_spellcard_effect(ch, victim, card_vnum)) and
-  call it from the weapon's trigger (trigger-evokes-code):
+- **Spell-card-driven weapons — C primitive DONE (Jun 20 2026).** `perform_spellcard(ch,
+  victim, vnum)` in `act.item.c` + `dg_spellcard <vnum> <target>` DG command in `dg_misc.c`
+  allow mob/weapon triggers to invoke spell-card effects without consuming physical cards.
+  Currently implemented: 1005 Magnetic Force, 1012 Relegate. Add cases to `perform_spellcard`
+  as new weapons need them. IMPORTANT: in restricted-card text, "spell" = a Greed Island
+  **spell card** (`ITEM_SPELLCARD`, the 1000–1040 set in `lib/world/obj/10.obj`: Leave=1014,
+  Clairvoyance=1015, Blackout Curtain=1025, Magnetic Force=1005, Collision=1017, Rob=1021,
+  Levy=1018, …), NOT a player magic spell. Trigger-evokes-code path now available:
   - **#86 Quiver of Frustration — DONE** (pure DG): item 65486 holds 10 arrows (val0);
     `loose` (trigger 65486) spends one arrow and loads a Leave card (1014) — works regardless
     of binder Leaves. Empty when arrows run out.
