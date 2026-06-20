@@ -51,12 +51,14 @@ if pgrep -f 'bin/circle' >/dev/null; then
     touch .fastboot                          # autorun reboots in ~5s instead of 60
     pkill -TERM -f 'bin/circle' || true       # clean shutdown (saves players); autorun relaunches with the new binary
     echo "[deploy] Reboot signaled -- autorun will relaunch on the new build in ~5s."
+  elif systemctl is-active --quiet greedisland 2>/dev/null; then
+    pkill -TERM -f 'bin/circle' || true       # systemd Restart=always relaunches with the new binary
+    echo "[deploy] Reboot signaled -- systemd will relaunch on the new build in ~5s."
   else
     echo "[deploy] WARNING: the game is running but autorun is NOT, so it will not relaunch itself."
     echo "          Reboot it from inside the game ('shutdown reboot'), or stop it and run ./autorun.sh."
   fi
 else
-  echo "[deploy] Game not currently running. Start it under autorun with:"
-  echo "             nohup ./autorun.sh >/dev/null 2>&1 &"
+  echo "[deploy] Game not currently running. Start it with: sudo systemctl start greedisland"
 fi
 echo "[deploy] Done."
