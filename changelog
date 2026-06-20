@@ -8,6 +8,15 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 20 2026] - Henque
+  Added perform_spellcard() C primitive (act.item.c) and dg_spellcard DG command
+  (dg_misc.c) to invoke spell-card effects (vnums 1005 Magnetic Force, 1012
+  Relegate) from mob triggers without consuming physical cards. Dispatched from
+  dg_scripts.c; declared in dg_scripts.h.
+  Fixed trigger #15001 (Magic User, mob 15032): spell selection was gated on
+  %actor.level% (the player's level) instead of %self.level% (the mob's level),
+  making a level-33 pit fiend behave as a low-level caster against weak players.
+
+[Jun 20 2026] - Henque
   Fickle card audit: added cards #15 Fickle Genie (65315), #46 Gold Dust Girl
   (65346) to fickle_vnums[]. #16 Fairy King's Advice and #26 Night Shift Dwarves
   were already fickle. Fixed Gold Dust Girl's gain message to use the creature
