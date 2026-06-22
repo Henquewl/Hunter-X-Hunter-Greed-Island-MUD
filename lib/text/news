@@ -8,6 +8,8 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 == 2026 ==
 
 JUN 22 **
+- Cards received via give or steal now arrive with a full timer, so the new
+  owner always has the maximum time before the card reverts.
 - The card image displayed by MXP clients now loads below the card description
   text instead of above it, so the text is always visible when looking at cards.
 

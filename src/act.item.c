@@ -2344,12 +2344,14 @@ static void perform_give(struct char_data *ch, struct char_data *vict, struct ob
   }
   obj_from_char(obj);
   obj_to_char(obj, vict);
+  if (IS_CARD(obj))
+    GET_OBJ_TIMER(obj) = 62;
   act("You give $p to $N.", FALSE, ch, obj, vict, TO_CHAR);
   act("$n gives you $p.", FALSE, ch, obj, vict, TO_VICT);
   act("$n gives $p to $N.", TRUE, ch, obj, vict, TO_NOTVICT);
 
   autoquest_trigger_check( ch, vict, obj, AQ_OBJ_RETURN);
-  
+
   if (IS_NPC(ch) && !IS_NPC(vict) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) > 65300 && GET_OBJ_VNUM(obj) != 65535)
 	make_card(vict, obj, TRUE);
 }
