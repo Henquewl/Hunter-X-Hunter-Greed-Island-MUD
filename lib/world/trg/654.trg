@@ -131,6 +131,37 @@ emote sheds a cascade of golden dust, then dissolves into sparkling motes.
 %force% %self% drop coins
 %purge% %self%
 ~
+#65447
+sleeping girl lifespan~
+0 n 100
+~
+wait 1800 sec
+if !%self.room%
+  halt
+end
+%echo% The sleeping girl stirs softly, mumbles, and fades like a vanishing dream.
+%purge% %self%
+~
+#65448
+aromatherapy girl heal~
+0 b 100
+~
+:loop
+wait 75 sec
+if !%self.master%
+  halt
+end
+eval master %self.master%
+if %master.pos% == Incapacitated || %master.pos% == MortallyWounded || %master.pos% == Dead || %master.pos% == Stunned
+  goto loop
+end
+eval heal_hp %master.maxhp% / 10
+eval heal_mana %master.maxmana% / 10
+%damage% %master% -%heal_hp%
+nop %master.mana(%master.mana% + %heal_mana%)%
+%send% %master% The gentle aroma from %self.name% soothes your stress a little.
+goto loop
+~
 #65461
 Scanner~
 1 c 4
@@ -726,35 +757,4 @@ rdelete hormone_orig_sex %self.id%
 detach 65515 %self.id%
 ~
 
-#65447
-sleeping girl lifespan~
-0 n 100
-~
-wait 1800 sec
-if !%self.room%
-  halt
-end
-%echo% The sleeping girl stirs softly, mumbles, and fades like a vanishing dream.
-%purge% %self%
-~
-#65448
-aromatherapy girl heal~
-0 b 100
-~
-:loop
-wait 75 sec
-if !%self.master%
-  halt
-end
-eval master %self.master%
-if %master.pos% == Incapacitated || %master.pos% == MortallyWounded || %master.pos% == Dead || %master.pos% == Stunned
-  goto loop
-end
-eval heal_hp %master.maxhp% / 10
-eval heal_mana %master.maxmana% / 10
-%damage% %master% -%heal_hp%
-nop %master.mana(%master.mana% + %heal_mana%)%
-%send% %master% The gentle aroma from %self.name% soothes your stress a little.
-goto loop
-~
 $~
