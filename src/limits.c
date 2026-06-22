@@ -677,9 +677,22 @@ void second_update(void)
 	
 	if (IS_CARD(j)) {
 	  int mcard = 0;
+	  /* Cards in a player's inventory in a peaceful room: freeze timer */
+	  if (j->carried_by && !IS_NPC(j->carried_by) &&
+	      IN_ROOM(j->carried_by) != NOWHERE &&
+	      ROOM_FLAGGED(IN_ROOM(j->carried_by), ROOM_PEACEFUL)) {
+	    GET_OBJ_TIMER(j) = 62;
+	    continue;
+	  }
 	  if (GET_OBJ_TIMER(j) > 0)
 	    GET_OBJ_TIMER(j)--;
 	  if (GET_OBJ_TIMER(j) == 0) {
+	    /* Card on peaceful room floor: all types dissolve silently */
+	    if (IN_ROOM(j) != NOWHERE && ROOM_FLAGGED(IN_ROOM(j), ROOM_PEACEFUL)) {
+	      send_to_room(IN_ROOM(j), "A Greed Island card shimmers and vanishes in a puff of smoke.\r\n");
+	      extract_obj(j);
+	      continue;
+	    }
 	    /* mob cards: timer expiry creates empty corpse (binder is safe haven) */
 	    if (IS_CARD(j) && GET_OBJ_VAL(j, 0) == 1) {
 	      if (j->in_obj && GET_OBJ_VNUM(j->in_obj) == 3203)
