@@ -8,6 +8,14 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 22 2026] - Henque
+  Peaceful-room card timer rules (limits.c second_update):
+  - Cards in a player's inventory in a peaceful room have their timer frozen at 62;
+    upon leaving the room the player gets a fresh 62-second window to store the card.
+  - Cards dropped on the floor of a peaceful room still count down normally, but at
+    timer=0 they disappear ("puff of smoke") instead of reverting to an item —
+    applies to all card types (mob, fickle, normal, spell).
+
+[Jun 22 2026] - Henque
   Block all gain usage in peaceful rooms (act.item.c: single ROOM_PEACEFUL check at
   top of do_gain). Covers spell cards, restricted cards, free cards, and common items.
   Auto-gain on item pickup (perform_get_from_room etc.) is unaffected — cards still
