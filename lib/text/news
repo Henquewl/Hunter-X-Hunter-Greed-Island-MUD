@@ -8,6 +8,13 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 == 2026 ==
 
 JUN 22 **
+- Cards #46 Gold Dust Girl, #47 Sleeping Girl, and #48 Aromatherapy Girl
+  now summon real NPCs when used with gain (indoors only, not in peaceful
+  or water areas).
+  Gold Dust Girl sheds gold and vanishes. Sleeping Girl rests nearby and
+  gives you sleep-level recovery even while standing or sitting (lasts 24
+  game hours). Aromatherapy Girl follows you, accepts orders, and restores
+  some HP and nen every hour.
 - Secret Cape now provides permanent Blackout Curtain protection: Peek,
   Fluoroscopy, and Sightvision are blocked while the cape is worn, without
   consuming the protection.

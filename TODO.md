@@ -67,6 +67,8 @@ Specific prerequisites before declaring v1.00:
 2. World rework — main Greed Island zones with canonical names, themes, and NPCs
 3. Ruler's Blessing (#0) obtainable only as a reward for completing the full 99-card set
 4. All items marked *Needs a live test* above verified in live gameplay
+5. **Vnum migration** — Restricted card vnums (653xx/654xx) renumbered into zone 0 (cards) and zone 1 (physical items), replacing unused TbaMUD starter items in those zones. Migration must maintain all T-line associations, `GET_OBJ_RENT` mappings, `make_card` offsets (card+100 → item), and the `fickle_vnums[]` array. Careful audit required to avoid breaking any existing card mechanics.
+6. **Peaceful-room audit** — Review all spell cards (ITEM_SPELLCARD, zone 10) and restricted cards (ITEM_RESTRICTED, zone 653/654) to confirm that `gain` is blocked in peaceful areas. Any card whose effect could be exploited in a safe zone (healing, stat buffs, NPC spawns) must be explicitly guarded.
 
 ---
 

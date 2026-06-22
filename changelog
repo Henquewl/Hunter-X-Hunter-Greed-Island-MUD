@@ -8,6 +8,21 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 22 2026] - Henque
+  Implemented girl cards #46/#47/#48 (Gold Dust Girl, Sleeping Girl, Aromatherapy Girl):
+  - gain now spawns a fragile NPC (level 1, 1 HP) instead of auto-storing in binder.
+  - All three blocked in peaceful rooms (new message), outdoor areas, and water sectors.
+  - Gold Dust Girl (65346/65446): NPC drops 500 gold on spawn and purges immediately.
+    Mob stats simplified to 1 HP; trigger changed from greet to load type. (654.mob, 654.trg)
+  - Sleeping Girl (65347/65447): NPC added (SENTINEL, POS_SLEEPING). Player gets
+    sleep-rate HP/mana regen while at POS_SITTING or above; effect ends when mob is
+    killed or after 1800 sec (24 game hours). (limits.c, 654.mob, 654.trg)
+  - Aromatherapy Girl (65348/65448): NPC follows player (AFF_CHARM, add_follower),
+    player can issue orders; heals 10% HP+mana every 75 sec via DG background trigger.
+    (act.item.c, 654.mob, 654.trg)
+  - Removed 65346/65347/65348 from fickle_vnums[]; added gain handlers and dispatch
+    in do_gain for both the held-item and named-item branches. (utils.c, act.item.c)
+  - TODO.md: added v1.00 criteria for vnum migration and peaceful-room audit.
+
   Removed "The egg pulses warmly." periodic message from fledgling egg
   incubation — only the removal warning and hatch message remain. (limits.c)
 

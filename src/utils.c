@@ -1538,8 +1538,8 @@ static const int fickle_vnums[] = {
   /* Group A — location cards without a reachable destination */
   65301, 65302, 65305,
   /* Group B — NPC/creature cards (spawning a mob would leave a corpse) */
-  65307, 65315, 65316, 65326, 65335, 65346,
-  65347, 65348, 65349, 65350, 65351, 65352, 65353, 65354,
+  65307, 65315, 65316, 65326, 65335,
+  65349, 65350, 65351, 65352, 65353, 65354,
   65398, 65399,
   /* Group C — pure collectibles (ITEM_OTHER, no trigger, no active mechanic) */
   65310, 65311, 65312, 65313, 65318, 65319, 65320,

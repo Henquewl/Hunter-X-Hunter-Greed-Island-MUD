@@ -17,24 +17,14 @@ T 3247
 #65446
 golden girl~
 a golden girl~
-A golden girl is here, sitting in a bathtub.
+A golden girl is here, shedding fine golden dust.
 ~
 She is naked and her body is totally golden, with eyes and hair brown.
 ~
-262152 0 0 0 67584 0 0 0 0 E
-1 10 -10 6d6+300 5d5+5
-300 90000
-6 8 2
-Str: 18
-Dex: 25
-Int: 18
-Wis: 18
-Con: 18
-Cha: 18
-SavingPara: 5
-SavingRod: 3
-SavingPetri: 13
-SavingBreath: 3
+0 0 0 0 0 0 0 0 0 E
+1 20 10 1d1+0 1d1+0
+0 0
+8 8 2
 E
 T 65446
 #65496
@@ -52,4 +42,30 @@ to divine hidden truths when fed, spitting up a Clairvoyance card.
 E
 T 65497
 T 65498
+#65447
+sleeping girl~
+a sleeping girl~
+A sleeping girl is curled up here, breathing softly.
+~
+She sleeps peacefully, as if taking your place in the dream world.
+~
+2 0 0 0 0 0 0 0 0 E
+1 20 10 1d1+0 1d1+0
+0 0
+4 4 2
+E
+T 65447
+#65448
+aromatherapy girl~
+an aromatherapy girl~
+An aromatherapy girl walks beside you, trailing a soft floral scent.
+~
+She carries small incense sticks and moves gracefully at your side.
+~
+0 0 0 0 0 0 0 0 0 E
+1 20 10 1d1+0 1d1+0
+0 0
+8 8 2
+E
+T 65448
 $

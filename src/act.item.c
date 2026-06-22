@@ -995,6 +995,68 @@ static int room_allows_card_effect(struct char_data *ch)
   return TRUE;
 }
 
+static int room_allows_girl_card(struct char_data *ch)
+{
+  if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_PEACEFUL)) {
+    send_to_char(ch, "Spell cards and restricted cards cannot be used in peaceful areas.\r\n");
+    return FALSE;
+  }
+  if (OUTSIDE(ch)) {
+    send_to_char(ch, "This place is too exposed — the girl needs an indoor space.\r\n");
+    return FALSE;
+  }
+  int sect = SECT(IN_ROOM(ch));
+  if (sect == SECT_WATER_SWIM || sect == SECT_WATER_NOSWIM || sect == SECT_UNDERWATER) {
+    send_to_char(ch, "This location is not suitable for summoning a girl.\r\n");
+    return FALSE;
+  }
+  return TRUE;
+}
+
+static void gold_dust_girl_gain(struct char_data *ch, struct obj_data *card)
+{
+  struct char_data *mob;
+  if (!room_allows_girl_card(ch)) return;
+  mob = read_mobile(65446, VIRTUAL);
+  if (!mob) return;
+  char_to_room(mob, IN_ROOM(ch));
+  GET_GOLD(mob) = 500;
+  act("$n holds up $p and a golden girl shimmers into existence.", TRUE, ch, card, 0, TO_ROOM);
+  send_to_char(ch, "A golden girl shimmers into existence and sheds her dust.\r\n");
+  obj_from_char(card);
+  extract_obj(card);
+}
+
+static void sleeping_girl_gain(struct char_data *ch, struct obj_data *card)
+{
+  struct char_data *mob;
+  if (!room_allows_girl_card(ch)) return;
+  mob = read_mobile(65447, VIRTUAL);
+  if (!mob) return;
+  char_to_room(mob, IN_ROOM(ch));
+  GET_POS(mob) = POS_SLEEPING;
+  add_follower(mob, ch);
+  act("$n places a card on the floor; a sleeping girl materialises and curls up quietly.", TRUE, ch, card, 0, TO_ROOM);
+  send_to_char(ch, "A sleeping girl appears and begins to sleep. You feel your body relax.\r\n");
+  obj_from_char(card);
+  extract_obj(card);
+}
+
+static void aromatherapy_girl_gain(struct char_data *ch, struct obj_data *card)
+{
+  struct char_data *mob;
+  if (!room_allows_girl_card(ch)) return;
+  mob = read_mobile(65448, VIRTUAL);
+  if (!mob) return;
+  char_to_room(mob, IN_ROOM(ch));
+  SET_BIT_AR(AFF_FLAGS(mob), AFF_CHARM);
+  add_follower(mob, ch);
+  act("$n releases a card; an aromatherapy girl appears, bows, and falls into step beside $m.", TRUE, ch, card, 0, TO_ROOM);
+  send_to_char(ch, "An aromatherapy girl appears beside you. A faint, soothing scent fills the air.\r\n");
+  obj_from_char(card);
+  extract_obj(card);
+}
+
 static void consume_location_card(struct char_data *ch, struct obj_data *card)
 {
   if (card->worn_by)
@@ -1614,6 +1676,12 @@ ACMD(do_gain)
             mystery_pond_gain(ch, held);
           else if (GET_OBJ_VNUM(held) == 65309)
             tree_of_plenty_gain(ch, held);
+          else if (GET_OBJ_VNUM(held) == 65346)
+            gold_dust_girl_gain(ch, held);
+          else if (GET_OBJ_VNUM(held) == 65347)
+            sleeping_girl_gain(ch, held);
+          else if (GET_OBJ_VNUM(held) == 65348)
+            aromatherapy_girl_gain(ch, held);
           else
             make_card(ch, held, TRUE);
           break;
@@ -1666,6 +1734,12 @@ ACMD(do_gain)
 		    mystery_pond_gain(ch, obj);
 		  else if (GET_OBJ_VNUM(obj) == 65309)
 		    tree_of_plenty_gain(ch, obj);
+		  else if (GET_OBJ_VNUM(obj) == 65346)
+		    gold_dust_girl_gain(ch, obj);
+		  else if (GET_OBJ_VNUM(obj) == 65347)
+		    sleeping_girl_gain(ch, obj);
+		  else if (GET_OBJ_VNUM(obj) == 65348)
+		    aromatherapy_girl_gain(ch, obj);
 		  else {
 		    msg += make_card(ch, obj, TRUE);
 		    if (!msg)
