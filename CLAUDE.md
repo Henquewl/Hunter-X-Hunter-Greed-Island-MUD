@@ -189,7 +189,7 @@ detach <TIMER_TRIG_VNUM> %self.id%
 ```
 
 - **Check if effect is active**: `if %actor.myeffect_active%` (empty string = falsy when var absent).
-- **Remote variables are volatile**: lost on full server reboot (not on copyover). The underlying C change (e.g. `GET_SEX`) is saved to the player file, but the timer is not. Document this as a known limitation.
+- **Remote variables are volatile**: lost on full server reboot (not on copyover) **and on player quit/reconnect**. The underlying C change (e.g. `GET_SEX`) is saved to the player file, but the attached timer trigger and remote vars are not. Consequence: a player who quits mid-effect reconnects with the stat change permanent and no reversion timer. Fix requires porting the effect to the C `affect` system (duration-based, saved to player file). Accepted as a known limitation for effects where the exploit is harmless (e.g. Hormone Cookies sex swap).
 - **`%actor.is_npc%`** — reliable guard to skip NPCs in any trigger.
 
 ### Writable DG fields (subfield syntax)
