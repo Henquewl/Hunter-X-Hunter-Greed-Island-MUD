@@ -493,6 +493,7 @@ cpp_extern const struct command_info cmd_info[] = {
   { "mforget"  , do_mforget  , 0 },
   { "mtransform", do_mtransform , 0 },
   { "mzoneecho", do_mzoneecho, 0 },
+  { "mgecho"   , do_mgecho   , 0 },
   { "mfollow"  , do_mfollow  , 0 },
   { "\n" , do_not_here , 0 } };
 

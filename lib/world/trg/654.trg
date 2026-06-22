@@ -757,4 +757,21 @@ rdelete hormone_orig_sex %self.id%
 detach 65515 %self.id%
 ~
 
+#65516
+Ruler's Invitation - Eta Announcement~
+1 n 100
+~
+* Fires via load_otrigger() from C when the card is placed in the player's inventory.
+* %actor% = the player who completed the set. Name is NOT broadcast globally.
+wait 3 sec
+mgecho @WEta says, '@nAttention, travelers of Greed Island!@W'@n
+wait 3 sec
+mgecho @WEta says, '@nOne among you has done what most believed impossible -- all 99 restricted cards have been collected.@W'@n
+wait 3 sec
+mgecho @WEta says, '@nThe player who accomplished this feat will receive a special invitation to celebrate their victory and claim their prize.@W'@n
+wait 9 sec
+%send% %actor% A majestic owl swoops in silently and places a shimmering golden card into your hands, then vanishes without a trace.
+%echoaround% %actor% A majestic owl swoops in and deposits a shimmering golden card into %actor.name%'s hands, then disappears.
+~
+
 $~
