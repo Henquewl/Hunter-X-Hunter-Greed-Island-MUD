@@ -60,7 +60,9 @@ Other `lib/` state: `etc/` (runtime state — `last`, `time`, `plrmail`; gitigno
 
 ### Boot sequence
 
-`comm.c` holds `main()` and the network/game loop. At startup it calls into `db.c`, which parses every `lib/world/*` file into in-memory arrays. **Critical invariant:** within each world file, entries must be sorted by ascending vnum — TbaMUD uses binary search (`real_room`, `real_object`, `real_mobile`) to map a *virtual* number (vnum, the stable content ID) to a *real* array index. Out-of-order vnums silently break lookups and produce `SYSERR: invalid vnum` on zone reset (see recent changelog fixes in zones 653/654). When adding items/mobs to a world file, insert them in vnum order.
+`comm.c` holds `main()` and the network/game loop. At startup it calls into `db.c`, which parses every `lib/world/*` file into in-memory arrays. **Critical invariant:** within each world file, entries must be sorted by ascending vnum — TbaMUD uses binary search (`real_room`, `real_object`, `real_mobile`, `real_trigger`) to map a *virtual* number (vnum, the stable content ID) to a *real* array index. Out-of-order vnums silently break lookups and produce `SYSERR: invalid vnum` on zone reset (see recent changelog fixes in zones 653/654). When adding items/mobs/triggers to a world file, insert them in vnum order.
+
+**Trigger ordering failure mode is silent:** for `.trg` files specifically, an out-of-order vnum causes `real_trigger()` to return NOTHING with no SYSERR logged. Symptoms: `stat obj <name>` shows `Triggers: None` despite `T <vnum>` being in the `.obj` file; `tstat <vnum>` says "That vnum does not exist." Diagnosis: `grep '^#[0-9]' lib/world/trg/<zone>.trg` — if any vnum is lower than a preceding one, the binary search's early-exit check (`trig_index[top]->vnum < target`) silently discards all lookups for vnums above the out-of-order entry.
 
 ### `src/` layout conventions
 
@@ -165,6 +167,10 @@ Special cases are inserted at `act.item.c` ~line 1919 (after the Recycling Room 
 - `1 s 0` — object consume trigger, always fires.
 - `0 b 100` — mob background trigger, 100% chance; standard for timers attached to a player with `attach`.
 - `1 n 100` — object load trigger; used for setup loops (like Hot Spring, Tree of Plenty).
+
+### `elseif` vs `else if` in DG Scripts
+
+DG Script does **not** support `else if` (two separate words). The interpreter checks for `elseif ` (7 chars, one word + space) before falling back to `else` (4 chars). A line written as `else if <condition>` matches the `else` branch — the condition is **ignored** and the block always executes as a plain `else`. This causes Neutral-sex actors to receive the Female branch, boolean guards to be skipped, etc. Always write `elseif <condition>` as one word.
 
 ### `halt` vs `return 0` in consume triggers
 
