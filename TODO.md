@@ -92,7 +92,7 @@ a themed message and auto-stores the card in the binder; timer expiry outside th
 it with a "shimmering sparks" message (not reverting to item). Binder-exemption bug also fixed.
 To add another fickle card in future: add its vnum to `fickle_vnums[]` in `src/utils.c`.
 Currently covers: 65301, 65302, 65305 (location); 65307, 65315, 65316, 65326, 65335, 65346,
-65347–65354, 65398, 65399 (NPC/creature); 65310–65313, 65318–65324, 65327–65333, 65355,
+65347–65354, 65398, 65399 (NPC/creature); 65310–65313, 65318–65324, 65327–65332, 65355,
 65357–65360, 65363, 65372, 65376–65379, 65391–65393, 65397 (collectibles).
 All 99 restricted cards (65301–65399) now have gain coverage: fickle, active mechanic, or
 collectible item transform. Only #0 Ruler's Blessing (65300) is intentionally unobtainable.
