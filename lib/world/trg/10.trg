@@ -47,11 +47,13 @@ rdelete castle_gate %arg.id%
 %purge% %self%
 halt
 end
-if %arg.varexists(blackout_curtain)%
+if %arg.varexists(blackout_curtain)% || %arg.varexists(blackout_curtain_cape)%
 %send% %actor% %arg.name% was protected by a spell!
 %echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
 %send% %arg% A defensive spell ends.
+if %arg.varexists(blackout_curtain)%
 rdelete blackout_curtain %arg.id%
+end
 %purge% %self%
 halt
 end
@@ -97,10 +99,12 @@ rdelete castle_gate %arg.id%
 %purge% %self%
 halt
 end
-if %arg.varexists(blackout_curtain)%
+if %arg.varexists(blackout_curtain)% || %arg.varexists(blackout_curtain_cape)%
 %send% %actor% %arg.name% was protected by a spell!
 %send% %arg% A defensive spell ends.
+if %arg.varexists(blackout_curtain)%
 rdelete blackout_curtain %arg.id%
+end
 %purge% %self%
 halt
 end
@@ -821,11 +825,13 @@ rdelete castle_gate %arg.id%
 %purge% %self%
 halt
 end
-if %arg.varexists(blackout_curtain)%
+if %arg.varexists(blackout_curtain)% || %arg.varexists(blackout_curtain_cape)%
 %send% %actor% %arg.name% was protected by a spell!
 %echoaround% %actor% %actor.name% cast a spell card on %arg.name%.
 %send% %arg% A defensive spell ends.
+if %arg.varexists(blackout_curtain)%
 rdelete blackout_curtain %arg.id%
+end
 %purge% %self%
 halt
 end

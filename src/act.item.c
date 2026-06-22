@@ -370,7 +370,7 @@ static void perform_get_from_container(struct char_data *ch, struct obj_data *ob
       get_check_money(ch, obj);
 	  if (GET_OBJ_VNUM(cont) == 3203)
 		GET_OBJ_TIMER(obj) = 62;	  
-	  else if (obj && !IS_NPC(ch) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) > 65300 && GET_OBJ_VNUM(obj) != 65535)
+	  else if (obj && !IS_NPC(ch) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) > 65300 && GET_OBJ_VNUM(obj) <= 65499)
 	    make_card(ch, obj, TRUE);
     }
   }
@@ -434,7 +434,7 @@ static int perform_get_from_room(struct char_data *ch, struct obj_data *obj)
     act("You get $p.", FALSE, ch, obj, 0, TO_CHAR);
     act("$n gets $p.", TRUE, ch, obj, 0, TO_ROOM);
     get_check_money(ch, obj);
-	if (obj && !IS_NPC(ch) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) > 65300 && GET_OBJ_VNUM(obj) != 65535)
+	if (obj && !IS_NPC(ch) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) > 65300 && GET_OBJ_VNUM(obj) <= 65499)
 	    make_card(ch, obj, TRUE);
     return (1);
   }
@@ -1943,7 +1943,7 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
   number = GET_OBJ_VNUM(obj);
   
   /* number == 65535 && OBJ_FLAGGED(obj, ITEM_QUEST) == VOUCHER */  
-  if ((number == 65535 && OBJ_FLAGGED(obj, ITEM_QUEST)) || (number > 65400 && number != 65535)) {
+  if ((number == 65535 && OBJ_FLAGGED(obj, ITEM_QUEST)) || (number > 65400 && number <= 65499)) {
 	if (number == 65535 && OBJ_FLAGGED(obj, ITEM_QUEST))
 	  rst = read_object((GET_OBJ_RENT(obj) - 100), VIRTUAL);
     else
@@ -1965,7 +1965,7 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
     return 1;
   }
 
-  if (limit == 0 && ((number > 65300 && number != 65535) || (number == 65535 && OBJ_FLAGGED(obj, ITEM_QUEST)))) {
+  if (limit == 0 && ((number > 65300 && number <= 65499) || (number == 65535 && OBJ_FLAGGED(obj, ITEM_QUEST)))) {
 	if (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED) {
 	  if (!(card = read_object((number + 100), VIRTUAL))) {
 		if (GET_OBJ_TIMER(obj) > 0)
@@ -2357,7 +2357,7 @@ static void perform_give(struct char_data *ch, struct char_data *vict, struct ob
 
   autoquest_trigger_check( ch, vict, obj, AQ_OBJ_RETURN);
 
-  if (IS_NPC(ch) && !IS_NPC(vict) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) > 65300 && GET_OBJ_VNUM(obj) != 65535)
+  if (IS_NPC(ch) && !IS_NPC(vict) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) > 65300 && GET_OBJ_VNUM(obj) <= 65499)
 	make_card(vict, obj, TRUE);
 }
 
