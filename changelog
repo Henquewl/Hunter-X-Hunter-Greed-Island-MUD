@@ -8,6 +8,14 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 22 2026] - Henque
+  Corrigida flag ITEM_NOGAIN incorreta em 83 de 100 cartas restritas em
+  lib/world/obj/653.obj. A flag 't' (bit 19 = ITEM_NOGAIN) estava setada
+  no world file, tornando o gain permanentemente impossivel para essas
+  cartas. ITEM_NOGAIN so deve existir em runtime (quando a carta e
+  convertida para item fisico). Carta #65300 (Ruler's Blessing, flags
+  'dgrt') preservada sem alteracao.
+
+[Jun 22 2026] - Henque
   Imms (nivel >= LVL_IMMORT) podem fazer quit normalmente mesmo com cartas
   restritas no inventario/binder; cartas sao salvas (nao extraidas). Antes
   precisavam usar forcequit (que destruia as cartas). Mudancas em do_quit:

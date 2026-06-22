@@ -16,7 +16,7 @@ Its residents will live according to whatever laws and commands you issue.
 @m1 Patch of Forest SS-3 card@n~
 The @m1 Patch of Forest SS-3 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 937500 3 0 62
 E
@@ -29,7 +29,7 @@ They are all tame and friendly.
 @m2 Plot of Beach SS-3 card@n~
 The @m2 Plot of Beach SS-3 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 937500 3 0 62
 E
@@ -54,7 +54,7 @@ A jar from which pure, clean water (1440 L per day) continually flows.
 @m4 Skin Care Hot Springs A-15 card@n~
 The @m4 Skin Care Hot Springs A-15 card@G is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 105000 15 0 62
 E
@@ -67,7 +67,7 @@ Bathing in it for half an hour a day gives you skin as soft and smooth as a baby
 @m5 Spirited Away Hollow S-8 card@n~
 The @mSpirited Away Hollow S-8 card@G is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 285000 8 0 62
 E
@@ -80,7 +80,7 @@ Circumstances will allow you to return to where you started without you having t
 @m6 Liquor Spring A-15 card@n~
 The @mLiquor Spring A-15 card@G is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 105000 15 0 62
 E
@@ -93,7 +93,7 @@ random alcoholic drink of exquisite taste and extraordinary quality.
 @m7 Pregnancy Stones S-10 card@n~
 The @m7 Pregnancy Stones S-10 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 279000 10 0 62
 E
@@ -106,7 +106,7 @@ You may choose the sex of the baby by the female or male stone.
 @m8 Mystery Pond S-10 card  @n~
 The @mMystery Pond card@G is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 279000 10 0 62
 E
@@ -119,7 +119,7 @@ You can keep any combination of fish in this pond, even saltwater and freshwater
 @m9 Tree of Plenty S-10 card@n~
 The @mTree of Plenty S-10 card@G is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 249000 10 0 62
 E
@@ -133,7 +133,7 @@ The 	mtype and number of fruit are random.
 @m10 Golden Guidebook A-20 card@n~
 The @mGolden Guidebook A-20 card@G is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 102500 20 0 62
 E
@@ -147,7 +147,7 @@ cards worth seeking.
 @m11 Golden Scales B-30 card@n~
 The @mGolden Scales B-30 card@G is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -160,7 +160,7 @@ will tell you which is better for your future.
 @m12 Golden Dictionary S-10 card@n~
 The @mGolden Dictionary S-10 card@G is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 279000 10 0 62
 E
@@ -174,7 +174,7 @@ will come in handy the next day.
 @m13 Luck Bankbook A-20 card@n~
 The @m13 Luck Bankbook A-20 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 102500 20 0 62
 E
@@ -187,7 +187,7 @@ and you can accumulate and convert them into cash.
 @m14 Connection Severing Scissors B-22 card@n~
 The @m14 Connection Severing Scissors B-22 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 51315 22 0 62
 E
@@ -200,7 +200,7 @@ as a wand of teleportation with 99 charges -- the enchantment gave up on severin
 @m15 Fickle Genie S-10 card@n~
 The @m15 Fickle Genie S-10 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 279000 10 0 62
 E
@@ -214,7 +214,7 @@ significantly different wishes and he will choose three from among them.
 @m16 Fairy King's Advice S-6 card@n~
 The @m16 Fairy King's Advice S-6 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 291000 6 0 62
 E
@@ -240,7 +240,7 @@ She will only appear once.
 @m18 Imp's Wink A-18 card@n~
 The @m18 Imp's Wink A-18 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 18 0 62
 E
@@ -253,7 +253,7 @@ She can appear multiple times. Be warned, it can get addictive.
 @m19 Poltergeist Pillow A-13 card@n~
 The @m19 Poltergeist Pillow A-13 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 13 0 62
 E
@@ -267,7 +267,7 @@ body within 24 hours.
 @m20 Mood Clock B-30 card@n~
 The @m20 Mood Clock B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -281,7 +281,7 @@ according to the situation.
 @m21 X-Ray Goggles B-27 card@n~
 The @m21 X-Ray Goggles B-27 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 27 0 62
 E
@@ -295,7 +295,7 @@ cards from Masadora.
 @m22 Toraemon A-22 card@n~
 The @m22 Toraemon A-22 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 22 0 62
 E
@@ -309,7 +309,7 @@ picked up.
 @m23 Tome of a Thousand Tales B-30 card@n~
 The @m23 Tome of a Thousand Tales B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -323,7 +323,7 @@ you put it down.
 @m24 Hypothetical T.V. A-20 card@n~
 The @m24 Hypothetical T.V. A-20 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 20 0 62
 E
@@ -351,7 +351,7 @@ out all the previous great events.
 @m26 Night Shift Dwarves A-20 card@n~
 The @m26 Night Shift Dwarves A-20 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 102500 20 0 62
 E
@@ -364,7 +364,7 @@ They cannot do anything beyond your abilities.
 @m27 Book of V.I.P Passes B-25 card@n~
 The @m27 Book of V.I.P Passes B-25 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 25 0 62
 E
@@ -376,7 +376,7 @@ You can go anywhere with these passes. Book of 1000.
 @m28 Capricious Remote B-27 card@n~
 The @m28 Capricious Remote B-27 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 27 0 62
 E
@@ -390,7 +390,7 @@ people feel toward you.)
 @m29 Pre-Order Vouchers A-20 card@n~
 The @m29 Pre-Order Vouchers A-20 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 20 0 62
 E
@@ -404,7 +404,7 @@ have to pay). A book of 1000.
 @m30 Favor Cushion B-21 card@n~
 The @m30 Favor Cushion B-21 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 21 0 62
 E
@@ -430,7 +430,7 @@ you will get a reply the next day.
 @m32 Parrot Candy B-30 card@n~
 The @m32 Parrot Candy B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -444,7 +444,7 @@ per pack.
 @m33 Hormone Cookies S-13 card@n~
 The @m33 Hormone Cookies S-13 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 13 0 62
 E
@@ -459,7 +459,7 @@ patience is the only cure.
 @m34 Universal Survey B-30 card@n~
 The @m34 Universal Survey B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -473,7 +473,7 @@ target is not magically bound.
 @m35 Chameleon Cat S-6 card@n~
 The @m35 Chameleon Cat S-6 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 6 0 62
 E
@@ -487,7 +487,7 @@ large hamster, for example.
 @m36 Recycling Room S-10 card@n~
 The @m36 Recycling Room S-10 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 10 0 62
 E
@@ -501,7 +501,7 @@ condition. Single use.
 @m37 Fledgling Athlete B-30 card@n~
 The @m37 Fledgling Athlete B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -515,7 +515,7 @@ desire during incubation, the sooner it will hatch.
 @m38 Fledgling Artist B-30 card@n~
 The @m38 Fledgling Artist B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -529,7 +529,7 @@ desire during incubation, the sooner it will hatch.
 @m39 Fledgling Politician B-30 card@n~
 The @m39 Fledgling Politician B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -543,7 +543,7 @@ desire during incubation, the sooner it will hatch.
 @m40 Fledgling Musician B-30 card@n~
 The @m40 Fledgling Musician B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -557,7 +557,7 @@ desire during incubation, the sooner it will hatch.
 @m41 Fledgling Pilot B-30 card@n~
 The @m41 Fledgling Pilot B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -571,7 +571,7 @@ desire during incubation, the sooner it will hatch.
 @m42 Fledgling Novelist B-30 card@n~
 The @m42 Fledgling Novelist B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -585,7 +585,7 @@ desire during incubation, the sooner it will hatch.
 @m43 Fledgling Gambler B-30 card@n~
 The @m43 Fledgling Gambler B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -599,7 +599,7 @@ desire during incubation, the sooner it will hatch.
 @m44 Fledgling Actor B-30 card@n~
 The @m44 Fledgling Actor B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -613,7 +613,7 @@ desire during incubation, the sooner it will hatch.
 @m45 Fledgling CEO B-30 card@n~
 The @m45 Fledgling CEO B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -627,7 +627,7 @@ desire during incubation, the sooner it will hatch.
 @m46 Gold Dust Girl A-13 card@n~
 The @m46 Gold Dust Girl A-13 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 106000 13 0 62
 E
@@ -640,7 +640,7 @@ of pure gold that can be gathered and spent.
 @m47 Sleeping Girl A-11 card@n~
 The @m47 Sleeping Girl A-11 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 11 0 62
 E
@@ -653,7 +653,7 @@ without sleeping while she sleeps for you.
 @m48 Aromatherapy Girl A-15 card@n~
 The @m48 Aromatherapy Girl A-15 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 15 0 62
 E
@@ -666,7 +666,7 @@ your side, you will be free of stress.
 @m49 Miniature Mermaid A-23 card@n~
 The @m49 Miniature Mermaid A-23 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 23 0 62
 E
@@ -680,7 +680,7 @@ beautiful voice.
 @m50 Miniature Dino A-11 card@n~
 The @m50 Miniature Dino A-11 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 11 0 62
 E
@@ -693,7 +693,7 @@ different species of tiny dinosaur with each new generation.
 @m51 Miniature Dragon S-10 card@n~
 The @m51 Miniature Dragon S-10 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 10 0 62
 E
@@ -706,7 +706,7 @@ and eventually learn to talk if raised with love.
 @m52 Pearl Locusts B-30 card@n~
 The @m52 Pearl Locusts B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -719,7 +719,7 @@ once every dozen years or so.
 @m53 King White Stag Beetle A-30 card@n~
 The @m53 King White Stag Beetle A-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -732,7 +732,7 @@ colony. It leaves the colony once a day for an evening stroll.
 @m54 Millennium Butterfly A-25 card@n~
 The @m54 Millennium Butterfly A-25 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 25 0 62
 E
@@ -745,7 +745,7 @@ captures it will prosper for generations.
 @m55 Revenge Shop A-20 card@n~
 The @m55 Revenge Shop A-20 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 20 0 62
 E
@@ -759,7 +759,7 @@ memory studio perfect card~
 @m56 Perfect Memory Studio B-25 card~
 The @m56 Perfect Memory Studio B-25 card@g is lying here.~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50850 25 0 62
 E
@@ -772,7 +772,7 @@ on the back. Purely decorative -- a memento for roleplay.
 @m57 Hideout Realtor A-11 card@n~
 The @m57 Hideout Realtor A-11 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 11 0 62
 E
@@ -785,7 +785,7 @@ However, you must not tell anyone about it or bring anybody to it.
 @m58 Secrets Video Rental A-13 card@n~
 The @m58 Secrets Video Rental A-13 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 13 0 62
 E
@@ -798,7 +798,7 @@ discuss its contents with anyone.
 @m59 Instant Foreign Language School A-20 card@n~
 The @m59 Instant Foreign Language School A-20 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 20 0 62
 E
@@ -812,7 +812,7 @@ down, you will be fluent.
 @m60 Long Lost Delivery B-30 card@n~
 The @m60 Long Lost Delivery B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -826,7 +826,7 @@ month.
 @m61 Vending Check-Up A-20 card@n~
 The @m61 Vending Check-Up A-20 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 102500 20 0 62
 E
@@ -852,7 +852,7 @@ control everyone within a club.
 @m63 Virtual Restaurant B-30 card@n~
 The @m63 Virtual Restaurant B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -865,7 +865,7 @@ illusion. You will be given a multivitamin as you leave.
 @m64 Witch's Love Potion B-30 card@n~
 The @m64 Witch's Love Potion B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -878,7 +878,7 @@ afterward seems irresistibly charming to them for a single day.
 @m65 Witch's Rejuvenation Potion S-10 card@n~
 The @m65 Witch's Rejuvenation Potion S-10 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 279000 10 0 62
 E
@@ -891,7 +891,7 @@ restoring the drinker to the prime of their youth with a single sip.
 @m66 Witch's Diet Pills B-28 card@n~
 The @m66 Witch's Diet Pills B-28 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 36000 28 0 62
 E
@@ -904,7 +904,7 @@ leaving the body lean without effort or hunger.
 @m67 Doyen's Growth Pills B-30 card@n~
 The @m67 Doyen's Growth Pills B-30 card@n@G is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -917,7 +917,7 @@ to grow taller over the course of a month.
 @m68 Doyen's Virility Pills A-20 card@n~
 The @m68 Doyen's Virility Pills A-20 card@n@G is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 102500 20 0 62
 E
@@ -930,7 +930,7 @@ Eating one floods the body with renewed vigor.
 @m69 Doyen's Hair Restorer B-30 card@n~
 The @m69 Doyen's Hair Restorer B-30 card@n@G is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -943,7 +943,7 @@ it regrows a thick, healthy head of hair within weeks.
 @m70 Mad Scientist's Steroids A-16 card@n~
 The @m70 Mad Scientist's Steroids A-16 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 16 0 62
 E
@@ -957,7 +957,7 @@ pheromones scientists mad card~
 @m71 Mad Scientist's Pheromones A-20 card@n~
 The @m71 Mad Scientist's Pheromones A-20 card@g is lying here.~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 102500 20 0 62
 E
@@ -971,7 +971,7 @@ so be careful as it may cause a proliferation of stalkers.
 @m72 Mad Scientist's Plastic Surgery A-15 card@n~
 The @m72 Mad Scientist's Plastic Surgery A-15 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 15 0 62
 E
@@ -1024,7 +1024,7 @@ choose whether they're for better or for worse...
 @m76 Roaming Ruby B-30 card@n~
 The @m76 Roaming Ruby B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -1037,7 +1037,7 @@ able to remain in the same place for more than a week.
 @m77 Beauty Magnet Emerald S-10 card@n~
 The @m77 Beauty Magnet Emerald S-10 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 10 0 62
 E
@@ -1050,7 +1050,7 @@ shine with unrecognized beauty.
 @m78 Lonely Sapphire B-30 card@n~
 The @m78 Lonely Sapphire B-30 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 30 0 62
 E
@@ -1064,7 +1064,7 @@ significant others.
 @m79 Rainbow Diamond A-20 card@n~
 The @m79 Rainbow Diamond A-20 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 20 0 62
 E
@@ -1105,7 +1105,7 @@ not of anything found on the earth, so the name was given as
 @m82 Staff of Judgment A-15 card@n~
 The @m82 Staff of Judgment A-15 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 15 0 62
 E
@@ -1146,7 +1146,7 @@ curses placed on cards he touches.
 @m85 Sacrifice Armor S-8 card@n~
 The @m85 Sacrifice Armor S-8 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 285000 8 0 62
 E
@@ -1160,7 +1160,7 @@ otherwise fell them -- at the cost of the armor itself.
 @m86 Quiver of Frustration A-11 card@n~
 The @m86 Quiver of Frustration A-11 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 11 0 62
 E
@@ -1186,7 +1186,7 @@ ineffective within the same room of player armed with this shield.
 @m88 Eternal Hammer A-15 card@n~
 The @m88 Eternal Hammer A-15 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 15 0 62
 E
@@ -1230,7 +1230,7 @@ Unfortunately, it's extremely large and heavy.
 @m91 Plastic King A-20 card@n~
 The @m91 Plastic King A-20 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 20 0 62
 E
@@ -1243,7 +1243,7 @@ vehicle. Fully functional, fuel not included.
 @m92 Swap Ticket S-7 card@n~
 The @m92 Swap Ticket S-7 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 7 0 62
 E
@@ -1256,7 +1256,7 @@ can live his life for 24 hours. Book of 1000.
 @m93 Book of Life B-28 card@n~
 The @m93 Book of Life B-28 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 28 0 62
 E
@@ -1286,7 +1286,7 @@ immune. Heavy and unbalanced: carries a -2 hit penalty and saps dexterity.
 @m95 Secret Cape A-20 card@n~
 The @m95 Secret Cape A-20 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 20 0 62
 E
@@ -1299,7 +1299,7 @@ this cape.
 @m96 Clairvoyant Snake A-12 card@n~
 The @m96 Clairvoyant Snake A-12 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 12 0 62
 E
@@ -1312,7 +1312,7 @@ Feed it a card Rank C or above, and it will spit up a " Clairvoyance
 @m97 3-D Camera A-20 card@n~
 The @m97 3-D Camera A-20 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 20 0 62
 E
@@ -1325,7 +1325,7 @@ textures reproduced. Make enlargements as needed.
 @m98 Silver Dog S-8 card@n~
 The @m98 Silver Dog S-8 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 8 0 62
 E
@@ -1338,7 +1338,7 @@ daily, and it will excrete one kg of solid silver feces.
 @m99 Panda Maid S-6 card@n~
 The @m99 Panda Maid S-6 card@g is lying here.@n~
 ~
-26 dt 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 50000 6 0 62
 E
