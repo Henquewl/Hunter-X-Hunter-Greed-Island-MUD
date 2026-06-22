@@ -473,6 +473,8 @@ ACMD(do_steal)
 	  act("You unequip $p and steal it.", FALSE, ch, obj, 0, TO_CHAR);
 	  act("$n steals $p from $N.", FALSE, ch, obj, vict, TO_NOTVICT);
 	  obj_to_char(unequip_char(vict, eq_pos), ch);
+	  if (IS_CARD(obj))
+	    GET_OBJ_TIMER(obj) = 62;
 	  if (!IS_NPC(ch) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) > 65300 && GET_OBJ_VNUM(obj) != 65535)
 	    make_card(ch, obj, TRUE);
 	}
@@ -499,6 +501,8 @@ ACMD(do_steal)
 	  if (IS_CARRYING_W(ch) + GET_OBJ_WEIGHT(obj) < CAN_CARRY_W(ch)) {
 	    obj_from_char(obj);
 	    obj_to_char(obj, ch);
+	    if (IS_CARD(obj))
+	      GET_OBJ_TIMER(obj) = 62;
 		if (!IS_NPC(ch) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) > 65300 && GET_OBJ_VNUM(obj) != 65535)
 	      make_card(ch, obj, TRUE);
 	    send_to_char(ch, "Got it!\r\n");

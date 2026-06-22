@@ -8,6 +8,11 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 22 2026] - Henque
+  Timer de cartas resetado para 62 ao transferir via give (perform_give,
+  act.item.c) ou steal (do_steal, act.other.c). Novo dono sempre recebe
+  timer completo independente de quanto tempo a carta tinha restando.
+
+[Jun 22 2026] - Henque
   Fixed MXP card image display: image tag now queued in output buffer (via
   write_to_output) instead of direct Write() socket call; image call moved
   to after all text in show_obj_to_char and look_at_target. Client now
