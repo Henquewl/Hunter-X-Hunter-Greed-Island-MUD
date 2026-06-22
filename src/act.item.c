@@ -1249,7 +1249,7 @@ ACMD(do_gain)
   }
 
   if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_PEACEFUL)) {
-    send_to_char(ch, "You cannot gain cards or items in peaceful areas.\r\n");
+    send_to_char(ch, "You cannot gain cards in peaceful areas.\r\n");
     return;
   }
 
