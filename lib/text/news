@@ -8,6 +8,11 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 == 2026 ==
 
 JUN 22 **
+- Secret Cape now provides permanent Blackout Curtain protection: Peek,
+  Fluoroscopy, and Sightvision are blocked while the cape is worn, without
+  consuming the protection.
+- Hormone Cookies can now be removed from the box normally without
+  auto-converting into a different card.
 - The Recycle card can no longer be used on containers or consumable items.
 - The gain command now works correctly for most restricted cards that were
   previously broken due to an incorrect flag in the world data.

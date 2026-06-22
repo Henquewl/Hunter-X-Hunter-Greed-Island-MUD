@@ -1213,9 +1213,11 @@ secret cape cloak~
 a Secret Cape~
 a Secret Cape lies crumpled here.~
 ~
-9 gk 0 0 0 ak 0 0 0 c 0 0 0
+9 gk 0 0 0 ak 0 0 0 0 0 0 0
 2 0 0 0
 3 50000 0 0 0
+T 65502
+T 65503
 E
 secret cape~
 You will be under the effect of " Blackout Curtain " while wearing

@@ -8,6 +8,23 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 22 2026] - Henque
+  Fixed Hormone Cookie (vnum 65534) auto-converting to Universal Survey when
+  picked up from its box. Root cause: auto-conversion guard was
+  `vnum > 65300 && != 65535`, which accidentally caught vnums above 65499
+  (the range for restricted physical items). Guard now requires `<= 65499` at
+  all 5 call sites: perform_get_from_container, perform_get_from_room,
+  perform_give (act.item.c), do_steal x2 (act.other.c), and make_card
+  internal check. (act.item.c, act.other.c)
+
+  Secret Cape (#95, item 65495): replaced incorrect passive AFF flag with
+  permanent Blackout Curtain protection via wear/remove triggers. Wearing the
+  cape now sets remote var `blackout_curtain_cape` (not consumed on block);
+  removing the cape deletes it. Peek, Fluoroscopy, and Sightvision spell card
+  triggers (10.trg) updated to also check `blackout_curtain_cape` without
+  consuming it. (lib/world/obj/654.obj, lib/world/trg/654.trg,
+  lib/world/trg/10.trg)
+
+[Jun 22 2026] - Henque
   Recycle (spell card 1037) now rejects ITEM_CONTAINER and ITEM_FOOD targets.
   Prevents renewable consumable exploit (empty Hormone Cookies box -> Recycle
   -> card -> gain -> full box again). (act.item.c, case 1037 in do_gain)

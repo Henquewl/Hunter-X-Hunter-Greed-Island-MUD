@@ -446,6 +446,21 @@ while %i%
 done
 rdelete good_luck %actor.id%
 ~
+#65502
+secret cape wear~
+1 j 100
+~
+eval blackout_curtain_cape 1
+remote blackout_curtain_cape %actor.id%
+%send% %actor% The Secret Cape drapes over you; you feel hidden from prying spells.
+~
+#65503
+secret cape remove~
+1 l 100
+~
+rdelete blackout_curtain_cape %actor.id%
+%send% %actor% The Secret Cape falls away; you feel exposed.
+~
 #65510
 hot spring heal loop~
 1 n 100
