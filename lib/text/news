@@ -8,6 +8,7 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 == 2026 ==
 
 JUN 22 **
+- The Recycle card can no longer be used on containers or consumable items.
 - The gain command now works correctly for most restricted cards that were
   previously broken due to an incorrect flag in the world data.
 - Cards received via give or steal now arrive with a full timer, so the new

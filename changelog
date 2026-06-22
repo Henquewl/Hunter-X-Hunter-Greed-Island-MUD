@@ -8,6 +8,12 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 22 2026] - Henque
+  Recycle (spell card 1037) agora rejeita ITEM_CONTAINER e ITEM_FOOD.
+  Previne exploit de itens consumiveis renovaveis (ex: caixa vazia de
+  Hormone Cookies -> Recycle -> carta -> gain -> caixa cheia novamente).
+  (act.item.c, case 1037 em do_gain)
+
+[Jun 22 2026] - Henque
   Corrigida flag ITEM_NOGAIN incorreta em 83 de 100 cartas restritas em
   lib/world/obj/653.obj. A flag 't' (bit 19 = ITEM_NOGAIN) estava setada
   no world file, tornando o gain permanentemente impossivel para essas

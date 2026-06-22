@@ -1478,6 +1478,11 @@ ACMD(do_gain)
 			send_to_char(ch, "'ERROR: Invalid target.' - ");
 			goto end;
 		  }
+		  if (GET_OBJ_TYPE(obj) == ITEM_CONTAINER || GET_OBJ_TYPE(obj) == ITEM_FOOD) {
+		    found = TRUE;
+		    send_to_char(ch, "'ERROR: Containers and consumable items cannot be recycled.' - ");
+		    goto end;
+		  }
 		  do_say(ch, "Recycle ON!", cmd, 0);
 		  next_obj = read_object(GET_OBJ_VNUM(obj), VIRTUAL);		  
 		  obj_to_char(next_obj, ch);
