@@ -283,6 +283,26 @@ ACMD(do_mecho)
     sub_write(p, ch, TRUE, TO_CHAR);
 }
 
+/* broadcasts the message to every connected player */
+ACMD(do_mgecho)
+{
+    char *p;
+
+    if (!MOB_OR_IMPL(ch)) {
+        send_to_char(ch, "%s", CONFIG_HUH);
+        return;
+    }
+    if (AFF_FLAGGED(ch, AFF_CHARM))
+        return;
+    if (!*argument) {
+        mob_log(ch, "mgecho called with no arguments");
+        return;
+    }
+    p = argument;
+    skip_spaces(&p);
+    send_to_all("%s\r\n", p);
+}
+
 ACMD(do_mzoneecho)
 {
     int zone;

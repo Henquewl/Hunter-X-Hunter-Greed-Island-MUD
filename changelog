@@ -8,6 +8,20 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 22 2026] - Henque
+  End-game completion mechanic — Ruler's Invitation:
+  - New DG command `mgecho` (dg_mobcmd.c, dg_scripts.h, interpreter.c): broadcasts a
+    message to every connected player from any mob trigger.
+  - binder_has_all_restricted() in act.item.c detects when a player stores all 99
+    restricted cards (65301-65399) in their binder. Hooked in perform_put and
+    fickle_card_gain.
+  - On completion: player receives Ruler's Invitation card (vnum 65400, ITEM_CARD).
+    Trigger 65516 (OTRIG_LOAD) fires a timed global speech from Eta (3 lines via
+    mgecho, 3-sec spacing) followed by an owl delivery scene in the player's room.
+  - gain on card 65400 calls rulers_invitation_gain() → gives Invitation to Limeiro
+    Castle note (vnum 65401, ITEM_NOTE) and extracts the card.
+  - Both 65400 and 65401 have ITEM_NODROP (cannot be dropped, junked, or donated).
+    perform_put now blocks them from any container.
+  - Guard: grant_rulers_invitation() is a no-op if player already carries 65400/65401.
   Angel's Breath card (#46, obj 65317): renamed NPC "Archangel" to "Angel" across
   all world files (mob/654.mob, obj/654.obj, obj/10.obj, trg/32.trg, trg/653.trg,
   trg/654.trg). The summon echo and trigger names updated accordingly.

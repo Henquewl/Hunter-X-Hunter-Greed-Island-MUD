@@ -8,6 +8,9 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 == 2026 ==
 
 JUN 22 **
+- Completing the full set of 99 restricted cards now triggers an end-game event:
+  Eta announces the feat globally, and the player receives the Ruler's Invitation
+  card. Using GAIN on it reveals the Invitation to Limeiro Castle.
 - Angel's Breath card: the summoned NPC is now named "Angel" (was "Archangel").
 - Hormone Cookies (#33): eating a cookie now correctly applies a temporary sex
   transformation. Characters with no defined sex receive an explanatory message

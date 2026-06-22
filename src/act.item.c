@@ -52,6 +52,44 @@ static void fly_to_char (struct char_data *ch, struct char_data *target);
 static void fly_to_room (struct char_data *ch, room_rnum target);
 
 
+/* Returns TRUE if ch's binder already contains the Ruler's Invitation or the letter. */
+static int has_rulers_invitation(struct char_data *ch)
+{
+  struct obj_data *o;
+  for (o = ch->carrying; o; o = o->next_content)
+    if (GET_OBJ_VNUM(o) == 65400 || GET_OBJ_VNUM(o) == 65401)
+      return TRUE;
+  return FALSE;
+}
+
+/* Returns TRUE if binder contains one copy of each restricted card 65301-65399. */
+static int binder_has_all_restricted(struct obj_data *binder)
+{
+  int vnum;
+  struct obj_data *o;
+  for (vnum = 65301; vnum <= 65399; vnum++) {
+    int found = FALSE;
+    for (o = binder->contains; o; o = o->next_content)
+      if (GET_OBJ_VNUM(o) == vnum) { found = TRUE; break; }
+    if (!found) return FALSE;
+  }
+  return TRUE;
+}
+
+/* Fires when a player completes the 99-card restricted set in the binder. */
+static void grant_rulers_invitation(struct char_data *ch)
+{
+  struct obj_data *card;
+  if (has_rulers_invitation(ch))
+    return;
+  card = read_object(65400, VIRTUAL);
+  if (!card) return;
+  obj_to_char(card, ch);
+  load_otrigger(card); /* trigger 65516: timed Eta global speech + owl room message */
+  mudlog(BRF, LVL_GOD, TRUE,
+         "ENDGAME: %s collected all 99 restricted cards.", GET_NAME(ch));
+}
+
 static void perform_put(struct char_data *ch, struct obj_data *obj, struct obj_data *cont)
 {
   struct obj_data *next_obj;
@@ -62,6 +100,11 @@ static void perform_put(struct char_data *ch, struct obj_data *obj, struct obj_d
 
   if (!obj) /* object might be extracted by drop_otrigger */
     return;
+
+  if (GET_OBJ_VNUM(obj) == 65400 || GET_OBJ_VNUM(obj) == 65401) {
+    act("$p cannot be placed inside a container.", FALSE, ch, obj, 0, TO_CHAR);
+    return;
+  }
 	
   for (next_obj = cont->contains; next_obj; next_obj = next_obj->next_content){
     if (GET_OBJ_VNUM(cont) == 3203) {
@@ -91,6 +134,11 @@ static void perform_put(struct char_data *ch, struct obj_data *obj, struct obj_d
 		GET_OBJ_TIMER(obj) = 62;
       obj_from_char(obj);
       obj_to_obj(obj, cont);
+
+      if (GET_OBJ_VNUM(cont) == 3203 &&
+          GET_OBJ_TYPE(obj) == ITEM_RESTRICTED &&
+          binder_has_all_restricted(cont))
+        grant_rulers_invitation(ch);
 
       act("$n puts $p in $P.", TRUE, ch, obj, cont, TO_ROOM);
 
@@ -1195,8 +1243,31 @@ static void fickle_card_gain(struct char_data *ch, struct obj_data *card)
   GET_OBJ_TIMER(card) = 62;
   obj_to_obj(card, binder);
 
+  if (binder_has_all_restricted(binder))
+    grant_rulers_invitation(ch);
+
   if (vnum == 65315)
     send_to_char(ch, "The Fickle Genie card slips into your binder on its own.\r\n");
+}
+
+/* Converts Ruler's Invitation card (65400) into the Invitation letter (65401). */
+static void rulers_invitation_gain(struct char_data *ch, struct obj_data *card)
+{
+  struct obj_data *letter, *o;
+
+  for (o = ch->carrying; o; o = o->next_content)
+    if (GET_OBJ_VNUM(o) == 65401) {
+      send_to_char(ch, "You already carry the invitation letter.\r\n");
+      return;
+    }
+
+  letter = read_object(65401, VIRTUAL);
+  if (!letter) return;
+
+  send_to_char(ch, "The Ruler's Invitation unfurls, revealing a formal letter.\r\n");
+  act("$n's card shimmers and transforms into an official letter.", TRUE, ch, card, 0, TO_ROOM);
+  obj_to_char(letter, ch);
+  extract_obj(card);
 }
 
 /* Invoke a spell-card effect by vnum without consuming a physical card.
@@ -1745,6 +1816,8 @@ ACMD(do_gain)
 		    sleeping_girl_gain(ch, obj);
 		  else if (GET_OBJ_VNUM(obj) == 65348)
 		    aromatherapy_girl_gain(ch, obj);
+		  else if (GET_OBJ_VNUM(obj) == 65400)
+		    rulers_invitation_gain(ch, obj);
 		  else {
 		    msg += make_card(ch, obj, TRUE);
 		    if (!msg)
