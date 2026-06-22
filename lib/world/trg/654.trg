@@ -67,7 +67,7 @@ wait 1 sec
 %force% %actor% down
 ~
 #65417
-archangel~
+angel~
 0 n 100
 ~
 wait 5 sec
@@ -682,7 +682,7 @@ if %actor.sex% == Male
   nop %actor.sex(2)%
   %send% %actor% You bite into the cookie. A strange warmth spreads through you as your body softly reshapes itself...
   %echoaround% %actor% %actor.name% eats a small cookie -- and their features begin to shift in unexpected ways.
-else if %actor.sex% == Female
+elseif %actor.sex% == Female
   eval orig_sex 2
   nop %actor.sex(1)%
   %send% %actor% You bite into the cookie. A strange warmth spreads through you as your body firmly reshapes itself...

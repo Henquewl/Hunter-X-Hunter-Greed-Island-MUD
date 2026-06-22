@@ -974,7 +974,7 @@ sword of truth detach~
 detach 65383 %actor.id%
 ~
 #3247
-archangel point~
+angel point~
 0 e 0
 points at~
 if %actor.varexists(player_arch)%
@@ -1047,7 +1047,7 @@ else
 end
 ~
 #3249
-archangel heal~
+angel heal~
 0 d 1
 *~
 if %actor.varexists(player_arch)%
@@ -1469,7 +1469,7 @@ return 0
 end
 ~
 #3265
-archangel gain~
+angel gain~
 1 abn 100
 ~
 if %self.carried_by.level% > 100 || %self.worn_by.level% > 100
