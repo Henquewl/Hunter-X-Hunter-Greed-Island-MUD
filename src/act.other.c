@@ -475,7 +475,7 @@ ACMD(do_steal)
 	  obj_to_char(unequip_char(vict, eq_pos), ch);
 	  if (IS_CARD(obj))
 	    GET_OBJ_TIMER(obj) = 62;
-	  if (!IS_NPC(ch) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) > 65300 && GET_OBJ_VNUM(obj) <= 65499)
+	  if (!IS_NPC(ch) && !IS_CARD(obj) && (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED || (GET_OBJ_VNUM(obj) >= 300 && GET_OBJ_VNUM(obj) < 400)))
 	    make_card(ch, obj, TRUE);
 	}
       }
@@ -503,7 +503,7 @@ ACMD(do_steal)
 	    obj_to_char(obj, ch);
 	    if (IS_CARD(obj))
 	      GET_OBJ_TIMER(obj) = 62;
-		if (!IS_NPC(ch) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) > 65300 && GET_OBJ_VNUM(obj) <= 65499)
+		if (!IS_NPC(ch) && !IS_CARD(obj) && (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED || (GET_OBJ_VNUM(obj) >= 300 && GET_OBJ_VNUM(obj) < 400)))
 	      make_card(ch, obj, TRUE);
 	    send_to_char(ch, "Got it!\r\n");
 	  }
