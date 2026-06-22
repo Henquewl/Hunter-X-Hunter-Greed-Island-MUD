@@ -8,6 +8,12 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 22 2026] - Henque
+  Block all gain usage in peaceful rooms (act.item.c: single ROOM_PEACEFUL check at
+  top of do_gain). Covers spell cards, restricted cards, free cards, and common items.
+  Auto-gain on item pickup (perform_get_from_room etc.) is unaffected — cards still
+  auto-convert with the normal 62-second timer.
+
+[Jun 22 2026] - Henque
   Implemented girl cards #46/#47/#48 (Gold Dust Girl, Sleeping Girl, Aromatherapy Girl):
   - gain now spawns a fragile NPC (level 1, 1 HP) instead of auto-storing in binder.
   - All three blocked in peaceful rooms (new message), outdoor areas, and water sectors.
