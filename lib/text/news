@@ -8,6 +8,7 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 == 2026 ==
 
 JUN 22 **
+- Angel's Breath card: the summoned NPC is now named "Angel" (was "Archangel").
 - Hormone Cookies (#33): eating a cookie now correctly applies a temporary sex
   transformation. Characters with no defined sex receive an explanatory message
   instead of silently consuming the item with no effect.

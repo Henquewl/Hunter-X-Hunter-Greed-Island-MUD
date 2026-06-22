@@ -305,7 +305,7 @@ else
 end
 ~
 #65317
-Archangel breath~
+Angel breath~
 1 c 1
 ga~
 if %self.carried_by% == %actor%
@@ -316,7 +316,7 @@ if %cmd.mudcommand% == gain
 %force% %actor% say GAIN!
 wait 2 sec
 %load% mob 65417
-%echo% %self.shortdesc% turns into the Archangel.
+%echo% %self.shortdesc% turns into the Angel.
 eval player_arch 1
 remote player_arch %actor.id%
 %purge% %self%

@@ -8,6 +8,13 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 22 2026] - Henque
+  Angel's Breath card (#46, obj 65317): renamed NPC "Archangel" to "Angel" across
+  all world files (mob/654.mob, obj/654.obj, obj/10.obj, trg/32.trg, trg/653.trg,
+  trg/654.trg). The summon echo and trigger names updated accordingly.
+  Trigger #65514: fixed DG Script `else if` → `elseif` (the engine treats `else if`
+  as a plain `else`, causing Neutral-sex actors to incorrectly receive the Female
+  branch instead of the intended no-effect message).
+[Jun 22 2026] - Henque
   Fix Hormone Cookie (#33) gender-swap not applying:
   - Trigger #65514: added feedback message when eater has Neutral sex (previously
     silent halt; cookie was consumed with no visible effect or explanation).
