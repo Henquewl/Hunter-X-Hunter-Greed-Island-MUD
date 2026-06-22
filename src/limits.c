@@ -377,6 +377,17 @@ static void check_idling(struct char_data *ch)
   }
 }
 
+static int has_sleeping_girl(struct char_data *ch)
+{
+  struct follow_type *f;
+  for (f = ch->followers; f; f = f->next)
+    if (IS_NPC(f->follower) &&
+        GET_MOB_VNUM(f->follower) == 65447 &&
+        GET_POS(f->follower) == POS_SLEEPING)
+      return TRUE;
+  return FALSE;
+}
+
 void recover_update(void)
 {
   struct char_data *i, *next_char;
@@ -479,8 +490,17 @@ void recover_update(void)
 	    } else
 		  GET_MANA(i) -= 1;
 	  }
-	  GET_HIT(i) = MIN(GET_HIT(i) + hit_gain(i), GET_TOTAL_HIT(i));
-      GET_MANA(i) = MIN(GET_MANA(i) + mana_gain(i), GET_MAX_MANA(i));
+	  if (!IS_NPC(i) && GET_POS(i) != POS_SLEEPING &&
+          GET_POS(i) >= POS_SITTING && has_sleeping_girl(i)) {
+        int real_pos = GET_POS(i);
+        GET_POS(i) = POS_SLEEPING;
+        GET_HIT(i) = MIN(GET_HIT(i) + hit_gain(i), GET_TOTAL_HIT(i));
+        GET_MANA(i) = MIN(GET_MANA(i) + mana_gain(i), GET_MAX_MANA(i));
+        GET_POS(i) = real_pos;
+      } else {
+        GET_HIT(i) = MIN(GET_HIT(i) + hit_gain(i), GET_TOTAL_HIT(i));
+        GET_MANA(i) = MIN(GET_MANA(i) + mana_gain(i), GET_MAX_MANA(i));
+      }
       if (!IS_NPC(i) && IS_WARRIOR(i) && regen_tick % 4 == 0)
         GET_MANA(i) = MIN(GET_MANA(i) + mana_gain(i), GET_MAX_MANA(i));
       GET_MOVE(i) = MIN(GET_MOVE(i) + move_gain(i), GET_MAX_MOVE(i));

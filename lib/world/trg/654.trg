@@ -123,25 +123,13 @@ osetval 0 0
 %send% %actor% The egg cools in your grip; its incubation must begin again.
 ~
 #65446
-gold dust girl quest~
-0 g 100
+gold dust girl action~
+0 n 100
 ~
 wait 1 sec
-stand
-wait 1 sec
-emote looks at you.
-wait 1 sec
-scream
-say YAAAAAAAAAAAAAAAAAAAAIHHHHHHHHHHHHHH!
-wait 1 sec
-%load% obj 65346 %self% inv
-if %self.has_item(65346)%
-%echo% %self.name% transforms into %self.inventory(65346).shortdesc% that falls to the ground.
+emote sheds a cascade of golden dust, then dissolves into sparkling motes.
+%force% %self% drop coins
 %purge% %self%
-else
-%echo% %self.name% vanishes trying to transform into a card but it reached the limit of transformations.
-%purge% %self%
-end
 ~
 #65461
 Scanner~
@@ -737,4 +725,35 @@ rdelete hormone_orig_sex %self.id%
 detach 65515 %self.id%
 ~
 
+#65447
+sleeping girl lifespan~
+0 n 100
+~
+wait 1800 sec
+if !%self.room%
+  halt
+end
+%echo% The sleeping girl stirs softly, mumbles, and fades like a vanishing dream.
+%purge% %self%
+~
+#65448
+aromatherapy girl heal~
+0 b 100
+~
+:loop
+wait 75 sec
+if !%self.master%
+  halt
+end
+eval master %self.master%
+if %master.pos% == Incapacitated || %master.pos% == MortallyWounded || %master.pos% == Dead || %master.pos% == Stunned
+  goto loop
+end
+eval heal_hp %master.maxhp% / 10
+eval heal_mana %master.maxmana% / 10
+%damage% %master% -%heal_hp%
+nop %master.mana(%master.mana% + %heal_mana%)%
+%send% %master% The gentle aroma from %self.name% soothes your stress a little.
+goto loop
+~
 $~
