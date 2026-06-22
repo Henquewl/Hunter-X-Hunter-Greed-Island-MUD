@@ -8,6 +8,9 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 == 2026 ==
 
 JUN 22 **
+- Hormone Cookies (#33): eating a cookie now correctly applies a temporary sex
+  transformation. Characters with no defined sex receive an explanatory message
+  instead of silently consuming the item with no effect.
 - The gain command is now fully blocked in peaceful areas. This applies to all
   card types (spell cards, restricted cards, free cards) and common items.
   Picking up an item in a peaceful room still auto-converts it to a card as

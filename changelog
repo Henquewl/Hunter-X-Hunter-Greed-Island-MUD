@@ -8,6 +8,12 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 22 2026] - Henque
+  Fix Hormone Cookie (#33) gender-swap not applying:
+  - Trigger #65514: added feedback message when eater has Neutral sex (previously
+    silent halt; cookie was consumed with no visible effect or explanation).
+  - act.item.c do_eat: foods with val0==0 (magical/non-filling) now bypass the
+    "too full" hunger check so they can always be consumed regardless of hunger state.
+[Jun 22 2026] - Henque
   Peaceful-room card timer rules (limits.c second_update):
   - Cards in a player's inventory in a peaceful room have their timer frozen at 62;
     upon leaving the room the player gets a fresh 62-second window to store the card.
