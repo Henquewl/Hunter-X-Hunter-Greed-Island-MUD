@@ -75,7 +75,7 @@ ACMD(do_quit)
 	if (!found && GET_EQ(ch, WEAR_HOLD) && GET_OBJ_TYPE(GET_EQ(ch, WEAR_HOLD)) == ITEM_RESTRICTED) {
 	  found = TRUE;	  
 	}
-	if (found && subcmd == SCMD_QUIT) {
+	if (found && subcmd == SCMD_QUIT && GET_LEVEL(ch) < LVL_IMMORT) {
 	  send_to_char(ch, "\tRALERT! \tCYou cannot save your restricted cards quitting here \tB<\tYtype help quit\tB>\tC, otherwise \tRtype forcequit\tC.\tn\r\n");
 	  return;
 	}
@@ -97,7 +97,7 @@ ACMD(do_quit)
      * in extract_char(), since there is no check if a player rents out and it
      * can leave them in an equally screwy situation. */
 
-    if (CONFIG_FREE_RENT || GET_LEVEL(ch) > LVL_IMMORT)
+    if (CONFIG_FREE_RENT || GET_LEVEL(ch) >= LVL_IMMORT)
       Crash_rentsave(ch, 0);
     else {	  
 	  if (GET_EQ(ch, WEAR_HOLD)) {

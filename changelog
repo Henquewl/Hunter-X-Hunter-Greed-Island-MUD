@@ -8,6 +8,13 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 22 2026] - Henque
+  Imms (nivel >= LVL_IMMORT) podem fazer quit normalmente mesmo com cartas
+  restritas no inventario/binder; cartas sao salvas (nao extraidas). Antes
+  precisavam usar forcequit (que destruia as cartas). Mudancas em do_quit:
+  bloco de bloqueio agora exclui Imms; caminho de save usa >= LVL_IMMORT
+  para garantir que todos os Imms pulem a extracao de cartas. (act.other.c)
+
+[Jun 22 2026] - Henque
   Timer de cartas resetado para 62 ao transferir via give (perform_give,
   act.item.c) ou steal (do_steal, act.other.c). Novo dono sempre recebe
   timer completo independente de quanto tempo a carta tinha restando.
