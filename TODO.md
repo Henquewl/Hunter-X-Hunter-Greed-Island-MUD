@@ -74,10 +74,10 @@ Specific prerequisites before declaring v1.00:
 
 ## DEFERRED — still open (need new mobs, new rooms, or more C)
 
-**Needs new NPC mobs** (card has no item; spawn a creature on gain — Archangel/65350 pattern):
+**Needs new NPC mobs** (card has no item; spawn a creature on gain — Angel/65350 pattern):
 Night Shift Dwarves (65326), Fairy King's Advice (65316).
 (Gold Dust Girl already done — its mob existed. Fledgling Politician is now an egg card.)
-All three (#16, #26, #46) are now fickle — `gain` auto-stores in binder with a creature message.
+Both (#16, #26) are now fickle — `gain` auto-stores in binder with a creature message.
 If a proper mob spawn is desired in future, remove the vnum from fickle_vnums[] and implement
 a dedicated handler in do_gain (same pattern as hot_springs_gain / liquor_spring_gain).
 
@@ -166,9 +166,12 @@ collectibles (acceptable). Candidates that COULD be done later with existing pat
     on each successful PvP hit to spawn a random AS card from thin air (no binder consumed)
     and cast it at the victim via `gain <victim>`. Stats: 1d4 pierce, weight 5, −2 hitroll,
     −1 DEX. Paladin's Necklace (65484) grants immunity. **NEEDS A PvP LIVE TEST.**
-- **NPC/pet cards** — staying fickle indefinitely: #47 Sleeping Girl, #48 Aromatherapy Girl,
-  #49 Miniature Mermaid, #50 Miniature Dino, #51 Miniature Dragon, #99 Panda Maid. No mob
-  creation planned; cards auto-store in binder on `gain` via fickle pattern.
+- **NPC/pet cards** — #47 Sleeping Girl and #48 Aromatherapy Girl **DONE** (Jun 22 2026):
+  both now spawn level-1 NPCs on `gain` (removed from fickle_vnums[]). Sleeping Girl
+  (mob 65447) is SENTINEL, grants passive regen for 24 game hours; Aromatherapy Girl
+  (mob 65448) follows with AFF_CHARM and heals 10% HP+mana every tick via bg trigger.
+  Still fickle indefinitely: #49 Miniature Mermaid, #50 Miniature Dino, #51 Miniature
+  Dragon, #99 Panda Maid. No mob creation planned; cards auto-store in binder via fickle.
 Below is the historical invention→canon mapping that this batch applied:
 
 | # | current (invention) | canon → | rank |
@@ -234,7 +237,7 @@ MOB_NO_GAIN flag (bit 21) lets specific mobs opt out and produce a normal corpse
 ---
 
 ## Reference — functional cards that predated this work
-Breath of Archangel (65317→65417, trg 3265 spawns healing mob), Risky Dice (65425), Vending
+Angel's Breath (65317→65417, trg 3265 spawns healing mob), Risky Dice (65425), Vending
 Check-Up (65461 scanner), Sword of Truth (65483), Paladin's Necklace (65484), Doyen's Virility
 Pills (65468), Pitcher of Eternal Water (65403), containers (Secret Stash 65459, Dino Basket
 65427), and well-statted weapons/armor (Diamond Sword, Dragon's Jaw, Armor of Zeno, …).
