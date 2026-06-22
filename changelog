@@ -8,30 +8,28 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 22 2026] - Henque
-  Recycle (spell card 1037) agora rejeita ITEM_CONTAINER e ITEM_FOOD.
-  Previne exploit de itens consumiveis renovaveis (ex: caixa vazia de
-  Hormone Cookies -> Recycle -> carta -> gain -> caixa cheia novamente).
-  (act.item.c, case 1037 em do_gain)
+  Recycle (spell card 1037) now rejects ITEM_CONTAINER and ITEM_FOOD targets.
+  Prevents renewable consumable exploit (empty Hormone Cookies box -> Recycle
+  -> card -> gain -> full box again). (act.item.c, case 1037 in do_gain)
 
 [Jun 22 2026] - Henque
-  Corrigida flag ITEM_NOGAIN incorreta em 83 de 100 cartas restritas em
-  lib/world/obj/653.obj. A flag 't' (bit 19 = ITEM_NOGAIN) estava setada
-  no world file, tornando o gain permanentemente impossivel para essas
-  cartas. ITEM_NOGAIN so deve existir em runtime (quando a carta e
-  convertida para item fisico). Carta #65300 (Ruler's Blessing, flags
-  'dgrt') preservada sem alteracao.
+  Fixed incorrect ITEM_NOGAIN flag on 83 of 100 restricted cards in
+  lib/world/obj/653.obj. The 't' bit (bit 19 = ITEM_NOGAIN) was set in the
+  world file, permanently blocking gain on those cards. ITEM_NOGAIN should
+  only exist at runtime (set when card converts to its physical item).
+  Card #65300 (Ruler's Blessing, flags 'dgrt') left untouched.
 
 [Jun 22 2026] - Henque
-  Imms (nivel >= LVL_IMMORT) podem fazer quit normalmente mesmo com cartas
-  restritas no inventario/binder; cartas sao salvas (nao extraidas). Antes
-  precisavam usar forcequit (que destruia as cartas). Mudancas em do_quit:
-  bloco de bloqueio agora exclui Imms; caminho de save usa >= LVL_IMMORT
-  para garantir que todos os Imms pulem a extracao de cartas. (act.other.c)
+  Immortals (level >= LVL_IMMORT) can now quit normally while holding
+  restricted cards; cards are saved, not extracted. Previously required
+  forcequit (which destroyed the cards). Changes in do_quit: block now
+  excludes immortals; save path uses >= LVL_IMMORT so all imms skip the
+  card-stripping loop. (act.other.c)
 
 [Jun 22 2026] - Henque
-  Timer de cartas resetado para 62 ao transferir via give (perform_give,
-  act.item.c) ou steal (do_steal, act.other.c). Novo dono sempre recebe
-  timer completo independente de quanto tempo a carta tinha restando.
+  Card timer reset to 62 on player-to-player give (perform_give, act.item.c)
+  and steal (do_steal, act.other.c). New owner always receives the full timer
+  regardless of how much time was left on the card.
 
 [Jun 22 2026] - Henque
   Fixed MXP card image display: image tag now queued in output buffer (via
