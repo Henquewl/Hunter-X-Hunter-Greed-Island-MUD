@@ -8,6 +8,10 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 22 2026] - Henque
+  Removed "The egg pulses warmly." periodic message from fledgling egg
+  incubation — only the removal warning and hatch message remain. (limits.c)
+
+[Jun 22 2026] - Henque
   Fixed Hormone Cookie (vnum 65534) auto-converting to Universal Survey when
   picked up from its box. Root cause: auto-conversion guard was
   `vnum > 65300 && != 65535`, which accidentally caught vnums above 65499
