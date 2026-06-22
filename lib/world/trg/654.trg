@@ -688,6 +688,7 @@ else if %actor.sex% == Female
   %send% %actor% You bite into the cookie. A strange warmth spreads through you as your body firmly reshapes itself...
   %echoaround% %actor% %actor.name% eats a small cookie -- and their features begin to shift in unexpected ways.
 else
+  %send% %actor% You bite into the cookie -- but it seems to have no effect. Perhaps your body needs a defined sex for the magic to take hold.
   halt
 end
 * Mark effect as active and store original sex on the player

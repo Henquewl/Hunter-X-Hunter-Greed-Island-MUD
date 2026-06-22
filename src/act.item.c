@@ -3062,7 +3062,7 @@ ACMD(do_eat)
     send_to_char(ch, "You can't eat THAT!\r\n");
     return;
   }
-  if (GET_COND(ch, HUNGER) >= 100) { /* Stomach full */
+  if (GET_COND(ch, HUNGER) >= 100 && GET_OBJ_VAL(food, 0) > 0) { /* Stomach full, non-magical food only */
     send_to_char(ch, "You are too full to eat more!\r\n");
     return;
   }
