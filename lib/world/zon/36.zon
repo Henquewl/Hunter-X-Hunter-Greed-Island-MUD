@@ -3,11 +3,11 @@ Exxon~
 Chessboard of Greed Island~
 3600 3699 10 1 d 0 0 0 5 30
 D 0 3666 4 2 	(The White Treasury)
-R 0 3666 65474 -1 	(	Can aquamarine stone	n)
-O 0 65474 15 3666 	(	Can aquamarine stone	n)
+R 0 3666 374 -1 	(	Can aquamarine stone	n)
+O 0 374 15 3666 	(	Can aquamarine stone	n)
 D 0 3665 4 2 	(The Black Treasury)
-R 0 3665 65473 -1 	(	Da night jade	n)
-O 0 65473 15 3665 	(	Da night jade	n)
+R 0 3665 373 -1 	(	Da night jade	n)
+O 0 373 15 3665 	(	Da night jade	n)
 M 0 3600 8 3609 	(the Pawn of the Black Court)
 E 1 3600 8 5 	(some Black Pawn Armour)
 E 1 3602 8 16 	(a Black Pawn's Sword)

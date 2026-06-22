@@ -57,17 +57,17 @@ static int has_rulers_invitation(struct char_data *ch)
 {
   struct obj_data *o;
   for (o = ch->carrying; o; o = o->next_content)
-    if (GET_OBJ_VNUM(o) == 65400 || GET_OBJ_VNUM(o) == 65401)
+    if (GET_OBJ_VNUM(o) == 110 || GET_OBJ_VNUM(o) == 111)
       return TRUE;
   return FALSE;
 }
 
-/* Returns TRUE if binder contains one copy of each restricted card 65301-65399. */
+/* Returns TRUE if binder contains one copy of each restricted card 1-99. */
 static int binder_has_all_restricted(struct obj_data *binder)
 {
   int vnum;
   struct obj_data *o;
-  for (vnum = 65301; vnum <= 65399; vnum++) {
+  for (vnum = 1; vnum <= 99; vnum++) {
     int found = FALSE;
     for (o = binder->contains; o; o = o->next_content)
       if (GET_OBJ_VNUM(o) == vnum) { found = TRUE; break; }
@@ -82,10 +82,10 @@ static void grant_rulers_invitation(struct char_data *ch)
   struct obj_data *card;
   if (has_rulers_invitation(ch))
     return;
-  card = read_object(65400, VIRTUAL);
+  card = read_object(110, VIRTUAL);
   if (!card) return;
   obj_to_char(card, ch);
-  load_otrigger(card); /* trigger 65516: timed Eta global speech + owl room message */
+  load_otrigger(card); /* trigger 416: timed Eta global speech + owl room message */
   mudlog(BRF, LVL_GOD, TRUE,
          "ENDGAME: %s collected all 99 restricted cards.", GET_NAME(ch));
 }
@@ -101,7 +101,7 @@ static void perform_put(struct char_data *ch, struct obj_data *obj, struct obj_d
   if (!obj) /* object might be extracted by drop_otrigger */
     return;
 
-  if (GET_OBJ_VNUM(obj) == 65400 || GET_OBJ_VNUM(obj) == 65401) {
+  if (GET_OBJ_VNUM(obj) == 110 || GET_OBJ_VNUM(obj) == 111) {
     act("$p cannot be placed inside a container.", FALSE, ch, obj, 0, TO_CHAR);
     return;
   }
@@ -418,7 +418,7 @@ static void perform_get_from_container(struct char_data *ch, struct obj_data *ob
       get_check_money(ch, obj);
 	  if (GET_OBJ_VNUM(cont) == 3203)
 		GET_OBJ_TIMER(obj) = 62;	  
-	  else if (obj && !IS_NPC(ch) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) > 65300 && GET_OBJ_VNUM(obj) <= 65499)
+	  else if (obj && !IS_NPC(ch) && !IS_CARD(obj) && (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED || (GET_OBJ_VNUM(obj) >= 300 && GET_OBJ_VNUM(obj) < 400)))
 	    make_card(ch, obj, TRUE);
     }
   }
@@ -482,7 +482,7 @@ static int perform_get_from_room(struct char_data *ch, struct obj_data *obj)
     act("You get $p.", FALSE, ch, obj, 0, TO_CHAR);
     act("$n gets $p.", TRUE, ch, obj, 0, TO_ROOM);
     get_check_money(ch, obj);
-	if (obj && !IS_NPC(ch) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) > 65300 && GET_OBJ_VNUM(obj) <= 65499)
+	if (obj && !IS_NPC(ch) && !IS_CARD(obj) && (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED || (GET_OBJ_VNUM(obj) >= 300 && GET_OBJ_VNUM(obj) < 400)))
 	    make_card(ch, obj, TRUE);
     return (1);
   }
@@ -657,7 +657,7 @@ int perform_unpack(struct char_data *ch, struct obj_data *obj)
 	chance = 20;
   if (chance == 20) {
 	for ( ; ; ) {
-	  cvnum = (65300 + rand_number(3, 99));
+	  cvnum = rand_number(3, 99);
 	  if (!(cardr = read_object(cvnum, VIRTUAL)))
 		continue;	  
 	  else if ((obj_index[GET_OBJ_RNUM(cardr)].number > GET_OBJ_RENT(cardr)) || (lck && GET_OBJ_COST(cardr) > 100000)) {
@@ -696,7 +696,7 @@ int perform_unpack(struct char_data *ch, struct obj_data *obj)
     crnum = rand_number(1, top_of_objt);
 	if ((card = read_object(crnum, REAL)) != NULL) {
 	  if ((CAN_WEAR(card, ITEM_WEAR_TAKE)) && !(GET_OBJ_TYPE(card) == ITEM_BOOSTER  && IS_CARD(card)) &&
-	      !OBJ_FLAGGED(card, ITEM_NOGAIN) && (GET_OBJ_VNUM(card) > 100 && GET_OBJ_VNUM(card) < 65300)) {		
+	      !OBJ_FLAGGED(card, ITEM_NOGAIN) && GET_OBJ_TYPE(card) != ITEM_RESTRICTED && (GET_OBJ_VNUM(card) > 100 && !(GET_OBJ_VNUM(card) >= 300 && GET_OBJ_VNUM(card) < 400))) {
 		obj_to_char(card, ch);
 		check = make_card(ch, card, FALSE);
 		if (!check) {
@@ -1065,7 +1065,7 @@ static void gold_dust_girl_gain(struct char_data *ch, struct obj_data *card)
 {
   struct char_data *mob;
   if (!room_allows_girl_card(ch)) return;
-  mob = read_mobile(65446, VIRTUAL);
+  mob = read_mobile(346, VIRTUAL);
   if (!mob) return;
   char_to_room(mob, IN_ROOM(ch));
   GET_GOLD(mob) = 500;
@@ -1079,7 +1079,7 @@ static void sleeping_girl_gain(struct char_data *ch, struct obj_data *card)
 {
   struct char_data *mob;
   if (!room_allows_girl_card(ch)) return;
-  mob = read_mobile(65447, VIRTUAL);
+  mob = read_mobile(347, VIRTUAL);
   if (!mob) return;
   char_to_room(mob, IN_ROOM(ch));
   GET_POS(mob) = POS_SLEEPING;
@@ -1094,7 +1094,7 @@ static void aromatherapy_girl_gain(struct char_data *ch, struct obj_data *card)
 {
   struct char_data *mob;
   if (!room_allows_girl_card(ch)) return;
-  mob = read_mobile(65448, VIRTUAL);
+  mob = read_mobile(348, VIRTUAL);
   if (!mob) return;
   char_to_room(mob, IN_ROOM(ch));
   SET_BIT_AR(AFF_FLAGS(mob), AFF_CHARM);
@@ -1119,11 +1119,11 @@ static void hot_springs_gain(struct char_data *ch, struct obj_data *card)
   struct obj_data *spring;
 
   if (!room_allows_card_effect(ch)) return;
-  if (real_object(65404) == NOTHING) {
+  if (real_object(304) == NOTHING) {
     send_to_char(ch, "Nothing happens with %s.\r\n", card->short_description);
     return;
   }
-  spring = read_object(65404, VIRTUAL);
+  spring = read_object(304, VIRTUAL);
   obj_to_room(spring, IN_ROOM(ch));
   send_to_char(ch, "The card shimmers and a steaming hot spring bubbles up from the earth!\r\n");
   act("$n plays a card and a steaming hot spring erupts from the ground!", TRUE, ch, 0, 0, TO_ROOM);
@@ -1136,11 +1136,11 @@ static void liquor_spring_gain(struct char_data *ch, struct obj_data *card)
   struct obj_data *spring;
 
   if (!room_allows_card_effect(ch)) return;
-  if (real_object(65406) == NOTHING) {
+  if (real_object(306) == NOTHING) {
     send_to_char(ch, "Nothing happens with %s.\r\n", card->short_description);
     return;
   }
-  spring = read_object(65406, VIRTUAL);
+  spring = read_object(306, VIRTUAL);
   GET_OBJ_VAL(spring, 2) = alc_types[rand_number(0, 6)];
   GET_OBJ_VAL(spring, 0) = 20;
   GET_OBJ_VAL(spring, 1) = 20;
@@ -1157,11 +1157,11 @@ static void mystery_pond_gain(struct char_data *ch, struct obj_data *card)
   int i;
 
   if (!room_allows_card_effect(ch)) return;
-  if (real_object(65408) == NOTHING) {
+  if (real_object(308) == NOTHING) {
     send_to_char(ch, "Nothing happens with %s.\r\n", card->short_description);
     return;
   }
-  pond = read_object(65408, VIRTUAL);
+  pond = read_object(308, VIRTUAL);
   for (i = 0; fish_vnums[i]; i++) {
     if (real_object(fish_vnums[i]) == NOTHING) continue;
     fish = read_object(fish_vnums[i], VIRTUAL);
@@ -1182,11 +1182,11 @@ static void tree_of_plenty_gain(struct char_data *ch, struct obj_data *card)
   int i;
 
   if (!room_allows_card_effect(ch)) return;
-  if (real_object(65409) == NOTHING) {
+  if (real_object(309) == NOTHING) {
     send_to_char(ch, "Nothing happens with %s.\r\n", card->short_description);
     return;
   }
-  tree = read_object(65409, VIRTUAL);
+  tree = read_object(309, VIRTUAL);
   for (i = 0; fruit_vnums[i]; i++) {
     if (real_object(fruit_vnums[i]) == NOTHING) continue;
     fruit = read_object(fruit_vnums[i], VIRTUAL);
@@ -1203,16 +1203,16 @@ static void fickle_card_gain(struct char_data *ch, struct obj_data *card)
   struct obj_data *binder = NULL, *o;
   int vnum = GET_OBJ_VNUM(card);
 
-  if (vnum == 65315) {
+  if (vnum == 15) {
     send_to_char(ch, "You attempt to make a wish... \"What a waste of time!\" the genie scoffs.\r\n");
     act("$n rubs a card and gets lectured by a tiny, annoyed genie.", TRUE, ch, 0, 0, TO_ROOM);
-  } else if (vnum == 65301 || vnum == 65302 || vnum == 65305) {
+  } else if (vnum == 1 || vnum == 2 || vnum == 5) {
     send_to_char(ch, "You gaze at the card... the location shimmers in your mind but remains beyond reach. The card slips into your binder.\r\n");
     act("$n stares at a card longingly, then watches it drift into $s binder.", TRUE, ch, 0, 0, TO_ROOM);
-  } else if (vnum == 65307 || vnum == 65316 || vnum == 65326 || vnum == 65335 ||
-             vnum == 65346 ||
-             (vnum >= 65347 && vnum <= 65354) ||
-             vnum == 65398 || vnum == 65399) {
+  } else if (vnum == 7 || vnum == 16 || vnum == 26 || vnum == 35 ||
+             vnum == 46 ||
+             (vnum >= 47 && vnum <= 54) ||
+             vnum == 98 || vnum == 99) {
     send_to_char(ch, "The creature on the card regards you warily, then retreats safely into your binder.\r\n");
     act("$n tries to coax something from a card, but it slips into $s binder instead.", TRUE, ch, 0, 0, TO_ROOM);
   } else {
@@ -1246,22 +1246,22 @@ static void fickle_card_gain(struct char_data *ch, struct obj_data *card)
   if (binder_has_all_restricted(binder))
     grant_rulers_invitation(ch);
 
-  if (vnum == 65315)
+  if (vnum == 15)
     send_to_char(ch, "The Fickle Genie card slips into your binder on its own.\r\n");
 }
 
-/* Converts Ruler's Invitation card (65400) into the Invitation letter (65401). */
+/* Converts Ruler's Invitation card (110) into the Invitation letter (111). */
 static void rulers_invitation_gain(struct char_data *ch, struct obj_data *card)
 {
   struct obj_data *letter, *o;
 
   for (o = ch->carrying; o; o = o->next_content)
-    if (GET_OBJ_VNUM(o) == 65401) {
+    if (GET_OBJ_VNUM(o) == 111) {
       send_to_char(ch, "You already carry the invitation letter.\r\n");
       return;
     }
 
-  letter = read_object(65401, VIRTUAL);
+  letter = read_object(111, VIRTUAL);
   if (!letter) return;
 
   send_to_char(ch, "The Ruler's Invitation unfurls, revealing a formal letter.\r\n");
@@ -1556,7 +1556,7 @@ ACMD(do_gain)
 		  send_to_char(ch, "'ERROR: Invalid number, must be between 1 and 99.'\r\n\r\nYour book spits out the spell card from casting slot.\r\n");
 		  return;
 		}		  
-		onum = onum + 65300;		
+		/* onum is already 0-99 from input -- no offset needed */
 	    if ((obj = read_object(onum, VIRTUAL)) != NULL) {
 		  if ((desc = find_exdesc(obj->name, obj->ex_description)) != NULL)
 		    send_to_char(ch, "%s\r\n%s", obj->short_description, desc);
@@ -1580,12 +1580,12 @@ ACMD(do_gain)
 			if (!dice)
 			  dice = rand_number(1, 2);
 			if (dice == 1)
-			  crnum = real_object(rand_number(65303, 65397));
+			  crnum = real_object(rand_number(3, 97));
 			else
 			  crnum = rand_number(1, top_of_objt);
 		  } else if (found || rand_number(1, 40) == 1) {
 			found = TRUE;
-			crnum = real_object(rand_number(65301, 65399));
+			crnum = real_object(rand_number(1, 99));
 		  } else
 	        crnum = rand_number(1, top_of_objt);
 		  if ((obj = read_object(crnum, REAL)) != NULL) {
@@ -1611,7 +1611,7 @@ ACMD(do_gain)
 	    if (!*arg || !(obj = get_obj_in_list_vis(ch, arg, NULL, ch->carrying)))
 		  goto end;	    
 		else {
-		  if (GET_OBJ_TYPE(obj) == ITEM_BOOSTER || GET_OBJ_TYPE(obj) == ITEM_MONEY || IS_CARD(obj) || IS_CORPSE(obj) || GET_OBJ_VNUM(obj) == 65535) {
+		  if (GET_OBJ_TYPE(obj) == ITEM_BOOSTER || GET_OBJ_TYPE(obj) == ITEM_MONEY || IS_CARD(obj) || IS_CORPSE(obj) || GET_OBJ_VNUM(obj) == 102) {
 			found = TRUE;
 			send_to_char(ch, "'ERROR: Invalid target.' - ");
 			goto end;
@@ -1744,19 +1744,19 @@ ACMD(do_gain)
         default:
           if (is_fickle_card(GET_OBJ_VNUM(held)))
             fickle_card_gain(ch, held);
-          else if (GET_OBJ_VNUM(held) == 65304)
+          else if (GET_OBJ_VNUM(held) == 4)
             hot_springs_gain(ch, held);
-          else if (GET_OBJ_VNUM(held) == 65306)
+          else if (GET_OBJ_VNUM(held) == 6)
             liquor_spring_gain(ch, held);
-          else if (GET_OBJ_VNUM(held) == 65308)
+          else if (GET_OBJ_VNUM(held) == 8)
             mystery_pond_gain(ch, held);
-          else if (GET_OBJ_VNUM(held) == 65309)
+          else if (GET_OBJ_VNUM(held) == 9)
             tree_of_plenty_gain(ch, held);
-          else if (GET_OBJ_VNUM(held) == 65346)
+          else if (GET_OBJ_VNUM(held) == 46)
             gold_dust_girl_gain(ch, held);
-          else if (GET_OBJ_VNUM(held) == 65347)
+          else if (GET_OBJ_VNUM(held) == 47)
             sleeping_girl_gain(ch, held);
-          else if (GET_OBJ_VNUM(held) == 65348)
+          else if (GET_OBJ_VNUM(held) == 48)
             aromatherapy_girl_gain(ch, held);
           else
             make_card(ch, held, TRUE);
@@ -1802,21 +1802,21 @@ ACMD(do_gain)
 		  msg = 0;
 		  if (is_fickle_card(GET_OBJ_VNUM(obj)))
 		    fickle_card_gain(ch, obj);
-		  else if (GET_OBJ_VNUM(obj) == 65304)
+		  else if (GET_OBJ_VNUM(obj) == 4)
 		    hot_springs_gain(ch, obj);
-		  else if (GET_OBJ_VNUM(obj) == 65306)
+		  else if (GET_OBJ_VNUM(obj) == 6)
 		    liquor_spring_gain(ch, obj);
-		  else if (GET_OBJ_VNUM(obj) == 65308)
+		  else if (GET_OBJ_VNUM(obj) == 8)
 		    mystery_pond_gain(ch, obj);
-		  else if (GET_OBJ_VNUM(obj) == 65309)
+		  else if (GET_OBJ_VNUM(obj) == 9)
 		    tree_of_plenty_gain(ch, obj);
-		  else if (GET_OBJ_VNUM(obj) == 65346)
+		  else if (GET_OBJ_VNUM(obj) == 46)
 		    gold_dust_girl_gain(ch, obj);
-		  else if (GET_OBJ_VNUM(obj) == 65347)
+		  else if (GET_OBJ_VNUM(obj) == 47)
 		    sleeping_girl_gain(ch, obj);
-		  else if (GET_OBJ_VNUM(obj) == 65348)
+		  else if (GET_OBJ_VNUM(obj) == 48)
 		    aromatherapy_girl_gain(ch, obj);
-		  else if (GET_OBJ_VNUM(obj) == 65400)
+		  else if (GET_OBJ_VNUM(obj) == 110)
 		    rulers_invitation_gain(ch, obj);
 		  else {
 		    msg += make_card(ch, obj, TRUE);
@@ -2069,7 +2069,7 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
   
   /* Return if ch or obj is NULL | corpse | booster pack | spell card | generic money | container with obj */  
   if (!ch || !obj || IS_CORPSE(obj) || GET_OBJ_TYPE(obj) == ITEM_BOOSTER || GET_OBJ_TYPE(obj) == ITEM_SPELLCARD || 
-       (GET_OBJ_TYPE(obj) == ITEM_MONEY && GET_OBJ_VNUM(obj) == 65535) || (GET_OBJ_TYPE(obj) == ITEM_CONTAINER && (obj->contains)))
+       (GET_OBJ_TYPE(obj) == ITEM_MONEY && GET_OBJ_VNUM(obj) == 102) || (GET_OBJ_TYPE(obj) == ITEM_CONTAINER && (obj->contains)))
 	return (0);
 	
   /* GM can override no_gain */
@@ -2094,12 +2094,12 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
 
   number = GET_OBJ_VNUM(obj);
   
-  /* number == 65535 && OBJ_FLAGGED(obj, ITEM_QUEST) == VOUCHER */  
-  if ((number == 65535 && OBJ_FLAGGED(obj, ITEM_QUEST)) || (number > 65400 && number <= 65499)) {
-	if (number == 65535 && OBJ_FLAGGED(obj, ITEM_QUEST))
-	  rst = read_object((GET_OBJ_RENT(obj) - 100), VIRTUAL);
+  /* number == 102 && OBJ_FLAGGED(obj, ITEM_QUEST) == VOUCHER */
+  if ((number == 102 && OBJ_FLAGGED(obj, ITEM_QUEST)) || (number >= 300 && number < 400)) {
+	if (number == 102 && OBJ_FLAGGED(obj, ITEM_QUEST))
+	  rst = read_object((GET_OBJ_RENT(obj) - 300), VIRTUAL);
     else
-      rst = read_object((number - 100), VIRTUAL);
+      rst = read_object((number - 300), VIRTUAL);
 	if (obj_index[GET_OBJ_RNUM(rst)].number > GET_OBJ_RENT(rst))
 	  limit = GET_OBJ_RENT(rst);
     else
@@ -2107,7 +2107,7 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
   }	
   
   /* Special case: Recycling Room (#36) repairs all player items */
-  if (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED && GET_OBJ_VNUM(obj) == 65336) {
+  if (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED && GET_OBJ_VNUM(obj) == 36) {
     repair_all_player_items(ch);
     send_to_char(ch, "The Recycling Room card dissolves in a soft glow...\r\n"
                      "All your equipment and items are fully restored!\r\n");
@@ -2117,16 +2117,16 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
     return 1;
   }
 
-  if (limit == 0 && ((number > 65300 && number <= 65499) || (number == 65535 && OBJ_FLAGGED(obj, ITEM_QUEST)))) {
+  if (limit == 0 && ((GET_OBJ_TYPE(obj) == ITEM_RESTRICTED || (number >= 300 && number < 400)) || (number == 102 && OBJ_FLAGGED(obj, ITEM_QUEST)))) {
 	if (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED) {
-	  if (!(card = read_object((number + 100), VIRTUAL))) {
+	  if (!(card = read_object((number + 300), VIRTUAL))) {
 		if (GET_OBJ_TIMER(obj) > 0)
 	      send_to_char(ch, "YAMEROOO! %s is too much valuable to waste like that, \tYput in \tnyour \tYbinder\tn quickly!!!\r\n", obj->short_description);
 		return (0);
 	  } else {
 		SET_BIT_AR(GET_OBJ_EXTRA(card), ITEM_NOGAIN);
       /* Perfect Memory Studio: stamp player name onto the photograph */
-      if (GET_OBJ_VNUM(obj) == 65356 && card != NULL) {
+      if (GET_OBJ_VNUM(obj) == 56 && card != NULL) {
         char pbuf[MAX_STRING_LENGTH];
         snprintf(pbuf, sizeof(pbuf), "a photograph of %s", GET_NAME(ch));
         free(card->short_description);
@@ -2137,21 +2137,21 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
         card->description = strdup(pbuf);
       }
       /* Hormone Cookies (#33): pre-load 20 cookies into the box */
-      if (GET_OBJ_VNUM(obj) == 65333) {
+      if (GET_OBJ_VNUM(obj) == 33) {
         int ci;
         struct obj_data *cookie;
         for (ci = 0; ci < 20; ci++) {
-          cookie = read_object(65534, VIRTUAL);
+          cookie = read_object(133, VIRTUAL);
           if (cookie)
             obj_to_obj(cookie, card);
         }
       }
     }
     } else {
-	  if (number == 65535)
-		card = read_object((GET_OBJ_RENT(obj) - 100), VIRTUAL); 
+	  if (number == 102)
+		card = read_object((GET_OBJ_RENT(obj) - 300), VIRTUAL);
 	  else
-        card = read_object((number - 100), VIRTUAL);
+        card = read_object((number - 300), VIRTUAL);
 	}
     if (!(CAN_WEAR(card, ITEM_WEAR_TAKE)))
 	  obj_to_room(card, IN_ROOM(ch));
@@ -2160,7 +2160,7 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
     if (show)	
 	  send_to_room(IN_ROOM(ch), "%s's %s turns into %s!\r\n", GET_NAME(ch), obj->short_description, card->short_description);
 	extract_obj(obj);	
-  } else if ((number == 65535 && !OBJ_FLAGGED(obj, ITEM_QUEST)) || (number != 65535 && GET_OBJ_TYPE(obj) == ITEM_CARD)) {
+  } else if ((number == 102 && !OBJ_FLAGGED(obj, ITEM_QUEST)) || (number != 102 && GET_OBJ_TYPE(obj) == ITEM_CARD)) {
 	if (GET_OBJ_RENT(obj) == 0)
 	  return (0);
     /* mob card: manual gain is fickle — creature escapes, no corpse */
@@ -2373,7 +2373,7 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
   
   } else {
 	  if (limit != 0 && GET_OBJ_TYPE(rst) == ITEM_RESTRICTED){		
-		if (!OBJ_FLAGGED(obj, ITEM_QUEST) || (number == 65535 && OBJ_FLAGGED(obj, ITEM_QUEST))) {
+		if (!OBJ_FLAGGED(obj, ITEM_QUEST) || (number == 102 && OBJ_FLAGGED(obj, ITEM_QUEST))) {
 	      if (show)
 		    send_to_char(ch, "Your ring starts to flash and a female voice says, 'Transformation limit reached: %d/%d'\r\n", obj_index[GET_OBJ_RNUM(rst)].number - 1, limit);
 		  extract_obj(rst);
@@ -2509,7 +2509,7 @@ static void perform_give(struct char_data *ch, struct char_data *vict, struct ob
 
   autoquest_trigger_check( ch, vict, obj, AQ_OBJ_RETURN);
 
-  if (IS_NPC(ch) && !IS_NPC(vict) && !IS_CARD(obj) && GET_OBJ_VNUM(obj) > 65300 && GET_OBJ_VNUM(obj) <= 65499)
+  if (IS_NPC(ch) && !IS_NPC(vict) && !IS_CARD(obj) && (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED || (GET_OBJ_VNUM(obj) >= 300 && GET_OBJ_VNUM(obj) < 400)))
 	make_card(vict, obj, TRUE);
 }
 

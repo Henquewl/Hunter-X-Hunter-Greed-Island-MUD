@@ -8,6 +8,17 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 22 2026] - Henque
+  vnum migration — restricted cards and physical items moved to dedicated zones 0-3:
+  - Zone 0 (vnums 0-99): restricted cards (#N = vnum N)
+  - Zone 1 (vnums 100-199): special items (Ruler's Invitation=110/111, Voucher=102, Cookie=133)
+  - Zone 3 (vnums 300-416): physical card items and mobs; bar items 300-302 preserved
+  - C engine (act.item.c, act.informative.c, act.other.c, fight.c, limits.c, utils.c):
+    all hardcoded vnums and range checks updated to new scheme (+300 offset, new type check)
+  - External triggers (10.trg, 32.trg, 120.trg, 401.trg) and quest files (1.qst, 14.qst,
+    186.qst, 400.qst) updated; zone reset commands in 9.zon, 31.zon, 36.zon, 65.zon,
+    79.zon, 186.zon, 279.zon, 410.zon updated to new vnums
+  - Old zones 653/654 obj/mob/trg files emptied (kept in index as $~ stubs)
+[Jun 22 2026] - Henque
   End-game completion mechanic — Ruler's Invitation:
   - New DG command `mgecho` (dg_mobcmd.c, dg_scripts.h, interpreter.c): broadcasts a
     message to every connected player from any mob trigger.

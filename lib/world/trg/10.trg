@@ -1160,7 +1160,7 @@ if %cmd.mudcommand% == gain
 %force% %actor% say Fake ON!
 wait 1 sec
 eval revert %self.vnum%
-eval card 65300 + %random.17%
+eval card %random.17%
 %load% obj %card% %actor% inv
 set new %actor.inventory%
 %send% %actor% The %self.shortdesc% transformed into %new.shortdesc%.
@@ -1917,7 +1917,7 @@ break
 case 100
 eval i %actor.inventory%
 while %i%
-eval unusual 65300 + %random.99%
+eval unusual %random.99%
 %load% obj %unusual% %actor% inv
 if %actor.inventory.vnum% == %unusual%
 break

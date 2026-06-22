@@ -1,1360 +1,1351 @@
+#0
+000 ruler blessing card~
+@m000 Ruler's Blessing SS-1 card@n~
+The @m000 Ruler's Blessing SS-1 card@g is lying here.@n~
+~
+26 dgrt 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 2000000 1 0 999
+E
+000 ruler blessing card~
+A castle given as a prize for winning the contest, town with population 10,000 included.
+Its residents will live according to whatever laws and commands you issue.
+~
 #1
-wings~
-a pair of wings~
-A pair of wings is sitting here.~
+1 patch forest card~
+@m1 Patch of Forest SS-3 card@n~
+The @m1 Patch of Forest SS-3 card@g is lying here.@n~
 ~
-9 0 0 0 0 ae 0 0 0 0 0 0 0
-6 0 0 0
-1 1 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 937500 3 0 62
+E
+1 patch forest card~
+The 	mentrance to the giant forest called the "Mountain God's Garden" where many unique endemic species live.
+They are all tame and friendly.
+~
 #2
-fire ball fireball~
-a fireball~
-A fireball lies here burning.~
+2 plot beach card~
+@m2 Plot of Beach SS-3 card@n~
+The @m2 Plot of Beach SS-3 card@g is lying here.@n~
 ~
-13 0 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 937500 3 0 62
+E
+2 plot beach card~
+The 	mentrance to a cave called "Poseidon's Cavern."
+The 	mcave changes its path at each visit, confusing intruders.
+~
 #3
-ruby red slippers~
-a pair of ruby slippers~
-A pair of ruby slippers lies here.~
+3 pitcher eternal water card~
+@m3 Pitcher of Eternal Water A-17 card@n~
+The @m3 Pitcher of Eternal Water A-17 card@g is lying here.@n~
 ~
-13 0 0 0 0 ag 0 0 0 0 0 0 0
+26 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 104000 17 0 62
+E
+3 pitcher eternal water card~
+A jar from which pure, clean water (1440 L per day) continually flows.
+~
 #4
-emails listing~
-an email listing of the gods~
-The email listing of the gods is pinned against the wall.~
+4 Skin Care Hot Springs card~
+@m4 Skin Care Hot Springs A-15 card@n~
+The @m4 Skin Care Hot Springs A-15 card@G is lying here.@n~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 30 0
+0 105000 15 0 62
 E
-emails listing~
-   HELP CONTACT
-~
-E
-wizlist~
-                                 Implementors
-                                 ~~~~~~~~~~~ 
-                               Rumble   Welcor   
-                                 Greater Gods
-                                 ~~~~~~~~~~~ 
-       Detta   Elaseth   Elorien   Fade   Ferret   Fyre   Heiach   Manivo
-                          Radiax   Random   Relsqui   
-                                     Gods
-                                     ~~~ 
-       Aeon   Alambil   Amber   Arcano   Balm   Demar   Demortes   Elixias
-      Emmett   Exa   Falstar   Fharron   Fizban   Gatia   Ilsensine   Justo
-        Kyr   Macros   Meyekul   Mick   Minisham   Mythran   Neela   Poiu
-    Santa   Shamra   Shimmer   Silvanos   Smaug   Snowlock   Talgard   Taylor
-       Theophilus   Tocamat   Torpidai   Treestump   Tuskony   Zizazat   
+4 Skin Care Hot Springs card~
+A hot spring that cures you of any skin condition.
+Bathing in it for half an hour a day gives you skin as soft and smooth as a baby's.
 ~
 #5
-foraged berries~
-some foraged berries~
-A few discolored berries that someone foraged.~
+5 Spirited Away Hollow card~
+@m5 Spirited Away Hollow S-8 card@n~
+The @mSpirited Away Hollow S-8 card@G is lying here.@n~
 ~
-19 0 0 0 0 a 0 0 0 0 0 0 0
-6 0 0 0
-1 10 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 285000 8 0 62
 E
-berries foraged~
-   These blue, red, and even green berries look edible.  Though you do wonder
-about all those stories of poisonous berries out in the woods.  These don't
-smell bitter, so they must be fine.    
+5 Spirited Away Hollow~
+Enter and then exit this hollow and you will be transported to a desolate location within the country.
+Circumstances will allow you to return to where you started without you having to spend any money.
 ~
 #6
-greens forage~
-some foraged greens~
-Someone has foraged some greens to eat, but just left them here.~
+6 Liquor Spring card~
+@m6 Liquor Spring A-15 card@n~
+The @mLiquor Spring A-15 card@G is lying here.@n~
 ~
-19 0 0 0 0 a 0 0 0 0 0 0 0
-4 0 0 0
-1 20 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 105000 15 0 62
 E
-foraged greens~
-   An assortment of leaves and grasses that look rather bland.  But if you had
-to a person could survive off this meager cuisine.  After all, how do you think
-all these animals live out here.    
+6 Liquor Spring card~
+Draw some of this spring's water and one hour later it will become a
+random alcoholic drink of exquisite taste and extraordinary quality.
 ~
 #7
-foraged roots~
-some foraged roots~
-A pile of roots that someone collected for dinner.~
+7 pregnancy stones card~
+@m7 Pregnancy Stones S-10 card@n~
+The @m7 Pregnancy Stones S-10 card@g is lying here.@n~
 ~
-19 0 0 0 0 a 0 0 0 0 0 0 0
-8 0 0 0
-2 30 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 279000 10 0 62
 E
-roots foraged~
-   Tubular roots of varying sizes and colors.  They look very edible.  Some of
-them are known to even taste good!  You recognize on of a purplish hue that is
-extremely sweet and is actually considered a delicacy in some parts.    
+7 Pregnancy Stones card~
+Carry a stone (weighing 7 lb. each) for one month and you will get pregnant, even if you're male.
+You may choose the sex of the baby by the female or male stone.
 ~
 #8
-foraged bark~
-some foraged bark~
-A pile of bark is stacked neatly infront of you.~
+8 mystery pond card~
+@m8 Mystery Pond S-10 card  @n~
+The @mMystery Pond card@G is lying here.@n~
 ~
-19 0 0 0 0 a 0 0 0 0 0 0 0
-3 0 0 0
-3 15 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 279000 10 0 62
 E
-foraged bark~
-   Now this is gross!  It must be desperate times when you have to turn to
-eating tree bark.  This stuff is still green luckily so it has some moisture to
-it.  But you really aren't going to eat this are you?    
+8 Mystery Pond card~
+Release one fish into this pond, and there will be one more fish of that type the next day.
+You can keep any combination of fish in this pond, even saltwater and freshwater fish together! 
 ~
 #9
-foraged nuts~
-some foraged nuts~
-Half a dozen nuts are lined up perfectly on the ground.~
+9 tree plenty card~
+@m9 Tree of Plenty S-10 card@n~
+The @mTree of Plenty S-10 card@G is lying here.@n~
 ~
-19 0 0 0 0 a 0 0 0 0 0 0 0
-5 0 0 0
-1 10 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 249000 10 0 62
 E
-nuts foraged~
-   A variety of nuts that are very hard to come by.  Various animals hoard
-these in their lairs, so if you are lucky enough to come across some then you
-can just go nutty!    
+9 Tree Plenty card~
+A tree that bears all sorts of fruit.
+No matter how much you harvest, it will be full again the next day.
+The 	mtype and number of fruit are random.
 ~
 #10
-waybread bread food~
-a waybread~
-Some waybread has been put here.~
+10 golden guidebook card~
+@m10 Golden Guidebook A-20 card@n~
+The @mGolden Guidebook A-20 card@G is lying here.@n~
 ~
-19 gt 0 0 0 a 0 0 0 0 0 0 0
-100 0 0 0
-1 50 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
 E
-waybread bread~
-   The waybread is the traditional feed of elves when travelling, they call it
-lembas.  It is said to refresh the weary traveler greatly.  
+10 golden guidebook card~
+A heavy tome bound in gold leaf. Its pages chart the secrets of
+Greed Island, guiding the holder toward the people, places and
+cards worth seeking.
 ~
 #11
-water spring water~
-the spring~
-Fresh water is bubbling up from a spring.~
+11 golden scales card~
+@m11 Golden Scales B-30 card@n~
+The @mGolden Scales B-30 card@G is lying here.@n~
 ~
-23 0 0 0 0 0 0 0 0 0 0 0 0
-100 100 0 0
-0 0 0 0 0
-#12
-staff sanctum~
-the Staff of Sanctum~
-The Staff of Sanctum stands here waiting to be taken up by those who are worthy.~
-~
-5 0 0 0 0 ano 0 0 0 0 0 0 0
-50 10 5 7
-20 1000 0 30 0
-T 85
-#13
-Ferret's black book~
-the little black book~
-A little black book is sitting here calling your name.~
-~
-12 bgi 0 0 0 0 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 0 0 0 0
+0 50000 30 0 62
 E
-book~
-   Upon these pages are players that have upset Ferret and will not receive help!
-
-
-Demigod
-Saint
-Angel
-Phoenix
-Alexander
-&w(Maybe you!)&y
+11 golden scales card~
+When faced with a two-option choice, these scales
+will tell you which is better for your future.
+~
+#12
+12 golden dictionary card~
+@m12 Golden Dictionary S-10 card@n~
+The @mGolden Dictionary S-10 card@G is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 279000 10 0 62
+E
+12 golden dictionary card~
+Each day you will find a word glowing gold.
+You should learn those words because they
+will come in handy the next day.
+~
+#13
+13 luck bankbook card~
+@m13 Luck Bankbook A-20 card@n~
+The @m13 Luck Bankbook A-20 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
+E
+13 luck bankbook book card~
+Refrain from using the little things of good luck in your daily life,
+and you can accumulate and convert them into cash.
 ~
 #14
-pile stool steaming~
-a steaming pile of stool~
-A steaming pile of stool has recently been deposited here.~
+14 Connection Severing Scissors card~
+@m14 Connection Severing Scissors B-22 card@n~
+The @m14 Connection Severing Scissors B-22 card@g is lying here.@n~
 ~
-19 0 0 0 0 a 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
-#15
-quest_token_zone_1 token~
-a quest token~
-A quest token needs to be returned to the questmaster.~
-~
-12 0 0 0 0 a 0 0 0 0 0 0 0
-0 0 0 0
-1 1 0 0 0
-T 141
-T 169
+0 51315 22 0 62
 E
-quest token~
-   It is a plain gold coin with the symbol of Sanctus engraved on both sides.  
-This token should be taken back to the questmaster to receive a reward.  
+14 Connection Severing Scissors card~
+   Magical scissors that sever unwanted connections. In practice, they manifest
+as a wand of teleportation with 99 charges -- the enchantment gave up on severing bonds and settled for sending people away instead. Use: zap [target].
+~
+#15
+15 Fickle Genie card~
+@m15 Fickle Genie S-10 card@n~
+The @m15 Fickle Genie S-10 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 279000 10 0 62
+E
+15 Fickle Genie card~
+This genie will grant you three wishes, but you need to suggest 1000 potential,
+significantly different wishes and he will choose three from among them.
+(No cheating by asking for different increments of money.)
 ~
 #16
-quest timer~
-a quest timer~
-A small quest timer is ticking away.~
+16 Fairy King's Advice card~
+@m16 Fairy King's Advice S-6 card@n~
+The @m16 Fairy King's Advice S-6 card@g is lying here.@n~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
-T 140
-T 141
-T 142
+0 291000 6 0 62
 E
-quest timer~
-   This small device looks like an antique gold pocket watch.  One small hand
-counts down the 10 minutes a questor has to complete their quest.  
+16 Fairy King's Advice card~
+The 	mFairy King offers you gentle, apt advice on what you lack or what you should fix.
+The 	mannoying thing is he appears when he wants to.
 ~
 #17
-quest mobile head~
-the head of the quest mob~
-The head of a quest mob needs to be taken back to the questmaster.~
+17 angels breath card~
+@m17 Angel's Breath SS-3 card@n~
+The @m17 Angel's Breath SS-3 card@g is lying here.@n~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+26 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
-T 141
+0 937500 3 0 62
 E
-head quest mob~
-   This quest item is proof that you have hunted down and killed the quest mob.
-It needs to be returned to the questmaster within 10 minutes.  
+17 angels breath card~
+She cures one person of all wounds and ills, restoring them to perfect health.
+She will only appear once.
 ~
 #18
-recaller stone~
-a recaller stone~
-A recaller stone is left here.~
+18 imp s wink card~
+@m18 Imp's Wink A-18 card@n~
+The @m18 Imp's Wink A-18 card@g is lying here.@n~
 ~
-11 0 0 0 0 a 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 100 0 0 0
-T 3015
-T 3200
-T 3019
+0 50000 18 0 62
 E
-recaller stone~
-   Just type recall or return.
+18 imp s wink card~
+You will experience the most amazing ecstasy when she winks at you.
+She can appear multiple times. Be warned, it can get addictive.
+~
+#19
+19 poltergeist pillow card~
+@m19 Poltergeist Pillow A-13 card@n~
+The @m19 Poltergeist Pillow A-13 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 13 0 62
+E
+19 poltergeist pillow card~
+Sleep on this pillow, and your astral form will be able to wander at
+will, but you will turn into a real ghost if you do not return to your
+body within 24 hours.
 ~
 #20
-portal gate gateway~
-a shimmering portal~
-A shimmering portal hovers here forming a gateway to another place and time.~
+20 mood clock card~
+@m20 Mood Clock B-30 card@n~
+The @m20 Mood Clock B-30 card@g is lying here.@n~
 ~
-12 0 0 0 0 0 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 0 0 0 0
+0 50000 30 0 62
+E
+20 mood clock card~
+This clock sets your current state of mind. Turn it to noon, and you
+will maintain perfect serenity. Thus you can adjust your emotions
+according to the situation.
+~
 #21
-sword war blood~
-War's Blood~
-The sword of kings awaits a hero to wield it.~
+21 x ray goggles card~
+@m21 X-Ray Goggles B-27 card@n~
+The @m21 X-Ray Goggles B-27 card@g is lying here.@n~
 ~
-5 abdgimnoq 0 0 0 ano 0 0 0 0 0 0 0
-8 10 9 3
-1 1000 0 20 0
-A
-18 5
-A
-19 5
-A
-1 3
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 27 0 62
+E
+21 x ray goggles card~
+You can see through things. An adjustment dial allows you to set the
+x-ray depth. The only thing it cannot see through is a pack of spell
+cards from Masadora.
+~
 #22
-Shadow Stealer dagger quest~
-shadow stealer~
-A piece of deepest midnight calls to you here.~
+22 toraemon card~
+@m22 Toraemon A-22 card@n~
+The @m22 Toraemon A-22 card@g is lying here.@n~
 ~
-5 bdgmnpq 0 0 0 ano 0 0 0 0 0 0 0
-10 10 9 11
-1 1000 0 20 0
-T 84
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 22 0 62
 E
-shadow stealer dagger quest~
-   This long, thin dagger is made of the blackest metal you have ever seen.  It
-seems to devour all the light in its vicinity, making it appear as if it were a
-part of the very night.  As you look at the blade and hilt, you can make out an
-inscription which travels from the point of the weapon to its ornately engraved
-pommel.  "Whosoever would let blood for love, whosoever would make war upon
-death, whosoever would give their life to love, make war with my darkness."
-Wield this fabled blade of lost love, and become one with the shadows.  
+22 toraemon card~
+A beast on the verge of extinction has a habit of stuffing things in
+its 4-D pocket. You never know what kind of treasures it could have
+picked up.
 ~
-A
-2 3
-A
-14 50
-A
-18 5
 #23
-staff spellfire quest~
-the staff of spellfire~
-A burning staff of magical power floats in the air under its own power.~
+23 tome of a thousand tales card~
+@m23 Tome of a Thousand Tales B-30 card@n~
+The @m23 Tome of a Thousand Tales B-30 card@g is lying here.@n~
 ~
-5 abdfginopq 0 0 0 ano 0 0 0 0 0 0 0
-6 10 9 7
-1 1000 0 20 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
 E
-staff spellfire quest~
-   Wrought of the pure weave, bound by mortal spells, wielded by only the
-highest of sorcerers, this staff is a burning rod of pure magic.  The white
-flame that gives it substance flickers and flares as you watch, threatening to
-break its magical wards and devour its surroundings.  As you hold this weapon,
-these words are burned into your mind.  "From the flash to the flame, my light
-shall guide the wizardry with wisdom.  From the beginning to the end, there
-will I be; to weave the one force eternal."
+23 tome of a thousand tales card~
+A book that shows you a different story each time you open it. Use the
+special included bookmark if you want to stay on the same story when
+you put it down.
 ~
-A
-4 3
-A
-3 3
-A
-12 50
 #24
-mace quest divine blessing~
-the mace of divine blessing~
-A gift from the gods is here seeking a worthy mortal.~
+24 hypothetical t v card~
+@m24 Hypothetical T.V. A-20 card@n~
+The @m24 Hypothetical T.V. A-20 card@g is lying here.@n~
 ~
-5 abdgimopq 0 0 0 ano 0 0 0 0 0 0 0
-6 10 9 7
-1 1 0 20 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 20 0 62
 E
-mace quest divine blessing~
-   This heavy iron mace hums with suppressed power.  Its surface is engraved
-with thousands of tiny runes of all the deities that have ever been and ever
-will be.  Written across the flanges of the head are these words, "Let faith be
-the beginning.  Let the body be its instrument.  Let divinity flow through the
-wielder of my force.  Believe and be blessed."
+24 hypothetical t v card~
+Input a hypothetical situation with the included remote, and this TV
+will show you a 30-hour documentary of the possibilities. You are also
+able to record.
 ~
-A
-4 3
-A
-3 3
-A
-12 50
 #25
-silver bow quest~
-the silver bow of the light~
-A mighty force for good seeks a champion of the light.~
+25 risky dice card~
+@m25 Risky Dice B-30 card@n~
+The @m25 Risky Dice B-30 card@g is lying here.@n~
 ~
-5 abdgiklq 0 0 0 ano 0 0 0 0 0 0 0
-8 10 9 14
-1 1000 0 20 0
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
 E
-silver bow quest light~
-   Resplendent as the sun, this bow of pure silver seems to exude purity and
-goodness.  The bow itself is a shaft of pure silver, inscribed with sunbursts
-and lightning bolts.  Its string is a thread of purest white light that shimmers
-as you look at it.  No arrow is needed for this mighty weapon.  Its wielder need
-never carry a quiver.  If you listen closely, you can hear the weapon humming
-with its own energy.  If you listen long enough you might hear these words in
-its song.  "Let light banish darkness.  Let Hope banish fear.  I am the herald
-of the end.  Where I strike, only light remains."
+25 risky dice card~
+   A twenty-sided die with one skull face and 19 star faces.  Great things
+happen when you roll a star, but rolling the skull will be bad enough to cancel
+out all the previous great events.
 ~
-A
-12 50
-A
-13 50
-A
-18 5
 #26
-spear balance quest~
-the spear of balance~
-The greatest symbol of balance seeks the hearts of evil and good alike.~
+26 night shift dwarves card~
+@m26 Night Shift Dwarves A-20 card@n~
+The @m26 Night Shift Dwarves A-20 card@g is lying here.@n~
 ~
-5 abdgjkq 0 0 0 ano 0 0 0 0 0 0 0
-8 10 9 11
-1 1000 0 20 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
 E
-spear quest balance~
-   The Lance of heroes.  The spear of mortal man.  The shaft of this legendary
-pike is carved from the wood of the tree of life.  Though separated from the
-tree that gave it life, the wood is a living, thinking entity.  Full 6 feet in
-length, the shaft's wood is smooth and unbroken by any scratch or mark.  The
-head of the spear is a huge dragon's fang, rumored to be from the mouth of the
-god Balm himself.  Etched in runes across the head of the spear are these words.
-"Find gray where only black and white were before.  Seek truth where others seek
-good and evil.  Bring justice through the scales of balance.  Then may you wield
-the truth that is my gift."
+26 night shift dwarves card~
+They can do any work you can do, and they will work as long as you are asleep.
+They cannot do anything beyond your abilities.
 ~
-A
-12 50
-A
-13 50
-A
-14 50
 #27
-axe quest doomslaying~
-the axe of doomslaying~
-The axe meant to end all that is good in the realms floats here seeking a head to remove.~
+27 book of v i p passes card~
+@m27 Book of V.I.P Passes B-25 card@n~
+The @m27 Book of V.I.P Passes B-25 card@g is lying here.@n~
 ~
-5 bdgjlq 0 0 0 ano 0 0 0 0 0 0 0
-10 10 9 3
-1 1000 0 20 0
-T 83
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 25 0 62
 E
-axe doomslaying quest~
-   Darkest midnight, purest evil, death embodied.  This weapon is the end of all
-that is good.  Made only of shadows and the taint that is the most obscene
-corruption, the head of this axe is jagged and spiked.  The blade is balanced by
-a wicked spike giving this ancient weapon the look of a warped headsman's axe.
-No light seems to reach it, no living thing seeks its touch.  Tendrils of sickly
-smoke rise from the blade tainting your thoughts and the very air around you.  
-It calls you, it draws you.  "Wield me, worship me, watch me take the blood of
-the pure.  Become one with my taint.  Feel the foulness fermenting your soul.  
-Accept evil, accept the shadow.  Wield me and become death.  Become immortal."  
+27 book of v i p passes card~
+You can go anywhere with these passes. Book of 1000.
 ~
-A
-18 5
-A
-19 5
-A
-2 3
 #28
-cap quickling quest~
-the cap of quickling~
-A small cap of the faerie folk seeks the grasp of a true quickling.~
+28 capricious remote card~
+@m28 Capricious Remote B-27 card@n~
+The @m28 Capricious Remote B-27 card@g is lying here.@n~
 ~
-11 dfgq 0 0 0 ae 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1000 0 20 0
+0 50000 27 0 62
 E
-cap quickling quest~
-   This small green cap is made of a fine velvet lined with silk.  Its material
-seems to conform to your touch, as if trying to accommodate itself to your
-grasp.  Its only distinctive feature is a emerald studded silver stickpin
-jutting jauntily out of the front of the cap.  A peace of silk ribbon forms a
-band around the inside of the brim.  These words have been embroidered into the
-cap's material.  "The world is a wonder.  A wonder to wander.  To wander the
-wonderful world.  That is the life of a sprite.  Come, my brothers, for much is
-lost that we may find.  Come, my sisters, for many are lost that we may love.  
-Happiness is a laugh away.  Live and laugh and love; that is joy."
+28 capricious remote card~
+A remote control to manipulate ten emotions someone feels toward
+someone else, on an intensity scale of 1-10. (You cannot control how
+people feel toward you.)
 ~
-A
-14 50
-A
-2 3
-A
-17 -10
 #29
-armbands midnight sun land quest~
-the armbands of the land of the midnight sun~
-The symbol of trollish heroes awaits the next leader of the tribes.~
+29 pre order vouchers card~
+@m29 Pre-Order Vouchers A-20 card@n~
+The @m29 Pre-Order Vouchers A-20 card@g is lying here.@n~
 ~
-9 bdgiq 0 0 0 ai 0 0 0 0 0 0 0
-10 0 0 0
-1 1000 0 20 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 20 0 62
 E
-armbands land midnight sun quest~
-   These huge bands of red metal are scratched and marked from years of battle
-and blood.  Crude markings cover their surface, chronicling the history of the
-trollish race in gory detail.  Marked in magical runes on the inside of each
-band are these words.  "Breaking bones, bringing blood, battering battle, bless
-me brothers, My eyes see red, my claws drip scarlet, and my soul is crimsoned
-with the blood of the hunt.  We will triumph, for there is no cure for death."
+29 pre order vouchers card~
+Write the name of any commercially available product on a voucher, and
+you'll be guaranteed to get it regardless of its scarcity (You still
+have to pay). A book of 1000.
 ~
-A
-1 3
-A
-13 50
-A
-5 3
 #30
-star man quest~
-the star of man~
-The light of humanity guides you onward here.~
+30 favor cushion card~
+@m30 Favor Cushion B-21 card@n~
+The @m30 Favor Cushion B-21 card@g is lying here.@n~
 ~
-1 abdgq 0 0 0 ao 0 0 0 0 0 0 0
-0 0 -1 0
-2 1000 0 20 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 21 0 62
 E
-star man quest~
-   This beautiful gem was mined from the center of the mountain from which the
-stone of Sanctus's walls is constructed.  It pulses with the glow of true magic.
-Carved by the finest craftsman, enchanted by the most powerful wielders of the
-magical arts, this stone was made for the greatest of the human race.  Look into
-its depths, and see all the souls of mortal man.  It has no peer, no equal, and
-has yet to be classified by dwarven miners or gnomish scholars.  The human who
-holds it holds the light of all humanity in their grasp.  
+30 favor cushion card~
+Seat someone on this cushion, and he will do one thing for you, so
+long as it is within his capabilities.
 ~
-A
-12 50
-A
-13 50
-A
-14 50
 #31
-shield quest wyrmguard~
-WyrmGuard~
-The protection of dragon-kind seeks the next hero of the wryms.~
+31 double postcard dead card~
+@m31 Double Postcard to the Dead S-13 card@n~
+The @m31 Double Postcard to the Dead S-13 card@g is lying here.@n~
 ~
-9 abdgq 0 0 0 aj 0 0 0 0 0 0 0
-10 0 0 0
-5 1000 0 20 0
-T 86
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 270000 13 0 62
 E
-shield quest wyrmguard~
-   Torn from Balm's breast, this scale has been shaped into a shield of
-unrivaled strength and beauty.  Its diamond shape expands and shapes itself to
-protect any dragon who bears it, from the youngest of hatchlings, to the most
-ancient of wyrms.  The shield shimmers and wavers with all the colors of the
-rainbow.  In its shimmering depths can be seen all the colors of every dragon
-that has ever come to pass.  Magical runes circle the shield's rim.  "Come wind,
-come fire.  Come Thunder, come rain.  My bearer need never fear.  Come giants to
-duel.  My roar of triumph will be the last you ever hear."  
+31 double postcard dead card~
+   Address and mail this return postage-paid postcard to a deceased person, and
+you will get a reply the next day.
 ~
-A
-17 -10
-A
-3 3
-A
-12 50
 #32
-heartguard armor quest~
-HeartGuard~
-The pride of the dwarven race lies here unused.~
+32 parrot candy card~
+@m32 Parrot Candy B-30 card@n~
+The @m32 Parrot Candy B-30 card@g is lying here.@n~
 ~
-9 bdgiq 0 0 0 ad 0 0 0 0 0 0 0
-10 0 0 0
-10 1000 0 20 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
 E
-heartguard armor quest~
-   This armor has been forged from the purest iron that can be found in mortal
-realms.  Its surface has been polished time and time again till it gleams with
-dark perfection.  The finest dwarven smiths have placed all their knowledge in
-its making.  The most hallowed dwarven priests have gifted this armor with their
-blessing.  It has no peer, no equal.  Inscribed on the armor's breastplate are
-these words: "To march to the clang of the hammer.  To be cooled by the
-whistling wind of the whirling axe.  Come foe, come fool; Break yourself on the
-rock of the dwarf.  Eternal wealth awaits, and we will not be denied."
+32 parrot candy card~
+Sucking on this candy enables you to produce any voice. The effect
+lasts until you next ingest something. A set of 10 packs, 50 candies
+per pack.
 ~
-A
-18 5
-A
-19 5
-A
-13 50
 #33
-scholar's guide jeweler's loop quest~
-Scholar's Guide~
-The Guide to all Gnomish knowledge hums here quietly.~
+33 hormone cookies card~
+@m33 Hormone Cookies S-13 card@n~
+The @m33 Hormone Cookies S-13 card@g is lying here.@n~
 ~
-11 abdgq 0 0 0 aco 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-3 1000 0 20 0
+0 50000 13 0 62
 E
-scholar's guide jeweler's loop quest~
-   You are looking at what could quite possibly be one of the most beautiful
-peaces of artistry ever made.  This finely crafted jeweler's loop is suspended
-from a chain of golden links.  The loop itself is a perfectly made combination
-of ground glass, perfectly crafted silver, and precision gnomish workmanship.
-It is so simple as to be elegant.  A tiny plaque hangs from the chain that
-suspends the loop.  "To you who would sacrifice for life, join me.  To you who
-would become a slave to wonder, hold me.  To you who seek riches through
-learning, I am yours."
+33 hormone cookies card~
+A colorful tin labeled "Hormone Cookies - S-13". Eating one reshapes
+your body for exactly one day (24 Greed Island hours). There are 20
+cookies per box. Eating a second cookie while transformed has no effect;
+patience is the only cure.
 ~
-A
-3 3
-A
-12 50
-A
-4 3
 #34
-boots strider quest~
-the boots of the strider~
-The companions to the wanderlust sit here waiting for travel.~
+34 universal survey card~
+@m34 Universal Survey B-30 card@n~
+The @m34 Universal Survey B-30 card@g is lying here.@n~
 ~
-9 bdgq 0 0 0 ag 0 0 0 0 0 0 0
-10 0 0 0
-5 1000 0 20 0
-E
-boots strider quest~
-   These fine boots have been made from the hides of monsters and beasts the
-world over.  They are unadorned black suede leather, with a thick sole and
-steel toe.  The stitching that holds them together is so fine as to be
-invisible.  As you look at them, words enter your mind.  "Trip over mountain.  
-Stride over sea.  Travel across desert.  Run between the forest trees.  Be bold,
-be brave.  Be unfettered.  Let us run the world over.  You and me."
-~
-A
-14 50
-A
-5 3
-A
-2 3
-#35
-battleaxe dragonbane quest axe~
-the Battleaxe of Dragonbane~
-The bane of all wyrmkin seeks the heart of a dragon.~
-~
-5 abdgiq 0 0 0 ano 0 0 0 0 0 0 0
-10 10 9 3
-10 1000 0 20 0
-E
-battleaxe dragonbane quest~
-   There is no greater weapon in mortal hands.  This is an instrument of death.
-The two-headed axe was meant for the hands of a giant.  The shaft and hilt of
-this mighty blade are formed from a gray stone that can never be chipped or
-broken.  The head of the weapon is formed from two massive pieces of obsidian,
-shaped like diamonds, side by side.  However this vicious object has but one
-purpose.  Etched into the two heads of the axe are these words.  "Slash, slice,
-swerve and swipe.  Dodge, duck, down and up.  I draw the blood of the weak.  
-Thunder marks my strike.  Lightning shines when I am drawn.  I am the storm to
-end all.  I am the dragonbane."
-~
-A
-13 50
-A
-19 5
-A
-18 5
-#36
-cloak Elven court quest~
-the cloak of the elven court~
-A heavy cloak of brown and green is here for the next elven king.~
-~
-9 dgq 0 0 0 ack 0 0 0 0 0 0 0
-10 0 0 0
-4 1000 0 20 0
-E
-cloak elven court quest~
-   A heavy, richly embroidered, cloak of green and brown.  Its color changes as
-you move, blending in with the world around you.  A simple wooden clasp holds it
-together at the neck.  It would be like any other nobleman's traveling cloak
-were it not for one thing.  Laced with thread so fine it almost isn't there, the
-symbol of the Elven court is sewn over the breast of the cloak.  This is the
-garment of the Elven court.  Its bearers are the pride of their race.  Only 6
-heroes have ever been worthy to wear such a mark of honor.
-~
-A
-2 3
-A
-3 3
-A
-14 50
-#37
-Gloves kindred quest~
-Gloves of the Kindred~
-Some fine gloves sit hear itching to grab something.~
-~
-11 dgq 0 0 0 ah 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-3 1000 0 20 0
+0 50000 30 0 62
 E
-gloves kindred quest~
-   A set of lithe leather riding gloves.  The leather is so thin as to almost
-not be there.  The palm and fingertip of each glove are padded with a lining of
-cloth to protect the wearer's hand against harm.  Looking at these tiny gloves
-you wonder what keeps them from just tearing at the slightest pressure.  
+34 universal survey card~
+   Summons a blank survey booklet. Write your questions inside and give it to
+anyone -- they are compelled to answer honestly. Purely for roleplay; the
+target is not magically bound.
 ~
-A
-13 50
-A
-14 50
-A
-2 3
+#35
+35 chameleon cat card~
+@m35 Chameleon Cat S-6 card@n~
+The @m35 Chameleon Cat S-6 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 6 0 62
+E
+35 chameleon cat card~
+An endangered species. Once tamed, it can transform into any animal.
+However, its mass remains constant, so it will be a tiny elephant or a
+large hamster, for example.
+~
+#36
+36 recycling room card~
+@m36 Recycling Room S-10 card@n~
+The @m36 Recycling Room S-10 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 10 0 62
+E
+Recycling Room card~
+   Use this card to instantly repair all worn equipment and items you carry --
+equipped, in inventory, or inside containers -- restoring them to perfect
+condition. Single use.
+~
+#37
+37 fledgling athlete card~
+@m37 Fledgling Athlete B-30 card@n~
+The @m37 Fledgling Athlete B-30 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
+E
+37 fledgling athlete card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top athlete when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
+~
 #38
-gem sanctum~
-a gem of sanctum~
-One of the lost treasures of Sanctum is here.~
+38 fledgling artist card~
+@m38 Fledgling Artist B-30 card@n~
+The @m38 Fledgling Artist B-30 card@g is lying here.@n~
 ~
-4 a 0 0 0 ao 0 0 0 0 0 0 0
-30 1 1 26
-1 1000 0 0 0
-T 90
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
 E
-gem sanctum~
-   This is one of the treasures from the hoards of the city of Sanctum.  
+38 fledgling artist card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top artist when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
 ~
 #39
-staff curative~
-a curative staff~
-A staff used by the healers of Sanctum is here.~
+39 fledgling politician card~
+@m39 Fledgling Politician B-30 card@n~
+The @m39 Fledgling Politician B-30 card@g is lying here.@n~
 ~
-4 b 0 0 0 ao 0 0 0 0 0 0 0
-30 1 1 43
-1 1000 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
 E
-curative staff~
-   This beautiful staff is used by the healers of sanctum.  
+39 fledgling politician card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top politician when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
 ~
 #40
-runestone sanctum church~
-a runestone of Sanctum~
-A runestone of the church of Sanctum has been left here.~
+40 fledgling musician card~
+@m40 Fledgling Musician B-30 card@n~
+The @m40 Fledgling Musician B-30 card@g is lying here.@n~
 ~
-4 b 0 0 0 ao 0 0 0 0 0 0 0
-30 1 1 36
-1 1000 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
 E
-runestone Sanctum church~
-   This is one of the runestones used by the priests of Sanctum in their duties.
-
+40 fledgling musician card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top musician when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
 ~
 #41
-Bell sanctum freedom~
-the bell of Sanctum's freedom~
-The symbol of Sanctum's freedom waits to be returned to its city.~
-Nothing.
+41 fledgling pilot card~
+@m41 Fledgling Pilot B-30 card@n~
+The @m41 Fledgling Pilot B-30 card@g is lying here.@n~
 ~
-4 b 0 0 0 ao 0 0 0 0 0 0 0
-30 1 1 39
-1 1000 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
 E
-bell sanctum's freedom~
-   This is the bell that represents the freedom of the city of Sanctum.  
+41 fledgling pilot card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top pilot when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
 ~
 #42
-hammer Sanctum~
-the hammer of Sanctum~
-The hammer used to ring Sanctum's mighty bell is here.~
+42 fledgling novelist card~
+@m42 Fledgling Novelist B-30 card@n~
+The @m42 Fledgling Novelist B-30 card@g is lying here.@n~
 ~
-4 ab 0 0 0 ao 0 0 0 0 0 0 0
-30 1 1 3
-1 1000 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
 E
-hammer Sanctum~
-   This is the hammer used to ring the bell of freedom in the church of Sanctum.
-
+42 fledgling novelist card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top novelist when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
 ~
 #43
-Guards Eternal Flame quest~
-Guards of the Eternal Flame~
-The spirit of Wyvern Rulers seeks a new Guardian of the flames.~
+43 fledgling gambler card~
+@m43 Fledgling Gambler B-30 card@n~
+The @m43 Fledgling Gambler B-30 card@g is lying here.@n~
 ~
-9 adfgq 0 0 0 af 0 0 0 0 0 0 0
-10 0 0 0
-5 1000 0 30 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
 E
-guards eternal flame quest~
-   Guardians of history, heroes of legend, Ancients of elder years.  These are
-the Guards worn by those chosen to rule all of Drake kind.  The material that
-forms them glows and smokes like living flame.  However, it is cool to the
-touch, forming an impenetrable barrier against all attacks.  These leggings seem
-to shimmer before your very eyes, fact or fiction, they look as though they
-could vanish at any turn.  Looking deep into the fire that is their strength you
-see these words in yellow and red flame.  "Drawn from the depths.  Delivered
-from death.  Directed by Divinity.  I am the truth.  The light.  The guardian of
-hope and the future.  Find comfort in my flames.  Find strength in my touch.  
-For with me lies all that is to come."
+43 fledgling gambler card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top gambler when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
 ~
-A
-6 3
-A
-13 50
-A
-14 50
 #44
-questpoint setter immortal device~
-a questpoint setter~
-An immortal device to set questpoints.~
+44 fledgling actor card~
+@m44 Fledgling Actor B-30 card@n~
+The @m44 Fledgling Actor B-30 card@g is lying here.@n~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 34 0
-T 168
-#46
-key gateguard~
-the gateguard key~
-The gateguards key was left here.~
-~
-12 0 0 0 0 a 0 0 0 0 0 0 0
-0 0 0 0
-1 1 0 0 0
-#47
-magic eight ball eightball~
-the magic eight ball~
-A mysterious looking magic eight ball holds the answer.~
-~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-1 1 0 0 0
-T 6
+0 50000 30 0 62
 E
-magic eight ball~
-   Simply "shake eightball" to have all of your questions answered. 
+44 fledgling actor card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top actor when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
+~
+#45
+45 fledgling ceo card~
+@m45 Fledgling CEO B-30 card@n~
+The @m45 Fledgling CEO B-30 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
+E
+45 fledgling ceo card~
+Warm this magic egg in your hand for three hours a day for one to ten
+years, and you will become a top CEO when it hatches. The stronger your
+desire during incubation, the sooner it will hatch.
+~
+#46
+46 gold dust girl card~
+@m46 Gold Dust Girl A-13 card@n~
+The @m46 Gold Dust Girl A-13 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 106000 13 0 62
+E
+46 gold dust girl card~
+A girl who weeps fine gold dust. Each day she sheds a small measure
+of pure gold that can be gathered and spent.
+~
+#47
+47 sleeping girl card~
+@m47 Sleeping Girl A-11 card@n~
+The @m47 Sleeping Girl A-11 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 11 0 62
+E
+47 sleeping girl card~
+A girl who sleeps in your stead. You can be active for 24 hours
+without sleeping while she sleeps for you.
 ~
 #48
-bed comfy~
-a comfy bed~
-A comfy bed is begging you to take a nap.~
+48 aromatherapy girl card~
+@m48 Aromatherapy Girl A-15 card@n~
+The @m48 Aromatherapy Girl A-15 card@g is lying here.@n~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 50000 15 0 62
 E
-comfy bed~
-   This bed is beckoning you to lie down and get some much needed sleep.
-Just "sleep bed"
+48 aromatherapy girl card~
+A girl who emits the most comfortable aroma for you. While she's by
+your side, you will be free of stress.
 ~
 #49
-quarter coin~
-a quarter~
-A typical U.S. quarter that appears to be perfect for flipping.~
+49 miniature mermaid card~
+@m49 Miniature Mermaid A-23 card@n~
+The @m49 Miniature Mermaid A-23 card@g is lying here.@n~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
-T 37
+0 50000 23 0 62
 E
-coin quarter~
-   This quarter is perfect for deciding those difficult boolean questions you
-may have. Just "flip quarter"
+49 miniature mermaid card~
+A mermaid small enough to fit in your hand. A comfortable living
+environment puts her in a good mood, and she will sing with her
+beautiful voice.
 ~
 #50
-generic light~
-a generic light~
-A generic light is lying here.~
+50 miniature dino card~
+@m50 Miniature Dino A-11 card@n~
+The @m50 Miniature Dino A-11 card@g is lying here.@n~
 ~
-1 0 0 0 0 ao 0 0 0 0 0 0 0
-0 0 -1 0
-1 1 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 11 0 62
 E
-generic light~
-   Since this light is completely generic there are no distinctive features
-worth noticing.    
+50 miniature dino card~
+A dinosaur small enough to fit in your hand. This creature produces a
+different species of tiny dinosaur with each new generation.
 ~
 #51
-generic ring rfinger~
-a generic ring~
-A generic ring is lying here.~
+51 miniature dragon card~
+@m51 Miniature Dragon S-10 card@n~
+The @m51 Miniature Dragon S-10 card@g is lying here.@n~
 ~
-9 0 0 0 0 abo 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 50000 10 0 62
 E
-generic ring right~
-   Since this ring is completely generic there are no distinctive features worth
-noticing.    
+51 miniature dragon card~
+A dragon small enough to fit in your hand. It will obey your commands
+and eventually learn to talk if raised with love.
 ~
 #52
-generic ring lfinger~
-a generic ring~
-A generic ring is lying here.~
+52 pearl locusts card~
+@m52 Pearl Locusts B-30 card@n~
+The @m52 Pearl Locusts B-30 card@g is lying here.@n~
 ~
-9 0 0 0 0 ab 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 50000 30 0 62
 E
-generic ring left~
-   Since this ring is completely generic there are no distinctive features worth
-noticing.    
+52 pearl locusts card~
+Each of these locusts has a pearl in its abdomen. An outbreak occurs
+once every dozen years or so.
 ~
 #53
-generic neck1 necklace~
-a generic necklace~
-A generic necklace is lying here.~
+53 king white stag beetle card~
+@m53 King White Stag Beetle A-30 card@n~
+The @m53 King White Stag Beetle A-30 card@g is lying here.@n~
 ~
-9 0 0 0 0 ac 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 50000 30 0 62
 E
-generic neck1 necklace~
-   Since this necklace is completely generic there are no distinctive features
-worth noticing.    
+53 king white stag beetle card~
+It uses special pheromones to lure other insects to build a huge
+colony. It leaves the colony once a day for an evening stroll.
 ~
 #54
-generic neck2 necklace~
-a generic necklace~
-A generic necklace is lying here.~
+54 millennium butterfly card~
+@m54 Millennium Butterfly A-25 card@n~
+The @m54 Millennium Butterfly A-25 card@g is lying here.@n~
 ~
-9 0 0 0 0 ac 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 50000 25 0 62
 E
-generic neck2 necklace~
-   Since this necklace is completely generic there are no distinctive features
-worth noticing.    
+54 millennium butterfly card~
+A legendary insect named after the fact that the family of anyone who
+captures it will prosper for generations.
 ~
 #55
-generic body armor~
-a set of generic body armor~
-A set of generic body armor is lying here.~
+55 revenge shop card~
+@m55 Revenge Shop A-20 card@n~
+The @m55 Revenge Shop A-20 card@g is lying here.@n~
 ~
-9 0 0 0 0 ad 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 50000 20 0 62
 E
-generic body armor~
-   Since this body armor is completely generic there are no distinctive features
-worth noticing.    
+55 revenge shop card~
+Report your grudges to the manager, and he will retaliate for you in
+proportion to your grievance. Pay extra to request a more severe
+retaliation.
 ~
 #56
-generic helm~
-a generic helm~
-A generic helm is lying here.~
+memory studio perfect card~
+@m56 Perfect Memory Studio B-25 card~
+The @m56 Perfect Memory Studio B-25 card@g is lying here.~
 ~
-9 0 0 0 0 ae 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 50850 25 0 62
 E
-generic helm~
-   Since this helm is completely generic there are no distinctive features worth
-noticing.    
+memory studio perfect card~
+   Summons a photograph of yourself at a younger age, with your name written
+on the back. Purely decorative -- a memento for roleplay.
 ~
 #57
-generic leggings~
-a pair of generic leggings~
-A pair of generic leggings are lying here.~
+57 hideout realtor card~
+@m57 Hideout Realtor A-11 card@n~
+The @m57 Hideout Realtor A-11 card@g is lying here.@n~
 ~
-9 0 0 0 0 af 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 50000 11 0 62
 E
-generic leggings~
-   Since this pair of leggings is completely generic there are no distinctive
-features worth noticing.    
+57 hideout realtor card~
+The agent will build a secret room just for you at your chosen place.
+However, you must not tell anyone about it or bring anybody to it.
 ~
 #58
-generic boots~
-a pair of generic boots~
-A pair of generic boots are lying here.~
+58 secrets video rental card~
+@m58 Secrets Video Rental A-13 card@n~
+The @m58 Secrets Video Rental A-13 card@g is lying here.@n~
 ~
-9 0 0 0 0 ag 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
-T 88
+0 50000 13 0 62
 E
-generic boots~
-   Since the pair of boots are completely generic there are no distinctive
-features worth noticing.    
+58 secrets video rental card~
+Rent videos of other peoples secrets. You must not show the video or
+discuss its contents with anyone.
 ~
 #59
-generic gloves~
-a pair of generic gloves~
-A pair of generic gloves are lying here.~
+59 instant foreign language school card~
+@m59 Instant Foreign Language School A-20 card@n~
+The @m59 Instant Foreign Language School A-20 card@g is lying here.@n~
 ~
-9 0 0 0 0 ah 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 50000 20 0 62
 E
-generic gloves~
-   Since the pair of gloves are completely generic there are no distinctive
-features worth noticing.    
+59 instant foreign language school card~
+Spend time studying a language at this school, and you will accrue
+time on a timer (included). While the timer is activated and counting
+down, you will be fluent.
 ~
 #60
-generic sleeves~
-a pair of generic sleeves~
-A pair of generic sleeves are lying here.~
+60 long lost delivery card~
+@m60 Long Lost Delivery B-30 card@n~
+The @m60 Long Lost Delivery B-30 card@g is lying here.@n~
 ~
-9 0 0 0 0 ai 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 50000 30 0 62
 E
-generic sleeves~
-   Since the pair of sleeves are completely generic there are no distinctive
-features worth noticing.    
+60 long lost delivery card~
+Call the number and describe the item you lost, which will be
+delivered to you the next day. It must be lost for longer than a
+month.
 ~
 #61
-generic shield~
-a generic shield~
-A generic shield is lying here.~
+61 vending checkup card~
+@m61 Vending Check-Up A-20 card@n~
+The @m61 Vending Check-Up A-20 card@g is lying here.@n~
 ~
-9 0 0 0 0 aj 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 102500 20 0 62
 E
-generic shield~
-   Since the shield is completely generic there are no distinctive features
-worth noticing.    
+61 vending checkup card~
+A full-body medical scan for just 500 g. However, the only results are
+"All Clear" or "Anomaly Detected," in which case it is recommended you see a doctor.
 ~
 #62
-generic cape~
-a generic cape~
-A generic cape is lying here.~
+club you rule card~
+@m62 Club "You Rule" B-20 card@n~
+The @m62 Club "You Rule" B-20 card@g is lying here.~
 ~
-9 0 0 0 0 ak 0 0 0 0 0 0 0
+26 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 50000 20 0 62
 E
-generic cape~
-   Since the cape is completely generic there are no distinctive features worth
-noticing.    
+club you rule card~
+This card allows the caster to effectively
+control everyone within a club.
 ~
 #63
-generic belt~
-a generic belt~
-A generic belt is lying here.~
+63 virtual restaurant card~
+@m63 Virtual Restaurant B-30 card@n~
+The @m63 Virtual Restaurant B-30 card@g is lying here.@n~
 ~
-9 0 0 0 0 al 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 50000 30 0 62
 E
-generic belt~
-   Since the belt is completely generic there are no distinctive features worth
-noticing.    
+63 virtual restaurant card~
+You can order any food you want. You will feel full, but it is only an
+illusion. You will be given a multivitamin as you leave.
 ~
 #64
-generic wristguard~
-a generic wristguard~
-A generic wristguard is lying here.~
+64 witch love potion card~
+@m64 Witch's Love Potion B-30 card@n~
+The @m64 Witch's Love Potion B-30 card@g is lying here.@n~
 ~
-9 0 0 0 0 am 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 50000 30 0 62
 E
-generic wristguard~
-   Since the wristguard is completely generic there are no distinctive features
-worth noticing.    
+64 witch love potion card~
+A rose-tinted brew. The first person the drinker lays eyes on
+afterward seems irresistibly charming to them for a single day.
 ~
 #65
-generic wristguard~
-a generic wristguard~
-A generic wristguard is lying here.~
+65 witch rejuvenation potion card~
+@m65 Witch's Rejuvenation Potion S-10 card@n~
+The @m65 Witch's Rejuvenation Potion S-10 card@g is lying here.@n~
 ~
-9 0 0 0 0 am 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 279000 10 0 62
 E
-generic wristguard~
-   Since the wristguard is completely generic there are no distinctive features
-worth noticing.    
+65 witch rejuvenation potion card~
+A shimmering draught that washes the years from the body,
+restoring the drinker to the prime of their youth with a single sip.
 ~
 #66
-generic weapon~
-a generic weapon~
-A generic weapon is lying here.~
+66 witch diet pills card~
+@m66 Witch's Diet Pills B-28 card@n~
+The @m66 Witch's Diet Pills B-28 card@g is lying here.@n~
 ~
-5 0 0 0 0 an 0 0 0 0 0 0 0
-1 2 2 0
-1 2 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 36000 28 0 62
 E
-generic weapon~
-   Since this weapon is completely generic there are no distinctive features
-worth noticing.    
+66 witch diet pills card~
+A bitter green draught that melts away excess weight overnight,
+leaving the body lean without effort or hunger.
 ~
 #67
-generic staff~
-a generic staff~
-A generic staff is lying here.~
+67 doyen growth pills card~
+@m67 Doyen's Growth Pills B-30 card@n~
+The @m67 Doyen's Growth Pills B-30 card@n@G is lying here.@n~
 ~
-9 0 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 50000 30 0 62
 E
-generic staff~
-   Since this staff is completely generic there are no distinctive features
-worth noticing.    
+67 doyen growth pills card~
+Pills compounded by the Doyen. Taken nightly, they coax the body
+to grow taller over the course of a month.
 ~
 #68
-commissars key~
-the Commissar's key~
-A large key painted red and hanging on a metal ring was left here.~
+68 doyen virility pills card~
+@m68 Doyen's Virility Pills A-20 card@n~
+The @m68 Doyen's Virility Pills A-20 card@n@G is lying here.@n~
 ~
-18 0 0 0 0 a 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 10 0 0 0
+0 102500 20 0 62
 E
-commissars key~
-   This old fashioned skeleton key has been painted a bright red and is all
-alone on an over-sized metal key ring.
+68 doyen virility pills card~
+Pills compounded by the Doyen that restore strength and stamina.
+Eating one floods the body with renewed vigor.
 ~
 #69
-wooden signopened~
-a wooden sign~
-A simple wooden sign hanging from a shop to the North states, "OPEN."~
+69 doyen hair restorer card~
+@m69 Doyen's Hair Restorer B-30 card@n~
+The @m69 Doyen's Hair Restorer B-30 card@n@G is lying here.@n~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 50000 30 0 62
 E
-wooden sign~
-   The wooden sign says OPEN in big bright letters.
+69 doyen hair restorer card~
+A tonic compounded by the Doyen. Massaged into the scalp nightly,
+it regrows a thick, healthy head of hair within weeks.
 ~
 #70
-wooden signclosed~
-a wooden sign~
-A simple wooden sign hanging from a shop to the North states, "CLOSED."~
+70 mad scientist s steroids card~
+@m70 Mad Scientist's Steroids A-16 card@n~
+The @m70 Mad Scientist's Steroids A-16 card@g is lying here.@n~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 50000 16 0 62
 E
-wooden sign~
-   The wooden sign says CLOSED in big bright letters.
+70 mad scientist s steroids card~
+Get all the muscles you want without exercise. You must drink a liter
+a day for a week, and it tastes horrible. A seven-box set, with ten
+one-L bottles per box.
 ~
 #71
-chinese finger trap fingertrap cardboard tube~
-a chinese finger trap~
-A strange and colorful tube was left here. It is made from cardboard intricately woven together.~
+pheromones scientists mad card~
+@m71 Mad Scientist's Pheromones A-20 card@n~
+The @m71 Mad Scientist's Pheromones A-20 card@g is lying here.~
 ~
-11 g 0 0 0 ab 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 5 0 0 0
-T 87
+0 102500 20 0 62
 E
-chinese finger trap fingertrap cardboard tube~
-   It consists of at least a dozen different colors of cardboard woven together
-into a tube.  The holes on each end are just about the right size to stick a
-finger in.
+pheromones scientists mad card~
+Spray on your body to attract the opposite sex.
+However, you cannot adjust the strength of its effect,
+so be careful as it may cause a proliferation of stalkers.
 ~
-A
-2 -5
-A
-1 -5
-A
-3 -5
+#72
+72 mad scientist s plastic surgery card~
+@m72 Mad Scientist's Plastic Surgery A-15 card@n~
+The @m72 Mad Scientist's Plastic Surgery A-15 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 15 0 62
+E
+72 mad scientist s plastic surgery card~
+Scan a picture of the face you want, and you will have an exact
+likeness. Each surgery carries a 5% chance of failure, and a 1% chance
+the machine itself will break.
+~
+#73
+73 night jade card~
+@m73 Night Jade A-15 card  @n~
+The @m73 Night Jade A-15 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 105000 15 0 62
+E
+73 night jade card~
+   A jewel "blessed" by the Devil.  When danger is about to befall its owner, it
+will deflect it to someone else.
+~
+#74
+74 sage aquamarine card~
+@m74 Sage's Aquamarine A-11 card@n~
+The @m74 Sage's Aquamarine A-11 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 105000 11 0 62
+E
+74 sage aquamarine card~
+   Its owner will have many intelligent friends and keep those friendships for
+their entire lives.
+~
+#75
+75 wild luck alexandrite card~
+@m75 Wild Luck Alexandrite A-20 card@n~
+The @m75 Wild Luck Alexandrite A-20 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
+E
+75 wild luck alexandrite card~
+   Its owner will get to have once-in-a-lifetime experiences, though you cannot
+choose whether they're for better or for worse...
+~
+#76
+76 roaming ruby card~
+@m76 Roaming Ruby B-30 card@n~
+The @m76 Roaming Ruby B-30 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
+E
+76 roaming ruby card~
+The owner of this ruby will gain immense wealth, but will never be
+able to remain in the same place for more than a week.
+~
+#77
+77 beauty magnet emerald card~
+@m77 Beauty Magnet Emerald S-10 card@n~
+The @m77 Beauty Magnet Emerald S-10 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 10 0 62
+E
+77 beauty magnet emerald card~
+Specialists offering beauty services flock to its owner, who will
+shine with unrecognized beauty.
+~
+#78
+78 lonely sapphire card~
+@m78 Lonely Sapphire B-30 card@n~
+The @m78 Lonely Sapphire B-30 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 30 0 62
+E
+78 lonely sapphire card~
+The owner of this sapphire will acquire vast wealth, but in exchange,
+will spend a lifetime alone, forsaken by friends, family, and
+significant others.
+~
+#79
+79 rainbow diamond card~
+@m79 Rainbow Diamond A-20 card@n~
+The @m79 Rainbow Diamond A-20 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 20 0 62
+E
+79 rainbow diamond card~
+A diamond that shines in a rainbow of colors. Propose with this
+diamond, and she is guaranteed to say "yes."
+~
 #80
-paintball gun red~
-a red paintball gun~
-A red paintball gun was abandoned here.~
+80 levitation stone card~
+@m80 Levitation Stone S-7 card@n~
+The @m80 Levitation Stone S-7 card@g is lying here.@n~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+26 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 50 0 0 0
-T 97
-#81
-paintball gun blue~
-a blue paintball gun~
-A blue paintball gun was abandoned here.~
-~
-12 0 0 0 0 a 0 0 0 0 0 0 0
-0 0 0 0
-1 50 0 0 0
-T 96
-#82
-teleporter~
-the teleporter~
-A strange device labeled "teleporter" was left here.~
-~
-12 0 0 0 0 a 0 0 0 0 0 0 0
-0 0 0 0
-1 10 0 0 0
-T 99
-T 176
+0 120000 7 0 62
 E
-teleporter~
-   This teleporter is used to transfer players between zones.  Accessible zones
-are listed under HELP ZONES by being CAPITALIZED.  For example to teleport to:
-  74 Newbie GRAVEyard                   -- Jojen                       3- 5
-type: teleport grave
-   The teleporter may also be used to recall back to Midgaard at any time.
- 
-Uncapitalized zones are linked through a capitalized zone.
+80 levitation stone card~
+A weightless stone that defies gravity. Carrying it lightens the
+body, letting the bearer drift and hover, untroubled by the pull
+of the earth.
+~
+#81
+blue planet card~
+@m81 Blue Planet SS-5 card@n~
+The @m81 Blue Planet SS-5 card@g is lying here.~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 300000 5 0 62
+E
+blue planet card~
+A jewel shining in a true blue. The structural composition is
+not of anything found on the earth, so the name was given as
+"A Gift from the Universe".
+~
+#82
+82 staff of judgment card~
+@m82 Staff of Judgment A-15 card@n~
+The @m82 Staff of Judgment A-15 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 15 0 62
+E
+82 staff of judgment card~
+Raise this staff in the air while calling out the name of someone you
+want to punish, and calamity will befall the one of you who has
+committed more bad deeds, the target or yourself.
 ~
 #83
-slip paper tapcode code~
-a slip of paper~
-A small slip of paper has something written on it.~
+83 sword truth card~
+@m83 Sword of Truth B-22 card@n~
+The @m83 Sword of Truth B-22 card@g is lying here.@n~
 ~
-12 0 0 0 0 a 0 0 0 0 0 0 0
+26 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 45000 22 0 62
 E
-slip paper tapcode code~
-   Below is a tap code we use to communicate through the walls by tapping 2 numbers.
-TAPS| 1 | 2 |  3  | 4 | 5 | 
-1   | A | B |C/K| D | E | The first designates the horizontal row and the 2nd 
-2   | F | G |  H  | I | J | designates the vertical row. The letter W, for 
-3   | L | M |  N  | O | P |  example, would be 5-2. The letter H would be 2-3.
-4   | Q | R |  S  | T | U | The letter "c" works double duty as a c or k.
-5   | V | W |  X  | Y | Z |
+83 sword truth card~
+   Splits in two anything and anyone deceitful.  In trials, it's a criminal's
+worst nightmare.  The 	msword will shatter when used to cut something true, but
+will regenerate after one day.
 ~
 #84
-drain shower hidden~
-the shower drain~
-.a hidden object!~
+84 paladin necklace card~
+@m84 Paladin's Necklace D-60 card@n~
+The @m84 Paladin's Necklace D-60 card@g is lying here.@n~
 ~
-15 0 0 0 0 0 0 0 0 0 0 0 0
-5 5 -1 0
-0 0 0 0 0
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 9600 60 0 62
 E
-shower drain~
-   The metal drain is covered with years of hair and grime. Several screws
-holding the drain in place seem to be missing.
+84 paladin necklace card~
+   A player wearing this will reflect curses cast upon him, and be able to undo
+curses placed on cards he touches.
 ~
 #85
-pick iron~
-a small pick~
-A small piece of metal wire has been sharpened into a pick.~
+85 sacrifice armor card~
+@m85 Sacrifice Armor S-8 card@n~
+The @m85 Sacrifice Armor S-8 card@g is lying here.@n~
 ~
-12 0 0 0 0 ao 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
+0 285000 8 0 62
 E
-pick iron~
-   This small piece of wire has been filed or sanded into a sharp point and
-resembles some time of lock picking device.
+85 sacrifice armor card~
+Heavy armor inscribed with runes of sacrifice. It turns the
+wearer's own resolve into a ward, absorbing a blow that would
+otherwise fell them -- at the cost of the armor itself.
 ~
 #86
-shackles pair~
-a pair of shackles~
-A pair of shackles have been left here open.~
+86 quiver of frustration card~
+@m86 Quiver of Frustration A-11 card@n~
+The @m86 Quiver of Frustration A-11 card@g is lying here.@n~
 ~
-12 0 0 0 0 ag 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-15 2 0 0 0
+0 50000 11 0 62
 E
-shackles pair~
-   These iron shackles are heavy with a chain of about 20 links connecting the
-two ankle braces.
+86 quiver of frustration card~
+You can cast as many "Leaves" as you have arrows. It comes with 10
+arrows, and one will be used each time you cast "Leave."
 ~
-A
-14 -5
 #87
-throne chair bayonets~
-a throne of bayonets~
-A throne of sharp bayonets looks like the last place you would want to sit.~
+87 shield faith card~
+@m87 Shield of Faith S-15 card@n~
+The @m87 Shield of Faith S-15 card@g is lying here.@n~
 ~
-6 0 0 0 0 0 0 0 0 0 0 0 0
-1 0 0 0
-0 0 0 0 0
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 264000 15 0 62
 E
-throne chair bayonets~
-   The chair is made completely out of bayonets with the sharpest points in the
-most inconvenient of spots.  A plaque on the bottom reads: "You can build a
-throne of bayonets, but you can't sit on it for long."  
+87 shield faith card~
+   The 	mspells "Railguide," "Return," "Drift," "and "Collision" will be rendered
+ineffective within the same room of player armed with this shield.
 ~
 #88
-idleout timer stayalive bracelet~
-a stayalive bracelet~
-A bright orange plastic bracelet was left here.~
+88 eternal hammer card~
+@m88 Eternal Hammer A-15 card@n~
+The @m88 Eternal Hammer A-15 card@g is lying here.@n~
 ~
-12 0 0 0 0 am 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0 0
-T 195
+0 50000 15 0 62
 E
-idleout timer stayalive bracelet~
-   The bracelet is made of a garish orange plastic with the letters STAYALIVE
-carved into the outer band. It is rumored that this bracelet will keep people
-from going linkdead.
+88 eternal hammer card~
+Anyone hit with this hammer will be afflicted with one random attack
+spell, and cannot defend him or herself with a defensive spell.
+However, it will not work on someone using "Fortress" or Paladin's
+Necklace.
 ~
 #89
-iron shackles~
-a pair of iron shackles~
-A pair of shackles are securely fastened around both of your ankles.~
+89 gauntlet collector tax card~
+@m89 Tax Collector's Gauntlet A-20 card@n~
+The @m89 Tax Collector's Gauntlet A-20 card@g@G is lying here.@n~
 ~
-12 0 0 0 0 0 0 0 0 0 0 0 0
+26 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 0 0 0 0
-T 89
-T 180
+0 102500 20 0 62
 E
-iron shackles pair~
-   The shackles are locked closed about your ankles with the link chain looped
-through a steel ring cemented into the floor.
+89 gauntlet collector tax card~
+   Grants you the ability to cast "Levy."  However, it will destroy one random
+specified slot card from your binder every time.  (You cannot cast it if your
+specified slots are empty.  )
+
+Usage: levy
 ~
 #90
-ice cream 99 flake~
-an ice cream~
-An ice cream has been dropped here.~
+90 memory helmet card~
+@m90 Memory Helmet A-20 card@n~
+The @m90 Memory Helmet A-20 card@g is lying here.@n~
 ~
-19 0 0 0 0 ao 0 0 0 0 0 0 0
-1 0 0 0
-1 4 0 0 1
-T 82
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 102500 20 0 62
 E
-ice cream 99 flake~
-   Known as the 99, it is an ice cream cornet with a stick of chocolate rammed
-in. First sold in 1922 at the ice cream shop at 99 the High Street, Portobello,
-Scotland.
+90 memory helmet card~
+   You will never forget things you see or hear while wearing this helmet.  
+Unfortunately, it's extremely large and heavy.
 ~
 #91
-full english breakfast fatty food~
-an English Breakfast~
-A full English Breakfast is being served here in all its fatty glory.~
+91 plastic king card~
+@m91 Plastic King A-20 card@n~
+The @m91 Plastic King A-20 card@g is lying here.@n~
 ~
-19 0 0 0 0 a 0 0 0 0 0 0 0
-24 0 0 0
-4 8 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 20 0 62
 E
-full english breakfast fatty food~
-   'Heaven on a plate' or the quickest route to a heart attack. Eggs, bacon,
-sausages, baked beans, hashed browns, mushrooms, tomatoes, black pudding and
-fried bread. Available variants include the so-called Jewish Breakfast, served
-with turkey ham and beef sausages, or the vegetarian breakfast, served with
-quorn sausages. 
+91 plastic king card~
+Recombine the parts of this 1:1 scale model kit to build any kind of
+vehicle. Fully functional, fuel not included.
 ~
 #92
-tea mug cup nice tea~
-a nice mug~
-A nice mug of tea has been left here.~
+92 swap ticket card~
+@m92 Swap Ticket S-7 card@n~
+The @m92 Swap Ticket S-7 card@g is lying here.@n~
 ~
-17 i 0 0 0 a 0 0 0 0 0 0 0
-2 2 11 0
-7 1 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 7 0 62
 E
-mug cup tea nice~
-   A nice mug of fair trade tea, all you need now is a nice piece of cake. 
-From its home in China to the break times of Britain, Tea is the drink of Asian
-Emperors and European Monarchs, as well as sweatshop workers in the east and IT
-workers in the west.
+92 swap ticket card~
+Rip the ticket and give it to someone you want to switch with, and you
+can live his life for 24 hours. Book of 1000.
 ~
 #93
-board~
-the warriors board~
-The warriors board has been posted here to allow fellow fighters to communicate.~
+93 book of life card~
+@m93 Book of Life B-28 card@n~
+The @m93 Book of Life B-28 card@g is lying here.@n~
 ~
-13 0 0 0 0 0 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 0 0 0 0
-#94
-clerics board~
-the clerics board~
-A bulletin board for clerics to keep in touch with each other.~
-~
-13 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0
-0 0 0 0 0
-#95
-thieves board~
-the thieves board~
-A board for thieves to relate their current plots and schemes is hidden here.~
-~
-13 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0
-0 0 0 0 0
-#96
-mages board~
-the mages board~
-A board for mages to post to others in their class is glowing brightly here.~
-~
-13 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0
-0 0 0 0 0
-#97
-coffee cup mug coffee~
-a cup~
-A coffee cup has been left here.~
-~
-17 0 0 0 0 a 0 0 0 0 0 0 0
-1 1 12 0
-2 5 0 0 0
+0 50000 28 0 62
 E
-cup coffee mug~
-   A coffee cup, it is marked with the letters 'TBA'. Coffee originated from
-the Kaffa region in Ethiopia, and while long drunk in the Arab world, it did
-not enter Europe until the British East India Company began to import the
-product in the 16th Century. The first coffee house in Europe was founded in
-Oxford during 1650, and by 1670 there was already a coffee house in the
-Massachusetts Bay Colony.
+93 book of life card~
+An encyclopedia of everyone who's been in your life since your birth,
+with records of conversations and memorable incidents. It may end up
+being tens of thousands of pages long.
+~
+#94
+94 bandit blade card~
+@m94 Bandit's Blade S-10 card@n~
+The @m94 Bandit's Blade S-10 card@g is lying here.@n~
+~
+26 d 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 279000 10 0 62
+E
+94 bandit blade card~
+   A cursed pirate's blade that draws on ambient Nen to occasionally steal
+from its victim. On every successful hit there is a 20% chance the blade
+spontaneously casts a random attack spell card (drawn from thin air -- no
+binder required) against the target. The Paladin's Necklace makes the victim
+immune. Heavy and unbalanced: carries a -2 hit penalty and saps dexterity.
+~
+#95
+95 secret cape card~
+@m95 Secret Cape A-20 card@n~
+The @m95 Secret Cape A-20 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 20 0 62
+E
+95 secret cape card~
+You will be under the effect of " Blackout Curtain " while wearing
+this cape.
+~
+#96
+96 clairvoyant snake card~
+@m96 Clairvoyant Snake A-12 card@n~
+The @m96 Clairvoyant Snake A-12 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 12 0 62
+E
+96 clairvoyant snake card~
+Feed it a card Rank C or above, and it will spit up a " Clairvoyance
+."
+~
+#97
+97 3 d camera card~
+@m97 3-D Camera A-20 card@n~
+The @m97 3-D Camera A-20 card@g is lying here.@n~
+~
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 20 0 62
+E
+97 3 d camera card~
+Pictures taken with this will be developed as 3-D objects, with all
+textures reproduced. Make enlargements as needed.
 ~
 #98
-board sign notice writing~
-a sign~
-@gA small @Gsign@g hangs on the wall.@n~
+98 silver dog card~
+@m98 Silver Dog S-8 card@n~
+The @m98 Silver Dog S-8 card@g is lying here.@n~
 ~
-12 dq 0 0 0 0 0 0 0 0 0 0 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-0 0 0 0 0
+0 50000 8 0 62
 E
-board sign notice writing~
-   Please keep discussions within the room as much as possible, so that people
-can build with clear screens.
+98 silver dog card~
+An endangered species with silver fur. Mix 5g of gold into its food
+daily, and it will excrete one kg of solid silver feces.
 ~
 #99
-scythe death~
-the Scythe of Death~
-The Scythe of Death rests heavily on the ground.~
+99 panda maid card~
+@m99 Panda Maid S-6 card@n~
+The @m99 Panda Maid S-6 card@g is lying here.@n~
 ~
-5 jkmno 0 0 0 an 0 0 0 0 0 0 0
-0 5 10 5
-40 1000 0 20 0
+26 d  0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+0 50000 6 0 62
 E
-scythe death~
-   It is a very heavy scythe.  The grey handle is made from hard wood and the
-long iron blade is completely smooth from countless years of use.  It feels cold
-to the touch.  
+99 panda maid card~
+An endangered species. Very neat and loves to cook, each has a hobby
+such as sewing or gardening. They are excellent at taking care of
+human children.
 ~
-$~
+$
+$
