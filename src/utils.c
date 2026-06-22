@@ -1535,13 +1535,13 @@ char * convert_from_tabs(char * string)
 }
 
 static const int fickle_vnums[] = {
-  /* Group A — location cards without a reachable destination */
+  /* Group A  - location cards without a reachable destination */
   1, 2, 5,
-  /* Group B — NPC/creature cards (spawning a mob would leave a corpse) */
+  /* Group B  - NPC/creature cards (spawning a mob would leave a corpse) */
   7, 15, 16, 26, 35,
   49, 50, 51, 52, 53, 54,
   98, 99,
-  /* Group C — pure collectibles (ITEM_OTHER, no trigger, no active mechanic) */
+  /* Group C  - pure collectibles (ITEM_OTHER, no trigger, no active mechanic) */
   10, 11, 12, 13, 18, 19, 20,
   21, 22, 23, 24, 27, 28, 29,
   30, 31, 32, 55, 57, 58,

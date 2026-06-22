@@ -35,10 +35,10 @@
 /* struct in_addr is available */
 #define HAVE_STRUCT_IN_ADDR 1
 
-/* socklen_t is defined in sys/socket.h — don't redefine */
+/* socklen_t is defined in sys/socket.h  - don't redefine */
 /* #undef socklen_t */
 
-/* ssize_t is defined in sys/types.h — don't redefine */
+/* ssize_t is defined in sys/types.h  - don't redefine */
 /* #undef ssize_t */
 
 /* Functions available on Linux */
@@ -54,7 +54,7 @@
 #define HAVE_STRNCASECMP 1
 #define HAVE_STRSTR 1
 #define HAVE_VSNPRINTF 1
-/* stricmp / strnicmp are non-standard — not available on Linux */
+/* stricmp / strnicmp are non-standard  - not available on Linux */
 /* #undef HAVE_STRICMP */
 /* #undef HAVE_STRNICMP */
 
@@ -87,7 +87,7 @@
 #define HAVE_SYS_UIO_H 1
 #define HAVE_UNISTD_H 1
 
-/* All standard functions have proper prototypes on modern Linux —
+/* All standard functions have proper prototypes on modern Linux  -
    none of the NEED_*_PROTO defines are required */
 
 #endif /* _CONF_H_ */

@@ -1037,7 +1037,7 @@ static int room_allows_card_effect(struct char_data *ch)
   }
   int sect = SECT(IN_ROOM(ch));
   if (sect == SECT_WATER_SWIM || sect == SECT_WATER_NOSWIM || sect == SECT_UNDERWATER) {
-    send_to_char(ch, "You cannot create a spring here — you are already in water.\r\n");
+    send_to_char(ch, "You cannot create a spring here  - you are already in water.\r\n");
     return FALSE;
   }
   return TRUE;
@@ -1050,7 +1050,7 @@ static int room_allows_girl_card(struct char_data *ch)
     return FALSE;
   }
   if (OUTSIDE(ch)) {
-    send_to_char(ch, "This place is too exposed — the girl needs an indoor space.\r\n");
+    send_to_char(ch, "This place is too exposed - the girl needs an indoor space.\r\n");
     return FALSE;
   }
   int sect = SECT(IN_ROOM(ch));
@@ -1216,7 +1216,7 @@ static void fickle_card_gain(struct char_data *ch, struct obj_data *card)
     send_to_char(ch, "The creature on the card regards you warily, then retreats safely into your binder.\r\n");
     act("$n tries to coax something from a card, but it slips into $s binder instead.", TRUE, ch, 0, 0, TO_ROOM);
   } else {
-    send_to_char(ch, "This rare collectible seems to know its place — it slips quietly into your binder.\r\n");
+    send_to_char(ch, "This rare collectible seems to know its place  - it slips quietly into your binder.\r\n");
     act("$n examines a card briefly before it slides into $s binder on its own.", TRUE, ch, 0, 0, TO_ROOM);
   }
 
@@ -1280,11 +1280,11 @@ void perform_spellcard(struct char_data *ch, struct char_data *victim, int vnum)
   if (!ch) return;
 
   switch (vnum) {
-    case 1005: /* Magnetic Force — teleport caster to victim */
+    case 1005: /* Magnetic Force  - teleport caster to victim */
       if (!victim) return;
       fly_to_char(ch, victim);
       break;
-    case 1012: /* Relegate — teleport victim to a random room */
+    case 1012: /* Relegate  - teleport victim to a random room */
       if (!victim) return;
       if (IN_ROOM(ch) != IN_ROOM(victim)) return;
       if (ZONE_FLAGGED(GET_ROOM_ZONE(IN_ROOM(ch)), ZONE_NOASTRAL)) return;
@@ -2052,7 +2052,7 @@ void mob_card_decay_to_corpse(struct obj_data *card)
     GET_OBJ_WEIGHT(corpse) = 0;
     GET_OBJ_TIMER(corpse)  = CONFIG_MAX_NPC_CORPSE_TIME;
     SET_BIT_AR(GET_OBJ_EXTRA(corpse), ITEM_NODONATE);
-    /* NOT setting ITEM_WEAR_TAKE — corpse cannot be picked up */
+    /* NOT setting ITEM_WEAR_TAKE  - corpse cannot be picked up */
 
     act("$p's image fades. An empty corpse collapses to the ground.",
         TRUE, NULL, card, 0, TO_ROOM);
@@ -2163,9 +2163,9 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
   } else if ((number == 102 && !OBJ_FLAGGED(obj, ITEM_QUEST)) || (number != 102 && GET_OBJ_TYPE(obj) == ITEM_CARD)) {
 	if (GET_OBJ_RENT(obj) == 0)
 	  return (0);
-    /* mob card: manual gain is fickle — creature escapes, no corpse */
+    /* mob card: manual gain is fickle  - creature escapes, no corpse */
     if (GET_OBJ_VAL(obj, 0) == 1) {
-      act("$p shimmers brilliantly and vanishes — the creature slips away.",
+      act("$p shimmers brilliantly and vanishes  - the creature slips away.",
           FALSE, ch, obj, 0, TO_CHAR);
       act("$n's $p shimmers and vanishes in a burst of sparks.",
           TRUE,  ch, obj, 0, TO_ROOM);
