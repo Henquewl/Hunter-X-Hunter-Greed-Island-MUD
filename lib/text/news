@@ -8,6 +8,10 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 == 2026 ==
 
 JUN 22 **
+- The gain command is now fully blocked in peaceful areas. This applies to all
+  card types (spell cards, restricted cards, free cards) and common items.
+  Picking up an item in a peaceful room still auto-converts it to a card as
+  normal; you will have a short window to store it in your binder.
 - Cards #46 Gold Dust Girl, #47 Sleeping Girl, and #48 Aromatherapy Girl
   now summon real NPCs when used with gain (indoors only, not in peaceful
   or water areas).

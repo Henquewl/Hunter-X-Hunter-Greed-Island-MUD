@@ -1248,6 +1248,11 @@ ACMD(do_gain)
 	return;
   }
 
+  if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_PEACEFUL)) {
+    send_to_char(ch, "You cannot gain cards or items in peaceful areas.\r\n");
+    return;
+  }
+
   /* Allow casting spell cards directly from inventory when the book is active */
   if (*arg && PLR_FLAGGED(ch, PLR_BOOK) &&
       !(held && GET_OBJ_TYPE(held) == ITEM_SPELLCARD)) {
