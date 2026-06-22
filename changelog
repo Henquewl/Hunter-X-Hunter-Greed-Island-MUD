@@ -7,6 +7,13 @@ https://github.com/tbamud/tbamud
 Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
+[Jun 22 2026] - Henque
+  Fixed MXP card image display: image tag now queued in output buffer (via
+  write_to_output) instead of direct Write() socket call; image call moved
+  to after all text in show_obj_to_char and look_at_target. Client now
+  receives text first, image loads below without pushing text off-screen.
+  (act.informative.c)
+
 [Jun 20 2026] - Henque
   Added perform_spellcard() C primitive (act.item.c) and dg_spellcard DG command
   (dg_misc.c) to invoke spell-card effects (vnums 1005 Magnetic Force, 1012
