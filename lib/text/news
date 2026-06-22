@@ -7,6 +7,10 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 
 == 2026 ==
 
+JUN 22 **
+- The card image displayed by MXP clients now loads below the card description
+  text instead of above it, so the text is always visible when looking at cards.
+
 JUN 19 **
 - Killing a good-aligned player now carries a heavy alignment penalty for the
   killer, pushing them toward the evil end of the scale. Killing a neutral

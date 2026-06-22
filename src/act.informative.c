@@ -251,7 +251,9 @@ static void send_card_image(struct char_data *ch, struct obj_data *obj)
 
   snprintf(img_tag, sizeof(img_tag),
     "<IMAGE FName=\"%s\" URL=\"%s\" W=\"250\">", fname, url_dir);
-  MXPSendTag(ch->desc, img_tag);
+  /* Queue via output buffer so image bytes arrive after text bytes,
+     preventing async image load from pushing text off-screen. */
+  write_to_output(ch->desc, "\033[1z%s\033[7z\r\n", img_tag);
 }
 
 static void show_obj_to_char(struct obj_data *obj, struct char_data *ch, int mode)
@@ -393,14 +395,14 @@ static void show_obj_to_char(struct obj_data *obj, struct char_data *ch, int mod
       break;
 
     case ITEM_SPELLCARD:
-	  send_card_image(ch, obj);
 	  send_to_char(ch, "Unrestricted/Free slot spell card\r\n");
 	  send_to_char(ch, "You found a card without description, please report to the GMs!");
+	  send_card_image(ch, obj);
 	  break;
 	case ITEM_RESTRICTED:
-	  send_card_image(ch, obj);
 	  send_to_char(ch, "Specified/Restricted slot card\r\n");
       send_to_char(ch, "You found a card without description, please report to the GMs!");
+	  send_card_image(ch, obj);
 	  break;
 	  
 	case ITEM_CARD:
@@ -1219,11 +1221,11 @@ static void look_at_target(struct char_data *ch, char *arg)
     if (!found)
       show_obj_to_char(found_obj, ch, SHOW_OBJ_ACTION);
     else {
-      send_card_image(ch, found_obj);
       if (saved_desc)
         send_to_char(ch, "%s", saved_desc);
       show_obj_modifiers(found_obj, ch);
       send_to_char(ch, "\r\n");
+      send_card_image(ch, found_obj);
     }
   } else if (found) {
     /* Extra desc matched but generic_find found nothing - show desc only. */
