@@ -42,8 +42,7 @@ Athlete, Artist, Politician, Musician, Pilot, Novelist, Gambler, Actor, CEO. Car
 HOLD in hand 3 continuous game hours → hatches → +1 permanent random attribute from a
 profession pool. C in `limits.c` (`egg_incubation_update`/`hatch_fledgling_egg`, table-driven).
 **Architectural note:** preferred future form is a trigger that evokes a C primitive rather than
-the standalone point_update() scan (see memory `trigger-evokes-code-pattern`). *Needs a live
-hold-to-hatch test.*
+the standalone point_update() scan (see memory `trigger-evokes-code-pattern`).
 
 **#35 Chameleon Cat (S-6) / #36 Recycling Room (S-10)** — added as canon plain collectibles
 (cards 65335/65336, items 65435/65436). Recycling Room effect DONE (see below). Chameleon Cat
@@ -165,13 +164,9 @@ collectibles (acceptable). Candidates that COULD be done later with existing pat
     on each successful PvP hit to spawn a random AS card from thin air (no binder consumed)
     and cast it at the victim via `gain <victim>`. Stats: 1d4 pierce, weight 5, −2 hitroll,
     −1 DEX. Paladin's Necklace (65484) grants immunity. **NEEDS A PvP LIVE TEST.**
-  - Also relevant: **#95 Secret Cape** approximates "Blackout Curtain" (1025) with
-    AFF_INVISIBLE; revisit if the real Blackout Curtain effect differs.
 - **NPC/pet cards** — staying fickle indefinitely: #47 Sleeping Girl, #48 Aromatherapy Girl,
   #49 Miniature Mermaid, #50 Miniature Dino, #51 Miniature Dragon, #99 Panda Maid. No mob
   creation planned; cards auto-store in binder on `gain` via fickle pattern.
-- **Consumable flavor with a stat angle** could be added if desired (e.g. #33 Hormone Cookies).
-
 Below is the historical invention→canon mapping that this batch applied:
 
 | # | current (invention) | canon → | rank |
