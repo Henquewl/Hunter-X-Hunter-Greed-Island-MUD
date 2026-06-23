@@ -7,6 +7,15 @@ https://github.com/tbamud/tbamud
 Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
+[Jun 23 2026] - Henque
+  MXP card image scroll fix: added 500ms prompt delay after sending an MXP
+  image tag. prompt_delay_until field on descriptor_data suppresses the prompt
+  in process_output and the bare-prompt loop until 5 pulses (PASSES_PER_SEC/2)
+  have elapsed, giving the CDN image time to load before the client anchors
+  its scroll position. Layout changed to image-first, blank separator line,
+  then description text (reverts d56f984 reorder; keeps write_to_output fix).
+  (src/structs.h, src/act.informative.c, src/comm.c)
+
 [Jun 22 2026] - Henque
   End-game completion mechanic — Ruler's Invitation:
   - New DG command `mgecho` (dg_mobcmd.c, dg_scripts.h, interpreter.c): broadcasts a
