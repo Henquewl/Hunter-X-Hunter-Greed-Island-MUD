@@ -1,4 +1,4 @@
-﻿/**************************************************************************
+/**************************************************************************
 *  File: limits.c                                          Part of tbaMUD *
 *  Usage: Limits & gain funcs for HMV, exp, hunger/thirst, idle time.     *
 *                                                                         *
@@ -382,7 +382,7 @@ static int has_sleeping_girl(struct char_data *ch)
   struct follow_type *f;
   for (f = ch->followers; f; f = f->next)
     if (IS_NPC(f->follower) &&
-        GET_MOB_VNUM(f->follower) == 65447 &&
+        GET_MOB_VNUM(f->follower) == 347 &&
         GET_POS(f->follower) == POS_SLEEPING)
       return TRUE;
   return FALSE;
@@ -704,7 +704,7 @@ void second_update(void)
 		  /* Cards safely stored in the binder are exempt from expiry */
 		  if (j->in_obj && GET_OBJ_VNUM(j->in_obj) == 3203)
 		    continue;
-		  if (GET_OBJ_VNUM(j) == 65315) {
+		  if (GET_OBJ_VNUM(j) == 15) {
 		    if (j->carried_by)
 		      send_to_char(j->carried_by, "The Fickle Genie glances at you with contempt, then vanishes in a puff of colored smoke.\r\n");
 		    else if (j->worn_by)

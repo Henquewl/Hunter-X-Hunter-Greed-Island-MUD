@@ -1,4 +1,6 @@
 {
+  "model": "opusplan",
+  "availableModels": ["opus", "sonnet", "haiku"],
   "permissions": {
     "allow": [
       "Bash(grep *)",

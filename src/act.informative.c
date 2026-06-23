@@ -225,7 +225,7 @@ static void send_card_image(struct char_data *ch, struct obj_data *obj)
     if (num >= 0 && num < 41)
       url = spell_card_image_urls[num];
   } else if (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED) {
-    num = GET_OBJ_VNUM(obj) - 65300;
+    num = GET_OBJ_VNUM(obj);
     if (num >= 0 && num < 100)
       url = restricted_card_image_urls[num];
   }
@@ -1570,7 +1570,7 @@ ACMD(do_progress)
 {
   struct char_data *tmp_char;
   struct obj_data *tmp_object, *next_obj;
-  int binder, total = 0, card = 65300, i = 2, number = 0, found = FALSE;   
+  int binder, total = 0, card = 0, i = 2, number = 0, found = FALSE;
   
   if (!(binder = generic_find("binder", FIND_OBJ_INV, ch, &tmp_char, &tmp_object))){
 	send_to_char(ch, "Complete the tutorial first!\r\n");    	

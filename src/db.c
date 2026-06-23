@@ -3220,7 +3220,7 @@ void free_char(struct char_data *ch)
       free(ch->player_specials->saved.completed_quests);
     if (ch->player_specials->saved.daily_quests)
       free(ch->player_specials->saved.daily_quests);
-    /* players_met is a fixed array inside the struct — do NOT free it */
+    /* players_met is a fixed array inside the struct  - do NOT free it */
     if (GET_HOST(ch))
       free(GET_HOST(ch));
     if (IS_NPC(ch))
