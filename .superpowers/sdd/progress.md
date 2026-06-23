@@ -1,4 +1,9 @@
-Task 1: complete (commits 4319ce2..411a24d, review clean — 1 Important cosmetic finding noted)
-Task 2: complete (commits 411a24d..082598f, review clean after booster fix + changelog correction)
-Task 3: complete (commits 082598f..1f61ad1, review clean)
-Task 4: complete (commits 1f61ad1..51c0cdf — binder exemption fix + MOB_NO_GAIN flag, changelog updated)
+# SDD Progress Ledger — vnum-migration branch
+# Base commit: bf1dd0b
+
+## Tasks
+- [x] Task 1: World data files (Python migration → 0.obj, 1.obj, 3.obj, 3.mob, 0.trg, 3.trg, zone files) — verified OK
+- [x] Task 2: C source — act.item.c — verified OK (1 comment-only leftover, dead-code ITEM_MONEY check unchanged)
+- [ ] Task 3: C source — remaining files (act.informative.c, act.other.c, fight.c, limits.c, utils.c)
+- [ ] Task 4: External triggers (10.trg, 32.trg, 120.trg, 401.trg) + quests (14.qst, 186.qst, 400.qst)
+- [ ] Task 5: Cleanup — empty old 653/654 files, verify index
