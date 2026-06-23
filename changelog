@@ -8,6 +8,24 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 23 2026] - Henque
+  vnum migration (final) — corrected card-item placement and fixed sentinel bugs:
+  - Card-items moved from zone 3 (300-399) to zone 2 (200-299), freeing 300-399
+    for the stock CircleMUD object library that live zones use as loot/equipment.
+  - Restored 3.obj (stock objects 300-399) from master; no live zones needed editing.
+  - Fixed NOTHING sentinel bug: act.item.c had replaced 65535 with literal 102 in ~10
+    places. Vouchers/money objects are dynamically created with item_number=NOTHING at
+    runtime — corrected to use NOTHING constant throughout.
+  - Fixed C offset: ±300→±200; range check >=300&&<400 → >=200&&<300 (10 sites total).
+  - 3.mob: removed wildlife dups 400-416 (already in 4.mob); added mob 396 (clairvoyant
+    snake). Fixed trigger/quest refs: 32.trg 383→283, 401.trg 375→275; 1.qst/400.qst
+    voucher field 102→65535; 186.qst end_obj 384→84.
+  - act.informative.c: restricted card image URL lookup uses vnum directly (0-99,
+    no -65300 offset); do_score card counter starts at 0 not 65300.
+  (src/act.item.c, src/act.informative.c, lib/world/obj/2.obj, lib/world/obj/3.obj,
+   lib/world/mob/3.mob, lib/world/trg/32.trg, lib/world/trg/401.trg,
+   lib/world/qst/1.qst, lib/world/qst/186.qst, lib/world/qst/400.qst)
+
+[Jun 23 2026] - Henque
   MXP card image scroll fix: increased prompt delay to 700ms after sending an MXP
   image tag. prompt_delay_until field on descriptor_data suppresses the prompt
   in process_output and the bare-prompt loop until 5 pulses (PASSES_PER_SEC/2)
@@ -15,6 +33,15 @@ Changes prior to Github transition:
   its scroll position. Layout changed to image-first, blank separator line,
   then description text (reverts d56f984 reorder; keeps write_to_output fix).
   (src/structs.h, src/act.informative.c, src/comm.c)
+
+[Jun 22 2026] - Henque
+  vnum migration — restricted cards and physical items moved to dedicated zones 0-3:
+  - Zone 0 (vnums 0-99): restricted cards (#N = vnum N, card vnum == card number)
+  - Zone 1 (vnums 100-199): special items (Ruler's Invitation=110/111, Cookie=133)
+  - Zone 2 (vnums 200-299): physical card items (offset +200 from card vnum)
+  - Zone 3 (stock CircleMUD 300-399 preserved); summon NPCs 317/346/347/348/396 in 3.mob
+  - C engine updated: act.item.c, act.informative.c, act.other.c, fight.c, limits.c, utils.c
+  - External triggers and quests updated; old 653/654 obj/mob/trg emptied to $~ stubs
 
 [Jun 22 2026] - Henque
   End-game completion mechanic — Ruler's Invitation:

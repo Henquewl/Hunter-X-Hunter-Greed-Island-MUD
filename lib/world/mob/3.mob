@@ -1,44 +1,71 @@
-#300
-chemist camille~
-Camille the chemist~
-Camille the chemist stands over a cauldron mixing ingredients.
+#317
+angel~
+the @CAngel@n~
+The @CAngel@y is here, asking to heal someone.@n
 ~
-   Camille wears a thick brown robe that covers most of her features. Only her
-hands and head stick out of her robe. Stains and burns cover her body and
-clothing. She works dilligently over her cauldron. Camille has been known to
-concoct many different potions and is most famous for her liquid fire.
+She looks like a young lady's spirit with a long blond hair and wearing a
+circlets over her head.  Also floating here and asking with a soft voice
+who summoned her to heal someone.
 ~
-253962 0 0 0 0 0 0 0 0 E
-30 10 -8 6d6+300 5d5+5
-300 90000
+450570 0 0 0 198992 0 0 0 0 E
+0 20 10 1d1+0 1d1+0
+0 0
 8 8 2
 E
-T 300
-T 335
-#301
-naked magi~
-the naked magi~
-A magi sits against a wall wearing nothing but a towel.
+T 317
+T 3247
+#346
+golden girl~
+a golden girl~
+A golden girl is here, shedding fine golden dust.
 ~
-   Sweat gleams on her supple skin.  Her black hair is wet and frames a round
-face with slanted blue eyes.  She is striking in her beauty and grace.
+She is naked and her body is totally golden, with eyes and hair brown.
 ~
-10 0 0 0 2112 0 0 0 0 E
-1 20 9 0d0+10 1d2+0
-10 100
+9 0 0 0 0 0 0 0 0 E
+1 20 10 0d0+0 1d1+0
+0 0
 8 8 2
 E
-T 305
-#302
-mob unfinished~
-the unfinished mob~
-An unfinished mob stands here.
+T 346
+#347
+sleeping girl~
+a sleeping girl~
+A sleeping girl is curled up here, breathing softly.
 ~
-It looks unfinished.
+She sleeps peacefully, as if taking your place in the dream world.
+~
+10 0 0 0 0 0 0 0 0 E
+1 20 10 1d1+0 1d1+0
+0 0
+4 4 2
+E
+T 347
+#348
+aromatherapy girl~
+an aromatherapy girl~
+An aromatherapy girl walks beside you, trailing a soft floral scent.
+~
+She carries small incense sticks and moves gracefully at your side.
 ~
 8 0 0 0 0 0 0 0 0 E
-1 20 9 0d0+10 1d2+0
-10 100
+1 20 10 1d1+0 1d1+0
+0 0
+8 8 2
+E
+T 348
+#396
+clairvoyant snake serpent~
+a clairvoyant snake~
+A clairvoyant snake coils here, watching you with knowing eyes.@n
+~
+A slender serpent with shimmering scales and oddly intelligent eyes, said
+to divine hidden truths when fed, spitting up a Clairvoyance card.
+~
+0 0 0 0 0 0 0 0 0 E
+1 20 10 1d1+0 1d1+0
+0 0
 8 8 0
 E
+T 397
+T 398
 $

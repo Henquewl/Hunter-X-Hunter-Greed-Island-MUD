@@ -959,11 +959,11 @@ shattered sword~
 wait 1800 sec
 if %self.carried_by%
 %send% %self.carried_by% %self.shortdesc% magically fix into a sword of truth.
-%load% obj 65483 %self.carried_by% inv
+%load% obj 283 %self.carried_by% inv
 %purge% %self%
 else
 %echo% %self.shortdesc% magically fix into a sword of truth.
-%load% obj 65483
+%load% obj 283
 %purge% %self%
 end
 ~
@@ -971,7 +971,7 @@ end
 sword of truth detach~
 1 l 100
 ~
-detach 65383 %actor.id%
+detach 83 %actor.id%
 ~
 #3247
 angel point~
@@ -1167,7 +1167,7 @@ break
 case 100
 eval i %actor.inventory%
 while %i%
-eval unusual 65300 + %random.99%
+eval unusual %random.99%
 %load% obj %unusual% %actor% inv
 if %actor.inventory.vnum% == %unusual%
 break
@@ -1235,7 +1235,7 @@ break
 case 100
 eval i %actor.inventory%
 while %i%
-eval unusual 65300 + %random.99%
+eval unusual %random.99%
 %load% obj %unusual% %actor% inv
 if %actor.inventory.vnum% == %unusual%
 break
@@ -1304,7 +1304,7 @@ break
 case 100
 eval i %actor.inventory%
 while %i%
-eval unusual 65300 + %random.99%
+eval unusual %random.99%
 %load% obj %unusual% %actor% inv
 if %actor.inventory.vnum% == %unusual%
 break
@@ -1482,7 +1482,7 @@ if %self.carried_by% || %self.worn_by%
   if %self.worn_by%
     eval actor %self.worn_by%
   end
-  %load% mob 65417
+  %load% mob 317
   eval player_arch 1
   remote player_arch %actor.id%
 end

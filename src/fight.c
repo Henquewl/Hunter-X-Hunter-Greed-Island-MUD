@@ -1057,13 +1057,13 @@ static int compute_thaco(struct char_data *ch, struct char_data *victim)
   return calc_thaco;
 }
 
-/* Eternal Hammer (item 65488): on a successful PvP hit, draw a random ATTACK
+/* Eternal Hammer (item 388): on a successful PvP hit, draw a random ATTACK
  * spell card (canon class "AS") from the wielder's binder (3203) and cast it at
  * the victim by reusing the normal spell-card cast path -- hold the card, ensure
  * the book is active, and run "gain <victim>".  The card's own command trigger
  * applies the effect and consumes the card.  AS effects act on a player's
  * binder, so this only does anything against PCs; a victim wearing the Paladin's
- * Necklace (65484) is immune, and the wielder needs a free hold-hand. */
+ * Necklace (384) is immune, and the wielder needs a free hold-hand. */
 static void eternal_hammer_proc(struct char_data *ch, struct char_data *victim)
 {
   static const obj_vnum as_cards[] =
@@ -1077,12 +1077,12 @@ static void eternal_hammer_proc(struct char_data *ch, struct char_data *victim)
     return;                            /* AS spell-card effects are PvP only */
   if (GET_POS(victim) <= POS_DEAD)
     return;
-  if (!GET_EQ(ch, WEAR_WIELD) || GET_OBJ_VNUM(GET_EQ(ch, WEAR_WIELD)) != 65488)
+  if (!GET_EQ(ch, WEAR_WIELD) || GET_OBJ_VNUM(GET_EQ(ch, WEAR_WIELD)) != 388)
     return;                            /* must be wielding the Eternal Hammer */
   if (GET_EQ(ch, WEAR_HOLD))
     return;                            /* need a free hand to draw the card */
-  if ((GET_EQ(victim, WEAR_NECK_1) && GET_OBJ_VNUM(GET_EQ(victim, WEAR_NECK_1)) == 65484) ||
-      (GET_EQ(victim, WEAR_NECK_2) && GET_OBJ_VNUM(GET_EQ(victim, WEAR_NECK_2)) == 65484))
+  if ((GET_EQ(victim, WEAR_NECK_1) && GET_OBJ_VNUM(GET_EQ(victim, WEAR_NECK_1)) == 384) ||
+      (GET_EQ(victim, WEAR_NECK_2) && GET_OBJ_VNUM(GET_EQ(victim, WEAR_NECK_2)) == 384))
     return;                            /* Paladin's Necklace makes the victim immune */
 
   for (o = ch->carrying; o; o = o->next_content)
@@ -1126,10 +1126,10 @@ static void eternal_hammer_proc(struct char_data *ch, struct char_data *victim)
     REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_BOOK);
 }
 
-/* Bandit's Blade #94 (vnum 65494) proc: 20% chance on a successful hit to
+/* Bandit's Blade #94 (vnum 394) proc: 20% chance on a successful hit to
  * spawn a random AS spell card from thin air and cast it at the victim via the
  * normal spell-card cast path.  No binder required -- the card is created by
- * read_object() directly.  Victim wearing Paladin's Necklace (65484) is immune.
+ * read_object() directly.  Victim wearing Paladin's Necklace (384) is immune.
  * A safety purge after command_interpreter ensures no card leaks if the trigger
  * fails to consume it. */
 static void bandit_blade_proc(struct char_data *ch, struct char_data *victim)
@@ -1146,12 +1146,12 @@ static void bandit_blade_proc(struct char_data *ch, struct char_data *victim)
     return;
   if (GET_POS(victim) <= POS_DEAD)
     return;
-  if (!GET_EQ(ch, WEAR_WIELD) || GET_OBJ_VNUM(GET_EQ(ch, WEAR_WIELD)) != 65494)
+  if (!GET_EQ(ch, WEAR_WIELD) || GET_OBJ_VNUM(GET_EQ(ch, WEAR_WIELD)) != 394)
     return;
   if (GET_EQ(ch, WEAR_HOLD))
     return;                             /* need a free hand to hold the card */
-  if ((GET_EQ(victim, WEAR_NECK_1) && GET_OBJ_VNUM(GET_EQ(victim, WEAR_NECK_1)) == 65484) ||
-      (GET_EQ(victim, WEAR_NECK_2) && GET_OBJ_VNUM(GET_EQ(victim, WEAR_NECK_2)) == 65484))
+  if ((GET_EQ(victim, WEAR_NECK_1) && GET_OBJ_VNUM(GET_EQ(victim, WEAR_NECK_1)) == 384) ||
+      (GET_EQ(victim, WEAR_NECK_2) && GET_OBJ_VNUM(GET_EQ(victim, WEAR_NECK_2)) == 384))
     return;                             /* Paladin's Necklace immunity */
 
   /* Load a random AS card from thin air (no binder required) */

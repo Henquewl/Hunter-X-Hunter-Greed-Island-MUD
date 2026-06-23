@@ -334,7 +334,7 @@ wait 1 sec
 say We have a winner! Congratulations!
 wait 1 sec
 say Take your reward.
-eval prize 65302 + %random.15%
+eval prize 2 + %random.15%
 set rcard %prize%
 %load% obj %rcard% %self%
 give card %actor.name%
@@ -384,7 +384,7 @@ wait 1 sec
 say We have a winner! Congratulations!
 wait 1 sec
 say Take your reward.
-eval prize 65302 + %random.15%
+eval prize 2 + %random.15%
 set rcard %prize%
 %load% obj %rcard% %self%
 give card %actor.name%
@@ -434,7 +434,7 @@ wait 1 sec
 say We have a winner! Congratulations!
 wait 1 sec
 say Take your reward.
-eval prize 65302 + %random.15%
+eval prize 2 + %random.15%
 set rcard %prize%
 %load% obj %rcard% %self%
 give card %actor.name%
