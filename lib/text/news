@@ -7,6 +7,12 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 
 == 2026 ==
 
+JUN 23 **
+- MXP card images now load above the card description text, with a blank line
+  separating them. The player prompt is withheld for ~500ms after the image
+  tag is sent, so by the time the prompt arrives the image is loaded and the
+  client auto-scrolls correctly without requiring manual scroll or a new message.
+
 JUN 22 **
 - Completing the full set of 99 restricted cards now triggers an end-game event:
   Eta announces the feat globally, and the player receives the Ruler's Invitation

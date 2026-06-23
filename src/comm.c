@@ -907,13 +907,13 @@ void game_loop(socket_t local_mother_desc)
 	if (process_output(d) < 0)
 	  close_socket(d);
 	else
-	  d->has_prompt = 1;
+	  d->has_prompt = ((long)pulse >= d->prompt_delay_until) ? 1 : 0;
       }
     }
 
     /* Print prompts for other descriptors who had no other output */
     for (d = descriptor_list; d; d = d->next) {
-      if (!d->has_prompt) {
+      if (!d->has_prompt && (long)pulse >= d->prompt_delay_until) {
 	      write_to_descriptor(d->descriptor, make_prompt(d));
 	      d->has_prompt = TRUE;
       }
@@ -1648,7 +1648,7 @@ static int process_output(struct descriptor_data *t)
   if (STATE(t) == CON_PLAYING && t->character && !IS_NPC(t->character) && !PRF_FLAGGED(t->character, PRF_COMPACT))
     strcat(osb, "\r\n");	/* strcpy: OK (osb:MAX_SOCK_BUF-2 reserves space) */
 
-  if (!t->pProtocol->WriteOOB) /* add a prompt */
+  if (!t->pProtocol->WriteOOB && (long)pulse >= t->prompt_delay_until) /* add a prompt */
     strcat(i, make_prompt(t));	/* strcpy: OK (i:MAX_SOCK_BUF reserves space) */
 
   /* now, send the output.  If this is an 'interruption', use the prepended

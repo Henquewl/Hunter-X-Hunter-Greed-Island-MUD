@@ -1148,6 +1148,7 @@ struct descriptor_data
   size_t max_str;           /**< maximum size of string in modify-str	*/
   long mail_to;             /**< name for mail system			*/
   int has_prompt;           /**< is the user at a prompt?             */
+  long prompt_delay_until;  /**< suppress prompt until this pulse (MXP image delay) */
   char inbuf[MAX_RAW_INPUT_LENGTH];  /**< buffer for raw input		*/
   char last_input[MAX_INPUT_LENGTH]; /**< the last input			*/
   char small_outbuf[SMALL_BUFSIZE];  /**< standard output buffer		*/
