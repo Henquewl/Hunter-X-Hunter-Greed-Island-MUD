@@ -125,7 +125,7 @@ while %player%
     wait 1 sec
     say Take this as a token of our gratitude, was with my family for generations
     wait 1 sec
-    %load% obj 375 %self% inv
+    %load% obj 275 %self% inv
     give ring %player.name%
     wait 1 sec
     say Farewell, adventurer

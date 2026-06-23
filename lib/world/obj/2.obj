@@ -1,1 +1,1303 @@
-$~
+#200
+beer barrel beer~
+a barrel~
+A beer barrel has been left here.~
+~
+17 0 0 0 0 0 0 0 0 0 0 0 0
+50 50 1 0
+0 0 0 0 0
+#201
+beer bottle beer~
+a bottle~
+A beer bottle has been left here.~
+~
+17 0 0 0 0 a 0 0 0 0 0 0 0
+8 8 1 0
+10 20 0 0 0
+#202
+ale bottle dark ale~
+a bottle~
+A dark bottle of ale has been left here.~
+~
+17 0 0 0 0 a 0 0 0 0 0 0 0
+8 8 3 0
+10 10 0 0 0
+#203
+pitcher eternal water~
+the Pitcher of Eternal Water~
+The Pitcher Eternal Water is left here... flooding the ground.~
+~
+17 gi 0 0 0 ao 0 0 0 0 0 0 0
+-1 2 15 0
+2 0 0 0 0
+#204
+spring hot steaming~
+a steaming hot spring~
+A steaming hot spring bubbles up from the earth here.~
+~
+17 g 0 0 0 0 0 0 0 0 0 0 0
+100 100 0 0
+50 0 0 0 0
+T 410
+#206
+spring liquor bubbling~
+a bubbling liquor spring~
+A bubbling spring of liquor erupts from the earth here.~
+~
+17 g 0 0 0 0 0 0 0 0 0 0 0
+20 20 1 0
+50 0 0 0 0
+T 411
+#207
+stones two~
+a pair of stones~
+A pair of @Bblue @nand @Mpink @ncolored stones is here.~
+~
+8 dg 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+14 0 0 0 0
+E
+stones~
+  There are two 	Bblue 	nand 	Mpink 	ncolored stones.
+Each stone has a symbol, mars and venus respectively.
+Despite their small size, they are very heavy.
+~
+#208
+pond mystery shimmering~
+a shimmering mystery pond~
+A shimmering mystery pond has materialised here.~
+~
+14 g 0 0 0 0 0 0 0 0 0 0 0
+200 0 -1 0
+100 0 0 0 0
+T 412
+#209
+tree fruit plenty magnificent~
+a magnificent tree heavy with fruit~
+A magnificent tree, heavy with fruit, stands here.~
+~
+14 g 0 0 0 0 0 0 0 0 0 0 0
+0 0 -1 0
+200 0 0 0 0
+T 413
+#210
+guidebook golden book~
+the @mGolden Guidebook@n~
+A golden guidebook lies here, its gilded pages shimmering faintly.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+2 102500 0 0 0
+E
+guidebook golden book~
+   A heavy tome bound in gold leaf. Its pages chart the secrets of Greed
+Island, guiding the holder toward the people, places and cards worth seeking.
+~
+#211
+scales golden balance~
+the @mGolden Scales@n~
+A set of delicate golden scales rests here, perfectly balanced.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+E
+scales golden balance~
+   When faced with a two-option choice, these scales tip toward whichever
+path is better for your future.
+~
+#212
+dictionary golden book~
+the @mGolden Dictionary@n~
+A golden dictionary lies open here, a single word glowing softly.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+2 279000 0 0 0
+E
+dictionary golden book~
+   Each day a single word glows gold within its pages. Learn those words,
+for they will come in handy the very next day.
+~
+#213
+bankbook luck book~
+the @mLuck Bankbook@n~
+A small golden bankbook lies here, its ledger faintly glowing.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+2 102500 0 0 0
+E
+bankbook luck book~
+   Refrain from spending the little strokes of good luck in your daily life,
+and this ledger will accumulate them, converting them into cash.
+~
+#214
+connection severing scissors~
+a pair of Connection Severing Scissors~
+A bizarre golden pair of scissors hovers here.~
+~
+3 g 0 0 0 ao 0 0 0 0 0 0 0
+99 99 2 0
+1 0 0 0 0
+E
+connection severing scissors~
+   A joke item. Its original purpose -- cutting people out of your life -- is
+philosophically impossible in a text-based world. Someone repurposed the magic
+into a wand of teleportation instead. 99 charges. Use: zap [target].
+~
+#217
+breath angel~
+the @CAngel@n~
+Erm...~
+~
+13 cdeghqr 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 0 0 0 0
+T 3265
+#218
+imp s wink~
+an Imp's Wink~
+an Imp's Wink lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+imp s wink~
+You will experience the most amazing ecstasy when she winks at you.
+She can appear multiple times. Be warned, it can get addictive.
+~
+#219
+poltergeist pillow~
+a Poltergeist Pillow~
+a Poltergeist Pillow lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+poltergeist pillow~
+Sleep on this pillow, and your astral form will be able to wander at
+will, but you will turn into a real ghost if you do not return to your
+body within 24 hours.
+~
+#220
+mood clock~
+a Mood Clock~
+a Mood Clock lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+mood clock~
+This clock sets your current state of mind. Turn it to noon, and you
+will maintain perfect serenity. Thus you can adjust your emotions
+according to the situation.
+~
+#221
+x ray goggles~
+a X-Ray Goggles~
+a X-Ray Goggles lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+x ray goggles~
+You can see through things. An adjustment dial allows you to set the
+x-ray depth. The only thing it cannot see through is a pack of spell
+cards from Masadora.
+~
+#222
+toraemon~
+a Toraemon~
+a Toraemon lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+toraemon~
+A beast on the verge of extinction has a habit of stuffing things in
+its 4-D pocket. You never know what kind of treasures it could have
+picked up.
+~
+#223
+tome of a thousand tales~
+a Tome of a Thousand Tales~
+a Tome of a Thousand Tales lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+tome of a thousand tales~
+A book that shows you a different story each time you open it. Use the
+special included bookmark if you want to stay on the same story when
+you put it down.
+~
+#224
+hypothetical t v~
+a Hypothetical T.V.~
+a Hypothetical T.V. lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+hypothetical t v~
+Input a hypothetical situation with the included remote, and this TV
+will show you a 30-hour documentary of the possibilities. You are also
+able to record.
+~
+#225
+dice black icosahedron risky die~
+@wa b@Dl@wa@Dc@rk @wd@Di@wc@De@n~
+An icosahedron black dice was thrown here.~
+~
+13 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+T 325
+E
+dice black icosahedron risky die~
+   This dice have 20 faces, 19 has engraved a star and 1 side has a skull.  
+What can happen if I drop that skull?...
+~
+#227
+book of v i p passes~
+a Book of V.I.P Passes~
+a Book of V.I.P Passes lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+book of v i p passes~
+You can go anywhere with these passes. Book of 1000.
+~
+#228
+capricious remote~
+a Capricious Remote~
+a Capricious Remote lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+capricious remote~
+A remote control to manipulate ten emotions someone feels toward
+someone else, on an intensity scale of 1-10. (You cannot control how
+people feel toward you.)
+~
+#229
+pre order vouchers~
+a Pre-Order Vouchers~
+a Pre-Order Vouchers lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+pre order vouchers~
+Write the name of any commercially available product on a voucher, and
+you'll be guaranteed to get it regardless of its scarcity (You still
+have to pay). A book of 1000.
+~
+#230
+favor cushion~
+a Favor Cushion~
+a Favor Cushion lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+favor cushion~
+Seat someone on this cushion, and he will do one thing for you, so
+long as it is within his capabilities.
+~
+#231
+postcard old~
+a very old postcard~
+A very old postcard is here, covered by dust.~
+   Hello my dear.
+
+My spirit is fine, I've met so many friends up here.
+Please! Do not wish to stay here too soon about what
+I said... live with peace and avoid wars, unlike me.
+
+PS: Ask for that old man who clean the chapel do it
+more often... has dust everywhere!
+
+                                     Uncle Ben
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+#232
+parrot candy~
+a Parrot Candy~
+a Parrot Candy lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+parrot candy~
+Sucking on this candy enables you to produce any voice. The effect
+lasts until you next ingest something. A set of 10 packs, 50 candies
+per pack.
+~
+#233
+box hormone cookies~
+a box of Hormone Cookies~
+A colorful box labeled "Hormone Cookies" sits here.~
+~
+15 g 0 0 0 a 0 0 0 0 0 0 0
+20 0 -1 0
+2 50000 0 0 0
+E
+box hormone cookies~
+A tin box containing 20 Hormone Cookies. Each cookie temporarily
+changes the eater's sex for one full day (24 Greed Island hours).
+~
+#234
+universal survey~
+an Universal Survey~
+an Universal Survey lies here.~
+~
+16 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+universal survey~
+   Summons a blank survey booklet. Write your questions inside and give it to
+anyone -- they are compelled to answer honestly. Purely for roleplay; the
+target is not magically bound.
+~
+#235
+cat chameleon~
+a Chameleon Cat~
+A small cat with shifting, color-changing fur sits here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+E
+chameleon cat~
+   An endangered cat that, once tamed, can transform into any animal -- though
+its mass stays the same, making for tiny elephants or oversized hamsters.
+~
+#236
+room recycling box~
+a Recycling Room~
+A small folded room-in-a-box sits here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+E
+recycling room~
+   Place something broken inside and seal the door; 24 hours later it will be
+repaired as good as new. The door must not be opened until the time is up.
+~
+#237
+egg fledgling athlete magic~
+a Fledgling Athlete egg~
+A warm, faintly pulsing magic egg rests here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+E
+egg fledgling athlete~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a top athlete.
+~
+#238
+egg fledgling artist magic~
+a Fledgling Artist egg~
+A warm, faintly pulsing magic egg rests here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+E
+egg fledgling artist~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a top artist.
+~
+#239
+egg fledgling politician magic~
+a Fledgling Politician egg~
+A warm, faintly pulsing magic egg rests here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+E
+egg fledgling politician~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a top politician.
+~
+#240
+egg fledgling musician magic~
+a Fledgling Musician egg~
+A warm, faintly pulsing magic egg rests here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+E
+egg fledgling musician~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a top musician.
+~
+#241
+egg fledgling pilot magic~
+a Fledgling Pilot egg~
+A warm, faintly pulsing magic egg rests here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+E
+egg fledgling pilot~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a top pilot.
+~
+#242
+egg fledgling novelist magic~
+a Fledgling Novelist egg~
+A warm, faintly pulsing magic egg rests here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+E
+egg fledgling novelist~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a top novelist.
+~
+#243
+egg fledgling gambler magic~
+a Fledgling Gambler egg~
+A warm, faintly pulsing magic egg rests here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+E
+egg fledgling gambler~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a top gambler.
+~
+#244
+egg fledgling actor magic~
+a Fledgling Actor egg~
+A warm, faintly pulsing magic egg rests here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+E
+egg fledgling actor~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a top actor.
+~
+#245
+egg fledgling ceo magic~
+a Fledgling CEO egg~
+A warm, faintly pulsing magic egg rests here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+E
+egg fledgling ceo~
+   A warm magic egg that pulses faintly when held in the hand. Incubate
+it patiently and one day it will hatch, making you a top CEO.
+~
+#246
+girl gold dust golden~
+a Gold Dust Girl~
+A girl trailing fine golden dust stands here.~
+~
+13 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 106000 0 0 0
+T 50
+E
+gold dust girl~
+   A girl who weeps fine gold dust. Each day she sheds a small measure of
+pure gold that can be gathered and spent.
+~
+#247
+sleeping girl~
+a Sleeping Girl~
+a Sleeping Girl lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+sleeping girl~
+A girl who sleeps in your stead. You can be active for 24 hours
+without sleeping while she sleeps for you.
+~
+#248
+aromatherapy girl~
+an Aromatherapy Girl~
+an Aromatherapy Girl lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+aromatherapy girl~
+A girl who emits the most comfortable aroma for you. While she's by
+your side, you will be free of stress.
+~
+#249
+miniature mermaid~
+a Miniature Mermaid~
+a Miniature Mermaid lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+miniature mermaid~
+A mermaid small enough to fit in your hand. A comfortable living
+environment puts her in a good mood, and she will sing with her
+beautiful voice.
+~
+#250
+miniature dino~
+a Miniature Dino~
+a Miniature Dino lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+miniature dino~
+A dinosaur small enough to fit in your hand. This creature produces a
+different species of tiny dinosaur with each new generation.
+~
+#251
+miniature dragon~
+a Miniature Dragon~
+a Miniature Dragon lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+miniature dragon~
+A dragon small enough to fit in your hand. It will obey your commands
+and eventually learn to talk if raised with love.
+~
+#252
+pearl locusts~
+a Pearl Locusts~
+a Pearl Locusts lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+pearl locusts~
+Each of these locusts has a pearl in its abdomen. An outbreak occurs
+once every dozen years or so.
+~
+#253
+king white stag beetle~
+a King White Stag Beetle~
+a King White Stag Beetle lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+king white stag beetle~
+It uses special pheromones to lure other insects to build a huge
+colony. It leaves the colony once a day for an evening stroll.
+~
+#254
+millennium butterfly~
+a Millennium Butterfly~
+a Millennium Butterfly lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+millennium butterfly~
+A legendary insect named after the fact that the family of anyone who
+captures it will prosper for generations.
+~
+#255
+revenge shop~
+a Revenge Shop~
+a Revenge Shop lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+revenge shop~
+Report your grudges to the manager, and he will retaliate for you in
+proportion to your grievance. Pay extra to request a more severe
+retaliation.
+~
+#256
+photograph memory~
+a faded photograph~
+A faded photograph lies here.~
+~
+16 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 0 0 0 0
+E
+photograph memory~
+   A photograph of someone in their youth, taken at an unspecified moment in
+the past. The face is a little blurry.
+~
+#257
+hideout realtor~
+a Hideout Realtor~
+a Hideout Realtor lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+hideout realtor~
+The agent will build a secret room just for you at your chosen place.
+However, you must not tell anyone about it or bring anybody to it.
+~
+#258
+secrets video rental~
+a Secrets Video Rental~
+a Secrets Video Rental lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+secrets video rental~
+Rent videos of other peoples secrets. You must not show the video or
+discuss its contents with anyone.
+~
+#259
+instant foreign language school~
+an Instant Foreign Language School~
+an Instant Foreign Language School lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+instant foreign language school~
+Spend time studying a language at this school, and you will accrue
+time on a timer (included). While the timer is activated and counting
+down, you will be fluent.
+~
+#260
+long lost delivery~
+a Long Lost Delivery~
+a Long Lost Delivery lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+long lost delivery~
+Call the number and describe the item you lost, which will be
+delivered to you the next day. It must be lost for longer than a
+month.
+~
+#261
+scanner~
+a full-body medical scanner~
+A full-body medical scanner is here.~
+~
+12 bg 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 0 0 0 0
+T 361
+T 3203
+E
+scanner~
+  Outside the scan has a plaque that says:
+'Full-body automated exam: 500 Jenny'
+'Usage: scan'
+'*Money will be deducted automatically'
+~
+#262
+rule club~
+a "club"~
+Some kind of weird club is lying here.~
+~
+4 bg 0 0 0 ao 0 0 0 0 0 0 0
+30 1 1 7
+2 0 62 0 0
+E
+rule club~
+This weird club looks like a scepter with a
+"disco globe" spinning at the tip... too much tacky.
+~
+#263
+virtual restaurant~
+a Virtual Restaurant~
+a Virtual Restaurant lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+virtual restaurant~
+You can order any food you want. You will feel full, but it is only an
+illusion. You will be given a multivitamin as you leave.
+~
+#264
+potion love witch pink~
+a Witch's Love Potion~
+A rose-tinted potion in a heart-shaped vial sits here.~
+~
+19 dg 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+T 364
+E
+witch love potion~
+   A rose-tinted brew. The first person the drinker lays eyes on afterward
+seems irresistibly charming to them for a single day.
+~
+#265
+potion rejuvenation witch shimmering~
+a Witch's Rejuvenation Potion~
+A shimmering potion that glows with youth sits here.~
+~
+19 dg 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 279000 0 0 0
+T 365
+E
+witch rejuvenation potion~
+   A shimmering draught that washes the years from the body, restoring the
+drinker to the prime of their youth with a single sip.
+~
+#266
+pills diet witch green~
+a Witch's Diet Pills~
+A bottle of bitter green diet pills sits here.~
+~
+19 dg 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 36000 0 0 0
+T 366
+E
+witch diet pills~
+   A bitter green draught that melts away excess weight overnight, leaving
+the body lean without effort or hunger.
+~
+#267
+pills growth doyen vial~
+a vial of Growth Pills~
+A vial of Doyen's growth pills sits here.~
+~
+19 dg 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+T 367
+E
+growth pills~
+   Pills compounded by the Doyen. Taken nightly, they coax the body to
+grow taller over the course of a month.
+~
+#268
+vial pills virility~
+a vial full of pills~
+A vial full of pills is sitting here.~
+~
+19 dg 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+T 368
+E
+pills~
+  The pills looks like micro purple mushrooms.
+You feel warm from within when you smell the
+sweet odor that comes from the pills.
+~
+E
+vial~
+  Has a label with says: 'Pills of virility'
+~
+#269
+tonic hair restorer doyen bottle~
+a bottle of Hair Restorer~
+A bottle of Doyen's hair restorer tonic sits here.~
+~
+19 dg 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+T 369
+E
+hair restorer~
+   A tonic compounded by the Doyen. Massaged into the scalp nightly, it
+regrows a thick, healthy head of hair within weeks.
+~
+#270
+mad scientist s steroids bottle~
+a Mad Scientist's Steroids~
+A box of Mad Scientist's Steroids sits here.~
+~
+19 dg 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+2 50000 0 0 0
+T 370
+E
+mad scientist s steroids~
+Get all the muscles you want without exercise. You must drink a liter
+a day for a week, and it tastes horrible. A seven-box set, with ten
+one-L bottles per box.
+~
+#271
+pheromones spray bottle scientist~
+a bottle of Pheromones~
+A small spray bottle of pheromones sits here.~
+~
+12 g 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 102500 0 0 0
+T 371
+E
+pheromones~
+   Spray these on your body to attract the opposite sex. The strength
+cannot be adjusted, so beware a proliferation of stalkers.
+~
+#272
+mad scientist s plastic surgery~
+a Mad Scientist's Plastic Surgery~
+a Mad Scientist's Plastic Surgery lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+mad scientist s plastic surgery~
+Scan a picture of the face you want, and you will have an exact
+likeness. Each surgery carries a 5% chance of failure, and a 1% chance
+the machine itself will break.
+~
+#273
+jade night~
+@Da night jade@n~
+A @Dnight jade@g was thrown here.@n~
+~
+11 gj 0 0 0 aco 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+A
+24 -4
+A
+20 -4
+A
+21 -4
+A
+22 -4
+A
+23 -4
+#274
+aquamarine stone~
+@Can aquamarine stone@n~
+An @Caquamarine stone@g was thrown here.@n~
+~
+11 gk 0 0 0 amo 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+A
+3 2
+#275
+alexandrite ring~
+@can @ralexandrite @bring@n~
+An @ralexandrite @bring @gwas thrown here.@n~
+~
+11 g 0 0 0 abo 0 0 0 0 0 0 0
+0 0 0 0
+2 0 0 0 0
+E
+alexandrite ring~
+   This ornate ring is studded with an alexandrite stone.
+~
+A
+4 2
+#276
+roaming ruby~
+a Roaming Ruby~
+a Roaming Ruby lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+roaming ruby~
+The owner of this ruby will gain immense wealth, but will never be
+able to remain in the same place for more than a week.
+~
+#277
+beauty magnet emerald~
+a Beauty Magnet Emerald~
+a Beauty Magnet Emerald lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+beauty magnet emerald~
+Specialists offering beauty services flock to its owner, who will
+shine with unrecognized beauty.
+~
+#278
+lonely sapphire~
+a Lonely Sapphire~
+a Lonely Sapphire lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+lonely sapphire~
+The owner of this sapphire will acquire vast wealth, but in exchange,
+will spend a lifetime alone, forsaken by friends, family, and
+significant others.
+~
+#279
+rainbow diamond~
+a Rainbow Diamond~
+a Rainbow Diamond lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+rainbow diamond~
+A diamond that shines in a rainbow of colors. Propose with this
+diamond, and she is guaranteed to say "yes."
+~
+#280
+levitation stone~
+@ca levitation stone@n~
+A @cstone@g is here, floating with the air.@n~
+~
+11 g 0 0 0 ao 0 0 0 hqr 0 0 0
+0 0 0 0
+2 0 0 0 0
+E
+levitation stone~
+   This cyan jewel ignores completely the gravity.
+Appears useful to land softly, walk over the water and
+do not leave any foot prints when walks while holding it.
+Also gives a feeling of weightless, easing a hike.
+~
+A
+10 -2
+#281
+jewel blue planet~
+the @Bblue planet@n jewel~
+The @Bblue planet@g jewel is rolling here.@n~
+~
+8 adeg 0 0 0 ao 0 0 0 0 0 0 0
+0 0 0 0
+1 0 0 0 0
+A
+6 3
+A
+24 3
+#282
+staff of judgment~
+a Staff of Judgment~
+a Staff of Judgment lies here.~
+~
+3 g 0 0 0 ao 0 0 0 0 0 0 0
+30 99 99 61
+3 50000 0 0 0
+E
+staff of judgment~
+Raise this staff toward someone and speak judgment: a Nen calamity scaled by
+the gap between your alignment and theirs strikes whoever has the darker deeds
+-- the target if they are more evil than you, or yourself if they are more
+righteous. (use staff <target>)
+~
+#283
+sword truth~
+the Sword of Truth~
+On the floor rests a sword with symbols engraved over its blade.~
+~
+5 gk 0 0 0 ano 0 0 0 0 0 0 0
+0 3 6 3
+12 0 0 0 0
+T 383
+T 3246
+E
+two-handed sword~
+   You notice that there has been inscribed some runes and a sort of pattern,
+which resembles flames running along the edge.  
+~
+E
+runes~
+   On the blade you can read 'Flame And Strength United Are My Soul Power'.  
+~
+A
+18 3
+A
+19 3
+#284
+paladin necklace~
+a paladin's necklace~
+A paladin's necklace was left here.~
+~
+11 gk 0 0 0 ac 0 0 0 x 0 0 0
+0 0 0 0
+2 0 0 0 0
+T 384
+E
+paladin necklace~
+   Has a golden chain and some cross stamped in a blue gem adorned with swords.
+~
+A
+1 1
+A
+5 1
+A
+6 1
+A
+13 20
+A
+12 2
+A
+24 -1
+#285
+armor sacrifice body~
+the @mSacrifice Armor@n~
+A suit of dark armor rests here, etched with self-sacrificing runes.~
+~
+9 gk 0 0 0 ad 0 0 0 0 0 0 0
+10 0 0 0
+10 285000 0 0 0
+A
+24 -2
+E
+armor sacrifice body~
+   Heavy plate inscribed with runes of sacrifice. It turns the wearer's own
+resolve into a ward, reflecting curses and ill fortune back upon their source.
+~
+#286
+quiver of frustration~
+a Quiver of Frustration~
+a Quiver of Frustration lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+10 0 0 0
+1 50000 0 0 0
+T 386
+E
+quiver of frustration~
+You can cast as many "Leaves" as you have arrows. It comes with 10
+arrows, and one will be used each time you cast "Leave."
+~
+#287
+shield faith round large~
+the Shield of Faith~
+A large round shield has been left here.~
+~
+9 gk 0 0 0 ajo 0 0 0 0 0 0 0
+5 0 0 0
+15 0 0 0 0
+E
+shield round large~
+   It is made from hard wood that has been reinforced with heavy iron bands.  
+Some strange painting was made on this shield, like runic marks.
+~
+A
+13 25
+A
+12 75
+A
+14 50
+T 399
+T 400
+#288
+eternal hammer~
+an Eternal Hammer~
+an Eternal Hammer lies here.~
+~
+5 g 0 0 0 ano 0 0 0 0 0 0 0
+0 1 4 3
+10 50000 0 0 0
+A
+18 -2
+A
+2 -1
+E
+eternal hammer~
+Anyone struck by this hammer is hit with one random attack spell drawn from
+the wielder's own binder. A defensive spell card (such as Defensive Wall or
+Holy Water) can still ward it off, and someone wearing the Paladin's Necklace
+is immune. The hammer is brutally heavy and clumsy to swing.
+~
+#289
+gauntlet collector tax~
+the tax collector's gauntlet~
+A beautiful gauntlet is rolling here.~
+~
+9 gq 0 0 0 amo 0 0 0 0 0 0 0
+1 0 0 0
+5 0 0 0 0
+E
+gauntlet collector tax~
+   A beautiful green gauntlet without the part of hands, is possible wear this
+over the wrist.
+~
+T 401
+#290
+memory helmet~
+a memory helmet~
+Some sort of mad scientist did a helmet that was deployed here.~
+~
+9 g 0 0 0 aeo 0 0 0 0 0 0 0
+5 0 0 0
+50 0 0 0 0
+E
+memory helmet~
+   An extremely large and heavy helmet with some antennas over it.
+~
+A
+14 20
+#291
+plastic king~
+a Plastic King~
+a Plastic King lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+plastic king~
+Recombine the parts of this 1:1 scale model kit to build any kind of
+vehicle. Fully functional, fuel not included.
+~
+#292
+swap ticket~
+a Swap Ticket~
+a Swap Ticket lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+swap ticket~
+Rip the ticket and give it to someone you want to switch with, and you
+can live his life for 24 hours. Book of 1000.
+~
+#293
+book of life~
+a Book of Life~
+a Book of Life lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+book of life~
+An encyclopedia of everyone who's been in your life since your birth,
+with records of conversations and memorable incidents. It may end up
+being tens of thousands of pages long.
+~
+#294
+bandit blade~
+a bandit's blade~
+A bandit's blade is here, waiting for the next victim.~
+~
+5 dfgh 0 0 0 ano 0 0 0 0 0 0 0
+0 1 4 11
+5 0 0 0 0
+A
+18 -2
+A
+2 -1
+#295
+secret cape cloak~
+a Secret Cape~
+a Secret Cape lies crumpled here.~
+~
+9 gk 0 0 0 ak 0 0 0 0 0 0 0
+2 0 0 0
+3 50000 0 0 0
+T 402
+T 403
+E
+secret cape~
+You will be under the effect of " Blackout Curtain " while wearing
+this cape.
+~
+#296
+clairvoyant snake card~
+a Clairvoyant Snake~
+a Clairvoyant Snake card lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+T 396
+E
+clairvoyant snake~
+Feed it a card rank C or above, and it will spit up a "Clairvoyance."
+~
+#297
+3 d camera~
+a 3-D Camera~
+a 3-D Camera lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+3 d camera~
+Pictures taken with this will be developed as 3-D objects, with all
+textures reproduced. Make enlargements as needed.
+~
+#298
+silver dog~
+a Silver Dog~
+a Silver Dog lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+silver dog~
+An endangered species with silver fur. Mix 5g of gold into its food
+daily, and it will excrete one kg of solid silver feces.
+~
+#299
+panda maid~
+a Panda Maid~
+a Panda Maid lies here.~
+~
+12 g 0 0 0 a 0 0 0 0 0 0 0
+0 0 0 0
+1 50000 0 0 0
+E
+panda maid~
+An endangered species. Very neat and loves to cook, each has a hobby
+such as sewing or gardening. They are excellent at taking care of
+human children.
+~
+$

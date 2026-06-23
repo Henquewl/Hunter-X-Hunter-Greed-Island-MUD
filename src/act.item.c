@@ -418,7 +418,7 @@ static void perform_get_from_container(struct char_data *ch, struct obj_data *ob
       get_check_money(ch, obj);
 	  if (GET_OBJ_VNUM(cont) == 3203)
 		GET_OBJ_TIMER(obj) = 62;	  
-	  else if (obj && !IS_NPC(ch) && !IS_CARD(obj) && (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED || (GET_OBJ_VNUM(obj) >= 300 && GET_OBJ_VNUM(obj) < 400)))
+	  else if (obj && !IS_NPC(ch) && !IS_CARD(obj) && (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED || (GET_OBJ_VNUM(obj) >= 200 && GET_OBJ_VNUM(obj) < 300)))
 	    make_card(ch, obj, TRUE);
     }
   }
@@ -482,7 +482,7 @@ static int perform_get_from_room(struct char_data *ch, struct obj_data *obj)
     act("You get $p.", FALSE, ch, obj, 0, TO_CHAR);
     act("$n gets $p.", TRUE, ch, obj, 0, TO_ROOM);
     get_check_money(ch, obj);
-	if (obj && !IS_NPC(ch) && !IS_CARD(obj) && (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED || (GET_OBJ_VNUM(obj) >= 300 && GET_OBJ_VNUM(obj) < 400)))
+	if (obj && !IS_NPC(ch) && !IS_CARD(obj) && (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED || (GET_OBJ_VNUM(obj) >= 200 && GET_OBJ_VNUM(obj) < 300)))
 	    make_card(ch, obj, TRUE);
     return (1);
   }
@@ -696,7 +696,7 @@ int perform_unpack(struct char_data *ch, struct obj_data *obj)
     crnum = rand_number(1, top_of_objt);
 	if ((card = read_object(crnum, REAL)) != NULL) {
 	  if ((CAN_WEAR(card, ITEM_WEAR_TAKE)) && !(GET_OBJ_TYPE(card) == ITEM_BOOSTER  && IS_CARD(card)) &&
-	      !OBJ_FLAGGED(card, ITEM_NOGAIN) && GET_OBJ_TYPE(card) != ITEM_RESTRICTED && (GET_OBJ_VNUM(card) > 100 && !(GET_OBJ_VNUM(card) >= 300 && GET_OBJ_VNUM(card) < 400))) {
+	      !OBJ_FLAGGED(card, ITEM_NOGAIN) && GET_OBJ_TYPE(card) != ITEM_RESTRICTED && (GET_OBJ_VNUM(card) > 100 && !(GET_OBJ_VNUM(card) >= 200 && GET_OBJ_VNUM(card) < 300))) {
 		obj_to_char(card, ch);
 		check = make_card(ch, card, FALSE);
 		if (!check) {
@@ -1611,7 +1611,7 @@ ACMD(do_gain)
 	    if (!*arg || !(obj = get_obj_in_list_vis(ch, arg, NULL, ch->carrying)))
 		  goto end;	    
 		else {
-		  if (GET_OBJ_TYPE(obj) == ITEM_BOOSTER || GET_OBJ_TYPE(obj) == ITEM_MONEY || IS_CARD(obj) || IS_CORPSE(obj) || GET_OBJ_VNUM(obj) == 102) {
+		  if (GET_OBJ_TYPE(obj) == ITEM_BOOSTER || GET_OBJ_TYPE(obj) == ITEM_MONEY || IS_CARD(obj) || IS_CORPSE(obj) || GET_OBJ_VNUM(obj) == NOTHING) {
 			found = TRUE;
 			send_to_char(ch, "'ERROR: Invalid target.' - ");
 			goto end;
@@ -2069,7 +2069,7 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
   
   /* Return if ch or obj is NULL | corpse | booster pack | spell card | generic money | container with obj */  
   if (!ch || !obj || IS_CORPSE(obj) || GET_OBJ_TYPE(obj) == ITEM_BOOSTER || GET_OBJ_TYPE(obj) == ITEM_SPELLCARD || 
-       (GET_OBJ_TYPE(obj) == ITEM_MONEY && GET_OBJ_VNUM(obj) == 102) || (GET_OBJ_TYPE(obj) == ITEM_CONTAINER && (obj->contains)))
+       (GET_OBJ_TYPE(obj) == ITEM_MONEY && GET_OBJ_VNUM(obj) == NOTHING) || (GET_OBJ_TYPE(obj) == ITEM_CONTAINER && (obj->contains)))
 	return (0);
 	
   /* GM can override no_gain */
@@ -2094,12 +2094,12 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
 
   number = GET_OBJ_VNUM(obj);
   
-  /* number == 102 && OBJ_FLAGGED(obj, ITEM_QUEST) == VOUCHER */
-  if ((number == 102 && OBJ_FLAGGED(obj, ITEM_QUEST)) || (number >= 300 && number < 400)) {
-	if (number == 102 && OBJ_FLAGGED(obj, ITEM_QUEST))
-	  rst = read_object((GET_OBJ_RENT(obj) - 300), VIRTUAL);
+  /* number == NOTHING && OBJ_FLAGGED(obj, ITEM_QUEST) == VOUCHER */
+  if ((number == NOTHING && OBJ_FLAGGED(obj, ITEM_QUEST)) || (number >= 200 && number < 300)) {
+	if (number == NOTHING && OBJ_FLAGGED(obj, ITEM_QUEST))
+	  rst = read_object((GET_OBJ_RENT(obj) - 200), VIRTUAL);
     else
-      rst = read_object((number - 300), VIRTUAL);
+      rst = read_object((number - 200), VIRTUAL);
 	if (obj_index[GET_OBJ_RNUM(rst)].number > GET_OBJ_RENT(rst))
 	  limit = GET_OBJ_RENT(rst);
     else
@@ -2117,9 +2117,9 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
     return 1;
   }
 
-  if (limit == 0 && ((GET_OBJ_TYPE(obj) == ITEM_RESTRICTED || (number >= 300 && number < 400)) || (number == 102 && OBJ_FLAGGED(obj, ITEM_QUEST)))) {
+  if (limit == 0 && ((GET_OBJ_TYPE(obj) == ITEM_RESTRICTED || (number >= 200 && number < 300)) || (number == NOTHING && OBJ_FLAGGED(obj, ITEM_QUEST)))) {
 	if (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED) {
-	  if (!(card = read_object((number + 300), VIRTUAL))) {
+	  if (!(card = read_object((number + 200), VIRTUAL))) {
 		if (GET_OBJ_TIMER(obj) > 0)
 	      send_to_char(ch, "YAMEROOO! %s is too much valuable to waste like that, \tYput in \tnyour \tYbinder\tn quickly!!!\r\n", obj->short_description);
 		return (0);
@@ -2148,10 +2148,10 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
       }
     }
     } else {
-	  if (number == 102)
-		card = read_object((GET_OBJ_RENT(obj) - 300), VIRTUAL);
+	  if (number == NOTHING)
+		card = read_object((GET_OBJ_RENT(obj) - 200), VIRTUAL);
 	  else
-        card = read_object((number - 300), VIRTUAL);
+        card = read_object((number - 200), VIRTUAL);
 	}
     if (!(CAN_WEAR(card, ITEM_WEAR_TAKE)))
 	  obj_to_room(card, IN_ROOM(ch));
@@ -2160,7 +2160,7 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
     if (show)	
 	  send_to_room(IN_ROOM(ch), "%s's %s turns into %s!\r\n", GET_NAME(ch), obj->short_description, card->short_description);
 	extract_obj(obj);	
-  } else if ((number == 102 && !OBJ_FLAGGED(obj, ITEM_QUEST)) || (number != 102 && GET_OBJ_TYPE(obj) == ITEM_CARD)) {
+  } else if ((number == NOTHING && !OBJ_FLAGGED(obj, ITEM_QUEST)) || (number != NOTHING && GET_OBJ_TYPE(obj) == ITEM_CARD)) {
 	if (GET_OBJ_RENT(obj) == 0)
 	  return (0);
     /* mob card: manual gain is fickle  - creature escapes, no corpse */
@@ -2184,14 +2184,7 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
     if (show)	
 	  send_to_room(IN_ROOM(ch), "%s's %s turns into %s.\r\n", GET_NAME(ch), obj->short_description, card->short_description);
 	extract_obj(obj);
-/*  } else if (number > 65400 && number < 65535 && obj_index[GET_OBJ_RNUM(obj)].number > GET_OBJ_RENT(obj)) {
-    send_to_char(IN_ROOM(ch), "The \tGG.I. \tDRing\tn flashes indicating that %s global transformation already reached the limit of %d.", obj->short_description, GET_OBJ_RENT(obj));
-	return;
-} else if (GET_OBJ_DURABILITY(obj) < 100) {
-	if (show)
-	  send_to_char(ch, "Huuum... %s appears to be damaged.\r\n", obj->short_description);
-	return;  
-*/  } else {
+  } else {
     char buf2[MAX_NAME_LENGTH + 64];	
     const char *word[] = {
     "H-",
@@ -2373,7 +2366,7 @@ int make_card(struct char_data *ch, struct obj_data *obj, bool show)
   
   } else {
 	  if (limit != 0 && GET_OBJ_TYPE(rst) == ITEM_RESTRICTED){		
-		if (!OBJ_FLAGGED(obj, ITEM_QUEST) || (number == 102 && OBJ_FLAGGED(obj, ITEM_QUEST))) {
+		if (!OBJ_FLAGGED(obj, ITEM_QUEST) || (number == NOTHING && OBJ_FLAGGED(obj, ITEM_QUEST))) {
 	      if (show)
 		    send_to_char(ch, "Your ring starts to flash and a female voice says, 'Transformation limit reached: %d/%d'\r\n", obj_index[GET_OBJ_RNUM(rst)].number - 1, limit);
 		  extract_obj(rst);
@@ -2509,7 +2502,7 @@ static void perform_give(struct char_data *ch, struct char_data *vict, struct ob
 
   autoquest_trigger_check( ch, vict, obj, AQ_OBJ_RETURN);
 
-  if (IS_NPC(ch) && !IS_NPC(vict) && !IS_CARD(obj) && (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED || (GET_OBJ_VNUM(obj) >= 300 && GET_OBJ_VNUM(obj) < 400)))
+  if (IS_NPC(ch) && !IS_NPC(vict) && !IS_CARD(obj) && (GET_OBJ_TYPE(obj) == ITEM_RESTRICTED || (GET_OBJ_VNUM(obj) >= 200 && GET_OBJ_VNUM(obj) < 300)))
 	make_card(vict, obj, TRUE);
 }
 

@@ -4,14 +4,17 @@ migrate_vnums.py — Task 1: Migrate world data files from zone 653/654 vnums
 into new card zones 0-3.
 
 Mapping rules:
-  Objects (653.obj → 0.obj):    vnum 65300+N → N (range 0-99)
-  Objects (654.obj → 1.obj/3.obj):
-    Exceptions to 1.obj: 65400→110, 65401→111, 65534→133, 65535→102
-    All others to 3.obj: 65400+N → N+300
-  Mobs (654.mob → 3.mob):       vnum 65400+N → N+300
+  Objects (653.obj → 0.obj):    vnum 65300+N → N (range 0-99)  [card vnum == card number]
+  Objects (654.obj → 1.obj/2.obj):
+    Exceptions to 1.obj: 65400→110, 65401→111, 65534→133
+    All others to 2.obj: 65400+N → N+200  (range 200-299, free of stock lib)
+  Mobs (654.mob → 3.mob):       vnum 65400+N → N+300 (NPCs only; wildlife stay in 4.mob)
   Triggers (653.trg → 0.trg):   vnum 65300+N → N
   Triggers (654.trg → 3.trg):   vnum 65400+N → N+300
   Trigger bodies: all 65300-65516 occurrences remapped
+
+NOTE: 65535 (NOTHING sentinel) is NOT remapped to a real object — it is used for dynamically
+created objects (money, vouchers, change-cards) whose item_number is always NOTHING at runtime.
 """
 
 import re
@@ -28,15 +31,15 @@ VNUM_MAP = {}
 # 653 cards: 65300+N → N  (0-99)
 for n in range(100):
     VNUM_MAP[65300 + n] = n
-# 654 items/mobs: 65400+N → N+300
-# but exceptions: 65400→110, 65401→111, 65534→133, 65535→102
+# 654 items: 65400+N → N+200 (range 200-299)
+# but exceptions: 65400→110, 65401→111, 65534→133
 for n in range(200):  # 65400-65599 (covers 65516 and beyond safely)
-    VNUM_MAP[65400 + n] = n + 300
+    VNUM_MAP[65400 + n] = n + 200
 # Override exceptions
 VNUM_MAP[65400] = 110
 VNUM_MAP[65401] = 111
 VNUM_MAP[65534] = 133
-VNUM_MAP[65535] = 102
+# NOTE: 65535 (NOTHING) is intentionally NOT remapped — it stays as NOTHING (65535)
 
 # ---------------------------------------------------------------------------
 # Helpers

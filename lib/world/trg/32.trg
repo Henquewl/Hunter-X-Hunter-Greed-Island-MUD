@@ -959,11 +959,11 @@ shattered sword~
 wait 1800 sec
 if %self.carried_by%
 %send% %self.carried_by% %self.shortdesc% magically fix into a sword of truth.
-%load% obj 383 %self.carried_by% inv
+%load% obj 283 %self.carried_by% inv
 %purge% %self%
 else
 %echo% %self.shortdesc% magically fix into a sword of truth.
-%load% obj 383
+%load% obj 283
 %purge% %self%
 end
 ~

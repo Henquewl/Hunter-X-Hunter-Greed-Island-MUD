@@ -8,17 +8,31 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 23 2026] - Henque
-  Zone 3 mob population — replaced clairvoyant snake placeholder (#396) with standard
-  starter-area wildlife mobs at vnums 400-416: grass snake, giant mosquito, firefly,
-  bluebird, bear, chipmunk, cricket, mouse. Adjusted position/align flags on existing
-  zone 3 mobs (golden girl #3, sleeping girl #4, aromatherapy girl #5).
+  vnum migration (final) — corrected card-item placement and fixed sentinel bugs:
+  - Card-items (physical form of restricted cards) moved from zone 3 (300-399) to zone 2
+    (200-299), freeing 300-399 for the stock CircleMUD object library that live zones depend on
+    as loot/equipment. Zone 2 (200-299) was verified empty before migration.
+  - Restored 3.obj (stock objects 300-399) from master; no live zones needed editing.
+  - Fixed NOTHING sentinel bug: act.item.c had replaced 65535 with literal 102 in ~10 places.
+    Vouchers and money objects are dynamically created with item_number=NOTHING (65535) at
+    runtime — checks must use the NOTHING constant, not a real vnum. All occurrences corrected.
+  - Fixed C offset: ±300 → ±200; range check `>= 300 && < 400` → `>= 200 && < 300`
+    (6 sites in make_card + 4 auto-conversion call sites).
+  - Removed dead commented-out code block referencing obsolete 65400/65535 in act.item.c.
+  - 3.mob: removed wildlife mobs 400-416 (duplicates of 4.mob — latent boot SYSERR);
+    added mob 396 (clairvoyant snake) which 3.trg trigger 396 loads on card gain.
+  - Fixed trigger/quest refs: 32.trg obj 383→283, 401.trg obj 375→275; 1.qst/400.qst
+    voucher field 102→65535; 186.qst end_obj 384→84 (card #84 not its physical item).
+  - Compiled clean; all vnum indexes in ascending order; no duplicate mob vnums.
 [Jun 22 2026] - Henque
   vnum migration — restricted cards and physical items moved to dedicated zones 0-3:
   - Zone 0 (vnums 0-99): restricted cards (#N = vnum N)
-  - Zone 1 (vnums 100-199): special items (Ruler's Invitation=110/111, Voucher=102, Cookie=133)
-  - Zone 3 (vnums 300-416): physical card items and mobs; bar items 300-302 preserved
+  - Zone 1 (vnums 100-199): special items (Ruler's Invitation=110/111, Cookie=133)
+  - Zone 2 (vnums 200-299): physical card items (offset +200 from card vnum)
+  - Zone 3 (vnums 300-399): reserved for stock CircleMUD object library (restored)
+  - Summon NPCs (317/346/347/348/396) in 3.mob; wildlife (400-416) remain in 4.mob
   - C engine (act.item.c, act.informative.c, act.other.c, fight.c, limits.c, utils.c):
-    all hardcoded vnums and range checks updated to new scheme (+300 offset, new type check)
+    all hardcoded vnums and range checks updated to new scheme
   - External triggers (10.trg, 32.trg, 120.trg, 401.trg) and quest files (1.qst, 14.qst,
     186.qst, 400.qst) updated; zone reset commands in 9.zon, 31.zon, 36.zon, 65.zon,
     79.zon, 186.zon, 279.zon, 410.zon updated to new vnums

@@ -53,117 +53,19 @@ She carries small incense sticks and moves gracefully at your side.
 8 8 2
 E
 T 348
-#400
-grass snake~
-a grass snake~
-A grass snake is coiled up in the grass.
+#396
+clairvoyant snake serpent~
+a clairvoyant snake~
+A clairvoyant snake coils here, watching you with knowing eyes.@n
 ~
-   He really isnt very big, but he looks very mean.  He watches the surroundings
-with his yellow eyes, ready to attack.
+A slender serpent with shimmering scales and oddly intelligent eyes, said
+to divine hidden truths when fed, spitting up a Clairvoyance card.
 ~
-10 0 0 0 0 0 0 0 -250 E
-10 17 4 2d2+100 1d2+1
-100 10000
-8 8 1
-BareHandAttack: 11
+0 0 0 0 0 0 0 0 0 E
+1 20 10 1d1+0 1d1+0
+0 0
+8 8 0
 E
-#401
-Giant Mosquito~
-a giant mosquito~
-A giant mosquito is here.
-~
-   The creature is rather large looking.  She is almost the size of a bird!  
-It would be wise to not upset her.    
-~
-10 0 0 0 0 0 0 0 -250 E
-10 17 4 2d2+100 1d2+1
-100 10000
-8 8 2
-BareHandAttack: 1
-E
-#403
-firefly~
-a firefly~
-A firefly is here.
-~
-   This creature flits around through the various tangled weeds.  She appears
-much larger than any average firefly would be.
-~
-10 0 0 0 0 0 0 0 -225 E
-10 17 4 2d2+100 1d2+1
-100 10000
-8 8 2
-BareHandAttack: 4
-E
-#406
-bluebird bird~
-a bluebird~
-A bluebird flies past you and lands on a nearby branch.
-~
-   The creature is rather small, but looks to be quite tough.  It would be a
-mistake to under estimate him.    
-~
-10 0 0 0 0 0 0 0 -225 E
-10 17 4 2d2+100 1d2+1
-100 10000
-8 8 1
-BareHandAttack: 8
-E
-#410
-bear~
-a bear~
-A large bear is standing here.
-~
-   The creature is enormous and could very easily rip an average humanoid to
-shreds.  Maybe it would be wise to just leave him alone.  
-~
-10 0 0 0 0 0 0 0 -300 E
-15 15 1 3d3+150 2d2+2
-150 22500
-8 8 1
-BareHandAttack: 9
-E
-#412
-chipmunk~
-a chipmunk~
-A small chipmunk is here looking at you.
-~
-   She chitters at any intruders, warning them to stay away.  Her teeth are
-razor sharp and one of her ears has a small hole in it.  No doubt a battle scar.
-
-~
-10 0 0 0 0 0 0 0 -200 E
-14 16 1 2d2+140 2d2+2
-140 19600
-8 8 2
-BareHandAttack: 4
-E
-#415
-cricket~
-a cricket~
-A cricket is sitting here.
-~
-   The creature blends in with the grass and she is very hard to see.  She can
-easily hide from her enemies in here.    
-~
-10 0 0 0 0 0 0 0 250 E
-12 16 2 2d2+120 2d2+2
-120 14400
-8 8 2
-BareHandAttack: 1
-E
-#416
-mouse~
-a mouse~
-A cute little mouse is here.
-~
-   The mouse looks up with his big black eyes.  He looks to be harmless, but
-looks can be deceiving.  
-~
-10 0 0 0 0 0 0 0 0 E
-11 17 3 2d2+110 1d2+1
-110 12100
-8 8 1
-BareHandAttack: 8
-E
+T 397
+T 398
 $
