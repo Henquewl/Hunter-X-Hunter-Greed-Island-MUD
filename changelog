@@ -8,7 +8,7 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 23 2026] - Henque
-  MXP card image scroll fix: added 600ms prompt delay after sending an MXP
+  MXP card image scroll fix: increased prompt delay to 700ms after sending an MXP
   image tag. prompt_delay_until field on descriptor_data suppresses the prompt
   in process_output and the bare-prompt loop until 5 pulses (PASSES_PER_SEC/2)
   have elapsed, giving the CDN image time to load before the client anchors
