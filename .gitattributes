@@ -1,0 +1,20 @@
+# Scripts executed on the Linux server (Oracle VM / WSL) MUST stay LF, or their
+# shebang line becomes "#!/bin/bash\r" and the OS refuses to run them.
+*.sh        text eol=lf
+deploy.sh   text eol=lf
+autorun     text eol=lf
+autorun.sh  text eol=lf
+autorun.pl  text eol=lf
+
+# Windows-only helpers stay CRLF.
+*.bat       text eol=crlf
+
+# World/data files are CRLF in this repo and the engine strips \r on load, so
+# leave them as-is (don't let git renormalize them).
+*.obj       -text
+*.wld       -text
+*.mob       -text
+*.zon       -text
+*.shp       -text
+*.qst       -text
+*.trg       -text
