@@ -65,11 +65,19 @@ content inherited from CircleMUD.
 Specific prerequisites before declaring v1.00:
 1. All 99 cards (65301–65399) have at least one dedicated in-world source of acquisition
 2. World rework — main Greed Island zones with canonical names, themes, and NPCs
-3. Ruler's Blessing (#0) obtainable only as a reward for completing the full 99-card set
+2. **World rework (worldmap)** — Plan written Jun 23 2026: see `worldmap-plan.md`. Ready for
+   implementation. Requires ~6 engine edits as prerequisites: widen `IDXTYPE` (`structs.h`)
+   from `ush_int` to `uint32_t`, raise the silent 99999 record cap (`db.c:1104`), and fix 5
+   `%hd` sscanf reads (`db.c:2063/2086/2089/2094`, `shop.c:1210`). After that: generate zone
+   1000 (256×256 grid, vnums 100000–165535) via `tools/gen_worldmap.py` from a source map file.
+   See `worldmap-plan.md` for full detail, conflict analysis, and phased implementation order.
+3. **Ruler's Invitation end-game flow** — DONE (Jun 22 2026). Completing all 99 restricted
+   cards fires a global Eta announcement (timed, via new `mgecho` DG command) and delivers
+   card 65400 (Ruler's Invitation) via an owl room message. `gain` on the card yields the
+   Invitation to Limeiro Castle letter (65401). Both items are NODROP/uncontainerable.
+   **Still pending**: Limeiro castle NPC that receives the letter and grants Ruler's Blessing (#0).
 4. All items marked *Needs a live test* above verified in live gameplay
 5. **Vnum migration** — Restricted card vnums (653xx/654xx) renumbered into zone 0 (cards) and zone 1 (physical items), replacing unused TbaMUD starter items in those zones. Migration must maintain all T-line associations, `GET_OBJ_RENT` mappings, `make_card` offsets (card+100 → item), and the `fickle_vnums[]` array. Careful audit required to avoid breaking any existing card mechanics.
-6. **Peaceful-room audit** — Review all spell cards (ITEM_SPELLCARD, zone 10) and restricted cards (ITEM_RESTRICTED, zone 653/654) to confirm that `gain` is blocked in peaceful areas. Any card whose effect could be exploited in a safe zone (healing, stat buffs, NPC spawns) must be explicitly guarded.
-
 ---
 
 ## DEFERRED — still open (need new mobs, new rooms, or more C)
@@ -83,8 +91,9 @@ a dedicated handler in do_gain (same pattern as hot_springs_gain / liquor_spring
 
 **Location cards — staying fickle indefinitely:**
 Patch of Forest (65301), Patch of Shore / Poseidon's Cavern (65302), Spirited Away Hollow
-(65305) (#1, #2, #5) remain in the fickle pattern (auto-binder on `gain`; no portal system
-planned). Ruler's Blessing (65300, #0) is the end-game reward and exempt from this.
+(65305) (#1, #2, #5) remain in the fickle pattern (no portal system planned). Miniature
+creature cards (#49–#51, #99) also stay fickle permanently — no mob creation planned.
+Ruler's Blessing (65300, #0) is the end-game reward and exempt from this.
 Cards #4/65304, #6/65306, #8/65308, #9/65309 now have **active mechanics** — see DONE below.
 
 **"Fickle card" pattern** — DONE (Jun 19 2026). 50+ cards now use this pattern. `gain` shows
