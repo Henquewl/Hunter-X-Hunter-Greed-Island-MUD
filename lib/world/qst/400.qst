@@ -10,7 +10,7 @@ You have abandoned the quest.
 ~
 0 40100 a 40097 -1 40002 -1
 0 0 0 34 -1 -1 1
-0 500 102
+0 500 65535
 S
 #40002
 Restore the villagers health~
