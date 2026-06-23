@@ -255,7 +255,7 @@ static void send_card_image(struct char_data *ch, struct obj_data *obj)
   /* Delay the prompt by ~500ms so the CDN image has time to load before the
      client anchors its scroll position.  The bare-prompt loop in comm.c gates
      on prompt_delay_until and fires naturally once the window expires. */
-  ch->desc->prompt_delay_until = (long)pulse + (long)(PASSES_PER_SEC / 2);
+  ch->desc->prompt_delay_until = (long)pulse + 6L; /* 600ms (6 pulses of 100ms) */
 }
 
 static void show_obj_to_char(struct obj_data *obj, struct char_data *ch, int mode)
