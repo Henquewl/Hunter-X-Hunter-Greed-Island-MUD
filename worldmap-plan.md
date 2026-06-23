@@ -1,184 +1,182 @@
-# Plano: Greed Island World Map
+# Plan: Greed Island World Map
 
-**Data da pesquisa:** Jun 23 2026  
-**Status:** Pronto para implementação futura
-
----
-
-## Contexto
-
-O milestone v1.00 exige que o mundo seja remodelado para refletir canonicamente Greed Island (Antokiba, Masadora, Rabicuta, Limeiro Castle, etc.), substituindo o conteúdo genérico TbaMUD. A peça central é um mapa-mundi navegável da ilha, que requer centenas de salas conectadas em grid — muito além do limite convencional de 100 salas por zona.
+**Research date:** Jun 23 2026
+**Status:** Ready for future implementation
 
 ---
 
-## Decisão de design: 256×256 com 4 quadrantes (inspirado no FE MUD DragonBall Z)
+## Context
 
-O usuário quer o mesmo modelo do FE MUD: coordenadas de 1,1 a 128,128 e de -128,-128 a -1,-1 (4 quadrantes, sem origem em 0,0). Total: 256×256 = **65.536 salas**.
-
-### Por que isso exige mudar o tipo de vnum
-
-`room_vnum = ush_int` (unsigned short, 2 bytes, max 65.535). `NOWHERE = 65.535` é sentinel reservado. Máximo de vnums usáveis no jogo inteiro: **65.534**. 256×256 = 65.536 — impossível sem ampliar o tipo.
-
-### Custo real da mudança de IDXTYPE
-
-Auditoria feita no código (`grep %hd %hu (ush_int)` em `src/`):
-- **5 ocorrências em 2 arquivos**: `src/db.c` (4) e `src/shop.c` (1).
-- Player files, object saves e world files são **todos formato ASCII** → não são afetados por mudança de tipo binário.
-- O typedef `ush_int` permanece no código (usado em outras structs); só `IDXTYPE` muda.
-
-**Conclusão: a mudança de IDXTYPE é a pré-condição mais simples possível** — 5 linhas a corrigir manualmente após alterar `structs.h`.
+The v1.00 milestone requires the world to be reworked to canonically reflect Greed Island (Antokiba, Masadora, Rabicuta, Limeiro Castle, etc.), replacing the generic TbaMUD content. The centerpiece is a navigable island world map requiring hundreds of rooms connected in a grid — far beyond the conventional 100-rooms-per-zone limit.
 
 ---
 
-## Achados da pesquisa
+## Design decision: 256x256 with 4 quadrants (inspired by FE MUD DragonBall Z)
 
-### Sistema de zonas (sem alteração no engine necessária)
+The target model is the same as FE MUD: coordinates from 1,1 to 128,128 and from -128,-128 to -1,-1 (4 quadrants, no origin at 0,0). Total: 256x256 = **65,536 rooms**.
 
-- O limite de 100 salas/zona é **convenção, não regra do engine**. A única validação em `db.c` é `bot > top`. Uma zona com 900 salas (bot=42000, top=42899) carrega sem qualquer modificação de código.
-- `real_room()` usa busca binária no array `world[]` — sem lógica aritmética que assuma tamanho de zona.
-- Teto de vnum: **65.534** (65.535 = `NOWHERE` sentinel). Zonas 411–419 estão todas vazias, espaço limpo disponível.
-- **Confirmado pelo fórum tbamud.com**: "you can create a zone of any size you want."
+### Why this requires changing the vnum type
 
-### Infraestrutura worldmap existente (`src/asciimap.c`)
+`room_vnum = ush_int` (unsigned short, 2 bytes, max 65,535). `NOWHERE = 65,535` is the reserved nil sentinel. Maximum usable vnums in the entire game: **65,534**. 256x256 = 65,536 — impossible without widening the type.
 
-Já existe um engine de mapa ASCII completo com dois modos:
+### Real cost of the IDXTYPE change
 
-| Modo | Tiles | Conectores de saída | Quando ativo |
+Audit performed on the codebase (`grep %hd %hu (ush_int)` in `src/`):
+- **5 occurrences in 2 files**: `src/db.c` (4) and `src/shop.c` (1).
+- Player files, object saves, and world files are **all ASCII format** — not affected by a binary type change.
+- The `ush_int` typedef stays in the code for other structs; only `IDXTYPE` changes.
+
+**Conclusion: the IDXTYPE change is the simplest possible prerequisite** — 5 lines to fix manually after editing `structs.h`.
+
+---
+
+## Research findings
+
+### Zone system (no engine change required for zones themselves)
+
+- The 100-rooms-per-zone limit is a **convention, not an engine rule**. The only validation in `db.c` is `bot > top`. A zone with 900 rooms (bot=42000, top=42899) loads without any code change.
+- `real_room()` uses binary search on the `world[]` array — no arithmetic that assumes zone size.
+- Vnum ceiling: **65,534** (65,535 = `NOWHERE` sentinel).
+- **Confirmed by tbamud.com forum**: "you can create a zone of any size you want."
+
+### Existing worldmap infrastructure (`src/asciimap.c`)
+
+A full ASCII map rendering engine already exists with two modes:
+
+| Mode | Tiles | Exit connectors | When active |
 |---|---|---|---|
-| Normal | `[X]` 3 chars, com cor | Sim (`|`, `-`) | Padrão |
-| Worldmap | 1 char bare (`·`, `~`, etc.) | Não | XOR de flags (ver abaixo) |
+| Normal | `[X]` 3-char with color | Yes (`|`, `-`) | Default |
+| Worldmap | 1-char bare (`·`, `~`, etc.) | No | XOR of flags (see below) |
 
-**Lógica XOR em `show_worldmap()` (`asciimap.c:774`):**
-- `ZONE_WORLDMAP` setado, sala SEM `ROOM_WORLDMAP` individual → **modo worldmap** ✓
-- `ZONE_WORLDMAP` setado, sala COM `ROOM_WORLDMAP` individual → **modo normal** (útil para entradas de cidades)
-- Nenhum dos dois ou ambos → modo normal
+**XOR logic in `show_worldmap()` (`asciimap.c:774`):**
+- `ZONE_WORLDMAP` set, room WITHOUT individual `ROOM_WORLDMAP` → **worldmap mode** ✓
+- `ZONE_WORLDMAP` set, room WITH individual `ROOM_WORLDMAP` → **normal mode** (useful for city entrances)
+- Neither or both → normal mode
 
-**Zonas GI já usando worldmap** (não mexer):
-- Zona 400 (40000–40099): Greed Island Start — `ZONE_WORLDMAP`
-- Zona 401 (40100–40199): Path to G.I. southern — `ZONE_WORLDMAP`
-- Zona 402 (40200–40299): Road to Ai Ai — salas individuais com `ROOM_WORLDMAP`
-- Zona 410 (41000–41099): Dorias/Landing Platform — salas individuais com `ROOM_WORLDMAP`
+**Existing GI worldmap zones (do not touch):**
+- Zone 400 (40000-40099): Greed Island Start — `ZONE_WORLDMAP`
+- Zone 401 (40100-40199): Path to G.I. southern — `ZONE_WORLDMAP`
+- Zone 402 (40200-40299): Road to Ai Ai — individual `ROOM_WORLDMAP` rooms
+- Zone 410 (41000-41099): Dorias/Landing Platform — individual `ROOM_WORLDMAP` rooms
 
-**Canvas do mapa**: `MAX_MAP_SIZE = 12` (raio máximo visível), canvas `51×51`. Com grid 256×256, um jogador no centro vê até 12 salas em todas as direções — ilha com margens visíveis.
+**Map canvas**: `MAX_MAP_SIZE = 12` (max visible radius), canvas `51x51`. On a 256x256 grid, a player at center sees up to 12 rooms in every direction.
 
-### Pesquisa tbamud.com (fórum)
+### tbamud.com forum research
 
-- O [Luminari MUD](https://luminarimud.com) implementou wilderness **1024×1024** usando um pool dinâmico de vnums. Abordagem descartada para cá: pool dinâmico causa bugs de persistência (jogador desconecta e reconecta em sala errada porque vnum foi reatribuído). Nossa ilha é estática — sem esse problema.
-- Criar grids grandes manualmente com buildwalk/OLC é descrito como "tedioso e propenso a erros". **Conclusão unânime no fórum: usar script de geração de arquivos de texto** (.wld/.zon), não o OLC interativo.
-
----
-
-## Nota sobre 255×255
-
-255×255 = 65.025 salas — ainda não resolve. O maior bloco contíguo livre no espaço de vnums atual é ~24.000 (41100–65299). 65.025 não cabe. O problema não é o total de vnums: é que o mapa precisa de um bloco contíguo, e não existe um dessa magnitude sem a mudança de tipo.
-
-Além disso: 12.713 (salas existentes) + 65.025 (255×255) = 77.738 vnums necessários no total. Teto disponível: 65.534. Impossível mesmo reorganizando tudo.
+- [Luminari MUD](https://luminarimud.com) implemented a **1024x1024** wilderness using a dynamic vnum pool. Discarded for this project: dynamic pools cause persistence bugs (player disconnects and reconnects in the wrong room because the vnum was reassigned). Our island is static — no such problem.
+- Building large grids manually with buildwalk/OLC is described as "tedious and error-prone". **Forum consensus: use a text file generation script** (.wld/.zon), not interactive OLC.
 
 ---
 
-## Abordagem recomendada: IDXTYPE → uint32_t + Zona 1000 (256×256)
+## Note on 255x255
 
-### Passo 0 (pré-condição): Ampliar IDXTYPE para uint32_t
+255x255 = 65,025 rooms — still doesn't fit. The largest contiguous free vnum block in the current layout is ~24,000 (41100-65299). 65,025 doesn't fit in it. And even if all zones were reorganized: 12,713 (existing rooms) + 65,025 (255x255) = 77,738 vnums needed total, against a ceiling of 65,534. Mathematically impossible without the type change.
 
-**Por que é necessário:** Qualquer grid acima de ~155×155 exige bloco contíguo de vnums que não existe no espaço atual (ush_int, max 65.534).
+---
 
-**Por que é seguro:**
-- Todos os world files, player files e object saves usam **formato ASCII** (não binário de 2 bytes) → não quebra saves existentes.
-- `ush_int` typedef permanece no código para outras structs; apenas `IDXTYPE` muda.
-- Apenas **5 ocorrências** de `%hd`/`%hu`/`(ush_int)` em `src/db.c` (4) e `src/shop.c` (1) — as únicas linhas a corrigir após a mudança.
-- Com `uint32_t`, `NOWHERE = 0xFFFFFFFF`. Toda a lógica existente continua funcionando.
+## Recommended approach: IDXTYPE -> uint32_t + Zone 1000 (256x256)
 
-**Mudança em `structs.h`** (1 linha):
+### Step 0 (prerequisite): Widen IDXTYPE to uint32_t
+
+**Why it's necessary:** Any grid above ~155x155 requires a contiguous vnum block that doesn't exist in the current ush_int space.
+
+**Why it's safe:**
+- All world files, player files, and object saves use **ASCII format** (not 2-byte binary) — existing saves are not broken.
+- The `ush_int` typedef stays in the code for other structs; only `IDXTYPE` changes.
+- Only **5 occurrences** of `%hd`/`%hu`/`(ush_int)` in `src/db.c` (4) and `src/shop.c` (1) — the only lines to fix after the change.
+- With `uint32_t`, `NOWHERE = 0xFFFFFFFF`. All existing logic continues to work.
+
+**Change in `structs.h`** (1 line):
 ```c
-// Antes:
+// Before:
 #define IDXTYPE  ush_int
-// Depois:
+// After:
 #define IDXTYPE  uint32_t
 ```
 
-Após isso, compilar e corrigir os 5 `%hd` → `%u`.
+Then compile and fix the 5 `%hd` -> `%u` occurrences.
 
-### Especificação da zona mundial
+### World zone specification
 
-- **Zona 1000**, vnums **100.000–165.535** (65.536 salas = 256×256)
-- Flag da zona: `g` (bit 6 = `ZONE_WORLDMAP`) na linha de header do .zon
-- Fórmula de vnum: `vnum = 100000 + (row × 256) + col` onde row ∈ [0–255], col ∈ [0–255]
-- **Coordenadas player-facing** (exibidas no prompt/look, estilo FE MUD):
-  - `x = col - 128` → range [-128, 127] (negativo = oeste, positivo = leste)
-  - `y = 128 - row` → range [-128, 127] (negativo = sul, positivo = norte)
-  - Quadrante I: x ∈ [1,128], y ∈ [1,128] / Quadrante III: x ∈ [-128,-1], y ∈ [-128,-1]
-- **Borda oceânica**: linhas 0–1 e 254–255 + colunas 0–1 e 254–255 → `SECT_WATER_NOSWIM`, sem exits externos
-- **Cidades**: salas de entrada usam AMBAS as flags → XOR desliga worldmap (exibe como sala normal), válidas para teleporte
+- **Zone 1000**, vnums **100000-165535** (65,536 rooms = 256x256)
+- Zone flag: `g` (bit 6 = `ZONE_WORLDMAP`) in the .zon header line
+- Vnum formula: `vnum = 100000 + (row * 256) + col`, where row in [0-255], col in [0-255]
+- **Player-facing coordinates** (displayed in prompt/look, FE MUD style):
+  - `x = col - 128` — range [-128, 127] (negative = west, positive = east)
+  - `y = 128 - row` — range [-128, 127] (negative = south, positive = north)
+  - Quadrant I: x in [1,128], y in [1,128] / Quadrant III: x in [-128,-1], y in [-128,-1]
+- **Ocean border**: rows 0-1 and 254-255 + cols 0-1 and 254-255 -> `SECT_WATER_NOSWIM`, no exits outside the grid
+- **City entrances**: use BOTH flags -> XOR turns off worldmap mode (shows as normal room), valid as teleport targets
 
-### Localização das cidades no grid (aprox. — a definir no layout)
+### City locations on the grid (approximate — to be finalized in the layout)
 
-| Cidade | x,y (player) | row, col | Vnum aprox. |
+| City | x,y (player) | row, col | Approx vnum |
 |---|---|---|---|
-| Antokiba (cidade inicial) | 0, 0 | 128, 128 | 132.896 |
-| Masadora (spell cards) | 50, 40 | 88, 178 | 122.706 |
-| Rabicuta | -40, -30 | 158, 88 | 140.568 |
-| Limeiro Castle | 0, 60 | 68, 128 | 117.504 |
-| Porto/Dorias | -10, -60 | 188, 118 | 148.086 |
+| Antokiba (starting city) | 0, 0 | 128, 128 | 132,896 |
+| Masadora (spell cards) | 50, 40 | 88, 178 | 122,706 |
+| Rabicuta | -40, -30 | 158, 88 | 140,568 |
+| Limeiro Castle | 0, 60 | 68, 128 | 117,504 |
+| Dorias port | -10, -60 | 188, 118 | 148,086 |
 
-*(coordenadas exatas a definir na implementação com base no mapa canônico da ilha)*
+*(exact coordinates to be determined during implementation based on the canonical island map)*
 
 ---
 
-## Conflitos e como evitá-los
+## Conflicts and how to avoid them
 
-| Risco | Localização | Resolução |
+| Risk | Location | Resolution |
 |---|---|---|
-| Zonas existentes (0–654) | Todas | Zona 1000 começa em vnum 100.000 — acima de tudo que existe. Zero sobreposição. |
-| Teleporte de cartas (`act.item.c:1416`) | Escaneia range da zona da cidade, não da zona 1000 | Salas do grid não têm `ROOM_WORLDMAP` individual → não são alvos de teleporte. Entradas de cidades têm ambas as flags → são alvos automáticos. Sem mudança. |
-| Lógica XOR de worldmap (`asciimap.c:774`) | Zonas 400/401/402/410 | Não alteramos essas zonas; zona 1000 é novo `ZONE_WORLDMAP` independente |
-| Saída de zona 410, sala 41001 | `lib/world/wld/410.wld` | **Um exit a alterar**: `D1 (north)` muda de `40060` para o vnum da entrada do porto no grid (~148.086). Única edição em arquivo existente. |
-| `%hd` format strings | `src/db.c` (4×), `src/shop.c` (1×) | Mudar para `%u` nos 5 casos após alterar `IDXTYPE`. Trivial. |
-| `city_met[8]` overflow (`structs.h:1018`) | `act.item.c:1487` | Não marcar cidades GI com `ZONE_CITY` ainda — tarefa separada |
-| `genzon.c` limit 655 | `genzon.c:67` | OLC vai rejeitar zona 1000 via interface interativa. Não usar OLC para criar/editar a zona — apenas editar arquivos de texto diretamente. |
-| Índices dos world files | `lib/world/*/index` | Adicionar entrada `1000` em ordem numérica em todos os 7 índices |
+| Existing zones (0-654) | All | Zone 1000 starts at vnum 100,000 — above everything that exists. Zero overlap. |
+| Card teleport (`act.item.c:1416`) | Scans city zone range, not zone 1000 | Grid rooms have no individual `ROOM_WORLDMAP` -> not teleport targets. City entrances have both flags -> automatically valid. No change needed. |
+| XOR worldmap logic (`asciimap.c:774`) | Zones 400/401/402/410 | Those zones are untouched; zone 1000 is an independent new `ZONE_WORLDMAP`. |
+| Zone 410, room 41001 exit | `lib/world/wld/410.wld` | **One exit to change**: `D1 (north)` changes from `40060` to the port grid room vnum (~148,086). Only edit to an existing file. |
+| `%hd` format strings | `src/db.c` (4x), `src/shop.c` (1x) | Change to `%u` in 5 places after updating `IDXTYPE`. Trivial. |
+| `city_met[8]` overflow (`structs.h:1018`) | `act.item.c:1487` | Do not flag GI city zones with `ZONE_CITY` yet — separate task. |
+| `genzon.c` limit 655 | `genzon.c:67` | OLC will reject zone 1000 via interactive interface. Do not use OLC — edit text files directly only. |
+| World file indexes | `lib/world/*/index` | Add `1000` entry in numeric order in all 7 indexes. |
 
 ---
 
-## Arquivos a criar/modificar
+## Files to create/modify
 
-### Engine (mudança mínima de tipo)
+### Engine (minimal type change)
 ```
-src/structs.h             <- 1 linha: IDXTYPE ush_int -> uint32_t
-src/db.c                  <- 4 ocorrencias de %hd -> %u (vnum printf)
-src/shop.c                <- 1 ocorrencia de %hd -> %u (vnum printf)
-```
-
-### Novos (todos criados pelo script de geração)
-```
-lib/world/zon/1000.zon    <- header da zona: bot=100000, top=165535, flag=g (ZONE_WORLDMAP)
-lib/world/wld/1000.wld    <- 65.536 salas com exits N/S/E/W wired
-lib/world/mob/1000.mob    <- vazio ($)
-lib/world/obj/1000.obj    <- vazio ($)
-lib/world/shp/1000.shp    <- vazio ($~)
-lib/world/qst/1000.qst    <- vazio ($~)
-lib/world/trg/1000.trg    <- vazio ($~)
-lib/world/map/greed_island.txt  <- fonte canonica do mapa (256 linhas x 256 chars)
+src/structs.h             <- 1 line: IDXTYPE ush_int -> uint32_t
+src/db.c                  <- 4 occurrences of %hd -> %u (vnum printf)
+src/shop.c                <- 1 occurrence of %hd -> %u (vnum printf)
 ```
 
-### Modificados manualmente (mínimo)
+### New (all created by generation script)
 ```
-lib/world/wld/410.wld     <- alterar 1 exit (sala 41001 D1: ~148086)
-lib/world/*/index         <- adicionar "1000" em cada um dos 7 indices
+lib/world/zon/1000.zon    <- zone header: bot=100000, top=165535, flag=g (ZONE_WORLDMAP)
+lib/world/wld/1000.wld    <- 65,536 rooms with N/S/E/W exits wired
+lib/world/mob/1000.mob    <- empty ($)
+lib/world/obj/1000.obj    <- empty ($)
+lib/world/shp/1000.shp    <- empty ($~)
+lib/world/qst/1000.qst    <- empty ($~)
+lib/world/trg/1000.trg    <- empty ($~)
+lib/world/map/greed_island.txt  <- canonical map source (256 lines x 256 chars)
 ```
 
-### Sem alterações
+### Manually edited (minimum)
 ```
-src/asciimap.c            <- nao tocar (worldmap renderer ja funciona)
-src/act.item.c            <- nao tocar (teleporte funciona por flags)
+lib/world/wld/410.wld     <- change 1 exit (room 41001 D1: ~148086)
+lib/world/*/index         <- add "1000" to each of the 7 indexes
+```
+
+### Untouched
+```
+src/asciimap.c            <- do not touch (worldmap renderer already works)
+src/act.item.c            <- do not touch (teleport works via flags)
 ```
 
 ---
 
-## Exibição de coordenadas para o jogador
+## Player coordinate display
 
-Para reproduzir a experiência do FE MUD (jogador vê "Você está em (42, -15)" em vez de "Sala 135970"):
+To reproduce the FE MUD experience (player sees "You are at (42, -15)" instead of "Room 135970"):
 
-Adicionar ao `look` (em `act.informative.c`) uma linha de coordenadas quando o jogador está em zona com `ZONE_WORLDMAP`:
+Add to `look` (in `act.informative.c`) a coordinate line when the player is in a zone with `ZONE_WORLDMAP`:
 
 ```c
 if (ZONE_FLAGGED(GET_ROOM_ZONE(IN_ROOM(ch)), ZONE_WORLDMAP)) {
@@ -187,81 +185,85 @@ if (ZONE_FLAGGED(GET_ROOM_ZONE(IN_ROOM(ch)), ZONE_WORLDMAP)) {
     int row = (v - 100000) / 256;
     int x = col - 128;
     int y = 128 - row;
-    send_to_char(ch, "[ Coordenadas: %d, %d ]\r\n", x, y);
+    send_to_char(ch, "[ Location: %d, %d ]\r\n", x, y);
 }
 ```
 
-Esta é a única adição opcional ao engine — não é necessária para o mapa funcionar, mas melhora a UX.
+This is the only optional engine addition — not required for the map to function, but improves UX.
 
 ---
 
-## Script de geração (`tools/gen_worldmap.py`)
+## Generation script (`tools/gen_worldmap.py`)
 
-O script lê `lib/world/map/greed_island.txt` (256 linhas × 256 chars) e gera `1000.zon` e `1000.wld`. Requisitos:
+The script reads `lib/world/map/greed_island.txt` (256 lines x 256 chars) and generates `1000.zon` and `1000.wld`. Requirements:
 
-1. **Fonte**: `greed_island.txt` — 256 linhas de 256 chars. Cada char = setor:
+1. **Source**: `greed_island.txt` — 256 lines of 256 chars. Each char = sector:
    ```
    . = SECT_FIELD (2)      ^ = SECT_MOUNTAIN (5)    ~ = SECT_WATER_NOSWIM (7)
    f = SECT_FOREST (3)     h = SECT_HILLS (4)        = = SECT_WATER_SWIM (6)
-   # = SECT_CITY (1)       @ = cidade (entrada -- gera ROOM_WORLDMAP)
+   # = SECT_CITY (1)       @ = city entrance (generates ROOM_WORLDMAP flag)
    ```
-2. **Fórmula de vnum**: `vnum = 100000 + row * 256 + col`
-3. **Exits**: cada sala conecta N/S/E/W às salas adjacentes, exceto borda (`~`) sem exits externos
-4. **Salas `@` (entradas de cidade)**: flags incluem `65536` (`ROOM_WORLDMAP`), exit adicional para vnum da zona de cidade (configurável no script)
-5. **Header .zon**: `100000 165535 30 2 g 0 0 0 -1 -1`
-6. **Validação**: 65.536 salas, sem vnum duplicado, borda completa de `~`, exits de cidades válidos
-7. **Desempenho**: o .wld gerado terá ~6–8 MB — normal para esse tamanho
+2. **Vnum formula**: `vnum = 100000 + row * 256 + col`
+3. **Exits**: each room connects N/S/E/W to adjacent rooms, except border (`~`) rooms have no external exits
+4. **`@` rooms (city entrances)**: flags include `65536` (`ROOM_WORLDMAP`), plus an extra exit to the city zone vnum (configurable in the script)
+5. **Zone header**: `100000 165535 30 2 g 0 0 0 -1 -1`
+6. **Validation**: 65,536 rooms generated, no duplicate vnums, full `~` border, city exits pointing to valid vnums
+7. **Performance**: the generated .wld will be ~6-8 MB — normal for this size
 
 ---
 
-## Setores do mapa (sugestões para o layout da ilha)
+## Sector types (suggestions for the island layout)
 
-| Setor | Constante TbaMUD | Tile worldmap | Uso |
+| # | TbaMUD constant | Worldmap tile | Use |
 |---|---|---|---|
-| 0 | `SECT_INSIDE` | marrom | cavernas internas |
-| 1 | `SECT_CITY` | cinza | entradas de cidade |
-| 2 | `SECT_FIELD` | verde claro | campos abertos |
-| 3 | `SECT_FOREST` | verde escuro | florestas |
-| 4 | `SECT_HILLS` | amarelo | colinas |
-| 5 | `SECT_MOUNTAIN` | branco | montanhas |
-| 6 | `SECT_WATER_SWIM` | azul claro | rios/lagos |
-| 7 | `SECT_WATER_NOSWIM` | azul escuro | oceano/borda |
+| 0 | `SECT_INSIDE` | brown | interior caves |
+| 1 | `SECT_CITY` | gray | city areas |
+| 2 | `SECT_FIELD` | light green | open fields |
+| 3 | `SECT_FOREST` | dark green | forests |
+| 4 | `SECT_HILLS` | yellow | hills |
+| 5 | `SECT_MOUNTAIN` | white | mountains |
+| 6 | `SECT_WATER_SWIM` | light blue | rivers/lakes |
+| 7 | `SECT_WATER_NOSWIM` | dark blue | ocean/border |
 
 ---
 
-## Ordem de implementação (para a sessão futura)
+## Implementation order (for the future session)
 
-### Fase 1 — Engine (pré-condição, ~30min)
-1. `structs.h`: mudar `IDXTYPE` de `ush_int` para `uint32_t`
-2. Corrigir 5 printf: `%hd` → `%u` em `db.c` (4×) e `shop.c` (1×)
-3. Compilar: `cd src && make circle CFLAGS=-w` — deve compilar sem erros
-4. Boot rápido e verificar zonas existentes ainda funcionam
+### Phase 1 — Engine (prerequisite, ~30min)
+1. `structs.h`: change `IDXTYPE` from `ush_int` to `uint32_t`
+2. Fix 5 printf calls: `%hd` -> `%u` in `db.c` (4x) and `shop.c` (1x)
+3. Compile: `cd src && make circle CFLAGS=-w` — must compile without errors
+4. Quick boot and verify existing zones still work
 
-### Fase 2 — Layout do mapa (design, fora do código)
-5. Desenhar `greed_island.txt` (256×256) inspirado no mapa canônico da ilha
-   - Usar editor de texto simples; cada char = um tile
-   - Definir posições das 5+ cidades principais (char `@`)
-   - Borda: primeiras/últimas 2 linhas e colunas = `~`
+### Phase 2 — Map layout (design, outside the code)
+5. Draw `greed_island.txt` (256x256) based on the canonical island map
+   - Use a plain text editor; each char = one tile
+   - Place 5+ main cities (char `@`)
+   - Border: first/last 2 rows and columns = `~`
 
-### Fase 3 — Script de geração
-6. Escrever `tools/gen_worldmap.py` que lê o .txt e gera `1000.zon` + `1000.wld`
-7. Executar, validar saída (65.536 rooms, exits corretos)
+### Phase 3 — Generation script
+6. Write `tools/gen_worldmap.py` to read the .txt and generate `1000.zon` + `1000.wld`
+7. Run it, validate output (65,536 rooms, correct exits)
 
-### Fase 4 — Integração
-8. Copiar arquivos gerados para `lib/world/zon/` e `lib/world/wld/`
-9. Criar arquivos vazios: `1000.mob`, `1000.obj`, `1000.shp`, `1000.qst`, `1000.trg`
-10. Adicionar `1000` em todos os 7 `lib/world/*/index` (em ordem numérica — no final)
-11. Editar `410.wld` sala 41001: exit D1 → vnum do porto no grid
-12. Boot e teste: `goto 132896` (Antokiba no grid), `map` e `map world`, andar para borda, confirmar oceano
-13. Verificar card de teleporte em zona 410 ainda pousa em 41000 (não no grid)
+### Phase 4 — Integration
+8. Copy generated files to `lib/world/zon/` and `lib/world/wld/`
+9. Create empty files: `1000.mob`, `1000.obj`, `1000.shp`, `1000.qst`, `1000.trg`
+10. Add `1000` to all 7 `lib/world/*/index` files (in numeric order — at the end)
+11. Edit `410.wld` room 41001: exit D1 -> port grid room vnum
+12. Boot and test: `goto 132896` (Antokiba on the grid), run `map` and `map world`, walk to border, confirm ocean
+13. Verify card teleport in zone 410 still lands on 41000 (not on the grid)
 
 ---
 
-## Referências
+## References
 
-- Fórum tbamud.com — [Virtual Wilderness, Room Pools and coordinate confusion](https://www.tbamud.com/forums/4-development/3601-virtual-wilderness-room-pools-and-coordinate-confusion)
-- Fórum tbamud.com — [Creating large grid zones](https://www.tbamud.com/kunena/3-building/3984-creating-large-grid-zones)
-- `src/asciimap.c` — renderer existente: `show_worldmap()` (XOR lógica), `MapArea()`, `WorldMap()`
-- `src/act.item.c:1416,1676` — lógica de teleporte por cartas (referência de conflito)
-- `src/structs.h:38-44` — definição de `IDXTYPE`, `CIRCLE_UNSIGNED_INDEX`, `NOWHERE`
-- `src/db.c` e `src/shop.c` — únicas 5 ocorrências de `%hd`/`%hu` a corrigir
+- tbamud.com forum — [Virtual Wilderness, Room Pools and coordinate confusion](https://www.tbamud.com/forums/4-development/3601-virtual-wilderness-room-pools-and-coordinate-confusion)
+- tbamud.com forum — [Creating large grid zones](https://www.tbamud.com/kunena/3-building/3984-creating-large-grid-zones)
+- `src/asciimap.c` — existing renderer: `show_worldmap()` (XOR logic), `MapArea()`, `WorldMap()`
+- `src/act.item.c:1416,1676` — card teleport logic (conflict reference)
+- `src/structs.h:38-44` — `IDXTYPE`, `CIRCLE_UNSIGNED_INDEX`, `NOWHERE` definitions
+- `src/db.c` and `src/shop.c` — only 5 occurrences of `%hd`/`%hu` to fix
+
+---
+
+> **Once this plan is fully implemented and tested, delete this file.**
