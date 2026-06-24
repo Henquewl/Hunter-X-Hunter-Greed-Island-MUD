@@ -430,11 +430,15 @@ static void MapArea(room_rnum room, struct char_data *ch, int x, int y, int min,
       }
 
       if(worldmap) {
- if ( door < MAX_MAP_FOLLOW && map[x+offsets_worldmap[door][0]][y+offsets_worldmap[door][1]] == SECT_EMPTY )
-   MapArea(pexit->to_room,ch,x + offsets_worldmap[door][0], y + offsets_worldmap[door][1], min, max, prospect_xpos, prospect_ypos, worldmap);
+        int nx = x + offsets_worldmap[door][0];
+        int ny = y + offsets_worldmap[door][1];
+        if ( door < MAX_MAP_FOLLOW && nx >= 0 && nx < MAX_MAP && ny >= 0 && ny < MAX_MAP && map[nx][ny] == SECT_EMPTY )
+          MapArea(pexit->to_room,ch,nx, ny, min, max, prospect_xpos, prospect_ypos, worldmap);
       } else {
- if ( door < MAX_MAP_FOLLOW && map[x+offsets[door][0]][y+offsets[door][1]] == SECT_EMPTY )
-   MapArea(pexit->to_room,ch,x + offsets[door][0], y + offsets[door][1], min, max, prospect_xpos, prospect_ypos, worldmap);
+        int nx = x + offsets[door][0];
+        int ny = y + offsets[door][1];
+        if ( door < MAX_MAP_FOLLOW && nx >= 0 && nx < MAX_MAP && ny >= 0 && ny < MAX_MAP && map[nx][ny] == SECT_EMPTY )
+          MapArea(pexit->to_room,ch,nx, ny, min, max, prospect_xpos, prospect_ypos, worldmap);
       }
     } /* end if exit there */
   }
