@@ -32,6 +32,19 @@
 #
 ulimit -c unlimited
 
+MUDDIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$MUDDIR"
+
+if [ ! -x bin/circle ]; then
+  echo "autorun: compiling server..."
+  cd src && make circle CFLAGS=-w
+  if [ $? -ne 0 ]; then
+    echo "autorun: compilation failed, aborting."
+    exit 1
+  fi
+  cd ..
+fi
+
 # The port on which to run the MUD
 PORT=4000
 
