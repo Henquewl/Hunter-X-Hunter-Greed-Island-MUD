@@ -393,17 +393,20 @@ static void MapArea(room_rnum room, struct char_data *ch, int x, int y, int min,
         }
 
       if(!worldmap) {
-        if ((map[x+door_offsets[door][0]][y+door_offsets[door][1]] == DOOR_NONE) ||
-            (map[x+door_offsets[door][0]][y+door_offsets[door][1]] == SECT_EMPTY)  ) {
-          map[x+door_offsets[door][0]][y+door_offsets[door][1]] = door_marks[door];
-        } else {
-          if ( ((door == NORTHEAST) && (map[x+door_offsets[door][0]][y+door_offsets[door][1]] == DOOR_UP)) ||
-               ((door == UP) && (map[x+door_offsets[door][0]][y+door_offsets[door][1]] == DOOR_DIAGNE))  ) {
-            map[x+door_offsets[door][0]][y+door_offsets[door][1]] = DOOR_UP_AND_NE;
-          }
-          else if ( ((door == SOUTHEAST) && (map[x+door_offsets[door][0]][y+door_offsets[door][1]] == DOOR_DOWN)) ||
-                    ((door == DOWN) && (map[x+door_offsets[door][0]][y+door_offsets[door][1]] == DOOR_DIAGNW))  ) {
-            map[x+door_offsets[door][0]][y+door_offsets[door][1]] = DOOR_DOWN_AND_SE;
+        int ddx = x + door_offsets[door][0];
+        int ddy = y + door_offsets[door][1];
+        if (ddx >= 0 && ddx < MAX_MAP && ddy >= 0 && ddy < MAX_MAP) {
+          if ((map[ddx][ddy] == DOOR_NONE) || (map[ddx][ddy] == SECT_EMPTY)) {
+            map[ddx][ddy] = door_marks[door];
+          } else {
+            if ( ((door == NORTHEAST) && (map[ddx][ddy] == DOOR_UP)) ||
+                 ((door == UP)        && (map[ddx][ddy] == DOOR_DIAGNE)) ) {
+              map[ddx][ddy] = DOOR_UP_AND_NE;
+            }
+            else if ( ((door == SOUTHEAST) && (map[ddx][ddy] == DOOR_DOWN)) ||
+                      ((door == DOWN)      && (map[ddx][ddy] == DOOR_DIAGNW)) ) {
+              map[ddx][ddy] = DOOR_DOWN_AND_SE;
+            }
           }
         }
       }
