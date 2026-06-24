@@ -8,6 +8,26 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 23 2026] - Henque
+  worldmap zone 1000 — map generated and integrated:
+  - Generated lib/world/wld/1000.wld (65536 rooms, 10.8 MB) and lib/world/zon/1000.zon
+    from lib/world/map/greed_island.txt via tools/gen_worldmap.py.
+  - greed_island.txt (256x256) derived from the canonical Greed Island art:
+    transparent regions -> ocean (SECT_WATER_NOSWIM, impassable border), with
+    field/forest/hills/mountain/lake sectors classified from image color.
+    Island inset and centered (row 2+, col 39+) with a full ocean border.
+  - 5 canonical cities stamped as # landmarks (Antokiba center, Masadora NE,
+    Limeiro N, Rabicuta SW, Dorias S). Dorias is an @ entrance (vnum 148246)
+    linked to the existing zone 410 gateway.
+  - Connected the Dorias landing: room 41001 gains a D4 (up) exit to 148246;
+    the grid tile has a reciprocal D5 (down) exit to 41001. The existing
+    41001->40060 (north) exit is preserved (non-destructive; the original plan
+    proposed replacing it — left intact pending review).
+  - Added 1000.wld and 1000.zon to their world indexes. mob/obj/shp/qst/trg
+    files intentionally omitted (zone has no resets/content yet).
+  - NOTE: not yet boot-tested in-game; committed at user request under usage
+    limit. Boot + walk verification is the immediate next step.
+
+[Jun 23 2026] - Henque
   worldmap zone 1000 — engine prerequisites and generation tooling:
   - Widened IDXTYPE from ush_int to uint32_t (structs.h) and added <stdint.h> to sysdep.h.
     NOWHERE/NOTHING/NOBODY/NOFLAG become 0xFFFFFFFF; all vnum typedefs widen automatically.
