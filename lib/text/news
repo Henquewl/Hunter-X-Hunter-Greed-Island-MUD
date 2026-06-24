@@ -8,6 +8,13 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 == 2026 ==
 
 JUN 23 **
+- The Greed Island world map is now explorable! A vast island laid out as a
+  navigable grid stretches across the seas, with fields, forests, hills,
+  mountains and lakes drawn from the canonical map. Your location now shows
+  as coordinates when wandering the open world. The Dorias landing connects
+  up to the island. Use "map" and "map world" to find your way.
+
+JUN 23 **
 - MXP card images now load above the card description text, with a blank line
   separating them. The player prompt is withheld for ~700ms after the image
   tag is sent, so by the time the prompt arrives the image is loaded and the

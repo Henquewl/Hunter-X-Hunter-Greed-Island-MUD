@@ -137,6 +137,9 @@ extern void abort (), exit ();
 #include <limits.h>
 #endif
 
+/* C99 fixed-width integer types (uint32_t, UINT32_MAX, etc.) */
+#include <stdint.h>
+
 #ifdef HAVE_ERRNO_H
 #include <errno.h>
 #endif
