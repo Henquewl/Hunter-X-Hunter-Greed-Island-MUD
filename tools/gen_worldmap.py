@@ -108,6 +108,7 @@ DELTA = {
 # ---------------------------------------------------------------------------
 CITY_LINKS = {
     # (row, col): city_entry_vnum,
+    (188, 118): 41001,   # Dorias port -> zone 410 "An Open Gateway" (existing landing)
 }
 
 # ---------------------------------------------------------------------------
@@ -259,8 +260,9 @@ def write_wld(path, rows, dry_run):
             buf.append("{}~".format(room_name(tile, row, col)))
             buf.append(room_desc(tile, row, col).rstrip("\n"))
             buf.append("~")
-            # zone flags sector 0 0 1  (last 1 = ROOM_INDOORS flag unused, matching existing wld format)
-            buf.append("1000 {} {} 0 0 1".format(flags, sect))
+            # Room flag line: <ignored> <flags0> <flags1> <flags2> <flags3> <sector>
+            # (parse_room reads 4 flag bitvectors then the sector type; field 1 is ignored)
+            buf.append("1000 {} 0 0 0 {}".format(flags, sect))
 
             # Exits: only wire exits that stay on the grid and don't leave ocean border
             for direction, (dr, dc) in DELTA.items():
