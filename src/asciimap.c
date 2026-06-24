@@ -124,7 +124,7 @@ static struct map_info_type map_info[] =
   { SECT_FIELD,        "\tc[\tg.\tc]\tn"  },
   { SECT_FOREST,       "\tc[\tG.\tc]\tn"  },
   { SECT_HILLS,        "\tc[\ty^\tc]\tn"  },
-  { SECT_MOUNTAIN,     "\tc[\tW^\tc]\tn"  }, /* 5 */
+  { SECT_MOUNTAIN,     "\tc[\tD^\tc]\tn"  }, /* 5 */
   { SECT_WATER_SWIM,   "\tc[\tB~\tc]\tn"  },
   { SECT_WATER_NOSWIM, "\tc[\tb~\tc]\tn"  },
   { SECT_FLYING,       "\tc[\tW~\tc]\tn"  },
@@ -166,7 +166,7 @@ static struct map_info_type world_map_info[] =
   { SECT_FIELD,        "\tg."  },
   { SECT_FOREST,       "\tG."  },
   { SECT_HILLS,        "\ty^"  },
-  { SECT_MOUNTAIN,     "\tW^"  }, /* 5 */
+  { SECT_MOUNTAIN,     "\tD^"  }, /* 5 */
   { SECT_WATER_SWIM,   "\tB~"  },
   { SECT_WATER_NOSWIM, "\tb~"  },
   { SECT_FLYING,       "\tW~"  },
@@ -191,7 +191,7 @@ static struct map_info_type world_map_info[] =
   { -1,                ""     },
   { -1,                ""     },
   { -1,                ""     },
-  { SECT_EMPTY,        "\tg^"  }, /* 30 */
+  { SECT_EMPTY,        "\tb~"  }, /* 30 */
   { SECT_STRANGE,      "\tn?"  },
   { SECT_HERE,         "\tC*"  },
   { SECT_PLAYER,       "\tR*"  },
@@ -664,7 +664,7 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
       ldisp[ln]=world_map_info[SECT_EMPTY].disp;       llabel[ln++]="Wilderness";
       ldisp[ln]=world_map_info[SECT_STRANGE].disp;     llabel[ln++]="Displaced";
       ldisp[ln]=world_map_info[SECT_INSIDE].disp;      llabel[ln++]="Place";
-      ldisp[ln]=world_map_info[SECT_CITY].disp;        llabel[ln++]="Road";
+      ldisp[ln]=world_map_info[SECT_CITY].disp;        llabel[ln++]="City";
       ldisp[ln]=world_map_info[SECT_FIELD].disp;       llabel[ln++]="Field";
       ldisp[ln]=world_map_info[SECT_FOREST].disp;      llabel[ln++]="Forest";
       ldisp[ln]=world_map_info[SECT_HILLS].disp;       llabel[ln++]="Hills";

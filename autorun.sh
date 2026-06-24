@@ -45,6 +45,13 @@ if [ ! -x bin/circle ]; then
   cd ..
 fi
 
+echo "autorun: regenerating worldmap from greed_island.txt..."
+python3 tools/gen_worldmap.py
+if [ $? -ne 0 ]; then
+  echo "autorun: worldmap generation failed, aborting."
+  exit 1
+fi
+
 # The port on which to run the MUD
 PORT=4000
 
