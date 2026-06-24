@@ -583,7 +583,7 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
 
   one_argument(argument, arg);
   
-  size = 15 + GET_LEVEL(ch) / 3;
+  size = 8 + GET_LEVEL(ch) / 6;
 
   if (*arg)
   {
@@ -740,7 +740,7 @@ void str_and_map(char *str, struct char_data *ch, room_vnum target_room, bool on
       return;
   }  
 
-  size = URANGE(1, 6 + GET_LEVEL(ch) / 6, MAX_MAP_SIZE);
+  size = URANGE(1, 4 + GET_LEVEL(ch) / 10, MAX_MAP_SIZE);
   /* The compact minimap is rendered beside the room description, so the map
      column (char_size up to 4*size+7) plus a minimal text column must fit the
      player's screen width. Without this cap, GET_SCREEN_WIDTH - char_size goes
