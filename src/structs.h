@@ -38,13 +38,13 @@
 #define CIRCLE_UNSIGNED_INDEX	1
 
 #if CIRCLE_UNSIGNED_INDEX
-# define IDXTYPE	ush_int          /**< Index types are unsigned short ints */
-# define IDXTYPE_MAX USHRT_MAX     /**< Used for compatibility checks. */
+# define IDXTYPE	uint32_t         /**< Index types are 32-bit unsigned ints (supports vnums up to ~4 billion) */
+# define IDXTYPE_MAX UINT32_MAX    /**< Used for compatibility checks. */
 # define IDXTYPE_MIN 0             /**< Used for compatibility checks. */
-# define NOWHERE	((IDXTYPE)~0)    /**< Sets to ush_int_MAX, or 65,535 */
-# define NOTHING	((IDXTYPE)~0)    /**< Sets to ush_int_MAX, or 65,535 */
-# define NOBODY		((IDXTYPE)~0)    /**< Sets to ush_int_MAX, or 65,535 */
-# define NOFLAG   ((IDXTYPE)~0)    /**< Sets to ush_int_MAX, or 65,535 */
+# define NOWHERE	((IDXTYPE)~0)    /**< Sets to UINT32_MAX (0xFFFFFFFF) */
+# define NOTHING	((IDXTYPE)~0)    /**< Sets to UINT32_MAX (0xFFFFFFFF) */
+# define NOBODY		((IDXTYPE)~0)    /**< Sets to UINT32_MAX (0xFFFFFFFF) */
+# define NOFLAG   ((IDXTYPE)~0)    /**< Sets to UINT32_MAX (0xFFFFFFFF) */
 #else
 # define IDXTYPE	sh_int           /**< Index types are unsigned short ints */
 # define IDXTYPE_MAX SHRT_MAX      /**< Used for compatibility checks. */
