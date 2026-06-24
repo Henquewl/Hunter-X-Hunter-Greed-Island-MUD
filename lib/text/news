@@ -7,6 +7,12 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 
 == 2026 ==
 
+JUN 24 **
+- Ocean and mountain tiles on the world map are now impassable for mortal
+  players. Find your path through fields, forests, and hills.
+- Diagonal movement is now available: use nw, ne, se, sw (or northwest,
+  northeast, etc.) to cut corners across the open world.
+
 JUN 23 **
 - The Greed Island world map is now explorable! A vast island laid out as a
   navigable grid stretches across the seas, with fields, forests, hills,

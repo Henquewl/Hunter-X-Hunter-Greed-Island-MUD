@@ -749,9 +749,14 @@ do                                                              \
 #define GET_OBJ_SPEC(obj)	(VALID_OBJ_RNUM(obj) ? \
 				obj_index[GET_OBJ_RNUM(obj)].func : NULL)
 				
-/** Defines if an object is a card. */				
+/** Defines if an object is a card. */
 #define IS_CARD(obj)		(GET_OBJ_TYPE(obj) == ITEM_RESTRICTED || \
 	GET_OBJ_TYPE(obj) == ITEM_SPELLCARD || GET_OBJ_TYPE(obj) == ITEM_CARD)
+
+/* Sentinel check for ASCII player-file list sections (Qest/Metp/Metc/Qdly).
+ * Old saves used 65535 (ush_int NOTHING); new saves use -1 (uint32_t NOTHING
+ * printed via %d).  Both signal end-of-list. */
+#define IS_LIST_SENTINEL(num) ((num) < 0 || (num) == 65535)
 
 /** Defines if an obj is a corpse. */
 #define IS_CORPSE(obj)		(GET_OBJ_TYPE(obj) == ITEM_CONTAINER && \

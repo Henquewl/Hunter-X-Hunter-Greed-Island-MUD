@@ -7,6 +7,19 @@ https://github.com/tbamud/tbamud
 Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
+[Jun 24 2026] - Henque
+  Worldmap movement rules and diagonal navigation:
+  - Ocean (SECT_WATER_NOSWIM and SECT_WATER_SWIM) and Mountain (SECT_MOUNTAIN)
+    are now impassable for mortal players; only imms with NOHASSLE can traverse.
+  - Enabled diagonal directions (NW/NE/SE/SW) globally (diagonal_dirs = YES).
+  - Added D6/D7/D8/D9 diagonal exits to all 65536 rooms in zone 1000 (worldmap)
+    via tools/add_diagonal_exits.py.
+  Bump version to 0.93. Fix crash on login for players with existing save files
+  after IDXTYPE widening (ush_int -> uint32_t): old saves used 65535 as list
+  sentinel (Metp/Metc/Qest/Qdly sections); new NOTHING is UINT32_MAX printed
+  as -1 via %d. Added IS_LIST_SENTINEL macro and bounds checks to load_mets,
+  load_metc, load_quests, load_daily_quests in players.c. New players unaffected.
+
 [Jun 23 2026] - Henque
   worldmap zone 1000 — map generated and integrated:
   - Generated lib/world/wld/1000.wld (65536 rooms, 10.8 MB) and lib/world/zon/1000.zon

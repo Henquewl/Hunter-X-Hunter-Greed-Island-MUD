@@ -104,7 +104,7 @@ int no_mort_to_immort = YES;
 
 /* Are diagonal directions enabled?
 * If set to NO, then only the 6 directions n,e,s,w,u,d are allowed */
-int diagonal_dirs = NO;
+int diagonal_dirs = YES;
 
 /* RENT/CRASHSAVE OPTIONS */
 /* Should the MUD allow you to 'rent' for free?  (i.e. if you just quit, your

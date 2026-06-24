@@ -174,25 +174,20 @@ int do_simple_move(struct char_data *ch, int dir, int need_specials_check)
     return (0);
   }
 
-  /* Passive Waterwalk / boat check for deep water */
-  if (SECT(going_to) == SECT_WATER_NOSWIM) {
-    int ww_skill = GET_SKILL(ch, SPELL_WATERWALK);
-    if (!has_boat(ch)) {
-      if (ww_skill > 0) {
-        pracskill(ch, SPELL_WATERWALK, 18);
-        if (rand_number(1, 101) > ww_skill) {
-          send_to_char(ch, "You try to walk on the water but lose your footing!\r\n");
-          return (0);
-        }
-      } else {
-        send_to_char(ch, "You need a boat to go there.\r\n");
-        return (0);
-      }
+  /* Ocean (swim and deep water): blocked for players; imm+nohassle bypasses */
+  if (SECT(going_to) == SECT_WATER_NOSWIM || SECT(going_to) == SECT_WATER_SWIM) {
+    if (!IS_NPC(ch) && !PRF_FLAGGED(ch, PRF_NOHASSLE)) {
+      send_to_char(ch, "You need a boat to go there.\r\n");
+      return (0);
     }
   }
-  /* Passive practice trigger for shallow water */
-  if (SECT(going_to) == SECT_WATER_SWIM && GET_SKILL(ch, SPELL_WATERWALK) > 0) {
-    pracskill(ch, SPELL_WATERWALK, 18);
+
+  /* Mountain: blocked for players; imm+nohassle bypasses */
+  if (SECT(going_to) == SECT_MOUNTAIN) {
+    if (!IS_NPC(ch) && !PRF_FLAGGED(ch, PRF_NOHASSLE)) {
+      send_to_char(ch, "The terrain is too steep to traverse.\r\n");
+      return (0);
+    }
   }
 
   /* Flying Required: Does lack of flying prevent movement? */

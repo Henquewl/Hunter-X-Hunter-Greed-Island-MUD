@@ -935,9 +935,9 @@ void load_quests(FILE *fl, struct char_data *ch)
   do {
     get_line(fl, line);
     sscanf(line, "%d", &num);
-    if (num != NOTHING)
+    if (!IS_LIST_SENTINEL(num))
       add_completed_quest(ch, num);
-  } while (num != NOTHING);
+  } while (!IS_LIST_SENTINEL(num));
 }
 
 static void load_daily_quests(FILE *fl, struct char_data *ch)
@@ -948,9 +948,9 @@ static void load_daily_quests(FILE *fl, struct char_data *ch)
   do {
     get_line(fl, line);
     sscanf(line, "%d", &num);
-    if (num != NOTHING)
+    if (!IS_LIST_SENTINEL(num))
       add_daily_quest(ch, (qst_vnum)num);
-  } while (num != NOTHING);
+  } while (!IS_LIST_SENTINEL(num));
 }
 
 void load_metc(FILE *fl, struct char_data *ch)
@@ -961,12 +961,12 @@ void load_metc(FILE *fl, struct char_data *ch)
   do {
     get_line(fl, line);
     sscanf(line, "%d", &num);
-    if (num != NOTHING) {
+    if (!IS_LIST_SENTINEL(num) && GET_CITY_MET(ch) < 8) {
 	  for (u = 0; u < GET_CITY_MET(ch); u++);
 	GET_CITY_MET(ch)++;
-	ch->player_specials->saved.city_met[u] = num;	  
+	ch->player_specials->saved.city_met[u] = num;
 	}
-  } while (num != NOTHING);
+  } while (!IS_LIST_SENTINEL(num));
 }
 
 void load_mets(FILE *fl, struct char_data *ch)
@@ -977,12 +977,12 @@ void load_mets(FILE *fl, struct char_data *ch)
   do {
     get_line(fl, line);
     sscanf(line, "%d", &num);
-    if (num != NOTHING) {
+    if (!IS_LIST_SENTINEL(num) && GET_PLAYERS_MET(ch) < 301) {
 	  for (u = 0; u < GET_PLAYERS_MET(ch); u++);
 	GET_PLAYERS_MET(ch)++;
-	ch->player_specials->saved.players_met[u] = num;	  
+	ch->player_specials->saved.players_met[u] = num;
 	}
-  } while (num != NOTHING);
+  } while (!IS_LIST_SENTINEL(num));
 }
 
 static void load_HMVS(struct char_data *ch, const char *line, int mode)
