@@ -8,6 +8,12 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 24 2026] - Henque
+  Map/minimap overhaul:
+  - CANVAS_WIDTH 51->101, CANVAS_HEIGHT 19->33 (MAX_MAP_SIZE now 25).
+  - Map command size formula: 12 + level/2 (capped at MAX_MAP_SIZE=25).
+  - Minimap (automap) size formula: 6 + level/2 (capped at MAX_MAP_SIZE=25).
+  - Legend moved from left-of-map column to below the map.
+  - Worldmap room descriptions suppressed (coordinate display retained).
   Worldmap movement rules and diagonal navigation:
   - Ocean (SECT_WATER_NOSWIM and SECT_WATER_SWIM) and Mountain (SECT_MOUNTAIN)
     are now impassable for mortal players; only imms with NOHASSLE can traverse.

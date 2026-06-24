@@ -8,6 +8,10 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 == 2026 ==
 
 JUN 24 **
+- The map and minimap now scale with your character level, showing a wider
+  area as you progress. The map legend now appears below the map.
+- Room descriptions are no longer shown while travelling the open world map
+  (your coordinates are still displayed).
 - Ocean and mountain tiles on the world map are now impassable for mortal
   players. Find your path through fields, forests, and hills.
 - Diagonal movement is now available: use nw, ne, se, sw (or northwest,

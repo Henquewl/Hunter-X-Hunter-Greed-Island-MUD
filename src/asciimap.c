@@ -29,8 +29,8 @@
  * Begin Local (File Scope) Defines and Global Variables
  *****************************************************************************/
 /* Do not blindly change these values, as many values cause the map to stop working - backup first */
-#define CANVAS_HEIGHT 19
-#define CANVAS_WIDTH  51
+#define CANVAS_HEIGHT 33
+#define CANVAS_WIDTH  101
 #define LEGEND_WIDTH  15
 
 #define DEFAULT_MAP_SIZE CONFIG_MAP_SIZE
@@ -576,7 +576,7 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
 
   one_argument(argument, arg);
   
-  size = 4 + (GET_LEVEL(ch) / 4);
+  size = 12 + GET_LEVEL(ch) / 2;
   
   if (*arg)
   {
@@ -667,43 +667,26 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
   count += sprintf(buf + count, "\tn%s Trunk\\\\", map_info[SECT_TRUNK].disp);
   }
 
-  if (GET_SCREEN_WIDTH(ch) == 40 || PRF_FLAGGED(ch, PRF_COMPACT)) {
-	strlcpy(buf, strfrmt(buf, (LEGEND_WIDTH / 2), CANVAS_HEIGHT + 3, FALSE, TRUE, TRUE), 1);
-     /* Start with an empty column */
-     strcpy(buf1, strfrmt("",0, CANVAS_HEIGHT + 3, FALSE, FALSE, TRUE));
+  /* Format legend for below-map display */
+  if (GET_SCREEN_WIDTH(ch) == 40 || PRF_FLAGGED(ch, PRF_COMPACT))
+    strcpy(buf1, strfrmt(buf, (LEGEND_WIDTH / 2), CANVAS_HEIGHT + 3, FALSE, TRUE, TRUE));
+  else
+    strcpy(buf1, strfrmt(buf, LEGEND_WIDTH, CANVAS_HEIGHT + 3, FALSE, TRUE, TRUE));
 
-    /* Paste the legend */
-    strcpy(buf2, strpaste(buf1, buf, "\tn"));
+  /* Print the map */
+  if (worldmap) {
+    if (GET_SCREEN_WIDTH(ch) == 40 || PRF_FLAGGED(ch, PRF_COMPACT))
+      send_to_char(ch, "\r\n%s", WorldMap(centre, size, mapshape, MAP_MOBILE));
+    else
+      send_to_char(ch, "\r\n%s", WorldMap(centre, size, mapshape, MAP_NORMAL));
   } else {
-    strcpy(buf, strfrmt(buf, LEGEND_WIDTH, CANVAS_HEIGHT + 3, FALSE, TRUE, TRUE));
-
-  /* Start with an empty column */
-  strcpy(buf1, strfrmt("",0, CANVAS_HEIGHT + 3, FALSE, FALSE, TRUE));
-
-  /* Paste the legend */
-  strcpy(buf2, strpaste(buf1, buf, "\tD | \tn"));
+    send_to_char(ch, "\r\n%s", StringMap(centre, size));
   }
-  /* Set up the map */
-  memset(buf, ' ', CANVAS_WIDTH);
-  count = (CANVAS_WIDTH);
-  if(worldmap) {
-	if (GET_SCREEN_WIDTH(ch) == 40 || PRF_FLAGGED(ch, PRF_COMPACT))
-	  count += sprintf(buf + count , "\r\n%s", WorldMap(centre, size, mapshape, MAP_MOBILE));
-	else
-      count += sprintf(buf + count , "\r\n%s", WorldMap(centre, size, mapshape, MAP_NORMAL));
-  } else 
-    count += sprintf(buf + count , "\r\n%s", StringMap(centre, size));
-  
-  memset(buf + count, ' ', CANVAS_WIDTH);
-  strcpy(buf + count + CANVAS_WIDTH, "\r\n");
-  /* Paste it on */
-  strcpy(buf2, strpaste(buf2, buf, "\tD | \tn"));
-  /* Paste on the right border */
-  strcpy(buf2, strpaste(buf2, buf1, "  "));
-  /* Print it all out */
-  send_to_char(ch, "%s", buf2);
 
   send_to_char(ch, "\tD `.-.__--.,-.__.-.-'\tn\r\n");
+
+  /* Legend below the map */
+  send_to_char(ch, "%s\r\n", buf1);
   return;
 }
 
@@ -731,7 +714,7 @@ void str_and_map(char *str, struct char_data *ch, room_vnum target_room, bool on
       return;
   }  
 
-  size = CONFIG_MINIMAP_SIZE;
+  size = URANGE(1, 6 + GET_LEVEL(ch) / 2, MAX_MAP_SIZE);
   centre = MAX_MAP/2;
   min = centre - 2*size;
   max = centre + 2*size;
