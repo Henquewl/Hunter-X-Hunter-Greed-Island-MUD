@@ -583,8 +583,8 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
 
   one_argument(argument, arg);
   
-  size = 12 + GET_LEVEL(ch) / 2;
-  
+  size = 15 + GET_LEVEL(ch) / 3;
+
   if (*arg)
   {
     if (is_abbrev(arg, "normal")) worldmap=FALSE;
@@ -629,71 +629,90 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
   send_to_char(ch, " \tY-\tyGreed Island Map System\tY-\tn\r\n"
                    "\tD  .-.__--.,--.__.-.\tn\r\n" );
 
-  if (worldmap) {
-  count += sprintf(buf + count, "\tn%s -> You\\\\", world_map_info[SECT_HERE].disp);
-  count += sprintf(buf + count, "\tn%s -> Player\\\\", world_map_info[SECT_PLAYER].disp);
-  count += sprintf(buf + count, "\tn%s -> Safe\\\\", world_map_info[SECT_SAFE].disp);
-  count += sprintf(buf + count, "\tn%s -> Dark\\\\", world_map_info[SECT_DARK].disp);
-  count += sprintf(buf + count, "\tn%s -> Wilderness\\\\", world_map_info[SECT_EMPTY].disp);
-  count += sprintf(buf + count, "\tn%s -> Displaced\\\\", world_map_info[SECT_STRANGE].disp);
-  count += sprintf(buf + count, "\tn%s -> Place\\\\", world_map_info[SECT_INSIDE].disp);
-  count += sprintf(buf + count, "\tn%s -> Road\\\\", world_map_info[SECT_CITY].disp);
-  count += sprintf(buf + count, "\tn%s -> Field\\\\", world_map_info[SECT_FIELD].disp);
-  count += sprintf(buf + count, "\tn%s -> Forest\\\\", world_map_info[SECT_FOREST].disp);
-  count += sprintf(buf + count, "\tn%s -> Hills\\\\", world_map_info[SECT_HILLS].disp);
-  count += sprintf(buf + count, "\tn%s -> Mountain\\\\", world_map_info[SECT_MOUNTAIN].disp);
-  count += sprintf(buf + count, "\tn%s -> Shallow\\\\", world_map_info[SECT_WATER_SWIM].disp);
-  count += sprintf(buf + count, "\tn%s -> Deep\\\\", world_map_info[SECT_WATER_NOSWIM].disp);
-  count += sprintf(buf + count, "\tn%s -> Flying\\\\", world_map_info[SECT_FLYING].disp);
-  count += sprintf(buf + count, "\tn%s -> Underwater\\\\", world_map_info[SECT_UNDERWATER].disp);
-  count += sprintf(buf + count, "\tn%s -> Crater\\\\", world_map_info[SECT_CRATER].disp);
-  count += sprintf(buf + count, "\tn%s -> Tree\\\\", world_map_info[SECT_TREE].disp);
-  count += sprintf(buf + count, "\tn%s -> Trunk\\\\", world_map_info[SECT_TRUNK].disp);
-  } else {
-  count += sprintf(buf + count, "\tn\tn\tn%s Up\\\\", door_info[NUM_DOOR_TYPES + DOOR_UP].disp);
-  count += sprintf(buf + count, "\tn\tn\tn%s Down\\\\", door_info[NUM_DOOR_TYPES + DOOR_DOWN].disp);
-  count += sprintf(buf + count, "\tn%s You\\\\", map_info[SECT_HERE].disp);
-  count += sprintf(buf + count, "\tn%s Player\\\\", map_info[SECT_PLAYER].disp);
-  count += sprintf(buf + count, "\tn%s Mob\\\\", map_info[SECT_MOB].disp);
-  count += sprintf(buf + count, "\tn%s NPC\\\\", map_info[SECT_SHOP].disp);
-  count += sprintf(buf + count, "\tn%s Safe\\\\", map_info[SECT_SAFE].disp);
-  count += sprintf(buf + count, "\tn%s Dark\\\\", map_info[SECT_DARK].disp);
-  count += sprintf(buf + count, "\tn%s Displaced\\\\", map_info[SECT_STRANGE].disp);
-  count += sprintf(buf + count, "\tn%s Place\\\\", map_info[SECT_INSIDE].disp);
-  count += sprintf(buf + count, "\tn%s Road\\\\", map_info[SECT_CITY].disp);
-  count += sprintf(buf + count, "\tn%s Field\\\\", map_info[SECT_FIELD].disp);
-  count += sprintf(buf + count, "\tn%s Forest\\\\", map_info[SECT_FOREST].disp);
-  count += sprintf(buf + count, "\tn%s Hills\\\\", map_info[SECT_HILLS].disp);
-  count += sprintf(buf + count, "\tn%s Mountain\\\\", map_info[SECT_MOUNTAIN].disp);
-  count += sprintf(buf + count, "\tn%s Shallow\\\\", map_info[SECT_WATER_SWIM].disp);
-  count += sprintf(buf + count, "\tn%s Deep\\\\", map_info[SECT_WATER_NOSWIM].disp);
-  count += sprintf(buf + count, "\tn%s Flying\\\\", map_info[SECT_FLYING].disp);
-  count += sprintf(buf + count, "\tn%s Underwater\\\\", map_info[SECT_UNDERWATER].disp);
-  count += sprintf(buf + count, "\tn%s Crater\\\\", map_info[SECT_CRATER].disp);
-  count += sprintf(buf + count, "\tn%s Tree\\\\", map_info[SECT_TREE].disp);
-  count += sprintf(buf + count, "\tn%s Trunk\\\\", map_info[SECT_TRUNK].disp);
-  }
-
-  /* Format legend for below-map display */
-  if (GET_SCREEN_WIDTH(ch) == 40 || PRF_FLAGGED(ch, PRF_COMPACT))
-    strcpy(buf1, strfrmt(buf, (LEGEND_WIDTH / 2), CANVAS_HEIGHT + 3, FALSE, TRUE, TRUE));
-  else
-    strcpy(buf1, strfrmt(buf, LEGEND_WIDTH, CANVAS_HEIGHT + 3, FALSE, TRUE, TRUE));
-
-  /* Print the map */
+  /* Print the map itself */
   if (worldmap) {
     if (GET_SCREEN_WIDTH(ch) == 40 || PRF_FLAGGED(ch, PRF_COMPACT))
-      send_to_char(ch, "\r\n%s", WorldMap(centre, size, mapshape, MAP_MOBILE));
+      send_to_char(ch, "%s", WorldMap(centre, size, mapshape, MAP_MOBILE));
     else
-      send_to_char(ch, "\r\n%s", WorldMap(centre, size, mapshape, MAP_NORMAL));
+      send_to_char(ch, "%s", WorldMap(centre, size, mapshape, MAP_NORMAL));
   } else {
-    send_to_char(ch, "\r\n%s", StringMap(centre, size));
+    send_to_char(ch, "%s", StringMap(centre, size));
   }
 
-  send_to_char(ch, "\tD `.-.__--.,-.__.-.-'\tn\r\n");
+  send_to_char(ch, "\tD  `.-.__--.,-.__.-.-'\tn\r\n");
 
-  /* Legend below the map */
-  send_to_char(ch, "%s\r\n", buf1);
+  /* Tabular legend below the map */
+  {
+    const char *ldisp[24];
+    const char *llabel[24];
+    int ln = 0, i, plen, cols;
+    const char *p;
+
+    if (worldmap) {
+      ldisp[ln]=world_map_info[SECT_HERE].disp;        llabel[ln++]="You";
+      ldisp[ln]=world_map_info[SECT_PLAYER].disp;      llabel[ln++]="Player";
+      ldisp[ln]=world_map_info[SECT_SAFE].disp;        llabel[ln++]="Safe";
+      ldisp[ln]=world_map_info[SECT_DARK].disp;        llabel[ln++]="Dark";
+      ldisp[ln]=world_map_info[SECT_EMPTY].disp;       llabel[ln++]="Wilderness";
+      ldisp[ln]=world_map_info[SECT_STRANGE].disp;     llabel[ln++]="Displaced";
+      ldisp[ln]=world_map_info[SECT_INSIDE].disp;      llabel[ln++]="Place";
+      ldisp[ln]=world_map_info[SECT_CITY].disp;        llabel[ln++]="Road";
+      ldisp[ln]=world_map_info[SECT_FIELD].disp;       llabel[ln++]="Field";
+      ldisp[ln]=world_map_info[SECT_FOREST].disp;      llabel[ln++]="Forest";
+      ldisp[ln]=world_map_info[SECT_HILLS].disp;       llabel[ln++]="Hills";
+      ldisp[ln]=world_map_info[SECT_MOUNTAIN].disp;    llabel[ln++]="Mountain";
+      ldisp[ln]=world_map_info[SECT_WATER_SWIM].disp;  llabel[ln++]="Shallow";
+      ldisp[ln]=world_map_info[SECT_WATER_NOSWIM].disp;llabel[ln++]="Deep";
+      ldisp[ln]=world_map_info[SECT_FLYING].disp;      llabel[ln++]="Flying";
+      ldisp[ln]=world_map_info[SECT_UNDERWATER].disp;  llabel[ln++]="Underwater";
+      ldisp[ln]=world_map_info[SECT_CRATER].disp;      llabel[ln++]="Crater";
+      ldisp[ln]=world_map_info[SECT_TREE].disp;        llabel[ln++]="Tree";
+      ldisp[ln]=world_map_info[SECT_TRUNK].disp;       llabel[ln++]="Trunk";
+    } else {
+      ldisp[ln]=door_info[NUM_DOOR_TYPES + DOOR_UP].disp;   llabel[ln++]="Up";
+      ldisp[ln]=door_info[NUM_DOOR_TYPES + DOOR_DOWN].disp; llabel[ln++]="Down";
+      ldisp[ln]=map_info[SECT_HERE].disp;        llabel[ln++]="You";
+      ldisp[ln]=map_info[SECT_PLAYER].disp;      llabel[ln++]="Player";
+      ldisp[ln]=map_info[SECT_MOB].disp;         llabel[ln++]="Mob";
+      ldisp[ln]=map_info[SECT_SHOP].disp;        llabel[ln++]="NPC";
+      ldisp[ln]=map_info[SECT_SAFE].disp;        llabel[ln++]="Safe";
+      ldisp[ln]=map_info[SECT_DARK].disp;        llabel[ln++]="Dark";
+      ldisp[ln]=map_info[SECT_STRANGE].disp;     llabel[ln++]="Displaced";
+      ldisp[ln]=map_info[SECT_INSIDE].disp;      llabel[ln++]="Place";
+      ldisp[ln]=map_info[SECT_CITY].disp;        llabel[ln++]="Road";
+      ldisp[ln]=map_info[SECT_FIELD].disp;       llabel[ln++]="Field";
+      ldisp[ln]=map_info[SECT_FOREST].disp;      llabel[ln++]="Forest";
+      ldisp[ln]=map_info[SECT_HILLS].disp;       llabel[ln++]="Hills";
+      ldisp[ln]=map_info[SECT_MOUNTAIN].disp;    llabel[ln++]="Mountain";
+      ldisp[ln]=map_info[SECT_WATER_SWIM].disp;  llabel[ln++]="Shallow";
+      ldisp[ln]=map_info[SECT_WATER_NOSWIM].disp;llabel[ln++]="Deep";
+      ldisp[ln]=map_info[SECT_FLYING].disp;      llabel[ln++]="Flying";
+      ldisp[ln]=map_info[SECT_UNDERWATER].disp;  llabel[ln++]="Underwater";
+      ldisp[ln]=map_info[SECT_CRATER].disp;      llabel[ln++]="Crater";
+      ldisp[ln]=map_info[SECT_TREE].disp;        llabel[ln++]="Tree";
+      ldisp[ln]=map_info[SECT_TRUNK].disp;       llabel[ln++]="Trunk";
+    }
+
+    cols = (GET_SCREEN_WIDTH(ch) >= 80) ? 4 : 2;
+
+    for (i = 0; i < ln; i++) {
+      send_to_char(ch, "\tn%s %s", ldisp[i], llabel[i]);
+      /* Pad to a fixed column width using the printable length (skip color codes) */
+      plen = 0;
+      for (p = ldisp[i]; *p; p++) {
+        if (*p == '\t' && *(p + 1)) { p++; continue; }
+        plen++;
+      }
+      plen += 1 + strlen(llabel[i]);
+      if ((i % cols) != (cols - 1))
+        for (; plen < 18; plen++)
+          send_to_char(ch, " ");
+      if ((i % cols) == (cols - 1))
+        send_to_char(ch, "\r\n");
+    }
+    if ((ln % cols) != 0)
+      send_to_char(ch, "\r\n");
+  }
   return;
 }
 
@@ -721,7 +740,15 @@ void str_and_map(char *str, struct char_data *ch, room_vnum target_room, bool on
       return;
   }  
 
-  size = URANGE(1, 6 + GET_LEVEL(ch) / 2, MAX_MAP_SIZE);
+  size = URANGE(1, 6 + GET_LEVEL(ch) / 6, MAX_MAP_SIZE);
+  /* The compact minimap is rendered beside the room description, so the map
+     column (char_size up to 4*size+7) plus a minimal text column must fit the
+     player's screen width. Without this cap, GET_SCREEN_WIDTH - char_size goes
+     negative and strfrmt's memset() crashes. */
+  {
+    int fit = (GET_SCREEN_WIDTH(ch) - 17) / 4;
+    size = URANGE(1, size, fit < 1 ? 1 : fit);
+  }
   centre = MAX_MAP/2;
   min = centre - 2*size;
   max = centre + 2*size;

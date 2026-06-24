@@ -1437,7 +1437,7 @@ char *strfrmt(char *str, int w, int h, int justify, int hpad, int vpad)
   }
   if(vpad) {
     while(lcount < h) {
-      if(hpad) {
+      if(hpad && w > 0) {
         memset(rp, ' ', w);
         rp += w;
       }
