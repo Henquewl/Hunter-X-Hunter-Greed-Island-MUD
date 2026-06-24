@@ -497,11 +497,19 @@ static char *WorldMap(int centre, int size, int mapshape, int maptype )
       ymax = centre + CANVAS_HEIGHT/2;
 	  break;
     default:
-      xmin = centre - CANVAS_HEIGHT/2;
-      xmax = centre + CANVAS_HEIGHT/2;
-      ymin = centre - CANVAS_WIDTH/2;
-      ymax = centre + CANVAS_WIDTH/2;
-  }  
+      /* MAP_NORMAL: hug the content (size vertically, 2*size horizontally)
+         instead of padding to the full canvas, so the [ ] borders sit right
+         next to the map edge with no blank margin. Clip to the canvas max. */
+      {
+        int vr = size, hr = 2 * size;
+        if (vr > CANVAS_HEIGHT/2) vr = CANVAS_HEIGHT/2;
+        if (hr > CANVAS_WIDTH/2)  hr = CANVAS_WIDTH/2;
+        xmin = centre - vr;
+        xmax = centre + vr;
+        ymin = centre - hr;
+        ymax = centre + hr;
+      }
+  }
 
   /* every row */
   /* for (x = centre - size; x <= centre + size; x++) { */
