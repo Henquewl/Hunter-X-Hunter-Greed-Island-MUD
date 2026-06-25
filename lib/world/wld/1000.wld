@@ -44997,10 +44997,10 @@ D3
 0 0 102093
 S
 #102095
-Open Field (-81, 120)~
-   Open grassland stretches out in all directions.
+Beach (-81, 120)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -50577,10 +50577,10 @@ D3
 0 0 102347
 S
 #102349
-Open Field (-83, 119)~
-   Open grassland stretches out in all directions.
+Beach (-83, 119)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -56201,10 +56201,10 @@ D3
 0 0 102603
 S
 #102605
-Open Field (-83, 118)~
-   Open grassland stretches out in all directions.
+Beach (-83, 118)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -56223,10 +56223,10 @@ D3
 0 0 102604
 S
 #102606
-Open Field (-82, 118)~
-   Open grassland stretches out in all directions.
+Beach (-82, 118)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -64245,10 +64245,10 @@ D3
 0 0 102969
 S
 #102971
-Open Field (27, 117)~
-   Open grassland stretches out in all directions.
+Ocean (27, 117)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -78763,10 +78763,10 @@ D3
 0 0 103630
 S
 #103632
-Open Field (-80, 114)~
-   Open grassland stretches out in all directions.
+Beach (-80, 114)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -78785,10 +78785,10 @@ D3
 0 0 103631
 S
 #103633
-Open Field (-79, 114)~
-   Open grassland stretches out in all directions.
+Beach (-79, 114)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -89923,10 +89923,10 @@ D3
 0 0 104138
 S
 #104140
-Open Field (-84, 112)~
-   Open grassland stretches out in all directions.
+Beach (-84, 112)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -89945,10 +89945,10 @@ D3
 0 0 104139
 S
 #104141
-Open Field (-83, 112)~
-   Open grassland stretches out in all directions.
+Beach (-83, 112)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -95591,10 +95591,10 @@ D3
 0 0 104396
 S
 #104398
-Open Field (-82, 111)~
-   Open grassland stretches out in all directions.
+Beach (-82, 111)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -95679,10 +95679,10 @@ D3
 0 0 104400
 S
 #104402
-Beach (-78, 111)~
-   Sandy beach stretches along the shore.
+Open Field (-78, 111)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -106861,10 +106861,10 @@ D3
 0 0 104909
 S
 #104911
-Open Field (-81, 109)~
-   Open grassland stretches out in all directions.
+Beach (-81, 109)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -110117,10 +110117,10 @@ D3
 0 0 105057
 S
 #105059
-Open Field (67, 109)~
-   Open grassland stretches out in all directions.
+Ocean (67, 109)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -112507,10 +112507,10 @@ D3
 0 0 105166
 S
 #105168
-Open Field (-80, 108)~
-   Open grassland stretches out in all directions.
+Beach (-80, 108)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -127121,10 +127121,10 @@ D3
 0 0 105831
 S
 #105833
-Open Field (73, 106)~
-   Open grassland stretches out in all directions.
+Ocean (73, 106)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -127143,10 +127143,10 @@ D3
 0 0 105832
 S
 #105834
-Open Field (74, 106)~
-   Open grassland stretches out in all directions.
+Ocean (74, 106)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -127165,10 +127165,10 @@ D3
 0 0 105833
 S
 #105835
-Open Field (75, 106)~
-   Open grassland stretches out in all directions.
+Ocean (75, 106)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -129423,10 +129423,10 @@ D3
 0 0 105936
 S
 #105938
-Open Field (-78, 105)~
-   Open grassland stretches out in all directions.
+Ocean (-78, 105)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -131491,10 +131491,10 @@ D3
 0 0 106030
 S
 #106032
-Open Field (16, 105)~
-   Open grassland stretches out in all directions.
+Ocean (16, 105)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -132745,10 +132745,10 @@ D3
 0 0 106087
 S
 #106089
-Open Field (73, 105)~
-   Open grassland stretches out in all directions.
+Ocean (73, 105)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -132767,10 +132767,10 @@ D3
 0 0 106088
 S
 #106090
-Open Field (74, 105)~
-   Open grassland stretches out in all directions.
+Ocean (74, 105)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -132789,10 +132789,10 @@ D3
 0 0 106089
 S
 #106091
-Open Field (75, 105)~
-   Open grassland stretches out in all directions.
+Ocean (75, 105)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -138391,10 +138391,10 @@ D3
 0 0 106344
 S
 #106346
-Open Field (74, 104)~
-   Open grassland stretches out in all directions.
+Ocean (74, 104)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -138413,10 +138413,10 @@ D3
 0 0 106345
 S
 #106347
-Open Field (75, 104)~
-   Open grassland stretches out in all directions.
+Ocean (75, 104)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -138435,10 +138435,10 @@ D3
 0 0 106346
 S
 #106348
-Open Field (76, 104)~
-   Open grassland stretches out in all directions.
+Ocean (76, 104)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -144015,10 +144015,10 @@ D3
 0 0 106600
 S
 #106602
-Open Field (74, 103)~
-   Open grassland stretches out in all directions.
+Ocean (74, 103)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -144037,10 +144037,10 @@ D3
 0 0 106601
 S
 #106603
-Open Field (75, 103)~
-   Open grassland stretches out in all directions.
+Ocean (75, 103)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -144059,10 +144059,10 @@ D3
 0 0 106602
 S
 #106604
-Open Field (76, 103)~
-   Open grassland stretches out in all directions.
+Ocean (76, 103)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -144081,10 +144081,10 @@ D3
 0 0 106603
 S
 #106605
-Open Field (77, 103)~
-   Open grassland stretches out in all directions.
+Ocean (77, 103)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -146449,10 +146449,10 @@ D3
 0 0 106711
 S
 #106713
-Open Field (-71, 102)~
-   Open grassland stretches out in all directions.
+Beach (-71, 102)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -146471,10 +146471,10 @@ D3
 0 0 106712
 S
 #106714
-Open Field (-70, 102)~
-   Open grassland stretches out in all directions.
+Beach (-70, 102)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -149639,10 +149639,10 @@ D3
 0 0 106856
 S
 #106858
-Open Field (74, 102)~
-   Open grassland stretches out in all directions.
+Ocean (74, 102)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -149661,10 +149661,10 @@ D3
 0 0 106857
 S
 #106859
-Open Field (75, 102)~
-   Open grassland stretches out in all directions.
+Ocean (75, 102)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -149683,10 +149683,10 @@ D3
 0 0 106858
 S
 #106860
-Open Field (76, 102)~
-   Open grassland stretches out in all directions.
+Ocean (76, 102)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -149705,10 +149705,10 @@ D3
 0 0 106859
 S
 #106861
-Open Field (77, 102)~
-   Open grassland stretches out in all directions.
+Ocean (77, 102)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -155263,10 +155263,10 @@ D3
 0 0 107112
 S
 #107114
-Open Field (74, 101)~
-   Open grassland stretches out in all directions.
+Ocean (74, 101)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -155285,10 +155285,10 @@ D3
 0 0 107113
 S
 #107115
-Open Field (75, 101)~
-   Open grassland stretches out in all directions.
+Ocean (75, 101)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -155307,10 +155307,10 @@ D3
 0 0 107114
 S
 #107116
-Open Field (76, 101)~
-   Open grassland stretches out in all directions.
+Ocean (76, 101)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -155329,10 +155329,10 @@ D3
 0 0 107115
 S
 #107117
-Open Field (77, 101)~
-   Open grassland stretches out in all directions.
+Ocean (77, 101)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -157675,10 +157675,10 @@ D3
 0 0 107222
 S
 #107224
-Open Field (-72, 100)~
-   Open grassland stretches out in all directions.
+Beach (-72, 100)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -157697,10 +157697,10 @@ D3
 0 0 107223
 S
 #107225
-Open Field (-71, 100)~
-   Open grassland stretches out in all directions.
+Beach (-71, 100)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -160887,10 +160887,10 @@ D3
 0 0 107368
 S
 #107370
-Open Field (74, 100)~
-   Open grassland stretches out in all directions.
+Ocean (74, 100)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -160909,10 +160909,10 @@ D3
 0 0 107369
 S
 #107371
-Open Field (75, 100)~
-   Open grassland stretches out in all directions.
+Ocean (75, 100)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -160931,10 +160931,10 @@ D3
 0 0 107370
 S
 #107372
-Open Field (76, 100)~
-   Open grassland stretches out in all directions.
+Ocean (76, 100)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -163343,10 +163343,10 @@ D3
 0 0 107480
 S
 #107482
-Open Field (-70, 99)~
-   Open grassland stretches out in all directions.
+Beach (-70, 99)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -163365,10 +163365,10 @@ D3
 0 0 107481
 S
 #107483
-Open Field (-69, 99)~
-   Open grassland stretches out in all directions.
+Beach (-69, 99)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -163409,10 +163409,10 @@ D3
 0 0 107483
 S
 #107485
-Open Field (-67, 99)~
-   Open grassland stretches out in all directions.
+Beach (-67, 99)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -166533,10 +166533,10 @@ D3
 0 0 107625
 S
 #107627
-Open Field (75, 99)~
-   Open grassland stretches out in all directions.
+Ocean (75, 99)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -171321,10 +171321,10 @@ D3
 0 0 107843
 S
 #107845
-Open Field (37, 98)~
-   Open grassland stretches out in all directions.
+Ocean (37, 98)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -175669,10 +175669,10 @@ D3
 0 0 108041
 S
 #108043
-Open Field (-21, 97)~
-   Open grassland stretches out in all directions.
+Ocean (-21, 97)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -182283,10 +182283,10 @@ D3
 0 0 108342
 S
 #108344
-Open Field (24, 96)~
-   Open grassland stretches out in all directions.
+Ocean (24, 96)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -187841,10 +187841,10 @@ D3
 0 0 108595
 S
 #108597
-Open Field (21, 95)~
-   Open grassland stretches out in all directions.
+Ocean (21, 95)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -187863,10 +187863,10 @@ D3
 0 0 108596
 S
 #108598
-Open Field (22, 95)~
-   Open grassland stretches out in all directions.
+Ocean (22, 95)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -210095,10 +210095,10 @@ D3
 0 0 109608
 S
 #109610
-Open Field (10, 91)~
-   Open grassland stretches out in all directions.
+Ocean (10, 91)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -226813,10 +226813,10 @@ D3
 0 0 110369
 S
 #110371
-Open Field (3, 88)~
-   Open grassland stretches out in all directions.
+Ocean (3, 88)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -230809,10 +230809,10 @@ D3
 0 0 110551
 S
 #110553
-Open Field (-71, 87)~
-   Open grassland stretches out in all directions.
+Ocean (-71, 87)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -236411,10 +236411,10 @@ D3
 0 0 110806
 S
 #110808
-Open Field (-72, 86)~
-   Open grassland stretches out in all directions.
+Ocean (-72, 86)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -253393,10 +253393,10 @@ D3
 0 0 111579
 S
 #111581
-Open Field (-67, 83)~
-   Open grassland stretches out in all directions.
+Ocean (-67, 83)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -254757,10 +254757,10 @@ D3
 0 0 111641
 S
 #111643
-Open Field (-5, 83)~
-   Open grassland stretches out in all directions.
+Ocean (-5, 83)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -256407,10 +256407,10 @@ D3
 0 0 111716
 S
 #111718
-Open Field (70, 83)~
-   Open grassland stretches out in all directions.
+Ocean (70, 83)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -267435,10 +267435,10 @@ D3
 0 0 112218
 S
 #112220
-Open Field (60, 81)~
-   Open grassland stretches out in all directions.
+Ocean (60, 81)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -326109,10 +326109,10 @@ D3
 0 0 114889
 S
 #114891
-Open Field (-85, 70)~
-   Open grassland stretches out in all directions.
+Ocean (-85, 70)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -326307,10 +326307,10 @@ D3
 0 0 114898
 S
 #114900
-Open Field (-76, 70)~
-   Open grassland stretches out in all directions.
+Ocean (-76, 70)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -326417,10 +326417,10 @@ D3
 0 0 114903
 S
 #114905
-Open Field (-71, 70)~
-   Open grassland stretches out in all directions.
+Ocean (-71, 70)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -331887,10 +331887,10 @@ D3
 0 0 115152
 S
 #115154
-Beach (-78, 69)~
-   Sandy beach stretches along the shore.
+Ocean (-78, 69)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -331997,10 +331997,10 @@ D3
 0 0 115157
 S
 #115159
-Open Field (-73, 69)~
-   Open grassland stretches out in all directions.
+Ocean (-73, 69)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -332173,10 +332173,10 @@ D3
 0 0 115165
 S
 #115167
-Open Field (-65, 69)~
-   Open grassland stretches out in all directions.
+Beach (-65, 69)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -337467,10 +337467,10 @@ D3
 0 0 115406
 S
 #115408
-Open Field (-80, 68)~
-   Open grassland stretches out in all directions.
+Beach (-80, 68)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -337819,10 +337819,10 @@ D3
 0 0 115422
 S
 #115424
-Open Field (-64, 68)~
-   Open grassland stretches out in all directions.
+Beach (-64, 68)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -340041,10 +340041,10 @@ D3
 0 0 115523
 S
 #115525
-Beach (37, 68)~
-   Sandy beach stretches along the shore.
+Open Field (37, 68)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -340063,10 +340063,10 @@ D3
 0 0 115524
 S
 #115526
-Beach (38, 68)~
-   Sandy beach stretches along the shore.
+Open Field (38, 68)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -340085,10 +340085,10 @@ D3
 0 0 115525
 S
 #115527
-Beach (39, 68)~
-   Sandy beach stretches along the shore.
+Open Field (39, 68)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -343487,10 +343487,10 @@ D3
 0 0 115680
 S
 #115682
-Open Field (-62, 67)~
-   Open grassland stretches out in all directions.
+Beach (-62, 67)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -345665,10 +345665,10 @@ D3
 0 0 115779
 S
 #115781
-Beach (37, 67)~
-   Sandy beach stretches along the shore.
+Open Field (37, 67)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -345687,10 +345687,10 @@ D3
 0 0 115780
 S
 #115782
-Beach (38, 67)~
-   Sandy beach stretches along the shore.
+Open Field (38, 67)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -345709,10 +345709,10 @@ D3
 0 0 115781
 S
 #115783
-Beach (39, 67)~
-   Sandy beach stretches along the shore.
+Open Field (39, 67)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -345731,10 +345731,10 @@ D3
 0 0 115782
 S
 #115784
-Beach (40, 67)~
-   Sandy beach stretches along the shore.
+Open Field (40, 67)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -345753,10 +345753,10 @@ D3
 0 0 115783
 S
 #115785
-Beach (41, 67)~
-   Sandy beach stretches along the shore.
+Open Field (41, 67)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -348627,10 +348627,10 @@ D3
 0 0 115914
 S
 #115916
-Open Field (-84, 66)~
-   Open grassland stretches out in all directions.
+Beach (-84, 66)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -349023,10 +349023,10 @@ D3
 0 0 115932
 S
 #115934
-Open Field (-66, 66)~
-   Open grassland stretches out in all directions.
+Beach (-66, 66)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -349133,10 +349133,10 @@ D3
 0 0 115937
 S
 #115939
-Open Field (-61, 66)~
-   Open grassland stretches out in all directions.
+Beach (-61, 66)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -351311,10 +351311,10 @@ D3
 0 0 116036
 S
 #116038
-Beach (38, 66)~
-   Sandy beach stretches along the shore.
+Open Field (38, 66)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -351333,10 +351333,10 @@ D3
 0 0 116037
 S
 #116039
-Beach (39, 66)~
-   Sandy beach stretches along the shore.
+Open Field (39, 66)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -351355,10 +351355,10 @@ D3
 0 0 116038
 S
 #116040
-Beach (40, 66)~
-   Sandy beach stretches along the shore.
+Open Field (40, 66)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -354251,10 +354251,10 @@ D3
 0 0 116170
 S
 #116172
-Open Field (-84, 65)~
-   Open grassland stretches out in all directions.
+Beach (-84, 65)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -354669,10 +354669,10 @@ D3
 0 0 116189
 S
 #116191
-Open Field (-65, 65)~
-   Open grassland stretches out in all directions.
+Beach (-65, 65)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -356913,10 +356913,10 @@ D3
 0 0 116291
 S
 #116293
-Beach (37, 65)~
-   Sandy beach stretches along the shore.
+Open Field (37, 65)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -356935,10 +356935,10 @@ D3
 0 0 116292
 S
 #116294
-Beach (38, 65)~
-   Sandy beach stretches along the shore.
+Open Field (38, 65)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -356957,10 +356957,10 @@ D3
 0 0 116293
 S
 #116295
-Beach (39, 65)~
-   Sandy beach stretches along the shore.
+Open Field (39, 65)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -356979,10 +356979,10 @@ D3
 0 0 116294
 S
 #116296
-Beach (40, 65)~
-   Sandy beach stretches along the shore.
+Open Field (40, 65)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -362537,10 +362537,10 @@ D3
 0 0 116547
 S
 #116549
-Beach (37, 64)~
-   Sandy beach stretches along the shore.
+Open Field (37, 64)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -362559,10 +362559,10 @@ D3
 0 0 116548
 S
 #116550
-Beach (38, 64)~
-   Sandy beach stretches along the shore.
+Open Field (38, 64)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -362581,10 +362581,10 @@ D3
 0 0 116549
 S
 #116551
-Beach (39, 64)~
-   Sandy beach stretches along the shore.
+Open Field (39, 64)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -362603,10 +362603,10 @@ D3
 0 0 116550
 S
 #116552
-Beach (40, 64)~
-   Sandy beach stretches along the shore.
+Open Field (40, 64)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -365499,10 +365499,10 @@ D3
 0 0 116682
 S
 #116684
-Beach (-84, 63)~
-   Sandy beach stretches along the shore.
+Open Field (-84, 63)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -368139,10 +368139,10 @@ D3
 0 0 116802
 S
 #116804
-Beach (36, 63)~
-   Sandy beach stretches along the shore.
+Open Field (36, 63)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -368161,10 +368161,10 @@ D3
 0 0 116803
 S
 #116805
-Beach (37, 63)~
-   Sandy beach stretches along the shore.
+Open Field (37, 63)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -368183,10 +368183,10 @@ D3
 0 0 116804
 S
 #116806
-Beach (38, 63)~
-   Sandy beach stretches along the shore.
+Open Field (38, 63)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -368205,10 +368205,10 @@ D3
 0 0 116805
 S
 #116807
-Beach (39, 63)~
-   Sandy beach stretches along the shore.
+Open Field (39, 63)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -368227,10 +368227,10 @@ D3
 0 0 116806
 S
 #116808
-Beach (40, 63)~
-   Sandy beach stretches along the shore.
+Open Field (40, 63)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -371123,10 +371123,10 @@ D3
 0 0 116938
 S
 #116940
-Beach (-84, 62)~
-   Sandy beach stretches along the shore.
+Open Field (-84, 62)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -373697,10 +373697,10 @@ D3
 0 0 117055
 S
 #117057
-Beach (33, 62)~
-   Sandy beach stretches along the shore.
+Open Field (33, 62)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -373719,10 +373719,10 @@ D3
 0 0 117056
 S
 #117058
-Beach (34, 62)~
-   Sandy beach stretches along the shore.
+Open Field (34, 62)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -373741,10 +373741,10 @@ D3
 0 0 117057
 S
 #117059
-Beach (35, 62)~
-   Sandy beach stretches along the shore.
+Open Field (35, 62)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -373785,10 +373785,10 @@ D3
 0 0 117059
 S
 #117061
-Beach (37, 62)~
-   Sandy beach stretches along the shore.
+Open Field (37, 62)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -373807,10 +373807,10 @@ D3
 0 0 117060
 S
 #117062
-Beach (38, 62)~
-   Sandy beach stretches along the shore.
+Open Field (38, 62)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -373829,10 +373829,10 @@ D3
 0 0 117061
 S
 #117063
-Beach (39, 62)~
-   Sandy beach stretches along the shore.
+Open Field (39, 62)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -373851,10 +373851,10 @@ D3
 0 0 117062
 S
 #117064
-Beach (40, 62)~
-   Sandy beach stretches along the shore.
+Open Field (40, 62)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -376725,10 +376725,10 @@ D3
 0 0 117193
 S
 #117195
-Beach (-85, 61)~
-   Sandy beach stretches along the shore.
+Open Field (-85, 61)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -376747,10 +376747,10 @@ D3
 0 0 117194
 S
 #117196
-Beach (-84, 61)~
-   Sandy beach stretches along the shore.
+Open Field (-84, 61)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -379255,10 +379255,10 @@ D3
 0 0 117308
 S
 #117310
-Beach (30, 61)~
-   Sandy beach stretches along the shore.
+Open Field (30, 61)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -379277,10 +379277,10 @@ D3
 0 0 117309
 S
 #117311
-Beach (31, 61)~
-   Sandy beach stretches along the shore.
+Open Field (31, 61)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -379299,10 +379299,10 @@ D3
 0 0 117310
 S
 #117312
-Beach (32, 61)~
-   Sandy beach stretches along the shore.
+Open Field (32, 61)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -379321,10 +379321,10 @@ D3
 0 0 117311
 S
 #117313
-Beach (33, 61)~
-   Sandy beach stretches along the shore.
+Open Field (33, 61)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -379343,10 +379343,10 @@ D3
 0 0 117312
 S
 #117314
-Beach (34, 61)~
-   Sandy beach stretches along the shore.
+Open Field (34, 61)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -379365,10 +379365,10 @@ D3
 0 0 117313
 S
 #117315
-Beach (35, 61)~
-   Sandy beach stretches along the shore.
+Open Field (35, 61)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -379387,10 +379387,10 @@ D3
 0 0 117314
 S
 #117316
-Beach (36, 61)~
-   Sandy beach stretches along the shore.
+Open Field (36, 61)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -379409,10 +379409,10 @@ D3
 0 0 117315
 S
 #117317
-Beach (37, 61)~
-   Sandy beach stretches along the shore.
+Open Field (37, 61)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -379453,10 +379453,10 @@ D3
 0 0 117317
 S
 #117319
-Beach (39, 61)~
-   Sandy beach stretches along the shore.
+Open Field (39, 61)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -382349,10 +382349,10 @@ D3
 0 0 117449
 S
 #117451
-Beach (-85, 60)~
-   Sandy beach stretches along the shore.
+Open Field (-85, 60)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -382371,10 +382371,10 @@ D3
 0 0 117450
 S
 #117452
-Beach (-84, 60)~
-   Sandy beach stretches along the shore.
+Open Field (-84, 60)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -382657,10 +382657,10 @@ D3
 0 0 117463
 S
 #117465
-Beach (-71, 60)~
-   Sandy beach stretches along the shore.
+Open Field (-71, 60)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -382701,10 +382701,10 @@ D3
 0 0 117465
 S
 #117467
-Beach (-69, 60)~
-   Sandy beach stretches along the shore.
+Open Field (-69, 60)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -384857,10 +384857,10 @@ D3
 0 0 117563
 S
 #117565
-Beach (29, 60)~
-   Sandy beach stretches along the shore.
+Open Field (29, 60)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -384879,10 +384879,10 @@ D3
 0 0 117564
 S
 #117566
-Beach (30, 60)~
-   Sandy beach stretches along the shore.
+Open Field (30, 60)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -384901,10 +384901,10 @@ D3
 0 0 117565
 S
 #117567
-Beach (31, 60)~
-   Sandy beach stretches along the shore.
+Open Field (31, 60)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -384923,10 +384923,10 @@ D3
 0 0 117566
 S
 #117568
-Beach (32, 60)~
-   Sandy beach stretches along the shore.
+Open Field (32, 60)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -384945,10 +384945,10 @@ D3
 0 0 117567
 S
 #117569
-Beach (33, 60)~
-   Sandy beach stretches along the shore.
+Open Field (33, 60)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -384989,10 +384989,10 @@ D3
 0 0 117569
 S
 #117571
-Beach (35, 60)~
-   Sandy beach stretches along the shore.
+Open Field (35, 60)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -385033,10 +385033,10 @@ D3
 0 0 117571
 S
 #117573
-Beach (37, 60)~
-   Sandy beach stretches along the shore.
+Open Field (37, 60)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -385055,10 +385055,10 @@ D3
 0 0 117572
 S
 #117574
-Beach (38, 60)~
-   Sandy beach stretches along the shore.
+Open Field (38, 60)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -385077,10 +385077,10 @@ D3
 0 0 117573
 S
 #117575
-Beach (39, 60)~
-   Sandy beach stretches along the shore.
+Open Field (39, 60)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -385099,10 +385099,10 @@ D3
 0 0 117574
 S
 #117576
-Beach (40, 60)~
-   Sandy beach stretches along the shore.
+Open Field (40, 60)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -387995,10 +387995,10 @@ D3
 0 0 117706
 S
 #117708
-Beach (-84, 59)~
-   Sandy beach stretches along the shore.
+Open Field (-84, 59)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -388259,10 +388259,10 @@ D3
 0 0 117718
 S
 #117720
-Beach (-72, 59)~
-   Sandy beach stretches along the shore.
+Open Field (-72, 59)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -388281,10 +388281,10 @@ D3
 0 0 117719
 S
 #117721
-Beach (-71, 59)~
-   Sandy beach stretches along the shore.
+Open Field (-71, 59)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -388303,10 +388303,10 @@ D3
 0 0 117720
 S
 #117722
-Beach (-70, 59)~
-   Sandy beach stretches along the shore.
+Open Field (-70, 59)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -388325,10 +388325,10 @@ D3
 0 0 117721
 S
 #117723
-Beach (-69, 59)~
-   Sandy beach stretches along the shore.
+Open Field (-69, 59)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -388347,10 +388347,10 @@ D3
 0 0 117722
 S
 #117724
-Beach (-68, 59)~
-   Sandy beach stretches along the shore.
+Open Field (-68, 59)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -388369,10 +388369,10 @@ D3
 0 0 117723
 S
 #117725
-Beach (-67, 59)~
-   Sandy beach stretches along the shore.
+Open Field (-67, 59)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -390481,10 +390481,10 @@ D3
 0 0 117819
 S
 #117821
-Beach (29, 59)~
-   Sandy beach stretches along the shore.
+Open Field (29, 59)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -390503,10 +390503,10 @@ D3
 0 0 117820
 S
 #117822
-Beach (30, 59)~
-   Sandy beach stretches along the shore.
+Open Field (30, 59)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -390525,10 +390525,10 @@ D3
 0 0 117821
 S
 #117823
-Beach (31, 59)~
-   Sandy beach stretches along the shore.
+Open Field (31, 59)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -390547,10 +390547,10 @@ D3
 0 0 117822
 S
 #117824
-Beach (32, 59)~
-   Sandy beach stretches along the shore.
+Open Field (32, 59)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -390569,10 +390569,10 @@ D3
 0 0 117823
 S
 #117825
-Beach (33, 59)~
-   Sandy beach stretches along the shore.
+Open Field (33, 59)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -390591,10 +390591,10 @@ D3
 0 0 117824
 S
 #117826
-Beach (34, 59)~
-   Sandy beach stretches along the shore.
+Open Field (34, 59)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -390613,10 +390613,10 @@ D3
 0 0 117825
 S
 #117827
-Beach (35, 59)~
-   Sandy beach stretches along the shore.
+Open Field (35, 59)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -390635,10 +390635,10 @@ D3
 0 0 117826
 S
 #117828
-Beach (36, 59)~
-   Sandy beach stretches along the shore.
+Open Field (36, 59)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -390679,10 +390679,10 @@ D3
 0 0 117828
 S
 #117830
-Beach (38, 59)~
-   Sandy beach stretches along the shore.
+Open Field (38, 59)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -393509,10 +393509,10 @@ D3
 0 0 117957
 S
 #117959
-Open Field (-89, 58)~
-   Open grassland stretches out in all directions.
+Beach (-89, 58)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -393619,10 +393619,10 @@ D3
 0 0 117962
 S
 #117964
-Beach (-84, 58)~
-   Sandy beach stretches along the shore.
+Open Field (-84, 58)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -393883,10 +393883,10 @@ D3
 0 0 117974
 S
 #117976
-Beach (-72, 58)~
-   Sandy beach stretches along the shore.
+Open Field (-72, 58)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -393905,10 +393905,10 @@ D3
 0 0 117975
 S
 #117977
-Beach (-71, 58)~
-   Sandy beach stretches along the shore.
+Open Field (-71, 58)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -393927,10 +393927,10 @@ D3
 0 0 117976
 S
 #117978
-Beach (-70, 58)~
-   Sandy beach stretches along the shore.
+Open Field (-70, 58)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -396127,10 +396127,10 @@ D3
 0 0 118076
 S
 #118078
-Beach (30, 58)~
-   Sandy beach stretches along the shore.
+Open Field (30, 58)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -396171,10 +396171,10 @@ D3
 0 0 118078
 S
 #118080
-Beach (32, 58)~
-   Sandy beach stretches along the shore.
+Open Field (32, 58)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -396193,10 +396193,10 @@ D3
 0 0 118079
 S
 #118081
-Beach (33, 58)~
-   Sandy beach stretches along the shore.
+Open Field (33, 58)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -396215,10 +396215,10 @@ D3
 0 0 118080
 S
 #118082
-Beach (34, 58)~
-   Sandy beach stretches along the shore.
+Open Field (34, 58)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -396237,10 +396237,10 @@ D3
 0 0 118081
 S
 #118083
-Beach (35, 58)~
-   Sandy beach stretches along the shore.
+Open Field (35, 58)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -396259,10 +396259,10 @@ D3
 0 0 118082
 S
 #118084
-Beach (36, 58)~
-   Sandy beach stretches along the shore.
+Open Field (36, 58)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -396281,10 +396281,10 @@ D3
 0 0 118083
 S
 #118085
-Beach (37, 58)~
-   Sandy beach stretches along the shore.
+Open Field (37, 58)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -396303,10 +396303,10 @@ D3
 0 0 118084
 S
 #118086
-Beach (38, 58)~
-   Sandy beach stretches along the shore.
+Open Field (38, 58)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -399265,10 +399265,10 @@ D3
 0 0 118219
 S
 #118221
-Beach (-83, 57)~
-   Sandy beach stretches along the shore.
+Open Field (-83, 57)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -399507,10 +399507,10 @@ D3
 0 0 118230
 S
 #118232
-Beach (-72, 57)~
-   Sandy beach stretches along the shore.
+Open Field (-72, 57)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -399529,10 +399529,10 @@ D3
 0 0 118231
 S
 #118233
-Beach (-71, 57)~
-   Sandy beach stretches along the shore.
+Open Field (-71, 57)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -399551,10 +399551,10 @@ D3
 0 0 118232
 S
 #118234
-Beach (-70, 57)~
-   Sandy beach stretches along the shore.
+Open Field (-70, 57)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -401751,10 +401751,10 @@ D3
 0 0 118332
 S
 #118334
-Beach (30, 57)~
-   Sandy beach stretches along the shore.
+Open Field (30, 57)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -401773,10 +401773,10 @@ D3
 0 0 118333
 S
 #118335
-Beach (31, 57)~
-   Sandy beach stretches along the shore.
+Open Field (31, 57)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -401795,10 +401795,10 @@ D3
 0 0 118334
 S
 #118336
-Beach (32, 57)~
-   Sandy beach stretches along the shore.
+Open Field (32, 57)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -401839,10 +401839,10 @@ D3
 0 0 118336
 S
 #118338
-Beach (34, 57)~
-   Sandy beach stretches along the shore.
+Open Field (34, 57)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -401883,10 +401883,10 @@ D3
 0 0 118338
 S
 #118340
-Beach (36, 57)~
-   Sandy beach stretches along the shore.
+Open Field (36, 57)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -405065,10 +405065,10 @@ D3
 0 0 118483
 S
 #118485
-Beach (-75, 56)~
-   Sandy beach stretches along the shore.
+Open Field (-75, 56)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -405087,10 +405087,10 @@ D3
 0 0 118484
 S
 #118486
-Beach (-74, 56)~
-   Sandy beach stretches along the shore.
+Open Field (-74, 56)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -405131,10 +405131,10 @@ D3
 0 0 118486
 S
 #118488
-Beach (-72, 56)~
-   Sandy beach stretches along the shore.
+Open Field (-72, 56)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -405153,10 +405153,10 @@ D3
 0 0 118487
 S
 #118489
-Beach (-71, 56)~
-   Sandy beach stretches along the shore.
+Open Field (-71, 56)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -405175,10 +405175,10 @@ D3
 0 0 118488
 S
 #118490
-Beach (-70, 56)~
-   Sandy beach stretches along the shore.
+Open Field (-70, 56)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -407397,10 +407397,10 @@ D3
 0 0 118589
 S
 #118591
-Beach (31, 56)~
-   Sandy beach stretches along the shore.
+Open Field (31, 56)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -407419,10 +407419,10 @@ D3
 0 0 118590
 S
 #118592
-Beach (32, 56)~
-   Sandy beach stretches along the shore.
+Open Field (32, 56)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -407441,10 +407441,10 @@ D3
 0 0 118591
 S
 #118593
-Beach (33, 56)~
-   Sandy beach stretches along the shore.
+Open Field (33, 56)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -407463,10 +407463,10 @@ D3
 0 0 118592
 S
 #118594
-Beach (34, 56)~
-   Sandy beach stretches along the shore.
+Open Field (34, 56)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -407485,10 +407485,10 @@ D3
 0 0 118593
 S
 #118595
-Beach (35, 56)~
-   Sandy beach stretches along the shore.
+Open Field (35, 56)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -407507,10 +407507,10 @@ D3
 0 0 118594
 S
 #118596
-Beach (36, 56)~
-   Sandy beach stretches along the shore.
+Open Field (36, 56)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -410645,10 +410645,10 @@ D3
 0 0 118737
 S
 #118739
-Beach (-77, 55)~
-   Sandy beach stretches along the shore.
+Open Field (-77, 55)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -410667,10 +410667,10 @@ D3
 0 0 118738
 S
 #118740
-Beach (-76, 55)~
-   Sandy beach stretches along the shore.
+Open Field (-76, 55)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -410689,10 +410689,10 @@ D3
 0 0 118739
 S
 #118741
-Beach (-75, 55)~
-   Sandy beach stretches along the shore.
+Open Field (-75, 55)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -410711,10 +410711,10 @@ D3
 0 0 118740
 S
 #118742
-Beach (-74, 55)~
-   Sandy beach stretches along the shore.
+Open Field (-74, 55)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -410733,10 +410733,10 @@ D3
 0 0 118741
 S
 #118743
-Beach (-73, 55)~
-   Sandy beach stretches along the shore.
+Open Field (-73, 55)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -410755,10 +410755,10 @@ D3
 0 0 118742
 S
 #118744
-Beach (-72, 55)~
-   Sandy beach stretches along the shore.
+Open Field (-72, 55)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -410777,10 +410777,10 @@ D3
 0 0 118743
 S
 #118745
-Beach (-71, 55)~
-   Sandy beach stretches along the shore.
+Open Field (-71, 55)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -410799,10 +410799,10 @@ D3
 0 0 118744
 S
 #118746
-Beach (-70, 55)~
-   Sandy beach stretches along the shore.
+Open Field (-70, 55)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -410821,10 +410821,10 @@ D3
 0 0 118745
 S
 #118747
-Beach (-69, 55)~
-   Sandy beach stretches along the shore.
+Open Field (-69, 55)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -416247,10 +416247,10 @@ D3
 0 0 118992
 S
 #118994
-Beach (-78, 54)~
-   Sandy beach stretches along the shore.
+Open Field (-78, 54)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -416269,10 +416269,10 @@ D3
 0 0 118993
 S
 #118995
-Beach (-77, 54)~
-   Sandy beach stretches along the shore.
+Open Field (-77, 54)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -416291,10 +416291,10 @@ D3
 0 0 118994
 S
 #118996
-Beach (-76, 54)~
-   Sandy beach stretches along the shore.
+Open Field (-76, 54)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -416313,10 +416313,10 @@ D3
 0 0 118995
 S
 #118997
-Beach (-75, 54)~
-   Sandy beach stretches along the shore.
+Open Field (-75, 54)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -416335,10 +416335,10 @@ D3
 0 0 118996
 S
 #118998
-Beach (-74, 54)~
-   Sandy beach stretches along the shore.
+Open Field (-74, 54)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -416357,10 +416357,10 @@ D3
 0 0 118997
 S
 #118999
-Beach (-73, 54)~
-   Sandy beach stretches along the shore.
+Open Field (-73, 54)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -416379,10 +416379,10 @@ D3
 0 0 118998
 S
 #119000
-Beach (-72, 54)~
-   Sandy beach stretches along the shore.
+Open Field (-72, 54)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -416401,10 +416401,10 @@ D3
 0 0 118999
 S
 #119001
-Beach (-71, 54)~
-   Sandy beach stretches along the shore.
+Open Field (-71, 54)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -416423,10 +416423,10 @@ D3
 0 0 119000
 S
 #119002
-Beach (-70, 54)~
-   Sandy beach stretches along the shore.
+Open Field (-70, 54)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -421695,10 +421695,10 @@ D3
 0 0 119240
 S
 #119242
-Open Field (-86, 53)~
-   Open grassland stretches out in all directions.
+Ocean (-86, 53)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -421915,10 +421915,10 @@ D3
 0 0 119250
 S
 #119252
-Beach (-76, 53)~
-   Sandy beach stretches along the shore.
+Open Field (-76, 53)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -421937,10 +421937,10 @@ D3
 0 0 119251
 S
 #119253
-Beach (-75, 53)~
-   Sandy beach stretches along the shore.
+Open Field (-75, 53)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -421959,10 +421959,10 @@ D3
 0 0 119252
 S
 #119254
-Beach (-74, 53)~
-   Sandy beach stretches along the shore.
+Open Field (-74, 53)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -421981,10 +421981,10 @@ D3
 0 0 119253
 S
 #119255
-Beach (-73, 53)~
-   Sandy beach stretches along the shore.
+Open Field (-73, 53)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -422003,10 +422003,10 @@ D3
 0 0 119254
 S
 #119256
-Beach (-72, 53)~
-   Sandy beach stretches along the shore.
+Open Field (-72, 53)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -427341,10 +427341,10 @@ D3
 0 0 119497
 S
 #119499
-Open Field (-85, 52)~
-   Open grassland stretches out in all directions.
+Ocean (-85, 52)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -427539,10 +427539,10 @@ D3
 0 0 119506
 S
 #119508
-Beach (-76, 52)~
-   Sandy beach stretches along the shore.
+Open Field (-76, 52)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -427561,10 +427561,10 @@ D3
 0 0 119507
 S
 #119509
-Beach (-75, 52)~
-   Sandy beach stretches along the shore.
+Open Field (-75, 52)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -427583,10 +427583,10 @@ D3
 0 0 119508
 S
 #119510
-Beach (-74, 52)~
-   Sandy beach stretches along the shore.
+Open Field (-74, 52)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -427605,10 +427605,10 @@ D3
 0 0 119509
 S
 #119511
-Beach (-73, 52)~
-   Sandy beach stretches along the shore.
+Open Field (-73, 52)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -433185,10 +433185,10 @@ D3
 0 0 119763
 S
 #119765
-Beach (-75, 51)~
-   Sandy beach stretches along the shore.
+Open Field (-75, 51)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -433207,10 +433207,10 @@ D3
 0 0 119764
 S
 #119766
-Beach (-74, 51)~
-   Sandy beach stretches along the shore.
+Open Field (-74, 51)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -433801,10 +433801,10 @@ D3
 0 0 119791
 S
 #119793
-Beach (-47, 51)~
-   Sandy beach stretches along the shore.
+Open Field (-47, 51)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -433845,10 +433845,10 @@ D3
 0 0 119793
 S
 #119795
-Beach (-45, 51)~
-   Sandy beach stretches along the shore.
+Open Field (-45, 51)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -438787,10 +438787,10 @@ D3
 0 0 120018
 S
 #120020
-Beach (-76, 50)~
-   Sandy beach stretches along the shore.
+Open Field (-76, 50)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -438809,10 +438809,10 @@ D3
 0 0 120019
 S
 #120021
-Beach (-75, 50)~
-   Sandy beach stretches along the shore.
+Open Field (-75, 50)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -439403,10 +439403,10 @@ D3
 0 0 120046
 S
 #120048
-Beach (-48, 50)~
-   Sandy beach stretches along the shore.
+Open Field (-48, 50)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -439425,10 +439425,10 @@ D3
 0 0 120047
 S
 #120049
-Beach (-47, 50)~
-   Sandy beach stretches along the shore.
+Open Field (-47, 50)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -439447,10 +439447,10 @@ D3
 0 0 120048
 S
 #120050
-Beach (-46, 50)~
-   Sandy beach stretches along the shore.
+Open Field (-46, 50)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -439469,10 +439469,10 @@ D3
 0 0 120049
 S
 #120051
-Beach (-45, 50)~
-   Sandy beach stretches along the shore.
+Open Field (-45, 50)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -439491,10 +439491,10 @@ D3
 0 0 120050
 S
 #120052
-Beach (-44, 50)~
-   Sandy beach stretches along the shore.
+Open Field (-44, 50)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -439513,10 +439513,10 @@ D3
 0 0 120051
 S
 #120053
-Beach (-43, 50)~
-   Sandy beach stretches along the shore.
+Open Field (-43, 50)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -439535,10 +439535,10 @@ D3
 0 0 120052
 S
 #120054
-Beach (-42, 50)~
-   Sandy beach stretches along the shore.
+Open Field (-42, 50)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -445049,10 +445049,10 @@ D3
 0 0 120303
 S
 #120305
-Beach (-47, 49)~
-   Sandy beach stretches along the shore.
+Open Field (-47, 49)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -445071,10 +445071,10 @@ D3
 0 0 120304
 S
 #120306
-Beach (-46, 49)~
-   Sandy beach stretches along the shore.
+Open Field (-46, 49)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -445093,10 +445093,10 @@ D3
 0 0 120305
 S
 #120307
-Beach (-45, 49)~
-   Sandy beach stretches along the shore.
+Open Field (-45, 49)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -445159,10 +445159,10 @@ D3
 0 0 120308
 S
 #120310
-Beach (-42, 49)~
-   Sandy beach stretches along the shore.
+Open Field (-42, 49)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -450717,10 +450717,10 @@ D3
 0 0 120561
 S
 #120563
-Beach (-45, 48)~
-   Sandy beach stretches along the shore.
+Open Field (-45, 48)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -450783,10 +450783,10 @@ D3
 0 0 120564
 S
 #120566
-Beach (-42, 48)~
-   Sandy beach stretches along the shore.
+Open Field (-42, 48)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -529035,10 +529035,10 @@ D3
 0 0 124126
 S
 #124128
-Open Field (-64, 34)~
-   Open grassland stretches out in all directions.
+Ocean (-64, 34)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -534879,10 +534879,10 @@ D3
 0 0 124392
 S
 #124394
-Open Field (-54, 33)~
-   Open grassland stretches out in all directions.
+Ocean (-54, 33)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -564187,10 +564187,10 @@ D3
 0 0 125726
 S
 #125728
-Beach (0, 28)~
-   Sandy beach stretches along the shore.
+Open Field (0, 28)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -569811,10 +569811,10 @@ D3
 0 0 125982
 S
 #125984
-Beach (0, 27)~
-   Sandy beach stretches along the shore.
+Open Field (0, 27)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -575413,10 +575413,10 @@ D3
 0 0 126237
 S
 #126239
-Beach (-1, 26)~
-   Sandy beach stretches along the shore.
+Open Field (-1, 26)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -581015,10 +581015,10 @@ D3
 0 0 126492
 S
 #126494
-Beach (-2, 25)~
-   Sandy beach stretches along the shore.
+Open Field (-2, 25)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -681213,10 +681213,10 @@ D3
 0 0 131053
 S
 #131055
-Open Field (-49, 7)~
-   Open grassland stretches out in all directions.
+Ocean (-49, 7)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -685957,10 +685957,10 @@ D3
 0 0 131269
 S
 #131271
-Open Field (-89, 6)~
-   Open grassland stretches out in all directions.
+Ocean (-89, 6)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -697227,10 +697227,10 @@ D3
 0 0 131782
 S
 #131784
-Open Field (-88, 4)~
-   Open grassland stretches out in all directions.
+Ocean (-88, 4)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -709575,10 +709575,10 @@ D3
 0 0 132344
 S
 #132346
-Open Field (-38, 2)~
-   Open grassland stretches out in all directions.
+Ocean (-38, 2)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -719811,10 +719811,10 @@ D3
 0 0 132810
 S
 #132812
-Beach (-84, 0)~
-   Sandy beach stretches along the shore.
+Open Field (-84, 0)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -719833,10 +719833,10 @@ D3
 0 0 132811
 S
 #132813
-Beach (-83, 0)~
-   Sandy beach stretches along the shore.
+Open Field (-83, 0)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -720933,10 +720933,10 @@ D3
 0 0 132861
 S
 #132863
-Open Field (-33, 0)~
-   Open grassland stretches out in all directions.
+Ocean (-33, 0)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -725479,10 +725479,10 @@ D3
 0 0 133068
 S
 #133070
-Beach (-82, -1)~
-   Sandy beach stretches along the shore.
+Open Field (-82, -1)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -726007,10 +726007,10 @@ D3
 0 0 133092
 S
 #133094
-Open Field (-58, -1)~
-   Open grassland stretches out in all directions.
+Ocean (-58, -1)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -726799,10 +726799,10 @@ D3
 0 0 133128
 S
 #133130
-Beach (-22, -1)~
-   Sandy beach stretches along the shore.
+Open Field (-22, -1)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -742285,10 +742285,10 @@ D3
 0 0 133833
 S
 #133835
-Open Field (-85, -4)~
-   Open grassland stretches out in all directions.
+Beach (-85, -4)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -742307,10 +742307,10 @@ D3
 0 0 133834
 S
 #133836
-Open Field (-84, -4)~
-   Open grassland stretches out in all directions.
+Beach (-84, -4)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -742329,10 +742329,10 @@ D3
 0 0 133835
 S
 #133837
-Open Field (-83, -4)~
-   Open grassland stretches out in all directions.
+Beach (-83, -4)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -742351,10 +742351,10 @@ D3
 0 0 133836
 S
 #133838
-Open Field (-82, -4)~
-   Open grassland stretches out in all directions.
+Beach (-82, -4)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -742461,10 +742461,10 @@ D3
 0 0 133841
 S
 #133843
-Open Field (-77, -4)~
-   Open grassland stretches out in all directions.
+Beach (-77, -4)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -748217,10 +748217,10 @@ D3
 0 0 134103
 S
 #134105
-Open Field (-71, -5)~
-   Open grassland stretches out in all directions.
+Beach (-71, -5)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -748239,10 +748239,10 @@ D3
 0 0 134104
 S
 #134106
-Open Field (-70, -5)~
-   Open grassland stretches out in all directions.
+Beach (-70, -5)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -759487,10 +759487,10 @@ D3
 0 0 134616
 S
 #134618
-Open Field (-70, -7)~
-   Open grassland stretches out in all directions.
+Beach (-70, -7)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -764979,10 +764979,10 @@ D3
 0 0 134866
 S
 #134868
-Open Field (-76, -8)~
-   Open grassland stretches out in all directions.
+Beach (-76, -8)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -765045,10 +765045,10 @@ D3
 0 0 134869
 S
 #134871
-Open Field (-73, -8)~
-   Open grassland stretches out in all directions.
+Beach (-73, -8)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -765089,10 +765089,10 @@ D3
 0 0 134871
 S
 #134873
-Open Field (-71, -8)~
-   Open grassland stretches out in all directions.
+Beach (-71, -8)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -770493,10 +770493,10 @@ D3
 0 0 135117
 S
 #135119
-Open Field (-81, -9)~
-   Open grassland stretches out in all directions.
+Beach (-81, -9)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -770515,10 +770515,10 @@ D3
 0 0 135118
 S
 #135120
-Open Field (-80, -9)~
-   Open grassland stretches out in all directions.
+Beach (-80, -9)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -770537,10 +770537,10 @@ D3
 0 0 135119
 S
 #135121
-Open Field (-79, -9)~
-   Open grassland stretches out in all directions.
+Beach (-79, -9)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -770647,10 +770647,10 @@ D3
 0 0 135124
 S
 #135126
-Open Field (-74, -9)~
-   Open grassland stretches out in all directions.
+Ocean (-74, -9)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -776117,10 +776117,10 @@ D3
 0 0 135373
 S
 #135375
-Open Field (-81, -10)~
-   Open grassland stretches out in all directions.
+Beach (-81, -10)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -776183,10 +776183,10 @@ D3
 0 0 135376
 S
 #135378
-Open Field (-78, -10)~
-   Open grassland stretches out in all directions.
+Beach (-78, -10)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -781763,10 +781763,10 @@ D3
 0 0 135630
 S
 #135632
-Open Field (-80, -11)~
-   Open grassland stretches out in all directions.
+Beach (-80, -11)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -783193,10 +783193,10 @@ D3
 0 0 135695
 S
 #135697
-Beach (-15, -11)~
-   Sandy beach stretches along the shore.
+Open Field (-15, -11)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -787299,10 +787299,10 @@ D3
 0 0 135882
 S
 #135884
-Open Field (-84, -12)~
-   Open grassland stretches out in all directions.
+Beach (-84, -12)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -787365,10 +787365,10 @@ D3
 0 0 135885
 S
 #135887
-Open Field (-81, -12)~
-   Open grassland stretches out in all directions.
+Beach (-81, -12)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -788839,10 +788839,10 @@ D3
 0 0 135952
 S
 #135954
-Beach (-14, -12)~
-   Sandy beach stretches along the shore.
+Open Field (-14, -12)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -793011,10 +793011,10 @@ D3
 0 0 136142
 S
 #136144
-Open Field (-80, -13)~
-   Open grassland stretches out in all directions.
+Beach (-80, -13)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -799713,10 +799713,10 @@ D3
 0 0 136447
 S
 #136449
-Open Field (-31, -14)~
-   Open grassland stretches out in all directions.
+Beach (-31, -14)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -799735,10 +799735,10 @@ D3
 0 0 136448
 S
 #136450
-Open Field (-30, -14)~
-   Open grassland stretches out in all directions.
+Beach (-30, -14)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -905337,10 +905337,10 @@ D3
 0 0 141255
 S
 #141257
-Open Field (-87, -33)~
-   Open grassland stretches out in all directions.
+Ocean (-87, -33)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -907933,10 +907933,10 @@ D3
 0 0 141373
 S
 #141375
-Open Field (31, -33)~
-   Open grassland stretches out in all directions.
+Ocean (31, -33)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -918807,10 +918807,10 @@ D3
 0 0 141868
 S
 #141870
-Open Field (14, -35)~
-   Open grassland stretches out in all directions.
+Ocean (14, -35)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -945541,10 +945541,10 @@ D3
 0 0 143085
 S
 #143087
-Open Field (-49, -40)~
-   Open grassland stretches out in all directions.
+Ocean (-49, -40)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -946311,10 +946311,10 @@ D3
 0 0 143120
 S
 #143122
-Beach (-14, -40)~
-   Sandy beach stretches along the shore.
+Open Field (-14, -40)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -951935,10 +951935,10 @@ D3
 0 0 143376
 S
 #143378
-Beach (-14, -41)~
-   Sandy beach stretches along the shore.
+Open Field (-14, -41)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -951957,10 +951957,10 @@ D3
 0 0 143377
 S
 #143379
-Beach (-13, -41)~
-   Sandy beach stretches along the shore.
+Open Field (-13, -41)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -952023,10 +952023,10 @@ D3
 0 0 143380
 S
 #143382
-Beach (-10, -41)~
-   Sandy beach stretches along the shore.
+Open Field (-10, -41)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -957559,10 +957559,10 @@ D3
 0 0 143632
 S
 #143634
-Beach (-14, -42)~
-   Sandy beach stretches along the shore.
+Open Field (-14, -42)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -957581,10 +957581,10 @@ D3
 0 0 143633
 S
 #143635
-Beach (-13, -42)~
-   Sandy beach stretches along the shore.
+Open Field (-13, -42)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -957647,10 +957647,10 @@ D3
 0 0 143636
 S
 #143638
-Beach (-10, -42)~
-   Sandy beach stretches along the shore.
+Open Field (-10, -42)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -957669,10 +957669,10 @@ D3
 0 0 143637
 S
 #143639
-Beach (-9, -42)~
-   Sandy beach stretches along the shore.
+Open Field (-9, -42)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -964745,10 +964745,10 @@ D3
 0 0 143959
 S
 #143961
-Open Field (57, -43)~
-   Open grassland stretches out in all directions.
+Ocean (57, -43)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -970325,10 +970325,10 @@ D3
 0 0 144213
 S
 #144215
-Open Field (55, -44)~
-   Open grassland stretches out in all directions.
+Ocean (55, -44)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -980033,10 +980033,10 @@ D3
 0 0 144655
 S
 #144657
-Beach (-15, -46)~
-   Sandy beach stretches along the shore.
+Open Field (-15, -46)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1013623,10 +1013623,10 @@ D3
 0 0 146184
 S
 #146186
-Beach (-22, -52)~
-   Sandy beach stretches along the shore.
+Open Field (-22, -52)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1013645,10 +1013645,10 @@ D3
 0 0 146185
 S
 #146187
-Beach (-21, -52)~
-   Sandy beach stretches along the shore.
+Open Field (-21, -52)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1019247,10 +1019247,10 @@ D3
 0 0 146440
 S
 #146442
-Beach (-22, -53)~
-   Sandy beach stretches along the shore.
+Open Field (-22, -53)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1019269,10 +1019269,10 @@ D3
 0 0 146441
 S
 #146443
-Beach (-21, -53)~
-   Sandy beach stretches along the shore.
+Open Field (-21, -53)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1019291,10 +1019291,10 @@ D3
 0 0 146442
 S
 #146444
-Beach (-20, -53)~
-   Sandy beach stretches along the shore.
+Open Field (-20, -53)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1019313,10 +1019313,10 @@ D3
 0 0 146443
 S
 #146445
-Beach (-19, -53)~
-   Sandy beach stretches along the shore.
+Open Field (-19, -53)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1019335,10 +1019335,10 @@ D3
 0 0 146444
 S
 #146446
-Beach (-18, -53)~
-   Sandy beach stretches along the shore.
+Open Field (-18, -53)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1024849,10 +1024849,10 @@ D3
 0 0 146695
 S
 #146697
-Beach (-23, -54)~
-   Sandy beach stretches along the shore.
+Open Field (-23, -54)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1024871,10 +1024871,10 @@ D3
 0 0 146696
 S
 #146698
-Beach (-22, -54)~
-   Sandy beach stretches along the shore.
+Open Field (-22, -54)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1024893,10 +1024893,10 @@ D3
 0 0 146697
 S
 #146699
-Beach (-21, -54)~
-   Sandy beach stretches along the shore.
+Open Field (-21, -54)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1024915,10 +1024915,10 @@ D3
 0 0 146698
 S
 #146700
-Beach (-20, -54)~
-   Sandy beach stretches along the shore.
+Open Field (-20, -54)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1024959,10 +1024959,10 @@ D3
 0 0 146700
 S
 #146702
-Beach (-18, -54)~
-   Sandy beach stretches along the shore.
+Open Field (-18, -54)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1030473,10 +1030473,10 @@ D3
 0 0 146951
 S
 #146953
-Beach (-23, -55)~
-   Sandy beach stretches along the shore.
+Open Field (-23, -55)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1030495,10 +1030495,10 @@ D3
 0 0 146952
 S
 #146954
-Beach (-22, -55)~
-   Sandy beach stretches along the shore.
+Open Field (-22, -55)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1030517,10 +1030517,10 @@ D3
 0 0 146953
 S
 #146955
-Beach (-21, -55)~
-   Sandy beach stretches along the shore.
+Open Field (-21, -55)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1030539,10 +1030539,10 @@ D3
 0 0 146954
 S
 #146956
-Beach (-20, -55)~
-   Sandy beach stretches along the shore.
+Open Field (-20, -55)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1030605,10 +1030605,10 @@ D3
 0 0 146957
 S
 #146959
-Beach (-17, -55)~
-   Sandy beach stretches along the shore.
+Open Field (-17, -55)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1036097,10 +1036097,10 @@ D3
 0 0 147207
 S
 #147209
-Beach (-23, -56)~
-   Sandy beach stretches along the shore.
+Open Field (-23, -56)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1036119,10 +1036119,10 @@ D3
 0 0 147208
 S
 #147210
-Beach (-22, -56)~
-   Sandy beach stretches along the shore.
+Open Field (-22, -56)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1036163,10 +1036163,10 @@ D3
 0 0 147210
 S
 #147212
-Beach (-20, -56)~
-   Sandy beach stretches along the shore.
+Open Field (-20, -56)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1036207,10 +1036207,10 @@ D3
 0 0 147212
 S
 #147214
-Beach (-18, -56)~
-   Sandy beach stretches along the shore.
+Open Field (-18, -56)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1036229,10 +1036229,10 @@ D3
 0 0 147213
 S
 #147215
-Beach (-17, -56)~
-   Sandy beach stretches along the shore.
+Open Field (-17, -56)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1041743,10 +1041743,10 @@ D3
 0 0 147464
 S
 #147466
-Beach (-22, -57)~
-   Sandy beach stretches along the shore.
+Open Field (-22, -57)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1041765,10 +1041765,10 @@ D3
 0 0 147465
 S
 #147467
-Beach (-21, -57)~
-   Sandy beach stretches along the shore.
+Open Field (-21, -57)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1041787,10 +1041787,10 @@ D3
 0 0 147466
 S
 #147468
-Beach (-20, -57)~
-   Sandy beach stretches along the shore.
+Open Field (-20, -57)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1041809,10 +1041809,10 @@ D3
 0 0 147467
 S
 #147469
-Beach (-19, -57)~
-   Sandy beach stretches along the shore.
+Open Field (-19, -57)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1041831,10 +1041831,10 @@ D3
 0 0 147468
 S
 #147470
-Beach (-18, -57)~
-   Sandy beach stretches along the shore.
+Open Field (-18, -57)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1042271,10 +1042271,10 @@ D3
 0 0 147488
 S
 #147490
-Open Field (2, -57)~
-   Open grassland stretches out in all directions.
+Ocean (2, -57)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -1098709,10 +1098709,10 @@ D3
 0 0 150057
 S
 #150059
-Open Field (11, -67)~
-   Open grassland stretches out in all directions.
+Ocean (11, -67)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -1143129,10 +1143129,10 @@ D3
 0 0 152079
 S
 #152081
-Beach (-15, -75)~
-   Sandy beach stretches along the shore.
+Open Field (-15, -75)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1143151,10 +1143151,10 @@ D3
 0 0 152080
 S
 #152082
-Beach (-14, -75)~
-   Sandy beach stretches along the shore.
+Open Field (-14, -75)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1176719,10 +1176719,10 @@ D3
 0 0 153608
 S
 #153610
-Beach (-22, -81)~
-   Sandy beach stretches along the shore.
+Open Field (-22, -81)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1176741,10 +1176741,10 @@ D3
 0 0 153609
 S
 #153611
-Beach (-21, -81)~
-   Sandy beach stretches along the shore.
+Open Field (-21, -81)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1176763,10 +1176763,10 @@ D3
 0 0 153610
 S
 #153612
-Beach (-20, -81)~
-   Sandy beach stretches along the shore.
+Open Field (-20, -81)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1182299,10 +1182299,10 @@ D3
 0 0 153862
 S
 #153864
-Beach (-24, -82)~
-   Sandy beach stretches along the shore.
+Open Field (-24, -82)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1182321,10 +1182321,10 @@ D3
 0 0 153863
 S
 #153865
-Beach (-23, -82)~
-   Sandy beach stretches along the shore.
+Open Field (-23, -82)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1184213,10 +1184213,10 @@ D3
 0 0 153949
 S
 #153951
-Open Field (63, -82)~
-   Open grassland stretches out in all directions.
+Ocean (63, -82)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -1187901,10 +1187901,10 @@ D3
 0 0 154117
 S
 #154119
-Beach (-25, -83)~
-   Sandy beach stretches along the shore.
+Open Field (-25, -83)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1187923,10 +1187923,10 @@ D3
 0 0 154118
 S
 #154120
-Beach (-24, -83)~
-   Sandy beach stretches along the shore.
+Open Field (-24, -83)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1188011,10 +1188011,10 @@ D3
 0 0 154122
 S
 #154124
-Beach (-20, -83)~
-   Sandy beach stretches along the shore.
+Open Field (-20, -83)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1193525,10 +1193525,10 @@ D3
 0 0 154373
 S
 #154375
-Beach (-25, -84)~
-   Sandy beach stretches along the shore.
+Open Field (-25, -84)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1199171,10 +1199171,10 @@ D3
 0 0 154630
 S
 #154632
-Beach (-24, -85)~
-   Sandy beach stretches along the shore.
+Open Field (-24, -85)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1204773,10 +1204773,10 @@ D3
 0 0 154885
 S
 #154887
-Beach (-25, -86)~
-   Sandy beach stretches along the shore.
+Open Field (-25, -86)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1204795,10 +1204795,10 @@ D3
 0 0 154886
 S
 #154888
-Beach (-24, -86)~
-   Sandy beach stretches along the shore.
+Open Field (-24, -86)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1206247,10 +1206247,10 @@ D3
 0 0 154952
 S
 #154954
-Beach (42, -86)~
-   Sandy beach stretches along the shore.
+Open Field (42, -86)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1210419,10 +1210419,10 @@ D3
 0 0 155142
 S
 #155144
-Beach (-24, -87)~
-   Sandy beach stretches along the shore.
+Open Field (-24, -87)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1210441,10 +1210441,10 @@ D3
 0 0 155143
 S
 #155145
-Beach (-23, -87)~
-   Sandy beach stretches along the shore.
+Open Field (-23, -87)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1211189,10 +1211189,10 @@ D3
 0 0 155177
 S
 #155179
-Open Field (11, -87)~
-   Open grassland stretches out in all directions.
+Ocean (11, -87)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -1211893,10 +1211893,10 @@ D3
 0 0 155209
 S
 #155211
-Beach (43, -87)~
-   Sandy beach stretches along the shore.
+Open Field (43, -87)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1211915,10 +1211915,10 @@ D3
 0 0 155210
 S
 #155212
-Beach (44, -87)~
-   Sandy beach stretches along the shore.
+Open Field (44, -87)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1212003,10 +1212003,10 @@ D3
 0 0 155214
 S
 #155216
-Beach (48, -87)~
-   Sandy beach stretches along the shore.
+Open Field (48, -87)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1217451,10 +1217451,10 @@ D3
 0 0 155462
 S
 #155464
-Beach (40, -88)~
-   Sandy beach stretches along the shore.
+Open Field (40, -88)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1217495,10 +1217495,10 @@ D3
 0 0 155464
 S
 #155466
-Beach (42, -88)~
-   Sandy beach stretches along the shore.
+Open Field (42, -88)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1217517,10 +1217517,10 @@ D3
 0 0 155465
 S
 #155467
-Beach (43, -88)~
-   Sandy beach stretches along the shore.
+Open Field (43, -88)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1217539,10 +1217539,10 @@ D3
 0 0 155466
 S
 #155468
-Beach (44, -88)~
-   Sandy beach stretches along the shore.
+Open Field (44, -88)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1217561,10 +1217561,10 @@ D3
 0 0 155467
 S
 #155469
-Beach (45, -88)~
-   Sandy beach stretches along the shore.
+Open Field (45, -88)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1217583,10 +1217583,10 @@ D3
 0 0 155468
 S
 #155470
-Beach (46, -88)~
-   Sandy beach stretches along the shore.
+Open Field (46, -88)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1217627,10 +1217627,10 @@ D3
 0 0 155470
 S
 #155472
-Beach (48, -88)~
-   Sandy beach stretches along the shore.
+Open Field (48, -88)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1217649,10 +1217649,10 @@ D3
 0 0 155471
 S
 #155473
-Beach (49, -88)~
-   Sandy beach stretches along the shore.
+Open Field (49, -88)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1217671,10 +1217671,10 @@ D3
 0 0 155472
 S
 #155474
-Beach (50, -88)~
-   Sandy beach stretches along the shore.
+Open Field (50, -88)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1223075,10 +1223075,10 @@ D3
 0 0 155718
 S
 #155720
-Beach (40, -89)~
-   Sandy beach stretches along the shore.
+Open Field (40, -89)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1223163,10 +1223163,10 @@ D3
 0 0 155722
 S
 #155724
-Beach (44, -89)~
-   Sandy beach stretches along the shore.
+Open Field (44, -89)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1223251,10 +1223251,10 @@ D3
 0 0 155726
 S
 #155728
-Beach (48, -89)~
-   Sandy beach stretches along the shore.
+Open Field (48, -89)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1223273,10 +1223273,10 @@ D3
 0 0 155727
 S
 #155729
-Beach (49, -89)~
-   Sandy beach stretches along the shore.
+Open Field (49, -89)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1223295,10 +1223295,10 @@ D3
 0 0 155728
 S
 #155730
-Beach (50, -89)~
-   Sandy beach stretches along the shore.
+Open Field (50, -89)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1223625,10 +1223625,10 @@ D3
 0 0 155743
 S
 #155745
-Open Field (65, -89)~
-   Open grassland stretches out in all directions.
+Ocean (65, -89)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -1226609,10 +1226609,10 @@ D3
 0 0 155879
 S
 #155881
-Open Field (-55, -90)~
-   Open grassland stretches out in all directions.
+Ocean (-55, -90)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -1228699,10 +1228699,10 @@ D3
 0 0 155974
 S
 #155976
-Beach (40, -90)~
-   Sandy beach stretches along the shore.
+Open Field (40, -90)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1228721,10 +1228721,10 @@ D3
 0 0 155975
 S
 #155977
-Beach (41, -90)~
-   Sandy beach stretches along the shore.
+Open Field (41, -90)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1228787,10 +1228787,10 @@ D3
 0 0 155978
 S
 #155980
-Beach (44, -90)~
-   Sandy beach stretches along the shore.
+Open Field (44, -90)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1228809,10 +1228809,10 @@ D3
 0 0 155979
 S
 #155981
-Beach (45, -90)~
-   Sandy beach stretches along the shore.
+Open Field (45, -90)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1228831,10 +1228831,10 @@ D3
 0 0 155980
 S
 #155982
-Beach (46, -90)~
-   Sandy beach stretches along the shore.
+Open Field (46, -90)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1228875,10 +1228875,10 @@ D3
 0 0 155982
 S
 #155984
-Beach (48, -90)~
-   Sandy beach stretches along the shore.
+Open Field (48, -90)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1228897,10 +1228897,10 @@ D3
 0 0 155983
 S
 #155985
-Beach (49, -90)~
-   Sandy beach stretches along the shore.
+Open Field (49, -90)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1228919,10 +1228919,10 @@ D3
 0 0 155984
 S
 #155986
-Beach (50, -90)~
-   Sandy beach stretches along the shore.
+Open Field (50, -90)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1234411,10 +1234411,10 @@ D3
 0 0 156234
 S
 #156236
-Beach (44, -91)~
-   Sandy beach stretches along the shore.
+Open Field (44, -91)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1234455,10 +1234455,10 @@ D3
 0 0 156236
 S
 #156238
-Beach (46, -91)~
-   Sandy beach stretches along the shore.
+Open Field (46, -91)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1234499,10 +1234499,10 @@ D3
 0 0 156238
 S
 #156240
-Beach (48, -91)~
-   Sandy beach stretches along the shore.
+Open Field (48, -91)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1234521,10 +1234521,10 @@ D3
 0 0 156239
 S
 #156241
-Beach (49, -91)~
-   Sandy beach stretches along the shore.
+Open Field (49, -91)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1234543,10 +1234543,10 @@ D3
 0 0 156240
 S
 #156242
-Beach (50, -91)~
-   Sandy beach stretches along the shore.
+Open Field (50, -91)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1240035,10 +1240035,10 @@ D3
 0 0 156490
 S
 #156492
-Beach (44, -92)~
-   Sandy beach stretches along the shore.
+Open Field (44, -92)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1240123,10 +1240123,10 @@ D3
 0 0 156494
 S
 #156496
-Beach (48, -92)~
-   Sandy beach stretches along the shore.
+Open Field (48, -92)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1245659,10 +1245659,10 @@ D3
 0 0 156746
 S
 #156748
-Beach (44, -93)~
-   Sandy beach stretches along the shore.
+Open Field (44, -93)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1245681,10 +1245681,10 @@ D3
 0 0 156747
 S
 #156749
-Beach (45, -93)~
-   Sandy beach stretches along the shore.
+Open Field (45, -93)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1245747,10 +1245747,10 @@ D3
 0 0 156750
 S
 #156752
-Beach (48, -93)~
-   Sandy beach stretches along the shore.
+Open Field (48, -93)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1246077,10 +1246077,10 @@ D3
 0 0 156765
 S
 #156767
-Open Field (63, -93)~
-   Open grassland stretches out in all directions.
+Ocean (63, -93)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -1246121,10 +1246121,10 @@ D3
 0 0 156767
 S
 #156769
-Open Field (65, -93)~
-   Open grassland stretches out in all directions.
+Ocean (65, -93)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -1251305,10 +1251305,10 @@ D3
 0 0 157003
 S
 #157005
-Beach (45, -94)~
-   Sandy beach stretches along the shore.
+Open Field (45, -94)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1251371,10 +1251371,10 @@ D3
 0 0 157006
 S
 #157008
-Beach (48, -94)~
-   Sandy beach stretches along the shore.
+Open Field (48, -94)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1251393,10 +1251393,10 @@ D3
 0 0 157007
 S
 #157009
-Beach (49, -94)~
-   Sandy beach stretches along the shore.
+Open Field (49, -94)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1256951,10 +1256951,10 @@ D3
 0 0 157260
 S
 #157262
-Beach (46, -95)~
-   Sandy beach stretches along the shore.
+Open Field (46, -95)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1256973,10 +1256973,10 @@ D3
 0 0 157261
 S
 #157263
-Beach (47, -95)~
-   Sandy beach stretches along the shore.
+Open Field (47, -95)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1279843,10 +1279843,10 @@ D3
 0 0 158302
 S
 #158304
-Open Field (64, -99)~
-   Open grassland stretches out in all directions.
+Beach (64, -99)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -1279865,10 +1279865,10 @@ D3
 0 0 158303
 S
 #158305
-Open Field (65, -99)~
-   Open grassland stretches out in all directions.
+Beach (65, -99)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -1285533,10 +1285533,10 @@ D3
 0 0 158561
 S
 #158563
-Open Field (67, -100)~
-   Open grassland stretches out in all directions.
+Ocean (67, -100)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -1293767,10 +1293767,10 @@ D3
 0 0 158936
 S
 #158938
-Open Field (-70, -102)~
-   Open grassland stretches out in all directions.
+Beach (-70, -102)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -1296605,10 +1296605,10 @@ D3
 0 0 159065
 S
 #159067
-Beach (59, -102)~
-   Sandy beach stretches along the shore.
+Open Field (59, -102)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1299413,10 +1299413,10 @@ D3
 0 0 159193
 S
 #159195
-Open Field (-69, -103)~
-   Open grassland stretches out in all directions.
+Beach (-69, -103)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -1304971,10 +1304971,10 @@ D3
 0 0 159446
 S
 #159448
-Open Field (-72, -104)~
-   Open grassland stretches out in all directions.
+Beach (-72, -104)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -1313433,10 +1313433,10 @@ D3
 0 0 159831
 S
 #159833
-Beach (57, -105)~
-   Sandy beach stretches along the shore.
+Open Field (57, -105)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1316241,10 +1316241,10 @@ D3
 0 0 159959
 S
 #159961
-Open Field (-71, -106)~
-   Open grassland stretches out in all directions.
+Beach (-71, -106)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -1316373,10 +1316373,10 @@ D3
 0 0 159965
 S
 #159967
-Open Field (-65, -106)~
-   Open grassland stretches out in all directions.
+Beach (-65, -106)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -1319189,10 +1319189,10 @@ D3
 0 0 160093
 S
 #160095
-Open Field (63, -106)~
-   Open grassland stretches out in all directions.
+Ocean (63, -106)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -1321887,10 +1321887,10 @@ D3
 0 0 160216
 S
 #160218
-Open Field (-70, -107)~
-   Open grassland stretches out in all directions.
+Beach (-70, -107)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -1324615,10 +1324615,10 @@ D3
 0 0 160340
 S
 #160342
-Beach (54, -107)~
-   Sandy beach stretches along the shore.
+Open Field (54, -107)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1324637,10 +1324637,10 @@ D3
 0 0 160341
 S
 #160343
-Beach (55, -107)~
-   Sandy beach stretches along the shore.
+Open Field (55, -107)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1327819,10 +1327819,10 @@ D3
 0 0 160486
 S
 #160488
-Open Field (-56, -108)~
-   Open grassland stretches out in all directions.
+Ocean (-56, -108)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -1330239,10 +1330239,10 @@ D3
 0 0 160596
 S
 #160598
-Beach (54, -108)~
-   Sandy beach stretches along the shore.
+Open Field (54, -108)~
+   Open grassland stretches out in all directions.
 ~
-1000 0 0 0 0 15
+1000 0 0 0 0 2
 D0
 ~
 ~
@@ -1333289,10 +1333289,10 @@ D3
 0 0 160735
 S
 #160737
-Open Field (-63, -109)~
-   Open grassland stretches out in all directions.
+Beach (-63, -109)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -1335973,10 +1335973,10 @@ D3
 0 0 160857
 S
 #160859
-Open Field (59, -109)~
-   Open grassland stretches out in all directions.
+Beach (59, -109)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -1338825,10 +1338825,10 @@ D3
 0 0 160987
 S
 #160989
-Open Field (-67, -110)~
-   Open grassland stretches out in all directions.
+Beach (-67, -110)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -1338847,10 +1338847,10 @@ D3
 0 0 160988
 S
 #160990
-Open Field (-66, -110)~
-   Open grassland stretches out in all directions.
+Beach (-66, -110)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -1338891,10 +1338891,10 @@ D3
 0 0 160990
 S
 #160992
-Open Field (-64, -110)~
-   Open grassland stretches out in all directions.
+Beach (-64, -110)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -1341575,10 +1341575,10 @@ D3
 0 0 161112
 S
 #161114
-Open Field (58, -110)~
-   Open grassland stretches out in all directions.
+Beach (58, -110)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -1344493,10 +1344493,10 @@ D3
 0 0 161245
 S
 #161247
-Open Field (-65, -111)~
-   Open grassland stretches out in all directions.
+Ocean (-65, -111)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -1352515,10 +1352515,10 @@ D3
 0 0 161610
 S
 #161612
-Open Field (44, -112)~
-   Open grassland stretches out in all directions.
+Ocean (44, -112)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -1358183,10 +1358183,10 @@ D3
 0 0 161868
 S
 #161870
-Open Field (46, -113)~
-   Open grassland stretches out in all directions.
+Ocean (46, -113)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -1362729,10 +1362729,10 @@ D3
 0 0 162075
 S
 #162077
-Open Field (-3, -114)~
-   Open grassland stretches out in all directions.
+Ocean (-3, -114)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -1363917,10 +1363917,10 @@ D3
 0 0 162129
 S
 #162131
-Open Field (51, -114)~
-   Open grassland stretches out in all directions.
+Beach (51, -114)~
+   Sandy beach stretches along the shore.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 15
 D0
 ~
 ~
@@ -1378743,10 +1378743,10 @@ D3
 0 0 162804
 S
 #162806
-Open Field (-42, -117)~
-   Open grassland stretches out in all directions.
+Ocean (-42, -117)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -1378941,10 +1378941,10 @@ D3
 0 0 162813
 S
 #162815
-Open Field (-33, -117)~
-   Open grassland stretches out in all directions.
+Ocean (-33, -117)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~
@@ -1390101,10 +1390101,10 @@ D3
 0 0 163321
 S
 #163323
-Open Field (-37, -119)~
-   Open grassland stretches out in all directions.
+Ocean (-37, -119)~
+   Vast ocean surrounds you in every direction.
 ~
-1000 0 0 0 0 2
+1000 0 0 0 0 7
 D0
 ~
 ~

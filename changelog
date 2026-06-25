@@ -8,6 +8,17 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 25 2026] - Henque
+  refine: img_to_map coastal cleanup pass
+  - Interior "beach" patches (no ocean/water within 3 tiles) revert to field --
+    removes bright dry clearings that were mis-read as beach inland.
+  - Real beaches get holes filled: field/forest tiles surrounded by beach become
+    beach, so shorelines read as solid sand instead of speckled.
+  - Detached islets (land components below 30 tiles, off the main island) are
+    dropped to ocean.
+  - 1-tile coastal spikes/threads are eroded (a land tile with <=1 land neighbour
+    of 4 becomes ocean), removing needless peninsulas; the main island is preserved.
+  - Regenerated greed_island.txt and zone 1000 (1000.wld/1000.zon).
+[Jun 25 2026] - Henque
   refine: img_to_map terrain classification recalibrated from on-map samples
   - Brightness V (not R-G) now separates hills (light/rust, V>0.60) from mountain
     (dark ridge shadows). Fixes the central "mouth" landmark: light upper lip = hills,

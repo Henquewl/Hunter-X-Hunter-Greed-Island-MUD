@@ -37,7 +37,10 @@ Classification strategy (calibrated against user-marked reference samples):
        identical in average color in this art, so the bias is toward field.
   3. Spatial denoise: small isolated clusters of brown ({h,^}) or forest ({f})
      are flipped to field, removing speckle while keeping real ranges/forests.
-  4. Roads are NOT generated here -- cities and roads will be placed by hand later.
+  4. Coastal cleanup: interior "beach" patches (no water nearby) revert to field;
+     real beaches get their holes filled; detached islets are dropped; 1-tile
+     coastal spikes/threads are eroded so the shoreline isn't ragged.
+  5. Roads are NOT generated here -- cities and roads will be placed by hand later.
 """
 
 import argparse
@@ -75,6 +78,13 @@ HILLS_V     = 0.60   # within brown: V above -> hills (light), else mountain (da
 FOREST_DARK = 0.18   # min fraction of dark canopy-shadow pixels in a block -> forest
 MIN_BROWN   = 14     # connected {h,^} clusters smaller than this -> field
 MIN_FOREST  = 8      # connected {f}  clusters smaller than this -> field
+
+# Coastal cleanup (post-processing) tunables
+INLAND_BEACH_RADIUS = 3   # beach with no ocean/water within this Chebyshev radius -> field
+FILL_BEACH_ITERS    = 2   # passes of: field/forest mostly surrounded by beach -> beach
+FILL_BEACH_THRESH   = 4   # min beach neighbours (of 8) to absorb a field/forest tile
+ISLET_MIN           = 30  # land components smaller than this (not the main island) -> ocean
+ERODE_MAXLAND       = 1   # land tile with <= this many land neighbours (of 4) -> ocean (tips/threads)
 
 # ---------------------------------------------------------------------------
 # Priority weights for per-pixel voting
@@ -208,6 +218,96 @@ def denoise_clusters(grid, members, min_size, replace='.'):
 
 
 # ---------------------------------------------------------------------------
+# Coastal cleanup helpers (operate on a list-of-lists grid, in place)
+# ---------------------------------------------------------------------------
+LAND_CHARS  = set('.fh^b')   # everything that is dry land (incl. beach)
+WATER_CHARS = set('~=')      # ocean + lakes/rivers
+N8 = ((-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1))
+N4 = ((-1, 0), (1, 0), (0, -1), (0, 1))
+
+
+def _count_neighbours(grid, r, c, members, offsets):
+    n = 0
+    for dr, dc in offsets:
+        nr, nc = r + dr, c + dc
+        if 0 <= nr < GRID and 0 <= nc < GRID and grid[nr][nc] in members:
+            n += 1
+    return n
+
+
+def remove_inland_beach(grid, radius):
+    """Beach tiles with no ocean/water within `radius` (Chebyshev) -> field.
+    Removes bright/dry interior patches mis-read as beach."""
+    chg = []
+    for r in range(GRID):
+        for c in range(GRID):
+            if grid[r][c] != 'b':
+                continue
+            near_water = False
+            for dr in range(-radius, radius + 1):
+                for dc in range(-radius, radius + 1):
+                    nr, nc = r + dr, c + dc
+                    if 0 <= nr < GRID and 0 <= nc < GRID and grid[nr][nc] in WATER_CHARS:
+                        near_water = True
+                        break
+                if near_water:
+                    break
+            if not near_water:
+                chg.append((r, c))
+    for r, c in chg:
+        grid[r][c] = '.'
+
+
+def fill_beach_holes(grid, iters, thresh):
+    """field/forest tiles surrounded by enough beach -> beach (closes holes in beaches)."""
+    for _ in range(iters):
+        chg = [(r, c) for r in range(GRID) for c in range(GRID)
+               if grid[r][c] in '.f'
+               and _count_neighbours(grid, r, c, {'b'}, N8) >= thresh]
+        for r, c in chg:
+            grid[r][c] = 'b'
+
+
+def remove_small_islands(grid, min_size):
+    """All land components except the largest, if smaller than min_size, -> ocean."""
+    from collections import deque
+    seen = [[False] * GRID for _ in range(GRID)]
+    comps = []
+    for i in range(GRID):
+        for j in range(GRID):
+            if seen[i][j] or grid[i][j] not in LAND_CHARS:
+                continue
+            comp = []
+            q = deque([(i, j)])
+            seen[i][j] = True
+            while q:
+                y, x = q.popleft()
+                comp.append((y, x))
+                for dr, dc in N8:
+                    ny, nx = y + dr, x + dc
+                    if (0 <= ny < GRID and 0 <= nx < GRID
+                            and not seen[ny][nx] and grid[ny][nx] in LAND_CHARS):
+                        seen[ny][nx] = True
+                        q.append((ny, nx))
+            comps.append(comp)
+    comps.sort(key=len, reverse=True)
+    for comp in comps[1:]:            # keep the largest (the main island)
+        if len(comp) < min_size:
+            for y, x in comp:
+                grid[y][x] = '~'
+
+
+def erode_tips(grid, max_land):
+    """One pass: land tiles with <= max_land land neighbours (of 4) -> ocean.
+    Trims 1-tile spikes and threads without shrinking solid masses."""
+    chg = [(r, c) for r in range(GRID) for c in range(GRID)
+           if grid[r][c] in LAND_CHARS
+           and _count_neighbours(grid, r, c, LAND_CHARS, N4) <= max_land]
+    for r, c in chg:
+        grid[r][c] = '~'
+
+
+# ---------------------------------------------------------------------------
 # Grid conversion
 # ---------------------------------------------------------------------------
 
@@ -295,6 +395,13 @@ def img_to_grid(im):
     # --- Spatial denoise: small brown/forest specks -> field ---
     denoise_clusters(grid, {'h', '^'}, MIN_BROWN)
     denoise_clusters(grid, {'f'},      MIN_FOREST)
+
+    # --- Coastal cleanup ---
+    remove_inland_beach(grid, INLAND_BEACH_RADIUS)   # interior "beach" patches -> field
+    fill_beach_holes(grid, FILL_BEACH_ITERS, FILL_BEACH_THRESH)  # close holes in real beaches
+    remove_small_islands(grid, ISLET_MIN)            # drop detached islets
+    erode_tips(grid, ERODE_MAXLAND)                  # trim 1-tile spikes / threads
+    remove_small_islands(grid, ISLET_MIN)            # re-drop islets erosion may have split off
 
     return [''.join(row) for row in grid]
 
