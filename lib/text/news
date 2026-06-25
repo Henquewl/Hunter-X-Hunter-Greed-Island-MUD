@@ -7,6 +7,12 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 
 == 2026 ==
 
+JUN 25 **
+- World map access-point tiles now display distinct glyphs: Port (P), City
+  entrance (C), Mystery site (?), Island start (S), and Island leave (L).
+- Field and Forest terrain colors have been swapped on the map for better
+  visual distinction.
+
 JUN 24 **
 - The map and minimap now scale with your character level, showing a wider
   area as you progress. The map legend now appears below the map.

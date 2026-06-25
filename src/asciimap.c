@@ -121,19 +121,19 @@ static struct map_info_type map_info[] =
 {
   { SECT_INSIDE,       "\tc[\ty.\tc]\tn"  }, /* 0 */
   { SECT_CITY,         "\tc[\tW.\tc]\tn"  },
-  { SECT_FIELD,        "\tc[\tg.\tc]\tn"  },
-  { SECT_FOREST,       "\tc[\tG.\tc]\tn"  },
+  { SECT_FIELD,        "\tc[\tG.\tc]\tn"  },
+  { SECT_FOREST,       "\tc[\tg.\tc]\tn"  },
   { SECT_HILLS,        "\tc[\ty^\tc]\tn"  },
   { SECT_MOUNTAIN,     "\tc[\tD^\tc]\tn"  }, /* 5 */
   { SECT_WATER_SWIM,   "\tc[\tB~\tc]\tn"  },
   { SECT_WATER_NOSWIM, "\tc[\tb~\tc]\tn"  },
   { SECT_FLYING,       "\tc[\tW~\tc]\tn"  },
   { SECT_UNDERWATER,   "\tc[\tD~\tc]\tn"  },
-  { SECT_PORT,         "\tc[\tD@\tc]\tn"  },  /* 10 */
-  { SECT_CITYENT,      "\tc[\tg@\tc]\tn"  },
-  { SECT_MYSTERY,      "\tc[\ty|\tc]\tn"  },
-  { SECT_START,        ""        },
-  { SECT_LEAVE,        ""        },
+  { SECT_PORT,         "\tc[\tYP\tc]\tn"  },  /* 10 */
+  { SECT_CITYENT,      "\tc[\tYC\tc]\tn"  },
+  { SECT_MYSTERY,      "\tc[\tg?\tc]\tn"  },
+  { SECT_START,        "\tc[\tYS\tc]\tn"  },
+  { SECT_LEAVE,        "\tc[\tYL\tc]\tn"  },
   { -1,                ""        }, /* 15 */
   { -1,                ""        },
   { -1,                ""        },
@@ -163,19 +163,19 @@ static struct map_info_type world_map_info[] =
 {
   { SECT_INSIDE,       "\ty."  }, /* 0 */
   { SECT_CITY,         "\tW."  },
-  { SECT_FIELD,        "\tg."  },
-  { SECT_FOREST,       "\tG."  },
+  { SECT_FIELD,        "\tG."  },
+  { SECT_FOREST,       "\tg."  },
   { SECT_HILLS,        "\ty^"  },
   { SECT_MOUNTAIN,     "\tD^"  }, /* 5 */
   { SECT_WATER_SWIM,   "\tB~"  },
   { SECT_WATER_NOSWIM, "\tb~"  },
   { SECT_FLYING,       "\tW~"  },
   { SECT_UNDERWATER,   "\tD~"  },
-  { SECT_PORT,         "\tD@"  },  /* 10 */
-  { SECT_CITYENT,      "\tg@"  },
-  { SECT_MYSTERY,      "\ty|"  },
-  { SECT_START,        ""     },
-  { SECT_LEAVE,        ""     },
+  { SECT_PORT,         "\tYP"  },  /* 10 */
+  { SECT_CITYENT,      "\tYC"  },
+  { SECT_MYSTERY,      "\tg?"  },
+  { SECT_START,        "\tYS"  },
+  { SECT_LEAVE,        "\tYL"  },
   { -1,                ""     }, /* 15 */
   { -1,                ""     },
   { -1,                ""     },
@@ -300,12 +300,10 @@ static void MapArea(room_rnum room, struct char_data *ch, int x, int y, int min,
 	map[x][y] = SECT_DARK;
   else if (room == IN_ROOM(ch))
     map[x][y] = SECT_HERE;
-  else if (ROOM_FLAGGED(room, ROOM_PEACEFUL))
+  else if (ROOM_FLAGGED(room, ROOM_PEACEFUL) && !IS_ENTRY_POINT_SECT(SECT(room)))
 	map[x][y] = SECT_SAFE;
-  else if (ROOM_FLAGGED(room, ROOM_CRATER))
-	map[x][y] = SECT_PORT;
   else
-    map[x][y] = SECT(room);	 
+    map[x][y] = SECT(room);
   
   if (world[room].people) {
 	  for (player = world[room].people; player; player = player->next_in_room) {
@@ -664,7 +662,7 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
       ldisp[ln]=world_map_info[SECT_EMPTY].disp;       llabel[ln++]="Wilderness";
       ldisp[ln]=world_map_info[SECT_STRANGE].disp;     llabel[ln++]="Displaced";
       ldisp[ln]=world_map_info[SECT_INSIDE].disp;      llabel[ln++]="Place";
-      ldisp[ln]=world_map_info[SECT_CITY].disp;        llabel[ln++]="City";
+      ldisp[ln]=world_map_info[SECT_CITY].disp;        llabel[ln++]="Road";
       ldisp[ln]=world_map_info[SECT_FIELD].disp;       llabel[ln++]="Field";
       ldisp[ln]=world_map_info[SECT_FOREST].disp;      llabel[ln++]="Forest";
       ldisp[ln]=world_map_info[SECT_HILLS].disp;       llabel[ln++]="Hills";
@@ -676,6 +674,8 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
       ldisp[ln]=world_map_info[SECT_PORT].disp;         llabel[ln++]="Port";
       ldisp[ln]=world_map_info[SECT_CITYENT].disp;     llabel[ln++]="City";
       ldisp[ln]=world_map_info[SECT_MYSTERY].disp;     llabel[ln++]="Entrance";
+      ldisp[ln]=world_map_info[SECT_START].disp;       llabel[ln++]="Start";
+      ldisp[ln]=world_map_info[SECT_LEAVE].disp;       llabel[ln++]="Leave";
     } else {
       ldisp[ln]=door_info[NUM_DOOR_TYPES + DOOR_UP].disp;   llabel[ln++]="Up";
       ldisp[ln]=door_info[NUM_DOOR_TYPES + DOOR_DOWN].disp; llabel[ln++]="Down";
@@ -699,6 +699,8 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
       ldisp[ln]=map_info[SECT_PORT].disp;         llabel[ln++]="Port";
       ldisp[ln]=map_info[SECT_CITYENT].disp;     llabel[ln++]="City";
       ldisp[ln]=map_info[SECT_MYSTERY].disp;     llabel[ln++]="Entrance";
+      ldisp[ln]=map_info[SECT_START].disp;       llabel[ln++]="Start";
+      ldisp[ln]=map_info[SECT_LEAVE].disp;       llabel[ln++]="Leave";
     }
 
     cols = (GET_SCREEN_WIDTH(ch) >= 80) ? 4 : 2;

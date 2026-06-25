@@ -8,6 +8,16 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 25 2026] - Henque
+  Worldmap access-point sector visuals (task 2/2):
+  - SECT_PORT/CITYENT/MYSTERY/START/LEAVE: assigned final glyphs (P/C/?/S/L)
+    in bright yellow (\tY) or dark green (\tg) in both map_info[] and world_map_info[].
+  - Inverted FIELD/FOREST colors: FIELD now bright green (\tG), FOREST dark green (\tg).
+  - Legend: worldmap "City" label for SECT_CITY renamed to "Road"; Start and Leave
+    entries added to both worldmap and normal legend blocks.
+  - Removed dead ROOM_CRATER render branch from MapArea() in asciimap.c.
+  - Added IS_ENTRY_POINT_SECT(s) macro to utils.h covering all five point sectors.
+  - Peaceful render override now skips entry-point sectors so P/C/S/L glyphs show.
+[Jun 25 2026] - Henque
   Worldmap access-point sector types (task 1/2):
   - Renamed retired sectors SECT_CRATER/SECT_TREE/SECT_TRUNK (10-12) to
     SECT_PORT/SECT_CITYENT/SECT_MYSTERY in structs.h.
