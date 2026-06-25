@@ -77,6 +77,8 @@ SECT = {
     '?': 12,  # SECT_MYSTERY
     'S': 13,  # SECT_START
     'L': 14,  # SECT_LEAVE
+    'b': 15,  # SECT_BEACH
+    'r': 1,   # SECT_CITY  (Road)
 }
 
 # Sector names for room descriptions
@@ -92,6 +94,8 @@ SECT_NAME = {
     '?': "Mysterious Entrance",
     'S': "Start Point",
     'L': "Leave Point",
+    'b': "Beach",
+    'r': "Road",
 }
 
 # Direction indices used in TbaMUD world files
@@ -174,6 +178,10 @@ def room_desc(tile, row, col):
         return "   The lights of a nearby city are visible.\n"
     elif tile == '?':
         return "   A strange mysterious entrance lies before you.\n"
+    elif tile == 'b':
+        return "   Sandy beach stretches along the shore.\n"
+    elif tile == 'r':
+        return "   A dusty road winds through the landscape.\n"
     return "   Greed Island stretches around you.\n"
 
 def is_border(row, col):

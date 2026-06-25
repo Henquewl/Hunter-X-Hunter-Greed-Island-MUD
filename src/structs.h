@@ -135,8 +135,9 @@
 #define SECT_MYSTERY	     	12		/**< Mysterious entrance access point */
 #define SECT_START	     	13		/**< Start point access point	*/
 #define SECT_LEAVE	     	14		/**< Leave point access point	*/
+#define SECT_BEACH	     	15		/**< Sandy beach terrain		*/
 /** The total number of room Sector Types */
-#define NUM_ROOM_SECTORS  15
+#define NUM_ROOM_SECTORS  16
 
 /* char and mob-related defines */
 

@@ -8,6 +8,20 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 25 2026] - Henque
+  feat: complete worldmap remaster from official Greed Island map PNG
+  - tools/img_to_map.py (new): converts Greed_Island_Map_29.png to greed_island.txt
+    using block-average classification and per-pixel priority voting for thin features;
+    preserves island aspect ratio (0.707) with island centered in rows 2-253 / cols 39-216.
+  - src/structs.h: added SECT_BEACH (15), bumped NUM_ROOM_SECTORS to 16.
+  - src/constants.c: added "Beach" to sector_types[], movement_loss entry (2).
+  - src/asciimap.c: SECT_BEACH slot 15 in map_info (cyan brackets, dark-yellow dot)
+    and world_map_info (dark-yellow dot \ty.); Beach added to perform_map legend;
+    ldisp/llabel arrays bumped to 26 entries.
+  - tools/gen_worldmap.py: registered 'b' (SECT_BEACH) and 'r' (SECT_CITY/Road).
+  - lib/world/map/greed_island.txt: fully regenerated (field, forest, hills, mountain,
+    water, beach, road, ocean; 0 access points -- S/L/P/C/? placed separately).
+  - lib/world/wld/1000.wld, lib/world/zon/1000.zon: regenerated (65536 rooms, ~10.7 MB).
+[Jun 25 2026] - Henque
   fix: gen_worldmap now emits a keyword string (start/leave/port/city/entrance)
   on the D5 portal exit for each access-point tile; previously the keyword line
   was bare `~`, so TbaMUD's do_enter keyword loop skipped it and `enter port`

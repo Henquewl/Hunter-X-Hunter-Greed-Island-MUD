@@ -134,7 +134,7 @@ static struct map_info_type map_info[] =
   { SECT_MYSTERY,      "\tc[\tg?\tc]\tn"  },
   { SECT_START,        "\tc[\tYS\tc]\tn"  },
   { SECT_LEAVE,        "\tc[\tYL\tc]\tn"  },
-  { -1,                ""        }, /* 15 */
+  { SECT_BEACH,        "\tc[\ty.\tc]\tn"  }, /* 15 */
   { -1,                ""        },
   { -1,                ""        },
   { -1,                ""        },
@@ -176,7 +176,7 @@ static struct map_info_type world_map_info[] =
   { SECT_MYSTERY,      "\tg?"  },
   { SECT_START,        "\tYS"  },
   { SECT_LEAVE,        "\tYL"  },
-  { -1,                ""     }, /* 15 */
+  { SECT_BEACH,        "\ty."  }, /* 15 */
   { -1,                ""     },
   { -1,                ""     },
   { -1,                ""     },
@@ -649,8 +649,8 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
 
   /* Tabular legend below the map */
   {
-    const char *ldisp[24];
-    const char *llabel[24];
+    const char *ldisp[26];
+    const char *llabel[26];
     int ln = 0, i, plen, cols;
     const char *p;
 
@@ -676,6 +676,7 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
       ldisp[ln]=world_map_info[SECT_MYSTERY].disp;     llabel[ln++]="Entrance";
       ldisp[ln]=world_map_info[SECT_START].disp;       llabel[ln++]="Start";
       ldisp[ln]=world_map_info[SECT_LEAVE].disp;       llabel[ln++]="Leave";
+      ldisp[ln]=world_map_info[SECT_BEACH].disp;       llabel[ln++]="Beach";
     } else {
       ldisp[ln]=door_info[NUM_DOOR_TYPES + DOOR_UP].disp;   llabel[ln++]="Up";
       ldisp[ln]=door_info[NUM_DOOR_TYPES + DOOR_DOWN].disp; llabel[ln++]="Down";
@@ -701,6 +702,7 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
       ldisp[ln]=map_info[SECT_MYSTERY].disp;     llabel[ln++]="Entrance";
       ldisp[ln]=map_info[SECT_START].disp;       llabel[ln++]="Start";
       ldisp[ln]=map_info[SECT_LEAVE].disp;       llabel[ln++]="Leave";
+      ldisp[ln]=map_info[SECT_BEACH].disp;       llabel[ln++]="Beach";
     }
 
     cols = (GET_SCREEN_WIDTH(ch) >= 80) ? 4 : 2;

@@ -8,12 +8,13 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 == 2026 ==
 
 JUN 25 **
-- The world map has been updated. City and port locations will be restored
-  at their correct positions in an upcoming update.
+- The Greed Island world map has been remastered from the official map.
+  Terrain is now much more faithful: forests, open fields, mountain ranges,
+  rolling hills, lakes, roads, and sandy beaches are all represented.
+- A new Beach terrain type has been added, visible as yellow dots along
+  coastal areas on the worldmap display.
 - World map access-point tiles now display distinct glyphs: Port (P), City
   entrance (C), Mystery site (?), Island start (S), and Island leave (L).
-- Field and Forest terrain colors have been swapped on the map for better
-  visual distinction.
 
 JUN 24 **
 - The map and minimap now scale with your character level, showing a wider

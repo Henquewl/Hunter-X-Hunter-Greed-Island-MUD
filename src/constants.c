@@ -135,6 +135,7 @@ const char *sector_types[] = {
   "Mysterious Entrance",
   "Start Point",
   "Leave Point",
+  "Beach",
   "\n"
 };
 
@@ -848,7 +849,8 @@ int movement_loss[] =
   1,    /* City Entrance */
   1,    /* Mysterious Entrance */
   1,    /* Start Point */
-  1     /* Leave Point */
+  1,    /* Leave Point */
+  2     /* Beach       */
 };
 
 /** The names of the days of the mud week. Not used in sprinttype(). */
