@@ -7,6 +7,120 @@ https://github.com/tbamud/tbamud
 Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
+[Jun 25 2026] - Henque
+  map: hand-fill the central-south hills "upper lip" that was sparsely populated;
+  regenerated zone 1000 (1000.wld/1000.zon) from the edited greed_island.txt.
+[Jun 25 2026] - Henque
+  refine: mountain/hills placement driven by a hand-marked biome mask
+  - tools/extract_biome_mask.py (new): reads the marked sample
+    (Greed_Island_Map_29_hillvsmountainsample.png; mountains circled red, hills
+    purple), fills each circle's interior and downsamples to tools/biome_mask.txt
+    (256x256 of M/H/.).
+  - tools/biome_mask.txt (new): the generated location authority for high terrain.
+  - img_to_map.py: brown terrain becomes mountain/hills ONLY inside the marked
+    circles (mountain by default, hills in the purple regions); brown outside any
+    circle reverts to field. Enclosed field/forest holes inside a region are filled
+    so ranges read as solid clusters with no field speckle in the middle (only
+    forest may stay dispersed). Color-only brown denoise is now the fallback used
+    only when the mask file is absent.
+  - Net effect: mountains are solid clusters in their real locations across the map;
+    hills are rare (the two central-south spots); the central-south "mouth" reads as
+    hills above / mountain below, as separate biomes.
+  - Regenerated greed_island.txt and zone 1000 (1000.wld/1000.zon).
+[Jun 25 2026] - Henque
+  refine: img_to_map coastal cleanup pass
+  - Interior "beach" patches (no ocean/water within 3 tiles) revert to field --
+    removes bright dry clearings that were mis-read as beach inland.
+  - Real beaches get holes filled: field/forest tiles surrounded by beach become
+    beach, so shorelines read as solid sand instead of speckled.
+  - Detached islets (land components below 30 tiles, off the main island) are
+    dropped to ocean.
+  - 1-tile coastal spikes/threads are eroded (a land tile with <=1 land neighbour
+    of 4 becomes ocean), removing needless peninsulas; the main island is preserved.
+  - Regenerated greed_island.txt and zone 1000 (1000.wld/1000.zon).
+[Jun 25 2026] - Henque
+  refine: img_to_map terrain classification recalibrated from on-map samples
+  - Brightness V (not R-G) now separates hills (light/rust, V>0.60) from mountain
+    (dark ridge shadows). Fixes the central "mouth" landmark: light upper lip = hills,
+    dark lower lip = mountain (was all mountain before).
+  - Weak/coastal browns (R-G <= 15) now fall through to field instead of hills/mountain.
+  - Forest is now conservative: only blocks with a clear fraction of dark canopy-shadow
+    pixels become forest; everything else defaults to field (field/forest are nearly
+    identical in average color in this art). Bias toward field, per design.
+  - Spatial denoise: small isolated brown/forest clusters are flipped to field.
+  - Roads are no longer auto-generated (cities/roads will be placed by hand later);
+    former road pixels become field. Engine 'r'/SECT_CITY mapping retained for manual use.
+  - Regenerated lib/world/map/greed_island.txt and zone 1000 (1000.wld/1000.zon).
+[Jun 25 2026] - Henque
+  feat: complete worldmap remaster from official Greed Island map PNG
+  - tools/img_to_map.py (new): converts Greed_Island_Map_29.png to greed_island.txt
+    using block-average classification and per-pixel priority voting for thin features;
+    preserves island aspect ratio (0.707) with island centered in rows 2-253 / cols 39-216.
+  - src/structs.h: added SECT_BEACH (15), bumped NUM_ROOM_SECTORS to 16.
+  - src/constants.c: added "Beach" to sector_types[], movement_loss entry (2).
+  - src/asciimap.c: SECT_BEACH slot 15 in map_info (cyan brackets, dark-yellow dot)
+    and world_map_info (dark-yellow dot \ty.); Beach added to perform_map legend;
+    ldisp/llabel arrays bumped to 26 entries.
+  - tools/gen_worldmap.py: registered 'b' (SECT_BEACH) and 'r' (SECT_CITY/Road).
+  - lib/world/map/greed_island.txt: fully regenerated (field, forest, hills, mountain,
+    water, beach, road, ocean; 0 access points -- S/L/P/C/? placed separately).
+  - lib/world/wld/1000.wld, lib/world/zon/1000.zon: regenerated (65536 rooms, ~10.7 MB).
+[Jun 25 2026] - Henque
+  fix: gen_worldmap now emits a keyword string (start/leave/port/city/entrance)
+  on the D5 portal exit for each access-point tile; previously the keyword line
+  was bare `~`, so TbaMUD's do_enter keyword loop skipped it and `enter port`
+  etc. always returned "There is no X here."
+[Jun 25 2026] - Henque
+  map: convert #/@ city tiles to field pending final access-point placement;
+  generator now validates cleanly (0 errors).
+[Jun 25 2026] - Henque
+  Worldmap access-point enter (task 3):
+  - do_enter: bare `enter` on a worldmap access-point tile (IS_ENTRY_POINT_SECT)
+    now traverses the DOWN portal exit instead of falling through to ROOM_INDOORS logic.
+  - Sends "You can't find an entrance here." if the DOWN exit is missing or closed.
+[Jun 25 2026] - Henque
+  Worldmap access-point sector visuals (task 2/2):
+  - SECT_PORT/CITYENT/MYSTERY/START/LEAVE: assigned final glyphs (P/C/?/S/L)
+    in bright yellow (\tY) or dark green (\tg) in both map_info[] and world_map_info[].
+  - Inverted FIELD/FOREST colors: FIELD now bright green (\tG), FOREST dark green (\tg).
+  - Legend: worldmap "City" label for SECT_CITY renamed to "Road"; Start and Leave
+    entries added to both worldmap and normal legend blocks.
+  - Removed dead ROOM_CRATER render branch from MapArea() in asciimap.c.
+  - Added IS_ENTRY_POINT_SECT(s) macro to utils.h covering all five point sectors.
+  - Peaceful render override now skips entry-point sectors so P/C/S/L glyphs show.
+[Jun 25 2026] - Henque
+  Worldmap access-point sector types (task 1/2):
+  - Renamed retired sectors SECT_CRATER/SECT_TREE/SECT_TRUNK (10-12) to
+    SECT_PORT/SECT_CITYENT/SECT_MYSTERY in structs.h.
+  - Added SECT_START (13) and SECT_LEAVE (14); NUM_ROOM_SECTORS 13->15.
+  - Updated sector_types[] and movement_loss[] in constants.c.
+  - Updated asciimap.c static tables and legend to use new constant names
+    (symbols are placeholders; full symbol/color pass is task 2).
+[Jun 24 2026] - Henque
+  Map/minimap overhaul:
+  - CANVAS_WIDTH 51->101, CANVAS_HEIGHT 19->33 (MAX_MAP_SIZE now 25).
+  - Map command size formula: 8 + level/6 (capped at MAX_MAP_SIZE=25).
+  - Minimap (automap) size formula: 4 + level/10 (capped at MAX_MAP_SIZE=25).
+    Minimap is also capped to fit the player's screen width.
+  - Legend moved from left-of-map column to a tabular (4-column) layout
+    below the map.
+  - Worldmap room descriptions suppressed (coordinate display moved to
+    below the map, before the exits).
+  - Fixed crashes from the larger canvas: MapArea now bounds-checks map[]
+    writes at the canvas edge, and strfrmt guards memset against a
+    negative width (size that no longer fit the screen).
+  Worldmap movement rules and diagonal navigation:
+  - Ocean (SECT_WATER_NOSWIM and SECT_WATER_SWIM) and Mountain (SECT_MOUNTAIN)
+    are now impassable for mortal players; only imms with NOHASSLE can traverse.
+  - Enabled diagonal directions (NW/NE/SE/SW) globally (diagonal_dirs = YES).
+  - Added D6/D7/D8/D9 diagonal exits to all 65536 rooms in zone 1000 (worldmap)
+    via tools/add_diagonal_exits.py.
+  Bump version to 0.93. Fix crash on login for players with existing save files
+  after IDXTYPE widening (ush_int -> uint32_t): old saves used 65535 as list
+  sentinel (Metp/Metc/Qest/Qdly sections); new NOTHING is UINT32_MAX printed
+  as -1 via %d. Added IS_LIST_SENTINEL macro and bounds checks to load_mets,
+  load_metc, load_quests, load_daily_quests in players.c. New players unaffected.
+
 [Jun 23 2026] - Henque
   worldmap zone 1000 — map generated and integrated:
   - Generated lib/world/wld/1000.wld (65536 rooms, 10.8 MB) and lib/world/zon/1000.zon

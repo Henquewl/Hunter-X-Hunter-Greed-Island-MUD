@@ -32,6 +32,19 @@
 #
 ulimit -c unlimited
 
+MUDDIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$MUDDIR"
+
+if [ ! -x bin/circle ]; then
+  echo "autorun: compiling server..."
+  cd src && make circle CFLAGS=-w
+  if [ $? -ne 0 ]; then
+    echo "autorun: compilation failed, aborting."
+    exit 1
+  fi
+  cd ..
+fi
+
 # The port on which to run the MUD
 PORT=4000
 
@@ -43,6 +56,14 @@ FLAGS='-q'
 
 while ( : ) do
 
+  echo "autorun: regenerating worldmap from greed_island.txt..."
+  python3 tools/gen_worldmap.py >> syslog 2>&1
+  if [ $? -ne 0 ]; then
+    echo "autorun: worldmap generation failed, skipping boot." >> syslog
+    sleep 10
+    continue
+  fi
+
   DATE=`date`
   echo "autorun starting game $DATE" >> syslog
   echo "running bin/circle $FLAGS $PORT" >> syslog
@@ -51,18 +72,18 @@ while ( : ) do
 
   tail -30 syslog > syslog.CRASH
 
-  fgrep "self-delete" syslog >> log/delete
-  fgrep "PCLEAN" syslog >> log/delete
-  fgrep "death trap" syslog >> log/dts
-  fgrep "killed" syslog >> log/rip
-  fgrep "Running" syslog >> log/restarts
-  fgrep "advanced" syslog >> log/levels
-  fgrep "equipment lost" syslog >> log/rentgone
-  fgrep "usage" syslog >> log/usage
-  fgrep "new player" syslog >> log/newplayers
-  fgrep "SYSERR" syslog >> log/errors
-  fgrep "(GC)" syslog >> log/godcmds
-  fgrep "Bad PW" syslog >> log/badpws
+  grep -a "self-delete" syslog >> log/delete
+  grep -a "PCLEAN" syslog >> log/delete
+  grep -a "death trap" syslog >> log/dts
+  grep -a "killed" syslog >> log/rip
+  grep -a "Running" syslog >> log/restarts
+  grep -a "advanced" syslog >> log/levels
+  grep -a "equipment lost" syslog >> log/rentgone
+  grep -a "usage" syslog >> log/usage
+  grep -a "new player" syslog >> log/newplayers
+  grep -a "SYSERR" syslog >> log/errors
+  grep -a "(GC)" syslog >> log/godcmds
+  grep -a "Bad PW" syslog >> log/badpws
 
   rm log/syslog.1
   mv log/syslog.2 log/syslog.1

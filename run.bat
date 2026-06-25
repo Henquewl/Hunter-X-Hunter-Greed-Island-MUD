@@ -8,6 +8,6 @@ echo [GI MUD] Connect using: telnet localhost 4000
 echo [GI MUD] Press Ctrl+C to stop the server.
 echo.
 
-wsl.exe bash "%WSL_ROOT%start.sh"
+wsl.exe bash "%WSL_ROOT%autorun.sh"
 
 pause

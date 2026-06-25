@@ -1006,21 +1006,27 @@ void look_at_room(struct char_data *ch, int ignore_brief)
     send_to_char(ch, "[ Location: %d, %d ]\r\n", col - 128, 128 - row);
   }
 
+
   /* Room descriptions with or without analysis skill */
-  if (IS_NPC(ch) || (!IS_NPC(ch) && !PRF_FLAGGED(ch, PRF_AUTOMAP) && (!PRF_FLAGGED(ch, PRF_BRIEF) || ignore_brief || ROOM_FLAGGED(IN_ROOM(ch), ROOM_DEATH))))
-    send_to_char(ch, "%s", world[IN_ROOM(ch)].description);
-  else if (PRF_FLAGGED(ch, PRF_AUTOMAP)) {
-	if (!PRF_FLAGGED(ch, PRF_BRIEF) || ignore_brief || ROOM_FLAGGED(IN_ROOM(ch), ROOM_DEATH)) {
-	  if (PRF_FLAGGED(ch, PRF_AUTOMAP))
-	    str_and_map(world[target_room].description, ch, target_room, FALSE);
-      else
-		str_and_map(world[target_room].description, ch, target_room, TRUE);
-	} else {
-      if (PRF_FLAGGED(ch, PRF_AUTOMAP))
-		str_and_map("", ch, target_room, FALSE);  
-	  else
-		str_and_map("", ch, target_room, TRUE);
-	}
+  {
+    int in_worldmap = ZONE_FLAGGED(GET_ROOM_ZONE(IN_ROOM(ch)), ZONE_WORLDMAP);
+    if (IS_NPC(ch) || (!IS_NPC(ch) && !PRF_FLAGGED(ch, PRF_AUTOMAP) && (!PRF_FLAGGED(ch, PRF_BRIEF) || ignore_brief || ROOM_FLAGGED(IN_ROOM(ch), ROOM_DEATH)))) {
+      if (!in_worldmap)
+        send_to_char(ch, "%s", world[IN_ROOM(ch)].description);
+    } else if (PRF_FLAGGED(ch, PRF_AUTOMAP)) {
+      char *desc = in_worldmap ? "" : world[target_room].description;
+      if (!PRF_FLAGGED(ch, PRF_BRIEF) || ignore_brief || ROOM_FLAGGED(IN_ROOM(ch), ROOM_DEATH)) {
+        if (PRF_FLAGGED(ch, PRF_AUTOMAP))
+          str_and_map(desc, ch, target_room, FALSE);
+        else
+          str_and_map(desc, ch, target_room, TRUE);
+      } else {
+        if (PRF_FLAGGED(ch, PRF_AUTOMAP))
+          str_and_map("", ch, target_room, FALSE);
+        else
+          str_and_map("", ch, target_room, TRUE);
+      }
+    }
   }
   
 /*  if ((IS_NPC(ch) || GET_SKILL(ch, SKILL_ANALYSIS)) && (IS_NPC(ch) || !PRF_FLAGGED(ch, PRF_AUTOMAP) || !can_see_map(ch))) {
@@ -1047,6 +1053,14 @@ void look_at_room(struct char_data *ch, int ignore_brief)
 	send_to_char(ch, "%s]%s\r\n", CCCYN(ch, C_NRM), CCNRM(ch, C_NRM));
   end:
 */
+  /* Coordinate display on worldmap rooms (zone 1000, vnums 100000-165535) */
+  if (ZONE_FLAGGED(GET_ROOM_ZONE(IN_ROOM(ch)), ZONE_WORLDMAP)) {
+    room_vnum v = GET_ROOM_VNUM(IN_ROOM(ch));
+    int col = (int)((v - 100000) % 256);
+    int row = (int)((v - 100000) / 256);
+    send_to_char(ch, "[ Location: %d, %d ]\r\n", col - 128, 128 - row);
+  }
+
   /* autoexits */
   if (!IS_NPC(ch) && PRF_FLAGGED(ch, PRF_AUTOEXIT))
     do_auto_exits(ch);
