@@ -8,6 +8,19 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 25 2026] - Henque
+  refine: img_to_map terrain classification recalibrated from on-map samples
+  - Brightness V (not R-G) now separates hills (light/rust, V>0.60) from mountain
+    (dark ridge shadows). Fixes the central "mouth" landmark: light upper lip = hills,
+    dark lower lip = mountain (was all mountain before).
+  - Weak/coastal browns (R-G <= 15) now fall through to field instead of hills/mountain.
+  - Forest is now conservative: only blocks with a clear fraction of dark canopy-shadow
+    pixels become forest; everything else defaults to field (field/forest are nearly
+    identical in average color in this art). Bias toward field, per design.
+  - Spatial denoise: small isolated brown/forest clusters are flipped to field.
+  - Roads are no longer auto-generated (cities/roads will be placed by hand later);
+    former road pixels become field. Engine 'r'/SECT_CITY mapping retained for manual use.
+  - Regenerated lib/world/map/greed_island.txt and zone 1000 (1000.wld/1000.zon).
+[Jun 25 2026] - Henque
   feat: complete worldmap remaster from official Greed Island map PNG
   - tools/img_to_map.py (new): converts Greed_Island_Map_29.png to greed_island.txt
     using block-average classification and per-pixel priority voting for thin features;

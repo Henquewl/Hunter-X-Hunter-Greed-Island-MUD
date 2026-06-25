@@ -16,21 +16,28 @@ Layout (preserving the 0.707 portrait aspect):
 
 Tile legend:
     ~  ocean (transparent pixel or outside island rect)
-    .  field        (light/bright green, open meadow)
-    f  forest       (dark/saturated green -- tree clumps)
-    h  hills        (light brown)
-    ^  mountain     (dark brown)
+    .  field        (light/bright green, open meadow -- the default land tile)
+    f  forest       (dense tree clumps -- only where canopy shadows are clear)
+    h  hills        (light/bright brown)
+    ^  mountain     (dark brown, ridge shadows)
     =  water        (blue -- rivers/lakes)
     b  beach        (whitish/sandy -- low saturation, high brightness, warm)
-    r  road         (grey/desaturated -- city dots + connecting paths)
 
-Classification strategy:
-  1. For rare/thin features (water, beach, road), per-pixel priority voting is used
-     so they survive downsampling.
-  2. For terrain (field, forest, hills, mountain), the block-average color is classified:
-     - R > G by >12 => brown family (mountain if dark, hills if medium, field if very bright)
-     - R ~ G => yellow-green family (forest if dark/saturated, field if bright/less-saturated)
-     - G > R by >12 => green family (forest if dark, field if bright)
+Classification strategy (calibrated against user-marked reference samples):
+  1. Rare/thin features (water, beach) win via per-pixel priority voting so they
+     survive downsampling.
+  2. Terrain is decided from the block-average color, biased toward FIELD when in
+     doubt (per user direction):
+     - Real brown (R-G > BROWN_RG): hills if bright (V > HILLS_V), else mountain.
+       The brightness V -- not R-G -- separates hills (light/rust) from mountain
+       (dark ridge shadows). Weak browns (R-G <= BROWN_RG, e.g. coastal/among-field
+       tints) fall through to field.
+     - Green: forest ONLY when the block has a clear fraction of dark canopy-shadow
+       pixels (>= FOREST_DARK); otherwise field. Field and forest are nearly
+       identical in average color in this art, so the bias is toward field.
+  3. Spatial denoise: small isolated clusters of brown ({h,^}) or forest ({f})
+     are flipped to field, removing speckle while keeping real ranges/forests.
+  4. Roads are NOT generated here -- cities and roads will be placed by hand later.
 """
 
 import argparse
@@ -61,13 +68,21 @@ DATA_ROWS  = ROW_END  - ROW_START   # 252
 DATA_COLS  = COL_END  - COL_START   # 178
 
 # ---------------------------------------------------------------------------
+# Classification tunables (calibrated against the marked reference image)
+# ---------------------------------------------------------------------------
+BROWN_RG    = 15     # R-G above this = real brown (hills/mountain); below -> field
+HILLS_V     = 0.60   # within brown: V above -> hills (light), else mountain (dark)
+FOREST_DARK = 0.18   # min fraction of dark canopy-shadow pixels in a block -> forest
+MIN_BROWN   = 14     # connected {h,^} clusters smaller than this -> field
+MIN_FOREST  = 8      # connected {f}  clusters smaller than this -> field
+
+# ---------------------------------------------------------------------------
 # Priority weights for per-pixel voting
 # Rare/thin features get extra weight so they survive downsampling.
 # ---------------------------------------------------------------------------
 PRIORITY = {
     '=': 6,   # rivers are 1-2px wide
     'b': 5,   # beaches are a few px wide
-    'r': 4,   # roads / city dots are thin
     '^': 2,
     'f': 2,
     'h': 1,
@@ -94,13 +109,9 @@ def classify_pixel_rare(r, g, b, a):
     if b > r + 40 and b > g + 20 and b > 100:
         return '='
 
-    # --- Road/city: grey (low absolute saturation, medium brightness) ---
+    # --- Beach: high brightness, low relative saturation, warm (R >= B) ---
     max_c = max(r, g, b)
     min_c = min(r, g, b)
-    if (max_c - min_c) < 35 and 50 < bri < 175:
-        return 'r'
-
-    # --- Beach: high brightness, low relative saturation, warm (R >= B) ---
     if bri > 160 and (max_c - min_c) / max(max_c, 1) < 0.42 and b > 110 and r >= b:
         return 'b'
 
@@ -114,16 +125,19 @@ def classify_pixel_rare(r, g, b, a):
     return None   # terrain -- classify by block average
 
 
-def classify_block(r, g, b, opaque_frac):
+def classify_block(r, g, b, opaque_frac, dark_green_frac):
     """
     Classify a block given its average (r, g, b) of non-transparent, non-black pixels.
-    opaque_frac = fraction of the block that was opaque (alpha >= 128).
+    opaque_frac     = fraction of the block that was opaque (alpha >= 128).
+    dark_green_frac = fraction of the block's pixels that look like canopy shadow
+                      (greenish AND dark AND saturated) -- the only usable forest signal.
 
-    Thresholds calibrated from reference samples (central-south area of the map):
-      Mountain: H=39 deg, R-G=40, V=0.65  -> R-G > 28
-      Hills:    H=47 deg, R-G=22, V=0.61  -> R-G 10-28
-      Field:    H=57 deg, R-G=5,  V=0.68  -> R-G <= 10, V >= 0.62
-      Forest:   H=58 deg, R-G=4,  V=0.58  -> R-G <= 10, V <  0.62
+    Calibrated from samples taken directly off the map:
+      Hills  (upper "lip" / rust): R-G ~ 40, V ~ 0.66  -> brown & bright
+      Mountain (lower "lip"/ridge): R-G ~ 28, V ~ 0.56  -> brown & dark
+      Mountain (real range):        R-G ~ 19, V ~ 0.50  -> brown & dark
+      Spurious coastal brown:       R-G ~ 12            -> falls through to field
+      Field / Forest:               R-G ~ 0, V ~ 0.57-0.59 (nearly identical)
     """
     import colorsys
 
@@ -142,31 +156,55 @@ def classify_block(r, g, b, opaque_frac):
     if bri > 165 and (max_c - min_c) / max(max_c, 1) < 0.42 and b > 110 and r >= b:
         return 'b'
 
-    # --- Road/city: grey ---
-    if (max_c - min_c) < 35 and 50 < bri < 175:
-        return 'r'
-
     # --- Teal/cyan water ---
     h, s, v = colorsys.rgb_to_hsv(r / 255.0, g / 255.0, b / 255.0)
     hd = h * 360.0
     if 150 < hd < 270 and s > 0.25 and v > 0.3:
         return '='
 
-    # ---- Terrain: R-G is the primary brown/green discriminator ----
-    # (V alone was unreliable; R-G directly reflects warm vs. cool tone)
-    rdiff = r - g
+    # ---- Brown family: R clearly warmer than G ----
+    # Brightness V separates hills (light/rust) from mountain (dark ridge shadow).
+    if (r - g) > BROWN_RG:
+        return 'h' if v > HILLS_V else '^'
 
-    if rdiff > 28:
-        return '^'       # very warm ochre -> mountain
+    # ---- Green family: forest only with clear canopy-shadow texture, else field ----
+    if dark_green_frac >= FOREST_DARK:
+        return 'f'
 
-    if rdiff > 10:
-        return 'h'       # moderately warm -> hills
+    return '.'           # default: field (bias toward field when in doubt)
 
-    # Yellow-green / green family (R-G <= 10)
-    if s > 0.08:
-        return 'f' if v < 0.62 else '.'
 
-    return '.'           # fallback = field
+# ---------------------------------------------------------------------------
+# Spatial denoise: flip small isolated clusters to field
+# ---------------------------------------------------------------------------
+
+def denoise_clusters(grid, members, min_size, replace='.'):
+    """
+    4-connected flood fill over tiles whose char is in `members`.
+    Any connected component smaller than `min_size` is rewritten to `replace`.
+    Mutates `grid` (a list of lists) in place.
+    """
+    from collections import deque
+    seen = [[False] * GRID for _ in range(GRID)]
+    for i in range(GRID):
+        for j in range(GRID):
+            if seen[i][j] or grid[i][j] not in members:
+                continue
+            comp = []
+            q = deque([(i, j)])
+            seen[i][j] = True
+            while q:
+                y, x = q.popleft()
+                comp.append((y, x))
+                for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1)):
+                    ny, nx = y + dy, x + dx
+                    if (0 <= ny < GRID and 0 <= nx < GRID
+                            and not seen[ny][nx] and grid[ny][nx] in members):
+                        seen[ny][nx] = True
+                        q.append((ny, nx))
+            if len(comp) < min_size:
+                for (y, x) in comp:
+                    grid[y][x] = replace
 
 
 # ---------------------------------------------------------------------------
@@ -175,9 +213,10 @@ def classify_block(r, g, b, opaque_frac):
 
 def img_to_grid(im):
     """
-    Convert a PIL RGBA image to a 256x256 list-of-strings grid.
+    Convert a PIL RGBA image to a 256x256 grid.
     Returns list of 256 strings, each 256 chars.
     """
+    import colorsys
     px = im.load()
     grid = []
 
@@ -201,11 +240,12 @@ def img_to_grid(im):
             x1 = min(x1, IMG_W)
             y1 = min(y1, IMG_H)
 
-            # --- Per-pixel pass: priority voting for rare features ---
+            # --- Per-pixel pass: priority voting + canopy-shadow counting ---
             prio_votes = {}
             tr = tg = tb = tn = 0
             transp = 0
             total_px = 0
+            dark_green = 0
 
             for py in range(y0, y1):
                 for px_ in range(x0, x1):
@@ -219,6 +259,10 @@ def img_to_grid(im):
                     t2 = classify_pixel_rare(R, G, B, A)
                     if t2 and t2 != '~':
                         prio_votes[t2] = prio_votes.get(t2, 0) + PRIORITY.get(t2, 1)
+                    # canopy-shadow signal: greenish, dark, saturated
+                    h, s, v = colorsys.rgb_to_hsv(R / 255.0, G / 255.0, B / 255.0)
+                    if G >= R and v < 0.45 and s > 0.45:
+                        dark_green += 1
                     tr += R
                     tg += G
                     tb += B
@@ -242,12 +286,17 @@ def img_to_grid(im):
                 line.append('~')
                 continue
 
-            tile = classify_block(tr / tn, tg / tn, tb / tn, opaque_frac)
+            dgf = dark_green / tn
+            tile = classify_block(tr / tn, tg / tn, tb / tn, opaque_frac, dgf)
             line.append(tile)
 
-        grid.append(''.join(line))
+        grid.append(line)
 
-    return grid
+    # --- Spatial denoise: small brown/forest specks -> field ---
+    denoise_clusters(grid, {'h', '^'}, MIN_BROWN)
+    denoise_clusters(grid, {'f'},      MIN_FOREST)
+
+    return [''.join(row) for row in grid]
 
 
 # ---------------------------------------------------------------------------
