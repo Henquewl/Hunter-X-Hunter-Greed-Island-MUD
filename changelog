@@ -8,6 +8,9 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 25 2026] - Henque
+  map: convert #/@ city tiles to field pending final access-point placement;
+  generator now validates cleanly (0 errors).
+[Jun 25 2026] - Henque
   Worldmap access-point enter (task 3):
   - do_enter: bare `enter` on a worldmap access-point tile (IS_ENTRY_POINT_SECT)
     now traverses the DOWN portal exit instead of falling through to ROOM_INDOORS logic.
