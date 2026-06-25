@@ -118,6 +118,12 @@ def classify_block(r, g, b, opaque_frac):
     """
     Classify a block given its average (r, g, b) of non-transparent, non-black pixels.
     opaque_frac = fraction of the block that was opaque (alpha >= 128).
+
+    Thresholds calibrated from reference samples (central-south area of the map):
+      Mountain: H=39 deg, R-G=40, V=0.65  -> R-G > 28
+      Hills:    H=47 deg, R-G=22, V=0.61  -> R-G 10-28
+      Field:    H=57 deg, R-G=5,  V=0.68  -> R-G <= 10, V >= 0.62
+      Forest:   H=58 deg, R-G=4,  V=0.58  -> R-G <= 10, V <  0.62
     """
     import colorsys
 
@@ -146,34 +152,21 @@ def classify_block(r, g, b, opaque_frac):
     if 150 < hd < 270 and s > 0.25 and v > 0.3:
         return '='
 
-    # ---- Terrain: use R-G as brown/green discriminator ----
-    rdiff = r - g   # positive = brownish, negative = greenish
+    # ---- Terrain: R-G is the primary brown/green discriminator ----
+    # (V alone was unreliable; R-G directly reflects warm vs. cool tone)
+    rdiff = r - g
 
-    # Brown/earth family (R clearly > G)
-    if rdiff > 12:
-        if v < 0.50:
-            return '^'   # dark brown = mountain
-        elif v < 0.72:
-            return 'h'   # light brown = hills
-        else:
-            return '.'   # very bright warm = open field / dry grass
+    if rdiff > 28:
+        return '^'       # very warm ochre -> mountain
 
-    # Yellow-green family (R approx == G)
-    if abs(rdiff) <= 12 and s > 0.10:
-        if v < 0.50:
-            return 'f'   # dark = forest shadow
-        elif v > 0.68 and s < 0.72:
-            return '.'   # bright, moderate saturation = open field
-        elif v > 0.74:
-            return '.'   # very bright = field
-        else:
-            return 'f'   # default green = forest
+    if rdiff > 10:
+        return 'h'       # moderately warm -> hills
 
-    # Green family (G clearly > R)
-    if (g - r) > 12 and s > 0.10:
-        return 'f' if v < 0.55 else '.'
+    # Yellow-green / green family (R-G <= 10)
+    if s > 0.08:
+        return 'f' if v < 0.62 else '.'
 
-    return '.'   # fallback = field
+    return '.'           # fallback = field
 
 
 # ---------------------------------------------------------------------------
