@@ -8,6 +8,23 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 25 2026] - Henque
+  refine: mountain/hills placement driven by a hand-marked biome mask
+  - tools/extract_biome_mask.py (new): reads the marked sample
+    (Greed_Island_Map_29_hillvsmountainsample.png; mountains circled red, hills
+    purple), fills each circle's interior and downsamples to tools/biome_mask.txt
+    (256x256 of M/H/.).
+  - tools/biome_mask.txt (new): the generated location authority for high terrain.
+  - img_to_map.py: brown terrain becomes mountain/hills ONLY inside the marked
+    circles (mountain by default, hills in the purple regions); brown outside any
+    circle reverts to field. Enclosed field/forest holes inside a region are filled
+    so ranges read as solid clusters with no field speckle in the middle (only
+    forest may stay dispersed). Color-only brown denoise is now the fallback used
+    only when the mask file is absent.
+  - Net effect: mountains are solid clusters in their real locations across the map;
+    hills are rare (the two central-south spots); the central-south "mouth" reads as
+    hills above / mountain below, as separate biomes.
+  - Regenerated greed_island.txt and zone 1000 (1000.wld/1000.zon).
+[Jun 25 2026] - Henque
   refine: img_to_map coastal cleanup pass
   - Interior "beach" patches (no ocean/water within 3 tiles) revert to field --
     removes bright dry clearings that were mis-read as beach inland.

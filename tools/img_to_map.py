@@ -51,8 +51,9 @@ import sys
 # Paths
 # ---------------------------------------------------------------------------
 REPO_ROOT  = os.path.join(os.path.dirname(__file__), "..")
-PNG_SRC    = os.path.join(REPO_ROOT, "..", "Downloads", "Greed_Island_Map_29.png")
+PNG_SRC    = os.path.join(REPO_ROOT, "..", "Greed_Island_Map_29.webp")
 MAP_OUT    = os.path.join(REPO_ROOT, "lib", "world", "map", "greed_island.txt")
+MASK_SRC   = os.path.join(os.path.dirname(__file__), "biome_mask.txt")
 
 # ---------------------------------------------------------------------------
 # Grid geometry
@@ -308,6 +309,75 @@ def erode_tips(grid, max_land):
 
 
 # ---------------------------------------------------------------------------
+# Biome mask (mountain/hills location authority, from the hand-marked sample)
+# ---------------------------------------------------------------------------
+
+def load_biome_mask(path):
+    """Load tools/biome_mask.txt (256x256 of 'M'/'H'/'.'). Returns None if absent."""
+    if not os.path.exists(path):
+        return None
+    with open(path, "r", encoding="ascii") as f:
+        rows = [line.rstrip("\n\r") for line in f.readlines()]
+    if len(rows) < GRID:
+        return None
+    return [r.ljust(GRID, '.')[:GRID] for r in rows[:GRID]]
+
+
+def apply_biome_mask(grid, mask):
+    """
+    Mountain/hills are only valid inside the marked circles:
+      - brown tile (h/^) inside an 'H' region  -> hills
+      - brown tile (h/^) inside an 'M' region  -> mountain
+      - brown tile outside any region          -> field (spurious brown)
+    """
+    for r in range(GRID):
+        for c in range(GRID):
+            if grid[r][c] in 'h^':
+                m = mask[r][c]
+                grid[r][c] = 'h' if m == 'H' else '^' if m == 'M' else '.'
+
+
+def solidify_in_mask(grid, mask, region_char, biome_char):
+    """
+    Fill interior holes of a biome inside its mask region so it reads as a solid
+    cluster (no field/forest specks in the middle). A field/forest tile inside the
+    region becomes the biome unless it connects (4-way) to the region's outer edge
+    -- i.e. only fully-enclosed holes are filled; the green rim of the circle stays.
+    """
+    from collections import deque
+    fillable = [[(grid[r][c] in '.f' and mask[r][c] == region_char)
+                 for c in range(GRID)] for r in range(GRID)]
+    reached = [[False] * GRID for _ in range(GRID)]
+    q = deque()
+    # Seed flood from fillable tiles on the region boundary (adjacent to a non-region tile)
+    for r in range(GRID):
+        for c in range(GRID):
+            if not fillable[r][c]:
+                continue
+            on_border = False
+            for dr, dc in N4:
+                nr, nc = r + dr, c + dc
+                if not (0 <= nr < GRID and 0 <= nc < GRID) or mask[nr][nc] != region_char:
+                    on_border = True
+                    break
+            if on_border:
+                reached[r][c] = True
+                q.append((r, c))
+    while q:
+        r, c = q.popleft()
+        for dr, dc in N4:
+            nr, nc = r + dr, c + dc
+            if 0 <= nr < GRID and 0 <= nc < GRID and fillable[nr][nc] and not reached[nr][nc]:
+                reached[nr][nc] = True
+                q.append((nr, nc))
+    # Unreached fillable tiles are enclosed holes -> biome
+    for r in range(GRID):
+        for c in range(GRID):
+            if fillable[r][c] and not reached[r][c]:
+                grid[r][c] = biome_char
+
+
+# ---------------------------------------------------------------------------
 # Grid conversion
 # ---------------------------------------------------------------------------
 
@@ -392,9 +462,19 @@ def img_to_grid(im):
 
         grid.append(line)
 
-    # --- Spatial denoise: small brown/forest specks -> field ---
-    denoise_clusters(grid, {'h', '^'}, MIN_BROWN)
-    denoise_clusters(grid, {'f'},      MIN_FOREST)
+    # --- Biome mask: mountain/hills only where the sample marks them ---
+    mask = load_biome_mask(MASK_SRC)
+    if mask is not None:
+        apply_biome_mask(grid, mask)              # brown outside circles -> field
+        solidify_in_mask(grid, mask, 'M', '^')    # fill enclosed holes in mountains
+        solidify_in_mask(grid, mask, 'H', 'h')    # fill enclosed holes in hills
+    else:
+        print("WARNING: {} not found; falling back to colour-only brown denoise."
+              .format(MASK_SRC), file=sys.stderr)
+        denoise_clusters(grid, {'h', '^'}, MIN_BROWN)
+
+    # --- Spatial denoise: small forest specks -> field (forest may be sparse) ---
+    denoise_clusters(grid, {'f'}, MIN_FOREST)
 
     # --- Coastal cleanup ---
     remove_inland_beach(grid, INLAND_BEACH_RADIUS)   # interior "beach" patches -> field
