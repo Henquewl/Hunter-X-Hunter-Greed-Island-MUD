@@ -8,6 +8,11 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 25 2026] - Henque
+  Worldmap access-point enter (task 3):
+  - do_enter: bare `enter` on a worldmap access-point tile (IS_ENTRY_POINT_SECT)
+    now traverses the DOWN portal exit instead of falling through to ROOM_INDOORS logic.
+  - Sends "You can't find an entrance here." if the DOWN exit is missing or closed.
+[Jun 25 2026] - Henque
   Worldmap access-point sector visuals (task 2/2):
   - SECT_PORT/CITYENT/MYSTERY/START/LEAVE: assigned final glyphs (P/C/?/S/L)
     in bright yellow (\tY) or dark green (\tg) in both map_info[] and world_map_info[].

@@ -732,6 +732,13 @@ ACMD(do_enter)
             return;
           }
     send_to_char(ch, "There is no %s here.\r\n", buf);
+  } else if (IS_ENTRY_POINT_SECT(SECT(IN_ROOM(ch)))) {
+    /* Standing on a worldmap access point — traverse the D5 portal exit */
+    if (EXIT(ch, DOWN) && EXIT(ch, DOWN)->to_room != NOWHERE &&
+        !EXIT_FLAGGED(EXIT(ch, DOWN), EX_CLOSED))
+      perform_move(ch, DOWN, 1);
+    else
+      send_to_char(ch, "You can't find an entrance here.\r\n");
   } else if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_INDOORS))
     send_to_char(ch, "You are already indoors.\r\n");
   else {
