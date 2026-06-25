@@ -7,6 +7,14 @@ https://github.com/tbamud/tbamud
 Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
+[Jun 25 2026] - Henque
+  Worldmap access-point sector types (task 1/2):
+  - Renamed retired sectors SECT_CRATER/SECT_TREE/SECT_TRUNK (10-12) to
+    SECT_PORT/SECT_CITYENT/SECT_MYSTERY in structs.h.
+  - Added SECT_START (13) and SECT_LEAVE (14); NUM_ROOM_SECTORS 13->15.
+  - Updated sector_types[] and movement_loss[] in constants.c.
+  - Updated asciimap.c static tables and legend to use new constant names
+    (symbols are placeholders; full symbol/color pass is task 2).
 [Jun 24 2026] - Henque
   Map/minimap overhaul:
   - CANVAS_WIDTH 51->101, CANVAS_HEIGHT 19->33 (MAX_MAP_SIZE now 25).

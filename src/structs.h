@@ -130,11 +130,13 @@
 #define SECT_WATER_NOSWIM    7		/**< Water - need a boat	*/
 #define SECT_FLYING	         8		/**< Flying			*/
 #define SECT_UNDERWATER	     9		/**< Underwater		*/
-#define SECT_CRATER	     	10		/**< Crater		*/
-#define SECT_TREE	     	11		/**< Tree branches		*/
-#define SECT_TRUNK	     	12		/**< Tree trunk		*/
+#define SECT_PORT	     	10		/**< Port access point		*/
+#define SECT_CITYENT	     	11		/**< City entrance access point	*/
+#define SECT_MYSTERY	     	12		/**< Mysterious entrance access point */
+#define SECT_START	     	13		/**< Start point access point	*/
+#define SECT_LEAVE	     	14		/**< Leave point access point	*/
 /** The total number of room Sector Types */
-#define NUM_ROOM_SECTORS  13
+#define NUM_ROOM_SECTORS  15
 
 /* char and mob-related defines */
 

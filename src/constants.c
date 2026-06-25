@@ -130,9 +130,11 @@ const char *sector_types[] = {
   "Water (No Swim)",
   "In Flight",
   "Underwater",
-  "Crater",
-  "Tree",
-  "Trunk",
+  "Port",
+  "City Entrance",
+  "Mysterious Entrance",
+  "Start Point",
+  "Leave Point",
   "\n"
 };
 
@@ -842,9 +844,11 @@ int movement_loss[] =
   2,	/* Unswimable */
   1,	/* Flying     */
   4,    /* Underwater */
-  2,    /* Crater */
-  0,    /* Tree */
-  0     /* Trunk */
+  1,    /* Port */
+  1,    /* City Entrance */
+  1,    /* Mysterious Entrance */
+  1,    /* Start Point */
+  1     /* Leave Point */
 };
 
 /** The names of the days of the mud week. Not used in sprinttype(). */

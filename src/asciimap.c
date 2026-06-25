@@ -129,11 +129,11 @@ static struct map_info_type map_info[] =
   { SECT_WATER_NOSWIM, "\tc[\tb~\tc]\tn"  },
   { SECT_FLYING,       "\tc[\tW~\tc]\tn"  },
   { SECT_UNDERWATER,   "\tc[\tD~\tc]\tn"  },
-  { SECT_CRATER,       "\tc[\tD@\tc]\tn"  },  /* 10 */
-  { SECT_TREE,         "\tc[\tg@\tc]\tn"  },
-  { SECT_TRUNK,        "\tc[\ty|\tc]\tn"  },
-  { -1,                ""        },
-  { -1,                ""        },
+  { SECT_PORT,         "\tc[\tD@\tc]\tn"  },  /* 10 */
+  { SECT_CITYENT,      "\tc[\tg@\tc]\tn"  },
+  { SECT_MYSTERY,      "\tc[\ty|\tc]\tn"  },
+  { SECT_START,        ""        },
+  { SECT_LEAVE,        ""        },
   { -1,                ""        }, /* 15 */
   { -1,                ""        },
   { -1,                ""        },
@@ -171,11 +171,11 @@ static struct map_info_type world_map_info[] =
   { SECT_WATER_NOSWIM, "\tb~"  },
   { SECT_FLYING,       "\tW~"  },
   { SECT_UNDERWATER,   "\tD~"  },
-  { SECT_CRATER,       "\tD@"  },  /* 10 */
-  { SECT_TREE,         "\tg@"  },
-  { SECT_TRUNK,        "\ty|"  },
-  { -1,                ""     },
-  { -1,                ""     },
+  { SECT_PORT,         "\tD@"  },  /* 10 */
+  { SECT_CITYENT,      "\tg@"  },
+  { SECT_MYSTERY,      "\ty|"  },
+  { SECT_START,        ""     },
+  { SECT_LEAVE,        ""     },
   { -1,                ""     }, /* 15 */
   { -1,                ""     },
   { -1,                ""     },
@@ -303,7 +303,7 @@ static void MapArea(room_rnum room, struct char_data *ch, int x, int y, int min,
   else if (ROOM_FLAGGED(room, ROOM_PEACEFUL))
 	map[x][y] = SECT_SAFE;
   else if (ROOM_FLAGGED(room, ROOM_CRATER))
-	map[x][y] = SECT_CRATER;
+	map[x][y] = SECT_PORT;
   else
     map[x][y] = SECT(room);	 
   
@@ -673,9 +673,9 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
       ldisp[ln]=world_map_info[SECT_WATER_NOSWIM].disp;llabel[ln++]="Deep";
       ldisp[ln]=world_map_info[SECT_FLYING].disp;      llabel[ln++]="Flying";
       ldisp[ln]=world_map_info[SECT_UNDERWATER].disp;  llabel[ln++]="Underwater";
-      ldisp[ln]=world_map_info[SECT_CRATER].disp;      llabel[ln++]="Crater";
-      ldisp[ln]=world_map_info[SECT_TREE].disp;        llabel[ln++]="Tree";
-      ldisp[ln]=world_map_info[SECT_TRUNK].disp;       llabel[ln++]="Trunk";
+      ldisp[ln]=world_map_info[SECT_PORT].disp;         llabel[ln++]="Port";
+      ldisp[ln]=world_map_info[SECT_CITYENT].disp;     llabel[ln++]="City";
+      ldisp[ln]=world_map_info[SECT_MYSTERY].disp;     llabel[ln++]="Entrance";
     } else {
       ldisp[ln]=door_info[NUM_DOOR_TYPES + DOOR_UP].disp;   llabel[ln++]="Up";
       ldisp[ln]=door_info[NUM_DOOR_TYPES + DOOR_DOWN].disp; llabel[ln++]="Down";
@@ -696,9 +696,9 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
       ldisp[ln]=map_info[SECT_WATER_NOSWIM].disp;llabel[ln++]="Deep";
       ldisp[ln]=map_info[SECT_FLYING].disp;      llabel[ln++]="Flying";
       ldisp[ln]=map_info[SECT_UNDERWATER].disp;  llabel[ln++]="Underwater";
-      ldisp[ln]=map_info[SECT_CRATER].disp;      llabel[ln++]="Crater";
-      ldisp[ln]=map_info[SECT_TREE].disp;        llabel[ln++]="Tree";
-      ldisp[ln]=map_info[SECT_TRUNK].disp;       llabel[ln++]="Trunk";
+      ldisp[ln]=map_info[SECT_PORT].disp;         llabel[ln++]="Port";
+      ldisp[ln]=map_info[SECT_CITYENT].disp;     llabel[ln++]="City";
+      ldisp[ln]=map_info[SECT_MYSTERY].disp;     llabel[ln++]="Entrance";
     }
 
     cols = (GET_SCREEN_WIDTH(ch) >= 80) ? 4 : 2;
