@@ -119,7 +119,17 @@ ENTRY_LINKS = {
     # (row, col): dest_vnum,
 }
 
-POINT_CHARS = set("SPLC?")
+POINT_CHARS = set("SLPC?")
+
+# Keyword emitted on the D5 portal exit for each point type.
+# Lets `enter <keyword>` work via the existing do_enter keyword loop.
+POINT_KEYWORD = {
+    'S': 'start',
+    'L': 'leave',
+    'P': 'port',
+    'C': 'city',
+    '?': 'entrance',
+}
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -304,7 +314,7 @@ def write_wld(path, rows, dry_run):
             if tile in POINT_CHARS:
                 dest_vnum = ENTRY_LINKS[(row, col)]
                 buf.append("D5")
-                buf.append("~")
+                buf.append(POINT_KEYWORD[tile] + "~")  # keyword for `enter <keyword>`
                 buf.append("~")
                 buf.append("0 0 {}".format(dest_vnum))
 

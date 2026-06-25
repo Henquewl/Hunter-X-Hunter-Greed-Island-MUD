@@ -8,6 +8,11 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 25 2026] - Henque
+  fix: gen_worldmap now emits a keyword string (start/leave/port/city/entrance)
+  on the D5 portal exit for each access-point tile; previously the keyword line
+  was bare `~`, so TbaMUD's do_enter keyword loop skipped it and `enter port`
+  etc. always returned "There is no X here."
+[Jun 25 2026] - Henque
   map: convert #/@ city tiles to field pending final access-point placement;
   generator now validates cleanly (0 errors).
 [Jun 25 2026] - Henque
