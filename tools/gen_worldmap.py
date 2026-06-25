@@ -19,9 +19,11 @@ Sector legend (one char per tile):
     C  CITYENT (11)       — City
     ?  MYSTERY (12)       — Mysterious Entrance
 
-Access point links (S/L/P/C/? tile → destination room vnum):
+Access point links (L/P/C/? tile → destination room vnum):
     Edit ENTRY_LINKS below. Key = (row, col) of the tile on the map,
-    value = dest_vnum of the room to warp to. Each tile must have an entry.
+    value = dest_vnum of the room to warp to.
+    NOTE: S (Start Point) does NOT need an entry — it is a landing zone only
+    (players arrive here; `enter` is not available on S tiles).
 
 Vnum formula:  vnum = 100000 + row*256 + col   (row,col ∈ [0,255])
 Coordinates:   x = col - 128  (negative=west, positive=east)
@@ -32,7 +34,7 @@ Requirements:
       must be >= 256; extra chars are ignored).
     - First/last 2 rows and cols must be ~ (ocean border).
     - Every char must be in the legend.
-    - Each S/L/P/C/? tile must have a matching entry in ENTRY_LINKS.
+    - Each L/P/C/? tile must have a matching entry in ENTRY_LINKS (S is exempt).
 
 Run --validate-only to check the source map without writing any files.
 """
@@ -119,12 +121,13 @@ ENTRY_LINKS = {
     # (row, col): dest_vnum,
 }
 
-POINT_CHARS = set("SLPC?")
+POINT_CHARS = set("SLPC?")   # all access-point chars (rendered as special glyphs)
+PORTAL_CHARS = set("LPC?")   # subset that emit a D5 portal exit and require ENTRY_LINKS
+                              # S is excluded: it is a landing zone only (no `enter`)
 
-# Keyword emitted on the D5 portal exit for each point type.
+# Keyword emitted on the D5 portal exit for each portal type.
 # Lets `enter <keyword>` work via the existing do_enter keyword loop.
 POINT_KEYWORD = {
-    'S': 'start',
     'L': 'leave',
     'P': 'port',
     'C': 'city',
@@ -227,15 +230,17 @@ def load_map(path):
                 if c < len(row_str) and row_str[c] != '~':
                     errors.append("Border col {} row {} must be '~', got '{}'".format(c, r, row_str[c]))
 
-    # Find all point tiles and verify they each have an ENTRY_LINKS entry
+    # Verify that every portal tile (L/P/C/?) has an ENTRY_LINKS entry.
+    # S tiles are exempt — they are landing zones with no D5 exit.
     missing_links = []
     for rc in point_tiles:
-        if rc not in ENTRY_LINKS:
+        ch = rows[rc[0]][rc[1]]
+        if ch in PORTAL_CHARS and rc not in ENTRY_LINKS:
             missing_links.append("  ({}, {}) char={} x={} y={}".format(
-                rc[0], rc[1], rows[rc[0]][rc[1]], rc[1]-128, 128-rc[0]))
+                rc[0], rc[1], ch, rc[1]-128, 128-rc[0]))
     if missing_links:
         errors.append(
-            "Point tiles with no entry in ENTRY_LINKS (edit gen_worldmap.py):\n" +
+            "Portal tiles with no entry in ENTRY_LINKS (edit gen_worldmap.py):\n" +
             "\n".join(missing_links))
 
     if errors:
@@ -310,8 +315,8 @@ def write_wld(path, rows, dry_run):
                     buf.append("~")
                     buf.append("0 0 {}".format(vnum(nr, nc)))
 
-            # D5 portal exit for all point tiles
-            if tile in POINT_CHARS:
+            # D5 portal exit for portal tiles (L/P/C/?) — not S (landing zone only)
+            if tile in PORTAL_CHARS:
                 dest_vnum = ENTRY_LINKS[(row, col)]
                 buf.append("D5")
                 buf.append(POINT_KEYWORD[tile] + "~")  # keyword for `enter <keyword>`
