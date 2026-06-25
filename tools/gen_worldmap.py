@@ -13,10 +13,15 @@ Sector legend (one char per tile):
     .  FIELD (2)          ^ MOUNTAIN (5)
     f  FOREST (3)         ~ WATER_NOSWIM (7) — ocean/border
     h  HILLS (4)          = WATER_SWIM (6)   — rivers/lakes
-    #  CITY (1)           @ city entrance (CITY sector + ROOM_WORLDMAP flag + city exit)
+    S  START (13)         — Start Point
+    L  LEAVE (14)         — Leave Point
+    P  PORT (10)          — Port
+    C  CITYENT (11)       — City
+    ?  MYSTERY (12)       — Mysterious Entrance
 
-City entrance links (@ tile → city entry-room vnum):
-    Edit CITY_LINKS below to map each city's entrance coordinate to its indoor zone.
+Access point links (S/L/P/C/? tile → destination room vnum):
+    Edit ENTRY_LINKS below. Key = (row, col) of the tile on the map,
+    value = dest_vnum of the room to warp to. Each tile must have an entry.
 
 Vnum formula:  vnum = 100000 + row*256 + col   (row,col ∈ [0,255])
 Coordinates:   x = col - 128  (negative=west, positive=east)
@@ -27,7 +32,7 @@ Requirements:
       must be >= 256; extra chars are ignored).
     - First/last 2 rows and cols must be ~ (ocean border).
     - Every char must be in the legend.
-    - Each @ tile must have a matching entry in CITY_LINKS.
+    - Each S/L/P/C/? tile must have a matching entry in ENTRY_LINKS.
 
 Run --validate-only to check the source map without writing any files.
 """
@@ -55,18 +60,21 @@ ZONE_LIFESPAN = 30
 ZONE_RESET    = 2   # reset only if no players present
 ZONE_FLAGS    = "g" # ZONE_WORLDMAP
 
-ROOM_WORLDMAP_FLAG = 65536  # bit 16
+ROOM_PEACEFUL_FLAG = 16    # ROOM_PEACEFUL bit (index 4 → 1<<4)
 
 # Sector type numbers
 SECT = {
-    '.': 2,  # SECT_FIELD
-    'f': 3,  # SECT_FOREST
-    'h': 4,  # SECT_HILLS
-    '^': 5,  # SECT_MOUNTAIN
-    '=': 6,  # SECT_WATER_SWIM
-    '~': 7,  # SECT_WATER_NOSWIM
-    '#': 1,  # SECT_CITY
-    '@': 1,  # city entrance — CITY sector
+    '.': 2,   # SECT_FIELD
+    'f': 3,   # SECT_FOREST
+    'h': 4,   # SECT_HILLS
+    '^': 5,   # SECT_MOUNTAIN
+    '=': 6,   # SECT_WATER_SWIM
+    '~': 7,   # SECT_WATER_NOSWIM
+    'P': 10,  # SECT_PORT
+    'C': 11,  # SECT_CITYENT
+    '?': 12,  # SECT_MYSTERY
+    'S': 13,  # SECT_START
+    'L': 14,  # SECT_LEAVE
 }
 
 # Sector names for room descriptions
@@ -77,8 +85,11 @@ SECT_NAME = {
     '^': "Mountain",
     '=': "River",
     '~': "Ocean",
-    '#': "City",
-    '@': "City Gate",
+    'P': "Port",
+    'C': "City",
+    '?': "Mysterious Entrance",
+    'S': "Start Point",
+    'L': "Leave Point",
 }
 
 # Direction indices used in TbaMUD world files
@@ -97,19 +108,18 @@ DELTA = {
 }
 
 # ---------------------------------------------------------------------------
-# City entrance links
-# Edit this table: key = (row, col) of the @ tile on the map,
-#                  value = indoor vnum to link to (the entry room of the city).
-# Example:
-#   (128, 128): 40000,   # Antokiba entrance on the grid → zone 400 start room
-#
-# You MUST populate this before running on a real map that contains @ tiles.
-# If the map has no @ tiles, this table can stay empty.
+# Access point entry links
+# Edit this table: key = (row, col) of the point tile on the map,
+#                  value = dest_vnum (the room to warp to on `enter`).
+# Every S/L/P/C/? tile in greed_island.txt MUST have an entry here.
+# Example (uncomment and fill in real values):
+#   (128, 128): 41001,   # Start Point at Antokiba → zone 400 entry room
 # ---------------------------------------------------------------------------
-CITY_LINKS = {
-    # (row, col): city_entry_vnum,
-    (188, 118): 41001,   # Dorias port -> zone 410 "An Open Gateway" (existing landing)
+ENTRY_LINKS = {
+    # (row, col): dest_vnum,
 }
+
+POINT_CHARS = set("SPLC?")
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -141,8 +151,16 @@ def room_desc(tile, row, col):
         return "   Steep mountain terrain makes travel difficult.\n"
     elif tile == '=':
         return "   A river flows quietly past.\n"
-    elif tile in ('#', '@'):
-        return "   You stand at the outskirts of a city.\n"
+    elif tile == 'S':
+        return "   A magical starting point shimmers here.\n"
+    elif tile == 'L':
+        return "   This is where Greed Island meets the outside world.\n"
+    elif tile == 'P':
+        return "   The port bustles with activity.\n"
+    elif tile == 'C':
+        return "   The lights of a nearby city are visible.\n"
+    elif tile == '?':
+        return "   A strange mysterious entrance lies before you.\n"
     return "   Greed Island stretches around you.\n"
 
 def is_border(row, col):
@@ -168,7 +186,7 @@ def load_map(path):
 
     valid_chars = set(SECT.keys())
     rows = []
-    at_tiles = []
+    point_tiles = []
     for i, line in enumerate(raw):
         line = line.rstrip("\n\r")
         if len(line) < GRID:
@@ -183,8 +201,8 @@ def load_map(path):
         rows.append(line)
 
         for j, ch in enumerate(line):
-            if ch == '@':
-                at_tiles.append((i, j))
+            if ch in POINT_CHARS:
+                point_tiles.append((i, j))
 
     if len(raw) == GRID:
         # Check ocean border: first/last 2 rows
@@ -199,15 +217,15 @@ def load_map(path):
                 if c < len(row_str) and row_str[c] != '~':
                     errors.append("Border col {} row {} must be '~', got '{}'".format(c, r, row_str[c]))
 
-    # Check city links
+    # Find all point tiles and verify they each have an ENTRY_LINKS entry
     missing_links = []
-    for rc in at_tiles:
-        if rc not in CITY_LINKS:
-            missing_links.append("  ({}, {})  x={}, y={}".format(
-                rc[0], rc[1], rc[1]-128, 128-rc[0]))
+    for rc in point_tiles:
+        if rc not in ENTRY_LINKS:
+            missing_links.append("  ({}, {}) char={} x={} y={}".format(
+                rc[0], rc[1], rows[rc[0]][rc[1]], rc[1]-128, 128-rc[0]))
     if missing_links:
         errors.append(
-            "@ tiles found with no entry in CITY_LINKS (edit gen_worldmap.py):\n" +
+            "Point tiles with no entry in ENTRY_LINKS (edit gen_worldmap.py):\n" +
             "\n".join(missing_links))
 
     if errors:
@@ -216,8 +234,8 @@ def load_map(path):
             print("  - " + e, file=sys.stderr)
         sys.exit(1)
 
-    print("Map loaded: {} rooms, {} city entrances".format(
-        GRID * GRID, len(at_tiles)))
+    print("Map loaded: {} rooms, {} access points".format(
+        GRID * GRID, len(point_tiles)))
     return rows
 
 # ---------------------------------------------------------------------------
@@ -253,8 +271,13 @@ def write_wld(path, rows, dry_run):
         for col in range(GRID):
             tile  = rows[row][col]
             v     = vnum(row, col)
-            flags = ROOM_WORLDMAP_FLAG if tile == '@' else 0
             sect  = SECT[tile]
+
+            # ROOM_PEACEFUL (16) for safe points; 0 for mystery and terrain
+            if tile in ('S', 'L', 'P', 'C'):
+                flags = ROOM_PEACEFUL_FLAG
+            else:
+                flags = 0
 
             buf.append("#{}".format(v))
             buf.append("{}~".format(room_name(tile, row, col)))
@@ -277,15 +300,13 @@ def write_wld(path, rows, dry_run):
                     buf.append("~")
                     buf.append("0 0 {}".format(vnum(nr, nc)))
 
-            # City entrance: extra exit to the indoor zone
-            if tile == '@':
-                city_vnum = CITY_LINKS[(row, col)]
-                # Use direction 5 (unused custom) or just note in description.
-                # TbaMUD supports only D0-D5; we use D5 (up/down-style portal) for city entry.
+            # D5 portal exit for all point tiles
+            if tile in POINT_CHARS:
+                dest_vnum = ENTRY_LINKS[(row, col)]
                 buf.append("D5")
                 buf.append("~")
                 buf.append("~")
-                buf.append("0 0 {}".format(city_vnum))
+                buf.append("0 0 {}".format(dest_vnum))
 
             buf.append("S")
             count += 1
@@ -368,11 +389,11 @@ def main():
     if not dry_run:
         print()
         print("Done. Next steps:")
-        print("  1. Add '1000.wld' to lib/world/wld/index  (before the $ line)")
-        print("  2. Add '1000.zon' to lib/world/zon/index  (before the $ line)")
-        print("  3. Edit lib/world/wld/410.wld room 41001 D1 exit: change 40060 → <Dorias port grid vnum>")
-        print("  4. Boot: bin/circle 4000")
-        print("  5. In-game: goto 132896 (Antokiba), run 'map world', walk to border")
+        print("  1. Add '1000.wld' to lib/world/wld/index  (before the $ line) — if not already there")
+        print("  2. Add '1000.zon' to lib/world/zon/index  (before the $ line) — if not already there")
+        print("  3. Populate ENTRY_LINKS in tools/gen_worldmap.py with point tile coordinates and dest vnums")
+        print("  4. Place point chars (S/L/P/C/?) in lib/world/map/greed_island.txt")
+        print("  5. Boot: bin/circle 4000")
 
 
 if __name__ == "__main__":
