@@ -8,6 +8,9 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 25 2026] - Henque
+  map: hand-fill the central-south hills "upper lip" that was sparsely populated;
+  regenerated zone 1000 (1000.wld/1000.zon) from the edited greed_island.txt.
+[Jun 25 2026] - Henque
   refine: mountain/hills placement driven by a hand-marked biome mask
   - tools/extract_biome_mask.py (new): reads the marked sample
     (Greed_Island_Map_29_hillvsmountainsample.png; mountains circled red, hills
