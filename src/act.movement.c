@@ -176,7 +176,7 @@ int do_simple_move(struct char_data *ch, int dir, int need_specials_check)
 
   /* Ocean (swim and deep water): blocked for players; imm+nohassle bypasses */
   if (SECT(going_to) == SECT_WATER_NOSWIM || SECT(going_to) == SECT_WATER_SWIM) {
-    if (!IS_NPC(ch) && !PRF_FLAGGED(ch, PRF_NOHASSLE)) {
+    if (!IS_NPC(ch) && !PRF_FLAGGED(ch, PRF_NOHASSLE) && !AFF_FLAGGED(ch, AFF_FLYING)) {
       send_to_char(ch, "You need a boat to go there.\r\n");
       return (0);
     }
