@@ -206,7 +206,7 @@ end
 if %cmd.mudcommand% == gain
 if %arg.cdr.is_pc% == 1
 %force% %actor% say Magnetic Force ON! %arg.cdr.name%!
-%ofly% %actor% player %arg.cdr.name%
+ofly %actor% player %arg.cdr.name%
 %purge% %self%
 else
 %send% %actor% This spell requires a player target.
@@ -514,15 +514,15 @@ if %actor.varexists(shield_faith)% || %actor.master.varexists(shield_faith)%
 end
 if %arg.cdr% == antokiba && %actor.varexists(visited_antokiba)%
 %force% %actor% say Return ON! Antokiba!
-%ofly% %actor% city antokiba
+ofly %actor% city antokiba
 %purge% %self%
 elseif %arg.cdr% == masadora && %actor.varexists(visited_masadora)%
 %force% %actor% say Return ON! Masadora!
-%ofly% %actor% city masadora
+ofly %actor% city masadora
 %purge% %self%
 elseif %arg.cdr% == rabicuta && %actor.varexists(visited_rabicuta)%
 %force% %actor% say Return ON! Rabicuta!
-%ofly% %actor% city rabicuta
+ofly %actor% city rabicuta
 %purge% %self%
 else
 %send% %actor% This spell requires a target of previously visited city.
@@ -725,19 +725,7 @@ if !%actor.is_book%
 halt
 end
 if %cmd.mudcommand% == gain
-set depart 40000
-%force% %actor% say Departure ON!
-%zoneecho% %depart% You see a bolt of energy flying through the skies.
-wait 1 sec
-%send% %actor% A bolt of energy envelops you!
-%echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-set prevloc %self.room.vnum%
-%teleport% %actor% %depart%
-%zoneecho% %prevloc% You see a bolt of energy flying through the skies.
-%echoaround% %actor% A bolt of energy hits the ground near at you!
-wait 0.1 sec
-%send% %actor% You landed somewhere.
-%force% %actor% look
+ofly %actor% start
 %purge% %self%
 else
 return 0
@@ -752,17 +740,7 @@ if !%actor.is_book%
 halt
 end
 if %cmd.mudcommand% == gain
-%force% %actor% say Leave ON!
-wait 1 sec
-%send% %actor% A bolt of energy envelops you!
-%echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-set prevloc %self.room.vnum%
-%teleport% %actor% 1406
-%zoneecho% %prevloc% You see a bolt of energy flying through the skies.
-%echoaround% %actor% A bolt of energy hits the ground near at you!
-wait 0.1 sec
-%send% %actor% You landed somewhere.
-%force% %actor% look
+ofly %actor% leave
 %purge% %self%
 else
 return 0
@@ -866,15 +844,7 @@ if %i% == 1 && !%actor.varexists(visited_antokiba)%
 %zoneecho% 12064 You see a bolt of energy flying through the skies.
 eval visited_antokiba 12064
 remote visited_antokiba %actor.id%
-%send% %actor% A bolt of energy envelops you!
-%echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-set prevloc %self.room.vnum%
-%teleport% %actor% 12064
-%zoneecho% %prevloc% You see a bolt of energy flying through the skies.
-%echoaround% %actor% A bolt of energy hits the ground near at you!
-wait 0.1 sec
-%send% %actor% You landed somewhere.
-%force% %actor% look
+ofly %actor% city antokiba
 %purge% %self%
 break
 halt
@@ -883,15 +853,7 @@ if %i% == 2 && !%actor.varexists(visited_masadora)%
 %zoneecho% 3053 You see a bolt of energy flying through the skies.
 eval visited_masadora 3053
 remote visited_masadora %actor.id%
-%send% %actor% A bolt of energy envelops you!
-%echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-set prevloc %self.room.vnum%
-%teleport% %actor% 3053
-%zoneecho% %prevloc% You see a bolt of energy flying through the skies.
-%echoaround% %actor% A bolt of energy hits the ground near at you!
-wait 0.1 sec
-%send% %actor% You landed somewhere.
-%force% %actor% look
+ofly %actor% city masadora
 %purge% %self%
 break
 halt
@@ -900,15 +862,7 @@ if %i% == 3 && !%actor.varexists(visited_rabicuta)%
 %zoneecho% 40031 You see a bolt of energy flying through the skies.
 eval visited_rabicuta 40031
 remote visited_rabicuta %actor.id%
-%send% %actor% A bolt of energy envelops you!
-%echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.
-set prevloc %self.room.vnum%
-%teleport% %actor% 40031
-%zoneecho% %prevloc% You see a bolt of energy flying through the skies.
-%echoaround% %actor% A bolt of energy hits the ground near at you!
-wait 0.1 sec
-%send% %actor% You landed somewhere.
-%force% %actor% look
+ofly %actor% city rabicuta
 %purge% %self%
 break
 halt
@@ -956,8 +910,7 @@ if %cmd.mudcommand% == gain
           eval met_%mob.name% 1
           remote met_%actor.name% %mob.id%
           remote met_%mob.name% %actor.id%
-          %send% %actor% You landed somewhere.
-          %force% %actor% look
+          ofly %actor% player %mob.name%
           %purge% %self%
         end
       end
@@ -2113,17 +2066,17 @@ end
 if %cmd.mudcommand% == gain
 if %arg.cdr.is_pc% == 1
 %force% %actor% say Accompany ON! %arg.cdr.name%!
-%ofly% %actor% player %arg.cdr.name% group
+ofly %actor% player %arg.cdr.name% group
 %purge% %self%
 else
 if %arg.cdr% == masadora && %actor.varexists(visited_masadora)%
-%ofly% %actor% city masadora group
+ofly %actor% city masadora group
 %purge% %self%
 elseif %arg.cdr% == antokiba && %actor.varexists(visited_antokiba)%
-%ofly% %actor% city antokiba group
+ofly %actor% city antokiba group
 %purge% %self%
 elseif %arg.cdr% == rabicuta && %actor.varexists(visited_rabicuta)%
-%ofly% %actor% city rabicuta group
+ofly %actor% city rabicuta group
 %purge% %self%
 end
 %send% %actor% Nothing around by that name.
