@@ -186,9 +186,9 @@ int do_simple_move(struct char_data *ch, int dir, int need_specials_check)
     pracskill(ch, SPELL_WATERWALK, 18);
   }
 
-  /* Mountain: blocked for players; imm+nohassle bypasses */
+  /* Mountain: blocked for players; imm+nohassle+flying bypasses */
   if (SECT(going_to) == SECT_MOUNTAIN) {
-    if (!IS_NPC(ch) && !PRF_FLAGGED(ch, PRF_NOHASSLE)) {
+    if (!IS_NPC(ch) && !PRF_FLAGGED(ch, PRF_NOHASSLE) && !AFF_FLAGGED(ch, AFF_FLYING)) {
       send_to_char(ch, "The terrain is too steep to traverse.\r\n");
       return (0);
     }
@@ -319,8 +319,9 @@ int do_simple_move(struct char_data *ch, int dir, int need_specials_check)
   if (!AFF_FLAGGED(ch, AFF_SNEAK))
     act("$n has arrived.", TRUE, ch, 0, 0, TO_ROOM);
 
-  /* ... and the room description to the character. */
-  if (ch->desc != NULL)
+  /* ... and the room description to the character (suppressed during auto-flight; the
+   * flight event system issues its own periodic look every 5 tiles). */
+  if (ch->desc != NULL && !PLR_FLAGGED(ch, PLR_AUTOFLIGHT))
     look_at_room(ch, 0);
 
     /* Check zone level recommendations */
@@ -374,8 +375,15 @@ int perform_move(struct char_data *ch, int dir, int need_specials_check)
   struct follow_type *k, *next;
 
   if (ch == NULL || dir < 0 || dir >= NUM_OF_DIRS || FIGHTING(ch))
-    return (0);	
-  else if (!CONFIG_DIAGONAL_DIRS && IS_DIAGONAL(dir))
+    return (0);
+
+  /* Block manual movement during auto-flight */
+  if (!IS_NPC(ch) && PLR_FLAGGED(ch, PLR_AUTOFLIGHT)) {
+    send_to_char(ch, "You are flying -- you cannot change direction manually.\r\n");
+    return (0);
+  }
+
+  if (!CONFIG_DIAGONAL_DIRS && IS_DIAGONAL(dir))
     send_to_char(ch, "Alas, you cannot go that way...\r\n");
   else if ((!EXIT(ch, dir) && !buildwalk(ch, dir)) || EXIT(ch, dir)->to_room == NOWHERE)
     send_to_char(ch, "Alas, you cannot go that way...\r\n");
