@@ -182,6 +182,20 @@ static struct fly_dest *find_fly_dest_by_interior(room_vnum interior)
   return NULL;
 }
 
+/* Non-static accessors used by dg_objcmd.c (%ofly% command) so that the
+ * fly_dest struct definition does not need to leak into that translation unit. */
+room_vnum get_fly_dest_tile(const char *name)
+{
+  struct fly_dest *d = find_fly_dest(name);
+  return d ? d->map_tile : NOWHERE;
+}
+
+int get_fly_dest_arrive_mode(const char *name)
+{
+  struct fly_dest *d = find_fly_dest(name);
+  return d ? d->arrive_mode : FLY_ARRIVE_CITY;
+}
+
 /* Per-flight state stored in the mud event */
 struct flight_data {
   room_vnum   dest_tile;    /* destination worldmap tile */
