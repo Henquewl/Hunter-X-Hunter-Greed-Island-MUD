@@ -1382,48 +1382,6 @@ ACMD(do_gain)
 	    } else
 		  goto end;
 	    break;
-	  case 1005: /* OK */	    
-	    if (target) { 
-		  sprintf(buf, "Magnetic Force ON! %s!", GET_NAME(target));
-		  do_say(ch, buf, cmd, 0);
-		  fly_to_char(ch, target);		  
-		} else
-		  goto end;
-	  break;
-	  case 1009: /* OK */
-	    if (!*arg || !GET_CITY_MET(ch))
-		  goto end;
-	  
-	    zone_rnum znum;
-		room_vnum vroom;
-		room_rnum rroom;
-		
-		for (i = 0; i < GET_CITY_MET(ch); i++) {
-		  znum = real_zone(ch->player_specials->saved.city_met[i]);
-		  if (is_abbrev(arg, zone_table[znum].name)) {
-			city += cmet_check(zone_table[znum].number, ch);
-		    if (city < 0) {
-			  sprintf(buf, "Return ON! %s!", zone_table[znum].name);  
-			  do_say(ch, buf, cmd, 0);
-			  dice = (zone_table[znum].number * 100);
-		    } else
-			  goto end;
-		    break;
-		  }
-		}
-		if (!dice)
-		  goto end;
-		for (i = (dice + 100); dice < i; dice++) {		  
-		  vroom = dice;		  
-		  rroom = real_room(vroom);
-		  if (rroom == NOWHERE || !ROOM_FLAGGED(rroom, ROOM_WORLDMAP))
-			continue;
-		  else {
-			fly_to_room(ch, GET_ROOM_VNUM(rroom));			
-			break;
-		  }
-		}
-	    break;
 	  case 1012: /* OK */
 	    if (target && IN_ROOM(ch) == IN_ROOM(target) && 
 			!ZONE_FLAGGED(GET_ROOM_ZONE(IN_ROOM(ch)), ZONE_NOASTRAL) &&
@@ -1453,83 +1411,6 @@ ACMD(do_gain)
 	    } else
 		  goto end;
 	    break;
-	  case 1016: /* OK */
-	    found = TRUE;		
-		do_say(ch, "Drift ON!", cmd, 0);
-		for (i = 0; i <= top_of_zone_table; i++) {		  
-		  if (ZONE_FLAGGED(i, ZONE_CITY)) {			
-			check = 0;
-			if (GET_CITY_MET(ch))
-			  check += cmet_check(ZONE_NUMBER(i), ch);
-			if (check >= 0)
-			  dice++;
-		  }
-		}
-		if (!dice) {
-		  send_to_char(ch, "%s vanishes in a puff of smoke and nothing happens!\r\n", held->short_description);
-		  extract_obj(held);
-		  return;
-		}
-		while (found) {
-		  for (i = 0; i <= top_of_zone_table; i++) {			
-		    if (ZONE_FLAGGED(i, ZONE_CITY)) {			  
-			  check = 0;
-			  if (GET_CITY_MET(ch))
-				check += cmet_check(ZONE_NUMBER(i), ch);
-			  if (check >= 0 && rand_number(1, dice) == 1) {
-			    found = FALSE;
-			    room_rnum prevroom = IN_ROOM(ch);
-			    while (prevroom == IN_ROOM(ch)) {			    
-			      dice = ((ZONE_NUMBER(i) * 100) + rand_number(1, 99));
-				  zone_vnum fly = dice;
-			      fly_to_room(ch, fly);
-			    }
-			    GET_CITY_MET(ch)++;
-			    ch->player_specials->saved.city_met[check] = zone_table[i].number;
-			    send_to_char(ch, "\r\n\tDNew city met: \tG%s\tD!\tn\r\n", zone_table[i].name);
-				save_char(ch);
-				Crash_crashsave(ch);
-		        break;
-			  } 
-		    }
-		  }
-		}
-	    break;
-	  case 1017: /* OK */		
-		found = TRUE;				
-		do_say(ch, "Collision ON!", cmd, 0);
-		for (i = 0; i <= top_of_p_table; i++) {
-		  if (player_table[i].id == GET_IDNUM(ch))
-			continue;
-		  if ((target = get_player_vis(ch, player_table[i].name, NULL, FIND_CHAR_WORLD))) {	
-	      check = 0;
-	      check += pmet_check(target, ch);
-		  if (check > 0)
-			  dice++;
-		  }
-		}
-		if (!dice) {
-		  send_to_char(ch, "%s vanishes in a puff of smoke and nothing happens!\r\n", held->short_description);
-		  extract_obj(held);
-		  return;
-		}
-		dice = rand_number(1, dice);
-		for (i = 0; i <= top_of_p_table; i++) {
-		  if (player_table[i].id == GET_IDNUM(ch))
-			continue;
-		  if ((target = get_player_vis(ch, player_table[i].name, NULL, FIND_CHAR_WORLD))) {
-			check = 0;
-	        check += pmet_check(target, ch);
-			if (check > 0 && dice == 1) {
-			  fly_to_char(ch, target);
-			  save_char(ch);
-			  Crash_crashsave(ch);
-			  break;
-			} else if (check > 0)
-			  dice--;
-		    }
-		}
-		break;
 	  case 1030:
 	    if (!*arg)
 		  goto end;
@@ -1644,54 +1525,6 @@ ACMD(do_gain)
         add_trigger(SCRIPT(ch), trig, -1);
 		do_say(ch, buf, cmd, 0);
 	    break;
-	  case 1039:
-		if (!*arg)
-		  goto end;
-		room_rnum prevroom = IN_ROOM(ch);
-	    if (found) {
-		  sprintf(buf, "Accompany ON! %s!", GET_NAME(target));
-		  do_say(ch, buf, cmd, 0);
-		  fly_to_char(ch, target);
-		} else {
-		  if (!GET_CITY_MET(ch))
-		    goto end;
-	  
-	      zone_rnum znum;
-		  room_vnum vroom;
-		  room_rnum rroom;
-		
-		  for (i = 0; i < GET_CITY_MET(ch); i++) {
-		    znum = real_zone(ch->player_specials->saved.city_met[i]);
-		    if (is_abbrev(arg, zone_table[znum].name)) {
-		  	  city += cmet_check(zone_table[znum].number, ch);
-		    if (city < 0) {
-			  sprintf(buf, "Accompany ON! %s!", zone_table[znum].name);  
-			  do_say(ch, buf, cmd, 0);		
-			  dice = (ch->player_specials->saved.city_met[i] * 100);
-		    } else
-			  goto end;
-		    break;
-		    }
-		  }
-		  for (i = (dice + 100); dice < i; dice++) {
-		    vroom = dice;
-		    rroom = real_room(vroom);
-		    if (rroom == NOWHERE || !ROOM_FLAGGED(rroom, ROOM_WORLDMAP))
-			  continue;
-			else {
-			  fly_to_room(ch, GET_ROOM_VNUM(rroom));			
-			break;
-		    }			
-		  }
-		}
-		if (ch->followers) {		  
-		  for (k = ch->followers; k; k = next) {
-		    next = k->next;			
-		    if (IN_ROOM(k->follower) == prevroom)
-			  fly_to_room(k->follower, GET_ROOM_VNUM(IN_ROOM(ch)));		    
-		  }
-		}
-		break;
 	  default:
 	    send_to_char(ch, "You insert the card in a special slot inside binder's back cover...\r\nThe screen inside the back cover starts to show some information.\r\n");
 		send_to_char(ch, "%s was not implemented yet, please wait for the next updates.\r\n", held->short_description);
