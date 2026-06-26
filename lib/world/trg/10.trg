@@ -197,7 +197,7 @@ end
 ~
 #1005
 magnetic force spell~
-1 c 1
+1 c 3
 ga~
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
@@ -500,7 +500,7 @@ end
 ~
 #1009
 return spell~
-1 c 1
+1 c 3
 ga~
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
@@ -718,7 +718,7 @@ end
 ~
 #1013
 departure effect~
-1 c 1
+1 c 3
 ga~
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
@@ -745,7 +745,7 @@ end
 ~
 #1014
 leave spell~
-1 c 1
+1 c 3
 ga~
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
@@ -841,7 +841,7 @@ end
 ~
 #1016
 drift spell~
-1 c 1
+1 c 3
 ga~
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
@@ -921,7 +921,7 @@ end
 ~
 #1017
 collision spell~
-1 c 1
+1 c 3
 ga~
 if %self.carried_by% == %actor%
   %echo% You must hold something before gain it.
@@ -2104,7 +2104,7 @@ detach 1038 %self.id%
 ~
 #1039
 accompany spell~
-1 c 1
+1 c 3
 ga~
 if !%actor.is_book%
 %send% %actor% You need your book activated before gain a spell card.
