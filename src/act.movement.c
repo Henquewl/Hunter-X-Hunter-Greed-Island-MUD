@@ -23,6 +23,7 @@
 #include "act.h"
 #include "fight.h"
 #include "oasis.h" /* for buildwalk */
+#include "mud_event.h"
 
 
 /* local only functions */
@@ -108,6 +109,259 @@ int has_scuba(struct char_data *ch)
       return (1);
 
   return (0);
+}
+
+/* --------------------------------------------------------------------------
+ * Auto-flight engine helpers
+ * -------------------------------------------------------------------------- */
+
+/* Direction from src tile toward dst tile on the worldmap grid.
+ * Returns NORTH/SOUTH/EAST/WEST (0-3), or -1 if already there.
+ * Reduces the larger delta first to favour diagonal-ish movement. */
+static int flight_direction(room_vnum src, room_vnum dst)
+{
+  int src_row = WORLDMAP_ROW(src);
+  int src_col = WORLDMAP_COL(src);
+  int dst_row = WORLDMAP_ROW(dst);
+  int dst_col = WORLDMAP_COL(dst);
+  int drow = dst_row - src_row;
+  int dcol = dst_col - src_col;
+
+  if (drow == 0 && dcol == 0)
+    return -1;  /* already there */
+
+  /* Reduce the larger delta first */
+  if (abs(drow) >= abs(dcol))
+    return (drow > 0) ? SOUTH : NORTH;
+  else
+    return (dcol > 0) ? EAST : WEST;
+}
+
+/* Arrival modes — what happens when the player reaches the destination tile */
+#define FLY_ARRIVE_CITY    0   /* Land at city entrance; player must `enter` */
+#define FLY_ARRIVE_START   1   /* Land at Start Point; no portal */
+#define FLY_ARRIVE_LEAVE   2   /* Fly to Leave Point, then teleport to Elena (1406) */
+#define FLY_ARRIVE_PLAYER  3   /* Fly to player's city entrance, then teleport to player's room */
+
+#define ELENA_ROOM_VNUM    1406
+
+struct fly_dest {
+  const char   *name;       /* lowercased city keyword for %ofly% city <name> */
+  room_vnum     map_tile;   /* worldmap entrance tile (NOWHERE until P1) */
+  room_vnum     interior;   /* city interior entry room (for reverse lookup) */
+  int           arrive_mode;
+};
+
+static struct fly_dest fly_destinations[] = {
+  { "antokiba",  NOWHERE, 12064, FLY_ARRIVE_CITY  },
+  { "masadora",  NOWHERE,  3053, FLY_ARRIVE_CITY  },
+  { "rabicuta",  NOWHERE, NOWHERE, FLY_ARRIVE_CITY },
+  { "start",     NOWHERE, NOWHERE, FLY_ARRIVE_START },
+  { "leave",     NOWHERE, NOWHERE, FLY_ARRIVE_LEAVE },
+  { NULL, NOWHERE, NOWHERE, 0 }   /* sentinel */
+};
+
+/* Find a fly_dest by city name keyword (case-insensitive). Returns NULL if not found. */
+static struct fly_dest *find_fly_dest(const char *name)
+{
+  int i;
+  for (i = 0; fly_destinations[i].name != NULL; i++)
+    if (!str_cmp(fly_destinations[i].name, name))
+      return &fly_destinations[i];
+  return NULL;
+}
+
+/* Find a fly_dest whose interior room matches the given vnum.
+ * Used when a player casts a fly card from inside a city. */
+static struct fly_dest *find_fly_dest_by_interior(room_vnum interior)
+{
+  int i;
+  for (i = 0; fly_destinations[i].name != NULL; i++)
+    if (fly_destinations[i].interior == interior && fly_destinations[i].interior != NOWHERE)
+      return &fly_destinations[i];
+  return NULL;
+}
+
+/* Per-flight state stored in the mud event */
+struct flight_data {
+  room_vnum   dest_tile;    /* destination worldmap tile */
+  int         arrive_mode;  /* FLY_ARRIVE_* constant */
+  long        target_id;    /* char idnum for FLY_ARRIVE_PLAYER; 0 otherwise */
+  bool        is_group;     /* true = carry grouped followers too */
+};
+
+EVENTFUNC(event_autoflight)
+{
+  struct mud_event_data *pMudEvent;
+  struct char_data *ch;
+  struct flight_data *data;
+  int dir, step;
+  bool arrived = FALSE;
+
+  if (event_obj == NULL)
+    return 0;
+
+  pMudEvent = (struct mud_event_data *) event_obj;
+  ch = (struct char_data *) pMudEvent->pStruct;
+
+  /* Safety checks — end flight if character is gone or flight was cancelled */
+  if (ch == NULL || IS_NPC(ch) || IN_ROOM(ch) == NOWHERE)
+    return 0;
+
+  if (!PLR_FLAGGED(ch, PLR_AUTOFLIGHT))
+    return 0;
+
+  /* Retrieve the flight data from sVariables (stored as a cast pointer) */
+  data = (struct flight_data *) pMudEvent->sVariables;
+
+  if (data == NULL) {
+    REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_AUTOFLIGHT);
+    REMOVE_BIT_AR(AFF_FLAGS(ch), AFF_FLYING);
+    return 0;
+  }
+
+  /* Check if we've already arrived */
+  if (GET_ROOM_VNUM(IN_ROOM(ch)) == data->dest_tile)
+    arrived = TRUE;
+
+  if (!arrived) {
+    /* Step up to 5 tiles toward dest_tile */
+    for (step = 0; step < 5; step++) {
+      dir = flight_direction(GET_ROOM_VNUM(IN_ROOM(ch)), data->dest_tile);
+      if (dir == -1) {
+        arrived = TRUE;
+        break;
+      }
+
+      /* Trail echo in the room we're leaving */
+      act("$n streaks through the sky, leaving a glowing trail behind.",
+          FALSE, ch, NULL, NULL, TO_ROOM);
+
+      /* Move one tile — perform_move handles followers too */
+      if (!perform_move(ch, dir, 1))
+        break;  /* blocked somehow — skip remaining steps this tick */
+
+      /* Check for arrival after each step */
+      if (GET_ROOM_VNUM(IN_ROOM(ch)) == data->dest_tile) {
+        arrived = TRUE;
+        break;
+      }
+    }
+
+    /* Periodic look after stepping (even if not arrived) */
+    if (ch->desc)
+      look_at_room(ch, 0);
+
+    if (!arrived)
+      return (1 * PASSES_PER_SEC);  /* reschedule for next second */
+  }
+
+  /* ARRIVAL block */
+  switch (data->arrive_mode) {
+    case FLY_ARRIVE_CITY:
+      send_to_char(ch, "\r\nYou descend at the city entrance. Type @Yenter@n to go inside.\r\n");
+      break;
+
+    case FLY_ARRIVE_START:
+      send_to_char(ch, "\r\nYou land at the starting point.\r\n");
+      break;
+
+    case FLY_ARRIVE_LEAVE:
+      send_to_char(ch, "\r\nYou soar off the island...\r\n");
+      char_from_room(ch);
+      char_to_room(ch, real_room(ELENA_ROOM_VNUM));
+      look_at_room(ch, 0);
+      break;
+
+    case FLY_ARRIVE_PLAYER: {
+      struct char_data *target = find_char(data->target_id);
+      if (target && !PRF_FLAGGED(target, PRF_NOHASSLE) && IN_ROOM(target) != NOWHERE) {
+        send_to_char(ch, "\r\nYou land near your destination.\r\n");
+        char_from_room(ch);
+        char_to_room(ch, IN_ROOM(target));
+        look_at_room(ch, 0);
+      } else {
+        send_to_char(ch, "\r\nYour destination is no longer reachable. You land here.\r\n");
+        if (ch->desc) look_at_room(ch, 0);
+      }
+      break;
+    }
+  }
+
+  /* Clear flight flags */
+  REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_AUTOFLIGHT);
+  REMOVE_BIT_AR(AFF_FLAGS(ch), AFF_FLYING);
+
+  /* data is stored in sVariables and will be freed by free_mud_event — do not free here */
+  return 0;
+}
+
+/* Start auto-flight for a player. Called from the %ofly% DG object command.
+ * dest_tile:    worldmap tile vnum to fly toward (NOWHERE = destination not yet configured)
+ * arrive_mode:  FLY_ARRIVE_* constant
+ * target_id:    char idnum for FLY_ARRIVE_PLAYER; 0 otherwise
+ * is_group:     TRUE to also fly grouped followers
+ *
+ * Returns TRUE if flight was started, FALSE if it failed (sends message to ch). */
+int start_flight(struct char_data *ch, room_vnum dest_tile,
+                 int arrive_mode, long target_id, bool is_group)
+{
+  struct flight_data *data;
+  room_vnum entrance_tile;
+
+  /* 1. Reject if destination unconfigured */
+  if (dest_tile == NOWHERE) {
+    send_to_char(ch, "That destination is not reachable yet.\r\n");
+    return FALSE;
+  }
+
+  /* 2. Reject if already flying */
+  if (PLR_FLAGGED(ch, PLR_AUTOFLIGHT)) {
+    send_to_char(ch, "You are already flying!\r\n");
+    return FALSE;
+  }
+
+  /* 3. If caster is inside a city (not on a worldmap tile), teleport them
+   *    to that city's worldmap entrance tile first. */
+  if (!IS_WORLDMAP_ROOM(GET_ROOM_VNUM(IN_ROOM(ch)))) {
+    struct fly_dest *current_city = find_fly_dest_by_interior(GET_ROOM_VNUM(IN_ROOM(ch)));
+    if (current_city && current_city->map_tile != NOWHERE) {
+      entrance_tile = current_city->map_tile;
+      char_from_room(ch);
+      char_to_room(ch, real_room(entrance_tile));
+      send_to_char(ch, "You fly out of the city...\r\n");
+    }
+    /* else: allow cast from any non-worldmap room even if we can't reverse-map it */
+  }
+
+  /* 4. Set flight flags */
+  SET_BIT_AR(PLR_FLAGS(ch), PLR_AUTOFLIGHT);
+  SET_BIT_AR(AFF_FLAGS(ch), AFF_FLYING);
+
+  /* 5. Allocate and populate flight data */
+  CREATE(data, struct flight_data, 1);
+  data->dest_tile   = dest_tile;
+  data->arrive_mode = arrive_mode;
+  data->target_id   = target_id;
+  data->is_group    = is_group;
+
+  /* 6. Schedule the event. Flight data is stored directly in sVariables (bypassing
+   *    new_mud_event's strdup so the struct pointer survives intact).
+   *    free_mud_event will call free(sVariables) when the event ends, which correctly
+   *    frees the flight_data struct. */
+  {
+    struct mud_event_data *pMudEvent = new_mud_event(eAUTOFLIGHT, ch, NULL);
+    pMudEvent->sVariables = (char *) data;
+    attach_mud_event(pMudEvent, 1 * PASSES_PER_SEC);
+  }
+
+  send_to_char(ch, "You launch into the air!\r\n");
+  act("$n launches into the air with a burst of energy!", FALSE, ch, NULL, NULL, TO_ROOM);
+
+  /* TODO: if is_group, also set flags and schedule events for grouped followers
+   * (Task 5 Accompany will handle the group via multiple %ofly% calls if needed) */
+
+  return TRUE;
 }
 
 /** Move a PC/NPC character from their current location to a new location. This

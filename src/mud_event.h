@@ -27,6 +27,7 @@ typedef enum {
     ePROTOCOLS, /* The Protocol Detection Event */
     eWHIRLWIND, /* The WHIRLWIND Attack */
     eSPL_DARKNESS, /* Darkness Spell */
+    eAUTOFLIGHT, /* Auto-flight from a transport spell card */
 } event_id;
 
 struct mud_event_list {
@@ -57,5 +58,6 @@ void clear_char_event_list(struct char_data * ch);
 EVENTFUNC(event_countdown);
 EVENTFUNC(get_protocols);
 EVENTFUNC(event_whirlwind);
+EVENTFUNC(event_autoflight);
 
 #endif /* _MUD_EVENT_H_ */

@@ -22,6 +22,9 @@
 #include "fight.h" /* for die() */
 #include "act.h"
 
+/* Used by %ofly% object command (Task 5) */
+extern int start_flight(struct char_data *ch, room_vnum dest_tile,
+                        int arrive_mode, long target_id, bool is_group);
 
 /* Local functions */
 #define OCMD(name)  \
