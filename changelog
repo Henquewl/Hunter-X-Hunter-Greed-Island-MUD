@@ -7,6 +7,14 @@ https://github.com/tbamud/tbamud
 Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
+[Jun 26 2026] - Henque
+  fix(p2): clear PLR_AUTOFLIGHT and AFF_FLYING on player save/load (Task 6)
+  - players.c save_char(): snapshot and clear both flags before writing the player
+    file; restore them after fclose so a live mid-session save doesn't disrupt an
+    actively-flying player. File on disk never carries auto-flight state.
+  - players.c load_char(): clear both flags after affect_total() so any stale
+    persisted state is stripped before the character enters the world.
+
 [Jun 25 2026] - Henque
   feat(p2): auto-flight event engine (Task 4)
   - mud_event.h/c: registered eAUTOFLIGHT event (EVENT_CHAR) and event_autoflight handler.

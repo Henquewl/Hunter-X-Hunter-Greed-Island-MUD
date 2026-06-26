@@ -29,6 +29,14 @@ Fix: call `new_mud_event(eAUTOFLIGHT, ch, NULL)` then set `pMudEvent->sVariables
 
 All `map_tile` vnums are `NOWHERE` (stubbed). Interior vnums set: antokiba=12064, masadora=3053; rabicuta and start/leave left NOWHERE until P1 city placement.
 
+## Post-implementation fixes (commit 5b61868)
+
+Two small correctness issues patched after initial Task 4 implementation:
+
+1. **sVariables warning comment** — added a block comment directly above `pMudEvent->sVariables = (char *) data` in `start_flight()` warning that `change_event_duration()` must never be called on `eAUTOFLIGHT` events (it would strdup the struct pointer, truncating at the first null byte).
+
+2. **AFF_FLYING cleared on safety exit** — the `if (!PLR_FLAGGED(ch, PLR_AUTOFLIGHT)) return 0;` early-exit in `event_autoflight` now also calls `REMOVE_BIT_AR(AFF_FLAGS(ch), AFF_FLYING)` before returning, preventing a stuck flying state if `PLR_AUTOFLIGHT` is cleared externally (e.g. admin flag wipe) without the event running to its normal completion.
+
 ## For Task 5 implementer
 
 - Call `start_flight(ch, dest->map_tile, dest->arrive_mode, 0, FALSE)` from `%ofly%` handler in `dg_objcmd.c`.

@@ -499,6 +499,11 @@ int load_char(const char *name, struct char_data *ch)
 
   affect_total(ch);
 
+  /* Clear any persisted auto-flight state — the flight event cannot survive
+   * a disconnect, so these flags must not carry over to the new session. */
+  REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_AUTOFLIGHT);
+  REMOVE_BIT_AR(AFF_FLAGS(ch), AFF_FLYING);
+
   /* initialization for imms */
   if (GET_LEVEL(ch) >= LVL_IMMORT) {
     for (i = 1; i <= MAX_SKILLS; i++)
@@ -518,6 +523,7 @@ void save_char(struct char_data * ch)
   FILE *fl;
   char filename[40], buf[MAX_STRING_LENGTH], bits[127], bits2[127], bits3[127], bits4[127];
   int i, j, id, save_index = FALSE;
+  int autoflight_was_set;
   struct affected_type *aff, tmp_aff[MAX_AFFECT];
   struct obj_data *char_eq[NUM_WEARS];
   trig_data *t;
@@ -628,6 +634,15 @@ void save_char(struct char_data * ch)
   if (GET_WEIGHT(ch)	   != PFDEF_WEIGHT)	fprintf(fl, "Wate: %d\n", GET_WEIGHT(ch));
   if (GET_ALIGNMENT(ch)  != PFDEF_ALIGNMENT)	fprintf(fl, "Alin: %d\n", GET_ALIGNMENT(ch));
 
+
+  /* Never persist auto-flight state — the fly event is lost on disconnect/save.
+   * Snapshot and clear before writing; restore after fclose so a live
+   * mid-session save doesn't strip the flags from an actively-flying player. */
+  autoflight_was_set = PLR_FLAGGED(ch, PLR_AUTOFLIGHT);
+  if (autoflight_was_set) {
+    REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_AUTOFLIGHT);
+    REMOVE_BIT_AR(AFF_FLAGS(ch), AFF_FLYING);
+  }
 
   sprintascii(bits,  PLR_FLAGS(ch)[0]);
   sprintascii(bits2, PLR_FLAGS(ch)[1]);
@@ -748,6 +763,13 @@ void save_char(struct char_data * ch)
   save_char_vars_ascii(fl, ch);
 
   fclose(fl);
+
+  /* Restore in-memory flight flags stripped for the write above, so a
+   * live mid-session save doesn't interrupt a flying player. */
+  if (autoflight_was_set) {
+    SET_BIT_AR(PLR_FLAGS(ch), PLR_AUTOFLIGHT);
+    SET_BIT_AR(AFF_FLAGS(ch), AFF_FLYING);
+  }
 
   /* More char_to_store code to add spell and eq affections back in. */
   for (i = 0; i < MAX_AFFECT; i++) {
