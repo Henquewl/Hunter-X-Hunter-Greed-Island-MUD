@@ -253,8 +253,8 @@ EVENTFUNC(event_autoflight)
       act("$n streaks through the sky, leaving a glowing trail behind.",
           FALSE, ch, NULL, NULL, TO_ROOM);
 
-      /* Move one tile — perform_move handles followers too */
-      if (!perform_move(ch, dir, 1))
+      /* Move one tile — bypass perform_move's PLR_AUTOFLIGHT manual-block */
+      if (!do_simple_move(ch, dir, 1))
         break;  /* blocked somehow — skip remaining steps this tick */
 
       /* Check for arrival after each step */
