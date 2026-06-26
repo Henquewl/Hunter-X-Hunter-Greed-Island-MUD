@@ -98,8 +98,12 @@ void mobile_activity(void)
 
 	if (MOB_FLAGGED(ch, MOB_WIMPY) && AWAKE(vict))
 	  continue;
-  
+
     if (GET_POS(vict) <= POS_STUNNED)
+	  continue;
+
+	/* Don't aggro players in auto-flight */
+	if (PLR_FLAGGED(vict, PLR_AUTOFLIGHT))
 	  continue;
 
 	if (MOB_FLAGGED(ch, MOB_AGGRESSIVE  ) ||
@@ -128,8 +132,12 @@ void mobile_activity(void)
       for (vict = world[IN_ROOM(ch)].people; vict && !found; vict = vict->next_in_room) {
 	if (IS_NPC(vict) || !CAN_SEE(ch, vict) || PRF_FLAGGED(vict, PRF_NOHASSLE))
 	  continue;
-  
+
     if (GET_POS(vict) <= POS_STUNNED)
+	  continue;
+
+	/* Don't target players in auto-flight */
+	if (PLR_FLAGGED(vict, PLR_AUTOFLIGHT))
 	  continue;
 
 	for (names = MEMORY(ch); names && !found; names = names->next) {

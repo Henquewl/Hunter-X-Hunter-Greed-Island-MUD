@@ -1,62 +1,110 @@
-# Task 2 Report: asciimap.c + utils.h — colors, legend, render override
+# Task 2 Report: Movement engine changes (src/act.movement.c)
 
-## Status: DONE
+## Status: COMPLETE — clean compile
 
-## Changes Applied
+## Changes made to `src/act.movement.c`
 
-### Change A — Invert Field/Forest colors
-- `map_info[]`: SECT_FIELD `\tg` → `\tG`, SECT_FOREST `\tG` → `\tg`. Verified.
-- `world_map_info[]`: SECT_FIELD `\tg` → `\tG`, SECT_FOREST `\tG` → `\tg`. Verified.
+### 2a. Terrain bypass for AFF_FLYING players
 
-### Change B — Point sector glyphs (both arrays)
-- `map_info[]`: PORT `\tD@` → `\tYP`, CITYENT `\tg@` → `\tYC`, MYSTERY `\ty|` → `\tg?`,
-  START `""` → `\tc[\tYS\tc]\tn`, LEAVE `""` → `\tc[\tYL\tc]\tn`. Verified.
-- `world_map_info[]`: PORT `\tD@` → `\tYP`, CITYENT `\tg@` → `\tYC`, MYSTERY `\ty|` → `\tg?`,
-  START `""` → `\tYS`, LEAVE `""` → `\tYL`. Verified.
+**Water gate (lines ~178-183):** No change made. Confirmed `has_boat()` returns 1 when
+`AFF_FLAGGED(ch, AFF_FLYING)` is true (lines 47-48 of the function). However, note that
+the actual water gate check does NOT call `has_boat()` -- it only tests `!IS_NPC` and
+`!PRF_NOHASSLE`. This means AFF_FLYING players would still be blocked at the water gate
+by the current code. Left as-is per the explicit task brief instruction.
 
-### Change C — perform_map() legend
-- Worldmap block: SECT_CITY label `"City"` → `"Road"`. Verified.
-- Worldmap block: Added Start and Leave entries after Entrance (19 → 21 entries; under 24 cap). Verified.
-- Normal block: Added Start and Leave entries after Entrance (22 → 24 entries; at 24 cap). Verified.
+**Mountain gate (lines ~186-191):** Added `&& !AFF_FLAGGED(ch, AFF_FLYING)` to the inner
+condition. Flying players now bypass the "terrain is too steep" block alongside NPCs and
+NOHASSLE players.
 
-### Change D — Remove dead ROOM_CRATER branch in MapArea
-- Removed the `else if (ROOM_FLAGGED(room, ROOM_CRATER)) map[x][y] = SECT_PORT;` branch.
-  ROOM_CRATER define in structs.h retained. Verified.
+Before:
+```c
+if (!IS_NPC(ch) && !PRF_FLAGGED(ch, PRF_NOHASSLE)) {
+```
 
-### Change E — IS_ENTRY_POINT_SECT macro (utils.h)
-- Added after IS_CARD macro at line ~754 in utils.h:
-  ```c
-  #define IS_ENTRY_POINT_SECT(s) \
-    ((s)==SECT_PORT||(s)==SECT_CITYENT||(s)==SECT_MYSTERY|| \
-     (s)==SECT_START||(s)==SECT_LEAVE)
-  ```
-  Covers all five point sectors. Verified.
+After:
+```c
+if (!IS_NPC(ch) && !PRF_FLAGGED(ch, PRF_NOHASSLE) && !AFF_FLAGGED(ch, AFF_FLYING)) {
+```
 
-### Change F — Peaceful render override exemption
-- Applied after Change D to the resulting single-line `ROOM_PEACEFUL` branch:
-  `ROOM_FLAGGED(room, ROOM_PEACEFUL)` → `ROOM_FLAGGED(room, ROOM_PEACEFUL) && !IS_ENTRY_POINT_SECT(SECT(room))`.
-  Verified.
+### 2b. Look suppression for PLR_AUTOFLIGHT players
 
-## Compile Output
+The `look_at_room(ch, 0)` call after landing in the destination room (the one guarded by
+`ch->desc != NULL`) now also checks `!PLR_FLAGGED(ch, PLR_AUTOFLIGHT)`. The second
+`look_at_room` call in the greet-trigger-failed rollback path was left untouched -- that
+one must still fire so the player sees the room they were rolled back to.
 
-Full recompile (all .c files recompiled due to utils.h change), no errors, no warnings:
+Before:
+```c
+if (ch->desc != NULL)
+  look_at_room(ch, 0);
+```
+
+After:
+```c
+if (ch->desc != NULL && !PLR_FLAGGED(ch, PLR_AUTOFLIGHT))
+  look_at_room(ch, 0);
+```
+
+### 2c. Manual movement rejection for PLR_AUTOFLIGHT players
+
+Inserted an early-return guard in `perform_move()` after the basic direction/fight
+validation and before the exit/door check chain. Players with PLR_AUTOFLIGHT receive
+"You are flying -- you cannot change direction manually." and the call returns 0.
+
+The original code was a single long `if (...) return; else if ... else if ... else { }`.
+Breaking the chain at the PLR_AUTOFLIGHT guard required converting the remaining
+`else if` start into a standalone `if` -- safe because both preceding paths (NULL/dir
+check and AUTOFLIGHT check) return early.
+
+```c
+/* Block manual movement during auto-flight */
+if (!IS_NPC(ch) && PLR_FLAGGED(ch, PLR_AUTOFLIGHT)) {
+  send_to_char(ch, "You are flying -- you cannot change direction manually.\r\n");
+  return (0);
+}
+```
+
+## Compile result
+
+Clean compile, no warnings or errors.
 
 ```
-gcc -w   -c -o asciimap.o asciimap.c
-...
-gcc -o ../bin/circle  act.comm.o ... asciimap.o ... utils.o ...   -lcrypt
+gcc -w   -c -o act.movement.o act.movement.c
+gcc -o ../bin/circle  act.comm.o ... act.movement.o ...   -lcrypt
 make[1]: Leaving directory '.../src'
 ```
 
-Exit: success (no error messages, no warnings).
+## Files changed
 
-## Deviations
+- `src/act.movement.c` -- all three changes (2a mountain gate, 2b look suppression, 2c manual-move lock)
 
-None. All changes match the brief verbatim. Legend entry count (24 max): worldmap=21, normal=24 — both within bounds.
+---
 
-## Files Changed
+## Missed requirement fix: water gate bypass for AFF_FLYING
 
-- `src/asciimap.c` — Changes A, B, C, D, F
-- `src/utils.h` — Change E
-- `changelog` — entry added
-- `lib/text/news` — gameplay-facing entry added
+**Status: COMPLETE — commit 7bf95f6**
+
+The original Task 2 report noted that the water gate did NOT call `has_boat()` and
+therefore AFF_FLYING players were still blocked at water terrain. The fix was deferred
+at the time.
+
+This follow-up applies the same pattern as the mountain gate fix to the water gate
+at `src/act.movement.c` ~line 179:
+
+Before:
+```c
+if (!IS_NPC(ch) && !PRF_FLAGGED(ch, PRF_NOHASSLE)) {
+  send_to_char(ch, "You need a boat to go there.\r\n");
+```
+
+After:
+```c
+if (!IS_NPC(ch) && !PRF_FLAGGED(ch, PRF_NOHASSLE) && !AFF_FLAGGED(ch, AFF_FLYING)) {
+  send_to_char(ch, "You need a boat to go there.\r\n");
+```
+
+AFF_FLYING players now bypass both water (SECT_WATER_NOSWIM, SECT_WATER_SWIM) and
+mountain (SECT_MOUNTAIN) terrain gates. The feature requirement "flight crosses mountains
+AND ocean (all sectors passable)" is now fully satisfied.
+
+Compile: clean (gcc -w, no warnings or errors).

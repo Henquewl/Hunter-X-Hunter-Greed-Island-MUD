@@ -7,6 +7,18 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 
 == 2026 ==
 
+JUN 26 **
+- Transport spell cards (Origin, Magnetic Force, Return, Leave, Drift, Collision,
+  Accompany) now trigger real flight instead of instant teleportation. When used,
+  your character launches into the air and flies automatically across the Greed
+  Island world map toward the destination, crossing any terrain including ocean
+  and mountains. You cannot move manually or engage in combat while airborne.
+  A glowing trail fades behind you as you soar. The periodic view refreshes as
+  you travel, showing the landscape passing beneath. On arrival at a city
+  entrance, type "enter" to go inside. Accompany carries your group members along
+  with you. (Destination city tiles will be reachable once city placement is
+  complete.)
+
 JUN 25 **
 - The Greed Island world map has been remastered from the official map.
   Terrain is now much more faithful: forests, open fields, mountain ranges,

@@ -194,7 +194,7 @@ const char *player_bits[] = {
   "UNUSED2",
   "UNUSED3",
   "UNUSED4",
-  "UNUSED5",
+  "AUTOFLIGHT",    /* 24 */
   "\n"
 };
 

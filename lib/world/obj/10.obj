@@ -79,6 +79,7 @@ A @B1005 Magnetic Force C-50 card@g is lying here.@n~
 25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 20000 50 0 62
+T 1005
 E
 1005 magnetic force card~
 	D(	GLR	D)	n | 	D(	GRS	D)	n
@@ -140,6 +141,7 @@ A @B1009 Return G-380 card@g is lying here.@n~
 25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 525 380 0 62
+T 1009
 E
 1009 return card~
 	D(	GLR	D)	n | 	D(	GRS	D)	n
@@ -246,6 +248,7 @@ A @B1016 Drift F-200 card@g is lying here.@n~
 25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 1250 200 0 62
+T 1016
 E
 1016 drift card~
 	D(	GSR	D)	n | 	D(	GRS	D)	n
@@ -261,6 +264,7 @@ A @B1017 Collision F-200 card@g is lying here.@n~
 25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 1250 200 0 62
+T 1017
 E
 1017 collision card~
 	D(	GSR	D)	n | 	D(	GRS	D)	n
@@ -613,6 +617,7 @@ A @B1039 Accompany F-130 card@g is lying here.@n~
 25 d 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
 0 1900 130 0 62
+T 1039
 E
 1039 accompany card~
 	D(	GLR	D)	n | 	D(	GRS	D)	n
