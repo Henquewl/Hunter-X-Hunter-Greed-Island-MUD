@@ -8,6 +8,44 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 26 2026] - Henque
+  feat(p2): transport spell cards — P2 fly mechanic (full implementation)
+  Summary of all changes across Tasks 1-7:
+
+  Task 1 (structs.h, constants.c):
+  - Added PLR_AUTOFLIGHT (bit 24) to player_bits[] ("AUTOFLIGHT"); used as the
+    auto-step lock (look suppression, combat block, manual-move block).
+  - Added worldmap grid constants: WORLDMAP_BASE_VNUM 100000, WORLDMAP_GRID 256,
+    WORLDMAP_VNUM_TOP, and helpers WORLDMAP_ROW/WORLDMAP_COL/WORLDMAP_VNUM/
+    IS_WORLDMAP_ROOM.
+
+  Task 2 (act.movement.c — movement engine):
+  - Water gate: added && !AFF_FLAGGED(ch, AFF_FLYING) so flying players cross ocean.
+  - Mountain gate: same bypass for mountain terrain.
+  - do_simple_move(): look_at_room gated on !PLR_FLAGGED(ch, PLR_AUTOFLIGHT);
+    the flight event issues the periodic look instead (every 5 tiles / 1 second).
+  - perform_move(): returns 0 with "You're flying..." message if PLR_AUTOFLIGHT set.
+
+  Task 3 (fight.c, mobact.c — combat block):
+  - fight.c hit(): early return if attacker or victim has PLR_AUTOFLIGHT.
+  - mobact.c mobile_activity(): PLR_AUTOFLIGHT players skipped in both the
+    aggressive-mob loop and the memory-mob loop.
+
+  Task 5 (dg_objcmd.c — %ofly% DG command):
+  - Added OCMD(do_ofly) registered as "ofly" in the command table.
+  - Syntax: %ofly% %actor% city <name> | player <name> | leave | start | room <vnum>
+    with optional trailing "group" flag for Accompany.
+  - NOHASSLE check: rejects player-mode targets with PRF_NOHASSLE set.
+
+  Task 7 (lib/world/obj/10.obj, lib/world/trg/10.trg — world file wiring):
+  - 10.obj: added missing T lines for cards 1005, 1009, 1016, 1017, 1039 (cards
+    1013 and 1014 already had T lines). Written in WSL Python binary mode to
+    preserve ANSI color bytes.
+  - 10.trg: converted all 7 transport card triggers from %teleport%+wait+look to
+    %ofly%+%purge% patterns; preserved all gating (is_book, shield_faith,
+    visited/met checks, random selection loops). Fixed missing break after %ofly%
+    in Collision (#1017) while loop.
+
+[Jun 26 2026] - Henque
   fix(p2): clear PLR_AUTOFLIGHT and AFF_FLYING on player save/load (Task 6)
   - players.c save_char(): snapshot and clear both flags before writing the player
     file; restore them after fclose so a live mid-session save doesn't disrupt an
