@@ -897,6 +897,7 @@ if %cmd.mudcommand% == gain
           remote met_%mob.name% %actor.id%
           %ofly% %actor% player %mob.name%
           %purge% %self%
+          break
         end
       end
     end
