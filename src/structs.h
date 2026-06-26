@@ -139,6 +139,17 @@
 /** The total number of room Sector Types */
 #define NUM_ROOM_SECTORS  16
 
+/* Worldmap grid constants (zone 1000, 256x256) */
+#define WORLDMAP_BASE_VNUM  100000
+#define WORLDMAP_GRID       256
+#define WORLDMAP_VNUM_TOP   (WORLDMAP_BASE_VNUM + WORLDMAP_GRID * WORLDMAP_GRID - 1)
+
+/* Convert vnum <-> row/col on the worldmap grid */
+#define WORLDMAP_ROW(vnum)  (((vnum) - WORLDMAP_BASE_VNUM) / WORLDMAP_GRID)
+#define WORLDMAP_COL(vnum)  (((vnum) - WORLDMAP_BASE_VNUM) % WORLDMAP_GRID)
+#define WORLDMAP_VNUM(row, col) (WORLDMAP_BASE_VNUM + (row) * WORLDMAP_GRID + (col))
+#define IS_WORLDMAP_ROOM(vnum) ((vnum) >= WORLDMAP_BASE_VNUM && (vnum) <= WORLDMAP_VNUM_TOP)
+
 /* char and mob-related defines */
 
 /* History */
@@ -226,6 +237,7 @@
 #define PLR_POWERUP      21   /**< Player powering up */
 #define PLR_POWERDOWN    22   /**< Player powering down */
 #define PLR_JAJANKEN	 23   /**< Player charging jajanken */
+#define PLR_AUTOFLIGHT  24  /**< Auto-flight in progress (transport spell card) */
 
 /* Mobile flags: used by char_data.char_specials.act */
 #define MOB_SPEC            0   /**< Mob has a callable spec-proc */
