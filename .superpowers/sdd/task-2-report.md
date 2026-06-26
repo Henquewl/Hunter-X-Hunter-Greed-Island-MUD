@@ -77,3 +77,34 @@ make[1]: Leaving directory '.../src'
 ## Files changed
 
 - `src/act.movement.c` -- all three changes (2a mountain gate, 2b look suppression, 2c manual-move lock)
+
+---
+
+## Missed requirement fix: water gate bypass for AFF_FLYING
+
+**Status: COMPLETE — commit 7bf95f6**
+
+The original Task 2 report noted that the water gate did NOT call `has_boat()` and
+therefore AFF_FLYING players were still blocked at water terrain. The fix was deferred
+at the time.
+
+This follow-up applies the same pattern as the mountain gate fix to the water gate
+at `src/act.movement.c` ~line 179:
+
+Before:
+```c
+if (!IS_NPC(ch) && !PRF_FLAGGED(ch, PRF_NOHASSLE)) {
+  send_to_char(ch, "You need a boat to go there.\r\n");
+```
+
+After:
+```c
+if (!IS_NPC(ch) && !PRF_FLAGGED(ch, PRF_NOHASSLE) && !AFF_FLAGGED(ch, AFF_FLYING)) {
+  send_to_char(ch, "You need a boat to go there.\r\n");
+```
+
+AFF_FLYING players now bypass both water (SECT_WATER_NOSWIM, SECT_WATER_SWIM) and
+mountain (SECT_MOUNTAIN) terrain gates. The feature requirement "flight crosses mountains
+AND ocean (all sectors passable)" is now fully satisfied.
+
+Compile: clean (gcc -w, no warnings or errors).
