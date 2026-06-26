@@ -208,8 +208,10 @@ EVENTFUNC(event_autoflight)
   if (ch == NULL || IS_NPC(ch) || IN_ROOM(ch) == NOWHERE)
     return 0;
 
-  if (!PLR_FLAGGED(ch, PLR_AUTOFLIGHT))
+  if (!PLR_FLAGGED(ch, PLR_AUTOFLIGHT)) {
+    REMOVE_BIT_AR(AFF_FLAGS(ch), AFF_FLYING);
     return 0;
+  }
 
   /* Retrieve the flight data from sVariables (stored as a cast pointer) */
   data = (struct flight_data *) pMudEvent->sVariables;
@@ -351,6 +353,9 @@ int start_flight(struct char_data *ch, room_vnum dest_tile,
    *    frees the flight_data struct. */
   {
     struct mud_event_data *pMudEvent = new_mud_event(eAUTOFLIGHT, ch, NULL);
+    /* WARNING: sVariables holds a struct flight_data * cast to char *.
+     * Do NOT call change_event_duration() on eAUTOFLIGHT — it would strdup
+     * this pointer value, truncating the struct at the first null byte. */
     pMudEvent->sVariables = (char *) data;
     attach_mud_event(pMudEvent, 1 * PASSES_PER_SEC);
   }
