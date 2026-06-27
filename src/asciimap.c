@@ -49,6 +49,7 @@
 #define SECT_DARK (SECT_MOB + 1)
 #define SECT_SAFE (SECT_DARK + 1)
 #define SECT_SHOP (SECT_SAFE + 1)
+#define SECT_TRAIL (SECT_SHOP + 1)  /* transient fly-trail overlay */
 
 #define DOOR_NS   -1
 #define DOOR_EW   -2
@@ -73,6 +74,9 @@
 #define MAP_MOBILE 2
 
 static bool show_worldmap(struct char_data *ch);
+
+/* Defined in act.movement.c — transient fly-trail tile set */
+extern bool is_fly_trail(room_vnum vnum);
 
 struct map_info_type
 {
@@ -157,6 +161,7 @@ static struct map_info_type map_info[] =
   { SECT_DARK,	   "\tc[\tD.\tc]\tn" },
   { SECT_SAFE,	   "\tc[\tY.\tc]\tn" },
   { SECT_SHOP,	   "\tc[\tM*\tc]\tn" },
+  { SECT_TRAIL,    "\tc[:\tc]\tn"    },  /* dim-cyan fly-trail */
 };
 
 static struct map_info_type world_map_info[] =
@@ -199,6 +204,7 @@ static struct map_info_type world_map_info[] =
   { SECT_DARK, 	       "\tD."  },
   { SECT_SAFE, 	       "\tY."  },
   { SECT_SHOP, 	       "\tM*"  },
+  { SECT_TRAIL,        "\tc:"  },  /* dim-cyan fly-trail */
 };
 
 
@@ -323,7 +329,11 @@ static void MapArea(room_rnum room, struct char_data *ch, int x, int y, int min,
 		}
 	  }
     }
-  
+
+  /* Transient fly-trail overlay: plain terrain only, never overrides special markers. */
+  if (map[x][y] == SECT(room) && room != IN_ROOM(ch) && is_fly_trail(GET_ROOM_VNUM(room)))
+    map[x][y] = SECT_TRAIL;
+
   if ( (x < min) || ( y < min) || ( x > max ) || ( y > max) ) return;
 
   /* Check for exits */

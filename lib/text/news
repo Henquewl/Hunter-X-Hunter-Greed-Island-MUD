@@ -8,6 +8,11 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 == 2026 ==
 
 JUN 26 **
+- While flying via transport spell cards, you will now see a faint glowing
+  trail on the worldmap marking the tiles just flown over. It fades within
+  a second. Other players near your path will also see it on their map.
+
+JUN 26 **
 - Transport spell cards (Origin, Magnetic Force, Return, Leave, Drift, Collision,
   Accompany) now trigger real flight instead of instant teleportation. When used,
   your character launches into the air and flies automatically across the Greed

@@ -8,6 +8,17 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 26 2026] - Henque
+  feat: fly trail — transient visual overlay on the worldmap
+  - Tiles just flown over during auto-flight show a dim-cyan ':' glyph on the
+    map for ~1 second, then vanish. Visual only: no object or room created.
+  - Implemented as a fixed-size in-memory ring of (vnum, expiry) entries keyed
+    off the global pulse counter. Expiry is lazy (checked at render time) — no
+    heartbeat hook added.
+  - New SECT_TRAIL synthetic sector code in asciimap.c; rendered by MapArea()
+    after player/mob markers (never overrides HERE/PLAYER/MOB/SHOP/SAFE/DARK).
+  - add_fly_trail() called once per tile in event_autoflight's step loop.
+
+[Jun 26 2026] - Henque
   fix: restore do_simple_move in event_autoflight after rebase onto master
   - Rebase replayed the original event_autoflight commit (which used perform_move)
     on top of the master fix (2cd7b46). Restored do_simple_move to prevent the

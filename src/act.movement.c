@@ -204,6 +204,48 @@ struct flight_data {
   bool        is_group;     /* true = carry grouped followers too */
 };
 
+/* ---------------------------------------------------------------------------
+ * Fly-trail overlay — transient map glyph left by auto-flight.
+ * Entries expire after PASSES_PER_SEC pulses (~1 real second). Expiry is lazy:
+ * checked at map-render time, no periodic cleanup needed.
+ * --------------------------------------------------------------------------- */
+#define MAX_FLY_TRAILS 64
+
+struct fly_trail_entry {
+  room_vnum     vnum;     /* worldmap room the trail covers */
+  unsigned long expire;   /* pulse at which the trail vanishes (0 = free) */
+};
+static struct fly_trail_entry fly_trails[MAX_FLY_TRAILS];
+
+/* Mark a tile as just-flown-over; visible for ~1 second. */
+void add_fly_trail(room_vnum vnum)
+{
+  int i, oldest = 0;
+  /* Refresh if already tracked */
+  for (i = 0; i < MAX_FLY_TRAILS; i++)
+    if (fly_trails[i].expire > pulse && fly_trails[i].vnum == vnum) {
+      fly_trails[i].expire = pulse + PASSES_PER_SEC;
+      return;
+    }
+  /* Take a free/expired slot; if none, evict the soonest-to-expire */
+  for (i = 0; i < MAX_FLY_TRAILS; i++) {
+    if (fly_trails[i].expire <= pulse) { oldest = i; break; }
+    if (fly_trails[i].expire < fly_trails[oldest].expire) oldest = i;
+  }
+  fly_trails[oldest].vnum   = vnum;
+  fly_trails[oldest].expire = pulse + PASSES_PER_SEC;
+}
+
+/* Returns TRUE while a trail glyph should be drawn on this tile. */
+bool is_fly_trail(room_vnum vnum)
+{
+  int i;
+  for (i = 0; i < MAX_FLY_TRAILS; i++)
+    if (fly_trails[i].expire > pulse && fly_trails[i].vnum == vnum)
+      return TRUE;
+  return FALSE;
+}
+
 EVENTFUNC(event_autoflight)
 {
   struct mud_event_data *pMudEvent;
@@ -252,6 +294,9 @@ EVENTFUNC(event_autoflight)
       /* Trail echo in the room we're leaving */
       act("$n streaks through the sky, leaving a glowing trail behind.",
           FALSE, ch, NULL, NULL, TO_ROOM);
+
+      /* Record tile for the transient map-trail glyph (~1 sec visual) */
+      add_fly_trail(GET_ROOM_VNUM(IN_ROOM(ch)));
 
       /* Move one tile — bypass perform_move's PLR_AUTOFLIGHT manual-block */
       if (!do_simple_move(ch, dir, 1))
