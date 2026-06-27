@@ -8,6 +8,12 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 26 2026] - Henque
+  balance: rebalance movement_loss per sector type
+  - Inside 0→1; Forest 1→2; Hills 2→3; Mountains 3→4; Underwater 4→5
+  - Water Swim 3→2 (=Beach/Forest); Water No-Swim 2→3 (=Hills)
+  - Flying/Port/City Entrance/Mysterious/Start Point/Leave all set to 0
+
+[Jun 26 2026] - Henque
   feat: fly trail — transient visual overlay on the worldmap
   - Tiles just flown over during auto-flight show a dim-cyan ':' glyph on the
     map for ~1 second, then vanish. Visual only: no object or room created.
