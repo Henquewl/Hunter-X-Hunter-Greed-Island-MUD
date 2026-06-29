@@ -8,6 +8,9 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 == 2026 ==
 
 JUN 29 **
+- Minimap now correctly renders city rooms with all adjacent rooms visible.
+- Shop NPCs on the minimap now appear in light green; questmaster NPCs appear
+  in underlined light green so they are easy to distinguish.
 - The fly trail on the worldmap now glows gold instead of cyan.
 - Your map asterisk turns gold while you are airborne; other flying players
   also appear gold on your map.

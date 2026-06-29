@@ -8,6 +8,22 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 29 2026] - Henque
+  fix: minimap non-worldmap rooms now display correctly + shop/quest NPC colors
+    Three fixes in one:
+    1) Non-worldmap (city) minimap was broken since CANVAS_WIDTH was expanded
+       from 51 to 101 in a prior commit. The door-slot initialization used
+       !(y%2) which placed DOOR_NONE on even columns; with centre=50 (even) all
+       room slots land on even columns and the recursion guard
+       map[nx][ny]==SECT_EMPTY never fired — only the center room rendered.
+       Fixed by using ((y+centre)%2) so door-slot parity always opposes room
+       slots regardless of whether centre is odd or even. Also fixed a
+       pre-existing off-by-one: legend arrays were declared [26] but held 27
+       entries (Beach wrote to index 26, out of bounds). Arrays enlarged to [32].
+    2) Shop NPC map tile changed from magenta to light green (\tG).
+    3) Questmaster NPCs now get their own tile: underlined light green (\t_\tG*)
+       detected via GET_MOB_SPEC(player)==questmaster; shown in legend as "Quest".
+
+[Jun 29 2026] - Henque
   fix: mob asterisk on map now uses weak/equal/strong color coding
     Mob tiles on the minimap were always yellow regardless of power. Now
     nen_power_rating(ch, mob) is called at render time: weak mobs (<=75%

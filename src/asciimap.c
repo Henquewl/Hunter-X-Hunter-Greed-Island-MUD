@@ -52,9 +52,10 @@
 #define SECT_TRAIL      (SECT_SHOP + 1)  /* transient fly-trail overlay */
 #define SECT_HERE_FLY   (SECT_TRAIL + 1) /* self while auto-flying: gold * */
 #define SECT_PLAYER_FLY (SECT_TRAIL + 2) /* other player while auto-flying: gold * */
-#define SECT_MOB_WEAK   (SECT_TRAIL + 3) /* mob weaker than player: yellow * */
-#define SECT_MOB_EQUAL  (SECT_TRAIL + 4) /* mob equal to player: blue * */
-#define SECT_MOB_STRONG (SECT_TRAIL + 5) /* mob stronger than player: red * */
+#define SECT_MOB_WEAK      (SECT_TRAIL + 3) /* mob weaker than player: yellow * */
+#define SECT_MOB_EQUAL     (SECT_TRAIL + 4) /* mob equal to player: blue * */
+#define SECT_MOB_STRONG    (SECT_TRAIL + 5) /* mob stronger than player: red * */
+#define SECT_QUESTMASTER   (SECT_TRAIL + 6) /* questmaster NPC: underlined light green * */
 
 #define DOOR_NS   -1
 #define DOOR_EW   -2
@@ -84,6 +85,8 @@ static bool show_worldmap(struct char_data *ch);
 extern bool is_fly_trail(room_vnum vnum);
 /* Defined in act.informative.c — mob power rating relative to player */
 extern int nen_power_rating(struct char_data *self, struct char_data *target);
+/* Defined in quest.c — questmaster spec proc */
+extern SPECIAL(questmaster);
 
 struct map_info_type
 {
@@ -167,13 +170,14 @@ static struct map_info_type map_info[] =
   { SECT_MOB,	   "\tc[\ty*\tc]\tn" },
   { SECT_DARK,	   "\tc[\tD.\tc]\tn" },
   { SECT_SAFE,	   "\tc[\tY.\tc]\tn" },
-  { SECT_SHOP,	   "\tc[\tM*\tc]\tn" },
-  { SECT_TRAIL,      "\tY[:\tY]\tn"      },  /* gold fly-trail */
-  { SECT_HERE_FLY,   "\tc[\tY*\tc]\tn"  },  /* self flying: gold asterisk */
-  { SECT_PLAYER_FLY, "\tc[\tY*\tc]\tn"  },  /* other player flying: gold asterisk */
-  { SECT_MOB_WEAK,   "\tc[\ty*\tc]\tn"  },  /* mob weaker than player: yellow */
-  { SECT_MOB_EQUAL,  "\tc[\tB*\tc]\tn"  },  /* mob equal to player: blue */
-  { SECT_MOB_STRONG, "\tc[\tR*\tc]\tn"  },  /* mob stronger than player: red */
+  { SECT_SHOP,	        "\tc[\tG*\tc]\tn"     },  /* light green: shop NPC */
+  { SECT_TRAIL,         "\tY[:\tY]\tn"       },  /* gold fly-trail */
+  { SECT_HERE_FLY,      "\tc[\tY*\tc]\tn"   },  /* self flying: gold asterisk */
+  { SECT_PLAYER_FLY,    "\tc[\tY*\tc]\tn"   },  /* other player flying: gold asterisk */
+  { SECT_MOB_WEAK,      "\tc[\ty*\tc]\tn"   },  /* mob weaker than player: yellow */
+  { SECT_MOB_EQUAL,     "\tc[\tB*\tc]\tn"   },  /* mob equal to player: blue */
+  { SECT_MOB_STRONG,    "\tc[\tR*\tc]\tn"   },  /* mob stronger than player: red */
+  { SECT_QUESTMASTER,   "\tc[\t_\tG*\tn\tc]\tn" },  /* underlined light green: questmaster */
 };
 
 static struct map_info_type world_map_info[] =
@@ -215,13 +219,14 @@ static struct map_info_type world_map_info[] =
   { SECT_MOB, 	       "\ty*"  },
   { SECT_DARK, 	       "\tD."  },
   { SECT_SAFE, 	       "\tY."  },
-  { SECT_SHOP, 	       "\tM*"  },
-  { SECT_TRAIL,        "\tY:"  },  /* gold fly-trail */
-  { SECT_HERE_FLY,     "\tY*"  },  /* self flying: gold asterisk */
-  { SECT_PLAYER_FLY,   "\tY*"  },  /* other player flying: gold asterisk */
-  { SECT_MOB_WEAK,     "\ty*"  },  /* mob weaker than player: yellow */
-  { SECT_MOB_EQUAL,    "\tB*"  },  /* mob equal to player: blue */
-  { SECT_MOB_STRONG,   "\tR*"  },  /* mob stronger than player: red */
+  { SECT_SHOP,          "\tG*"      },  /* light green: shop NPC */
+  { SECT_TRAIL,        "\tY:"       },  /* gold fly-trail */
+  { SECT_HERE_FLY,     "\tY*"       },  /* self flying: gold asterisk */
+  { SECT_PLAYER_FLY,   "\tY*"       },  /* other player flying: gold asterisk */
+  { SECT_MOB_WEAK,     "\ty*"       },  /* mob weaker than player: yellow */
+  { SECT_MOB_EQUAL,    "\tB*"       },  /* mob equal to player: blue */
+  { SECT_MOB_STRONG,   "\tR*"       },  /* mob stronger than player: red */
+  { SECT_QUESTMASTER,  "\t_\tG*\tn" },  /* underlined light green: questmaster */
 };
 
 
@@ -339,7 +344,9 @@ static void MapArea(room_rnum room, struct char_data *ch, int x, int y, int min,
 		  cnt_nearby++;
 		  break;
 		} else if (!worldmap && IS_NPC(player) && CAN_SEE(ch, player)) {
-		  if (GET_MOB_SPEC(player))
+		  if (GET_MOB_SPEC(player) == questmaster)
+		    map[x][y] = SECT_QUESTMASTER;
+		  else if (GET_MOB_SPEC(player))
 		    map[x][y] = SECT_SHOP;
 		  else {
 		    int rating = nen_power_rating(ch, player);
@@ -649,10 +656,12 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
     max = centre + size;
   }
 
-  /* Blank the map */
+  /* Blank the map. Door-slot columns must have opposite parity from centre so
+     that room slots (centre ± 2n) land on SECT_EMPTY and the recursion guard
+     map[nx][ny] == SECT_EMPTY fires correctly. */
   for (x = 0; x < MAX_MAP; ++x)
       for (y = 0; y < MAX_MAP; ++y)
-           map[x][y]= (!(y%2) && !worldmap) ? DOOR_NONE : SECT_EMPTY;
+           map[x][y]= (((y + centre) % 2) && !worldmap) ? DOOR_NONE : SECT_EMPTY;
 
   /* starts the mapping with the centre room */
   
@@ -679,8 +688,8 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
 
   /* Tabular legend below the map */
   {
-    const char *ldisp[26];
-    const char *llabel[26];
+    const char *ldisp[32];
+    const char *llabel[32];
     int ln = 0, i, plen, cols;
     const char *p;
 
@@ -716,6 +725,7 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
       ldisp[ln]=map_info[SECT_MOB_EQUAL].disp;   llabel[ln++]="Mob(equal)";
       ldisp[ln]=map_info[SECT_MOB_STRONG].disp;  llabel[ln++]="Mob(strong)";
       ldisp[ln]=map_info[SECT_SHOP].disp;        llabel[ln++]="NPC";
+      ldisp[ln]=map_info[SECT_QUESTMASTER].disp; llabel[ln++]="Quest";
       ldisp[ln]=map_info[SECT_SAFE].disp;        llabel[ln++]="Safe";
       ldisp[ln]=map_info[SECT_DARK].disp;        llabel[ln++]="Dark";
       ldisp[ln]=map_info[SECT_STRANGE].disp;     llabel[ln++]="Displaced";
@@ -799,7 +809,7 @@ void str_and_map(char *str, struct char_data *ch, room_vnum target_room, bool on
 
   for (x = 0; x < MAX_MAP; ++x)
     for (y = 0; y < MAX_MAP; ++y)
-      map[x][y]= (!(y%2) && !worldmap) ? DOOR_NONE : SECT_EMPTY;
+      map[x][y]= (((y + centre) % 2) && !worldmap) ? DOOR_NONE : SECT_EMPTY;
 
   /* starts the mapping with the center room */
 MapArea(target_room, ch, centre, centre, min, max, ns_size/2, ew_size/2, worldmap );
