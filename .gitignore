@@ -14,5 +14,37 @@ lib/etc/last
 lib/etc/time
 lib/etc/plrmail
 
+# Bulletin board runtime content
+lib/etc/board.immortal
+lib/etc/board.mortal
+lib/etc/board.social
+
+# Server logs (all log/ except the README placeholder)
+log/*
+!log/README
+
+# Root-level syslog files written by autorun / crash handler
+syslog
+syslog.CRASH
+
+# Autoconf generated files
+config.cache
+config.log
+config.status
+
+# Backup and crash dump artifacts
+changelog.bak
+lib/circle.exe.stackdump
+
+# Autorun sentinel files
+.fastboot
+.killscript
+pause
+
+# Python cache
+tools/__pycache__/
+**/__pycache__/
+*.pyc
+
 # .claude folder (Claude Code memory) -- do NOT ignore
 # !.claude/
