@@ -49,7 +49,9 @@
 #define SECT_DARK (SECT_MOB + 1)
 #define SECT_SAFE (SECT_DARK + 1)
 #define SECT_SHOP (SECT_SAFE + 1)
-#define SECT_TRAIL (SECT_SHOP + 1)  /* transient fly-trail overlay */
+#define SECT_TRAIL      (SECT_SHOP + 1)  /* transient fly-trail overlay */
+#define SECT_HERE_FLY   (SECT_TRAIL + 1) /* self while auto-flying: gold * */
+#define SECT_PLAYER_FLY (SECT_TRAIL + 2) /* other player while auto-flying: gold * */
 
 #define DOOR_NS   -1
 #define DOOR_EW   -2
@@ -161,7 +163,9 @@ static struct map_info_type map_info[] =
   { SECT_DARK,	   "\tc[\tD.\tc]\tn" },
   { SECT_SAFE,	   "\tc[\tY.\tc]\tn" },
   { SECT_SHOP,	   "\tc[\tM*\tc]\tn" },
-  { SECT_TRAIL,    "\tc[:\tc]\tn"    },  /* dim-cyan fly-trail */
+  { SECT_TRAIL,      "\tY[:\tY]\tn"      },  /* gold fly-trail */
+  { SECT_HERE_FLY,   "\tc[\tY*\tc]\tn"  },  /* self flying: gold asterisk */
+  { SECT_PLAYER_FLY, "\tc[\tY*\tc]\tn"  },  /* other player flying: gold asterisk */
 };
 
 static struct map_info_type world_map_info[] =
@@ -204,7 +208,9 @@ static struct map_info_type world_map_info[] =
   { SECT_DARK, 	       "\tD."  },
   { SECT_SAFE, 	       "\tY."  },
   { SECT_SHOP, 	       "\tM*"  },
-  { SECT_TRAIL,        "\tc:"  },  /* dim-cyan fly-trail */
+  { SECT_TRAIL,        "\tY:"  },  /* gold fly-trail */
+  { SECT_HERE_FLY,     "\tY*"  },  /* self flying: gold asterisk */
+  { SECT_PLAYER_FLY,   "\tY*"  },  /* other player flying: gold asterisk */
 };
 
 
@@ -305,7 +311,7 @@ static void MapArea(room_rnum room, struct char_data *ch, int x, int y, int min,
   if ((IS_DARK(room) && !CAN_SEE_IN_DARK(ch)) || AFF_FLAGGED(ch, AFF_BLIND))
 	map[x][y] = SECT_DARK;
   else if (room == IN_ROOM(ch))
-    map[x][y] = SECT_HERE;
+    map[x][y] = PLR_FLAGGED(ch, PLR_AUTOFLIGHT) ? SECT_HERE_FLY : SECT_HERE;
   else if (ROOM_FLAGGED(room, ROOM_PEACEFUL) && !IS_ENTRY_POINT_SECT(SECT(room)))
 	map[x][y] = SECT_SAFE;
   else
@@ -313,9 +319,9 @@ static void MapArea(room_rnum room, struct char_data *ch, int x, int y, int min,
   
   if (world[room].people) {
 	  for (player = world[room].people; player; player = player->next_in_room) {
-	    if (!IS_NPC(player) && player != ch && CAN_SEE(ch, player) && GET_HIT(player) > 5) { 
+	    if (!IS_NPC(player) && player != ch && CAN_SEE(ch, player) && GET_HIT(player) > 5) {
 		  if (map[x][y] == SECT(room) || map[x][y] == SECT_SAFE)
-		    map[x][y] = SECT_PLAYER;
+		    map[x][y] = PLR_FLAGGED(player, PLR_AUTOFLIGHT) ? SECT_PLAYER_FLY : SECT_PLAYER;
 		  if (!cnt_nearby)
 		    cnt_nearby = 0;
 		  nearby[cnt_nearby] = GET_IDNUM(player);
@@ -639,7 +645,7 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
     MapArea(IN_ROOM(ch), ch, centre, centre, min, max, ns_size/2, ew_size/2, worldmap);
 
   /* marks the center, where ch is */
-  map[centre][centre] = SECT_HERE;
+  map[centre][centre] = PLR_FLAGGED(ch, PLR_AUTOFLIGHT) ? SECT_HERE_FLY : SECT_HERE;
 
   /* Feel free to put your own MUD name or header in here */
   send_to_char(ch, " \tY-\tyGreed Island Map System\tY-\tn\r\n"
@@ -780,8 +786,8 @@ void str_and_map(char *str, struct char_data *ch, room_vnum target_room, bool on
       map[x][y]= (!(y%2) && !worldmap) ? DOOR_NONE : SECT_EMPTY;
 
   /* starts the mapping with the center room */
-MapArea(target_room, ch, centre, centre, min, max, ns_size/2, ew_size/2, worldmap ); 
-  map[centre][centre] = SECT_HERE;
+MapArea(target_room, ch, centre, centre, min, max, ns_size/2, ew_size/2, worldmap );
+  map[centre][centre] = PLR_FLAGGED(ch, PLR_AUTOFLIGHT) ? SECT_HERE_FLY : SECT_HERE;
 
   /* char_size = rooms + doors + padding */
   if(worldmap)

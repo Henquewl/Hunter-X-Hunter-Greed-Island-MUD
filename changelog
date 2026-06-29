@@ -7,6 +7,26 @@ https://github.com/tbamud/tbamud
 Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
+[Jun 29 2026] - Henque
+  feat: fly mechanic visual polish and worldmap diagonal movement
+    - Fly trail glyph now renders in gold (bold yellow) instead of dim-cyan on the worldmap.
+    - While a player is auto-flying, their asterisk on the worldmap turns gold; the same applies
+      to other players seen on your map.
+    - On landing (any arrive mode except Leave), the destination room and all adjacent rooms now
+      receive a bolt-of-energy visual: "A bolt of energy descends from the sky near <player>!" in
+      the landing room; adjacent rooms get a directional shout giving the compass direction of the
+      impact (e.g. "A bolt of energy strikes the ground to the north!").
+    - FLY_ARRIVE_PLAYER (Accompany, Magnetic Force): actor now arrives immediately when neither the
+      actor nor the destination is on the worldmap, fixing a hang where event_autoflight would loop
+      forever trying to walk from a city room toward another city room.
+    - flight_direction() now returns diagonal directions (NORTHEAST/NORTHWEST/SOUTHEAST/SOUTHWEST)
+      when the destination requires movement on both axes at similar magnitude, enabling diagonal
+      auto-flight paths on the worldmap.
+    - Diagonal worldmap movement (nw, ne, se, sw commands) now works: virtual diagonal exits for
+      all 65536 worldmap rooms are synthesized at boot time in create_worldmap_diagonal_exits()
+      (act.movement.c), eliminating the need to add them to 1000.wld. The function logs the count
+      of exits created to the boot log.
+
 [Jun 26 2026] - Henque
   fix: transport spell card triggers — replace %ofly% literal with ofly in 10.trg
     Root cause #2: find_replacement() in dg_variables.c (line 316-347) only translates a hardcoded

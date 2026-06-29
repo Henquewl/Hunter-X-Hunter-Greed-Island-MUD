@@ -120,21 +120,42 @@ int has_scuba(struct char_data *ch)
  * Reduces the larger delta first to favour diagonal-ish movement. */
 static int flight_direction(room_vnum src, room_vnum dst)
 {
-  int src_row = WORLDMAP_ROW(src);
-  int src_col = WORLDMAP_COL(src);
-  int dst_row = WORLDMAP_ROW(dst);
-  int dst_col = WORLDMAP_COL(dst);
-  int drow = dst_row - src_row;
-  int dcol = dst_col - src_col;
+  int src_row, src_col, dst_row, dst_col, drow, dcol;
+
+  /* Non-worldmap rooms: arrive immediately (cities not yet connected to worldmap) */
+  if (!IS_WORLDMAP_ROOM(src) || !IS_WORLDMAP_ROOM(dst))
+    return -1;
+
+  src_row = WORLDMAP_ROW(src);
+  src_col = WORLDMAP_COL(src);
+  dst_row = WORLDMAP_ROW(dst);
+  dst_col = WORLDMAP_COL(dst);
+  drow = dst_row - src_row;
+  dcol = dst_col - src_col;
 
   if (drow == 0 && dcol == 0)
-    return -1;  /* already there */
+    return -1;
 
-  /* Reduce the larger delta first */
-  if (abs(drow) >= abs(dcol))
-    return (drow > 0) ? SOUTH : NORTH;
-  else
-    return (dcol > 0) ? EAST : WEST;
+  /* Use diagonal direction when both axes need to move */
+  if (drow < 0 && dcol > 0) {
+    if (abs(drow) > abs(dcol) * 2) return NORTH;
+    if (abs(dcol) > abs(drow) * 2) return EAST;
+    return NORTHEAST;
+  }
+  if (drow < 0 && dcol < 0) {
+    if (abs(drow) > abs(dcol) * 2) return NORTH;
+    if (abs(dcol) > abs(drow) * 2) return WEST;
+    return NORTHWEST;
+  }
+  if (drow > 0 && dcol > 0) {
+    if (abs(drow) > abs(dcol) * 2) return SOUTH;
+    if (abs(dcol) > abs(drow) * 2) return EAST;
+    return SOUTHEAST;
+  }
+  /* drow > 0 && dcol < 0 */
+  if (abs(drow) > abs(dcol) * 2) return SOUTH;
+  if (abs(dcol) > abs(drow) * 2) return WEST;
+  return SOUTHWEST;
 }
 
 /* Arrival modes — what happens when the player reaches the destination tile */
@@ -283,6 +304,13 @@ EVENTFUNC(event_autoflight)
     arrived = TRUE;
 
   if (!arrived) {
+    /* If actor is not on the worldmap (city rooms not yet connected to worldmap tiles),
+     * skip the flight steps and arrive immediately. */
+    if (!IS_WORLDMAP_ROOM(GET_ROOM_VNUM(IN_ROOM(ch))))
+      arrived = TRUE;
+  }
+
+  if (!arrived) {
     /* Step up to 5 tiles toward dest_tile */
     for (step = 0; step < 5; step++) {
       dir = flight_direction(GET_ROOM_VNUM(IN_ROOM(ch)), data->dest_tile);
@@ -317,14 +345,28 @@ EVENTFUNC(event_autoflight)
       return (1 * PASSES_PER_SEC);  /* reschedule for next second */
   }
 
+  /* Helper: broadcast landing bolt to the room and directional shout to adjacent rooms */
+#define LANDING_BOLT(ch) \
+  do { \
+    int _d; \
+    act("A bolt of energy descends from the sky near $n!", FALSE, ch, NULL, NULL, TO_ROOM); \
+    for (_d = 0; _d < NUM_OF_DIRS; _d++) { \
+      struct room_direction_data *_ex = world[IN_ROOM(ch)].dir_option[_d]; \
+      if (_ex && _ex->to_room != NOWHERE) \
+        send_to_room(_ex->to_room, "A bolt of energy strikes the ground to the %s!\r\n", dirs[rev_dir[_d]]); \
+    } \
+  } while (0)
+
   /* ARRIVAL block */
   switch (data->arrive_mode) {
     case FLY_ARRIVE_CITY:
       send_to_char(ch, "\r\nYou descend at the city entrance. Type @Yenter@n to go inside.\r\n");
+      LANDING_BOLT(ch);
       break;
 
     case FLY_ARRIVE_START:
       send_to_char(ch, "\r\nYou land at the starting point.\r\n");
+      LANDING_BOLT(ch);
       break;
 
     case FLY_ARRIVE_LEAVE:
@@ -337,9 +379,10 @@ EVENTFUNC(event_autoflight)
     case FLY_ARRIVE_PLAYER: {
       struct char_data *target = find_char(data->target_id);
       if (target && !PRF_FLAGGED(target, PRF_NOHASSLE) && IN_ROOM(target) != NOWHERE) {
-        send_to_char(ch, "\r\nYou land near your destination.\r\n");
         char_from_room(ch);
         char_to_room(ch, IN_ROOM(target));
+        send_to_char(ch, "\r\nYou land near your destination.\r\n");
+        LANDING_BOLT(ch);
         look_at_room(ch, 0);
       } else {
         send_to_char(ch, "\r\nYour destination is no longer reachable. You land here.\r\n");
@@ -348,6 +391,8 @@ EVENTFUNC(event_autoflight)
       break;
     }
   }
+
+#undef LANDING_BOLT
 
   /* Clear flight flags */
   REMOVE_BIT_AR(PLR_FLAGS(ch), PLR_AUTOFLIGHT);
@@ -1383,4 +1428,50 @@ ACMD(do_follow)
       add_follower(ch, leader);
     }
   }
+}
+
+/* Synthesize diagonal exits for all worldmap rooms at boot time so that
+ * NE/NW/SE/SW movement works without requiring explicit exits in 1000.wld.
+ * Called once from init_game() in comm.c after boot_db(). */
+void create_worldmap_diagonal_exits(void)
+{
+  static const int drow[4]     = { -1, -1,  1,  1 };
+  static const int dcol[4]     = { -1,  1,  1, -1 };
+  static const int diag_dir[4] = { NORTHWEST, NORTHEAST, SOUTHEAST, SOUTHWEST };
+  int vnum, i, count = 0;
+
+  for (vnum = WORLDMAP_BASE_VNUM; vnum <= WORLDMAP_VNUM_TOP; vnum++) {
+    room_rnum rnum = real_room(vnum);
+    if (rnum == NOWHERE)
+      continue;
+
+    int r = WORLDMAP_ROW(vnum);
+    int c = WORLDMAP_COL(vnum);
+
+    for (i = 0; i < 4; i++) {
+      if (world[rnum].dir_option[diag_dir[i]])
+        continue;  /* explicit exit already defined in the wld file */
+
+      int tr = r + drow[i];
+      int tc = c + dcol[i];
+      if (tr < 0 || tr >= WORLDMAP_GRID || tc < 0 || tc >= WORLDMAP_GRID)
+        continue;  /* would step off the edge of the map */
+
+      room_vnum tvnum = WORLDMAP_VNUM(tr, tc);
+      room_rnum trnum = real_room(tvnum);
+      if (trnum == NOWHERE)
+        continue;
+
+      struct room_direction_data *ex;
+      CREATE(ex, struct room_direction_data, 1);
+      ex->to_room             = trnum;
+      ex->exit_info           = 0;
+      ex->key                 = NOTHING;
+      ex->keyword             = NULL;
+      ex->general_description = NULL;
+      world[rnum].dir_option[diag_dir[i]] = ex;
+      count++;
+    }
+  }
+  log("Worldmap: %d diagonal exits synthesized.", count);
 }

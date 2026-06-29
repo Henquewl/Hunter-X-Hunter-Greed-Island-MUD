@@ -7,6 +7,14 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 
 == 2026 ==
 
+JUN 29 **
+- The fly trail on the worldmap now glows gold instead of cyan.
+- Your map asterisk turns gold while you are airborne; other flying players
+  also appear gold on your map.
+- Landing a flight now produces a visible bolt of energy in the destination
+  room. Adjacent rooms hear the impact and see which direction it came from.
+- You can now move diagonally on the Greed Island world map: nw, ne, sw, se.
+
 JUN 26 **
 - While flying via transport spell cards, you will now see a faint glowing
   trail on the worldmap marking the tiles just flown over. It fades within

@@ -519,6 +519,9 @@ static void init_game(ush_int local_port)
 
   boot_db();
 
+  extern void create_worldmap_diagonal_exits(void);
+  create_worldmap_diagonal_exits();
+
 #if defined(CIRCLE_UNIX) || defined(CIRCLE_MACINTOSH)
   log("Signal trapping.");
   signal_setup();
