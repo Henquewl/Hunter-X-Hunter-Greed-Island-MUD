@@ -52,6 +52,9 @@
 #define SECT_TRAIL      (SECT_SHOP + 1)  /* transient fly-trail overlay */
 #define SECT_HERE_FLY   (SECT_TRAIL + 1) /* self while auto-flying: gold * */
 #define SECT_PLAYER_FLY (SECT_TRAIL + 2) /* other player while auto-flying: gold * */
+#define SECT_MOB_WEAK   (SECT_TRAIL + 3) /* mob weaker than player: yellow * */
+#define SECT_MOB_EQUAL  (SECT_TRAIL + 4) /* mob equal to player: blue * */
+#define SECT_MOB_STRONG (SECT_TRAIL + 5) /* mob stronger than player: red * */
 
 #define DOOR_NS   -1
 #define DOOR_EW   -2
@@ -79,6 +82,8 @@ static bool show_worldmap(struct char_data *ch);
 
 /* Defined in act.movement.c — transient fly-trail tile set */
 extern bool is_fly_trail(room_vnum vnum);
+/* Defined in act.informative.c — mob power rating relative to player */
+extern int nen_power_rating(struct char_data *self, struct char_data *target);
 
 struct map_info_type
 {
@@ -166,6 +171,9 @@ static struct map_info_type map_info[] =
   { SECT_TRAIL,      "\tY[:\tY]\tn"      },  /* gold fly-trail */
   { SECT_HERE_FLY,   "\tc[\tY*\tc]\tn"  },  /* self flying: gold asterisk */
   { SECT_PLAYER_FLY, "\tc[\tY*\tc]\tn"  },  /* other player flying: gold asterisk */
+  { SECT_MOB_WEAK,   "\tc[\ty*\tc]\tn"  },  /* mob weaker than player: yellow */
+  { SECT_MOB_EQUAL,  "\tc[\tB*\tc]\tn"  },  /* mob equal to player: blue */
+  { SECT_MOB_STRONG, "\tc[\tR*\tc]\tn"  },  /* mob stronger than player: red */
 };
 
 static struct map_info_type world_map_info[] =
@@ -211,6 +219,9 @@ static struct map_info_type world_map_info[] =
   { SECT_TRAIL,        "\tY:"  },  /* gold fly-trail */
   { SECT_HERE_FLY,     "\tY*"  },  /* self flying: gold asterisk */
   { SECT_PLAYER_FLY,   "\tY*"  },  /* other player flying: gold asterisk */
+  { SECT_MOB_WEAK,     "\ty*"  },  /* mob weaker than player: yellow */
+  { SECT_MOB_EQUAL,    "\tB*"  },  /* mob equal to player: blue */
+  { SECT_MOB_STRONG,   "\tR*"  },  /* mob stronger than player: red */
 };
 
 
@@ -329,9 +340,12 @@ static void MapArea(room_rnum room, struct char_data *ch, int x, int y, int min,
 		  break;
 		} else if (!worldmap && IS_NPC(player) && CAN_SEE(ch, player)) {
 		  if (GET_MOB_SPEC(player))
-		    map[x][y] = SECT_SHOP;	
-	      else
-		    map[x][y] = SECT_MOB;
+		    map[x][y] = SECT_SHOP;
+		  else {
+		    int rating = nen_power_rating(ch, player);
+		    map[x][y] = (rating == 0) ? SECT_MOB_WEAK :
+		                (rating == 2) ? SECT_MOB_STRONG : SECT_MOB_EQUAL;
+		  }
 		}
 	  }
     }
@@ -698,7 +712,9 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
       ldisp[ln]=door_info[NUM_DOOR_TYPES + DOOR_DOWN].disp; llabel[ln++]="Down";
       ldisp[ln]=map_info[SECT_HERE].disp;        llabel[ln++]="You";
       ldisp[ln]=map_info[SECT_PLAYER].disp;      llabel[ln++]="Player";
-      ldisp[ln]=map_info[SECT_MOB].disp;         llabel[ln++]="Mob";
+      ldisp[ln]=map_info[SECT_MOB_WEAK].disp;    llabel[ln++]="Mob(weak)";
+      ldisp[ln]=map_info[SECT_MOB_EQUAL].disp;   llabel[ln++]="Mob(equal)";
+      ldisp[ln]=map_info[SECT_MOB_STRONG].disp;  llabel[ln++]="Mob(strong)";
       ldisp[ln]=map_info[SECT_SHOP].disp;        llabel[ln++]="NPC";
       ldisp[ln]=map_info[SECT_SAFE].disp;        llabel[ln++]="Safe";
       ldisp[ln]=map_info[SECT_DARK].disp;        llabel[ln++]="Dark";

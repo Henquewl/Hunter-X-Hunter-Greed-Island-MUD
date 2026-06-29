@@ -8,6 +8,14 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jun 29 2026] - Henque
+  fix: mob asterisk on map now uses weak/equal/strong color coding
+    Mob tiles on the minimap were always yellow regardless of power. Now
+    nen_power_rating(ch, mob) is called at render time: weak mobs (<=75%
+    of player HP) show yellow, equal (75-125%) show blue, strong (>=125%)
+    show red — matching the powerlevel command color convention.
+    Three separate entries added to the map legend (Mob(weak/equal/strong)).
+
+[Jun 29 2026] - Henque
   feat: fly mechanic visual polish and worldmap diagonal movement
     - Fly trail glyph now renders in gold (bold yellow) instead of dim-cyan on the worldmap.
     - While a player is auto-flying, their asterisk on the worldmap turns gold; the same applies
