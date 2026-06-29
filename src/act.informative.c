@@ -1719,12 +1719,19 @@ ACMD(do_time)
 {
   const char *suf;
   int weekday, day;
+  long days_from_epoch;
+  int y, m;
 
-  /* day in [1..35] */
   day = time_info.day + 1;
 
-  /* 35 days in a month, 7 days a week */
-  weekday = ((35 * time_info.month) + day) % 7;
+  /* Compute total days elapsed since MUD_EPOCH_YEAR Jan 1 (= Saturday). */
+  days_from_epoch = 0;
+  for (y = MUD_EPOCH_YEAR; y < (int)time_info.year; y++)
+    days_from_epoch += mud_is_leap_year(y) ? 366 : 365;
+  for (m = 0; m < time_info.month; m++)
+    days_from_epoch += mud_days_in_month(m, (int)time_info.year);
+  days_from_epoch += time_info.day;
+  weekday = (int)((days_from_epoch + 6) % 7); /* +6: Jan 1 2000 = Saturday */
 
   send_to_char(ch, "It is %d o'clock %s, on %s.\r\n",
 	  (time_info.hours % 12 == 0) ? 12 : (time_info.hours % 12),

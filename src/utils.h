@@ -179,12 +179,14 @@ void char_from_furniture(struct char_data *ch);
 /** Real life seconds in one mud day.
  * Current calculation = 30 real life minutes. */
 #define SECS_PER_MUD_DAY	(24*SECS_PER_MUD_HOUR)
-/** Real life seconds per mud month.
- * Current calculation = 17.5 real life hours */
-#define SECS_PER_MUD_MONTH	(35*SECS_PER_MUD_DAY)
-/** Real life seconds per mud month.
- * Current calculation ~= 12.4 real life days */
-#define SECS_PER_MUD_YEAR	(17*SECS_PER_MUD_MONTH)
+/** Gregorian calendar epoch year (game starts here). */
+#define MUD_EPOCH_YEAR		2000
+/** Approximate real life seconds per mud year (365-day non-leap year).
+ * Used only for player-age calculations; calendar math uses mud_days_in_year(). */
+#define SECS_PER_MUD_YEAR	(365*SECS_PER_MUD_DAY)
+
+int mud_is_leap_year(int year);
+int mud_days_in_month(int month, int year); /* month 0-11 */
 
 /** The number of seconds in a real minute. */
 #define SECS_PER_REAL_MIN	60

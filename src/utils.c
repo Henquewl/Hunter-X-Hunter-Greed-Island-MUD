@@ -456,23 +456,47 @@ struct time_info_data *real_time_passed(time_t t2, time_t t1)
  * @retval time_info_data A pointer to the mud hours, days, months and years
  * that have passed between the two time intervals. DO NOT FREE the structure
  * pointed to by the return value. */
+int mud_is_leap_year(int year)
+{
+  return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+}
+
+int mud_days_in_month(int month, int year)
+{
+  static const int days[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+  return (month == 1 && mud_is_leap_year(year)) ? 29 : days[month];
+}
+
+static int mud_days_in_year(int year)
+{
+  return mud_is_leap_year(year) ? 366 : 365;
+}
+
 struct time_info_data *mud_time_passed(time_t t2, time_t t1)
 {
-  long secs;
+  long secs, total_days;
+  int year, month;
   static struct time_info_data now;
 
-  secs = t2 - t1;
+  secs = (long)(t2 - t1);
 
-  now.hours = (secs / SECS_PER_MUD_HOUR) % 24;	/* 0..23 hours */
-  secs -= SECS_PER_MUD_HOUR * now.hours;
+  now.hours  = (secs / SECS_PER_MUD_HOUR) % 24;
+  total_days = secs / SECS_PER_MUD_DAY;
 
-  now.day = (secs / SECS_PER_MUD_DAY) % 35;	/* 0..34 days  */
-  secs -= SECS_PER_MUD_DAY * now.day;
+  year = MUD_EPOCH_YEAR;
+  while (total_days >= mud_days_in_year(year)) {
+    total_days -= mud_days_in_year(year);
+    year++;
+  }
+  now.year = (sh_int)year;
 
-  now.month = (secs / SECS_PER_MUD_MONTH) % 17;	/* 0..16 months */
-  secs -= SECS_PER_MUD_MONTH * now.month;
-
-  now.year = (secs / SECS_PER_MUD_YEAR);	/* 0..XX? years */
+  month = 0;
+  while (month < 11 && total_days >= mud_days_in_month(month, year)) {
+    total_days -= mud_days_in_month(month, year);
+    month++;
+  }
+  now.month = month;
+  now.day   = (int)total_days;
 
   return (&now);
 }
@@ -483,13 +507,16 @@ struct time_info_data *mud_time_passed(time_t t2, time_t t1)
  * to represent the mud time represented by the now parameter. */
 time_t mud_time_to_secs(struct time_info_data *now)
 {
-  time_t when = 0;
+  long days = 0;
+  int y, m;
 
-  when += now->year  * SECS_PER_MUD_YEAR;
-  when += now->month * SECS_PER_MUD_MONTH;
-  when += now->day   * SECS_PER_MUD_DAY;
-  when += now->hours * SECS_PER_MUD_HOUR;
-  return (time(NULL) - when);
+  for (y = MUD_EPOCH_YEAR; y < (int)now->year; y++)
+    days += mud_days_in_year(y);
+  for (m = 0; m < now->month; m++)
+    days += mud_days_in_month(m, (int)now->year);
+  days += now->day;
+
+  return time(NULL) - (time_t)((long)days * SECS_PER_MUD_DAY + (long)now->hours * SECS_PER_MUD_HOUR);
 }
 
 /** Calculate a player's MUD age.

@@ -826,7 +826,7 @@ time_info = *mud_time_passed(time(0), beginning_of_time);
 	  time_info.day, time_info.month, time_info.year);
 
   weather_info.pressure = 960;
-  if ((time_info.month >= 7) && (time_info.month <= 12))
+  if (time_info.month >= 3 && time_info.month <= 9) /* Apr-Oct: moderate variance */
     weather_info.pressure += dice(1, 50);
   else
     weather_info.pressure += dice(1, 80);

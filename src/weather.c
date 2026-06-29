@@ -69,11 +69,11 @@ static void another_hour(int mode)
     time_info.hours -= 24;
     time_info.day++;
 
-    if (time_info.day > 34) {
+    if (time_info.day >= mud_days_in_month(time_info.month, (int)time_info.year)) {
       time_info.day = 0;
       time_info.month++;
 
-      if (time_info.month > 16) {
+      if (time_info.month > 11) {
 	time_info.month = 0;
 	time_info.year++;
       }
@@ -90,7 +90,7 @@ static void weather_change(void)
 {
   int diff, change;
   
-  if ((time_info.month >= 9) && (time_info.month <= 16))
+  if (time_info.month >= 5 && time_info.month <= 10) /* Jun-Nov: storm season */
     diff = (weather_info.pressure > 985 ? -2 : 2);
   else
     diff = (weather_info.pressure > 1015 ? -2 : 2);
