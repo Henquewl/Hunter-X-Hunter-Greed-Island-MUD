@@ -841,31 +841,25 @@ eval i %random.3%
 while %i%
 set next %i%
 if %i% == 1 && !%actor.varexists(visited_antokiba)%
-%zoneecho% 12064 You see a bolt of energy flying through the skies.
 eval visited_antokiba 12064
 remote visited_antokiba %actor.id%
 ofly %actor% city antokiba
 %purge% %self%
 break
-halt
 end
 if %i% == 2 && !%actor.varexists(visited_masadora)%
-%zoneecho% 3053 You see a bolt of energy flying through the skies.
 eval visited_masadora 3053
 remote visited_masadora %actor.id%
 ofly %actor% city masadora
 %purge% %self%
 break
-halt
 end
 if %i% == 3 && !%actor.varexists(visited_rabicuta)%
-%zoneecho% 40031 You see a bolt of energy flying through the skies.
 eval visited_rabicuta 40031
 remote visited_rabicuta %actor.id%
 ofly %actor% city rabicuta
 %purge% %self%
 break
-halt
 end
 set i %random.3%
 done
@@ -897,21 +891,13 @@ if %cmd.mudcommand% == gain
     if %mob.is_pc% == 1
       if %mob.id% != %actor.id%
         if !%mob.varexists(met_%actor.name%)%
-          %zoneecho% %mob.room.vnum% You see a bolt of energy flying through the skies.
-          wait 1 sec
-          %send% %actor% A bolt of energy envelops you!
-          %echoaround% %actor% A bolt of energy envelops %actor.name% and sent %actor.himher% to far away.          
-          set prevloc %self.room.vnum%
-          %teleport% %actor% %mob.room.vnum%
-          %zoneecho% %prevloc% You see a bolt of energy flying through the skies.
-          %echoaround% %actor% A bolt of energy hits the ground near at you!
-          wait 0.1 sec
           eval met_%actor.name% 1
           eval met_%mob.name% 1
           remote met_%actor.name% %mob.id%
           remote met_%mob.name% %actor.id%
           ofly %actor% player %mob.name%
           %purge% %self%
+          break
         end
       end
     end

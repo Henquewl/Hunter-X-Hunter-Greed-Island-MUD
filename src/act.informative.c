@@ -998,6 +998,15 @@ void look_at_room(struct char_data *ch, int ignore_brief)
     send_to_char(ch, " (%sDark%s)", CBBLK(ch, C_NRM), CCCYN(ch, C_NRM));  
   send_to_char(ch, "%s\r\n", CCNRM(ch, C_NRM));
 
+  /* Coordinate display on worldmap rooms (zone 1000, vnums 100000-165535) */
+  if (ZONE_FLAGGED(GET_ROOM_ZONE(IN_ROOM(ch)), ZONE_WORLDMAP)) {
+    room_vnum v = GET_ROOM_VNUM(IN_ROOM(ch));
+    int col = (int)((v - 100000) % 256);
+    int row = (int)((v - 100000) / 256);
+    send_to_char(ch, "[ Location: %d, %d ]\r\n", col - 128, 128 - row);
+  }
+
+
   /* Room descriptions with or without analysis skill */
   {
     int in_worldmap = ZONE_FLAGGED(GET_ROOM_ZONE(IN_ROOM(ch)), ZONE_WORLDMAP);

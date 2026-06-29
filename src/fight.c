@@ -1199,6 +1199,11 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
     return;
   }
   
+  /* No combat during auto-flight */
+  if ((!IS_NPC(ch) && PLR_FLAGGED(ch, PLR_AUTOFLIGHT)) ||
+      (!IS_NPC(victim) && PLR_FLAGGED(victim, PLR_AUTOFLIGHT)))
+    return;
+
   if (GET_POS(victim) <= POS_STUNNED && IS_NPC(ch)) {
 	update_pos(victim);
 	stop_fighting(ch);

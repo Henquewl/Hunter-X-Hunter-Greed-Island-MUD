@@ -22,6 +22,16 @@
 #include "fight.h" /* for die() */
 #include "act.h"
 
+/* Used by %ofly% object command (Task 5) */
+extern int start_flight(struct char_data *ch, room_vnum dest_tile,
+                        int arrive_mode, long target_id, bool is_group);
+extern room_vnum get_fly_dest_tile(const char *name);
+extern int       get_fly_dest_arrive_mode(const char *name);
+
+#define FLY_ARRIVE_CITY    0
+#define FLY_ARRIVE_START   1
+#define FLY_ARRIVE_LEAVE   2
+#define FLY_ARRIVE_PLAYER  3
 
 /* Local functions */
 #define OCMD(name)  \
@@ -38,6 +48,7 @@ static OCMD(do_otimer);
 static OCMD(do_otransform);
 static OCMD(do_opurge);
 static OCMD(do_oteleport);
+static OCMD(do_ofly);
 static OCMD(do_dgoload);
 static OCMD(do_odamage);
 static OCMD(do_oasound);
@@ -437,6 +448,110 @@ static OCMD(do_oteleport)
     }
 }
 
+/* %ofly% <char> city <name> [group]
+ * %ofly% <char> player <name> [group]
+ * %ofly% <char> leave [group]
+ * %ofly% <char> start [group]
+ * %ofly% <char> room <vnum> [group]
+ *
+ * Triggers auto-flight for <char> toward the named destination.
+ */
+static OCMD(do_ofly)
+{
+    char arg1[MAX_INPUT_LENGTH];  /* target char name */
+    char arg2[MAX_INPUT_LENGTH];  /* destination type: city/player/leave/start/room */
+    char arg3[MAX_INPUT_LENGTH];  /* destination param: city name / player name / vnum */
+    char arg4[MAX_INPUT_LENGTH];  /* optional "group" keyword */
+    char_data *ch, *target;
+    room_vnum dest_tile = NOWHERE;
+    int arrive_mode = FLY_ARRIVE_CITY;
+    long target_id = 0;
+    bool is_group = FALSE;
+    char *rest;
+
+    rest = one_argument(argument, arg1);       /* extract char name */
+    rest = one_argument(rest, arg2);           /* extract dest type */
+
+    if (!*arg1 || !*arg2) {
+        obj_log(obj, "ofly: too few arguments");
+        return;
+    }
+
+    if ((ch = get_char_by_obj(obj, arg1)) == NULL) {
+        obj_log(obj, "ofly: no target char found for '%s'", arg1);
+        return;
+    }
+
+    if (!str_cmp(arg2, "city")) {
+        rest = one_argument(rest, arg3);
+        one_argument(rest, arg4);
+        if (!*arg3) {
+            obj_log(obj, "ofly: city requires a city name");
+            return;
+        }
+        dest_tile   = get_fly_dest_tile(arg3);
+        arrive_mode = get_fly_dest_arrive_mode(arg3);
+        if (!str_cmp(arg4, "group"))
+            is_group = TRUE;
+
+    } else if (!str_cmp(arg2, "player")) {
+        rest = one_argument(rest, arg3);
+        one_argument(rest, arg4);
+        if (!*arg3) {
+            obj_log(obj, "ofly: player requires a player name");
+            return;
+        }
+        target = get_char_vis(ch, arg3, NULL, FIND_CHAR_WORLD);
+        if (!target || IS_NPC(target)) {
+            obj_log(obj, "ofly: player '%s' not found", arg3);
+            return;
+        }
+        if (PRF_FLAGGED(target, PRF_NOHASSLE)) {
+            obj_log(obj, "ofly: target player '%s' has NOHASSLE — aborting", arg3);
+            return;
+        }
+        /* dest_tile for PLAYER mode: fly to same tile as target (use their room's city entry
+         * or their room itself if already on worldmap — start_flight handles final teleport) */
+        dest_tile   = GET_ROOM_VNUM(IN_ROOM(target));
+        arrive_mode = FLY_ARRIVE_PLAYER;
+        target_id   = GET_IDNUM(target);
+        if (!str_cmp(arg4, "group"))
+            is_group = TRUE;
+
+    } else if (!str_cmp(arg2, "leave")) {
+        one_argument(rest, arg3);
+        dest_tile   = get_fly_dest_tile("leave");
+        arrive_mode = FLY_ARRIVE_LEAVE;
+        if (!str_cmp(arg3, "group"))
+            is_group = TRUE;
+
+    } else if (!str_cmp(arg2, "start")) {
+        one_argument(rest, arg3);
+        dest_tile   = get_fly_dest_tile("start");
+        arrive_mode = FLY_ARRIVE_START;
+        if (!str_cmp(arg3, "group"))
+            is_group = TRUE;
+
+    } else if (!str_cmp(arg2, "room")) {
+        rest = one_argument(rest, arg3);
+        one_argument(rest, arg4);
+        if (!*arg3 || !is_number(arg3)) {
+            obj_log(obj, "ofly: room requires a numeric vnum");
+            return;
+        }
+        dest_tile   = (room_vnum) atoi(arg3);
+        arrive_mode = FLY_ARRIVE_CITY;
+        if (!str_cmp(arg4, "group"))
+            is_group = TRUE;
+
+    } else {
+        obj_log(obj, "ofly: unknown destination type '%s'", arg2);
+        return;
+    }
+
+    start_flight(ch, dest_tile, arrive_mode, target_id, is_group);
+}
+
 static OCMD(do_dgoload)
 {
     char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
@@ -803,6 +918,7 @@ const struct obj_command_info obj_cmd_info[] = {
     { "odamage "    , do_odamage,   0 },
     { "oecho "      , do_oecho    , 0 },
     { "oechoaround ", do_osend    , SCMD_OECHOAROUND },
+    { "ofly "       , do_ofly     , 0 },
     { "oforce "     , do_oforce   , 0 },
     { "oload "      , do_dgoload  , 0 },
     { "opurge "     , do_opurge   , 0 },

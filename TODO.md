@@ -11,6 +11,7 @@
 | Worldmap — 256×256 grid, zone 1000, `gen_worldmap.py` | Done |
 | Map display — level-scaled, tabular legend, auto-regen on boot | Done |
 | Worldmap access points (S/L/P/C/?) — `enter` command, safezones, per-type colors | Done |
+| Fly mechanic — auto-flight engine, `%ofly%`, PLR_AUTOFLIGHT, transport card triggers | Done |
 
 ---
 
@@ -26,24 +27,16 @@ The engine and card systems are complete. What remains before v1.00 is **populat
 - **Limeiro Castle** — end-game dungeon; NPC that receives the Ruler's Invitation letter and grants Ruler's Blessing (#0, card 65300)
 - Other canon locations from the manga arc (port towns, wilderness outposts, etc.)
 - For each new city/area: place the access-point char (`S`/`L`/`P`/`C`/`?`) in `greed_island.txt` at the desired map coordinate, then add the matching entry to `ENTRY_LINKS` in `tools/gen_worldmap.py` — the generator auto-reruns on each reboot
+- **After each city is placed on the worldmap**: fill in the `map_tile` vnum for that city in `fly_destinations[]` in `src/act.movement.c` so transport cards fly there correctly
 
-### Priority 2 — Fly mechanic (transport spell cards)
-Implement auto-flight triggered by transport spell cards (Accompany, Leave, etc.), inspired by the FE Dragon Ball Z MUD, with these rules:
-- On use of a transport card the player enters "fly" mode and moves automatically toward the destination
-- Flight traverses **any terrain** — ocean, mountains, and all other sectors are passable
-- `look` output is **suppressed during flight** and only shown after every **5–10 movement steps** (exact count TBD), not after each step — simulating the sensation of flying past the landscape
-- **Combat is blocked** while in flight
-- Each transport spell card has a **fixed destination room vnum** (e.g. Accompany → city entry room of the target city)
-- Spell card destinations are configured **after** worldmap access point locations are finalized (Priority 1 must come first)
-
-### Priority 3 — Mobs & NPCs
+### Priority 2 — Mobs & NPCs
 - Populate each city zone with canonical NPCs (shopkeepers, questgivers, guards)
 - Create encounter mobs appropriate to each terrain type (field, forest, hills, mountain)
 - Assign mob drops that cover the remaining restricted cards not yet sourced from any mob
 - Ensure all 99 cards (65301–65399) have at least one dedicated in-world source
 - See `TODO-restricted-cards-world-spawn.md` for the full card-by-card placement plan
 
-### Priority 4 — Pending live tests
+### Priority 3 — Pending live tests
 The following cards have untested runtime logic — verify in-game before v1.00:
 - **#87 Shield of Faith** (65487) — WEAR/REMOVE triggers protecting from AS cards
 - **#89 Tax Collector's Gauntlet** (65489) — `levy` trigger + `same_group` DG field
@@ -52,7 +45,7 @@ The following cards have untested runtime logic — verify in-game before v1.00:
 - **#88 Eternal Hammer** and **#94 Bandit's Blade** — both need a live PvP test
 - **#4 Hot Springs, #6 Liquor Spring, #8 Mystery Pond, #9 Tree of Plenty** — DG timer triggers
 
-### Priority 5 — Deferred / low priority
+### Priority 4 — Deferred / low priority
 - **Vnum migration** — renumber restricted card vnums (653xx/654xx) into zones 0/1; not blocking v1.00
 - **Limeiro Castle dungeon** interior rooms and boss encounter
 - NPC mob spawns for #16 Night Shift Dwarves and #26 Fairy King's Advice (currently fickle)

@@ -23,3 +23,4 @@
 - NOTHING sentinel (65535) must never be remapped to a real vnum; use the NOTHING constant in C
 - mob 396 (clairvoyant snake) added to 3.mob; wildlife 400-416 removed (were duplicates of 4.mob)
 - 653.zon/654.zon are stubs (no reset commands); obj/mob/trg 653/654 are all stubs
+- [x] Task 5: %ofly% DG command (5b61868..d386aa1, review clean)

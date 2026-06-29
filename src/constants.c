@@ -194,7 +194,7 @@ const char *player_bits[] = {
   "UNUSED2",
   "UNUSED3",
   "UNUSED4",
-  "UNUSED5",
+  "AUTOFLIGHT",    /* 24 */
   "\n"
 };
 
@@ -835,21 +835,21 @@ int rev_dir[] =
 /** How much movement is lost moving through a particular sector type. */
 int movement_loss[] =
 {
-  0,	/* Inside     */
+  1,	/* Inside     */
   0,	/* City       */
   1,	/* Field      */
-  1,	/* Forest     */
-  2,	/* Hills      */
-  3,	/* Mountains  */
-  3,	/* Swimming   */
-  2,	/* Unswimable */
-  1,	/* Flying     */
-  4,    /* Underwater */
-  1,    /* Port */
-  1,    /* City Entrance */
-  1,    /* Mysterious Entrance */
-  1,    /* Start Point */
-  1,    /* Leave Point */
+  2,	/* Forest     */
+  3,	/* Hills      */
+  4,	/* Mountains  */
+  2,	/* Swimming   */
+  3,	/* Unswimable */
+  0,	/* Flying     */
+  5,    /* Underwater */
+  0,    /* Port */
+  0,    /* City Entrance */
+  0,    /* Mysterious Entrance */
+  0,    /* Start Point */
+  0,    /* Leave Point */
   2     /* Beach       */
 };
 

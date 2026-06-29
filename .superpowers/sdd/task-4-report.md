@@ -1,97 +1,45 @@
-# Task 4 Report: gen_worldmap.py rewrite
+# Task 4 Report: Auto-flight event engine
 
-## Summary
+## Status
 
-All 10 sections from the brief were implemented. The script is syntactically valid and
-the `--validate-only` path runs without any Python exception.
+DONE. Clean compile, no warnings.
 
----
+## Files changed
 
-## Sections changed
+- `src/mud_event.h` — added `eAUTOFLIGHT` to `event_id` enum; forward-declared `EVENTFUNC(event_autoflight)`
+- `src/mud_event.c` — added `{ "AutoFlight", event_autoflight, EVENT_CHAR }` row to `mud_event_index[]` at position matching enum
+- `src/act.movement.c` — added `#include "mud_event.h"`; added flight engine block (helpers, config table, structs, EVENTFUNC, start_flight)
+- `src/dg_objcmd.c` — added `extern int start_flight(...)` declaration (ready for Task 5)
 
-### 1. Docstring / legend comment (top of file)
-- Replaced `#  CITY (1)` and `@  city entrance ...` lines with the five point chars:
-  `S  START (13)`, `L  LEAVE (14)`, `P  PORT (10)`, `C  CITYENT (11)`, `?  MYSTERY (12)`.
-- Replaced the CITY_LINKS paragraph with the ENTRY_LINKS description.
-- Updated the Requirements bullet from `@ tile` / `CITY_LINKS` to `S/L/P/C/?` / `ENTRY_LINKS`.
+## Key design decision: flight_data storage
 
-### 2. SECT dict
-- Removed `'#': 1` and `'@': 1`.
-- Added `'P': 10`, `'C': 11`, `'?': 12`, `'S': 13`, `'L': 14`.
-- Dict now has exactly 11 entries.
+`new_mud_event()` calls `strdup(sVariables)` when sVariables is not NULL. Passing a `struct flight_data *` cast to `char *` through that path would corrupt the struct (strdup stops at the first null byte inside the struct).
 
-### 3. SECT_NAME dict
-- Removed `'#': "City"` and `'@': "City Gate"`.
-- Added `'P': "Port"`, `'C': "City"`, `'?': "Mysterious Entrance"`,
-  `'S': "Start Point"`, `'L': "Leave Point"`.
+Fix: call `new_mud_event(eAUTOFLIGHT, ch, NULL)` then set `pMudEvent->sVariables = (char *) data` directly, bypassing strdup. `free_mud_event` then calls `free(sVariables)` which correctly frees the flight_data struct when the event ends. This is the only deviation from the `NEW_EVENT` macro pattern — the reason is documented in comments.
 
-### 4. ROOM_PEACEFUL_FLAG constant
-- Removed `ROOM_WORLDMAP_FLAG = 65536` (no longer emitted by write_wld).
-- Added `ROOM_PEACEFUL_FLAG = 16    # ROOM_PEACEFUL bit (index 4 → 1<<4)`.
+## EVENTFUNC(event_autoflight) behaviour
 
-### 5. CITY_LINKS → ENTRY_LINKS
-- Replaced entire CITY_LINKS block (including the Dorias port entry) with the new
-  ENTRY_LINKS empty dict, with the comment block and example as specified.
+- Retrieves `ch` from `pMudEvent->pStruct`, `data` from `pMudEvent->sVariables`.
+- Safety-exits if `ch == NULL`, `IS_NPC(ch)`, `IN_ROOM(ch) == NOWHERE`, or `PLR_AUTOFLIGHT` no longer set.
+- Each tick: steps up to 5 tiles via `flight_direction()` + `perform_move()`, emitting a trail act per step.
+- Issues `look_at_room` after stepping.
+- Reschedules at `1 * PASSES_PER_SEC` while en route; on arrival dispatches the `FLY_ARRIVE_*` mode block, clears both `PLR_AUTOFLIGHT` and `AFF_FLYING`, and returns 0 (event ends, `free_mud_event` frees data).
 
-### 6. POINT_CHARS constant
-- Added `POINT_CHARS = set("SPLC?")` immediately after ENTRY_LINKS.
+## Destination table
 
-### 7. room_desc function
-- Removed `elif tile in ('#', '@'):` branch.
-- Added five branches for S, L, P, C, ? with the exact descriptions from the brief.
+All `map_tile` vnums are `NOWHERE` (stubbed). Interior vnums set: antokiba=12064, masadora=3053; rabicuta and start/leave left NOWHERE until P1 city placement.
 
-### 8. write_wld function
-- Replaced `flags = ROOM_WORLDMAP_FLAG if tile == '@' else 0` with the peaceful-flag
-  logic: ROOM_PEACEFUL_FLAG for S/L/P/C, 0 for everything else (including ?).
-- Replaced the `if tile == '@':` city exit block with `if tile in POINT_CHARS:` using
-  `ENTRY_LINKS[(row, col)]` as the destination vnum.
+## Post-implementation fixes (commit 5b61868)
 
-### 9. Validation (load_map)
-- Replaced `at_tiles` list and CITY_LINKS check with `point_tiles` list and ENTRY_LINKS check.
-- Updated the scan loop to collect point tiles via `if ch in POINT_CHARS`.
-- Updated error message to "Point tiles with no entry in ENTRY_LINKS (edit gen_worldmap.py)".
-- Updated `print("Map loaded: ...")` to report "access points" instead of "city entrances".
-- The `valid_chars = set(SECT.keys())` line already automatically rejects `#` and `@` since
-  they were removed from SECT — no extra change needed.
+Two small correctness issues patched after initial Task 4 implementation:
 
-### 10. "Next steps" hints in main()
-- Removed step 3 (old: "Edit lib/world/wld/410.wld room 41001 D1 exit...").
-- Replaced with:
-  1. Add 1000.wld to index (if not already there)
-  2. Add 1000.zon to index (if not already there)
-  3. Populate ENTRY_LINKS with point tile coordinates and dest vnums
-  4. Place point chars (S/L/P/C/?) in greed_island.txt
-  5. Boot: bin/circle 4000
+1. **sVariables warning comment** — added a block comment directly above `pMudEvent->sVariables = (char *) data` in `start_flight()` warning that `change_event_duration()` must never be called on `eAUTOFLIGHT` events (it would strdup the struct pointer, truncating at the first null byte).
 
----
+2. **AFF_FLYING cleared on safety exit** — the `if (!PLR_FLAGGED(ch, PLR_AUTOFLIGHT)) return 0;` early-exit in `event_autoflight` now also calls `REMOVE_BIT_AR(AFF_FLAGS(ch), AFF_FLYING)` before returning, preventing a stuck flying state if `PLR_AUTOFLIGHT` is cleared externally (e.g. admin flag wipe) without the event running to its normal completion.
 
-## --validate-only output
+## For Task 5 implementer
 
-```
-Reading map: .../lib/world/map/greed_island.txt
-Map validation FAILED (13 error(s)):
-  - Row 67 contains unknown chars: ['#']
-  - Row 68 contains unknown chars: ['#']
-  - Row 69 contains unknown chars: ['#']
-  - Row 87 contains unknown chars: ['#']
-  - Row 88 contains unknown chars: ['#']
-  - Row 89 contains unknown chars: ['#']
-  - Row 129 contains unknown chars: ['#']
-  - Row 130 contains unknown chars: ['#']
-  - Row 168 contains unknown chars: ['#']
-  - Row 169 contains unknown chars: ['#']
-  - Row 187 contains unknown chars: ['#']
-  - Row 188 contains unknown chars: ['#', '@']
-  - Row 189 contains unknown chars: ['#']
-```
-
-Exit code: 1 (via `sys.exit(1)` in load_map — not a Python exception crash).
-This is the expected result per the brief: "this will FAIL until Task 5 converts the map."
-
----
-
-## Deviations from brief
-
-None. All sections implemented exactly as specified. The script exits cleanly via
-`sys.exit(1)` on validation failure — no unhandled Python exception on the
-`--validate-only` path.
+- Call `start_flight(ch, dest->map_tile, dest->arrive_mode, 0, FALSE)` from `%ofly%` handler in `dg_objcmd.c`.
+- `extern` declaration is already in place in `dg_objcmd.c`.
+- `FLY_ARRIVE_*` constants and `find_fly_dest()` are file-static in `act.movement.c`; if Task 5 needs to look up destinations by name from outside that file, expose `find_fly_dest` or add a wrapper.
+- `ELENA_ROOM_VNUM` (1406) is file-static — verify the vnum is correct before Task 5 wires up the Leave Point.
