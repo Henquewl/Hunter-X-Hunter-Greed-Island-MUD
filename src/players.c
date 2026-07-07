@@ -57,6 +57,49 @@ static void load_HMVS(struct char_data *ch, const char *line, int mode);
 static void write_aliases_ascii(FILE *file, struct char_data *ch);
 static void read_aliases_ascii(FILE *file, struct char_data *ch, int count);
 
+/* Password hashing (SHA-512 crypt, "$6$<salt>$<hash>").  Player files
+ * written before hashing was enabled store the bare plaintext;
+ * password_matches() still accepts those so old accounts can log in,
+ * and the login code rehashes+saves on the first successful match. */
+char *hash_password(const char *plain)
+{
+  static const char salt_chars[] =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./";
+  char setting[20];
+  char *hashed;
+  int i;
+
+  strcpy(setting, "$6$");	/* strcpy: OK (setting is 20 bytes) */
+  for (i = 3; i < 19; i++)
+    setting[i] = salt_chars[rand_number(0, 63)];
+  setting[19] = '\0';
+
+  hashed = (char *) crypt(plain, setting);
+  if (!hashed) {
+    log("SYSERR: crypt() failed, storing password without hash");
+    return (char *) plain;
+  }
+  return hashed;
+}
+
+int password_matches(const char *plain, const char *stored)
+{
+  char *hashed;
+
+  if (!stored || !*stored)
+    return 0;
+  hashed = (char *) crypt(plain, stored);
+  if (hashed && !strcmp(hashed, stored))
+    return 1;
+  /* legacy pre-hashing player file: bare plaintext comparison */
+  return !strcmp(plain, stored);
+}
+
+int password_needs_rehash(const char *stored)
+{
+  return strncmp(stored, "$6$", 3) != 0;
+}
+
 /* New version to build player index for ASCII Player Files. Generate index
  * table for the player file. */
 void build_player_index(void)
@@ -427,7 +470,10 @@ int load_char(const char *name, struct char_data *ch)
 
       case 'P':
        if (!strcmp(tag, "Page"))  GET_PAGE_LENGTH(ch) = atoi(line);
-	else if (!strcmp(tag, "Pass"))	strcpy(GET_PASSWD(ch), line);
+	else if (!strcmp(tag, "Pass")) {
+	  strncpy(GET_PASSWD(ch), line, MAX_PWD_HASH_LENGTH);	/* strncpy: OK */
+	  GET_PASSWD(ch)[MAX_PWD_HASH_LENGTH] = '\0';
+	}
 	else if (!strcmp(tag, "Plyd"))	ch->player.time.played	= atoi(line);
 	else if (!strcmp(tag, "PfIn"))	POOFIN(ch)		= strdup(line);
 	else if (!strcmp(tag, "PfOt"))	POOFOUT(ch)		= strdup(line);

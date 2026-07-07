@@ -1593,7 +1593,7 @@ void nanny(struct descriptor_data *d, char *arg)
     if (!*arg)
       STATE(d) = CON_CLOSE;
     else {
-      if (strncmp(CRYPT(arg, GET_PASSWD(d->character)), GET_PASSWD(d->character), MAX_PWD_LENGTH)) {
+      if (!password_matches(arg, GET_PASSWD(d->character))) {
 	mudlog(BRF, LVL_GOD, TRUE, "Bad PW: %s [%s]", GET_NAME(d->character), d->host);
 	GET_BAD_PWS(d->character)++;
 	save_char(d->character);
@@ -1611,6 +1611,13 @@ void nanny(struct descriptor_data *d, char *arg)
       load_result = GET_BAD_PWS(d->character);
       GET_BAD_PWS(d->character) = 0;
       d->bad_pws = 0;
+
+      /* Transparent migration of pre-hashing (plaintext) player files. */
+      if (password_needs_rehash(GET_PASSWD(d->character))) {
+	strncpy(GET_PASSWD(d->character), hash_password(arg), MAX_PWD_HASH_LENGTH);	/* strncpy: OK */
+	*(GET_PASSWD(d->character) + MAX_PWD_HASH_LENGTH) = '\0';
+	save_char(d->character);
+      }
 
       if (isbanned(d->host) == BAN_SELECT &&
 	  !PLR_FLAGGED(d->character, PLR_SITEOK)) {
@@ -1664,8 +1671,8 @@ void nanny(struct descriptor_data *d, char *arg)
       write_to_output(d, "\r\nIllegal password.\r\nPassword: ");
       return;
     }
-    strncpy(GET_PASSWD(d->character), CRYPT(arg, GET_PC_NAME(d->character)), MAX_PWD_LENGTH);	/* strncpy: OK (G_P:MAX_PWD_LENGTH+1) */
-    *(GET_PASSWD(d->character) + MAX_PWD_LENGTH) = '\0';
+    strncpy(GET_PASSWD(d->character), hash_password(arg), MAX_PWD_HASH_LENGTH);	/* strncpy: OK (G_P:MAX_PWD_HASH_LENGTH+1) */
+    *(GET_PASSWD(d->character) + MAX_PWD_HASH_LENGTH) = '\0';
 
     write_to_output(d, "\r\nPlease retype password: ");
     if (STATE(d) == CON_NEWPASSWD)
@@ -1676,8 +1683,7 @@ void nanny(struct descriptor_data *d, char *arg)
 
   case CON_CNFPASSWD:
   case CON_CHPWD_VRFY:
-    if (strncmp(CRYPT(arg, GET_PASSWD(d->character)), GET_PASSWD(d->character),
-		MAX_PWD_LENGTH)) {
+    if (!password_matches(arg, GET_PASSWD(d->character))) {
       write_to_output(d, "\r\nPasswords don't match... start over.\r\nPassword: ");
       if (STATE(d) == CON_CNFPASSWD)
 	STATE(d) = CON_NEWPASSWD;
@@ -2019,7 +2025,7 @@ void nanny(struct descriptor_data *d, char *arg)
   }
 
   case CON_CHPWD_GETOLD:
-    if (strncmp(CRYPT(arg, GET_PASSWD(d->character)), GET_PASSWD(d->character), MAX_PWD_LENGTH)) {
+    if (!password_matches(arg, GET_PASSWD(d->character))) {
       echo_on(d);
       write_to_output(d, "\r\nIncorrect password.\r\n%s", CONFIG_MENU);
       STATE(d) = CON_MENU;
@@ -2031,7 +2037,7 @@ void nanny(struct descriptor_data *d, char *arg)
 
   case CON_DELCNF1:
     echo_on(d);
-    if (strncmp(CRYPT(arg, GET_PASSWD(d->character)), GET_PASSWD(d->character), MAX_PWD_LENGTH)) {
+    if (!password_matches(arg, GET_PASSWD(d->character))) {
       write_to_output(d, "\r\nIncorrect password.\r\n%s", CONFIG_MENU);
       STATE(d) = CON_MENU;
     } else {

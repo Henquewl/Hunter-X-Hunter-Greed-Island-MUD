@@ -26,8 +26,8 @@
 /* We're on Unix */
 #define CIRCLE_UNIX 1
 
-/* crypt() not used (no -lcrypt linkage needed on modern Linux) */
-/* #undef CIRCLE_CRYPT */
+/* Use crypt() to hash player passwords (linked via -lcrypt) */
+#define CIRCLE_CRYPT 1
 
 /* Use our own crypt stub */
 #define HAVE_UNSAFE_CRYPT 1
@@ -65,7 +65,7 @@
 #define HAVE_ARPA_INET_H 1
 #define HAVE_ARPA_TELNET_H 1
 #define HAVE_ASSERT_H 1
-/* #undef HAVE_CRYPT_H */
+#define HAVE_CRYPT_H 1
 #define HAVE_ERRNO_H 1
 #define HAVE_FCNTL_H 1
 #define HAVE_LIMITS_H 1

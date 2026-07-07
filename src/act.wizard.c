@@ -3140,9 +3140,9 @@ static int perform_set(struct char_data *ch, struct char_data *vict, int mode, c
         send_to_char(ch, "You cannot change that.\r\n");
         return (0);
       }
-      strncpy(GET_PASSWD(vict), CRYPT(val_arg, GET_NAME(vict)), MAX_PWD_LENGTH);	/* strncpy: OK (G_P:MAX_PWD_LENGTH) */
-      *(GET_PASSWD(vict) + MAX_PWD_LENGTH) = '\0';
-      send_to_char(ch, "Password changed to '%s'.\r\n", val_arg);
+      strncpy(GET_PASSWD(vict), hash_password(val_arg), MAX_PWD_HASH_LENGTH);	/* strncpy: OK (G_P:MAX_PWD_HASH_LENGTH) */
+      *(GET_PASSWD(vict) + MAX_PWD_HASH_LENGTH) = '\0';
+      send_to_char(ch, "Password changed.\r\n");
       break;
     case 39: /* poofin */
       if ((vict == ch) || (GET_LEVEL(ch) == LVL_IMPL)) {
