@@ -7,7 +7,31 @@ https://github.com/tbamud/tbamud
 Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
-[Jun 29 2026] - Henque
+[Jul 07 2026] - Henque
+  feat: free landmark letters on the worldmap; unknown chars no longer break boot
+    The worldmap generator (tools/gen_worldmap.py) previously rejected any
+    character outside its 13-char legend and any L/P/C/? tile without an
+    ENTRY_LINKS entry, exiting non-zero and blocking autorun boot entirely.
+    Now the map can be populated freely:
+    1) Any uppercase letter not reserved (A-Z minus S/L/P/C) becomes a
+       LANDMARK tile: new sector SECT_LANDMARK (16), ROOM_PEACEFUL (safe),
+       field movement cost, rendered gold with the letter itself on the map.
+    2) Any other unrecognized printable char becomes an UNKNOWN tile: new
+       sector SECT_UNKNOWN (17), plain field room, rendered dark green with
+       the char itself. Whitespace/control chars inside the grid remain a
+       validation error (almost always accidental).
+    3) L/P/C/? tiles without an ENTRY_LINKS entry now produce a stderr
+       warning instead of a fatal error; they just get no D5 portal until
+       linked. ENTRY_LINKS was generalized: any (row,col) coordinate in the
+       dict gets a D5 `enter` portal regardless of its char (keyword
+       "entrance" by default, classic keywords for L/P/C/?).
+    C side: NUM_ROOM_SECTORS 16->18 (structs.h), sector_types[] and
+    movement_loss[] extended (constants.c), IS_ENTRY_POINT_SECT includes the
+    two new sectors (utils.h) so landmarks keep their letter glyph instead of
+    the generic gold safe dot and bare `enter` works once linked. asciimap.c
+    lazily loads world/map/greed_island.txt into a 256x256 grid to render the
+    actual source char per tile (fallback "+" glyphs if the file is missing);
+    worldmap legend gained a gold "A Landmark" entry.
   fix: minimap non-worldmap rooms now display correctly + shop/quest NPC colors
     Three fixes in one:
     1) Non-worldmap (city) minimap was broken since CANVAS_WIDTH was expanded

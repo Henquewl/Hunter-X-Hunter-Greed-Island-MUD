@@ -136,6 +136,8 @@ const char *sector_types[] = {
   "Start Point",
   "Leave Point",
   "Beach",
+  "Landmark",
+  "Unknown",
   "\n"
 };
 
@@ -850,7 +852,9 @@ int movement_loss[] =
   0,    /* Mysterious Entrance */
   0,    /* Start Point */
   0,    /* Leave Point */
-  2     /* Beach       */
+  2,    /* Beach       */
+  1,    /* Landmark    */
+  1     /* Unknown     */
 };
 
 /** The names of the days of the week (Sunday = index 0). */

@@ -757,7 +757,7 @@ do                                                              \
 
 #define IS_ENTRY_POINT_SECT(s) \
   ((s)==SECT_PORT||(s)==SECT_CITYENT||(s)==SECT_MYSTERY|| \
-   (s)==SECT_START||(s)==SECT_LEAVE)
+   (s)==SECT_START||(s)==SECT_LEAVE||(s)==SECT_LANDMARK||(s)==SECT_UNKNOWN)
 
 /* Sentinel check for ASCII player-file list sections (Qest/Metp/Metc/Qdly).
  * Old saves used 65535 (ush_int NOTHING); new saves use -1 (uint32_t NOTHING

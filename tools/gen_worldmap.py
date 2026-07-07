@@ -13,17 +13,26 @@ Sector legend (one char per tile):
     .  FIELD (2)          ^ MOUNTAIN (5)
     f  FOREST (3)         ~ WATER_NOSWIM (7) — ocean/border
     h  HILLS (4)          = WATER_SWIM (6)   — rivers/lakes
+    b  BEACH (15)         r  CITY/Road (1)
     S  START (13)         — Start Point
     L  LEAVE (14)         — Leave Point
     P  PORT (10)          — Port
     C  CITYENT (11)       — City
     ?  MYSTERY (12)       — Mysterious Entrance
 
-Access point links (L/P/C/? tile → destination room vnum):
+Any OTHER uppercase letter (A-Z minus the reserved S/L/P/C) is a LANDMARK (16):
+    a peaceful (safe) field room, rendered gold with the letter itself on the map.
+Any other unrecognized printable char is UNKNOWN (17): a plain field room,
+    rendered dark green with the char itself. Neither requires configuration.
+    Space/tab inside the grid is still a validation error (almost always a typo).
+
+Access point links (tile → destination room vnum):
     Edit ENTRY_LINKS below. Key = (row, col) of the tile on the map,
-    value = dest_vnum of the room to warp to.
-    NOTE: S (Start Point) does NOT need an entry — it is a landing zone only
-    (players arrive here; `enter` is not available on S tiles).
+    value = dest_vnum of the room to warp to on `enter`.
+    ANY coordinate present in ENTRY_LINKS gets a D5 portal exit, regardless of
+    its char (landmark letters included). L/P/C/? tiles WITHOUT a link only get
+    a warning (no portal is emitted, boot is not blocked).
+    NOTE: S (Start Point) is a landing zone only (no `enter`).
 
 Vnum formula:  vnum = 100000 + row*256 + col   (row,col ∈ [0,255])
 Coordinates:   x = col - 128  (negative=west, positive=east)
@@ -33,8 +42,8 @@ Requirements:
     - Exactly 256 lines, each exactly 256 chars (no trailing spaces needed, but line length
       must be >= 256; extra chars are ignored).
     - First/last 2 rows and cols must be ~ (ocean border).
-    - Every char must be in the legend.
-    - Each L/P/C/? tile must have a matching entry in ENTRY_LINKS (S is exempt).
+    - No whitespace/control chars inside the grid; any printable char is accepted.
+    - L/P/C/? tiles without an ENTRY_LINKS entry only produce a warning.
 
 Run --validate-only to check the source map without writing any files.
 """
@@ -80,6 +89,20 @@ SECT = {
     'b': 15,  # SECT_BEACH
     'r': 1,   # SECT_CITY  (Road)
 }
+
+# Sectors for freely-placed chars (must match structs.h)
+SECT_LANDMARK = 16   # uppercase letter not in SECT — gold, peaceful
+SECT_UNKNOWN  = 17   # any other unrecognized char — dark green, plain field
+
+def is_landmark(tile):
+    return 'A' <= tile <= 'Z' and tile not in SECT
+
+def tile_sector(tile):
+    if tile in SECT:
+        return SECT[tile]
+    if is_landmark(tile):
+        return SECT_LANDMARK
+    return SECT_UNKNOWN
 
 # Sector names for room descriptions
 SECT_NAME = {
@@ -152,7 +175,13 @@ def coord_display(row, col):
 
 def room_name(tile, row, col):
     x, y = coord_display(row, col)
-    return "{} ({}, {})".format(SECT_NAME[tile], x, y)
+    if tile in SECT_NAME:
+        name = SECT_NAME[tile]
+    elif is_landmark(tile):
+        name = "Landmark"
+    else:
+        name = "Open Field"
+    return "{} ({}, {})".format(name, x, y)
 
 def room_desc(tile, row, col):
     x, y = coord_display(row, col)
@@ -182,7 +211,9 @@ def room_desc(tile, row, col):
         return "   Sandy beach stretches along the shore.\n"
     elif tile == 'r':
         return "   A dusty road winds through the landscape.\n"
-    return "   Greed Island stretches around you.\n"
+    elif is_landmark(tile):
+        return "   A notable location stands out here.\n"
+    return "   Open grassland stretches out in all directions.\n"
 
 def is_border(row, col):
     return row < 2 or row >= GRID - 2 or col < 2 or col >= GRID - 2
@@ -205,7 +236,6 @@ def load_map(path):
     if len(raw) != GRID:
         errors.append("Expected {} lines, got {}".format(GRID, len(raw)))
 
-    valid_chars = set(SECT.keys())
     rows = []
     point_tiles = []
     for i, line in enumerate(raw):
@@ -215,9 +245,11 @@ def load_map(path):
             line = line.ljust(GRID, '~')
         line = line[:GRID]  # ignore extra chars
 
-        bad = set(line) - valid_chars
+        # Any printable char is allowed (landmark/unknown fallback); whitespace
+        # and control chars inside the grid are almost certainly typos.
+        bad = {c for c in set(line) if c.isspace() or not c.isprintable()}
         if bad:
-            errors.append("Row {} contains unknown chars: {}".format(i, sorted(bad)))
+            errors.append("Row {} contains whitespace/control chars: {}".format(i, sorted(bad)))
 
         rows.append(line)
 
@@ -238,8 +270,8 @@ def load_map(path):
                 if c < len(row_str) and row_str[c] != '~':
                     errors.append("Border col {} row {} must be '~', got '{}'".format(c, r, row_str[c]))
 
-    # Verify that every portal tile (L/P/C/?) has an ENTRY_LINKS entry.
-    # S tiles are exempt — they are landing zones with no D5 exit.
+    # Warn (non-fatal) about portal tiles (L/P/C/?) with no ENTRY_LINKS entry.
+    # They simply get no D5 portal exit; `enter` won't work there until linked.
     missing_links = []
     for rc in point_tiles:
         ch = rows[rc[0]][rc[1]]
@@ -247,9 +279,10 @@ def load_map(path):
             missing_links.append("  ({}, {}) char={} x={} y={}".format(
                 rc[0], rc[1], ch, rc[1]-128, 128-rc[0]))
     if missing_links:
-        errors.append(
-            "Portal tiles with no entry in ENTRY_LINKS (edit gen_worldmap.py):\n" +
-            "\n".join(missing_links))
+        print("WARNING: portal tiles with no entry in ENTRY_LINKS (no `enter` there yet):",
+              file=sys.stderr)
+        for m in missing_links:
+            print(m, file=sys.stderr)
 
     if errors:
         print("Map validation FAILED ({} error(s)):".format(len(errors)), file=sys.stderr)
@@ -294,10 +327,10 @@ def write_wld(path, rows, dry_run):
         for col in range(GRID):
             tile  = rows[row][col]
             v     = vnum(row, col)
-            sect  = SECT[tile]
+            sect  = tile_sector(tile)
 
-            # ROOM_PEACEFUL (16) for safe points; 0 for mystery and terrain
-            if tile in ('S', 'L', 'P', 'C'):
+            # ROOM_PEACEFUL (16) for safe points and landmarks; 0 for the rest
+            if tile in ('S', 'L', 'P', 'C') or is_landmark(tile):
                 flags = ROOM_PEACEFUL_FLAG
             else:
                 flags = 0
@@ -323,11 +356,11 @@ def write_wld(path, rows, dry_run):
                     buf.append("~")
                     buf.append("0 0 {}".format(vnum(nr, nc)))
 
-            # D5 portal exit for portal tiles (L/P/C/?) — not S (landing zone only)
-            if tile in PORTAL_CHARS:
+            # D5 portal exit for any coordinate configured in ENTRY_LINKS
+            if (row, col) in ENTRY_LINKS:
                 dest_vnum = ENTRY_LINKS[(row, col)]
                 buf.append("D5")
-                buf.append(POINT_KEYWORD[tile] + "~")  # keyword for `enter <keyword>`
+                buf.append(POINT_KEYWORD.get(tile, 'entrance') + "~")  # for `enter <keyword>`
                 buf.append("~")
                 buf.append("0 0 {}".format(dest_vnum))
 

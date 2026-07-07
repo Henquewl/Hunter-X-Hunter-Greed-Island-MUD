@@ -149,8 +149,8 @@ static struct map_info_type map_info[] =
   { SECT_START,        "\tc[\tYS\tc]\tn"  },
   { SECT_LEAVE,        "\tc[\tYL\tc]\tn"  },
   { SECT_BEACH,        "\tc[\ty.\tc]\tn"  }, /* 15 */
-  { -1,                ""        },
-  { -1,                ""        },
+  { SECT_LANDMARK,     "\tc[\tY+\tc]\tn"  },
+  { SECT_UNKNOWN,      "\tc[\tg+\tc]\tn"  },
   { -1,                ""        },
   { -1,                ""        },
   { -1,                ""        }, /* 20 */
@@ -198,8 +198,8 @@ static struct map_info_type world_map_info[] =
   { SECT_START,        "\tYS"  },
   { SECT_LEAVE,        "\tYL"  },
   { SECT_BEACH,        "\ty."  }, /* 15 */
-  { -1,                ""     },
-  { -1,                ""     },
+  { SECT_LANDMARK,     "\tY+"  },
+  { SECT_UNKNOWN,      "\tg+"  },
   { -1,                ""     },
   { -1,                ""     },
   { -1,                ""     }, /* 20 */
@@ -231,8 +231,70 @@ static struct map_info_type world_map_info[] =
 
 
 static int map[MAX_MAP][MAX_MAP];
+static char map_glyph[MAX_MAP][MAX_MAP]; /* source char for LANDMARK/UNKNOWN tiles */
 static int cnt_nearby;
 static int nearby[32];
+
+/* Worldmap source grid, lazily loaded from the map text file so that
+ * LANDMARK/UNKNOWN tiles can be rendered with their actual character. */
+#define WM_GRID_FILE "world/map/greed_island.txt"
+static char wm_grid[WORLDMAP_GRID][WORLDMAP_GRID];
+static int wm_grid_state = 0; /* 0 = not loaded, 1 = loaded, -1 = failed */
+
+static void load_wm_grid(void)
+{
+  FILE *fp;
+  char line[WORLDMAP_GRID + 16];
+  int row = 0, len;
+
+  if (wm_grid_state)
+    return;
+
+  memset(wm_grid, 0, sizeof(wm_grid));
+  if (!(fp = fopen(WM_GRID_FILE, "r"))) {
+    log("SYSERR: asciimap: cannot open %s; landmark glyphs will use fallback", WM_GRID_FILE);
+    wm_grid_state = -1;
+    return;
+  }
+  while (row < WORLDMAP_GRID && fgets(line, sizeof(line), fp)) {
+    len = strlen(line);
+    while (len > 0 && (line[len - 1] == '\n' || line[len - 1] == '\r'))
+      line[--len] = '\0';
+    if (len > WORLDMAP_GRID)
+      len = WORLDMAP_GRID;
+    memcpy(wm_grid[row], line, len);
+    row++;
+  }
+  fclose(fp);
+  wm_grid_state = 1;
+}
+
+/* Source char of a worldmap room, or '\0' if unavailable. */
+static char wm_glyph_for_room(room_rnum room)
+{
+  room_vnum v = GET_ROOM_VNUM(room);
+  int off;
+
+  load_wm_grid();
+  if (wm_grid_state != 1 || v < WORLDMAP_BASE_VNUM || v > WORLDMAP_VNUM_TOP)
+    return '\0';
+  off = v - WORLDMAP_BASE_VNUM;
+  return wm_grid[off / WORLDMAP_GRID][off % WORLDMAP_GRID];
+}
+
+/* Display string for a worldmap tile: LANDMARK renders its own letter in gold,
+ * UNKNOWN its own char in dark green; everything else uses world_map_info. */
+static const char *worldmap_tile_disp(int x, int y)
+{
+  static char buf[8];
+
+  if ((map[x][y] == SECT_LANDMARK || map[x][y] == SECT_UNKNOWN) && map_glyph[x][y]) {
+    snprintf(buf, sizeof(buf), "%s%c",
+             map[x][y] == SECT_LANDMARK ? "\tY" : "\tg", map_glyph[x][y]);
+    return buf;
+  }
+  return world_map_info[map[x][y]].disp;
+}
 /*
 static int offsets[4][2] ={ {-2, 0},{ 0, 2},{ 2, 0},{ 0, -2} };
 static int offsets_worldmap[4][2] ={ {-1, 0},{ 0, 1},{ 1, 0},{ 0, -1} };
@@ -332,7 +394,11 @@ static void MapArea(room_rnum room, struct char_data *ch, int x, int y, int min,
 	map[x][y] = SECT_SAFE;
   else
     map[x][y] = SECT(room);
-  
+
+  if (SECT(room) == SECT_LANDMARK || SECT(room) == SECT_UNKNOWN)
+    map_glyph[x][y] = wm_glyph_for_room(room);
+
+
   if (world[room].people) {
 	  for (player = world[room].people; player; player = player->next_in_room) {
 	    if (!IS_NPC(player) && player != ch && CAN_SEE(ch, player) && GET_HIT(player) > 5) {
@@ -561,8 +627,8 @@ static char *WorldMap(int centre, int size, int mapshape, int maptype )
 	  mp += strlen(buf);
 	} else if(((mapshape == MAP_RECTANGLE && abs(centre - y) <= size*2  && abs(centre - x) <= size ) ||
    ((mapshape == MAP_CIRCLE) && (centre-x)*(centre-x) + (centre-y)*(centre-y)/4 <= (size * size + 1))) && (y <= ymax)) {
-        strcpy(mp, world_map_info[map[x][y]].disp);
-        mp += strlen(world_map_info[map[x][y]].disp);
+        strcpy(mp, worldmap_tile_disp(x, y));
+        mp += strlen(mp);
       } else {
 /*		if (y == (ymax + 1))
 		  strcpy(mp++, "[");
@@ -716,6 +782,7 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
       ldisp[ln]=world_map_info[SECT_START].disp;       llabel[ln++]="Start";
       ldisp[ln]=world_map_info[SECT_LEAVE].disp;       llabel[ln++]="Leave";
       ldisp[ln]=world_map_info[SECT_BEACH].disp;       llabel[ln++]="Beach";
+      ldisp[ln]="\tYA";                                llabel[ln++]="Landmark";
     } else {
       ldisp[ln]=door_info[NUM_DOOR_TYPES + DOOR_UP].disp;   llabel[ln++]="Up";
       ldisp[ln]=door_info[NUM_DOOR_TYPES + DOOR_DOWN].disp; llabel[ln++]="Down";

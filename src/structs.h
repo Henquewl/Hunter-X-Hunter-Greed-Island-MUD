@@ -136,8 +136,10 @@
 #define SECT_START	     	13		/**< Start point access point	*/
 #define SECT_LEAVE	     	14		/**< Leave point access point	*/
 #define SECT_BEACH	     	15		/**< Sandy beach terrain		*/
+#define SECT_LANDMARK	     	16		/**< Worldmap landmark (free uppercase letter, safe) */
+#define SECT_UNKNOWN	     	17		/**< Worldmap unrecognized char (plain field)	*/
 /** The total number of room Sector Types */
-#define NUM_ROOM_SECTORS  16
+#define NUM_ROOM_SECTORS  18
 
 /* Worldmap grid constants (zone 1000, 256x256) */
 #define WORLDMAP_BASE_VNUM  100000
