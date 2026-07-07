@@ -12,6 +12,7 @@
 | Map display — level-scaled, tabular legend, auto-regen on boot | Done |
 | Worldmap access points (S/L/P/C/?) — `enter` command, safezones, per-type colors | Done |
 | Fly mechanic — auto-flight engine, `%ofly%`, PLR_AUTOFLIGHT, transport card triggers | Done |
+| Vnum migration — restricted cards renumbered from 653xx/654xx into zones 0-3 | Done |
 
 ---
 
@@ -46,6 +47,4 @@ The following cards have untested runtime logic — verify in-game before v1.00:
 - **#4 Hot Springs, #6 Liquor Spring, #8 Mystery Pond, #9 Tree of Plenty** — DG timer triggers
 
 ### Priority 4 — Deferred / low priority
-- **Vnum migration** — renumber restricted card vnums (653xx/654xx) into zones 0/1; not blocking v1.00
 - **Limeiro Castle dungeon** interior rooms and boss encounter
-- NPC mob spawns for #16 Night Shift Dwarves and #26 Fairy King's Advice (currently fickle)
