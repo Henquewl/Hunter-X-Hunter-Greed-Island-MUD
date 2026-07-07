@@ -4,10 +4,15 @@ bin/*
 src/*.o
 src/util/*.o
 
-# Player save files (do not version, reset on each deploy)
-lib/plrfiles/**/*.plr
+# Player data (never version): everything under plrfiles/plrobjs except
+# the 00 placeholders that keep the directories in the repo. A fresh
+# clone must have no players so the first character created becomes Imm.
+lib/plrfiles/*/*
+!lib/plrfiles/*/00
 lib/plrfiles/index
-lib/plrobjs/**/*.objs
+lib/plrobjs/*/*
+!lib/plrobjs/*/00
+lib/plrobjs/index
 
 # Runtime logs and state
 lib/etc/last

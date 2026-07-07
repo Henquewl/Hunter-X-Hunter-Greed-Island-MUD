@@ -8,6 +8,15 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jul 07 2026] - Henque
+  security: player passwords hashed, player data purged from git history
+    Player passwords are now stored as SHA-512 crypt hashes instead of
+    plain text (CIRCLE_CRYPT was undefined, making CRYPT() a no-op).
+    Existing accounts are migrated transparently on their next login.
+    "set <player> password" no longer echoes the password back.
+    Hardened .gitignore so player saves can never be committed, and
+    purged all historical player files (plrfiles/plrobjs/plrmail/last)
+    from the git history.
+[Jul 07 2026] - Henque
   feat: free landmark letters on the worldmap; unknown chars no longer break boot
     The worldmap generator (tools/gen_worldmap.py) previously rejected any
     character outside its 13-char legend and any L/P/C/? tile without an

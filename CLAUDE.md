@@ -58,6 +58,10 @@ The C engine in `src/` is data-driven. Almost all *content* — rooms, monsters,
 
 Other `lib/` state: `etc/` (runtime state — `last`, `time`, `plrmail`; gitignored), `plrfiles/` + `plrobjs/` (player saves — gitignored, server starts fresh), `text/` (login screens, MOTD, `news`, help files), `misc/`.
 
+### Password storage
+
+Passwords are SHA-512 crypt hashes (`$6$...`) via `hash_password()` / `password_matches()` / `password_needs_rehash()` in `players.c` (prototypes in `db.h`). Legacy plaintext pfiles still authenticate and are rehashed+saved on first successful login. The stored hash lives in `passwd[MAX_PWD_HASH_LENGTH+1]` (`structs.h`); `MAX_PWD_LENGTH` (30) remains the limit for the *typed* password. Gotchas: `src/conf.h` is autoconf-generated — re-running `./configure` would revert `CIRCLE_CRYPT`/`HAVE_CRYPT_H` to undefined and silently bring plaintext storage back; never re-run configure without re-checking those two defines. Never print/echo passwords (see `act.wizard.c` set password). Player files and `lib/plrfiles/index` are gitignored; a fresh clone boots with an empty player table and the first character created becomes an Implementor (`db.c:3483`).
+
 ### Boot sequence
 
 `comm.c` holds `main()` and the network/game loop. At startup it calls into `db.c`, which parses every `lib/world/*` file into in-memory arrays. **Critical invariant:** within each world file, entries must be sorted by ascending vnum — TbaMUD uses binary search (`real_room`, `real_object`, `real_mobile`, `real_trigger`) to map a *virtual* number (vnum, the stable content ID) to a *real* array index. Out-of-order vnums silently break lookups and produce `SYSERR: invalid vnum` on zone reset (see recent changelog fixes in zones 653/654). When adding items/mobs/triggers to a world file, insert them in vnum order.
