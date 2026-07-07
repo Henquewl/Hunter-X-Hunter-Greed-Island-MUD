@@ -913,15 +913,6 @@ struct group_data
 };
 
 
-/** The pclean_criteria_data is set up in config.c and used in db.c to determine
- * the conditions which will cause a player character to be deleted from disk
- * if the automagic pwipe system is enabled (see config.c). */
-struct pclean_criteria_data
-{
-  int level; /**< PC level and below to check for deletion */
-  int days;  /**< time limit in days, for this level of PC */
-};
-
 /** General info used by PC's and NPC's. */
 struct char_player_data
 {

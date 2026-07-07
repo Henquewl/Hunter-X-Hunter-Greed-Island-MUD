@@ -917,7 +917,7 @@ void remove_player(int pfilepos)
 
 void clean_pfiles(void)
 {
-  int i, ci;
+  int i, idle_threshold_days;
 
   for (i = 0; i <= top_of_p_table; i++) {
     /* We only want to go further if the player isn't protected from deletion
@@ -928,18 +928,12 @@ void clean_pfiles(void)
        * rid of him. */
       if (IS_SET(player_table[i].flags, PINDEX_DELETED)) {
 	remove_player(i);
-      } else {
-        /* Check to see if the player has overstayed his welcome based on level. */
-	for (ci = 0; pclean_criteria[ci].level > -1; ci++) {
-	  if (player_table[i].level <= pclean_criteria[ci].level &&
-	      ((time(0) - player_table[i].last) >
-	       (pclean_criteria[ci].days * SECS_PER_REAL_DAY))) {
-	    remove_player(i);
-	    break;
-	  }
-	}
-        /* If we got this far and the players hasn't been kicked out, then he
-	 * can stay a little while longer. */
+      } else if (player_table[i].level < LVL_IMMORT) {
+        /* Immortals are never auto-wiped for inactivity. Mortals get more
+         * idle days the higher their level. */
+	idle_threshold_days = pclean_base_days + (player_table[i].level * pclean_days_per_level);
+	if ((time(0) - player_table[i].last) > (idle_threshold_days * SECS_PER_REAL_DAY))
+	  remove_player(i);
       }
     }
   }

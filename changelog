@@ -8,6 +8,12 @@ Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
 [Jul 07 2026] - Henque
+  balance: rework auto-pwipe idle criteria (immortals never wiped, longer idle times)
+    Replaced the fixed level/day tiers with a formula: idle threshold in days
+    = 65 + (level * 6). Immortals (level >= LVL_IMMORT) are now never
+    auto-wiped for inactivity, regardless of idle time. Only applies when
+    auto_pwipe is enabled in config.c (currently disabled by default).
+[Jul 07 2026] - Henque
   security: player passwords hashed, player data purged from git history
     Player passwords are now stored as SHA-512 crypt hashes instead of
     plain text (CIRCLE_CRYPT was undefined, making CRYPT() a no-op).

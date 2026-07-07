@@ -86,7 +86,8 @@ extern int ibt_autosave;
 extern int bitwarning;
 extern int bitsavetodisk;
 extern int auto_pwipe;
-extern struct pclean_criteria_data pclean_criteria[];
+extern int pclean_base_days;
+extern int pclean_days_per_level;
 extern int selfdelete_fastwipe;
 
 #endif /* __CONFIG_C__ */

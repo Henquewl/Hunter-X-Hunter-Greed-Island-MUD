@@ -137,35 +137,12 @@ int rent_file_timeout = 30;
 /* Do you want to automatically wipe players who've been gone too long? */
 int auto_pwipe = NO;
 
-/* Autowipe deletion criteria. This struct holds information used to determine
- * which players to wipe when the mud boots.  The levels must be in ascending
- * order, with a descending level marking the end of the array.  A level -1
- * entry in the beginning is the case for players with the PLR_DELETED flag.
- * The values below match the stock purgeplay.c criteria.
-
-   Detailed explanation by array element:
-   * Element 0, level -1, days 0: Players with PLR_DELETED flag are always wiped
-   * Element 1, level 0, days 0: Players at level 0 have created a character,
-     but have never actually entered the game, so always wipe them.
-   * Element 2, level 1, days 4: Players at level 1 are wiped if they haven't
-     logged on in the past 4 days.
-   * Element 3, level 4, days 7: Players level 2 through 4 are wiped if they
-     haven't logged on in the past 7 days.
-   * Element 4, level 10, days 30: Players level 5-10 get 30 days.
-   * Element 5, level LVL_IMMORT - 1, days 60: All other mortals get 60 days.
-   * Element 6, level LVL_IMPL, days 90: Immortals get 90 days.
-   * Element 7: Because -2 is less than LVL_IMPL, this is assumed to be the end
-     of the criteria.  The days entry is not used in this case. */
-struct pclean_criteria_data pclean_criteria[] = {
-/*	LEVEL		DAYS	*/
-  {	0		,0	}, /* level 0 */
-  {	1		,4	},
-  {	4		,7	},
-  {	10		,30	},
-  {	LVL_IMMORT - 1	,60	}, /* highest mortal */
-  {	LVL_IMPL	,90	}, /* all immortals */
-  {	-1		,0	}  /* no more level checks */
-};
+/* Autowipe idle threshold, in days: pclean_base_days + (level * pclean_days_per_level).
+ * Higher-level characters get more idle days before they're wiped. Immortals
+ * (level >= LVL_IMMORT) are never auto-wiped regardless of idle time; players
+ * with the PLR_DELETED flag (self-deleted or admin-deleted) are always wiped. */
+int pclean_base_days = 65;
+int pclean_days_per_level = 6;
 
 /* Do you want players who self-delete to be wiped immediately with no backup? */
 int selfdelete_fastwipe = YES;
