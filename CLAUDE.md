@@ -30,7 +30,7 @@ run.bat               # from Windows — shells into WSL and calls start.sh
 - `autorun` / `autorun.sh` is the production loop that auto-reboots on crash and rotates logs; control it with sentinel files in the root (`.fastboot`, `.killscript`, `pause`).
 - Connect with any MUD/telnet client to `localhost:4000` (MUSHclient/Mudlet recommended for ANSI color).
 
-There is no unit-test framework. `test_quit.py` is an ad-hoc connection script, not a test suite. Verification = compile cleanly, boot the server, and confirm in-game behavior via a client.
+There is no unit-test framework or test scripts. Verification = compile cleanly; in-game behavior is verified manually by the maintainer (do not write socket/telnet test scripts, and never commit credentials).
 
 ## Pre-commit checklist (project convention)
 
