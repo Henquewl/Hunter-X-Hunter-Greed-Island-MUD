@@ -1010,12 +1010,14 @@ void extract_char(struct char_data *ch)
   char_from_furniture(ch);
   clear_char_event_list(ch);
 
-  if (IS_NPC(ch))
+  if (IS_NPC(ch) && !MOB_FLAGGED(ch, MOB_NOTDEADYET)) {
     SET_BIT_AR(MOB_FLAGS(ch), MOB_NOTDEADYET);
-  else
+    ++extractions_pending;
+  }
+  else if (!IS_NPC(ch) && !PLR_FLAGGED(ch, PLR_NOTDEADYET)) {
     SET_BIT_AR(PLR_FLAGS(ch), PLR_NOTDEADYET);
-
-  extractions_pending++;
+    ++extractions_pending;
+  }
 }
 
 /* I'm not particularly pleased with the MOB/PLR hoops that have to be jumped

@@ -78,6 +78,11 @@ ACMD(do_oasis_redit)
   if (number == NOWHERE)
     number = atoi(buf1);
 
+  if (number < IDXTYPE_MIN || number > IDXTYPE_MAX) {
+    send_to_char(ch, "That room VNUM can't exist.\r\n");
+    return;
+  }
+
   /* Check to make sure the room isn't already being edited. */
   for (d = descriptor_list; d; d = d->next) {
     if (STATE(d) == CON_REDIT) {
@@ -144,7 +149,7 @@ ACMD(do_oasis_redit)
   act("$n starts using OLC.", TRUE, d->character, 0, 0, TO_ROOM);
   SET_BIT_AR(PLR_FLAGS(ch), PLR_WRITING);
 
-  mudlog(CMP, LVL_IMMORT, TRUE, "OLC: %s starts editing zone %d allowed zone %d",
+  mudlog(CMP, MAX(LVL_IMMORT, GET_INVIS_LEV(ch)), TRUE, "OLC: %s starts editing zone %d allowed zone %d",
     GET_NAME(ch), zone_table[OLC_ZNUM(d)].number, GET_OLC_ZONE(ch));
 }
 

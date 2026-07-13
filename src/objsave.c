@@ -1194,7 +1194,7 @@ static int Crash_load_objs(struct char_data *ch) {
   unsigned long cost;
   struct obj_data *cont_row[MAX_BAG_ROWS];
   int rentcode = RENT_UNDEF;
-  int timed,netcost,gold,account,nitems;
+  int timed=0,netcost=0,gold,account,nitems;
 	obj_save_data *loaded, *current;
 
   if (!get_filename(filename, sizeof(filename), CRASH_FILE, GET_NAME(ch)))
@@ -1205,7 +1205,7 @@ static int Crash_load_objs(struct char_data *ch) {
 
   if (!(fl = fopen(filename, "r"))) {
     if (errno != ENOENT) { /* if it fails, NOT because of no file */
-      sprintf(buf, "SYSERR: READING OBJECT FILE %s (5)", filename);
+      snprintf(buf, MAX_STRING_LENGTH, "SYSERR: READING OBJECT FILE %s (5)", filename);
       perror(buf);
       send_to_char(ch, "\r\n********************* NOTICE *********************\r\n"
                        "There was a problem loading your objects from disk.\r\n"

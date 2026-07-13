@@ -100,7 +100,7 @@ void parse_edit_action(int command, char *string, struct descriptor_data *d)
 {
   int indent = 0, rep_all = 0, flags = 0, replaced, i, line_low, line_high, j = 0;
   unsigned int total_len;
-  char *s, *t, temp;
+  char *s, *t, temp, *c;
   char buf[MAX_STRING_LENGTH];
   char buf2[MAX_STRING_LENGTH];
 
@@ -129,7 +129,16 @@ void parse_edit_action(int command, char *string, struct descriptor_data *d)
       write_to_output(d, "No string.\r\n");        
       break;
     }
-    if (strchr(*d->str, '@')) {
+    bool has_at = FALSE;
+    for (c = *d->str; *c; ++c) {
+      if (*c == '@') {
+        if (*(++c) != '@') {
+          has_at = TRUE;
+          break;
+        }
+      }
+    }
+    if (has_at) {
       parse_at(*d->str);
       write_to_output(d, "Toggling (at) into (tab) Characters...\r\n");  
     } else {
@@ -280,7 +289,7 @@ void parse_edit_action(int command, char *string, struct descriptor_data *d)
     }
     *buf = '\0';
     if (line_high < 999999 || line_low > 1)
-      sprintf(buf, "Current buffer range [%d - %d]:\r\n", line_low, line_high);
+      snprintf(buf, sizeof(buf), "Current buffer range [%d - %d]:\r\n", line_low, line_high);
     i = 1;
     total_len = 0;
     s = *d->str;
@@ -303,12 +312,12 @@ void parse_edit_action(int command, char *string, struct descriptor_data *d)
     if (s) {
       temp = *s;
       *s = '\0';
-      strcat(buf, t);
+      strncat(buf, t, sizeof(buf) - strlen(buf) - 1);
       *s = temp;
     } else
-      strcat(buf, t);
+      strncat(buf, t, sizeof(buf) - strlen(buf) - 1);
     /* This is kind of annoying...but some people like it. */
-    sprintf(buf + strlen(buf), "\r\n%d line%sshown.\r\n", total_len, (total_len != 1) ? "s " : " ");
+    snprintf(buf + strlen(buf), sizeof(buf) - strlen(buf), "\r\n%d line%sshown.\r\n", total_len, (total_len != 1) ? "s " : " ");
     page_string(d, buf, TRUE);
     break;
   case PARSE_LIST_NUM:
@@ -358,18 +367,22 @@ void parse_edit_action(int command, char *string, struct descriptor_data *d)
 	s++;
 	temp = *s;
 	*s = '\0';
-	sprintf(buf, "%s%4d: ", buf, (i - 1));
-	strcat(buf, t);
+	{
+	  char buf3[9];
+	  snprintf(buf3, sizeof(buf3), "%4d: ", (i - 1));
+	  strncat(buf, buf3, sizeof(buf) - strlen(buf) - 1);
+	}
+	strncat(buf, t, sizeof(buf) - strlen(buf) - 1);
 	*s = temp;
 	t = s;
       }
     if (s && t) {
       temp = *s;
       *s = '\0';
-      strcat(buf, t);
+      strncat(buf, t, sizeof(buf) - strlen(buf) - 1);
       *s = temp;
     } else if (t)
-      strcat(buf, t);
+      strncat(buf, t, sizeof(buf) - strlen(buf) - 1);
 
     page_string(d, buf, TRUE);
     break;
@@ -381,7 +394,7 @@ void parse_edit_action(int command, char *string, struct descriptor_data *d)
       return;
     }
     line_low = atoi(buf);
-    strcat(buf2, "\r\n");
+    strncat(buf2, "\r\n", sizeof(buf2) - strlen(buf2) - 1);
 
     i = 1;
     *buf = '\0';
@@ -407,11 +420,11 @@ void parse_edit_action(int command, char *string, struct descriptor_data *d)
 	return;
       }
       if (*d->str && **d->str)
-	strcat(buf, *d->str);
+	strncat(buf, *d->str, sizeof(buf) - strlen(buf) - 1);
       *s = temp;
-      strcat(buf, buf2);
+      strncat(buf, buf2, sizeof(buf) - strlen(buf) - 1);
       if (s && *s)
-	strcat(buf, s);
+	strncat(buf, s, sizeof(buf) - strlen(buf) - 1);
       RECREATE(*d->str, char, strlen(buf) + 3);
 
       strcpy(*d->str, buf);
@@ -429,7 +442,7 @@ void parse_edit_action(int command, char *string, struct descriptor_data *d)
       return;
     }
     line_low = atoi(buf);
-    strcat(buf2, "\r\n");
+    strncat(buf2, "\r\n", sizeof(buf2) - strlen(buf2) - 1);
 
     i = 1;
     *buf = '\0';
@@ -456,18 +469,18 @@ void parse_edit_action(int command, char *string, struct descriptor_data *d)
 	temp = *s;
 	*s = '\0';
 	/* Put the first 'good' half of the text into storage. */
-	strcat(buf, *d->str);
+	strncat(buf, *d->str, sizeof(buf) - strlen(buf) - 1);
 	*s = temp;
       }
       /* Put the new 'good' line into place. */
-      strcat(buf, buf2);
+      strncat(buf, buf2, sizeof(buf) - strlen(buf) - 1);
       if ((s = strchr(s, '\n')) != NULL) {
         /* This means that we are at the END of the line, we want out of there,
-         * but we want s to point to the beginning of the line. AFTER the line 
+         * but we want s to point to the beginning of the line. AFTER the line
          * we want edited. */
 	s++;
 	/* Now put the last 'good' half of buffer into storage. */
-	strcat(buf, s);
+	strncat(buf, s, sizeof(buf) - strlen(buf) - 1);
       }
       /* Check for buffer overflow. */
       if (strlen(buf) > d->max_str) {
@@ -509,7 +522,8 @@ int format_text(char **ptr_string, int mode, struct descriptor_data *d, unsigned
   if ((flow = *ptr_string) == NULL)
     return 0;
 
-  strcpy(str, flow);
+  strncpy(str, flow, sizeof(str) - 1);
+  str[sizeof(str) - 1] = '\0';
 
   for (i = 0; i < low - 1; i++) {
     start = strtok(str, "\n");
@@ -517,13 +531,14 @@ int format_text(char **ptr_string, int mode, struct descriptor_data *d, unsigned
       write_to_output(d, "There aren't that many lines!\r\n");
       return 0;
     }
-    strcat(formatted, strcat(start, "\n"));
+    strncat(formatted, strcat(start, "\n"), sizeof(formatted) - strlen(formatted) - 1);
     flow = strstr(flow, "\n");
-    strcpy(str, ++flow);
+    strncpy(str, ++flow, sizeof(str) - 1);
+    str[sizeof(str) - 1] = '\0';
   }
 
   if (IS_SET(mode, FORMAT_INDENT)) {
-    strcat(formatted, "   ");
+    strncat(formatted, "   ", sizeof(formatted) - strlen(formatted) - 1);
     line_chars = 3;
   } else {
     line_chars = 0;
@@ -589,14 +604,14 @@ int format_text(char **ptr_string, int mode, struct descriptor_data *d, unsigned
       }
 
       if (line_chars + strlen(start) + 1 - color_chars > PAGE_WIDTH) {
-        strcat(formatted, "\r\n");
+        strncat(formatted, "\r\n", sizeof(formatted) - strlen(formatted) - 1);
         line_chars = 0;
         color_chars = count_color_chars(start);
       }
 
       if (!cap_next) {
         if (line_chars > 0) {
-          strcat(formatted, " ");
+          strncat(formatted, " ", sizeof(formatted) - strlen(formatted) - 1);
           line_chars++;
         }
       } else {
@@ -605,38 +620,42 @@ int format_text(char **ptr_string, int mode, struct descriptor_data *d, unsigned
       }
 
       line_chars += strlen(start);
-      strcat(formatted, start);
+      strncat(formatted, start, sizeof(formatted) - strlen(formatted) - 1);
 
       *flow = temp;
     }
 
     if (cap_next_next && *flow) {
       if (line_chars + 3 - color_chars > PAGE_WIDTH) {
-        strcat(formatted, "\r\n");
+        strncat(formatted, "\r\n", sizeof(formatted) - strlen(formatted) - 1);
         line_chars = 0;
         color_chars = count_color_chars(start);
       } else if (*flow == '\"' || *flow == '\'') {
-        char buf[MAX_STRING_LENGTH];
-        sprintf(buf, "%c  ", *flow);
-        strcat(formatted, buf);
+        char buf[MAX_STRING_LENGTH - 1];
+        snprintf(buf, sizeof(buf), "%c  ", *flow);
+        strncat(formatted, buf, sizeof(formatted) - strlen(formatted) - 1);
         flow++;
         line_chars++;
       } else {
-        strcat(formatted, "  ");
+        strncat(formatted, "  ", sizeof(formatted) - strlen(formatted) - 1);
         line_chars += 2;
       }
     }
   }
   if (*flow)
-    strcat(formatted, "\r\n");
-  strcat(formatted, flow);
+    strncat(formatted, "\r\n", sizeof(formatted) - strlen(formatted) - 1);
+  strncat(formatted, flow, sizeof(formatted) - strlen(formatted) - 1);
   if (!*flow)
-    strcat(formatted, "\r\n");
+    strncat(formatted, "\r\n", sizeof(formatted) - strlen(formatted) - 1);
 
   if (strlen(formatted) + 1 > maxlen)
     formatted[maxlen - 1] = '\0';
-  RECREATE(*ptr_string, char, MIN(maxlen, strlen(formatted) + 1));
-  strcpy(*ptr_string, formatted);
+  {
+    unsigned int len = MIN(maxlen, strlen(formatted) + 1);
+    RECREATE(*ptr_string, char, len);
+    strncpy(*ptr_string, formatted, len - 1);
+    (*ptr_string)[len - 1] = '\0';
+  }
   return 1;
 }
 
@@ -664,21 +683,22 @@ int replace_str(char **string, char *pattern, char *replacement, int rep_all, un
         i = -1;
         break;
       }
-      strcat(replace_buffer, jetsam);
-      strcat(replace_buffer, replacement);
+      strncat(replace_buffer, jetsam, max_size - strlen(replace_buffer) - 1);
+      strncat(replace_buffer, replacement, max_size - strlen(replace_buffer) - 1);
       *flow = temp;
       flow += strlen(pattern);
       jetsam = flow;
     }
-    strcat(replace_buffer, jetsam);
+    strncat(replace_buffer, jetsam, max_size - strlen(replace_buffer) - 1);
   } else {
     if ((flow = (char *)strstr(*string, pattern)) != NULL) {
       i++;
       flow += strlen(pattern);
       len = ((char *)flow - (char *)*string) - strlen(pattern);
-      strncpy(replace_buffer, *string, len);
-      strcat(replace_buffer, replacement);
-      strcat(replace_buffer, flow);
+      strncpy(replace_buffer, *string, len < max_size - 1 ? len : max_size - 1);
+      replace_buffer[max_size - 1] = '\0';
+      strncat(replace_buffer, replacement, max_size - strlen(replace_buffer) - 1);
+      strncat(replace_buffer, flow, max_size - strlen(replace_buffer) - 1);
     }
   }
 

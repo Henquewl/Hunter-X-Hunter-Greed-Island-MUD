@@ -279,40 +279,41 @@ int sprintascii(char *out, bitvector_t bits)
   return j;
 }
 
-/* converts illegal filename chars into appropriate equivalents */ 
-char *fix_filename(char *str) 
-{ 
-  static char good_file_name[MAX_STRING_LENGTH]; 
-  char *cindex = good_file_name; 
- 
-  while(*str) { 
-    switch(*str) { 
-      case ' ': *cindex = '_'; cindex++; break; 
-      case '(': *cindex = '{'; cindex++; break; 
-      case ')': *cindex = '}'; cindex++; break; 
- 
-      /* skip the following */ 
-      case '\'':             break; 
-      case '"':              break; 
- 
-      /* Legal character */ 
-      default: *cindex = *str;  cindex++;break; 
-    } 
-    str++; 
-  } 
-  *cindex = '\0'; 
- 
-  return good_file_name; 
+/* converts illegal filename chars into appropriate equivalents */
+static void fix_filename(const char *str, char *outbuf, size_t maxlen)
+{
+  const char *in = str;
+  char *out = outbuf;
+  int count = 0;
+
+  while (*in) {
+    switch(*in) {
+      case ' ': *out = '_'; out++; break;
+      case '(': *out = '{'; out++; break;
+      case ')': *out = '}'; out++; break;
+
+      /* skip the following */
+      case '\'':             break;
+      case '"':              break;
+
+      /* Legal character */
+      default: *out = *in;  out++;break;
+    }
+    in++;
+    count++;
+    if (count == maxlen - 1) break;
+  }
+  *out = '\0';
 }
 
 /* Export command by Kyle */ 
 ACMD(do_export_zone) 
 { 
-  zone_rnum zrnum; 
-  zone_vnum zvnum; 
-  char sysbuf[MAX_INPUT_LENGTH]; 
-  char zone_name[MAX_INPUT_LENGTH], *f; 
-  int success;
+  zone_rnum zrnum;
+  zone_vnum zvnum;
+  char sysbuf[MAX_INPUT_LENGTH];
+  char zone_name[READ_SIZE], fixed_file_name[READ_SIZE];
+  int success, errorcode = 0;
 
   /* system command locations are relative to where the binary IS, not where it
    * was run from, thus we act like we are in the bin folder, because we are*/ 
@@ -335,13 +336,19 @@ ACMD(do_export_zone)
     return; 
   } 
 
-  /* If we fail, it might just be because the directory didn't exist.  Can't 
-   * hurt to try again. Do it silently though ( no logs ). */ 
-  if (!export_info_file(zrnum)) { 
-    sprintf(sysbuf, "mkdir %s", path); 
-  } 
-						      
-  if (!(success = export_info_file(zrnum))) 
+  /* If we fail, it might just be because the directory didn't exist.  Can't
+   * hurt to try again. Do it silently though ( no logs ). */
+  if (!export_info_file(zrnum)) {
+    sprintf(sysbuf, "mkdir %s", path);
+    errorcode = system(sysbuf);
+  }
+
+  if (errorcode) {
+    send_to_char(ch, "Failed to create export directory.\r\n");
+    return;
+  }
+
+  if (!(success = export_info_file(zrnum)))
     send_to_char(ch, "Info file not saved!\r\n"); 
   if (!(success = export_save_shops(zrnum))) 
     send_to_char(ch, "Shops not saved!\r\n"); 
@@ -364,19 +371,33 @@ ACMD(do_export_zone)
     send_to_char(ch, "Ran into problems writing to files.\r\n"); 
     return; 
   }
-  /* Make sure the name of the zone doesn't make the filename illegal. */ 
-  f = fix_filename(zone_name); 
+  /* Make sure the name of the zone doesn't make the filename illegal. */
+  fix_filename(zone_name, fixed_file_name, sizeof(fixed_file_name));
 
-  /* Remove the old copy. */ 
-  sprintf(sysbuf, "rm %s%s.tar.gz", path, f); 
+  /* Remove the old copy. */
+  snprintf(sysbuf, sizeof(sysbuf), "rm %s%s.tar.gz", path, fixed_file_name);
+  errorcode = system(sysbuf);
+  if (errorcode) {
+    send_to_char(ch, "Failed to delete previous zip file. This is usually benign.\r\n");
+  }
 
-  /* Tar the new copy. */ 
-   sprintf(sysbuf, "tar -cf %s%s.tar %sqq.info %sqq.wld %sqq.zon %sqq.mob %sqq.obj %sqq.trg %sqq.shp", path, f, path, path, path, path, path, path, path);
+  /* Tar the new copy. */
+  snprintf(sysbuf, sizeof(sysbuf), "tar -cf %s%s.tar %sqq.info %sqq.wld %sqq.zon %sqq.mob %sqq.obj %sqq.trg %sqq.shp", path, fixed_file_name, path, path, path, path, path, path, path);
+  errorcode = system(sysbuf);
+  if (errorcode) {
+    send_to_char(ch, "Failed to tar files.\r\n");
+    return;
+  }
 
-  /* Gzip it. */ 
-  sprintf(sysbuf, "gzip %s%s.tar", path, f); 
+  /* Gzip it. */
+  snprintf(sysbuf, sizeof(sysbuf), "gzip %s%s.tar", path, fixed_file_name);
+  errorcode = system(sysbuf);
+  if (errorcode) {
+    send_to_char(ch, "Failed to gzip tar file.\r\n");
+    return;
+  }
 
-  send_to_char(ch, "Files tar'ed to \"%s%s.tar.gz\"\r\n", path, f); 
+  send_to_char(ch, "Files tar'ed to \"%s%s.tar.gz\"\r\n", path, fixed_file_name);
 }
 
 static int export_info_file(zone_rnum zrnum)
@@ -947,7 +968,8 @@ static int export_save_rooms(zone_rnum zrnum)
         struct extra_descr_data *xdesc;
 
 	for (xdesc = room->ex_description; xdesc; xdesc = xdesc->next) {
-	  strncpy(buf, xdesc->description, sizeof(buf));
+	  strncpy(buf, xdesc->description, sizeof(buf) - 1);
+	  buf[sizeof(buf) - 1] = '\0';
 	  strip_cr(buf);
 	  fprintf(room_file,	"E\n"
 			"%s~\n"

@@ -49,6 +49,11 @@ ACMD(do_oasis_trigedit)
 
   number = atoi(argument);
 
+  if (number < IDXTYPE_MIN || number > IDXTYPE_MAX) {
+    send_to_char(ch, "That trigger VNUM can't exist.\r\n");
+    return;
+  }
+
   /* Check that it isn't already being edited. */
   for (d = descriptor_list; d; d = d->next) {
     if (STATE(d) == CON_TRIGEDIT) {
@@ -99,7 +104,7 @@ ACMD(do_oasis_trigedit)
   act("$n starts using OLC.", TRUE, d->character, 0, 0, TO_ROOM);
   SET_BIT_AR(PLR_FLAGS(ch), PLR_WRITING);
 
-  mudlog(CMP, LVL_IMMORT, TRUE,"OLC: %s starts editing zone %d [trigger](allowed zone %d)",
+  mudlog(CMP, MAX(LVL_IMMORT, GET_INVIS_LEV(ch)), TRUE,"OLC: %s starts editing zone %d [trigger](allowed zone %d)",
          GET_NAME(ch), zone_table[OLC_ZNUM(d)].number, GET_OLC_ZONE(ch));
 }
 
@@ -918,7 +923,7 @@ int format_script(struct descriptor_data *d)
 
     *line = '\0';
     for (nlen = 0, i = 0;i<indent;i++) {
-      strncat(line, "  ", sizeof(line)-1);
+      strncat(line, "  ", sizeof(line) - strlen(line) - 1);
       nlen += 2;
     }
 

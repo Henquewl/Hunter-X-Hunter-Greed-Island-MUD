@@ -425,7 +425,16 @@ void copyover_recover()
 
   for (;;) {
     fOld = TRUE;
-    i = fscanf (fp, "%d %ld %s %s %s\n", &desc, &pref, name, host, guiopt);
+    if (fscanf(fp, "%d %ld %s %s %s\n", &desc, &pref, name, host, guiopt) != 5) {
+      if(!feof(fp)) {
+        if(ferror(fp))
+          log("SYSERR: error reading copyover file %s: %s", COPYOVER_FILE, strerror(errno));
+        else if(!feof(fp))
+          log("SYSERR: could not scan line in copyover file %s.", COPYOVER_FILE);
+        exit(1);
+      }
+    }
+
     if (desc == -1)
       break;
 
@@ -1665,7 +1674,7 @@ static int process_output(struct descriptor_data *t)
     result = write_to_descriptor(t->descriptor, osb);
 
   if (result < 0) {	/* Oops, fatal error. Bye! */
-    close_socket(t);
+    //  close_socket(t); // close_socket is called after return of negative result
     return (-1);
   } else if (result == 0)	/* Socket buffer full. Try later. */
     return (0);

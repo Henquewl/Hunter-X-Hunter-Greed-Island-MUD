@@ -310,8 +310,8 @@ void script_damage(struct char_data *vict, int dam)
 
   if (GET_POS(vict) == POS_DEAD) {
     if (!IS_NPC(vict))
-      mudlog( BRF, 0, TRUE, "%s killed by script at %s",
-          GET_NAME(vict), world[vict->in_room].name);
+      mudlog(BRF, MAX(LVL_IMMORT, GET_INVIS_LEV(vict)), TRUE, "%s killed by script at %s",
+          GET_NAME(vict), vict->in_room == NOWHERE ? "NOWHERE" : world[vict->in_room].name);
     die(vict, NULL);
   }
 }

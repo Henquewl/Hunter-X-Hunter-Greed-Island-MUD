@@ -1,6 +1,6 @@
 # Hunter X Hunter: Greed Island MUD
 
-A text-based multiplayer RPG (MUD) set in the Hunter x Hunter universe, based on TbaMUD 3.67 (heavily modified). Features a Nen system with 7 classes, Jajanken combat, and the Greed Island card mechanics.
+A text-based multiplayer RPG (MUD) set in the Hunter x Hunter universe, based on TbaMUD (upstream synced to the 2025 release), heavily modified. Features a Nen system with 7 classes, Jajanken combat, and the Greed Island card mechanics.
 
 ## Requirements
 

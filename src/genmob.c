@@ -362,13 +362,14 @@ int write_mobile_record(mob_vnum mvnum, struct char_data *mob, FILE *fd)
   char ldesc[MAX_STRING_LENGTH];
   char ddesc[MAX_STRING_LENGTH];
   char buf[MAX_STRING_LENGTH];
+  int n;
 
   ldesc[MAX_STRING_LENGTH - 1] = '\0';
   ddesc[MAX_STRING_LENGTH - 1] = '\0';
   strip_cr(strncpy(ldesc, GET_LDESC(mob), MAX_STRING_LENGTH - 1));
   strip_cr(strncpy(ddesc, GET_DDESC(mob), MAX_STRING_LENGTH - 1));
 
-  sprintf(buf,	"#%d\n"
+  n = snprintf(buf, MAX_STRING_LENGTH, "#%d\n"
 		"%s%c\n"
 		"%s%c\n"
 		"%s%c\n"
@@ -380,8 +381,12 @@ int write_mobile_record(mob_vnum mvnum, struct char_data *mob, FILE *fd)
 	ddesc, STRING_TERMINATOR
   );
 
-  
-  fprintf(fd, convert_from_tabs(buf), 0);
+  if (n < 0 || n >= MAX_STRING_LENGTH) {
+    log("SYSERR: GenOLC: Mobile #%d strings too long, record not saved!", mvnum);
+    return FALSE;
+  }
+
+  fprintf(fd, "%s", convert_from_tabs(buf));
 
   fprintf(fd, "%d %d %d %d %d %d %d %d %d E\n"
       "%d %d %d %dd%d+%d %dd%d+%d\n",

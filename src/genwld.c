@@ -263,7 +263,7 @@ int delete_room(room_rnum rnum)
 
 int save_rooms(zone_rnum rzone)
 {
-  int i;
+  int i, n;
   struct room_data *room;
   FILE *sf;
   char filename[128];
@@ -302,16 +302,21 @@ int save_rooms(zone_rnum rzone)
       strip_cr(buf);
 
       /* Save the numeric and string section of the file. */
-      sprintf(buf2, 	"#%d\n"
+      n = snprintf(buf2, MAX_STRING_LENGTH, 	"#%d\n"
 			"%s%c\n"
 			"%s%c\n"
 			"%d %d %d %d %d %d\n",
 	room->number,
 	room->name ? room->name : "Untitled", STRING_TERMINATOR,
 	buf, STRING_TERMINATOR,
-	zone_table[room->zone].number, room->room_flags[0], room->room_flags[1], room->room_flags[2], 
-	  room->room_flags[3], room->sector_type 
+	zone_table[room->zone].number, room->room_flags[0], room->room_flags[1], room->room_flags[2],
+	  room->room_flags[3], room->sector_type
       );
+
+      if (n < 0 || n >= MAX_STRING_LENGTH) {
+        log("SYSERR: GenOLC: Room #%d strings too long, record not saved!", room->number);
+        continue;
+      }
 
   fprintf(sf, "%s", convert_from_tabs(buf2));
  
@@ -358,7 +363,8 @@ int save_rooms(zone_rnum rzone)
         struct extra_descr_data *xdesc;
 
 	for (xdesc = room->ex_description; xdesc; xdesc = xdesc->next) {
-	  strncpy(buf, xdesc->description, sizeof(buf));
+	  strncpy(buf, xdesc->description, sizeof(buf) - 1);
+	  buf[sizeof(buf) - 1] = '\0';
 	  strip_cr(buf);
 	  fprintf(sf,	"E\n"
 			"%s~\n"

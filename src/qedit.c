@@ -99,6 +99,11 @@ ACMD(do_oasis_qedit)
   if (number == NOWHERE)
     number = atoi(buf1);
 
+  if (number < IDXTYPE_MIN || number > IDXTYPE_MAX) {
+    send_to_char(ch, "That quest VNUM can't exist.\r\n");
+    return;
+  }
+
   /****************************************************************************/
   /** Check that the quest isn't already being edited.                       **/
   /****************************************************************************/
@@ -184,7 +189,7 @@ ACMD(do_oasis_qedit)
   act("$n starts using OLC.", TRUE, d->character, 0, 0, TO_ROOM);
   SET_BIT_AR(PLR_FLAGS(ch), PLR_WRITING);
 
-  mudlog(BRF, LVL_IMMORT, TRUE,
+  mudlog(BRF, MAX(LVL_IMMORT, GET_INVIS_LEV(ch)), TRUE,
          "OLC: %s starts editing zone %d allowed zone %d",
          GET_NAME(ch), zone_table[OLC_ZNUM(d)].number, GET_OLC_ZONE(ch));
 }

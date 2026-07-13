@@ -7,6 +7,13 @@ NEW COMMANDS AND NEW MUD BEHAVIOR:
 
 == 2026 ==
 
+JUL 13 **
+- Fixed a bug where a teleport effect triggered by a mob's script could apply
+  its room-entry effect to the wrong character instead of the one actually
+  being teleported.
+- Long-running area scripts that loop are now properly throttled, preventing
+  them from hanging instead of pausing briefly as intended.
+
 JUN 29 **
 - Minimap now correctly renders city rooms with all adjacent rooms visible.
 - Shop NPCs on the minimap now appear in light green; questmaster NPCs appear

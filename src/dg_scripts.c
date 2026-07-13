@@ -1942,7 +1942,7 @@ static void makeuid_var(void *go, struct script_data *sc, trig_data *trig,
 {
   char junk[MAX_INPUT_LENGTH], varname[MAX_INPUT_LENGTH];
   char arg[MAX_INPUT_LENGTH], name[MAX_INPUT_LENGTH];
-  char uid[MAX_INPUT_LENGTH];
+  char uid[MAX_INPUT_LENGTH + 1]; // to make room for UID_CHAR
 
   *uid = '\0';
   half_chop(cmd, junk, cmd);    /* makeuid */
@@ -2462,7 +2462,6 @@ int script_driver(void *go_adress, trig_data *trig, int type, int mode)
   char cmd[MAX_INPUT_LENGTH], *p;
   struct script_data *sc = 0;
   struct cmdlist_element *temp;
-  unsigned long loops = 0;
   void *go = NULL;
 
   void obj_command_interpreter(obj_data *obj, char *argument);
@@ -2554,8 +2553,8 @@ int script_driver(void *go_adress, trig_data *trig, int type, int mode)
       if (process_if(p + 6, go, sc, trig, type)) {
          temp->original = cl;
       } else {
+         cl->loops = 0;
          cl = temp;
-         loops = 0;
       }
     } else if (!strn_cmp("switch ", p, 7)) {
       cl = find_case(trig, cl, go, sc, type, p + 7);
@@ -2575,9 +2574,10 @@ int script_driver(void *go_adress, trig_data *trig, int type, int mode)
       if (cl->original && process_if(orig_cmd + 6, go, sc, trig,
           type)) {
         cl = cl->original;
-        loops++;
+        cl->loops++;
         GET_TRIG_LOOPS(trig)++;
-        if (loops == 30) {
+        if (cl->loops == 30) {
+          cl->loops = 0;
           process_wait(go, trig, type, "wait 1", cl);
            depth--;
           return ret_val;

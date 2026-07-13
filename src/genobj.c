@@ -182,7 +182,7 @@ int save_objects(zone_rnum zone_num)
   char ebuf1[MAX_STRING_LENGTH], ebuf2[MAX_STRING_LENGTH], ebuf3[MAX_STRING_LENGTH], ebuf4[MAX_STRING_LENGTH];
   char wbuf1[MAX_STRING_LENGTH], wbuf2[MAX_STRING_LENGTH], wbuf3[MAX_STRING_LENGTH], wbuf4[MAX_STRING_LENGTH];
   char pbuf1[MAX_STRING_LENGTH], pbuf2[MAX_STRING_LENGTH], pbuf3[MAX_STRING_LENGTH], pbuf4[MAX_STRING_LENGTH];
-  int counter, counter2, realcounter;
+  int counter, counter2, realcounter, n;
   FILE *fp;
   struct obj_data *obj;
   struct extra_descr_data *ex_desc;
@@ -210,7 +210,7 @@ int save_objects(zone_rnum zone_num)
       } else
 	*buf = '\0';
 
-      sprintf(buf2,
+      n = snprintf(buf2, MAX_STRING_LENGTH,
 	      "#%d\n"
 	      "%s~\n"
 	      "%s~\n"
@@ -222,8 +222,13 @@ int save_objects(zone_rnum zone_num)
 	      (obj->short_description && *obj->short_description) ? obj->short_description : "undefined",
 	      (obj->description && *obj->description) ?	obj->description : "undefined",
 	      buf);
-        
-      fprintf(fp, convert_from_tabs(buf2), 0);
+
+      if (n < 0 || n >= MAX_STRING_LENGTH) {
+        log("SYSERR: GenOLC: Object #%d strings too long, record not saved!", GET_OBJ_VNUM(obj));
+        continue;
+      }
+
+      fprintf(fp, "%s", convert_from_tabs(buf2));
 
       sprintascii(ebuf1, GET_OBJ_EXTRA(obj)[0]);
       sprintascii(ebuf2, GET_OBJ_EXTRA(obj)[1]);

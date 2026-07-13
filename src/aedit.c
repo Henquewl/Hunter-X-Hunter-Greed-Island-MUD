@@ -104,7 +104,7 @@ ACMD(do_oasis_aedit)
   STATE(d) = CON_AEDIT;
   act("$n starts using OLC.", TRUE, d->character, 0, 0, TO_ROOM);
   SET_BIT_AR(PLR_FLAGS(ch), PLR_WRITING);
-  mudlog(CMP, LVL_IMMORT, TRUE, "OLC: %s starts editing actions.", GET_NAME(ch));
+  mudlog(CMP, MAX(LVL_IMMORT, GET_INVIS_LEV(ch)), TRUE, "OLC: %s starts editing actions.", GET_NAME(ch));
 }
 
 static void aedit_setup_new(struct descriptor_data *d) {
@@ -225,25 +225,25 @@ static void aedit_save_to_disk(struct descriptor_data *d) {
               ((soc_mess_list[i].others_no_arg)?soc_mess_list[i].others_no_arg:"#"),
               ((soc_mess_list[i].char_found)?soc_mess_list[i].char_found:"#"),
               ((soc_mess_list[i].others_found)?soc_mess_list[i].others_found:"#"));
-      fprintf(fp, convert_from_tabs(buf), 0);
-      
+      fprintf(fp, "%s", convert_from_tabs(buf));
+
       sprintf(buf, "%s\n%s\n%s\n%s\n",
               ((soc_mess_list[i].vict_found)?soc_mess_list[i].vict_found:"#"),
               ((soc_mess_list[i].not_found)?soc_mess_list[i].not_found:"#"),
               ((soc_mess_list[i].char_auto)?soc_mess_list[i].char_auto:"#"),
               ((soc_mess_list[i].others_auto)?soc_mess_list[i].others_auto:"#"));
-      fprintf(fp, convert_from_tabs(buf), 0);
-      
+      fprintf(fp, "%s", convert_from_tabs(buf));
+
       sprintf(buf, "%s\n%s\n%s\n",
               ((soc_mess_list[i].char_body_found)?soc_mess_list[i].char_body_found:"#"),
               ((soc_mess_list[i].others_body_found)?soc_mess_list[i].others_body_found:"#"),
               ((soc_mess_list[i].vict_body_found)?soc_mess_list[i].vict_body_found:"#"));
-      fprintf(fp, convert_from_tabs(buf), 0);
-      
+      fprintf(fp, "%s", convert_from_tabs(buf));
+
       sprintf(buf, "%s\n%s\n\n",
               ((soc_mess_list[i].char_obj_found)?soc_mess_list[i].char_obj_found:"#"),
               ((soc_mess_list[i].others_obj_found)?soc_mess_list[i].others_obj_found:"#"));
-      fprintf(fp, convert_from_tabs(buf), 0);
+      fprintf(fp, "%s", convert_from_tabs(buf));
    }
 
    fprintf(fp, "$\n");

@@ -7,6 +7,60 @@ https://github.com/tbamud/tbamud
 Changelog also available on Github:
 https://github.com/tbamud/tbamud/commits/master
 Changes prior to Github transition:
+[Jul 13 2026] - Henque
+  fix: ported upstream TbaMUD bug fixes (synced against the 2025 release)
+    Diffed all 80 src/*.c and *.h files against the current tbaMUD 2025
+    upstream snapshot and ported the self-contained bug fixes, keeping our
+    HxH/Greed Island customizations wherever they conflicted with upstream:
+    - Format-string crash on OLC save: fprintf(fp, convert_from_tabs(buf), 0)
+      passed builder-authored text as the format string, corrupting/crashing
+      the save on any '%' in a social/mob/object/quest text field. Fixed in
+      aedit.c, genmob.c, genobj.c, genqst.c, with an added snprintf+length
+      guard so an oversized record is skipped with a SYSERR instead of
+      overflowing.
+    - Buffer overflows: bounded strcpy/strcat/sprintf -> strncpy/strncat/
+      snprintf throughout improved-edit.c (the /l /n /i /e text editor),
+      act.comm.c (do_tell/do_gen_comm buffers widened for constants/color
+      codes), genolc.c (fix_filename rewritten with a length cap; the
+      "export" zone command's mkdir/rm/tar/gzip steps were built but never
+      actually executed via system() - now they are, with error checks),
+      genwld.c, genzon.c, dg_olc.c, and dg_scripts.c (UID buffer).
+    - ban.c: site name was lowercased before being null-terminated, an
+      out-of-bounds read on a full-length banned site string.
+    - Corrupt/truncated file reads no longer silently produce garbage or
+      read past the buffer: boards.c board loader now checks every fread()
+      and resets the board on a bad read; comm.c copyover recovery checks
+      fscanf()'s return; msgedit.c load_messages checks every fgets().
+    - comm.c: removed a double close_socket() in process_output()'s error
+      path (the caller already closes the socket on a negative return).
+    - handler.c: extract_char() could over-increment its pending-extraction
+      counter if called twice on the same character (e.g. a double purge),
+      now gated on the NOTDEADYET flag already being set.
+    - objsave.c: rent-file fields could be read uninitialized if the saved
+      line was short/corrupt; now zero-initialized.
+    - dg_mobcmd.c: mteleport fired the room-enter trigger on the mob doing
+      the teleporting instead of the teleported victim.
+    - dg_misc.c: a script-killed victim in NOWHERE could dereference
+      world[-1] when logging the kill location.
+    - dg_event.c: null-guard before freeing the event queue on shutdown.
+    - Missing VNUM bounds checks on OLC create (redit/oedit/medit/sedit/
+      qedit/dg_olc) let a builder submit a VNUM outside IDXTYPE range.
+    - oedit.c/medit.c: an off-by-one on the AFF-flag toggle wrote/read one
+      bit past the affect-flags array.
+    - DG scripts: while-loop iteration counter was local to script_driver
+      and reset on every re-entry, so the 30-iteration throttle (meant to
+      insert a "wait 1" into runaway loops) never actually tripped once a
+      loop body itself called wait. Counter moved onto the persistent
+      cmdlist_element (dg_scripts.h/dg_scripts.c) so it survives re-entry.
+    - Wizinvis immortals editing in OLC no longer reveal their invis level
+      in the log (mudlog level changed to MAX(LVL_IMMORT, GET_INVIS_LEV())
+      across all OLC editors, ibt.c, msgedit.c, and the dg_cast_spell kill
+      log in dg_misc.c).
+    Deliberately NOT ported: the upstream GET_ID -> script_id refactor
+    (conflicts with our card system's id-based lookups), and anything
+    touching our SHA-512 password hashing, Greed Island/Jenny theming,
+    card/make_card logic, daily quests, worldmap calendar, or autowipe
+    formula.
 [Jul 07 2026] - Henque
   balance: rework auto-pwipe idle criteria (immortals never wiped, longer idle times)
     Replaced the fixed level/day tiers with a formula: idle threshold in days

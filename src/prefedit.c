@@ -360,7 +360,7 @@ void prefedit_parse(struct descriptor_data * d, char *arg)
     case 'y':
     case 'Y':
       prefedit_save_to_char(d);
-      mudlog(CMP, LVL_BUILDER, TRUE, "OLC: %s edits toggles for %s", GET_NAME(d->character), GET_NAME(OLC_PREFS(d)->ch));
+      mudlog(CMP, MAX(LVL_BUILDER, GET_INVIS_LEV(d->character)), TRUE, "OLC: %s edits toggles for %s", GET_NAME(d->character), GET_NAME(OLC_PREFS(d)->ch));
       /*. No strings to save - cleanup all .*/
       cleanup_olc(d, CLEANUP_ALL);
       break;
