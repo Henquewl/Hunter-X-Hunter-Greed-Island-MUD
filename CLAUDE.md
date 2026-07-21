@@ -35,7 +35,7 @@ There is no unit-test framework or test scripts. Verification = compile cleanly;
 ## Pre-commit checklist (project convention)
 
 Before every commit in this repo:
-1. **Compile** (`cd src && make circle CFLAGS=-w`) and confirm it succeeds — there is no CI. From PowerShell/Windows use: `wsl -e bash -c "cd '/mnt/c/Users/henrique.lobo/Downloads/Hunter-X-Hunter-Greed-Island-MUD/src' && make circle CFLAGS=-w 2>&1"`. Skip this step only when no `.c`/`.h` files were changed.
+1. **Compile** (`cd src && make circle CFLAGS=-w`) and confirm it succeeds — there is no CI. From PowerShell/Windows use: `wsl -e bash -c "cd '/mnt/c/Users/henqu/source/repos/Hunter-X-Hunter-Greed-Island-MUD/src' && make circle CFLAGS=-w 2>&1"`. Skip this step only when no `.c`/`.h` files were changed.
 2. Update **`changelog`** and **`lib/text/news`** describing what changed (the changelog uses `[Mon DD YYYY] - Henque` entries at the top of the recent section).
    - **`lib/text/news`** — only if the change affects gameplay (new commands, mechanics, balance, in-game bug fixes). Administrative changes (version bumps, client fixes, text corrections) go in `changelog` only, never in `news`.
    - **`lib/text/news` tone** — describe *what* changed or that something was rebalanced; no exact numbers (damage values, percentages, timers, stamina costs, etc.). Exact numbers belong in `changelog`.
@@ -104,13 +104,6 @@ These are the bespoke mechanics — when touching gameplay, expect logic spread 
 - **MXP safety in `lib/text/`**: web MXP clients (e.g. mudportal.com) interpret `<` as the start of a tag. In files served through the pager (`news`, `motd`, `greetings`, `info`, etc.), avoid bare `<` and `>`. Use `==`, `[]`, or `""` instead. The prompt's `<100%>` is safe because it's sent on a locked MXP line; paged text files are not.
 - **Copyover vs reboot**: a copyover re-execs the binary and re-reads all `lib/` files from disk — sufficient for changes to `lib/text/`, `lib/world/`, `lib/misc/`. A full shutdown/reboot is only needed after recompiling `src/`.
 
-### Editing `.obj` files from the CLI
-
-The `Read` tool **fails** on `.obj` files that contain ANSI color codes (`@m`, `@g`, `@n`, etc.) — it misidentifies them as binary. Workflow:
-- **Read content**: use `Grep` (works correctly).
-- **Write/replace**: use WSL Python in **binary mode** to avoid encoding issues with ANSI bytes. Open with `open(path, 'rb')` / `open(path, 'wb')`. Never open in text mode (`'latin-1'` or `'utf-8'`) for writing, because the `open(..., 'w')` call truncates the file before Python raises a `UnicodeEncodeError`, leaving the file empty. Use `git checkout <file>` to recover.
-- Keep all new string literals pure ASCII — em dashes (`—`), curly quotes, etc. will fail the latin-1 write path.
-
 ### Item type numbers (first field in the `.obj` property line)
 
 | # | Constant | Notes |
@@ -126,32 +119,6 @@ The `Read` tool **fails** on `.obj` files that contain ANSI color codes (`@m`, `
 | 26 | `ITEM_RESTRICTED` | numbered 000–099 collectible cards |
 
 Wear-flag `a` in the sixth field = `ITEM_WEAR_TAKE` (can be picked up). Extra flags `ao` = NODROP + ANTI_OTHER.
-
-## The Greed Island card system (detailed)
-
-The card mechanic is the heart of the game and its logic is spread across a few hooks. Reference map:
-
-**Item types** (`structs.h`): `ITEM_CARD` 24 (free/unrestricted card), `ITEM_SPELLCARD` 25 (cast on use, consumed), `ITEM_RESTRICTED` 26 (the numbered 000–099 collectible cards). `IS_CARD(obj)` (`utils.h`) = any of those three.
-
-**vnum mappings**
-- Restricted: **card vnum ∈ 65300–65399 ↔ physical item = card + 100 (65400–65499)**. The restricted card's `GET_OBJ_RENT` holds the *global copy limit* (the "-N" in `SS-1`, `A-17`).
-- Free cards (type 24): the physical-item vnum is stored in the card's **`GET_OBJ_RENT`** (e.g. free cards in `lib/world/obj/400.obj`, their items in `401.obj`). A freshly-created free card stamps the source item's vnum into `GET_OBJ_RENT`.
-- Voucher: a type-24 card at vnum 65535 flagged `ITEM_QUEST`; appears when a restricted card's global limit is reached.
-
-**The conversion engine**: `make_card(ch, obj, show)` in `act.item.c` is a single **bidirectional** function — it decides direction from the object's type/vnum (item→card creates/loads a card; card→item reads the stored target). `show` only controls the room message. Returns 1 on success, 0 if nothing happened. `ITEM_NOGAIN` (extra flag) marks "already converted, cannot convert again" and is never cleared.
-
-Special cases are inserted at `act.item.c` ~line 1919 (after the Recycling Room block and the Perfect Memory Studio block, both inside the `ITEM_RESTRICTED` branch). The newly-created item is in the local variable `card`. Use `obj_to_obj(child, card)` to pre-load objects into a container before it reaches the player (see Hormone Cookies #33, vnum 65333 → loads 20 cookies vnum 65534 into box 65433).
-
-**Player commands**
-- `gain` (`do_gain`): bidirectional convenience verb — card→item, item→card, and **casting spell cards** (needs the book/`PLR_BOOK` active via the `book` command).
-- `change` (`do_change`): **item→card only**, for ordinary items. This is the manual path for common loot.
-- `book` (`do_book`, `act.movement.c`): summons the binder container (vnum **3203**) via the ring (3202); 45 free slots + 100 restricted (deduped by vnum).
-
-**Auto-conversion rule (current)**: on pickup/give-from-NPC/steal, an item auto-converts to a card **only if it becomes a restricted card** — gated by `GET_OBJ_VNUM(obj) > 65300 && != 65535` at the call sites in `act.item.c` (`perform_get_from_room`, `perform_get_from_container`, `perform_give`) and `act.other.c` (`do_steal`). Ordinary items never auto-convert; the player uses `change`.
-
-**Timed auto-reversion**: `second_update` (`limits.c`) decrements each loose card's `GET_OBJ_TIMER` (set to 62 on creation / on binder put-get); at 0 a card outside binder 3203 reverts to its item (and is flagged `ITEM_NOGAIN`). Cards inside the binder are exempt — that's the incentive to store them.
-
-**Player-facing text to keep in sync** when card behavior changes: NPC **Eta** (mob 1401) triggers `1419`/`1496` in `lib/world/trg/14.trg`; the notice sign obj **3298** in `lib/world/obj/32.obj`; help entries `GAIN`, `CHANGE`, `CARDS`, `BOOK` in `lib/text/help/help.hlp`; and `lib/text/info`.
 
 ## DG Script reference
 
