@@ -46,5 +46,8 @@ The following cards have untested runtime logic — verify in-game before v1.00:
 - **#88 Eternal Hammer** and **#94 Bandit's Blade** — both need a live PvP test
 - **#4 Hot Springs, #6 Liquor Spring, #8 Mystery Pond, #9 Tree of Plenty** — DG timer triggers
 
-### Priority 4 — Deferred / low priority
-- **Limeiro Castle dungeon** interior rooms and boss encounter
+### Priority 4 — Deferred / low priority (conceptual only, not yet implemented)
+- **Limeiro Castle** — Limeiro is a citadel with an inner castle at its center. Concept (no boss encounter):
+  - NPCs across the citadel get a trigger that celebrates the arrival of the Greed Island champion
+  - At the inner castle's gate, a guard NPC only allows entry to the player holding the Ruler's Invitation
+  - The room beyond the gate leads into a zone restricted to Immortals only
