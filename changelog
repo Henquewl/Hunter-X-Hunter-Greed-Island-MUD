@@ -1,4 +1,8 @@
 [Aug 03 2026] - Henque
+  chore: critical review and improvements of opencode and CLAUDE.md configurations
+    Consolidated root opencode.json configuration, enabled .claude/skills and
+    instructions loading, streamlined explore subagent prompt, and updated
+    CLAUDE.md with ANSI obj file editing guidelines.
   feat: allow map display in dark rooms (no longer forced to SECT_DARK)
     Modified MapArea() in asciimap.c to display the actual sector type
     even in dark rooms, provided the player is not blind. Circular vision
