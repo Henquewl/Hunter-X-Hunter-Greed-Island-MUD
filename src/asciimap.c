@@ -405,8 +405,8 @@ static void MapArea(room_rnum room, struct char_data *ch, int x, int y, int min,
   if (map[x][y] < 0)
     return; /* this is a door */
 
-  /* Check if is dark or has players and marks the room as visited */
-  if ((IS_DARK(room) && !CAN_SEE_IN_DARK(ch)) || AFF_FLAGGED(ch, AFF_BLIND))
+  /* Check if player is blind and marks the room as visited */
+  if (AFF_FLAGGED(ch, AFF_BLIND))
 	map[x][y] = SECT_DARK;
   else if (room == IN_ROOM(ch))
     map[x][y] = PLR_FLAGGED(ch, PLR_AUTOFLIGHT) ? SECT_HERE_FLY : SECT_HERE;

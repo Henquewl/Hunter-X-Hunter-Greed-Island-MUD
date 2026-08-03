@@ -1,3 +1,9 @@
+[Aug 03 2026] - Henque
+  feat: allow map display in dark rooms (no longer forced to SECT_DARK)
+    Modified MapArea() in asciimap.c to display the actual sector type
+    even in dark rooms, provided the player is not blind. Circular vision
+    limits remain restricted by the map's recursion depth.
+
 TbaMUD is currently being developed by The Builder Academy. If you need any
 help, find any bugs, or have ideas for improvement please stop by TBA at 
 telnet://tbamud.com:9091 or email rumble@tbamud.com --Rumble
