@@ -284,16 +284,23 @@ static char wm_glyph_for_room(room_rnum room)
 
 /* Display string for a worldmap tile: LANDMARK renders its own letter in gold,
  * UNKNOWN its own char in dark green; everything else uses world_map_info. */
-static const char *worldmap_tile_disp(int x, int y)
+static const char *worldmap_tile_disp(int x, int y, struct char_data *ch)
 {
   static char buf[8];
+  const char *res;
 
   if ((map[x][y] == SECT_LANDMARK || map[x][y] == SECT_UNKNOWN) && map_glyph[x][y]) {
     snprintf(buf, sizeof(buf), "%s%c",
              map[x][y] == SECT_LANDMARK ? "\tY" : "\tg", map_glyph[x][y]);
-    return buf;
+    res = buf;
+  } else {
+    res = world_map_info[map[x][y]].disp;
   }
-  return world_map_info[map[x][y]].disp;
+  
+  if (weather_info.sunlight == SUN_DARK && !AFF_FLAGGED(ch, AFF_INFRAVISION) && map[x][y] != SECT_LANDMARK) {
+    return strip_ansi(res);
+  }
+  return res;
 }
 /*
 static int offsets[4][2] ={ {-2, 0},{ 0, 2},{ 2, 0},{ 0, -2} };
@@ -315,9 +322,9 @@ static int vdoor_marks[4] = { VDOOR_NS, VDOOR_EW, VDOOR_NS, VDOOR_EW };
  *****************************************************************************/
 static void player_sense(struct char_data *ch);
 static void MapArea(room_rnum room, struct char_data *ch, int x, int y, int min, int max, sh_int xpos, sh_int ypos, bool worldmap);
-static char *StringMap(int centre, int size);
-static char *WorldMap(int centre, int size, int mapshape, int maptype );
-static char *CompactStringMap(int centre, int size);
+static char *StringMap(int centre, int size, struct char_data *ch);
+static char *WorldMap(int centre, int size, int mapshape, int maptype, struct char_data *ch );
+static char *CompactStringMap(int centre, int size, struct char_data *ch);
 static void perform_map( struct char_data *ch, char *argument, bool worldmap );
 /******************************************************************************
  * End Local (File Scope) Function Prototypes
@@ -570,7 +577,7 @@ static void MapArea(room_rnum room, struct char_data *ch, int x, int y, int min,
 }
 
 /* Returns a string representation of the map */
-static char *StringMap(int centre, int size)
+static char *StringMap(int centre, int size, struct char_data *ch)
 {
   static char strmap[MAX_MAP*MAX_MAP*11 + MAX_MAP*2 + 1];
   char *mp = strmap;
@@ -597,7 +604,7 @@ static char *StringMap(int centre, int size)
   return strmap;
 }
 
-static char *WorldMap(int centre, int size, int mapshape, int maptype )
+static char *WorldMap(int centre, int size, int mapshape, int maptype, struct char_data *ch )
 {
   static char strmap[MAX_MAP*MAX_MAP*4 + MAX_MAP*2 + 1], buf[MAX_STRING_LENGTH];
   char *mp = strmap;
@@ -647,7 +654,7 @@ static char *WorldMap(int centre, int size, int mapshape, int maptype )
 	  mp += strlen(buf);
 	} else if(((mapshape == MAP_RECTANGLE && abs(centre - y) <= size*2  && abs(centre - x) <= size ) ||
    ((mapshape == MAP_CIRCLE) && (centre-x)*(centre-x) + (centre-y)*(centre-y)/4 <= (size * size + 1))) && (y <= ymax)) {
-        strcpy(mp, worldmap_tile_disp(x, y));
+        strcpy(mp, worldmap_tile_disp(x, y, ch));
         mp += strlen(mp);
       } else {
 /*		if (y == (ymax + 1))
@@ -676,7 +683,7 @@ static char *WorldMap(int centre, int size, int mapshape, int maptype )
   return strmap;
 }
 
-static char *CompactStringMap(int centre, int size)
+static char *CompactStringMap(int centre, int size, struct char_data *ch)
 {
   static char strmap[MAX_MAP*MAX_MAP*12 + MAX_MAP*2 + 1];
   char *mp = strmap;
@@ -763,11 +770,11 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
   /* Print the map itself */
   if (worldmap) {
     if (GET_SCREEN_WIDTH(ch) == 40 || PRF_FLAGGED(ch, PRF_COMPACT))
-      send_to_char(ch, "%s", WorldMap(centre, size, mapshape, MAP_MOBILE));
+      send_to_char(ch, "%s", WorldMap(centre, size, mapshape, MAP_MOBILE, ch));
     else
-      send_to_char(ch, "%s", WorldMap(centre, size, mapshape, MAP_NORMAL));
+      send_to_char(ch, "%s", WorldMap(centre, size, mapshape, MAP_NORMAL, ch));
   } else {
-    send_to_char(ch, "%s", StringMap(centre, size));
+    send_to_char(ch, "%s", StringMap(centre, size, ch));
   }
 
   send_to_char(ch, "\tD  `.-.__--.,-.__.-.-'\tn\r\n");
@@ -916,13 +923,13 @@ MapArea(target_room, ch, centre, centre, min, max, ns_size/2, ew_size/2, worldma
 	  mapshape = MAP_RECTANGLE;
 
 	if (strlen(str) < 12)
-	  send_to_char(ch, "%s \tn", WorldMap(centre, size, mapshape, MAP_COMPACT));
+	  send_to_char(ch, "%s \tn", WorldMap(centre, size, mapshape, MAP_COMPACT, ch));
 	else
-	send_to_char(ch, "%s", strpaste(WorldMap(centre, size, mapshape, MAP_COMPACT), strfrmt(str, GET_SCREEN_WIDTH(ch) - char_size, size*2 + 1, FALSE, TRUE, TRUE), " \tn"));	
+	send_to_char(ch, "%s", strpaste(WorldMap(centre, size, mapshape, MAP_COMPACT, ch), strfrmt(str, GET_SCREEN_WIDTH(ch) - char_size, size*2 + 1, FALSE, TRUE, TRUE), " \tn"));	
 //      send_to_char(ch, "%s", strpaste(strfrmt(str, GET_SCREEN_WIDTH(ch) - char_size, size*2 + 1, FALSE, TRUE, TRUE), WorldMap(centre, size, mapshape, MAP_COMPACT), " \tn"));
 	
   } else
-    send_to_char(ch, "%s", strpaste(CompactStringMap(centre, size), strfrmt(str, GET_SCREEN_WIDTH(ch) - char_size, size*2 + 1, FALSE, TRUE, TRUE), " \tn"));
+    send_to_char(ch, "%s", strpaste(CompactStringMap(centre, size, ch), strfrmt(str, GET_SCREEN_WIDTH(ch) - char_size, size*2 + 1, FALSE, TRUE, TRUE), " \tn"));
   }
 
   if (GET_SKILL(ch, SKILL_ANALYSIS) && cnt_nearby)
