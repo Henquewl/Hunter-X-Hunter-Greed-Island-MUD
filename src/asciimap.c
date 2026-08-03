@@ -286,20 +286,21 @@ static char wm_glyph_for_room(room_rnum room)
  * UNKNOWN its own char in dark green; everything else uses world_map_info. */
 static const char *worldmap_tile_disp(int x, int y, struct char_data *ch)
 {
-  static char buf[8];
+  static char glyph_buf[32];
+  static char strip_buf[32];
   const char *res;
 
   if ((map[x][y] == SECT_LANDMARK || map[x][y] == SECT_UNKNOWN) && map_glyph[x][y]) {
-    snprintf(buf, sizeof(buf), "%s%c",
+    snprintf(glyph_buf, sizeof(glyph_buf), "%s%c",
              map[x][y] == SECT_LANDMARK ? "\tY" : "\tg", map_glyph[x][y]);
-    res = buf;
+    res = glyph_buf;
   } else {
     res = world_map_info[map[x][y]].disp;
   }
   
   if (weather_info.sunlight == SUN_DARK && !AFF_FLAGGED(ch, AFF_INFRAVISION) && map[x][y] != SECT_LANDMARK) {
-    strip_ansi(res, buf, sizeof(buf));
-    return buf;
+    strip_ansi(res, strip_buf, sizeof(strip_buf));
+    return strip_buf;
   }
   return res;
 }
@@ -583,7 +584,7 @@ static char *StringMap(int centre, int size, struct char_data *ch)
   static char strmap[MAX_MAP*MAX_MAP*11 + MAX_MAP*2 + 1];
   char *mp = strmap;
   char *tmp;
-  char strip_buf[8];
+  char strip_buf[32];
   int x, y;
 
   /* every row */
@@ -698,18 +699,25 @@ static char *CompactStringMap(int centre, int size, struct char_data *ch)
 {
   static char strmap[MAX_MAP*MAX_MAP*12 + MAX_MAP*2 + 1];
   char *mp = strmap;
+  char *tmp;
+  char strip_buf[32];
   int x, y;
 
   /* every row */
   for (x = centre - size; x <= centre + size; x++) {
     /* every column */
     for (y = centre - size; y <= centre + size; y++) {
-      strcpy(mp, (map[x][y]<0) ? \
+      tmp = (map[x][y]<0) ? \
        compact_door_info[NUM_DOOR_TYPES + map[x][y]].disp : \
-       map_info[map[x][y]].disp);
-      mp += strlen((map[x][y]<0) ? \
-       compact_door_info[NUM_DOOR_TYPES + map[x][y]].disp : \
-       map_info[map[x][y]].disp);
+       map_info[map[x][y]].disp;
+      if (weather_info.sunlight == SUN_DARK && !AFF_FLAGGED(ch, AFF_INFRAVISION) && map[x][y] != SECT_LANDMARK) {
+        strip_ansi(tmp, strip_buf, sizeof(strip_buf));
+        strcpy(mp, strip_buf);
+        mp += strlen(strip_buf);
+      } else {
+        strcpy(mp, tmp);
+        mp += strlen(tmp);
+      }
     }
     strcpy(mp, "\r\n");
     mp+=2;
