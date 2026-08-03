@@ -19,6 +19,6 @@
 bool can_see_map(struct char_data *ch);
 void str_and_map(char *str, struct char_data *ch, room_vnum target_room, bool onlysense);
 ACMD(do_map);
-const char *strip_ansi(const char *in);
+void strip_ansi(const char *in, char *out, size_t out_len);
 
 #endif /* ASCIIMAP_H_*/

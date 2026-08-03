@@ -298,7 +298,8 @@ static const char *worldmap_tile_disp(int x, int y, struct char_data *ch)
   }
   
   if (weather_info.sunlight == SUN_DARK && !AFF_FLAGGED(ch, AFF_INFRAVISION) && map[x][y] != SECT_LANDMARK) {
-    return strip_ansi(res);
+    strip_ansi(res, buf, sizeof(buf));
+    return buf;
   }
   return res;
 }
@@ -331,15 +332,16 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap );
  *****************************************************************************/
 
 
-const char *strip_ansi(const char *in)
+void strip_ansi(const char *in, char *out, size_t out_len)
 {
-  static char out[MAX_STRING_LENGTH];
   int i = 0, j = 0;
 
-  if (!in)
-    return "";
+  if (!in) {
+    if (out_len > 0) out[0] = '\0';
+    return;
+  }
 
-  for (i = 0; in[i] != '\0' && j < MAX_STRING_LENGTH - 1; i++) {
+  for (i = 0; in[i] != '\0' && j < out_len - 1; i++) {
     if (in[i] == '\t') {
       if (in[i+1] != '\0')
         i++;
@@ -348,7 +350,6 @@ const char *strip_ansi(const char *in)
     }
   }
   out[j] = '\0';
-  return out;
 }
 
 bool can_see_map(struct char_data *ch) {
@@ -582,20 +583,30 @@ static char *StringMap(int centre, int size, struct char_data *ch)
   static char strmap[MAX_MAP*MAX_MAP*11 + MAX_MAP*2 + 1];
   char *mp = strmap;
   char *tmp;
+  char strip_buf[8];
   int x, y;
 
   /* every row */
   for (x = centre - CANVAS_HEIGHT/2; x <= centre + CANVAS_HEIGHT/2; x++) {
     /* every column */
     for (y = centre - CANVAS_WIDTH/6; y <= centre + CANVAS_WIDTH/6; y++) {
-      if (abs(centre - x)<=size && abs(centre-y)<=size)
+      if (abs(centre - x)<=size && abs(centre-y)<=size) {
         tmp = (map[x][y]<0) ? \
        door_info[NUM_DOOR_TYPES + map[x][y]].disp : \
        map_info[map[x][y]].disp ;
-      else
- tmp = map_info[SECT_EMPTY].disp;
-      strcpy(mp, tmp);
-      mp += strlen(tmp);
+        if (weather_info.sunlight == SUN_DARK && !AFF_FLAGGED(ch, AFF_INFRAVISION) && map[x][y] != SECT_LANDMARK) {
+            strip_ansi(tmp, strip_buf, sizeof(strip_buf));
+            strcpy(mp, strip_buf);
+            mp += strlen(strip_buf);
+        } else {
+            strcpy(mp, tmp);
+            mp += strlen(tmp);
+        }
+      } else {
+        tmp = map_info[SECT_EMPTY].disp;
+        strcpy(mp, tmp);
+        mp += strlen(tmp);
+      }
     }
     strcpy(mp, "\r\n");
     mp+=2;
