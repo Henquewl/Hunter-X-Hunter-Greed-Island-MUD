@@ -324,6 +324,26 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap );
  *****************************************************************************/
 
 
+const char *strip_ansi(const char *in)
+{
+  static char out[MAX_STRING_LENGTH];
+  int i = 0, j = 0;
+
+  if (!in)
+    return "";
+
+  for (i = 0; in[i] != '\0' && j < MAX_STRING_LENGTH - 1; i++) {
+    if (in[i] == '\t') {
+      if (in[i+1] != '\0')
+        i++;
+    } else {
+      out[j++] = in[i];
+    }
+  }
+  out[j] = '\0';
+  return out;
+}
+
 bool can_see_map(struct char_data *ch) {
   /* Is the map funcionality disabled? */
   if (CONFIG_MAP == MAP_OFF)
