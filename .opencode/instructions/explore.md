@@ -1,10 +1,5 @@
-You MUST use a subagent (using the `task` tool with `subagent_type: 'explore'`) whenever you are asked to perform trivial tasks.
+For single-step actions (e.g., searching with grep, listing files with glob, reading a specific file section, checking git status), perform the action DIRECTLY using the corresponding tool to minimize API request overhead (RPM/RPD).
 
-Trivial tasks include:
-- File listing
-- Pattern searching (grep/glob)
-- Reading small file content
-- Checking basic git status
-- Running simple, non-interactive test commands
+Use an exploration subagent (`task` with `subagent_type: 'explore'`) when handling multi-step code exploration, open-ended research, or searching across multiple subdirectories.
 
-The subagent must produce minimal output, adhering to the standards in `instructions/subagent-output-standards.md`—return only the essential data without conversational padding.
+When an exploration subagent is launched, it must produce minimal raw output adhering to `instructions/subagent-output-standards.md` without conversational padding.

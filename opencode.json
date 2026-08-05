@@ -1,13 +1,37 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "model": "google/gemini-3.5-flash-lite",
+  "small_model": "google/gemini-3.1-flash-lite",
   "instructions": [
+    "CLAUDE.md",
     ".opencode/instructions/explore.md",
-    ".opencode/instructions/subagent-output-standards.md"
+    ".opencode/instructions/subagent-output-standards.md",
+    ".opencode/instructions/gemini-efficiency.md"
   ],
   "skills": {
     "paths": [
       ".opencode/skills",
       ".claude/skills"
     ]
+  },
+  "agent": {
+    "explore": {
+      "model": "ollama/freehuntx/qwen3-coder:8b"
+    },
+    "general": {
+      "model": "google/gemini-3.1-flash-lite"
+    }
+  },
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "tail_turns": 15
+  },
+  "tool_output": {
+    "max_lines": 200,
+    "max_bytes": 8192
+  },
+  "experimental": {
+    "batch_tool": true
   }
 }
