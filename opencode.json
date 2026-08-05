@@ -1,25 +1,57 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "model": "google/gemini-3.5-flash-lite",
-  "small_model": "google/gemini-3.1-flash-lite",
+  "small_model": "ollama/freehuntx/qwen3-coder:8b",
   "instructions": [
-    "CLAUDE.md",
-    ".opencode/instructions/explore.md",
-    ".opencode/instructions/subagent-output-standards.md",
-    ".opencode/instructions/gemini-efficiency.md"
+    ".opencode/instructions/efficiency.md"
   ],
   "skills": {
     "paths": [
-      ".opencode/skills",
       ".claude/skills"
     ]
   },
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (Local)",
+      "options": {
+        "baseURL": "http://localhost:11434/v1",
+        "apiKey": "ollama"
+      },
+      "models": {
+        "freehuntx/qwen3-coder:8b": {
+          "id": "freehuntx/qwen3-coder:8b",
+          "name": "Local - freehuntx/qwen3-coder:8b",
+          "tools": true,
+          "constraints": {
+            "num_ctx": 16384
+          }
+        }
+      }
+    }
+  },
   "agent": {
     "explore": {
-      "model": "ollama/freehuntx/qwen3-coder:8b"
+      "model": "ollama/freehuntx/qwen3-coder:8b",
+      "temperature": 0,
+      "permission": {
+        "edit": "deny",
+        "bash": "deny",
+        "task": "deny",
+        "webfetch": "deny",
+        "websearch": "deny",
+        "todowrite": "deny",
+        "skill": "deny"
+      }
     },
     "general": {
       "model": "google/gemini-3.1-flash-lite"
+    },
+    "title": {
+      "model": "ollama/freehuntx/qwen3-coder:8b"
+    },
+    "summary": {
+      "model": "ollama/freehuntx/qwen3-coder:8b"
     }
   },
   "compaction": {
@@ -32,6 +64,7 @@
     "max_bytes": 8192
   },
   "experimental": {
-    "batch_tool": true
+    "batch_tool": true,
+    "disable_paste_summary": true
   }
 }
