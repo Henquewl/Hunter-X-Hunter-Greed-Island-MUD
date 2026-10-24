@@ -1,3 +1,13 @@
+[Oct 24 2026] - Henque
+  docs: document the public web link (nginx -> mudportal) in DEPLOY.md
+    greedislandmud.duckdns.org redirects to the mudportal.com web client via
+    nginx on the VM, but only listened on port 80, so browsers that try
+    HTTPS first timed out on 443. On the VM: Let's Encrypt certificate
+    (certbot webroot, auto-renewal with an nginx reload hook) and a 443
+    server block with the same 301; in Oracle: VCN ingress rule for 443.
+    DEPLOY.md now records the nginx config, the certificate setup, and an
+    outside-in checklist for when the link breaks.
+
 [Aug 03 2026] - Henque
   chore: critical review and improvements of opencode and CLAUDE.md configurations
     Consolidated root opencode.json configuration, enabled .claude/skills and
